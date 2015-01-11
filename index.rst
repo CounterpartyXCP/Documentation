@@ -52,12 +52,9 @@ Counterwallet
 -------------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
-   meta_book
-   counterwallet_features
-   translation
-   counterwallet_release_notes
+   counterwallet_doc
 
 .. _dev-docs:
 
