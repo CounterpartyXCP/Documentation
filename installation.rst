@@ -50,9 +50,8 @@ Installation on alternative operating systems: Ubuntu 14.04 is the
 default OS for Counterparty software, but counterpartyd is known to run
 on other versions of Ubuntu and even other OS as well. 
 
-- Stand-alone counterpartyd_,  
-- `ArchLinux`_, 
-- `Debian`_, OS X 
+- ArchLinux_, 
+- Debian_, OS X 
 - `How to choose?`_ page with overview of software packages and installation options for System Administrators and Developers
 
 In order for counterpartyd to function, it must be able to communicate
@@ -113,9 +112,9 @@ the ``--testnet`` CLI option, Bitcoin Core must be set to do the same
 on any blockchain, however.
 
 .. _build system: http://counterparty.io/docs/build-system/
-.. _ArchLinux: https://github.com/CounterpartyXCP/CommunityWiki/wiki/Counterpartyd-on-ArchLinux
-.. _Debian: https://github.com/CounterpartyXCP/CommunityWiki/wiki/Counterpartyd-on-Debian
-.. _How to choose?: https://github.com/CounterpartyXCP/CommunityWiki/wiki/Counterparty-Glossary,-Sites-and-Repositories
+.. _ArchLinux:doc:archlinux_install
+.. _Debian:doc:debian_install
+.. _How to choose?:doc:glossary
 .. _a fork of Bitcoin Core with an address index: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
 
 Installing a Federated Node
