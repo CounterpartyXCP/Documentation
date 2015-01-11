@@ -79,7 +79,7 @@ GitHub Repositories
 .. toctree::
     :maxdepth: 2
 
-    protocol
+    protocol_specification
     counterpartyd
     counterblockd
     counterpartyd_build
