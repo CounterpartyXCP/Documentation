@@ -23,6 +23,10 @@ Web sites
 
 -  `support.counterparty.io`_ - the Support site (also .co)
 -  `forums.counterparty.io`_ - the Forums site (also .co)
+
+Repositories
+------------
+
 -  `Github`_
 
    -  `counterpartyd`_ - Counterparty reference client
