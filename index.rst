@@ -26,7 +26,7 @@ About Counterparty
 ------------------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     what_is_counterparty
     protocol
@@ -52,7 +52,7 @@ Counterwallet
     :maxdepth: 2
 
    meta_book
-   features
+   counterwallet_features
    translation
    release_notes
 
