@@ -22,14 +22,14 @@ Release Procedure
 - SMS and mailing list notifications
 
 API
----
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There will be no incompatible API pushes that do not either have: \* A
 well known set cut over date in the future \* Or, a deprecation process
 where the old API is supported for an amount of time
 
 Branches
---------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  The **master** branch contains the production-ready code. It is
    updated for version releases and hotfixes only.
