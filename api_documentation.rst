@@ -7,7 +7,7 @@ counterpartyd
 .. contents:: **Table of Contents**
 
 Interacting with the API
-=========================
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
 
@@ -15,7 +15,7 @@ Interacting with the API
     
 
 Overview
-----------
+~~~~~~~~
 
 ``counterpartyd`` features a full-fledged JSON RPC 2.0-based API, which allows
 third-party applications to perform functions on the Counterparty network
@@ -24,7 +24,7 @@ transaction encoding and state management.
 
 
 Connecting and Making Requests
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, ``counterpartyd`` will listen on port ``4000`` (if on mainnet) or port ``14000`` (on testnet) for API
 requests. 
@@ -274,7 +274,7 @@ For testnet, you could use the example above, but change the port to ``14000`` a
 **NOTE:** On Windows, the command may need to be formatted differently due to problems Windows has with escapes.
 
 Terms & Conventions
----------------------
+~~~~~~~~~~~~~~~~~~~
 
 .. _assets:
 
@@ -391,7 +391,7 @@ signing it, and broadcasting it, all in one step.**
 .. _read_api:
 
 Read API Function Reference
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _get_table:
 
@@ -610,7 +610,7 @@ Gets some operational parameters for counterpartyd.
 
 
 Action/Write API Function Reference
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _sign_tx:
 
@@ -957,7 +957,7 @@ For example: ``do_bet``, ``do_burn``, ``do_dividend``, etc are all valid API met
 
 
 Objects
-----------
+~~~~~~~~~~~~~~~~
 
 The API calls documented can return any one of these objects.
 
@@ -1276,7 +1276,7 @@ An object that describes the expiration of an order match.
 .. _status-list:
 
 Status
-----------
+~~~~~~~~~~~~~~~~
 
 Here the list of all possible status for each table:
 
@@ -1301,7 +1301,7 @@ Here the list of all possible status for each table:
   
 
 API Changes
--------------
+~~~~~~~~~~~~~~~~
 
 This section documents any changes to the ``counterpartyd`` API, for version numbers where there were API-level modifications.
 
@@ -1363,8 +1363,9 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 passed to the API manually if being used for the first time. Otherwise, you may
 get a "<address> not published in blockchain" error.
 
-counterblockd
--------------
 
-Counterwallet
--------------
+.. warning::
+
+    This API documentation is still in an early state. It contains errors, omissions, etc., and could change drastically at any time.
+    
+
