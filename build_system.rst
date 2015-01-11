@@ -1,0 +1,170 @@
+Installation (Automatic)
+========================
+
+Build counterpartyd
+-------------------
+
+.. note::
+
+  
+  If you'd like to set up your own self-contained, full fledged Counterparty server (which is an Ubuntu Linux system that runs counterpartyd, counterblockd, and more), and/or want to run a Counterwallet server, follow the instructions :ref:`federated-node` instead.
+  
+
+**Windows and Ubuntu Linux Users:** Follow the steps below to set up and run counterpartyd:
+
+1. :ref:`setup-bitcoind`
+2. :ref:`build-from-source`
+3. :ref:`insight`
+
+These instructions make use of a build script that takes care of all setup necessary to set up counterpartyd from source on your system. Beyond this, the Additional Topics document contains useful information around operating counterpartyd, once installed.
+
+**Non Windows/Ubuntu Linux Users:** If you are running an OS other than Windows or Ubuntu Linux, at this point you will need to follow the manual installation instructions here.
+
+.. _setup-bitcoind:
+
+Setting up bitcoind
+~~~~~~~~~~~~~~~~~~~
+
+**counterpartyd** communicates with the Bitcoin reference client (**bitcoind**). Normally, you’ll run bitcoind on the same computer as your instance of **counterpartyd** runs on. However, you can also use a **bitcoind** instance sitting on a different server entirely.
+
+.. note::
+
+  This section sets up counterpartyd to run on mainnet, which means that when using it, you will be working with real XCP. If you would like to run on testnet instead, please see the section entitled Running counterpartyd on testnet in Additional Topics.
+
+
+On Windows
+^^^^^^^^^^
+
+If you haven’t already, go to the bitcoind download page and grab the installer for Windows. Install it with the default options.
+
+Once installed, type Windows Key-R and enter cmd.exe to open a Windows command prompt. Type the following:
+
+::
+
+  cd %APPDATA%\Bitcoin
+  notepad bitcoin.conf
+
+Say Yes to when Notepad asks if you want to create a new file, then paste in the text below:
+
+::
+
+  rpcuser=rpc
+  rpcpassword=1234
+  server=1
+  daemon=1
+  rpcthreads=100
+  rpctimeout=300
+  txindex=1
+  
+.. note::
+
+  - If you want bitcoind to be on testnet, not mainnet, see the section entitled Running counterpartyd on testnet in Additional Topics.
+  - You should change the RPC password above to something more secure.
+
+
+Once done, press CTRL-S to save, and close Notepad. The config file will be saved here:
+
+::
+
+  %AppData%\Roaming\Counterparty\counterpartyd\counterpartyd.conf
+
+
+New Blockchain Download
+''''''''''''''''''''''''''''''
+
+Next, if you haven’t ever run Bitcoin on this machine (i.e. no blockchain has been downloaded), you can just launch **bitcoind** or **bitcoin-qt** and wait for the blockchain to finish downloading.
+
+Already have Blockchain
+''''''''''''''''''''''''''''''
+
+If you have already downloaded the blockchain on your computer (e.g. you’re already using the Bitcoin client) **and** you did not have the configuration parameter **txindex=1** enabled, you will probably need to open up a command prompt window, change to the Bitcoin program directory (e.g. **C:\Program Files (x86)\Bitcoin\**) and run:
+
+::
+
+  bitcoin-qt.exe --reindex
+
+or:
+
+::
+
+  daemon\bitcoind.exe --reindex
+
+This will start up bitcoin to do a one time reindexing of the blockchain on disk. The reason this is is because we added the **txindex=1** configuration parameter above to the bitcoin config file, which means that it will need to run through the blockchain again to generate the necessary indexes, which may take a few hours. After doing this once, you shouldn’t have to do it again.
+
+Next steps
+''''''''''''''''''''''''''''''
+
+Once this is done, you have two options:
+
+- Close Bitcoin-QT and run **bitcoind.exe** directly. You can run it on startup by adding to your Startup program group in Windows, or using something like NSSM.
+- You can simply restart Bitcoin-QT (for the configuration changes to take effect) and use that. This is fine for development/test setups, but not normally suitable for production systems. (You can have Bitcoin-QT start up automatically by clicking on Settings, then Options and checking the box titled “Start Bitcoin on system startup”.)
+
+On Ubuntu Linux
+^^^^^^^^^^^^^^^^^^^^
+
+If not already installed (or running on a different machine), do the following to install it (on Ubuntu, other distros will have similar instructions):
+
+::
+
+  sudo apt-get install software-properties-common python-software-properties
+  sudo add-apt-repository ppa:bitcoin/bitcoin
+  sudo apt-get update
+  sudo apt-get install bitcoind
+  mkdir -p ~/.bitcoin/
+  echo -e "rpcuser=rpc\nrpcpassword=rpcpw1234\nserver=1\ndaemon=1\ntxindex=1" > ~/.bitcoin/bitcoin.conf
+  
+Please then edit the **~/.bitcoin/bitcoin.conf** file and set the file to the same contents specified above in bitcoin.conf example for Windows.
+
+New Blockchain Download
+''''''''''''''''''''''''''''''
+
+Next, if you haven’t ever run **bitcoin-qt/bitcoind** on this machine (i.e. no blockchain has been downloaded), you can just start **bitcoind**:
+
+::
+
+  bitcoind
+
+In either of the above cases, the bitcoin server should now be started. The blockchain will begin to download automatically. You must let it finish downloading entirely before going to the next step. You can check the status of this by running:
+
+::
+  bitcoind getinfo | grep blocks
+
+When done, the block count returned by this command will match the value given from this page.
+
+Already have Blockchain
+''''''''''''''''''''''''''''''
+
+If you have already downloaded the blockchain before you modified your config and you did not have **txindex=1** enabled, you’ll probably need to launch bitcoind as follows:
+
+::
+
+  bitcoind –reindex
+
+This will start up bitcoin to do a one time reindexing of the blockchain on disk. The reason this is is because we added the **txindex=1** configuration parameter above to the bitcoin config file, which means that it will need to run through the blockchain again to generate the necessary indexes, which may take a few hours. After doing this once, you shouldn’t have to do it again.
+
+If you had the blockchain index parameter always turned on before, reindexing should not be necessary.
+
+Next steps
+''''''''''''''''''''''''''''''
+
+At this point you should be good to go from a bitcoind perspective. For automatic startup of bitcoind on system boot, this page provides some good tips.
+
+.. _federated-node:
+
+Build Federated Node
+~~~~~~~~~~~~~~~~~~~~~
+
+Introduction
+^^^^^^^^^^^^^^^^^^^^
+
+A Counterblock Federated Node is a self-contained server that runs the software necessary to support one or more “roles”. Such roles may be:
+
+- Counterwallet server
+- Vending machine (future)
+- Block explorer server (future)
+- A plain old counterpartyd server
+- Each backend server runs multiple services (some required, and some optional, or based on the role chosen). As each server is self-contained, they can be combined by the client-side software to allow for high-availability/load balancing.
+
+For instance, software such as Counterwallet may then utilize these backend servers in making API calls either sequentially (i.e. failover) or in parallel (i.e. consensus-based). For instance, with Counterwallet, when a user logs in, this list is shuffled so that in aggregate, user requests are effectively load-balanced across available servers. Indeed, by setting up multiple such (Counterblock) Federated Nodes, one can utilize a similar redundancy/reliability model in one’s own 3rd party application that Counterwallet utilizes. Or, one can utilize a simplier configuration based on a single, stand-alone server.
+
+This document describes how one can set up their own Counterblock Federated Node server(s). It is primarily intended for system administrators and developers.
