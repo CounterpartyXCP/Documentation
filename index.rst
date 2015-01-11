@@ -64,10 +64,7 @@ Developer Documentation
 .. toctree::
     :maxdepth: 2
 
-    api_documentation
-    counterwallet_integration
-    exchange_integration
-    cli_examples
+    developer_guide
     bounties
 
 .. _repo-docs:
@@ -78,13 +75,7 @@ GitHub Repositories
 .. toctree::
     :maxdepth: 2
 
-    protocol_specification
-    counterpartyd
-    counterblockd
-    counterpartyd_build
-    counterparty-gui
-    counterwallet
-    counterparty-cli
+    repositories
 
 .. _community-docs:
 
@@ -94,9 +85,7 @@ Community How-To's
 .. toctree::
     :maxdepth: 2
 
-    buy_and_sell_XCP
-    access_testnet
-    bulk_send
+    tutorials
 
 .. _other-docs:
 
@@ -106,6 +95,4 @@ Other Resources
 .. toctree::
     :maxdepth: 2
 
-    support
-    forums
-    foundation
+    resources
