@@ -42,7 +42,7 @@ build), and `this <https://github.com/rippler/bitcoin-core-0.10.0-addrindex/blob
 
 
 Biticoin Core 0.9.2 on Ubuntu 14.04
-------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Standalone counterpartyd users: Download and build a patched version
    of Bitcoin Core 0.9.2 from source as per the usual procedure. Then
@@ -58,7 +58,7 @@ one)[https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta].
    documentation`_ because there’s more to it than just one script.
 
 Biticoin Core 0.10.0 on Ubuntu 14.04
-------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This version is not yet supported.
 
