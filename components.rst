@@ -1,7 +1,7 @@
 Components
 ==========
 
-1. bitcoind
+bitcoind
 -----------
 
 Bitcoind is the Bitcoin reference client. In the context of
@@ -9,7 +9,7 @@ Counterparty, bitcoind is used by the various components to retrieve
 block and transaction data (to allow for Counterparty transaction
 processing), as well as broadcast transactions to the network.
 
-2. counterpartyd
+counterpartyd
 ----------------
 
 counterpartyd is the Counterparty reference client (similar to what
@@ -22,7 +22,7 @@ command line, or an API call.
 
 Full counterpartyd API documantation is available at :doc:`api_documentation`
 
-3. Insight / blockr.io
+Insight / blockr.io
 ----------------------
 
 Both insight and blockr.io allow for local querying of balance
@@ -33,7 +33,7 @@ blockr.io, which both counterpartyd and counterblockd support. For the
 most reliable service, we recommend that production servers (at least)
 run insight locally.
 
-4. counterblockd
+counterblockd
 ----------------
 
 The counterblockd daemon provides a more high-level data processing, and
@@ -48,13 +48,13 @@ proxy\_to\_counterpartyd API call. This call is used in the Federated
 Node setup so that counterpartyd does not have to be directly exposed,
 and to allow counterblockd to cache counterpartyd API responses.
 
-5. MongoDB
+MongoDB
 ----------
 
 MongoDB is used as the backend datastore for counterblockd.
 Counterpartyd uses its own embedded SQLite database.
 
-6. Web Server / nginx
+Web Server / nginx
 ---------------------
 
 The web server software hosts the static content for Counterwallet (and
