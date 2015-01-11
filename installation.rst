@@ -1,11 +1,11 @@
 Installation
 ============
 
-Bitcoin Core with addrindex patch on Windows 7 and 2012
+Bitcoin Core with `addrindex` patch
 -------------------------------------------------------
 
-Bitcoin Core 0.9.2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Bitcoin Core 0.9.2 on Windows 7 and 2012
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Counterpartyd supports this version of Bitcoin Core (0.9.2 jmcorgan with
 addrindex patch)
@@ -18,7 +18,7 @@ Prebuilt Windows binaries can be found 3rd party sites such as `this
 one`_. The same site has a `simple install guide`_ that may be useful in
 addition to the `official Counterpartyd install guide`_.
 
-Bitcoin Core 0.10.0
+Bitcoin Core 0.10.0 on Windows 7 and 2012
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Counterpartyd does not yet support this version, but can work with it.
@@ -38,6 +38,32 @@ build), and `this <https://github.com/rippler/bitcoin-core-0.10.0-addrindex/blob
 .. _official Counterpartyd install guide: http://counterparty.io/docs/build-system/build-from-source/
 .. _here: https://github.com/rippler/bitcoin-core-0.10.0-addrindex
 .. _this: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
+
+
+
+Biticoin Core 0.9.2 on Ubuntu 14.04
+------------------------------------------------------------------
+
+-  Standalone counterpartyd users: Download and build a patched version
+   of Bitcoin Core 0.9.2 from source as per the usual procedure. Then
+   install Counterpartyd (Reference: `Counterpartyd install
+   documentation`_).
+
+Prebuilt binaries can be found on 3rd party sites (such as this
+one)[https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta].
+
+-  Federated Node users: Federated Node installation and configuration
+   script (``setup_federated_node.py``) automatically downloads and
+   builds the binary for you. Make sure you follow the `official
+   documentation`_ because there’s more to it than just one script.
+
+Biticoin Core 0.10.0 on Ubuntu 14.04
+------------------------------------------------------------------
+
+This version is not yet supported.
+
+.. _Counterpartyd install documentation: http://counterparty.io/docs/build-system/
+.. _official documentation: http://counterparty.io/docs/build-system/federated-node/
 
 Installing counterpartyd
 ------------------------
