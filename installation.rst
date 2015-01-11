@@ -143,5 +143,116 @@ on any blockchain, however.
 .. _How to choose?:doc:glossary
 .. _a fork of Bitcoin Core with an address index: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
 
+
+counterpartyd with 64 bit version of Python
+-------------------------------------------
+Counterparty can be installed with both the 32-bit and 64-bit version of
+Python. Because some Counterparty dependencies do not play nicely with
+the 64-bit version of Python it is safer to use the 32-bit version. This
+page is for those interested in getting Counterparty to work with the
+64-bit version of Python.
+
+.. note::
+
+
+   This process was tested twice on a freshly installed
+   and up-to-date version of Windows 7 SP1 x64, Python 3.4.1 and other
+   packages mentioned below and it was found to work.
+
+Install Visual Studio 2010 Express and Its SP1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+
+Install MS SDK for Windows v7.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When installing, under ``Windows Native Code Development``, check
+``Windows C++ Compilers``:
+http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279
+
+Also install KB 2519277 (Microsoft Visual C++ 2010 Service Pack 1
+Compiler Update for the Windows SDK 7.1):
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70
+
+Download and install Python 3.4 (64-bit)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use installation defaults but select ``Add python.exe to PATH``.
+
+URL: http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi
+
+Install binaries of Python Win32 extensions, APSW and cx\_freeze for the 64-bit version of Python 3.4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  PyWin32 for Python 3.4:
+
+http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win-amd64-py3.4.exe/download
+
+-  APSW for Python 3.4:
+
+https://github.com/rogerbinns/apsw/releases/download/3.8.5-r1/apsw-3.8.5-r1.win-amd64-py3.4.exe
+
+-  cx\_freeze for Python 3.4:
+
+http://sourceforge.net/projects/cx-freeze/files/4.3.3/cx_Freeze-4.3.3.win-amd64-py3.4.msi/download
+
+Install Open SSL
+~~~~~~~~~~~~~~~~
+
+If you already don't have OpenSSL, you will need to install it.
+
+A 64-bit OpenSSL binary package for Windows can be obtained here:
+http://slproweb.com/download/Win64OpenSSL_Light-1_0_1j.exe You may need
+Microsoft Visual C++ 2008 SP1 Redistributable Package (x64) as well:
+http://www.microsoft.com/en-us/download/details.aspx?id=2092
+
+Refer to http://slproweb.com/products/Win32OpenSSL.html for additional
+details.
+
+Install Counterparty
+~~~~~~~~~~~~~~~~~~~~
+
+From ``Start Menu`` select ``All Programs`` then
+``Microsoft Windows SDK v7.1`` and start
+``Windows SDK 7.1 Command Prompt`` (a CMD Shell optimized for Windows
+SDK). Do it as Administrator.
+
+Install Github and check out Counterparty install scripts from Github
+(see Counterparty install guide for Windows), then as Administrator open
+Windows shell and change to ``C:\counterpartyd_build``.
+
+Before you execute ``setup.py``, use text editor to change
+``C:\counterpartyd_build\setup.py`` to use ``virtualenv-1.11.6`` (in
+Counterparty 9.34.0 it's line 287 or thereabout; for details on this
+issue see virtualenv issues, #463).
+
+Run ``setup.py``:
+
+``c:\python34\python.exe setup.py``
+
+That should be it.
+
+Problems with Dependencies
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Should you encounter any problem, it is probably because you have a
+misconfigured build environment (Microsoft Visual C++, basically) and
+until you solve that you won't be able to make any progress with
+Counterparty. If nothing else works, you can try to uninstall all other
+MSVC and Python packages.
+
+Conclusion
+~~~~~~~~~~
+
+If need be Counterparty can be used with the 64-bit version of Python,
+but not without changes.
+
+Because Counterparty is not resource-intensive (one instance consumes
+less than 50MB of RAM), it is easier to use the 32-bit version on
+Python.
+
+
+
 Installing a Federated Node
 ---------------------------
