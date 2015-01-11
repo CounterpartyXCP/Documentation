@@ -72,7 +72,7 @@ Development and Integration
 
    -  Q & A
    -  `How to access testnet using Counterwallet on Federated Node?`_
-   -  [How to install a specific release of Counterparty
+   -  `How to install a specific release of Counterparty`_
 
 .. _Twitter: https://twitter.com/CounterpartyXCP
 .. _Faceboook: https://www.facebook.com/CounterpartyXCP
