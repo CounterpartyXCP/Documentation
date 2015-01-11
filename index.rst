@@ -26,7 +26,7 @@ About Counterparty
 ------------------
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
     what_is_counterparty
     protocol
@@ -38,7 +38,7 @@ Technology
 ~~~~~~~~~~
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
     components
     installation
@@ -52,7 +52,7 @@ Counterwallet
 -------------
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
    counterwallet_doc
 
