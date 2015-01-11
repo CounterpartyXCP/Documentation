@@ -42,6 +42,7 @@ Technology
 
     components
     installation
+    build_system
     upgrades
     release_procedure
     release_notes
