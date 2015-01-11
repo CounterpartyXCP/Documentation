@@ -42,6 +42,9 @@ Technology
 
     components
     installation
+    upgrades
+    release_procedure
+    release_notes
 
 .. _counterwallet-docs:
 
@@ -54,7 +57,7 @@ Counterwallet
    meta_book
    counterwallet_features
    translation
-   release_notes
+   counterwallet_release_notes
 
 .. _dev-docs:
 
@@ -65,8 +68,6 @@ Developer Documentation
     :maxdepth: 2
 
     api_documentation
-    release_procedure
-    API_reference
     counterwallet_integration
     exchange_integration
     cli_examples
