@@ -95,4 +95,5 @@ Other Resources
 .. toctree::
     :maxdepth: 2
 
+    glossary
     resources
