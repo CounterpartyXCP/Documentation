@@ -19,3 +19,78 @@ Along with the Counterparty protocol, the platform consists of the native XCP to
 * Provably distribute ownership of assets through multi-signature support.
 * Take advantage of turing-complete scripting to create smart contracts and financial instruments.
 
+How can I learn more?
+----------------------
+- Social Media
+
+ -  Follow us on `Twitter`_, `Faceboook`_, `Google+`_ and `LinkedIn`_.
+ -  Chat with us: `End Users/General`_ & `Developers/Technical`_
+ -  Receive updates via email: Counterparty currently has two free,
+    low-volume mailing lists (Community & Developer). `**Subscribe now!**`_
+
+-  External sites with information about Counterparty
+
+   -  `Coinmarketcap.com`_ - XCP price, list of exchanges
+   -  `Counterparty on Wikipedia`_
+
+--------------
+
+Counterwallet
+-------------
+
+-  `Counterwallet Meta Book`_
+-  Support, FAQs, Tutorials
+
+   -  Community Forums: http://forums.counterparty.io
+   -  FAQs and KB articles:
+      http://support.counterparty.io/solution/categories
+   -  Tutorials:
+
+      -  `Cold Storage of Counterparty Assets and BTC using Armory`_
+
+-  `Functional and Technical Specifications`_
+
+--------------
+
+Development and Integration
+---------------------------
+
+-  Counterparty Developer Meta Book
+-  `Counterparty Exchange Integration`_
+-  Block Explorers
+-  Blockscan.com: `mainnet`_ and `testnet`_
+-  Miscellaneous
+
+   -  Installation on alternative operating systems: Ubuntu 14.04 is the
+      default OS for Counterparty software, but ``counterpartyd`` is
+      known to run on other versions of Ubuntu and even other OS as
+      well.
+
+      -  Stand-alone ``counterpartyd``: `ArchLinux`_, `Debian`_, OS X
+      -  `How to choose?`_ - page with overview of software packages and
+         installation options for System Administrators and Developers
+
+   -  Q & A
+   -  `How to access testnet using Counterwallet on Federated Node?`_
+   -  [How to install a specific release of Counterparty
+
+.. _Twitter: https://twitter.com/CounterpartyXCP
+.. _Faceboook: https://www.facebook.com/CounterpartyXCP
+.. _Google+: https://plus.google.com/u/0/b/116178666129262850551/+CounterpartyIoXCP/posts
+.. _LinkedIn: https://www.linkedin.com/company/3644957
+.. _End Users/General: http://gitter.im/CounterpartyXCP/General
+.. _Developers/Technical: http://gitter.im/CounterpartyXCP/Technical
+.. _**Subscribe now!**: http://counterparty.us9.list-manage.com/subscribe/post?u=670b494916e05d6d2cfaa5206&id=cdae97fc90
+.. _Coinmarketcap.com: http://coinmarketcap.com/currencies/counterparty/
+.. _Counterparty on Wikipedia: https://en.wikipedia.org/wiki/Counterparty_(technology)
+.. _Counterwallet Meta Book: https://github.com/CounterpartyXCP/Community/wiki/Counterwallet-Meta-Book
+.. _Cold Storage of Counterparty Assets and BTC using Armory: http://support.counterparty.io/solution/categories/5000013624/folders/5000021046/articles/5000004858-cold-storage-of-counterparty-assets-btc-using-armory-counterwallet
+.. _Functional and Technical Specifications: https://github.com/CounterpartyXCP/OfficialWiki/wiki/Counterwallet-Features-and-Specifications
+.. _Counterparty Exchange Integration: https://github.com/CounterpartyXCP/Community/wiki/Counterparty-(XCP)-Exchange-Integration
+.. _mainnet: https://blockscan.com
+.. _testnet: https://testnet.blockscan.com
+.. _ArchLinux: https://github.com/CounterpartyXCP/Community/wiki/Counterpartyd-on-ArchLinux
+.. _Debian: https://github.com/CounterpartyXCP/Community/wiki/Counterpartyd-on-Debian
+.. _How to choose?: https://github.com/CounterpartyXCP/Community/wiki/Counterparty-Glossary,-Sites-and-Repositories
+.. _How to access testnet using Counterwallet on Federated Node?: https://github.com/CounterpartyXCP/CommunityWiki/wiki/How-to-access-testnet-using-Counterwallet-on-Federated-Node%3F
+
