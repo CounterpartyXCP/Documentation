@@ -29,9 +29,8 @@ jmcorgan’s addrindex patch and compile binaries by following any working
 tutorial for Bitcoin Core 0.10.0.
 
 Prebuilt Windows binaries of Bitcoin Core 0.10.0 with addrinex patch can
-be found 3rd party sites such as \* `this`_ (deterministic Github
-build), and \*
-`this <https://github.com/rippler/bitcoin-core-0.10.0-addrindex/blob/master/README.md>`__
+be found 3rd party sites such as `this`_ (deterministic Github
+build), and `this <https://github.com/rippler/bitcoin-core-0.10.0-addrindex/blob/master/README.md>`__
 (personal build with how-to docs).
 
 .. _this one: https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta
@@ -43,26 +42,37 @@ build), and \*
 Installing counterpartyd
 ------------------------
 
-**NOTE: This section covers manual installation of counterpartyd. If you
-want more of an automated approach to counterpartyd installation for
-Windows and Ubuntu Linux, use the** `build system`_. 
+.. note::
+
+        This section covers manual installation of counterpartyd. If you want more of an automated approach to counterpartyd installation for Windows and Ubuntu Linux, use the `build system`_. 
 
 Installation on alternative operating systems: Ubuntu 14.04 is the
 default OS for Counterparty software, but counterpartyd is known to run
-on other versions of Ubuntu and even other OS as well. \ Stand-alone
-`counterpartyd`_, `ArchLinux`_, `Debian`_, OS X \ `How to choose?`_
-- page with overview of software packages and installation options for
-System Administrators and Developers*
+on other versions of Ubuntu and even other OS as well. 
+
+- Stand-alone counterpartyd_,  
+- `ArchLinux`_, 
+- `Debian`_, OS X 
+- `How to choose?`_ page with overview of software packages and installation options for System Administrators and Developers
 
 In order for counterpartyd to function, it must be able to communicate
 with a running instance of Bitcoin Core, which handles many
 Bitcoin‐specific matters on its behalf, including all wallet and private
 key management. For such interoperability, `a fork of Bitcoin Core with
 an address index`_ must be used, and it must be run with the following
-options: ``-txindex=1``, ``-server=1``, ``-addrindex=1``,
-``-rpcthreads=1000`` and ``-rpctimeout=300``. You may also have to set a
-JSON‐RPC password, which may be saved in Bitcoin Core’s configuration
-file.
+options: 
+
+
+::
+
+        txindex=1 
+        server=1 
+        addrindex=1
+        rpcthreads=1000
+        rpctimeout=300
+        
+
+You may also have to set a JSON‐RPC password, which may be saved in Bitcoin Core’s configuration file.
 
 counterpartyd needs to know at least the JSON‐RPC password of the
 Bitcoin Core with which it is supposed to communicate. The simplest way
