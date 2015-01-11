@@ -862,7 +862,7 @@ create_send
 ^^^^^^^^^^^^^^
 **create_send(source, destination, asset, quantity, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
-Send XCP or a user defined asset.
+Send BTC, XCP or a user defined asset.
 
 **Parameters:**
 
