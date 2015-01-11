@@ -1,5 +1,5 @@
-Installation
-============
+Installation (Manual)
+=====================
 
 Bitcoin Core with `addrindex` patch
 -------------------------------------------------------
