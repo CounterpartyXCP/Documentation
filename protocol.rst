@@ -1,4 +1,4 @@
-The Counterparty Protocol
+Protocol Specification
 =========================
 
 Summary
