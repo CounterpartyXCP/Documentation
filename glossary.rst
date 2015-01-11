@@ -1,4 +1,4 @@
-Counterparty Glossary, Sites and Repositories
+Glossary, Sites and Repositories
 =============================================
 
 In case you’re lost and don’t know where to start…
@@ -31,10 +31,9 @@ Web sites
       Counterwallet, as well as Counterparty 3rd-party applications
    -  `Counterwallet`_ - the Web wallet
    -  `counterparty-gui`_ - Counterparty GUI (OS X and Windows)
-   -  `counterpartyd\_build`_ - the Counterparty Build System helps you
+   -  `counterpartyd_build`_ - the Counterparty Build System helps you
       automatically install main Counterparty software applications (see
       below).
-   -  `Community Wiki`_ - this Wiki
 
 -  `status.counterparty.io`_ - status of various sites and services
    (also .co)
@@ -70,15 +69,16 @@ Ubuntu 14.04.
    and what each of them does. There is no other automated way to
    install Counterparty at the moment.
 
-**NOTES**
+.. note::
 
--  (3rd party) Bitcoin Core with a full copy of indexed blockchain is
-   required for both ``counterpartyd`` and Counterwallet.
--  While it is possible to install all these packages manually, it is
-   difficult and can be time consuming. ``counterpartyd`` can be
-   manually installed on Debian, OS X and other Linux/UNIX variants, but
-   Federated Node could require significant efforts.
--  Docker or other approaches are not yet available
+
+   -  (3rd party) Bitcoin Core with a full copy of indexed blockchain is
+      required for both ``counterpartyd`` and Counterwallet.
+   -  While it is possible to install all these packages manually, it is
+      difficult and can be time consuming. ``counterpartyd`` can be
+      manually installed on Debian, OS X and other Linux/UNIX variants, but
+      Federated Node could require significant efforts.
+   -  Docker or other approaches are not yet available
 
 .. _setup a Counterblock Federated Node: http://counterparty.io/docs/build-system/federated-node/
 .. _the Build System: http://counterparty.io/docs/build-system/
