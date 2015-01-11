@@ -83,10 +83,10 @@ Development and Integration
 .. _**Subscribe now!**: http://counterparty.us9.list-manage.com/subscribe/post?u=670b494916e05d6d2cfaa5206&id=cdae97fc90
 .. _Coinmarketcap.com: http://coinmarketcap.com/currencies/counterparty/
 .. _Counterparty on Wikipedia: https://en.wikipedia.org/wiki/Counterparty_(technology)
-.. _Counterwallet Meta Book: https://github.com/CounterpartyXCP/Community/wiki/Counterwallet-Meta-Book
+.. _Counterwallet Meta Book:docs:`counterwallet_doc`
 .. _Cold Storage of Counterparty Assets and BTC using Armory: http://support.counterparty.io/solution/categories/5000013624/folders/5000021046/articles/5000004858-cold-storage-of-counterparty-assets-btc-using-armory-counterwallet
-.. _Functional and Technical Specifications: https://github.com/CounterpartyXCP/OfficialWiki/wiki/Counterwallet-Features-and-Specifications
-.. _Counterparty Exchange Integration: https://github.com/CounterpartyXCP/Community/wiki/Counterparty-(XCP)-Exchange-Integration
+.. _Functional and Technical Specifications:docs:`counterwallet_doc`
+.. _Counterparty Exchange Integration:docs:`developer_guide`
 .. _mainnet: https://blockscan.com
 .. _testnet: https://testnet.blockscan.com
 .. _ArchLinux: https://github.com/CounterpartyXCP/Community/wiki/Counterpartyd-on-ArchLinux
