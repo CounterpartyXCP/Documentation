@@ -64,6 +64,7 @@ Developer Documentation
 .. toctree::
     :maxdepth: 2
 
+    api_documentation
     release_procedure
     API_reference
     counterwallet_integration
