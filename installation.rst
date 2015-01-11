@@ -252,7 +252,3 @@ Because Counterparty is not resource-intensive (one instance consumes
 less than 50MB of RAM), it is easier to use the 32-bit version on
 Python.
 
-
-
-Installing a Federated Node
----------------------------
