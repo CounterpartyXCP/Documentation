@@ -1,10 +1,10 @@
 API Documentation
 ================
 
+.. contents:: **Table of Contents**
+
 counterpartyd
 -------------
-
-.. contents:: **Table of Contents**
 
 Interacting with the API
 ~~~~~~~~~~~~~~~~~~~~~~~~
