@@ -157,7 +157,7 @@ called sendmany.py, then call this script with
 
 
 How to install specific release of Counterparty software using counterparty_build
-=================================================================================
+--------------------------------------------------------------------------------------------------------------
 
 Since early 2015 the main Counterparty repositories such as
 ``counterpartyd``, ``counterpartyd_build``, ``counterblockd`` and
