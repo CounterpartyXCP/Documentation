@@ -292,7 +292,7 @@ You can seek community help on the chat (fastest), forums or submit a
 bug report (instructions can be found below).
 
 Counterwallet-related Support Pointers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+''''''''''''''''''''''''''''''''''''''''''''''''
 
 -  Before you open a new issue, do a search or two to check whether a
    similar problem is described somewhere on the Web. You can also
@@ -315,14 +315,14 @@ Developers
 ~~~~~~~~~~
 
 Countewallet
-^^^^^^^^^^^^
+''''''''''''''''
 
 -  Please see the pointers for end users (above).
 -  Since it’s easy to check JavaScript Debug Console, it’s usually a
    good idea to check that out first
 
 counterpartyd
-^^^^^^^^^^^^^
+''''''''''''''''
 
 -  Please do not submit bugs for unsupported environments (or at least
    not without needed details). For unsupported environments it is best
