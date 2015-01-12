@@ -26,7 +26,6 @@ About Counterparty
 ------------------
 
 .. toctree::
-    :includehidden:
     :maxdepth: 2
 
     what_is_counterparty
