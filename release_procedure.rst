@@ -14,6 +14,7 @@ Release Procedure
 - Merge branch into both ``master`` and ``develop``. 
 - Rebase ``gh-pages`` to ``master`` 
 - Write `Release Notes`_
+- Upload package to PyPi
 
 **@ivanazuber:**: 
 
