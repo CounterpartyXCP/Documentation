@@ -66,7 +66,7 @@ Developer Documentation
     :maxdepth: 2
 
     developer_guide
-    api-documentation
+    api_documentation
     bounties
 
 .. _repo-docs:
