@@ -18,7 +18,7 @@ Basic Setup
    after blockchain existed, start bitcoind with ``-reindex`` once to
    let it build a full index blockchain data first.
 -  Download and install counterpartyd (on to a clean VM/server is
-   recommended) via the instructions in doc:`build-system`. Note that when the
+   recommended) via the instructions in :doc:`build-system`. Note that when the
    installer asks if you want to start counterpartyd automatically on
    startup, you probably want to say yes (but make it so that it starts
    after bitcoind which it will be using is up, otherwise it will exit
