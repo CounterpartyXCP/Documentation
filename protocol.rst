@@ -18,20 +18,25 @@ counterpartyd CHANGELOG and earlier versions of this document.
 Transactions
 ------------
 
-Counterparty messages have the following components: \* Source addresses
-\* Destination addresses (optional) \* A quantity of bitcoins sent from
-the sources to the destinations, if it exists. \* A fee, in bitcoins,
-paid to the Bitcoin miners who include the transaction in a block. \*
-Some ‘data’, imbedded in specially constructed transaction outputs.
+Counterparty messages have the following components: 
+
+- Source addresses
+- Destination addresses (optional) 
+- A quantity of bitcoins sent from the sources to the destinations, if it exists. 
+- A fee, in bitcoins, paid to the Bitcoin miners who include the transaction in a block. 
+- Some ‘data’, imbedded in specially constructed transaction outputs.
 
 Every Bitcoin transaction carrying a Counterparty transaction has the
-following possible outputs: zero or more destination outputs, zero or
-more data outputs, and optional change outputs. All data outputs follow
-all destination outputs. Change outputs (outputs after the last data
+following possible outputs: 
+
+- zero or more destination outputs, 
+- zero or more data outputs, and optional change outputs. 
+
+All data outputs follow all destination outputs. Change outputs (outputs after the last data
 output) have no significance.
 
 For identification purposes, every Counterparty transaction’s ‘data’
-field is prefixed by the string ‘CNTRPRTY’, encoded in UTF‐8. This
+field is prefixed by the string ``CNTRPRTY``, encoded in UTF‐8. This
 string is long enough that transactions with outputs containing
 pseudo‐random data cannot be mistaken for valid Counterparty
 transactions . In testing (i.e. using the TESTCOIN Counterparty network
