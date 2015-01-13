@@ -38,7 +38,7 @@ How can I learn more?
 Counterwallet
 -------------
 
--  :docs:`counterwallet_doc`
+-  :doc:`counterwallet_doc`
 -  Support, FAQs, Tutorials
 
    -  Community Forums: http://forums.counterparty.io
@@ -55,7 +55,7 @@ Development and Integration
 ---------------------------
 
 -  Counterparty Developer Meta Book
--  Counterparty Exchange Integration: :docs:`developer_guide`
+-  Counterparty Exchange Integration: :doc:`developer_guide`
 -  Block Explorers
 -  Blockscan.com: `mainnet`_ and `testnet`_
 -  Miscellaneous
@@ -65,13 +65,13 @@ Development and Integration
       known to run on other versions of Ubuntu and even other OS as
       well.
 
-      -  Stand-alone ``counterpartyd``: :docs:`installation`, ArchLinux: :docs:`archlinux_install`, Debian: :docs:`debian_install`, OS X
-      -  How to choose? :docs:`glossary` - page with overview of software packages and
+      -  Stand-alone ``counterpartyd``: :doc:`installation`, ArchLinux: :doc:`archlinux_install`, Debian: :doc:`debian_install`, OS X
+      -  How to choose? :doc:`glossary` - page with overview of software packages and
          installation options for System Administrators and Developers
 
    -  Q & A
-   -  How to access testnet using Counterwallet on Federated Node: :docs:`tutorials`
-   -  How to install a specific release of Counterparty: :docs:`tutorials`
+   -  How to access testnet using Counterwallet on Federated Node: :doc:`tutorials`
+   -  How to install a specific release of Counterparty: :doc:`tutorials`
 
 .. _Twitter: https://twitter.com/CounterpartyXCP
 .. _Faceboook: https://www.facebook.com/CounterpartyXCP
