@@ -76,9 +76,9 @@ Installation on alternative operating systems: Ubuntu 14.04 is the
 default OS for Counterparty software, but counterpartyd is known to run
 on other versions of Ubuntu and even other OS as well. 
 
-- ArchLinux_, 
-- Debian_, OS X 
-- `How to choose?`_ page with overview of software packages and installation options for System Administrators and Developers
+- ArchLinux: :doc:`archlinux_install`, 
+- Debian: :doc:`debian_install`, OS X 
+- How to choose?: :doc:`glossary` - page with overview of software packages and installation options for System Administrators and Developers
 
 In order for counterpartyd to function, it must be able to communicate
 with a running instance of Bitcoin Core, which handles many
