@@ -26,7 +26,7 @@ How can I learn more?
  -  Follow us on `Twitter`_, `Faceboook`_, `Google+`_ and `LinkedIn`_.
  -  Chat with us: `End Users/General`_ & `Developers/Technical`_
  -  Receive updates via email: Counterparty currently has two free,
-    low-volume mailing lists (Community & Developer). `**Subscribe now!**`_
+    low-volume mailing lists (Community & Developer). `**Subscribe now!** <http://counterparty.us9.list-manage.com/subscribe/post?u=670b494916e05d6d2cfaa5206&id=cdae97fc90>`_
 
 -  External sites with information about Counterparty
 
@@ -38,7 +38,7 @@ How can I learn more?
 Counterwallet
 -------------
 
--  `Counterwallet Meta Book`_
+-  :docs:`counterwallet_doc`
 -  Support, FAQs, Tutorials
 
    -  Community Forums: http://forums.counterparty.io
@@ -48,7 +48,6 @@ Counterwallet
 
       -  `Cold Storage of Counterparty Assets and BTC using Armory`_
 
--  `Functional and Technical Specifications`_
 
 --------------
 
@@ -56,7 +55,7 @@ Development and Integration
 ---------------------------
 
 -  Counterparty Developer Meta Book
--  `Counterparty Exchange Integration`_
+-  Counterparty Exchange Integration: :docs:`developer_guide`
 -  Block Explorers
 -  Blockscan.com: `mainnet`_ and `testnet`_
 -  Miscellaneous
@@ -66,13 +65,13 @@ Development and Integration
       known to run on other versions of Ubuntu and even other OS as
       well.
 
-      -  Stand-alone ``counterpartyd``: `ArchLinux`_, `Debian`_, OS X
-      -  `How to choose?`_ - page with overview of software packages and
+      -  Stand-alone ``counterpartyd``: :docs:`installation`, ArchLinux: :docs:`archlinux_install`, Debian: :docs:`debian_install`, OS X
+      -  How to choose? :docs:`glossary` - page with overview of software packages and
          installation options for System Administrators and Developers
 
    -  Q & A
-   -  `How to access testnet using Counterwallet on Federated Node?`_
-   -  `How to install a specific release of Counterparty`_
+   -  How to access testnet using Counterwallet on Federated Node: :docs:`tutorials`
+   -  How to install a specific release of Counterparty: :docs:`tutorials`
 
 .. _Twitter: https://twitter.com/CounterpartyXCP
 .. _Faceboook: https://www.facebook.com/CounterpartyXCP
@@ -89,8 +88,3 @@ Development and Integration
 .. _Counterparty Exchange Integration:docs:`developer_guide`
 .. _mainnet: https://blockscan.com
 .. _testnet: https://testnet.blockscan.com
-.. _ArchLinux: https://github.com/CounterpartyXCP/Community/wiki/Counterpartyd-on-ArchLinux
-.. _Debian: https://github.com/CounterpartyXCP/Community/wiki/Counterpartyd-on-Debian
-.. _How to choose?: https://github.com/CounterpartyXCP/Community/wiki/Counterparty-Glossary,-Sites-and-Repositories
-.. _How to access testnet using Counterwallet on Federated Node?: https://github.com/CounterpartyXCP/CommunityWiki/wiki/How-to-access-testnet-using-Counterwallet-on-Federated-Node%3F
-
