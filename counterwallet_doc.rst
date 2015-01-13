@@ -9,7 +9,7 @@ condensed in single place.
 
 -  Chapter 1: What is it and how do I get started?
 
-   -  `How to buy XCP and Counterparty-listed tokens/assets`_
+   -  How to buy XCP and Counterparty-listed tokens/assets: :doc:`tutorials`
 
 -  Chapter 2: Common operations
 
