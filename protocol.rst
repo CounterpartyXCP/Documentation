@@ -39,7 +39,7 @@ For identification purposes, every Counterparty transaction’s ‘data’
 field is prefixed by the string ``CNTRPRTY``, encoded in UTF‐8. This
 string is long enough that transactions with outputs containing
 pseudo‐random data cannot be mistaken for valid Counterparty
-transactions . In testing (i.e. using the TESTCOIN Counterparty network
+transactions. In testing (i.e. using the TESTCOIN Counterparty network
 on any blockchain), this string is ‘XX’.
 
 Counterparty data may be stored in three different types of outputs, or
@@ -246,7 +246,7 @@ that order matches for 0.5 BTC initially, then the
 payments, or their anti‐trolling effect would be voided.
 
 Payments of bitcoins to close order matches waiting for bitcoins are
-done with the a **BTCpay** message, which stores in its data field only
+done with a **BTCpay** message, which stores in its data field only
 the string concatenation of the transaction hashes which compose the
 Order Match which it fulfils.
 
@@ -336,7 +336,7 @@ possible.
 Target values must be non‐negative, and Bet Matches (contracts) are not
 affected by broadcasts with a value of -1.
 
-Bets cannot have a deadline later that the timestamp of the last
+Bets cannot have a deadline later than the timestamp of the last
 broadcast of the feed that they refer to.
 
 Bets expire the same way that orders do, i.e. after a particular number
@@ -381,7 +381,9 @@ is calculated thus:
 
 ::
 
-    XCP_EARNED = BTC_BURNED * (1000 * (1 + .5 * ((END_BLOCK - CURRENT_BLOCK) / (END_BLOCK - START_BLOCK))
+    XCP_EARNED = BTC_BURNED * (1000 * (1 + .5 * 
+                 ((END_BLOCK - CURRENT_BLOCK) / (END_BLOCK - START_BLOCK))
+                 ))
 
 ``END_BLOCK`` is the block after which the burn period is over (**block
 #283810**) and ``START_BLOCK`` is the block with which the burn period
