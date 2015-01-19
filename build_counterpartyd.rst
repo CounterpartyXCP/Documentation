@@ -9,7 +9,7 @@ Build counterpartyd
 
 **Windows and Ubuntu Linux Users:** Follow the steps below to set up and run counterpartyd:
 
-1. `Set up bitcoind <setting-up-bitcoind>`_
+1. `Set up bitcoind <set_up_bitcoind>`_
 2. `Build from Source <https://github.com/CounterpartyXCP/Documentation/blob/master/build_from_source.rst>`_
 3. Set up Insight (Optional)
 
