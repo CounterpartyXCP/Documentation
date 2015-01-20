@@ -30,7 +30,7 @@ respective owners.
 Counterparty Distributed Exchange
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Counterparty distributed exchange matches orders algorithmically using the Bitcoin blockchain. This means that access is as unfiltered and unrestricted as Bitcoin itself. Therefore, due diligence is highly advised.
+The Counterparty distributed exchange matches orders algorithmically using the Bitcoin blockchain. This means that access is as unfilterable and unrestrictable as the use of Bitcoin itself. Therefore, due diligence is highly advised.
 
 -  `GUI-based Trading on the DEx: How to buy and sell Counterparty
    assets on the DEx`_ - how to trade XCP and other Counterparty assets
