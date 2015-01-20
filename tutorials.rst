@@ -4,7 +4,7 @@ Community How To's
 How to Buy and Sell XCP and Counterparty listed Tokens
 -------------------------------------------------------
 
-Before buying or selling XCP please get familiar with the Counterparty
+Before buying or selling XCP and tokens, please read the Counterparty
 and Counterwallet Terms of Use. They can be found at the bottom of the
 Counterparty home page and are displayed every time you create a new
 wallet on Counterwallet.io.
@@ -12,12 +12,17 @@ wallet on Counterwallet.io.
 Centralized Exchanges
 ~~~~~~~~~~~~~~~~~~~~~
 
-Counterparty (XCP) is currently traded at the following centralized
-(crypto)exchanges (listed by volume as of January 2015): \* `BTer`_ -
-buy/sell for BTC, CNY and USD (English, Chinese) \* `Poloniex`_ -
-buy/sell for BTC \* `Melotic`_ - buy/sell for BTC \* `MasterXchange`_ -
-buy/sell XCP and any Counterparty-assets for BTC \* `ALTS`_ - buy/sell
-for BTC
+Counterparty (XCP) is currently traded at the following centralized (crypto)exchanges (listed by volume as of January 2015): 
+
+* `BTer`_ - buy/sell for BTC, CNY and USD (English, Chinese) 
+
+* `Poloniex`_ - buy/sell for BTC 
+
+* `Melotic`_ - buy/sell for BTC 
+
+* `MasterXchange`_ - buy/sell XCP and any Counterparty-assets for BTC
+
+* `ALTS`_ - buy/sell for BTC
 
 ***NOTE***: Centralized exchanges are controlled and operated by their
 respective owners.
