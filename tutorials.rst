@@ -30,13 +30,15 @@ respective owners.
 Counterparty Distributed Exchange
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The Counterparty distributed exchange matches orders algorithmically using the Bitcoin blockchain. This means that access is as unfiltered and unrestricted as Bitcoin itself. Therefore, due diligence is highly advised.
+
 -  `GUI-based Trading on the DEx: How to buy and sell Counterparty
    assets on the DEx`_ - how to trade XCP and other Counterparty assets
 
 -  `CLI-based Trading on the DEx: How to use the ``counterpartyd`` to
    buy and sell BTC and other assets on the DEx`_
 
-**NOTES**: (1) As you can see or deduct from the way Bitcoin works,
+**NOTES**: (1) As you can see or deduce from the way Bitcoin works,
 trading on the DEx is slower because each “move” (make offer, cancel
 order, etc.) requires several confirmations on the Bitcoin blockchain.
 (2) Because the CLI approach is not popular, it is expected that the
