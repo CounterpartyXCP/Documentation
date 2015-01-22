@@ -24,7 +24,7 @@ Minimally required to build counterpartyd from source is the following:
 - APSW for Windows – grab the 32-bit version
 - Pycrypto for Windows – grab the 32-bit version
 - Visual C++ 2008 Redistributables (if not already installed) – grab it here
-- OpenSSL for Windows – grab the 32-bit version
+- OpenSSL for Windows – grab the 32-bit version [here](http://slproweb.com/download/Win32OpenSSL_Light-1_0_1L.exe)
 - Git for Windows - Use the default installer options (except, select “Use Git from the Windows Command Prompt” on the appropriate screen)
 
 Installing
