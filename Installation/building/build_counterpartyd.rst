@@ -4,7 +4,7 @@ Build counterpartyd
 .. note::
 
   
-  If you'd like to set up your own self-contained, full fledged Counterparty server (which is an Ubuntu Linux system that runs counterpartyd, counterblockd, and more), and/or want to run a Counterwallet server, follow the instructions `here <https://github.com/CounterpartyXCP/Documentation/blob/master/build_federated_node.rst>`_ instead.
+  If you'd like to set up your own self-contained, full fledged Counterparty server (which is an Ubuntu Linux system that runs counterpartyd, counterblockd, and more), and/or want to run a Counterwallet server, follow the instructions `for building Federated Node <https://github.com/CounterpartyXCP/Documentation/blob/master/build_federated_node.rst>`_ instead.
   
 
 **Windows and Ubuntu Linux Users:** Follow the steps below to set up and run counterpartyd:
