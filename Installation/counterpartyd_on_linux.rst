@@ -24,7 +24,7 @@ Biticoin Core 0.10.0 on Ubuntu 14.04
 
 This version is not yet supported.
 
-.. _Counterpartyd install documentation: http://counterparty.io/docs/build-system/
+
 .. _official documentation: http://counterparty.io/docs/build-system/federated-node/
 
 Counterpartyd on ArchLinux
@@ -112,12 +112,6 @@ Core - see the link in External References below).
 You can also (see the Counterparty Support Web site) download the
 bootstrap Counterparty DB file(s) in order to shorten the initial time
 counterpartyd takes to populate its database.
-
--  http://counterparty.io/docs/build-system/set-up-bitcoind/
-
--  http://counterparty.io/docs/build-system/additional/
-
--  http://support.counterparty.io
 
 Upgrades can be handled with pacman as well.
 
@@ -219,9 +213,8 @@ Raspberry Pi-Specific Steps and Considerations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Familiarize yourself with
-[https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
-installation steps for bitcoind]. But you need a patched ``addrindex``
-version (see `this`_).
+`installation steps for bitcoind <https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md>`_. But you need a patched ``addrindex``
+version (see `this <http://support.counterparty.io/solution/articles/5000506616-what-is-addrindex-and-why-is-it-necessary->`_).
 
 Fetch a recent release or the latest master branch, assuming it doesn’t
 break counterpartyd:
