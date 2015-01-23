@@ -155,3 +155,13 @@ The ``asset`` action displays the basic properties of a given asset.
 
 The ``address`` action displays the details of all transactions
 involving the Counterparty address which is its argument.
+
+
+Input and Output
+===============
+
+* Quantities of divisible assets are written to eight decimal places.
+* Quantities of indivisible assets are written as integers.
+* All other quantities, i.e. prices, odds, leverages, feed values and target
+values, fee multipliers, are represented internally as fractions, but printed
+to four decimal places.
