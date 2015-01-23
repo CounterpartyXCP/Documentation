@@ -33,45 +33,6 @@ How can I learn more?
    -  `Coinmarketcap.com`_ - XCP price, list of exchanges
    -  `Counterparty on Wikipedia`_
 
---------------
-
-Counterwallet
--------------
-
--  :doc:`counterwallet_doc`
--  Support, FAQs, Tutorials
-
-   -  Community Forums: http://forums.counterparty.io
-   -  FAQs and KB articles:
-      http://support.counterparty.io/solution/categories
-   -  Tutorials:
-
-      -  `Cold Storage of Counterparty Assets and BTC using Armory`_
-
-
---------------
-
-Development and Integration
----------------------------
-
--  Counterparty Developer Meta Book
--  Counterparty Exchange Integration: :doc:`developer_guide`
--  Block Explorers
--  Blockscan.com: `mainnet`_ and `testnet`_
--  Miscellaneous
-
-   -  Installation on alternative operating systems: Ubuntu 14.04 is the
-      default OS for Counterparty software, but ``counterpartyd`` is
-      known to run on other versions of Ubuntu and even other OS as
-      well.
-
-      -  Stand-alone ``counterpartyd``: :doc:`installation`, ArchLinux: :doc:`archlinux_install`, Debian: :doc:`debian_install`, OS X
-      -  How to choose? :doc:`glossary` - page with overview of software packages and
-         installation options for System Administrators and Developers
-
-   -  Q & A
-   -  How to access testnet using Counterwallet on Federated Node: :doc:`tutorials`
-   -  How to install a specific release of Counterparty: :doc:`tutorials`
 
 .. _Twitter: https://twitter.com/CounterpartyXCP
 .. _Faceboook: https://www.facebook.com/CounterpartyXCP
