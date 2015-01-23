@@ -120,9 +120,9 @@ page is for those interested in getting Counterparty to work with the
 
 **Note:**
 
- This process was tested twice on a freshly installed
- and up-to-date version of Windows 7 SP1 x64, Python 3.4.1 and other
- packages mentioned below and it was found to work.
+This process was tested twice on a freshly installed
+and up-to-date version of Windows 7 SP1 x64, Python 3.4.1 and other
+packages mentioned below and it was found to work.
 
 **1. Install Visual Studio 2010 Express and Its SP1:** `Download link <https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express>`_
 
