@@ -100,7 +100,7 @@ Ubuntu 14.04.
 .. _counterblockd: https://github.com/CounterpartyXCP/counterblockd
 .. _Counterwallet: https://github.com/CounterpartyXCP/counterwallet
 .. _counterparty-gui: https://github.com/CounterpartyXCP/counterparty-gui
-.. _counterpartyd\_build: https://github.com/CounterpartyXCP/counterpartyd_build
+.. _counterpartyd_build: https://github.com/CounterpartyXCP/counterpartyd_build
 .. _Community Wiki: https://github.com/CounterpartyXCP/Community
 .. _status.counterparty.io: http://status.counterparty.io
 .. _the main Web site: http://counterparty.io/get-started/
