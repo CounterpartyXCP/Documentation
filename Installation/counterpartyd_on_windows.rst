@@ -29,15 +29,15 @@ jmcorgan’s addrindex patch and compile binaries by following any working
 tutorial for Bitcoin Core 0.10.0.
 
 Prebuilt Windows binaries of Bitcoin Core 0.10.0 with addrinex patch can
-be found 3rd party sites such as `this <https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0>`_ (deterministic Github
-build), and `this <https://github.com/rippler/bitcoin-core-0.10.0-addrindex/blob/master/README.md>`_
+be found 3rd party sites such as `deterministic Github
+build <https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0>`_ , and `bitcoin-core-0.10.0-addrindex <https://github.com/rippler/bitcoin-core-0.10.0-addrindex/blob/master/README.md>`_
 (personal build with how-to docs).
 
 .. _this one: https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta
 .. _simple install guide: https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta/blob/master/counterpartyd-ubuntu-14.04-lts-install.md
-.. _official Counterpartyd install guide: http://counterparty.io/docs/build-system/build-from-source/
+
 .. _here: https://github.com/rippler/bitcoin-core-0.10.0-addrindex
-.. _this: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
+
 .. _Counterpartyd install documentation: http://counterparty.io/docs/build-system/
 .. _official documentation: http://counterparty.io/docs/build-system/federated-node/
 
@@ -103,10 +103,7 @@ the ``--testnet`` CLI option, Bitcoin Core must be set to do the same
 (``-testnet=1``). counterpartyd may run with the ``--testcoin`` option
 on any blockchain, however.
 
-.. _build system: http://counterparty.io/docs/build-system/
-.. _ArchLinux:doc:archlinux_install
-.. _Debian:doc:debian_install
-.. _How to choose?:doc:glossary
+
 .. _a fork of Bitcoin Core with an address index: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
 
 
@@ -128,7 +125,7 @@ packages mentioned below and it was found to work.
 
 **2. Install MS SDK for Windows v7.1**
 
-        When installing, under ``Windows Native Code Development``, check ``Windows C++ Compilers`` `here <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279>`_
+        When installing, under ``Windows Native Code Development``, check `Windows C++ Compilers <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279>`_
 
 **3. Install KB 2519277** (`Microsoft Visual C++ 2010 Service Pack 1 Compiler Update for the Windows SDK 7.1 <http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70>`_)
 
