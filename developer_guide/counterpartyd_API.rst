@@ -6,13 +6,17 @@ Counterparty is a protocol for the creation and use of decentralised financial i
 ``counterpartyd`` is the reference client (and server daemon) implementation of the Counterparty protocol.
 
 To get ``counterpartyd`` installed and set up on your computer, you have two options:
+    
+    - Set it up manually, using the instructions `here <https://github.com/CounterpartyXCP/counterpartyd/blob/master/README.md>`_
+    - For Windows and Ubuntu Linux users, you can use the :doc:`automated build system </build_counterpartyd.rst>`
 
-- Set it up manually, using the instructions `here ttle an Order Match for which BTC is owed:
+
+.. contents:: **Table of Contents**
 
 Interacting with the API
 =========================
 
-**Warning:**
+.. warning::
 
     This API documentation is still in an early state. It contains errors, omissions, etc., and could change drastically at any time.
     
@@ -46,7 +50,7 @@ In particular, note the ``jsonrpc`` and ``id`` properties. These are requirement
 
 Here's an example of the POST data for a valid API request:
 
-::
+.. code-block::
 
     {
       "method": "get_burns",
@@ -70,7 +74,7 @@ Also note that the ``counterpartyd`` API interface requires HTTP basic authentic
 are stored in the ``counterpartyd.conf`` file, as ``rpc-user`` and ``rpc-password``, respectively. You can also modify
 ``rpc-host`` and ``rpc-port`` to change what interface and port number ``counterpartyd`` binds to from the defaults.
 
-**Examples:**
+.. _examples:
 
 Below we provide a few examples of using the ``counterpartyd`` API. Examples in other languages are welcome,
 if you'd like to submit them to us, structured in a way to be useful to other people and use standard libraries/methods. 
@@ -78,7 +82,7 @@ if you'd like to submit them to us, structured in a way to be useful to other pe
 Python Example
 ~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: python
 
     import json
     import requests
@@ -246,7 +250,7 @@ PHP Example
 With PHP, you can connect and query ``counterpartyd`` using the `JsonRPC <https://github.com/fguillot/JsonRPC>`__
 library. Here's a simple example that will get you the asset balances for a specific address:
 
-::
+.. code-block:: php
 
     <?php
     require 'JsonRPC/src/JsonRPC/Client.php';
@@ -268,7 +272,7 @@ curl Example
 
 Here's an example using ``curl`` to make an API call to the ``get_running_info`` method on mainnet.
 
-::
+.. code-block:: none
 
     curl http://127.0.0.1:4000/api/ --user rpcuser:rpcpassword -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
 
