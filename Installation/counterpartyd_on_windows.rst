@@ -50,7 +50,7 @@ In order for counterpartyd to function, it must be able to communicate
 with a running instance of Bitcoin Core, which handles many
 Bitcoin‐specific matters on its behalf, including all wallet and private
 key management. For such interoperability, `a fork of Bitcoin Core with
-an address index`_ must be used, and it must be run with the following
+an address index <https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0>`_ must be used, and it must be run with the following
 options: 
 
 

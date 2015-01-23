@@ -293,8 +293,7 @@ currency, “[token]”, with which these assets can be bought. Alice would
 like to monitor the circulated amount of token very closely, while not
 sacrificing usability, hence she will make [token] indivisible; thus, if
 Alice issues 10 [token] there are 10, and only 10, usable units of
-token, whereas if [token] were divisible, there would be 10\ :sup:`8`
-usable units of [token]. Alice would like [token] itself to be a
+token, whereas if [token] were divisible, there would be  10^8^ usable units of [token]. Alice would like [token] itself to be a
 commodity, and hence she will make [token] callable.
 
 This will allow her to buy back [token] after [call\_date] for

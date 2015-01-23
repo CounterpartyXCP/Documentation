@@ -2,7 +2,7 @@ Building & Running from Source
 ================================
 
 **NOTE:** Please make sure you've followed the instructions in the
-`Setting up bitcoind <http://counterparty.io/docs/build-system/set-up-bitcoind/>`__ section before
+:doc:`Setting up bitcoind </set-up-bitcoind.rst>` section before
 moving through this section.
 
 This section provides information about how to install and run ``counterpartyd`` from source, using this
@@ -73,7 +73,7 @@ You can then open up another command window and run any of ``counterpartyd’s``
     counterpartyd send --source=12WQTnVbzhJRswra4TvGxq1RyhUkmiVXXm \
     --destination=1QGZ4sCpvCgRizL5v4NniaKdZKzxBtVN3q --asset=XCP --quantity=5
 
-For more examples, see `this link <https://github.com/CounterpartyXCP/counterpartyd#examples>`__.
+For more examples, see :doc:`this link </cli_examples.rst>`.
 
 To run the ``counterpartyd`` testsuite (not yet completed for Windows)::
 
@@ -135,7 +135,7 @@ Some notes:
 Creating a default config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Follow the instructions listed under the **Config and Logging** section in the `Additional Topics <http://counterparty.io/docs/build-system/additional/>`__ section.
+Follow the instructions listed under the **Config and Logging** section in the :doc:`Additional Topics </additional_topics.rst>` section.
 
 
 Running counterpartyd built from Source
@@ -159,7 +159,7 @@ You can then open up another command window and run any of ``counterpartyd’s``
     counterpartyd send --source=12WQTnVbzhJRswra4TvGxq1RyhUkmiVXXm \
     --destination=1QGZ4sCpvCgRizL5v4NniaKdZKzxBtVN3q --asset=XCP --quantity=5
 
-For more examples, see `this link <https://github.com/CounterpartyXCP/counterpartyd#examples>`__.
+For more examples, see :doc:`this link </cli_examples.rst>`.
 
 To run the ``counterpartyd`` testsuite::
 
