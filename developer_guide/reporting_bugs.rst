@@ -8,7 +8,7 @@ You can seek community help on the chat (fastest), forums or submit a
 bug report (instructions can be found below).
 
 Counterwallet-related Support Pointers
-''''''''''''''''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Before you open a new issue, do a search or two to check whether a
    similar problem is described somewhere on the Web. You can also
@@ -31,14 +31,14 @@ Developers
 ---------------
 
 Countewallet
-''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Please see the pointers for end users (above).
 -  Since it’s easy to check JavaScript Debug Console, it’s usually a
    good idea to check that out first
 
 counterpartyd
-''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Please do not submit bugs for unsupported environments (or at least
    not without needed details). For unsupported environments it is best
@@ -49,10 +49,10 @@ counterpartyd
    installation or other issues are encountered, Python and OS version
    information may be useful as well
    
-    - Counterpartyd version (`counterpartyd -V`)
-    - Python: (How to get it: `counterpartyd -V` and (Ubuntu) `python3 -V`). On Windows it’s the same - you want the right Python version (Python 3) so use the full path to query it.
-    - OS details (On Linux: `uname -a` and (Ubuntu) `cat /etc/issue.net`))
--  Whether you are using `develop` or `master` branch
+    - Counterpartyd version (``counterpartyd -V``)
+    - Python: (How to get it: ``counterpartyd -V`` and (Ubuntu) ``python3 -V``). On Windows it’s the same - you want the right Python version (Python 3) so use the full path to query it.
+    - OS details (On Linux: ``uname -a`` and (Ubuntu) ``cat /etc/issue.net``))
+-  Whether you are using ``develop`` or ``master`` branch
 
 -  Describe the issue and submit the logs
 
@@ -71,13 +71,13 @@ Where to submit bug reports/issues?
 ---------------------------------------------
 
 -  All Counterparty projects are hosted on Github and can be found at
-   https://github.com/CounterpartyXCP.
+   `https://github.com/CounterpartyXCP <https://github.com/CounterpartyXCP>`_.
 
-   -  Counterwallet issues should go to the `Counterwallet` repo
-   -  `counterpartyd` issues should be submitted to the
-      `counterpartyd` repo
+   -  Counterwallet issues should go to the ``Counterwallet`` repo
+   -  ``counterpartyd`` issues should be submitted to the
+      ``counterpartyd`` repo
    -  Installation and upgrade issues should go to the
-      `counterpartyd_build` repo
+      ``counterpartyd_build`` repo
 
 -  If you think you’ve identified a **security issue**, `check out the
    bounties page`_ and contact the Counterparty developers directly.
