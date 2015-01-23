@@ -1,7 +1,7 @@
 Installation (Manual)
 =====================
 
-Bitcoin Core with `addrindex` patch
+Bitcoin Core with ``addrindex`` patch
 -------------------------------------------------------
 
 Bitcoin Core 0.9.2 on Windows 7 and 2012
@@ -15,11 +15,11 @@ jmcorgan’s addrindex patch and compile binaries by following any working
 tutorial for Bitcoin Core 0.9.2.
 
 Prebuilt Windows binaries can be found 3rd party sites such as `this
-one`_. The same site has a `simple install guide`_ that may be useful in
-addition to the `official Counterpartyd install guide`_.
+one <https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta>`_. The same site has a `simple install guide <https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta/blob/master/counterpartyd-ubuntu-14.04-lts-install.md>`_ that may be useful in
+addition to the :doc:`official Counterpartyd install guide </build_from_source.rst>`.
 
 Bitcoin Core 0.10.0 on Windows 7 and 2012
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Counterpartyd does not yet support this version, but can work with it.
 More `here`_.
@@ -46,11 +46,10 @@ Biticoin Core 0.9.2 on Ubuntu 14.04
 
 -  Standalone counterpartyd users: Download and build a patched version
    of Bitcoin Core 0.9.2 from source as per the usual procedure. Then
-   install Counterpartyd (Reference: `Counterpartyd install
-   documentation`_).
+   install Counterpartyd (Reference: :doc:`counterpartyd install documentation </build_from_source.rst>`).
 
-Prebuilt binaries can be found on 3rd party sites (such as this
-one)[https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta].
+Prebuilt binaries can be found on 3rd party sites (`such as this
+one <https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta>`_).
 
 -  Federated Node users: Federated Node installation and configuration
    script (``setup_federated_node.py``) automatically downloads and
@@ -76,9 +75,9 @@ Installation on alternative operating systems: Ubuntu 14.04 is the
 default OS for Counterparty software, but counterpartyd is known to run
 on other versions of Ubuntu and even other OS as well. 
 
-- ArchLinux: :doc:`archlinux_install`, 
-- Debian: :doc:`debian_install`, OS X 
-- How to choose?: :doc:`glossary` - page with overview of software packages and installation options for System Administrators and Developers
+- :doc:`ArchLinux </archlinux_install.rst>`, 
+- :doc:`Debian </debian_install.rst>`, OS X 
+- :doc:`How to choose? </glossary.rst>` - page with overview of software packages and installation options for System Administrators and Developers
 
 In order for counterpartyd to function, it must be able to communicate
 with a running instance of Bitcoin Core, which handles many
@@ -168,46 +167,36 @@ Install MS SDK for Windows v7.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When installing, under ``Windows Native Code Development``, check
-``Windows C++ Compilers``:
-http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279
+``Windows C++ Compilers`` `here <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279>`_
 
-Also install KB 2519277 (Microsoft Visual C++ 2010 Service Pack 1
-Compiler Update for the Windows SDK 7.1):
-http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70
+Also install KB 2519277 (`Microsoft Visual C++ 2010 Service Pack 1
+Compiler Update for the Windows SDK 7.1 <http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70>`_)
+
 
 Download and install Python 3.4 (64-bit)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use installation defaults but select ``Add python.exe to PATH``.
 
-URL: http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi
+URL: `http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi <http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi>`_
 
 Install binaries of Python Win32 extensions, APSW and cx\_freeze for the 64-bit version of Python 3.4
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  PyWin32 for Python 3.4:
+-  `PyWin32 for Python 3.4 <http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win-amd64-py3.4.exe/download>`_
+-  `APSW for Python 3.4 <https://github.com/rogerbinns/apsw/releases/download/3.8.5-r1/apsw-3.8.5-r1.win-amd64-py3.4.exe>`_
+-  `cx\_freeze for Python 3.4 <http://sourceforge.net/projects/cx-freeze/files/4.3.3/cx_Freeze-4.3.3.win-amd64-py3.4.msi/download>`_
 
-http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win-amd64-py3.4.exe/download
-
--  APSW for Python 3.4:
-
-https://github.com/rogerbinns/apsw/releases/download/3.8.5-r1/apsw-3.8.5-r1.win-amd64-py3.4.exe
-
--  cx\_freeze for Python 3.4:
-
-http://sourceforge.net/projects/cx-freeze/files/4.3.3/cx_Freeze-4.3.3.win-amd64-py3.4.msi/download
 
 Install Open SSL
 ~~~~~~~~~~~~~~~~
 
 If you already don't have OpenSSL, you will need to install it.
 
-A 64-bit OpenSSL binary package for Windows can be obtained here:
-http://slproweb.com/download/Win64OpenSSL_Light-1_0_1j.exe You may need
-Microsoft Visual C++ 2008 SP1 Redistributable Package (x64) as well:
-http://www.microsoft.com/en-us/download/details.aspx?id=2092
+A 64-bit OpenSSL binary package for Windows can be obtained `here <http://slproweb.com/download/Win64OpenSSL_Light-1_0_1j.exe>`_. You may need
+`Microsoft Visual C++ 2008 SP1 Redistributable Package (x64) <http://www.microsoft.com/en-us/download/details.aspx?id=2092>`_ as well.
 
-Refer to http://slproweb.com/products/Win32OpenSSL.html for additional
+Refer to `http://slproweb.com/products/Win32OpenSSL.html <http://slproweb.com/products/Win32OpenSSL.html>`_ for additional
 details.
 
 Install Counterparty
