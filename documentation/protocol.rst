@@ -453,8 +453,11 @@ territory: the divisibility of XCP ensures that there will always be
 enough XCP.
 
 Further reading on the Ethereum contract language(s) is available here:
-- `Ethereum White Paper`_ - `Ethereum Yellow Paper`_ - `Pyethereum and
-Serpent Programming Guide`_ - `Ethereum Wiki: Serpent`_
+
+- `Ethereum White Paper`_ 
+- `Ethereum Yellow Paper`_ 
+- `Pyethereum and Serpent Programming Guide`_ 
+- `Ethereum Wiki: Serpent`_
 
 .. _Ethereum White Paper: https://www.ethereum.org/pdfs/EthereumWhitePaper.pdf
 .. _Ethereum Yellow Paper: http://gavwood.com/Paper.pdf
