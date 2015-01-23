@@ -28,7 +28,7 @@ compression method used, asset names may not begin with ‘A’. For more
 information, see the Assets section in the Counterparty specification.
 
 The different kinds of assets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The most basic kind of asset must specify:
 
@@ -60,7 +60,7 @@ new asset is issued; there must be at least 0.5 XCP at [address] in
 order to issue an asset.*
 
 Issuing assets with the command line (``issuance``)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To issue the most basic asset the command is:
 
@@ -106,7 +106,7 @@ use-cases:
 -  ``[give_asset]2=[get_asset]1``
 
 Creating an order
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 At its most basic level, a trade on Counterparty’s decentralized
 exchange consists of two *orders*, which are *matched* by the protocol.
@@ -120,7 +120,7 @@ When Sally is constructing her order, she must specify:
 -  how long before her order expires ([expiration]1)
 
 The Counterparty protocol escrow service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once Sally publishes her order [give\_quantity]1 of [give\_asset 1is
 debited from her address; her address is debited *before* her order is
@@ -133,7 +133,7 @@ another order is placed which satisfies Sally’s order, the protocol
 matches them, and sends each counterparty its respective funds.
 
 Matching an order
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``[give_quantity]1/[get_quantity]1`` is the ‘’ratio’‘in which Sally will
 exchange [give\_asset]1 for [get\_asset]1, and is denoted by ratio1. In
@@ -146,7 +146,7 @@ matched, the exchange is always made at [ratio]1. Further, when when an
 order is matched, the exchange is always settled as much as it can be.
 
 A straightforward case
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Suppose that Alice places order2 before [expiration]1 which matches
 order1 perfectly: ``[give_quantity]2=[get_quantity]1``
@@ -157,7 +157,7 @@ Sally’s order funds are sent to Alice. This completes the trade between
 Alice and Sally.
 
 Matching an order: partially fulfilling an order
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the following example, let [give\_quantity]1=10 and
 [get\_quantity]1=20, and that neither [give\_asset]1 nor [get\_asset]1
@@ -175,7 +175,7 @@ unit of [give\_asset]1 that Sally gives Alice, she will get two units of
 exchange for 9 [give\_asset 1.
 
 Trading BTC on the decentralized exchange
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Suppose Sally makes an order to trade [asset] in exchange for BTC, and
 Alice makes an order to trade BTC in exchange for [asset]. Upon placing
@@ -189,7 +189,7 @@ otherwise, the trade expires, and the protocol will re-credit Sally’s
 address with [give\_asset].
 
 Using the command line
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Trading non-BTC assets (``order``)
 ''''''''''''''''''''''''''''''''''
@@ -211,7 +211,7 @@ exchange for [give\_quantity]2 of [get\_asset]2, the command is:
     order --source=[address_2] --give-asset=[get_asset]2 --give-quantity=[give_quantity]2 --get-asset=[get_asset]2 --get-quantity=[get_quantity]2 --expiration=expiration2
 
 Trades involving BTC (``btcpay``)
-'''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To make a trade that involves BTC, the ``order`` function requires an
 extra parameter, and a second step is needed. If [address\_1] is trading
@@ -247,7 +247,7 @@ To send an asset in Counterparty, one must specify:
 -  to whom [source] is sending [quantity] of [asset] ([destination])
 
 Sending assets using the command line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To send an asset, the command is:
 
@@ -266,7 +266,7 @@ specifically, let [total] equal the total dividends paid out, and
 ``quantity-per-unit = [total]/[quantity]``
 
 Using in the command line (``dividend``)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The form of every dividend command is:
 
@@ -285,7 +285,7 @@ Below are just a few of the many uses of assets, and this page will be
 updated as new use-cases are constructed.
 
 Tokens
-^^^^^^
+~~~~~~~~~~~~~~~
 
 Suppose Alice intends to issue a series of assets and sell them on
 Counterparty’s decentralized exchange, and would like to issue her own
@@ -314,7 +314,7 @@ the distributed exchange in exchange for [token]:
     order --source=[alices_address] --give-asset=[alices_asset_1]--give-quantity=[give_quantity]1 --get-asset=[token] --get-quantity= [get_quantity] --expiration=[expiration]1
 
 Currency peg
-^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Using the issuance function, it is possible to make a sort of *currency
 peg*. Let’s suppose Bob issues the divisible, callable asset BOBUSD. In
@@ -348,7 +348,7 @@ BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
 Using the command line
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To issue BOBUSD, the command line operation is:
 
