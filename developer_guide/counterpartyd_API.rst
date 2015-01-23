@@ -12,7 +12,7 @@ To get ``counterpartyd`` installed and set up on your computer, you have two opt
 Interacting with the API
 =========================
 
-.. warning::
+**Warning:**
 
     This API documentation is still in an early state. It contains errors, omissions, etc., and could change drastically at any time.
     
@@ -46,7 +46,7 @@ In particular, note the ``jsonrpc`` and ``id`` properties. These are requirement
 
 Here's an example of the POST data for a valid API request:
 
-.. code-block::
+::
 
     {
       "method": "get_burns",
@@ -70,7 +70,7 @@ Also note that the ``counterpartyd`` API interface requires HTTP basic authentic
 are stored in the ``counterpartyd.conf`` file, as ``rpc-user`` and ``rpc-password``, respectively. You can also modify
 ``rpc-host`` and ``rpc-port`` to change what interface and port number ``counterpartyd`` binds to from the defaults.
 
-.. _examples:
+**Examples:**
 
 Below we provide a few examples of using the ``counterpartyd`` API. Examples in other languages are welcome,
 if you'd like to submit them to us, structured in a way to be useful to other people and use standard libraries/methods. 
@@ -78,7 +78,7 @@ if you'd like to submit them to us, structured in a way to be useful to other pe
 Python Example
 ~~~~~~~~~~~~~~~~
 
-.. code-block:: python
+::
 
     import json
     import requests
@@ -246,7 +246,7 @@ PHP Example
 With PHP, you can connect and query ``counterpartyd`` using the `JsonRPC <https://github.com/fguillot/JsonRPC>`__
 library. Here's a simple example that will get you the asset balances for a specific address:
 
-.. code-block:: php
+::
 
     <?php
     require 'JsonRPC/src/JsonRPC/Client.php';
@@ -268,7 +268,7 @@ curl Example
 
 Here's an example using ``curl`` to make an API call to the ``get_running_info`` method on mainnet.
 
-.. code-block:: none
+::
 
     curl http://127.0.0.1:4000/api/ --user rpcuser:rpcpassword -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
 
