@@ -15,13 +15,13 @@ Basic Setup
    after blockchain existed, start bitcoind with ``-reindex`` once to
    let it build a full index blockchain data first.
 -  Download and install counterpartyd (on to a clean VM/server is
-   recommended) via the instructions in :doc:`build-system`. Note that when the
+   recommended) via the instructions in :doc:`build system </build_counterpartyd.rst>`. Note that when the
    installer asks if you want to start counterpartyd automatically on
    startup, you probably want to say yes (but make it so that it starts
    after bitcoind which it will be using is up, otherwise it will exit
    after a few retries).
 -  Edit your ``counterpartyd.conf`` file (see
-   `here <http://counterparty.io/docs/build-system/additional/>`__ to
+   `here </additional_topics.rst>`__ to
    specify the connection information for for your bitcoind server (just
    modify the 4 ``bitcoind-rpc-``\ \* parameters already there as
    necessary).
@@ -36,10 +36,10 @@ Basic Setup
    ``--with-bootstrap-db`` to download a recent copy of the DB, or
    download the DB by following links from `this <http://support.counterparty.io/support/articles/5000003524-how-do-i-get-started-developing-on-counterparty->`_ page.).
 
-Adding Support in your Codea
+Adding Support in your Code
 ------------------------------------
 
-See the :doc:`api_documentation`.
+See the :doc:`API documentation <counterpartyd_API.rst>`.
 
 Counterparty has a full-fledged JSON RPC API (which listens on port 4000
 by default and requires HTTP basic authentication to connect, for the
@@ -47,12 +47,12 @@ username and password listed as ``rpc-host`` and ``rpc-password``).
 Connecting to it and making queries is basically the same as bitcoind,
 except that it uses JSON RPC 2.0. We have an example of making API
 queries in Python and PHP listed
-`here <http://counterparty.io/docs/counterpartyd/#connecting-and-making-requests>`__.
+:doc:`here <counterpartyd_API.rst>`.
 To integrate support into your exchange, you might adopt the following
 methods:
 
 Depositing Funds
-''''''''''''''''
+~~~~~~~~~~~~~~~~~~
 
 -  Create a single primary XCP holding address, or several primary XCP
    holding addresses. The address(es) will hold deposited XCP funds for
@@ -62,8 +62,7 @@ Depositing Funds
    counterpartyd is running with).
 -  You can poll for XCP being sent to the user’s deposit address using
    Counterpartyd’s ``get_balances`` API command, and specifying a
-   `filter for
-   asset==“XCP” <http://counterparty.io/docs/counterpartyd/#filtering-read-api-results>`_
+   :doc:`filter for asset==XCP </counterpartyd_API.rst>`
    when you call it (or simply parsing the XCP balance out of the
    resulting list of asset balances – it’ll probably be the only entry,
    but you can’t guarantee that, as users could send non-XCP assets to
@@ -84,13 +83,13 @@ Depositing Funds
    on your exchange.
 
 Trading
-'''''''
+~~~~~~~~~~~~~~~~~~
 
 Your normal “off-chain” trading engine should work with XCP just like
 any other coin.
 
 Withdrawing Funds
-'''''''''''''''''
+~~~~~~~~~~~~~~~~~~
 
 -  When a user is ready to withdraw their funds, you’d simply make sure
    that the primary XCP holding address has enough BTC dust (e.g. >=

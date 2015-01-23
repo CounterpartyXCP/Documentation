@@ -38,7 +38,7 @@ Note that this API is built on JSON-RPC 2.0, not 1.1. JSON-RPC itself is pretty 
 are made via a HTTP POST request to ``/api/`` (note the trailing slash), with JSON-encoded data passed as the POST body.
 
 General Format
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 All requests must have POST data that is JSON encoded and in the format of:
 
@@ -67,7 +67,7 @@ You should note that the data in ``params`` is a JSON object (e.g. mapping), not
 For more information on JSON RPC, please see the `JSON RPC 2.0 specification <http://www.jsonrpc.org/specification>`__.
 
 Authentication
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 Also note that the ``counterpartyd`` API interface requires HTTP basic authentication to use. The username and password required
 are stored in the ``counterpartyd.conf`` file, as ``rpc-user`` and ``rpc-password``, respectively. You can also modify
 ``rpc-host`` and ``rpc-port`` to change what interface and port number ``counterpartyd`` binds to from the defaults.
@@ -78,7 +78,7 @@ Below we provide a few examples of using the ``counterpartyd`` API. Examples in 
 if you'd like to submit them to us, structured in a way to be useful to other people and use standard libraries/methods. 
 
 Python Example
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -243,7 +243,7 @@ Python Example
     print("\LOCK ASSET RESULT: ", tx_hash)
 
 PHP Example
-^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 With PHP, you can connect and query ``counterpartyd`` using the `JsonRPC <https://github.com/fguillot/JsonRPC>`__
 library. Here's a simple example that will get you the asset balances for a specific address:
@@ -266,7 +266,7 @@ library. Here's a simple example that will get you the asset balances for a spec
     ?>
     
 curl Example
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Here's an example using ``curl`` to make an API call to the ``get_running_info`` method on mainnet.
 
@@ -284,7 +284,7 @@ Terms & Conventions
 .. _assets:
 
 assets
-^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Everywhere in the API an asset is referenced by its name, not its ID. See the
 Counterparty protocol specification for what constitutes a valid asset name.
@@ -298,7 +298,7 @@ Examples:
 .. _quantitys:
 
 Quantities & balances
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Anywhere where an quantity is specified, it is specified in **satoshis** (if a divisible asset), or as whole numbers
 (if an indivisible asset). To convert satoshis to floating-point, simply cast to float and divide by 100,000,000.
@@ -313,14 +313,14 @@ Examples:
 .. _floats:
 
 floats
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Floats are are ratios or floating point values with six decimal places of precision, used in bets and dividends.
 
 .. _filtering:
 
 Filtering Read API results
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Counterparty API aims to be as simple and flexible as possible. To this end, it includes a straightforward
 way to filter the results of most :ref:`Read API functions <read_api>` to get the data you want, and only that.
@@ -351,7 +351,7 @@ the specific comparison logic used, please see `this page <http://www.sqlite.org
 .. _encoding_param:
 
 The ``encoding`` Parameter of ``create_`` Calls 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All ``create_`` API calls return an *unsigned raw transaction string*, hex encoded (i.e. the same format that ``bitcoind`` returns
 with its raw transaction API calls).
@@ -401,7 +401,7 @@ Read API Function Reference
 .. _get_table:
 
 get_{table}
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **get_{table}(filters=[], filterop='AND', order_by=None, order_dir=None, start_block=None, end_block=None, status=None,
 limit=1000, offset=0, show_expired=True)**
 
@@ -458,7 +458,7 @@ For example: ``get_balances``, ``get_credits``, ``get_debits``, etc are all vali
 .. _get_asset_info:
 
 get_asset_info
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **get_asset_info(assets)**
 
 Gets information on an issued asset. 
@@ -482,7 +482,7 @@ Gets information on an issued asset.
 .. _get_asset_names:
 
 get_asset_names
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **get_asset_names()**
 
 Returns a list of all existing Counterparty assets. 
@@ -496,7 +496,7 @@ Returns a list of all existing Counterparty assets.
 .. _get_messages:
 
 get_messages
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **get_messages(block_index)**
 
 Return message feed activity for the specified block index. The message feed essentially tracks all counterpartyd
@@ -513,7 +513,7 @@ database actions and allows for lower-level state tracking for applications that
 .. _get_messages_by_index:
 
 get_messages_by_index
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **get_messages_by_index(message_indexes)**
 
 Return the message feed messages whose ``message_index`` values are contained in the specified list of message indexes.
@@ -529,7 +529,7 @@ Return the message feed messages whose ``message_index`` values are contained in
 .. _get_xcp_supply:
 
 get_xcp_supply
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **get_xcp_supply()**
 
 Gets the current total quantity of XCP in existance (i.e. quantity created via proof-of-burn, minus quantity
@@ -546,7 +546,7 @@ destroyed via asset issuances, etc).
 .. _get_block_info:
 
 get_block_info
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **get_block_info(block_index)**
 
 Gets some basic information on a specific block.
@@ -567,7 +567,7 @@ Gets some basic information on a specific block.
 .. _get_blocks:
 
 get_blocks
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **get_blocks(block_indexes)**
 
@@ -591,7 +591,7 @@ is much quicker than using multiple ``get_block_info()`` and ``get_messages()`` 
 .. _get_running_info:
 
 get_running_info
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **get_running_info()**
 
 Gets some operational parameters for counterpartyd.
@@ -620,7 +620,7 @@ Action/Write API Function Reference
 .. _sign_tx:
 
 sign_tx
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **sign_tx(unsigned_tx_hex, privkey=None)**
 
 Sign a transaction created with the Action/Write API.
@@ -639,7 +639,7 @@ Sign a transaction created with the Action/Write API.
 .. _broadcast_tx:
 
 broadcast_tx
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **broadcast_tx(signed_tx_hex)**
 
 Broadcast a signed transaction onto the Bitcoin network.
@@ -656,7 +656,7 @@ Broadcast a signed transaction onto the Bitcoin network.
 .. _create_bet:
 
 create_bet
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_bet(source, feed_address, bet_type, deadline, wager, counterwager, expiration, target_value=0.0, leverage=5040, encoding='auto', pubkey=null,
 allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
@@ -686,7 +686,7 @@ Issue a bet against a feed.
 .. _create_broadcast:
 
 create_broadcast
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **create_broadcast(source, fee_fraction, text, value=0, encoding='multisig', pubkey=null,
 allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
@@ -712,7 +712,7 @@ Broadcast textual and numerical information to the network.
 .. _create_btcpay:
 
 create_btcpay
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_btcpay(order_match_id, encoding='multisig', pubkey=null,
 allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
@@ -734,7 +734,7 @@ Create and (optionally) broadcast a BTCpay message, to settle an Order Match for
 .. _create_burn:
 
 create_burn
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_burn(source, quantity, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 283810**).
@@ -756,7 +756,7 @@ Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 
 .. _create_cancel:
 
 create_cancel
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_cancel(offer_hash, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Cancel an open order or bet you created.
@@ -777,7 +777,7 @@ Cancel an open order or bet you created.
 .. _create_dividend:
 
 create_dividend
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_dividend(source, quantity_per_unit, asset, dividend_asset, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Issue a dividend on a specific user defined asset.
@@ -801,7 +801,7 @@ Issue a dividend on a specific user defined asset.
 .. _create_issuance:
 
 create_issuance
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_issuance(source, asset, quantity, divisible, description,
 transfer_destination=null, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
@@ -835,7 +835,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 .. _create_order:
 
 create_order
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_order(source, give_asset, give_quantity, get_asset, get_quantity, expiration, fee_required=0, fee_provided=0, encoding='multisig', pubkey=null,
 allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
@@ -864,7 +864,7 @@ Issue an order request.
 .. _create_send:
 
 create_send
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_send(source, destination, asset, quantity, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Send XCP or a user defined asset.
@@ -888,7 +888,7 @@ Send XCP or a user defined asset.
 .. _create_rps:
 
 create_rps
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **create_rps(source, possible_moves, wager, move_random_hash, expiration, encoding='multisig', pubkey=null,
 allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
@@ -912,7 +912,7 @@ Open a Rock-Paper-Scissors (RPS) like game.
   The unsigned transaction, as an hex-encoded string. See :ref:`this section <encoding_param>` for more information.
 
 create_rpsresolve
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **create_rpsresolve(source, move, random, rps_match_id, encoding='multisig', pubkey=null,
 allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
@@ -936,7 +936,7 @@ Resolve a Rock-Paper-Scissors game.
 .. _do_table:
 
 do_{table}
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 **do_{entity}(VARIABLE)**
 
 This method is a simplified alternative to the appropriate ``create_`` method. Instead of returning just an unsigned
@@ -969,7 +969,7 @@ The API calls documented can return any one of these objects.
 .. _balance-object:
 
 Balance Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes a balance that is associated to a specific address:
 
@@ -981,7 +981,7 @@ An object that describes a balance that is associated to a specific address:
 .. _bet-object:
 
 Bet Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes a specific bet:
 
@@ -1006,7 +1006,7 @@ An object that describes a specific bet:
 .. _bet-match-object:
 
 Bet Match Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes a specific occurance of two bets being matched (either partially, or fully):
 
@@ -1036,7 +1036,7 @@ An object that describes a specific occurance of two bets being matched (either 
 .. _broadcast-object:
 
 Broadcast Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes a specific occurance of a broadcast event (i.e. creating/extending a feed):
 
@@ -1054,7 +1054,7 @@ An object that describes a specific occurance of a broadcast event (i.e. creatin
 .. _btcpay-object:
 
 BTCPay Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that matches a request to settle an Order Match for which BTC is owed:
 
@@ -1069,7 +1069,7 @@ An object that matches a request to settle an Order Match for which BTC is owed:
 .. _burn-object:
 
 Burn Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes an instance of a specific burn:
 
@@ -1085,7 +1085,7 @@ An object that describes an instance of a specific burn:
 .. _cancel-object:
 
 Cancel Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes a cancellation of a (previously) open order or bet:
 
@@ -1100,7 +1100,7 @@ An object that describes a cancellation of a (previously) open order or bet:
 .. _debit-credit-object:
 
 Debit/Credit Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes a account debit or credit:
 
@@ -1115,7 +1115,7 @@ An object that describes a account debit or credit:
 .. _dividend-object:
 
 Dividend Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes an issuance of dividends on a specific user defined asset:
 
@@ -1131,7 +1131,7 @@ An object that describes an issuance of dividends on a specific user defined ass
 .. _issuance-object:
 
 Issuance Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes a specific occurance of a user defined asset being issued, or re-issued:
 
@@ -1149,7 +1149,7 @@ An object that describes a specific occurance of a user defined asset being issu
 .. _order-object:
 
 Order Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes a specific order:
 
@@ -1172,7 +1172,7 @@ An object that describes a specific order:
 .. _order-match-object:
 
 Order Match Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes a specific occurance of two orders being matched (either partially, or fully):
 
@@ -1196,7 +1196,7 @@ An object that describes a specific occurance of two orders being matched (eithe
 .. _send-object:
 
 Send Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes a specific send (e.g. "simple send", of XCP, or a user defined asset):
 
@@ -1213,7 +1213,7 @@ An object that describes a specific send (e.g. "simple send", of XCP, or a user 
 .. _message-object:
 
 Message Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 An object that describes a specific event in the counterpartyd message feed (which can be used by 3rd party applications
 to track state changes to the counterpartyd database on a block-by-block basis).
@@ -1230,7 +1230,7 @@ to track state changes to the counterpartyd database on a block-by-block basis).
 .. _bet-expiration-object:
 
 Bet Expiration Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes the expiration of a bet created by the source address.
 
@@ -1243,7 +1243,7 @@ An object that describes the expiration of a bet created by the source address.
 .. _order-expiration-object:
 
 Order Expiration Object
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes the expiration of an order created by the source address.
 
@@ -1256,7 +1256,7 @@ An object that describes the expiration of an order created by the source addres
 .. _bet-match-expiration-object:
 
 Bet Match Expiration Object
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes the expiration of a bet match.
 
@@ -1269,7 +1269,7 @@ An object that describes the expiration of a bet match.
 .. _order-match-expiration-object:
 
 Order Match Expiration Object
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An object that describes the expiration of an order match.
 
@@ -1314,7 +1314,7 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 .. _9_24_1:
 
 9.24.1
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 **Summary:** New API parsing engine added, as well as dynamic get_ method composition in ``api.py``: 
 
@@ -1325,7 +1325,7 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 .. _9_25_0:
 
 9.25.0
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 * new do_* methods: like create_*, but also sign and broadcast the transaction. Same parameters as create_*, plus optional privkey parameter.
 
@@ -1342,7 +1342,7 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 .. _9_32_0:
 
 9.32.0
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 **Summary:** API framework overhaul for performance and simplicity 
 
@@ -1354,13 +1354,13 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 .. _9_43_0:
 
 9.43.0
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 * create_issuance: ``callable`` is also accepted
 * create_*: None is used as default value for missing parameters 
 
 9.49.3
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 * \*_issuance: ``callable``, ``call_date`` and ``call_price`` are no longer valid parameters
 * \*_callback: removed
 * Bitcoin addresses may everywhere be replaced by pubkeys.
