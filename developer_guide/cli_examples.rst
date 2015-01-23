@@ -162,6 +162,4 @@ Input and Output
 
 * Quantities of divisible assets are written to eight decimal places.
 * Quantities of indivisible assets are written as integers.
-* All other quantities, i.e. prices, odds, leverages, feed values and target
-values, fee multipliers, are represented internally as fractions, but printed
-to four decimal places.
+* All other quantities, i.e. prices, odds, leverages, feed values and target values, fee multipliers, are represented internally as fractions, but printed to four decimal places.
