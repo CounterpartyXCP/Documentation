@@ -9,11 +9,11 @@ the Bitcoin blockchain and using the blockchain as a service for the
 reliable publication and timestamping of its messages.
 
 The reference implementation is ``counterpartyd``, which is hosted at
-https://github.com/CounterpartyXCP/counterpartyd.
+`https://github.com/CounterpartyXCP/counterpartyd <https://github.com/CounterpartyXCP/counterpartyd>`_.
 
 This document describes exclusively the latest version of the
 Counterparty protocol. For historical protocol changes, see the
-counterpartyd CHANGELOG and earlier versions of this document.
+counterpartyd `CHANGELOG <https://github.com/CounterpartyXCP/counterpartyd/blob/master/ChangeLog.md>`_ .
 
 Transactions
 ------------
