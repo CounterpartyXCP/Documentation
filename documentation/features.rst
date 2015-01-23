@@ -192,7 +192,7 @@ Using the command line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Trading non-BTC assets (``order``)
-''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Assets can be trade on the decentralized exchange using the ``order``
 function. For Sally to receive [get\_quantity]1 of [get\_asset]1 in
