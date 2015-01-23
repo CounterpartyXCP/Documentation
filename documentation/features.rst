@@ -37,8 +37,6 @@ The most basic kind of asset must specify:
 -  how much of [asset] is being issued ([quantity])
 -  a description of asset ([description])
 
-.. _Enhanced Asset Info: https://github.com/CounterpartyXCP/Community/wiki/Enhanced-Asset-Info
-
 An asset’s name must comprise only capital Latin letters, be four
 characters or more, and not start with an ‘A’. It is possible to issue
 more of [asset], but, at any one time, there can only be one address
@@ -350,7 +348,7 @@ BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
 Using the command line
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 To issue BOBUSD, the command line operation is:
 
