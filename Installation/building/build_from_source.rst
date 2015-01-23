@@ -2,7 +2,7 @@ Building & Running from Source
 ================================
 
 **NOTE:** Please make sure you've followed the instructions in the
-:doc:`Setting up bitcoind </set-up-bitcoind.rst>` section before
+:doc:`Setting up bitcoind </set_up_bitcoind.rst>` section before
 moving through this section.
 
 This section provides information about how to install and run ``counterpartyd`` from source, using this
