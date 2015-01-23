@@ -9,8 +9,6 @@ To get ``counterpartyd`` installed and set up on your computer, you have two opt
 
 - Set it up manually, using the instructions `here ttle an Order Match for which BTC is owed:
 
-.. contents:: **Table of Contents**
-
 Interacting with the API
 =========================
 
