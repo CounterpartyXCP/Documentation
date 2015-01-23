@@ -1,11 +1,11 @@
 What is Counterparty?
 =====================
 
-Counterparty is a **peer-to-peer financial platform** and a distributed, open-source Internet protocol built on top of the **Bitcoin blockchain** and network. 
+Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. 
 
 By encoding data in ordinary Bitcoin transactions, Counterparty extends Bitcoin’s functionality in new and unprecedented ways, opening the door for innovation. The Bitcoin protocol stays exactly the same, while supporting the development and adoption of valuable new features, all secured by the full power of the Bitcoin network. 
 
-Besides providing users with the world’s first functioning decentralized exchange, as well as the ability to create virtual assets, issue dividends, create price feeds and bets, Counterparty enables anyone to **create smart contracts on the Bitcoin blockchain**. Smart contracts are agreements whose terms and conditions are digitized, and do not require arbitration by a third-party to determine their outcome, but instead are executed automatically, with no intermediation. Counterparty's built-in Turing-complete scripting language allows anyone to create smart contracts and execute their code on the Bitcoin blockchain.
+Besides providing users with the world’s first functioning decentralized exchange, as well as the ability to create virtual assets, issue dividends, create price feeds and bets, Counterparty enables anyone to create smart contracts on the Bitcoin blockchain. Smart contracts are agreements whose terms and conditions are digitized, and do not require arbitration by a third-party to determine their outcome, but instead are executed automatically, with no intermediation. Counterparty's built-in Turing-complete scripting language allows anyone to create smart contracts and execute their code on the Bitcoin blockchain.
 
 Along with the Counterparty protocol, the platform consists of the native XCP token to perform advanced operations, and the secure, browser-based Counterwallet to provide the functionality.
 

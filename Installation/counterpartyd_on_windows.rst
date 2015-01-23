@@ -1,5 +1,5 @@
-Installation (Manual)
-=====================
+Installing counterpartyd on Windows
+========================================
 
 Bitcoin Core with ``addrindex`` patch
 -------------------------------------------------------
@@ -22,7 +22,7 @@ Bitcoin Core 0.10.0 on Windows 7 and 2012
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Counterpartyd does not yet support this version, but can work with it.
-More `here`_.
+More `here <https://github.com/rippler/bitcoin-core-0.10.0-addrindex>`_.
 
 To build from source, download Bitcoin Core 0.10.0 patched with
 jmcorgan’s addrindex patch and compile binaries by following any working
@@ -38,46 +38,13 @@ build), and `this <https://github.com/rippler/bitcoin-core-0.10.0-addrindex/blob
 .. _official Counterpartyd install guide: http://counterparty.io/docs/build-system/build-from-source/
 .. _here: https://github.com/rippler/bitcoin-core-0.10.0-addrindex
 .. _this: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
-
-
-
-Biticoin Core 0.9.2 on Ubuntu 14.04
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  Standalone counterpartyd users: Download and build a patched version
-   of Bitcoin Core 0.9.2 from source as per the usual procedure. Then
-   install Counterpartyd (Reference: :doc:`counterpartyd install documentation </build_from_source.rst>`).
-
-Prebuilt binaries can be found on 3rd party sites (`such as this
-one <https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta>`_).
-
--  Federated Node users: Federated Node installation and configuration
-   script (``setup_federated_node.py``) automatically downloads and
-   builds the binary for you. Make sure you follow the `official
-   documentation`_ because there’s more to it than just one script.
-
-Biticoin Core 0.10.0 on Ubuntu 14.04
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This version is not yet supported.
-
 .. _Counterpartyd install documentation: http://counterparty.io/docs/build-system/
 .. _official documentation: http://counterparty.io/docs/build-system/federated-node/
 
 Installing counterpartyd
 ------------------------
 
-.. note::
-
-        This section covers manual installation of counterpartyd. If you want more of an automated approach to counterpartyd installation for Windows and Ubuntu Linux, use the `build system`_. 
-
-Installation on alternative operating systems: Ubuntu 14.04 is the
-default OS for Counterparty software, but counterpartyd is known to run
-on other versions of Ubuntu and even other OS as well. 
-
-- :doc:`ArchLinux </archlinux_install.rst>`, 
-- :doc:`Debian </debian_install.rst>`, OS X 
-- :doc:`How to choose? </glossary.rst>` - page with overview of software packages and installation options for System Administrators and Developers
+This section covers manual installation of counterpartyd. If you want more of an automated approach to counterpartyd installation for Windows and Ubuntu Linux, use the :doc:`build system </build_counterpartyd.rst`. 
 
 In order for counterpartyd to function, it must be able to communicate
 with a running instance of Bitcoin Core, which handles many
@@ -151,17 +118,16 @@ the 64-bit version of Python it is safer to use the 32-bit version. This
 page is for those interested in getting Counterparty to work with the
 64-bit version of Python.
 
-.. note::
+**Note:**
 
-
-   This process was tested twice on a freshly installed
-   and up-to-date version of Windows 7 SP1 x64, Python 3.4.1 and other
-   packages mentioned below and it was found to work.
+ This process was tested twice on a freshly installed
+ and up-to-date version of Windows 7 SP1 x64, Python 3.4.1 and other
+ packages mentioned below and it was found to work.
 
 Install Visual Studio 2010 Express and Its SP1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+`Download link <https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express>`_
 
 Install MS SDK for Windows v7.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

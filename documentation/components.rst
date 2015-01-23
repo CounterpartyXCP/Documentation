@@ -20,7 +20,7 @@ parsing out Counterparty transactions from the Bitcoin blockchain, and
 encoding new Counterparty transactions from a command issued via the
 command line, or an API call.
 
-Full counterpartyd API documantation is available at :doc:`api_documentation`
+Full counterpartyd API documantation is available :doc:`here </counterpartyd_API.rst>`
 
 Insight / blockr.io
 ----------------------
