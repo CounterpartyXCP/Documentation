@@ -124,27 +124,27 @@ page is for those interested in getting Counterparty to work with the
  and up-to-date version of Windows 7 SP1 x64, Python 3.4.1 and other
  packages mentioned below and it was found to work.
 
-        **1. Install Visual Studio 2010 Express and Its SP1:** `Download link <https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express>`_
-        
-        **2. Install MS SDK for Windows v7.1**
-        
-                When installing, under ``Windows Native Code Development``, check ``Windows C++ Compilers`` `here <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279>`_
-        
-        **3. Install KB 2519277** (`Microsoft Visual C++ 2010 Service Pack 1 Compiler Update for the Windows SDK 7.1 <http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70>`_)
-        
-        **4. Download and install Python 3.4 (64-bit):** Use installation defaults but select ``Add python.exe to PATH``, URL: `http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi <http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi>`_
-        
-        **5. Install binaries of Python Win32 extensions, APSW and cx\_freeze for the 64-bit version of Python 3.4**
-       
-                - `PyWin32 for Python 3.4 <http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win-amd64-py3.4.exe/download>`_
-                -  `APSW for Python 3.4 <https://github.com/rogerbinns/apsw/releases/download/3.8.5-r1/apsw-3.8.5-r1.win-amd64-py3.4.exe>`_
-                -  `cx\_freeze for Python 3.4 <http://sourceforge.net/projects/cx-freeze/files/4.3.3/cx_Freeze-4.3.3.win-amd64-py3.4.msi/download>`_
-       
-        **6. Install Open SSL**
-      
-                - If you already don't have OpenSSL, you will need to install it.
-                - A 64-bit OpenSSL binary package for Windows can be obtained `here <http://slproweb.com/download/Win64OpenSSL_Light-1_0_1j.exe>`_. You may need `Microsoft Visual C++ 2008 SP1 Redistributable Package (x64) <http://www.microsoft.com/en-us/download/details.aspx?id=2092>`_ as well.
-                - Refer to `http://slproweb.com/products/Win32OpenSSL.html <http://slproweb.com/products/Win32OpenSSL.html>`_ for additional details.
+**1. Install Visual Studio 2010 Express and Its SP1:** `Download link <https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express>`_
+
+**2. Install MS SDK for Windows v7.1**
+
+        When installing, under ``Windows Native Code Development``, check ``Windows C++ Compilers`` `here <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279>`_
+
+**3. Install KB 2519277** (`Microsoft Visual C++ 2010 Service Pack 1 Compiler Update for the Windows SDK 7.1 <http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70>`_)
+
+**4. Download and install Python 3.4 (64-bit):** Use installation defaults but select ``Add python.exe to PATH``, URL: `http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi <http://www.python.org/ftp/python/3.4.1/python-3.4.1.amd64.msi>`_
+
+**5. Install binaries of Python Win32 extensions, APSW and cx\_freeze for the 64-bit version of Python 3.4**
+
+        - `PyWin32 for Python 3.4 <http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win-amd64-py3.4.exe/download>`_
+        -  `APSW for Python 3.4 <https://github.com/rogerbinns/apsw/releases/download/3.8.5-r1/apsw-3.8.5-r1.win-amd64-py3.4.exe>`_
+        -  `cx\_freeze for Python 3.4 <http://sourceforge.net/projects/cx-freeze/files/4.3.3/cx_Freeze-4.3.3.win-amd64-py3.4.msi/download>`_
+
+**6. Install Open SSL**
+
+        - If you already don't have OpenSSL, you will need to install it.
+        - A 64-bit OpenSSL binary package for Windows can be obtained `here <http://slproweb.com/download/Win64OpenSSL_Light-1_0_1j.exe>`_. You may need `Microsoft Visual C++ 2008 SP1 Redistributable Package (x64) <http://www.microsoft.com/en-us/download/details.aspx?id=2092>`_ as well.
+        - Refer to `http://slproweb.com/products/Win32OpenSSL.html <http://slproweb.com/products/Win32OpenSSL.html>`_ for additional details.
 
 Install Counterparty
 ~~~~~~~~~~~~~~~~~~~~
