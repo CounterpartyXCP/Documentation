@@ -3,7 +3,7 @@ Additional Topics
 
 This section contains some tidbits of info that you may find useful when working with ``counterpartyd``.
 
-For a good overview of what you can do with ``counterpartyd``, see `this link <https://github.com/CounterpartyXCP/counterpartyd#usage>`__.
+For a good overview of what you can do with ``counterpartyd``, see :doc:`this link </counterpartyd_API.rst>`.
 
 Finding the Data Directory
 ---------------------------
