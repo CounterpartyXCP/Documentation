@@ -138,13 +138,16 @@ of memory, and enough disk space to cover the installation and use of the desire
 Node Setup
 -----------
 
-Once the server is provisioned and set up as above, you will need to install all of the necessary software and dependencies. We have an
-installation script for this, that is fully automated **and installs ALL dependencies, including ``bitcoind`` and ``insight``**::
+Once the server is provisioned and set up as above, you will need to install all of the necessary software and dependencies using the Bash shell. We have an
+installation script for this, that is fully automated **and installs ALL dependencies, including ``bitcoind``**::
 
     BRANCH=master
-    cd ~ && wget -q https://raw.github.com/CounterpartyXCP/counterpartyd_build/${BRANCH}/setup_federated_node.py \
-    https://raw.github.com/CounterpartyXCP/counterpartyd_build/${BRANCH}/setup_util.py && \
+    cd ~ 
+    wget -q https://raw.github.com/CounterpartyXCP/counterpartyd_build/${BRANCH}/setup_federated_node.py -o setup_federated_node.py
+    wget -q https://raw.github.com/CounterpartyXCP/counterpartyd_build/${BRANCH}/setup_util.py -o setup_util.py
     sudo python3 setup_federated_node.py
+
+Note: above ``wget`` commands overwrite previously downloaded setup scripts (if any). Make a backup if you want to keep them.
 
 Then just follow the on-screen prompts (choosing to build from *master* if you are building a production node,
 or from *develop* **only** if you are a developer or want access to bleeding edge code that is not fully tested).
