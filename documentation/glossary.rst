@@ -84,8 +84,7 @@ Ubuntu 14.04.
    Federated Node could require significant efforts.
 -  Docker or other approaches are not yet available
 
-.. _setup a Counterblock Federated Node: http://counterparty.io/docs/build-system/federated-node/
-.. _the Build System: http://counterparty.io/docs/build-system/
+
 .. _counterparty.io: http://counterparty.io
 .. _counterpartyfoundation.org: http://counterpartyfoundation.org
 .. _counterwallet.io: https://counterwallet.io
