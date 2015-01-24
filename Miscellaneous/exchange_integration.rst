@@ -116,4 +116,3 @@ Improving performance
 -  For higher counterpartyd performance, you can add the options
    ``api-num-threads=100`` and ``api-request-queue-size=500`` to your
    counterpartyd.conf
-   
