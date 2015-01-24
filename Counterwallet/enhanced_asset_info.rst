@@ -35,6 +35,8 @@ data:
 |  **image**      | Optional   | A link a 48x48 PNG image to represent the token on the leaderboard and portfolio views. The|
 |                 |            | text itself must be a valid URL that starts with “http://” or “https://” (100 characters   |
 |                 |            | max). The image the URL references must be in PNG format (the URL must end in .png). It    |
+|                 |            | must be 48x48, and it must use the RGB or RGBA color palette. If any of these are not      |
+|                 |            | correct, the system will reject it.                                                        |
 +-----------------+------------+--------------------------------------------------------------------------------------------+
 |  **website**    | Optional   | A link to the website for the token. 100 characters max. Must be a valid URL that starts   |
 |                 |            | with “http://” or “https://”                                                               |
