@@ -1,8 +1,9 @@
 Prerequisites
 ^^^^^^^^^^^^^^^
 
-**NOTE:** These instructions cover building counterpartyd as 32-bit. This will work with both 32-bit and 64-bit versions of
-Windows, and is the simplier and recommended approach
+**NOTE:** These instructions cover building counterpartyd as 32-bit. This will
+work with both 32-bit and 64-bit versions of Windows, and is the simplier and
+recommended approach
 
 Minimally required to build ``counterpartyd`` from source is the following:
 
@@ -31,5 +32,3 @@ When installing, under ``Windows Native Code Development``, check
 
 Also install KB 2519277 (`Microsoft Visual C++ 2010 Service Pack 1
 Compiler Update for the Windows SDK 7.1 <http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70>`_)
-
-
