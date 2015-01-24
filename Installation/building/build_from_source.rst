@@ -105,9 +105,9 @@ On Linux
 Prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, Ubuntu Linux (Server or Desktop) **12.04 LTS**, **13.10**, and **14.04** are supported.
+Currently, Ubuntu Linux (Server or Desktop) **14.04 LTS** is officially supported.
 
-Support for other distributions is a future task.
+Other versions and distributions may work as well, but are not officially supported and maintained.
 
 
 Installing
