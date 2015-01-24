@@ -90,8 +90,6 @@ Always have block index = 9999999 (``config.MEMPOOL_BLOCK_INDEX``).
 
 DB changes never persist across sessions.
 
-No matching for orders, bets, rps.
-
 Assets
 ------
 
@@ -121,16 +119,6 @@ Assets may be either divisible or indivisible, and divisible assets are
 divisible to eight decimal places. Assets also come with descriptions,
 which may be changed at any time.
 
-Assets may be ‘callable’: callable assets may be forcibly ‘called back’
-by their present issuer, after their *call date*, for their *call price*
-(in XCP), these values being set at the time of the asset’s first
-issuance.
-
-Callable assets may be called back after their call date has been first
-passed by a block in the blockchain.
-
-Call prices are specified to six decimal place of precision, and are a
-ratio of XCP and the unit (not satoshis) of the callable asset.
 
 Quantities, Prices, Fractions
 -----------------------------
@@ -180,7 +168,7 @@ A **send** message sends a quantity of any Counterparty asset from the
 source address to the destination address. If the sender does not hold a
 sufficient quantity of that asset at the time that the send message is
 parsed (in the sequence of transactions), then the send is filled
-partially.
+as much as it can be.
 
 counterpartyd supports sending bitcoins, for which no data output is
 used.
@@ -226,8 +214,8 @@ Open orders expire after they have been open for a user‐specified number
 of blocks. When an order expires, all escrowed funds are returned to the
 parties that originally had them.
 
-Order Matches waiting for Bitcoin payments expire after twenty blocks
-(originally otherwise); the constituent orders are replenished.
+Order Matches waiting for Bitcoin payments expire after twenty blocks; the
+constituent orders are replenished.
 
 In general, there can be no such thing as a fake order, because the
 assets that each party is offering are stored in escrow. However, it is
@@ -287,8 +275,7 @@ prices of a currency, or parts of a code for describing discrete
 possible outcomes of a future event, for example. One might describe
 such a code with a text like, ‘US QE on 2014-01-01: dec=1, const=2,
 inc=3’ and announce the results with ‘US QE on 2014-01-01: decrease!’
-and a value of 1. The schema for more complicated bets may be published
-off‐chain.
+and a value of 1.
 
 The publishing of a single broadcast with a textual message equal to
 ‘LOCK’ (case‐insensitive) locks the feed, and prevents it both from
@@ -310,28 +297,17 @@ bet settlement, but they still update the last broadcast time.
 Bet
 ~~~
 
-There are (currently) two kinds of **bets**. The first is a wager that
-the value of a particular feed will be equal (or not equal) to a certain
-value — the *target value* — at the *deadline*. The second is a contract
-for difference with a definite settlement date. Both simple
-Equal/NotEqual Bets and Bull/Bear CFDs have their wagers put in escrow
-upon being matched, and they are settled when the feed that they rely on
-passes the deadline. CFDs, actually, may be force‐liquidated before then
-if the feed value moves so much that the escrow is exhausted.
+A bet is a wager that the value of a particular feed will be equal (or not
+equal) to a certain value — the *target value* — at the *deadline*. Bets have
+their wagers put in escrow upon being matched, and they are settled when the
+feed that they rely on passes the deadline.
 
-CFDs may be leveraged, and their leverage level is specified with 5040
-equal to the unit and stored as an integer: a leverage level of 5040
-means that the wager should be leveraged 1:1; a level of 10080 means
-that a one‐point increase in the value of a feed entails a two‐point
-increase (decrease) in the value of the contract for the bull (bear).
-
-CFDs have no target value, and Equal/NotEqual Bets cannot be leveraged.
-However, for two Bets to be matched, their leverage levels, deadlines
-and target values must be identical. Otherwise, they are matched the
-same way that orders are, except a Bet’s *odds* are the multiplicative
-inverse of an order’s price (odds = wager/counterwager): each Bet is
-matched, if possible, to the open Bet with the highest odds, as much as
-possible.
+Equal/NotEqual Bets cannot be leveraged.  However, for two Bets to be matched,
+their leverage levels, deadlines and target values must be identical.
+Otherwise, they are matched the same way that orders are, except a Bet’s *odds*
+are the multiplicative inverse of an order’s price (odds = wager/counterwager):
+each Bet is matched, if possible, to the open Bet with the highest odds, as
+much as possible.
 
 Target values must be non‐negative, and Bet Matches (contracts) are not
 affected by broadcasts with a value of -1.
@@ -437,7 +413,7 @@ Counterparty (it would not be possible for them to be paid in Bitcoin).
 The contract system will be fully compatible with the existing
 Counterparty asset system and decentralized exchange.
 
-The economics of the fee system for Counterparty Contracts is
+The economics of the fee system for Counterparty Contracts are
 necessarily rather different from those of Ethereum, simply because
 there are no Counterparty miners. All Counterparty nodes will execute
 all contracts, and it will be the holders of XCP that receive the fees
