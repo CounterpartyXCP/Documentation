@@ -28,7 +28,7 @@ Minimally required to build ``counterpartyd`` from source is the following:
 - APSW for Windows -- grab the `32-bit version <https://github.com/rogerbinns/apsw/releases/download/3.8.5-r1/apsw-3.8.5-r1.win32-py3.4.exe>`__
 - Pycrypto for Windows -- grab the `32-bit version <https://s3.amazonaws.com/counterparty-bootstrap/pycrypto-2.6.1.win32-py3.4.exe>`__
 - Visual C++ 2008 Redistributables (if not already installed) -- grab it `here <http://www.microsoft.com/downloads/details.aspx?familyid=9B2DA534-3E03-4391-8A4D-074B9F2BC1BF>`__
-- OpenSSL for Windows -- grab the `32-bit version <http://slproweb.com/download/Win32OpenSSL_Light-1_0_1j.exe>`__
+- OpenSSL for Windows -- grab the `32-bit version <http://slproweb.com/download/Win32OpenSSL_Light-1_0_1L.exe>`__
 - `Git for Windows <http://git-scm.com/download/win>`__
   - Use the default installer options (except, select *"Use Git from the Windows Command Prompt"* on the appropriate screen)
 
