@@ -79,16 +79,14 @@ transaction is made that changes the description field (it may be to the
 same URL, but another description change transaction is necessary to
 reinitialize the validity check by counterblockd).
 
-Validating your JSON data
-=========================
 
 Validating your JSON data
 ============================
 
-Your JSON data must respect and validate against [this](https://raw.githubusercontent.com/CounterpartyXCP/counterblockd/master/schemas/asset.schema.json) JSON schema. If
+Your JSON data must respect and validate against `this <https://raw.githubusercontent.com/CounterpartyXCP/counterblockd/master/schemas/asset.schema.json>`_ JSON schema. If
 the validation fails on any level, counterblockd will not accept the
 data.
 
-To check your data against this schema, go [here](http://json-schema-validator.herokuapp.com/). Paste the schema
+To check your data against this schema, go `here <http://json-schema-validator.herokuapp.com/>`_. Paste the schema
 from the link above into the **Schema** field, and place your example
 output into the **Data** field. Then click the **Validate** button
