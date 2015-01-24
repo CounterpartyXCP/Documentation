@@ -6,24 +6,22 @@ In case you’re lost and don’t know where to start…
 Web sites
 ---------
 
--  `counterparty.io`_ - Web site of the Counterparty Project (also .co)
+-  `counterparty.io`_ - Web site of the Counterparty Project
 -  `counterpartyfoundation.org`_ - the Counterparty Foundation
--  `counterwallet.io`_ - Counterparty-hosted instances of Counterwallet
-   on mainnet (also .co)
+-  `counterwallet.io`_ - Counterparty-hosted instances of Counterwallet (mainnet)
 
    -  `devtest.counterwallet.io`_ - a test & development server
       (self-signed SSL cert)
    -  `testnet.counterwallet.io`_ - a Counterwallet testnet instance
-      running on bitcoin testnet. Use this as your Counterwallet
-      “playground” (self-signed SSL cert)
+      running on bitcoin testnet. (self-signed SSL cert)
    -  `beta.counterwallet.io`_ - Counterwallet instance usually running
       code from one or more ``develop`` branches (``counterpartyd``,
       ``counterblockd``, ``counterwalletd`` or any combination thereof)
       (self-signed SSL cert)
 
--  `support.counterparty.io`_ - the Support site (also .co)
--  `forums.counterparty.io`_ - the Forums site (also .co)
-
+-  `support.counterparty.io`_ - the Support site
+-  `forums.counterparty.io`_ - the Forums site
+-  `status.counterparty.io`_ - status of various sites and services
 
 Repositories
 ------------
@@ -36,10 +34,7 @@ Repositories
    -  `counterblockd`_ - Provides extended API services to
       Counterwallet, as well as Counterparty 3rd-party applications
    -  `Counterwallet`_ - the Web wallet
-   -  `federatednode_build`_ - 
-
--  `status.counterparty.io`_ - status of various sites and services
-   (also .co)
+   -  `federatednode_build_` - 
 
 
 Software
@@ -54,8 +49,6 @@ transactions, or general state info. Its responsibilities include
 parsing out Counterparty transactions from the Bitcoin blockchain, and
 encoding new Counterparty transactions from a command issued via the
 command line, or an API call.
-
-Full counterpartyd API documantation is available :doc:`here </counterpartyd_API.rst>`
 
 counterblockd
 ~~~~~~~~~~~~~
