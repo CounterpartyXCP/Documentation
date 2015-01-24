@@ -2,13 +2,14 @@
 
 `counterparty-cli` is a command line interface for [`counterparty-lib`](https://github.com/CounterpartyXCP/counterpartyd).
 
-# Dependencies
-
-* [Python 3](http://python.org)
-* [`counterparty-lib`](https://github.com/CounterpartyXCP/counterpartyd)
-* [Bitcoin Core](https://github.com/bitcoin/bitcoin) 
-
 # Installation
+
+## Pre‐Requisites
+
+* Bitcoin Core *TODO*
+
+
+## Install
 
 `pip install counterparty-cli`
 
@@ -19,6 +20,11 @@ git clone https://github.com/CounterpartyXCP/counterparty-cli.git
 cd counterparty-cli
 python3 setup.py install
 ```
+
+## Windows
+
+*TODO*
+
 
 # Counterparty server
 
@@ -83,3 +89,10 @@ A counterparty-client configuration file looks like this:
     counterparty-rpc-host = localhost
     counterparty-rpc-user = rpcuser
     counterparty-rpc-password = password
+
+
+# Logs
+
+# Configuration
+
+# Data directory
