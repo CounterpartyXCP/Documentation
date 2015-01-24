@@ -73,16 +73,14 @@ Ubuntu 14.04.
    and what each of them does. There is no other automated way to
    install Counterparty at the moment.
 
-**Note:**
-
-
--  (3rd party) Bitcoin Core with a full copy of indexed blockchain is
-   required for both ``counterpartyd`` and Counterwallet.
--  While it is possible to install all these packages manually, it is
-   difficult and can be time consuming. ``counterpartyd`` can be
-   manually installed on Debian, OS X and other Linux/UNIX variants, but
-   Federated Node could require significant efforts.
--  Docker or other approaches are not yet available
+.. note:
+   -  (3rd party) Bitcoin Core with a full copy of indexed blockchain is
+      required for both ``counterpartyd`` and Counterwallet.
+   -  While it is possible to install all these packages manually, it is
+      difficult and can be time consuming. ``counterpartyd`` can be
+      manually installed on Debian, OS X and other Linux/UNIX variants, but
+      Federated Node could require significant efforts.
+   -  Docker or other approaches are not yet available
 
 
 .. _counterparty.io: http://counterparty.io
