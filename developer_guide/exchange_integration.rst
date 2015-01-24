@@ -61,7 +61,7 @@ Depositing Funds
    for them (using the API of the bitcoind instance that your
    counterpartyd is running with).
 -  You can poll for XCP being sent to the user’s deposit address using
-   Counterpartyd’s ``get_balances`` API command, and specifying a :doc:`filter for asset==XCP </counterpartyd_API.rst>`
+   Counterpartyd’s ``get_balances`` :doc:`API command </counterpartyd_API.rst>`, and specifying ``filter for asset==XCP``
    when you call it (or simply parsing the XCP balance out of the
    resulting list of asset balances – it’ll probably be the only entry,
    but you can’t guarantee that, as users could send non-XCP assets to
