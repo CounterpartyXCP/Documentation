@@ -67,8 +67,11 @@ counterpartyd
       part, usually the last few lines). In case of API errors, copy the
       error.
 
-Where to submit bug reports/issues?
----------------------------------------------
+
+   - Test Suite
+
+        The test suite is invoked with `$ py.test` in the `counterpartylib` directory of the
+        counterparty-lib repository.
 
 -  All Counterparty projects are hosted on Github and can be found at
    `https://github.com/CounterpartyXCP <https://github.com/CounterpartyXCP>`_.
