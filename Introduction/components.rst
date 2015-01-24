@@ -22,17 +22,6 @@ command line, or an API call.
 
 Full counterpartyd API documantation is available :doc:`here </counterpartyd_API.rst>`
 
-Insight / blockr.io
-----------------------
-
-Both insight and blockr.io allow for local querying of balance
-information and unspent transaction outputs (UTXOs) for arbitrary
-addresses. This is a feature not available to bitcoind itself.
-Alternatives to running insight on the server are using a service like
-blockr.io, which both counterpartyd and counterblockd support. For the
-most reliable service, we recommend that production servers (at least)
-run insight locally.
-
 counterblockd
 ----------------
 

@@ -11,7 +11,6 @@ Build counterpartyd
 
 1. :doc:`Set up bitcoind </set_up_bitcoind.rst>`
 2. :doc:`Build from Source </build_from_source.rst>`
-3. :doc:`Set up Insight </setting_up_insight.rst>` (Optional)
 
 These instructions make use of a build script that takes care of all setup necessary to set up counterpartyd from source on your system. Beyond this, the :doc:`Additional Topics </additional_topics.rst>` document contains useful information around operating counterpartyd, once installed.
 

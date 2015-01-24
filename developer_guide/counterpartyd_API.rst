@@ -452,8 +452,7 @@ For example: ``get_balances``, ``get_credits``, ``get_debits``, etc are all vali
 **Notes:**
 
   * Please note that the ``get_balances`` API call will not return balances for BTC itself. It only returns balances
-    for XCP and other Counterparty assets. To get BTC-based balances, use an existing system such as Insight, blockr.io,
-    or blockchain.info.
+    for XCP and other Counterparty assets. # TODO: Is this true?
 
 
 .. _get_asset_info:
