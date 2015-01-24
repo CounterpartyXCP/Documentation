@@ -24,6 +24,7 @@ Web sites
 -  `support.counterparty.io`_ - the Support site (also .co)
 -  `forums.counterparty.io`_ - the Forums site (also .co)
 
+
 Repositories
 ------------
 
@@ -31,31 +32,21 @@ Repositories
 
    -  `counterpartyd`_ - Counterparty reference client
    -  `counterparty-cli`_ - Counterparty CLI
+   -  `counterparty-gui`_ - Counterparty GUI (OS X and Windows)
    -  `counterblockd`_ - Provides extended API services to
       Counterwallet, as well as Counterparty 3rd-party applications
    -  `Counterwallet`_ - the Web wallet
-   -  `counterparty-gui`_ - Counterparty GUI (OS X and Windows)
-   -  `counterpartyd_build`_ - the Counterparty Build System helps you
-      automatically install main Counterparty software applications (see
-      below).
+   -  `federatednode_build`_ - 
 
 -  `status.counterparty.io`_ - status of various sites and services
    (also .co)
 
+
 Software
 --------
 
-bitcoind
-~~~~~~~~
-
-Bitcoind is the Bitcoin reference client. In the context of
-Counterparty, bitcoind is used by the various components to retrieve
-block and transaction data (to allow for Counterparty transaction
-processing), as well as broadcast transactions to the network.
-
-counterpartyd
+counterparty-lib, counterparty-cli
 ~~~~~~~~~~~~~
-
 counterpartyd is the Counterparty reference client (similar to what
 bitcoind is for Bitcoin). It has a basic command line interface, and a
 relatively low-level API for getting information on specific
@@ -80,45 +71,6 @@ proxy-based interface to all counterpartyd API methods, via the
 proxy\_to\_counterpartyd API call. This call is used in the Federated
 Node setup so that counterpartyd does not have to be directly exposed,
 and to allow counterblockd to cache counterpartyd API responses.
-
-
-End Users
-~~~~~~~~~
-
-We recommend you to visit `the main Web site`_ and then
-`Counterwallet.io`_. A “playground” for which you need “testnet coins”
-(fake coins that can be obtained for free) is available on Counterwallet
-instances running testnet such as the one listed above.
-
-System Administrators and Developers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you’re a developer with ample system resources (i.e. can run a VM
-with 1GB+ of RAM), **it is recommended to run a Federated Node** on
-Ubuntu 14.04.
-
--  ``counterpartyd`` is a key component for local services. Unless
-   you’re accessing Counterparty API over the Web, you want to install
-   ``counterpartyd``. There are 2 ways to install it:
-
-   - For lightweight use it is recommended to use :doc:`the Build system </build_counterpartyd.rst>` to install a “stand-alone” ``counterpartyd`` on Ubuntu or Windows.
-   - For intermediate and developer use of ``counterpartyd`` it is recommended to setup a Federated Node (see below) and in the install wizard pick ``counterpartyd`` (or Countewallet). This takes longer to setup, but it is a complete test & development environment. A downside is that ``counterpartyd`` can run on Windows and other OS, while Federated Node supports only Ubuntu.
--  Counterwallet requires ``counterpartyd``, ``counterblockd`` and some
-   other 3rd party services. The best way to install Counterwallet is to
-   :doc:`setup a Counterblock Federated Node </build_federated_node.rst>` on the supported OS (Ubuntu).
-   The same Federated Node page explains how all components fit together
-   and what each of them does. There is no other automated way to
-   install Counterparty at the moment.
-
-.. note:
-   -  (3rd party) Bitcoin Core with a full copy of indexed blockchain is
-      required for both ``counterpartyd`` and Counterwallet.
-   -  While it is possible to install all these packages manually, it is
-      difficult and can be time consuming. ``counterpartyd`` can be
-      manually installed on Debian, OS X and other Linux/UNIX variants, but
-      Federated Node could require significant efforts.
-   -  Docker or other approaches are not yet available
-
 
 .. _counterparty.io: http://counterparty.io
 .. _counterpartyfoundation.org: http://counterpartyfoundation.org

@@ -1,6 +1,12 @@
 Bitcoin Core with ``addrindex`` patch
 -------------------------------------------------------
 
+Bitcoind is the Bitcoin reference client. In the context of
+Counterparty, bitcoind is used by the various components to retrieve
+block and transaction data (to allow for Counterparty transaction
+processing), as well as broadcast transactions to the network.
+
+
 Bitcoin Core 0.9.2 on Windows 7 and 2012
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
