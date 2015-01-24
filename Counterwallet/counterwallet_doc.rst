@@ -62,21 +62,6 @@ How to enable language translations in Counterwallet
 
    Then empty your browser cache and try again.
 
-Q&A
-~~~
-
-I want to translate Counterwallet to my language
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Translation is hosted at `Transifex`_. Open an account (or login with
-Github) and contribute as a translator or reviewer.
-
-I spotted a mistake!
-^^^^^^^^^^^^^^^^^^^^
-
--  You can join us at Transifex and submit a better translation
--  You can submit a bug report (`Counterwallet issues`_)
-
 Known Issues
 ^^^^^^^^^^^^
 

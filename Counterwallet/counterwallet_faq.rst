@@ -43,3 +43,9 @@ What else do I need to know?
 - All encryption is handled client-side. Neither your passphrase nor any of your private information ever leaves your browser. This also means that there is no password recovery, so make sure you do not lose your password.
 - Because Counterwallet does not store your credentials, it has no access to your information if/when you are not logged in. If you log off or close your browser, any pending orders on the distributed exchange may not execute and you will have to resubmit your order and pay another transaction fee required for the underlying bitcoin transaction processing.
 - Because of the US government regulations the betting functionality is limited to non-US-based client IP addresses.
+
+I want to translate Counterwallet to my language
+-------------------------------------------------
+
+Translation is hosted at `Transifex`_. Open an account (or login with
+Github) and contribute as a translator or reviewer.
