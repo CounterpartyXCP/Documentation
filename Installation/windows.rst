@@ -1,13 +1,8 @@
-
-On Windows
------------
-
 Prerequisites
 ^^^^^^^^^^^^^^^
 
 **NOTE:** These instructions cover building counterpartyd as 32-bit. This will work with both 32-bit and 64-bit versions of
-Windows, and is the simplier and recommended approach. (We also have instructions on how to build for 64-bit Windows 7
-`here <https://github.com/CounterpartyXCP/Wiki/wiki/Counterpartyd-with-64-bit-version-of-Python>`__.)
+Windows, and is the simplier and recommended approach
 
 Minimally required to build ``counterpartyd`` from source is the following:
 
@@ -21,4 +16,20 @@ Minimally required to build ``counterpartyd`` from source is the following:
 - OpenSSL for Windows -- grab the `32-bit version <http://slproweb.com/download/Win32OpenSSL_Light-1_0_1L.exe>`__
 - `Git for Windows <http://git-scm.com/download/win>`__
   - Use the default installer options (except, select *"Use Git from the Windows Command Prompt"* on the appropriate screen)
+
+
+Install Visual Studio 2010 Express and Its SP1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+
+Install MS SDK for Windows v7.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When installing, under ``Windows Native Code Development``, check
+``Windows C++ Compilers`` `here <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279>`_
+
+Also install KB 2519277 (`Microsoft Visual C++ 2010 Service Pack 1
+Compiler Update for the Windows SDK 7.1 <http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70>`_)
+
 
