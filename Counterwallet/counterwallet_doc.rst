@@ -1,34 +1,6 @@
 Counterwallet
 =============
 
-Meta Book
------------
-
-The Counterparty Meta Book is a set of links to existing material
-condensed in single place.
-
--  Chapter 1: What is it and how do I get started?
-
-   -  How to buy XCP and Counterparty-listed tokens/assets: :doc:`tutorials`
-
--  Chapter 2: Common operations
-
-   -  Send, receive
-   -  Issuance and dividends
-   -  Trading on the Counterparty Distributed Exchange
-   -  Betting (non-US users only)
-
--  Chapter 3: Security, backup, migration
-
-   -  Pass phrases and Easy Access URLs
-   -  Security and Best Practices
-   -  Backup, migration, export/import
-
--  Chapter 4: Support and Troubleshooting
-
-   -  Getting support
-   -  Troubleshooting
-
 Features and Specifications
 ---------------------------
 
