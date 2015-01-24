@@ -23,10 +23,9 @@ How can I learn more?
 ----------------------
 - Social Media
 
- -  Follow us on `Twitter`_, `Faceboook`_, `Google+`_ and `LinkedIn`_.
- -  Chat with us: `End Users/General`_ & `Developers/Technical`_
- -  Receive updates via email: Counterparty currently has two free,
-    low-volume mailing lists (Community & Developer). `**Subscribe now!** <http://counterparty.us9.list-manage.com/subscribe/post?u=670b494916e05d6d2cfaa5206&id=cdae97fc90>`_
+   -  Follow us on `Twitter`_, `Faceboook`_, `Google+`_ and `LinkedIn`_.
+   -  Chat with us: `End Users/General`_ & `Developers/Technical`_
+   -  Receive updates via email: Counterparty currently has two free, low-volume mailing lists (Community & Developer). `Subscribe now! <http://counterparty.us9.list-manage.com/subscribe/post?u=670b494916e05d6d2cfaa5206&id=cdae97fc90>`_
 
 -  External sites with information about Counterparty
 
