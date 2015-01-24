@@ -325,7 +325,7 @@ Filtering Read API results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Counterparty API aims to be as simple and flexible as possible. To this end, it includes a straightforward
-way to filter the results of most :ref:`Read API functions <_read_api>` to get the data you want, and only that.
+way to filter the results of most read_api_ to get the data you want, and only that.
 
 For each Read API function that supports it, a ``filters`` parameter exists. To apply a filter to a specific data field,
 specify an object (e.g. dict in Python) as this parameter, with the following members:
@@ -344,7 +344,7 @@ filters are ORed together, and that any match must satisfy only one of them.
 To disable filtering, you can just not specify the filter argument (if using keyword-based arguments), or,
 if using positional arguments, just pass ``null`` or ``[]`` (empty list) for the parameter.
 
-For examples of filtering in-use, please see the :ref:`API code examples <examples>`.
+For examples of filtering in-use, please see the examples_.
 
 NOTE: Note that with strings being compared, operators like ``>=`` do a lexigraphic string comparison (which
 compares, letter to letter, based on the ASCII ordering for individual characters. For more information on
@@ -390,7 +390,7 @@ then have two approaches with respect to broadcasting the transaction on the net
   hex-encoded transaction string, you can then call the ``broadcast_tx`` API method, which will then broadcast the transaction on the
   Bitcoin network for you.
   
-**Note that you can also use a :ref:`do_ call instead <do_table>`, which will take care of creating the transaction,
+**Note that you can also use a do_table_, which will take care of creating the transaction,
 signing it, and broadcasting it, all in one step.**
 
 
@@ -417,12 +417,11 @@ For example: ``get_balances``, ``get_credits``, ``get_debits``, etc are all vali
 
 **Parameters:**
 
-  * **filters (list/dict):** An optional filtering object, or list of filtering objects. See :ref:`Filtering Read API
-    results <filtering>` for more information.
+  * **filters (list/dict):** An optional filtering object, or list of filtering objects. See filtering_ for more information.
   * **filterop (string):** Specifies how multiple filter settings are combined. Defaults to ``AND``, but ``OR`` can
-    be specified as well. See :ref:`Filtering Read API results <filtering>` for more information.
+    be specified as well. See filtering_ for more information.
   * **order_by  (string):** If sorted results are desired, specify the name of an attribute of the appropriate table to
-    order the results by (e.g. ``quantity`` for :ref:`balance objects <balance-object>`, if you called ``get_balances``).
+    order the results by (e.g. ``quantity`` for balance-object_, if you called ``get_balances``).
     If left blank, the list of results will be returned unordered. 
   * **order_dir (string):** The direction of the ordering. Either ``ASC`` for ascending order, or ``DESC`` for descending
     order. Must be set if ``order_by`` is specified. Leave blank if ``order_by`` is not specified.
