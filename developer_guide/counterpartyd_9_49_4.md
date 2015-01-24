@@ -24,7 +24,7 @@ See the README for an example of the two configuration files: https://github.com
 
 `counterparty-cli` also can be installed via a simple `pip install counterparty-cli`. The install script takes care to install `counterparty-lib` and all other dependencies, and add the two command line script to the PATH.
 
-`counterparty-cli` can be compiled as standlones `.exe` for Windows with `pyton setup.py py2exe`. Binaries will be available for download in Github and in a near futur a msi installer.
+`counterparty-cli` can be compiled as standalone `.exe` package for Windows with `pyton setup.py py2exe` (if you don't have py2exe, install it from console running with Administrator system privileges using `pip install py2exe`). Binaries will be available for download on Github and in a near future as an MSI installer.
 
 ## MIGRATON
 
