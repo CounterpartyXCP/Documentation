@@ -59,37 +59,6 @@ specified at the initial issuance. *0.5 XCP are destroyed every time a
 new asset is issued; there must be at least 0.5 XCP at [address] in
 order to issue an asset.*
 
-Issuing assets with the command line (``issuance``)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To issue the most basic asset the command is:
-
-::
-
-    issuance --source=[address]--asset=[asset] --quantity=[quantity]  --description=""
-
-Having run this command, [address] will have issued [quantity] of
-[asset]. Since neither ``callable`` nor ``divisible`` is an argument of
-``issue``, [asset] is indivisible and not callable.
-
-To make [asset] callable and divisible, the command is:
-
-::
-
-    issuance --source=[address]--asset=[asset] --quantity=[quantity] --divisible --callable --call-date=[call_date] --call-price=[call_price] --description [asset_description]
-
-To call-back a fraction of an asset, the command is:
-
-::
-
-    callback --source=[source] --fraction=[fraction] --asset=[asset]
-
-To lock an asset, the command is:
-
-::
-
-    issuance --source=[source] --asset=[asset] --description=""
-
 Making trades on the decentralized exchange
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -188,53 +157,6 @@ protocol will send her the XCP and thereby complete the transaction,
 otherwise, the trade expires, and the protocol will re-credit Sally’s
 address with [give\_asset].
 
-Using the command line
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Trading non-BTC assets (``order``)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Assets can be trade on the decentralized exchange using the ``order``
-function. For Sally to receive [get\_quantity]1 of [get\_asset]1 in
-exchange for [give\_quantity]1 of [give\_asset]1, the command is the
-following:
-
-::
-
-    order --source=[sallys_address] --give-asset=[give_asset]1 --give-quantity=[give_quantity]1 --get-asset=[get_asset]1 --get-quantity=[get_quantity]1 --expiration=EXPIRATION
-
-In order for Alice to receive [get\_quantity]2 of [give\_asset]2 in
-exchange for [give\_quantity]2 of [get\_asset]2, the command is:
-
-::
-
-    order --source=[address_2] --give-asset=[get_asset]2 --give-quantity=[give_quantity]2 --get-asset=[get_asset]2 --get-quantity=[get_quantity]2 --expiration=expiration2
-
-Trades involving BTC (``btcpay``)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To make a trade that involves BTC, the ``order`` function requires an
-extra parameter, and a second step is needed. If [address\_1] is trading
-[give\_quantity]1 of BTC in exchange for [get\_quantity]1 of [asset],
-the command is:
-
-::
-
-    order --source=[address_1] --give-asset=BTC --give-quantity=[give_quantity]1 --get-asset=[get_asset]1 --get-quantity=[get_quantity]1 --fee-provided=[fee_provided] --expiration=[expiration]1
-
-If [address\_2] is trading [give\_quantity]2 of [asset] in exchange BTC,
-the command is:
-
-::
-
-    order --source=[address_2] --give-asset=[asset] --give-quantity=[give_quantity]2 --get-asset=BTC --get-quantity=[get_quantity]2 --fee-required=[fee_required] --expiration=[expiration]2
-
-[asset] is debited immediately from [address\_2] and is held in escrow.
-[address\_1] then must complete the trade using ``btcpay`` before 10
-blocks have passed (or the lesser of the two ``expiration`` periods has
-passed, if the latter is less than 10 blocks from the time of match).
-The command for a ``btcpay`` is:
-  btcpay –order-match-id=[txhash1]+[txhash2]
 
 Sending assets (``send``)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -246,15 +168,6 @@ To send an asset in Counterparty, one must specify:
 -  how much of [asset] [source] is sending ([quantity])
 -  to whom [source] is sending [quantity] of [asset] ([destination])
 
-Sending assets using the command line
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To send an asset, the command is:
-
-::
-
-    send --source=[source] --asset=[asset] --quantity=[quantity] --destination=[destination]
-
 Paying dividends on assets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -264,19 +177,6 @@ holds the asset in proportion to how many units he holds; specifically:
 specifically, let [total] equal the total dividends paid out, and
 [quantity] be the total amount of asset, then:
 ``quantity-per-unit = [total]/[quantity]``
-
-Using in the command line (``dividend``)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The form of every dividend command is:
-
-::
-
-    dividend --source=SOURCE  --asset=[asset] --quantity-per-share=[unit_per_share]
-
-To pay dividends in BTC, you should, for now, just use a regular Bitcoin
-client, coupled with the output from ``counterpartyd asset ASSET``,
-which will list all of the shareholders (and their holdings) of ASSET.
 
 Use-cases
 ~~~~~~~~~
@@ -301,16 +201,6 @@ This will allow her to buy back [token] after [call\_date] for
 can be purchased only with [token]. To issue [token], the command line
 operation is:
 
-::
-
-    issuance --source=[alices_address] --asset=[token] --quantity=[quantity] --callable --call-date=[call_date] --call-price=[call_price] --description="For more info see alicestoken.com" 
-
-Having sold [token] Alice issues [alices\_asset\_1], which she puts on
-the distributed exchange in exchange for [token]:
-
-::
-
-    order --source=[alices_address] --give-asset=[alices_asset_1]--give-quantity=[give_quantity]1 --get-asset=[token] --get-quantity= [get_quantity] --expiration=[expiration]1
 
 Currency peg
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -346,34 +236,7 @@ his risk and his reputation. On the buyer’s side, the risk is obvious:
 BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
-Using the command line
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To issue BOBUSD, the command line operation is:
-
-::
-
-    issuance --source=[bobusd_address] --asset=BOBUSD --quantity=[quantity] --divisible --callable --call-date=[call-date] --call-price=[call_price] --description="For more info see bobusd.com"
-
-If USD/XCP falls, Bob will send XCP from [another\_address] to
-[bobusd\_address], for which the command line operation is:
-
-::
-
-    send --source=[another_address] --destination=[bobusd_address] --quantity=[quantity] --asset=XCP
-
-If Bob wants to call back 1% of all BOBUSD, he would run the following
-command:
-::
-
-    callback --source=[bobs_address] --fraction=.01 --asset=BOBUSD 
-
-If [user] wants to “cash in” 100 BOBUSD for 100 USD when the exchange
-rate is 10 USD/XCP, he would first send his BOBUSD to [bobs\_address]:
-
-::
-
-    send source=[users_address] destination=[bobs_address] --quantity=100 --asset=BOBUSD
 
 Bets
 ----
