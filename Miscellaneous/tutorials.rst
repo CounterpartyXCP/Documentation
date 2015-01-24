@@ -20,8 +20,6 @@ Counterparty (XCP) is currently traded at the following centralized (crypto)exch
 
 * `Melotic`_ - buy/sell for BTC 
 
-* `MasterXchange`_ - buy/sell XCP and any Counterparty-assets for BTC
-
 * `ALTS`_ - buy/sell for BTC
 
 ***NOTE***: Centralized exchanges are controlled and operated by their
@@ -67,7 +65,6 @@ on the DEx.
 .. _BTer: https://bter.com/trade/xcp_btc
 .. _Poloniex: https://poloniex.com/exchange/btc_xcp
 .. _Melotic: https://www.melotic.com/markets/xcp-btc
-.. _MasterXchange: https://masterxchange.com/market.php?currency=xcp
 .. _ALTS: https://alts.trade/trade/XCP/BTC
 .. _`GUI-based Trading on the DEx: How to buy and sell Counterparty assets on the DEx`: http://support.counterparty.io/solution/categories/5000013624/folders/5000021046/articles/5000527145-buy-and-sell-assets-tokens-on-the-dex-using-xcp
 .. _`CLI-based Trading on the DEx: How to use the ``counterpartyd`` to buy and sell BTC and other assets on the DEx`: http://support.counterparty.io/support/solutions/articles/5000499251-manual-btc-sell-ing-on-the-counterparty-distributed-exchange-dex-using-counterpartyd
@@ -188,4 +185,3 @@ upgrades that generally go against best practices, such as rebuilding a
 speaking it’s best to pick one branch (such as ``master``) and stick
 with it using the rebuild and update approach offered by
 ``counterpartyd_build`` scripts.
-
