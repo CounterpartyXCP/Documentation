@@ -36,6 +36,8 @@ See the README for an example of the two configuration files: https://github.com
 
 If you have a `counterpartyd` standard installation (ie. data dir in `~/.config/counterpartyd/`), the installation script will do automatically the following steps. Else, if you have a Bitcoin Core already installed the installation script will use `.bitcoin/bitcoin.conf` to generate the two configurations files. Else, it will generate the two configuration file with a random password for the `counterparty-server`. 
 
+If your configuration files (`counterpartyd` or Bitcoin Core's `bitcoin.conf`) are in non-default locations, the installation script will not look for them. You may want to place them - if only temporarily - in the default locations and then run the installation script. After that you can modify your startup parameters and move the configuration files back to non-default locations.
+
 **NOTE 2**
 
 Here a table of equivalence of the different configuration files:
