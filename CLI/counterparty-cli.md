@@ -8,7 +8,7 @@
 
 * Bitcoin Core *TODO: LINK*
 
-* Windows‐specific Dependencies *TODO: LINK*
+* Windows‐specific *TODO: LINK*
 
 
 ## Install
