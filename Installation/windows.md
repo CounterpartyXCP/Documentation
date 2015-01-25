@@ -4,7 +4,7 @@
 both 32-bit and 64-bit versions of Windows, and is the simplier and recommended
 approach.
 
-## Generic Dependencies
+## Dependencies
 
 - Python 3.4.1 -- grab the [32-bit version](http://www.python.org/ftp/python/3.4.1/python-3.4.1.msi)
   - Install to the default ``C:\Python34`` location
@@ -16,22 +16,13 @@ approach.
 - OpenSSL for Windows -- grab the [32-bit version](http://slproweb.com/download/Win32OpenSSL_Light-1_0_1L.exe)
 - [Git for Windows](http://git-scm.com/download/win)
   - Use the default installer options (except, select *"Use Git from the Windows Command Prompt"* on the appropriate screen)
+- [Visual Studio 2010 Express and Its SP1](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
+- [MS SDK for Windows v7.1](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279)
+  - under ``Windows Native Code Development``, check ``Windows C++ Compilers`
+- [Microsoft Visual C++ 2010 Service Pack 1 Compiler Update for the Windows SDK 7.1](http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70)
 
 
-## Visual Studio 2010 Express and Its SP1
-
-* [https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
-
-
-## MS SDK for Windows v7.1
-
-* When installing, under ``Windows Native Code Development``, check
-``Windows C++ Compilers`` [here](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279)
-
-* Also install KB 2519277 ([Microsoft Visual C++ 2010 Service Pack 1 Compiler Update for the Windows SDK 7.1](http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70).
-
-
-## python-bitcointools
+## python-bitcointools (temporary)
 
 * Because of a bug in `pip3`'s `allow-external` option on Windows, users must also run this command manually:
 ```
