@@ -21,7 +21,7 @@ Such services include:
 - An extended API for Counterwallet-specific actions like wallet preferences storage and retrieval
 - API includes functionality for retieving processed time-series data suitable for display and manipulation (useful for distributed exchange price data, and more)
 
-[counterblockd Release Documentation](https://github.com/CounterpartyXCP/counterblockd/releases)
+`counterblockd Release Documentation <https://github.com/CounterpartyXCP/counterblockd/releases>`_
 
 Table of Contents
 --------------------------
