@@ -8,8 +8,8 @@
 
 ### Pre‐Requisites
 
-* [Bitcoin Core](/bitcoin_core.md)
-* [Windows‐specific](/windows.md)
+* [Bitcoin Core](../Installation/bitcoin_core.md)
+* [Windows‐specific](../Installation/windows.md)
 
 
 ### Install
