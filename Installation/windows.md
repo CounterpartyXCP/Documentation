@@ -1,3 +1,5 @@
+#Installing `counterpartyd` on Windows
+
 ##Prerequisites
 
 **NOTE:** These instructions cover building counterpartyd as 32-bit. This will
