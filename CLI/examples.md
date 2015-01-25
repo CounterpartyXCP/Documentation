@@ -21,7 +21,8 @@ the burn period finished in early 2014.
 
 `burn --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=0.5`
 
-Send divisible or indivisible assets ————–
+Send divisible or indivisible assets
+----------------------------------------
 
 To send an asset, the command is:
 
@@ -31,7 +32,7 @@ To send an asset, the command is:
     --to=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7
 
 Buy BTC for XCP
-===============
+----------------------------------------
 
 BTC Pay has been disabled in Counterwallet, but remains available in the
 CLI.
@@ -60,7 +61,7 @@ The command for a `btcpay` is:
     --give-quantity=20 --give-asset=XCP --expiration=10 --fee_required=0.001
 
 Buy BBBC for BTC
-================
+----------------------------------------
 
 BTC Pay has been disabled in Counterwallet, but remains available in the
 CLI.
@@ -70,7 +71,7 @@ CLI.
     --fee_provided=0.001
 
 Buy XCP for BBBC
-================
+----------------------------------------
 
 Assets can be trade on the decentralized exchange using the `order`
 function. For Sally to receive [get\_quantity]1 of [get\_asset]1 in
@@ -87,7 +88,7 @@ exchange for [give\_quantity]2 of [get\_asset]2, the command is:
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
     --get-asset=XCP --give-quantity=20 --give-asset=BBBC --expiration=10
 BTCPay
-======
+----------------------------------------
 
 BTC Pay has been disabled in Counterwallet, but remains available in the
 CLI.
@@ -134,7 +135,7 @@ rate is 10 USD/XCP, he would first send his BOBUSD to [bobs\_address]:
     send source=[users_address] destination=[bobs_address] --quantity=100 --asset=BOBUSD
 
 Broadcast
-=========
+----------------------------------------
 
     broadcast --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --text="Bitcoin price feed" \
     --value=825.22 --fee-multiplier=0.001
@@ -145,7 +146,7 @@ For example, `--text='"Bitcoin price feed"'`. This may not work on
 Windows due to Python/Windows issues unrelated to Counterparty.
 
 Bet (Equal/Not Equal)
-=====================
+----------------------------------------
 
 Example: Bet on Super Bowl Feed. Denver vs. Seattle. Feed value of 1
 means Seattle Wins. Feed value of 2 means Denver Wins. This command
@@ -165,13 +166,13 @@ replaced by Ethereum Smart Contracts (available on testnet since late
 
 
 Cancel
-======
+----------------------------------------
 
     cancel --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
     --offer-hash=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
 
 Dividend
-========
+----------------------------------------
 
 The form of every dividend command is:
 
@@ -185,7 +186,7 @@ will list all of the shareholders (and their holdings) of ASSET.
     --asset=MULTIPOOLSTOCK
 
 Market
-======
+----------------------------------------
 
 The `market` action prints out tables of open orders, open bets, feeds,
 and order matches currently awaiting Bitcoin payments from one of your
@@ -207,7 +208,7 @@ To filter the market to only show offers to sell BTC for XCP:
     market --give-asset=BTC --get-asset=XCP
 
 Asset
-=====
+----------------------------------------
 
 The `asset` action displays the basic properties of a given asset.
 
@@ -224,13 +225,13 @@ To lock an asset, the command is:
     issuance --source=[source] --asset=[asset] --description=""
 
 Address
-=======
+----------------------------------------
 
 The `address` action displays the details of all transactions involving
 the Counterparty address which is its argument.
 
 Input and Output
-================
+----------------------------------------
 
 -   Quantities of divisible assets are written to eight decimal places.
 -   Quantities of indivisible assets are written as integers.
