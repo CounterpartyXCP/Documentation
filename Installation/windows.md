@@ -20,7 +20,7 @@ Minimally required to build ``counterpartyd`` from source is the following:
 
 ###Install Visual Studio 2010 Express and Its SP1
 
-https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+[https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
 
 ###Install MS SDK for Windows v7.1
 
