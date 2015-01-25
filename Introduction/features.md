@@ -12,7 +12,7 @@ access to a working `counterpartyd` setup can examine Counterwallet
 first.
 
 Counterparty-issued assets (tokens) can have basic or enhanced
-([Enhanced Asset Info](/enhanced_asset_info.rst) for details)
+([Enhanced Asset Info](/enhanced_asset_info.md) for details)
 information.
 
 ### Creating assets
@@ -238,7 +238,6 @@ appropriate amount of XCP when [user] sends him BOBUSD.
 Bets
 ----
 
-//to-do
 
 Smart Contracts
 ---------------
