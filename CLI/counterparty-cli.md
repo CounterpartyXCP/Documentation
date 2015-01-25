@@ -41,7 +41,7 @@ OS  | Path
 ------------- | -------------
 MacOS | ~/Library/Application Support/counterparty-server/counterparty-server.conf
 XP | C:\Documents and Settings\username\Application Data\counterparty-server\counterparty-server.conf
-Vista, 7 | C:\Users\username\AppData\Roaming\counterparty-server\counterparty-server.conf
+Vista, 7 | C:\Users\username\AppData\Roaming\Counterparty\counterparty-server\counterparty-server.conf
 Linux | ~/.config/counterparty-server/counterparty-server.conf
 
 A counterparty-server configuration file looks like this:
@@ -74,7 +74,7 @@ OS  | Path
 ------------- | -------------
 MacOS | ~/Library/Application Support/counterparty-client/counterparty-client.conf
 XP | C:\Documents and Settings\username\Application Data\counterparty-client\counterparty-client.conf
-Vista, 7 | C:\Users\username\AppData\Roaming\counterparty-client\counterparty-client.conf
+Vista, 7 | C:\Users\username\AppData\Roaming\Counterparty\counterparty-client\counterparty-client.conf
 Linux | ~/.config/counterparty-client/counterparty-client.conf
 
 A counterparty-client configuration file looks like this:
@@ -84,7 +84,7 @@ A counterparty-client configuration file looks like this:
     wallet-connect = localhost
     wallet-user = rpcuser
     wallet-password = password
-    counterparty-rpc-host = localhost
+    counterparty-rpc-connect = localhost
     counterparty-rpc-user = rpcuser
     counterparty-rpc-password = password
 
