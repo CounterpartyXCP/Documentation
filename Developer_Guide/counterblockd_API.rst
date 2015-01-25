@@ -64,13 +64,13 @@ Read API Function Reference
 Asset Functions
 ^^^^^^^^^^^^^^^
 
-.. py:function:: get_asset_extended_info(asset)
+**get_asset_extended_info(asset)**
 
    :param asset: Asset
    :return: Information on the asset or False if no extended info exists
    :rtype: {}
 
-.. py:function:: get_asset_history(asset, reverse=False)
+**get_asset_history(asset, reverse=False**
 
     Returns a list of changes for the specified asset, from its inception to the current time.
 
@@ -99,7 +99,7 @@ Asset Functions
                 * IF type = 'called_back':
                   * 'percentage': The percentage of the asset called back (between 0 and 100)
 
-.. py:function:: get_asset_pair_market_info(asset1=None, asset2=None, limit=50):
+**get_asset_pair_market_info(asset1=None, asset2=None, limit=50):**
 
 
    .. deprecated:: 1.5
@@ -113,7 +113,7 @@ Asset Functions
    :return: Market info for the given pair
    :rtype: {'24h_vol_in_btc', 'open_orders_count', 'lowest_ask', 'base_asset', 'completed_trades_count', '24h_pct_change', 'vol_quote', 'highest_bid', '24h_vol_in_xcp', 'vol_base', 'last_updated', 'quote_asset'}
 
-.. py:function:: get_balance_history(asset, addresses, normalize=True, start_ts=None, end_ts=None)
+**get_balance_history(asset, addresses, normalize=True, start_ts=None, end_ts=None)**
 
   Retrieves the ordered balance history for a given address (or list of addresses) and asset pair, within the specified date range
 
@@ -121,7 +121,7 @@ Asset Functions
   :return: A list of tuples, with the first entry of each tuple being the block time (epoch TS), and the second being the new balance at that block time.
   :rtype: [(<block time>, <balance>)]
 
-.. py:function:: get_base_quote_asset(asset1, asset2)
+**get_base_quote_asset(asset1, asset2)**
 
   Given two arbitrary assets, returns the base asset and the quote asset.
 
@@ -133,26 +133,26 @@ Asset Functions
   :return Array:
   :rtype: {'base_asset', 'quote_asset', 'pair_name'}
 
-.. py:function:: get_escrowed_balance(addresses)
+**get_escrowed_balance(addresses)**
 
   :param list addresses: List of addresses to check
   :return: An array of assets held in escrow
   :rtype: {<address of escrowee>: {<asset>:<amount>}}
 
-.. py:function:: get_market_cap_history(start_ts=None, end_ts=None)
+**get_market_cap_history(start_ts=None, end_ts=None)**
 
   :param start_ts: Unix timestamp
   :param end_ts: Unix timestamp
   :return: Array
   :rtype: {'base_currency':[{'data':[ts,market_cap], 'name'}]}
 
-.. py:function:: get_market_info(assets)
+**get_market_info(assets)**
 
   :param list assets: Assets to check
   :return: Array
   :rtype: {'24h_hlc_in_btc', 'extended_description', 'extended_pgpsig', 'aggregated_price_as_btc', 'price_in_btc', '24h_summary':{'vol', 'count'}, 'market_cap_in_btc', 'asset', 'price_as_xcp', '7d_history_in_btc':[[ts, price]], '24h_vol_price_change_in_xcp', 'price_in_xcp', 'extended_website', '24h_vol_price_change_in_btc', 'aggregated_price_as_xcp', 'market_cap_in_xcp', '7d_history_in_xcp':[[ts, price]], 'aggregated_price_in_btc', 'aggregated_price_in_xcp', 'price_as_btc', 'total_supply', '24h_ohlc_xcp', 'extended_image'}
 
-.. py:function:: get_market_info_leaderboard(limit=100)
+**get_market_info_leaderboard(limit=100)**
 
   :param limit: Number of results to return
   :return: Array
@@ -177,7 +177,7 @@ Asset Functions
                                      '7d_history_in_btc',
                                      'aggregated_price_as_btc'}]}
 
-.. py:function:: get_market_details(asset1, asset2, min_fee_provided=0.95, max_fee_required=0.95)
+**get_market_details(asset1, asset2, min_fee_provided=0.95, max_fee_required=0.95)**
 
   Return detailed information on a market.
 
@@ -196,13 +196,13 @@ Asset Functions
     'quote_asset'}
 
 
-.. py:function:: get_markets_list()
+**get_markets_list()**
 
   Returns available markets
 
   :rtype: [{'market_cap', 'base_asset', 'progression', 'supply', 'trend', 'price_24h', 'price', ' quote_divisibility', 'pos', 'volume', 'with_image', 'base_divisibility', 'quote_asset'}]
 
-.. py:function:: get_market_price_history(asset1, asset2, start_ts=None, end_ts=None, as_dict=False)
+**get_market_price_history(asset1, asset2, start_ts=None, end_ts=None, as_dict=False)**
 
    Return block-by-block aggregated market history data for the specified asset pair, within the specified date range.
 
@@ -214,14 +214,14 @@ Asset Functions
    :return: List of lists or dicts
    :rtype: [{'block_time', 'block_index', 'open', 'high', 'low', 'close', 'vol', 'count'}]
 
-.. py:function:: get_market_orders(asset1, asset2, addresses=[], min_fee_provided=0.95, max_fee_required=0.95)
+**get_market_orders(asset1, asset2, addresses=[], min_fee_provided=0.95, max_fee_required=0.95)**
 
   Returns orders for the search parameters
 
   :rtype: [{'completion', 'tx_hash', 'fee_provided', 'block_index', 'price', 'tx_index', 'source', 'amount', 'block_time', 'total', 'type'}]
 
 
-.. py:function:: get_market_price_summary(asset1, asset2, with_last_trades=0)
+**get_market_price_summary(asset1, asset2, with_last_trades=0)**
 
   .. deprecated:: 1.5
     Use `get_market_price_history`
@@ -232,13 +232,13 @@ Asset Functions
   :return: Array
   :rtype: {'quote_asset', 'base_asset', 'market_price',('last_trades')}
 
-.. py:function:: get_market_trades(asset1, asset2, addresses=[], limit=100)
+**get_market_trades(asset1, asset2, addresses=[], limit=100)**
 
   Returns completed trades for the search parameters
 
   :rtype: [{'status', 'match_id', 'countersource', 'block_index', 'price', 'source', 'amount', 'block_time', 'total', 'type'}]
 
-.. py:function:: get_normalized_balances(addresses)
+**get_normalized_balances(addresses)**
 
   This call augments counterpartyd's get_balances with a normalized_quantity field. It also will include any owned assets for an address, even if their balance is zero. NOTE: Does not retrieve BTC balance. Use get_address_info for that.
 
@@ -246,7 +246,7 @@ Asset Functions
   :return: List
   :rtype: [{'address', 'asset', 'quantity', 'normalized_quantity', 'owner'}]
 
-.. py:function:: get_order_book_buysell(buy_asset, sell_asset, pct_fee_provided=None, pct_fee_required=None)
+**get_order_book_buysell(buy_asset, sell_asset, pct_fee_provided=None, pct_fee_required=None)**
 
    .. deprecated:: 1.5
       Use counterpartyd's `get_orders`
@@ -287,7 +287,7 @@ Asset Functions
             'base_ask_book':[{'count', 'depth', 'unit_price', 'quantity'}],
             'id'}
 
-.. py:function:: get_order_book_simple(asset1, asset2, min_pct_fee_provided=None, max_pct_fee_required=None)
+**get_order_book_simple(asset1, asset2, min_pct_fee_provided=None, max_pct_fee_required=None)**
 
     .. deprecated:: 1.5
       Use counterpartyd's `get_orders`
@@ -329,7 +329,7 @@ Asset Functions
       'base_ask_book':[{'count', 'depth', 'unit_price', 'quantity'}],
       'id'}
 
-.. py:function:: get_owned_assets(addresses)
+**get_owned_assets(addresses)**
 
   Returns the assets owned by the addresses
 
@@ -337,7 +337,7 @@ Asset Functions
   :return: Information on owned assets
   :rtype: [{'_change_type', 'locked', 'description', '_at_block', 'divisible', 'total_issued_normalized', '_at_block_time', 'asset', 'total_issued', 'owner', history:[]]
 
-.. py:function:: get_users_pairs(addresses=[], max_pairs=12)
+**get_users_pairs(addresses=[], max_pairs=12)**
 
   Return pairs held by the addresses.
 
@@ -346,7 +346,7 @@ Asset Functions
 Betting Functions
 ^^^^^^^^^^^^^^^^^
 
-.. py:function:: get_bets(bet_type, feed_address, deadline, target_value=None, leverage=5040)
+**get_bets(bet_type, feed_address, deadline, target_value=None, leverage=5040)**
 
   Returns bets with non-zero remaining counterwager for the specified search terms.
 
@@ -372,7 +372,7 @@ Betting Functions
     'target_value'
     }]
 
-.. py:function:: get_user_bets(addresses=[], status="open")
+**get_user_bets(addresses=[], status="open")**
 
   :param addresses: List of addresses
   :param status: "open", "filled","expired","cancelled","dropped", or "invalid"
@@ -395,17 +395,17 @@ Betting Functions
         'target_value'
         }]
 
-.. py:function:: get_feed(address_or_url='')
+**get_feed(address_or_url='')**
 
   :param address_or_url: Feed URL or Bitcoin Address
   :rtype: {'broadcasts':[{'status', 'tx_hash', 'locked', 'timestamp', 'source', 'text', 'tx_index', 'value', 'block_index', 'fee_fraction_int'}], 'counters':{'bets':[]}
 
-.. py:function:: get_feeds_by_source(addresses=[])
+**get_feeds_by_source(addresses=[])**
 
   :param addresses: Address list
   :rtype: {<address>:{'errors':[], 'locked', 'info_url', 'info_data':{}, 'fetch_info_retry', 'source', 'info_status', 'fee_fraction_int', 'last_broadcast':{}}}
 
-.. py:function:: parse_base64_feed(base64_feed):
+**parse_base64_feed(base64_feed):**
 
   Takes a base64-encoded feed and decodes it.
 
@@ -431,38 +431,39 @@ Betting Functions
 Debugging/Server Functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. py:function:: create_support_case(name, from_email, problem, screenshot=None, addtl_info='')
+**create_support_case(name, from_email, problem, screenshot=None, addtl_info='')**
 
    create an email with the information received
 
    :param screenshot: The base64 text of the screenshot itself, prefixed with data=image/png
    :param addtl_info: A JSON-encoded string of a dict with additional information to include in the support request
 
-.. py:function:: get_chat_handle(wallet_id)
+**get_chat_handle(wallet_id)**
 
   :rtype: {'handle', 'is_op', 'last_updated', 'banned_until'}
 
-.. function:: get_chat_history(start_ts=None, end_ts=None, handle=None, limit=1000)
+**get_chat_history(start_ts=None, end_ts=None, handle=None, limit=1000)**
 
    .. deprecated:: 1.5
 
-.. py:function:: get_num_users_online()
+**get_num_users_online()**
 
   :return: The current number of users attached to the server's chat feed
             :rtype: Int
 
-.. py:function:: get_reflected_host_info()
+**get_reflected_host_info()**
 
   Allows the requesting host to get some info about itself, such as its IP. Used for troubleshooting.
 
   :return: Client host info
   :rtype: {'ip', 'cookie', 'country'}
 
-.. py:function:: is_chat_handle_in_use(handle)
+**is_chat_handle_in_use(handle)**
+
   .. deprecated:: 1.5
   :rtype: Boolean
 
-.. py:function:: is_ready()
+**is_ready()**
 
     Used by the client to check if the server is alive, caught up, and ready to accept requests.
     If the server is NOT caught up, a 525 error will be returned actually before hitting this point. Thus,
@@ -475,7 +476,7 @@ Debugging/Server Functions
 Blockchain Functions
 ^^^^^^^^^^^^^^^^^^^^
 
-.. py:function:: get_chain_address_info(addresses, with_uxtos=True, with_last_txn_hashes=4)
+**get_chain_address_info(addresses, with_uxtos=True, with_last_txn_hashes=4)**
 
   Get info for one or more addresses
 
@@ -486,20 +487,20 @@ Blockchain Functions
   :rtype: [{'addr', 'info',('uxto'),('last_txns'),('block_height')}]
 
 
-.. py:function:: get_chain_block_height()
+**get_chain_block_height()**
 
   .. deprecated:: 1.5
     Use `get_chain_address_info`
 
   :return: The height of the block chain
 
-.. py:function:: get_chain_txns_status
+**get_chain_txns_status**
 
   :param list txn_hashes: A list of one or more txn hashes
   :return: Transaction information
   :rtype: [{'tx_hash', 'blockhash', 'confirmations', 'blocktime'}]
 
-.. py:function:: get_pubkey_for_address(address)
+**get_pubkey_for_address(address)**
 
   Returns None if the address has made 0 transactions (as we wouldn't be able to get the public key)
 
@@ -510,7 +511,7 @@ Blockchain Functions
 Message Functions
 ^^^^^^^^^^^^^^^^^
 
-.. py:function:: get_last_n_messages(count=100)
+**get_last_n_messages(count=100)**
 
   Return latest messaages
 
@@ -518,7 +519,7 @@ Message Functions
   :return: A list of messages
   :rtype: [{'raw_tx_type', ... other fields vary per tx type}]
 
-.. py:function:: get_messagefeed_messages_by_index(message_indexes)
+**get_messagefeed_messages_by_index(message_indexes)**
 
   Alias for counterpartyd get_messages_by_index
 
@@ -528,7 +529,7 @@ Message Functions
 Transaction Functions
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. py:function:: get_raw_transactions(address, start_ts=None, end_ts=None, limit=500):
+**get_raw_transactions(address, start_ts=None, end_ts=None, limit=500):**
 
       Gets raw transactions for a particular address
 
@@ -539,7 +540,7 @@ Transaction Functions
       :return: Returns the data, ordered from newest txn to oldest. If any limit is applied, it will cut back from the oldest results
       :rtype: {id: {status, tx_hash, _divisible, _tx_index, block_index, _category, destination, tx_index, _block_time, source, asset, _command, quantity}}
 
-.. py:function::  get_trade_history(asset1=None, asset2=None, start_ts=None, end_ts=None, limit=50)
+**get_trade_history(asset1=None, asset2=None, start_ts=None, end_ts=None, limit=50)**
 
     Gets last N of trades within a specific date range (normally, for a specified asset pair, but this can be left blank to get any/all trades).
 
@@ -566,7 +567,7 @@ Transaction Functions
               'order_match_tx1_address',
               'quote_asset'}]
 
-.. py:function:: get_transaction_stats(start_ts=None, end_ts=None)
+**get_transaction_stats(start_ts=None, end_ts=None)**
 
    This function returns the number of transactions in each 24 hour clock within the given time range, or the last 360 days if no time range is given.
 
@@ -580,7 +581,7 @@ Wallet Functions
 ^^^^^^^^^^^^^^^^
 
 
-.. py:function:: get_preferences(wallet_id, for_login=False, network=None)
+**get_preferences(wallet_id, for_login=False, network=None)**
 
    Gets stored wallet preferences
 
@@ -590,7 +591,7 @@ Wallet Functions
 
 
 
-.. py:function:: get_wallet_stats(start_ts=None, end_ts=None):
+**get_wallet_stats(start_ts=None, end_ts=None):**
 
    If timestamps omitted, queries the last 360 days.
 
@@ -599,7 +600,7 @@ Wallet Functions
    :return: Wallet information
    :rtype: {'wallet_stats':[id: {'data': [{}], 'name'}], 'num_wallets_testnet', 'num_wallets_mainnet', 'num_wallets_unknown'}
 
-.. py:function:: is_wallet_online(wallet_id)
+**is_wallet_online(wallet_id)**
 
   :rtype: Boolean
 
@@ -607,12 +608,12 @@ Wallet Functions
 Armory/UTC Functions
 ^^^^^^^^^^^^^^^^^^^^
 
-.. py:function:: create_armory_utx(unsigned_tx_hex, public_key_hex)
+**create_armory_utx(unsigned_tx_hex, public_key_hex)**
 
    :returns: The signed tx hash
    :rtype: String
 
-.. py:function:: convert_armory_signedtx_to_raw_hex(signed_tx_ascii)
+**convert_armory_signedtx_to_raw_hex(signed_tx_ascii)**
 
    :returns: The raw hash as hex
    :rtype: String
@@ -621,12 +622,12 @@ Action/Write API Function Reference
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. py:function:: cancel_btc_open_order(wallet_id, order_tx_hash)
+**cancel_btc_open_order(wallet_id, order_tx_hash)**
 
     .. deprecated:: 1.5
 
 
-.. py:function:: proxy_to_counterpartyd(method='', params={})
+**proxy_to_counterpartyd(method='', params={})**
 
   :param method: Method name to call in counterpartyd.
   :param params: Array of function parameters.
@@ -634,15 +635,15 @@ Action/Write API Function Reference
 
   Relays a request to the counterpartyd server, with the given method and params, and returns the result. See the `counterpartyd API documentation <http://counterpartyd.readthedocs.org/en/latest/API.html>`_ for available methods.
 
-.. py:function:: record_btc_open_order(wallet_id, order_tx_hash)
+**record_btc_open_order(wallet_id, order_tx_hash)**
 
   Records an association between a wallet ID and order TX ID for a trade where BTC is being SOLD, to allow
   buyers to see which sellers of the BTC are "online" (which can lead to a better result as a BTCpay will be required
   to complete any trades where BTC is involved, and the seller (or at least their wallet) must be online for this to happen.
 
-.. py:function:: store_chat_handle(wallet_id, handle)
+**store_chat_handle(wallet_id, handle)**
 
-.. py:function:: store_preferences(wallet_id, preferences)
+**store_preferences(wallet_id, preferences)**
 
    Stores the preferences for a given wallet ID.
 
