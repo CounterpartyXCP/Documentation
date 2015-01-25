@@ -100,11 +100,8 @@ All assets except BTC and XCP have the following properties:
 -  Divisiblity
 -  Callability
 -  Call date (if callable)
-
    -  may be delayed with later issuances
-
 -  Call price (if callable) (non‐negative)
-
    -  may be increased with later issuances
 
 Newly registered asset names will be either (unique) strings of 4 to 12
@@ -123,16 +120,13 @@ Quantities, Prices, Fractions
 -----------------------------
 
 -  max int
-
 -  oversend, overbet, overorder
-
    -  not btcpay, issuance (fragile!), dividend (?!)
 
 Expirations
 -----------
 
 -  max expiration times
-
 -  at beginning of block (before txes are parsed)
 
 Transaction Statuses
@@ -236,7 +230,6 @@ the string concatenation of the transaction hashes which compose the
 Order Match which it fulfils.
 
 ###Issue
-
 
 Assets are issued with the **issuance** message type: the user picks a
 name and a quantity, and the protocol credits his address accordingly.
@@ -362,7 +355,6 @@ Burn messages have precisely the string ‘ProofOfBurn’ stored in the
 
 
 - new data‐less burn
-
 - burn period is over
 
 ###Cancel
@@ -422,10 +414,7 @@ enough XCP.
 Further reading on the Ethereum contract language(s) is available here:
 
 - [Ethereum White Paper](https://www.ethereum.org/pdfs/EthereumWhitePaper.pdf)
-
 - [Ethereum Yellow Paper](http://gavwood.com/Paper.pdf)
-
 - [Pyethereum and Serpent Programming Guide](https://blog.ethereum.org/2014/04/10/pyethereum-and-serpent-programming-guide/)
-
 - [Ethereum Wiki: Serpent](https://github.com/ethereum/wiki/wiki/Serpent)
 
