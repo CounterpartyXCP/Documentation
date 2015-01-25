@@ -2,17 +2,13 @@
 
 **NOTE**: `counterpartyd` was recently split into two parts: `counterparty-lib` and `counterparty-cli`.
 
-### counterparty-cli
-
-**LINK**
+### [Counterparty CLI](/counterparty-cli.md)
 
 `counterparty-cli` contains two command line scripts:
 - `counterparty-server.py` (replaces `counterpartyd.py`)
 - `counterparty-client.py` (replaces `counterparty-cli.py`)
 
-## counterparty-lib
-
-**LINK**
+## [counterparty-lib](/counterparty-lib.md)
 
 `counterpartyd` is the Counterparty reference client (similar to what
 `bitcoind` is for Bitcoin). It has a basic command line interface, and a
@@ -29,17 +25,15 @@ the main characteristics of `counterparty-lib` are:
 - it don't needs/manages user configuration file
 
 
-### counterblockd
+### [`counterblockd`](/counterblockd_API.rst´)
 
-**LINK**
-
-The `counterblockd` daemon provides a more high-level data processing, and
-an API that layers on top of counterpartyd’s API. `counterblockd`
-generates and allows querying of data such as market and price
-information, trade operations, asset history, and more. It is used
-extensively by Counterwallet itself, and is appropriate for use by
-applications that require additional API-based functionality beyond the
-scope of what counterpartyd provides. 
+counterblockd provides a more high-level data
+processing, and an API that layers on top of counterpartyd’s API.
+`counterblockd` generates and allows querying of data such as market and price
+information, trade operations, asset history, and more. It is used extensively
+by Counterwallet itself, and is appropriate for use by applications that
+require additional API-based functionality beyond the scope of what
+counterpartyd provides. 
 
 `counterblockd` also provides a
 proxy-based interface to all counterpartyd API methods, via the
