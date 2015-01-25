@@ -15,18 +15,6 @@
 
 `pip3 install counterparty-cli`
 
-or
-
-```
-git clone https://github.com/CounterpartyXCP/counterparty-cli.git
-cd counterparty-cli
-python3 setup.py install
-```
-
-## Windows
-
-`pip3 install counterparty-cli`
-
 
 # Counterparty server
 
@@ -93,8 +81,4 @@ A counterparty-client configuration file looks like this:
     counterparty-rpc-password = password
 
 
-# Logs
-
-# Configuration
-
-# Data directory
+<!-- TODO: Logs, Configuration, Data directory -->
