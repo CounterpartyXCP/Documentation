@@ -28,57 +28,34 @@ bug report (instructions can be found below).
 Developers
 ------------------
 
-###Countewallet
-
--   Please see the pointers for end users (above).
--   Since it’s easy to check JavaScript Debug Console, it’s usually a
-    good idea to check that out first
-
-###counterpartyd
-
-   - Please do not submit bugs for unsupported environments (or at least not without needed details). For unsupported environments it is best to use the chat or forums
-   - Collect and submit relevant information
-   - Counterparty, Python, and OS version: normally it’s enough to submit just the `counterpartyd` version information, but sometimes - if installation or other issues are encountered, Python and OS version information may be useful as well
-     -   Counterpartyd version (`counterpartyd -V`)
-     -   Python: (How to get it: `counterpartyd -V` and (Ubuntu)
-         `python3 -V`). On Windows it’s the same - you want the right
-         Python version (Python 3) so use the full path to query it.
-     -   OS details (On Linux: `uname -a` and (Ubuntu)
-         `cat /etc/issue.net`))
--   Whether you are using `develop` or `master` branch
--   Describe the issue and submit the logs
-    -   Counterwallet-related problems: what happened, how to duplicate
-        the issue, especially whether it was observed in another Web
-        browser.
-    -   `counterpartyd`-related problems: provide the exact command that
-        caused unexpected or wrong behavior, including transaction or
-        address information because that allows the developers to see
-        how it was processed by Counterparty. The locations of various
-        logs can be found in product documentation (submit just the
-        relevant part, usually the last few lines). In case of API
-        errors, copy the error.
-    -   Test Suite - The test suite is invoked with \$ py.test in the counterpartylib directory of the counterparty-lib repository.
-
 -   All Counterparty projects are hosted on Github and can be found at
     [https://github.com/CounterpartyXCP](https://github.com/CounterpartyXCP).
     -   Counterwallet issues should go to the `Counterwallet` repo
     -   `counterpartyd` issues should be submitted to the
         `counterpartyd` repo
-    -   Installation and upgrade issues should go to the
-        `counterpartyd_build` repo
 -   If you think you’ve identified a **security issue**, check out the
     [bounties page](https://counterparty.io/docs/bounties) and contact the Counterparty developers directly.
 
 
-####Branches
+###Counterwallet
 
--  The **master** branch contains the production-ready code. It is
-   updated for version releases and hotfixes only.
--  The **develop** branch hosts the most recent version of the code,
-   with all finished features integrated together. ``develop`` should
-   always be in consensus with ``master``, and it should not break
-   often.
--  **Feature** branches
+-   Please see the pointers for end users (above).
+-   Since it’s easy to check JavaScript Debug Console, it’s usually a
+    good idea to check that out first
+-   Describe the issue and submit the logs
+    -   Counterwallet-related problems: what happened, how to duplicate
+        the issue, especially whether it was observed in another Web
+        browser.
+
+
+###counterparty-cli
+
+- See https://github.com/CounterpartyXCP/counterparty-cli/blob/develop/CONTRIBUTING.md
+
+###counterparty-lib
+
+- See https://github.com/CounterpartyXCP/counterparty-lib/blob/master/CONTRIBUTING.md
+
 
 #Bounties
 
