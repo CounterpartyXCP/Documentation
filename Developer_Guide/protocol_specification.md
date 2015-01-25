@@ -116,18 +116,18 @@ divisible to eight decimal places. Assets also come with descriptions,
 which may be changed at any time.
 
 
+<!--
 Quantities, Prices, Fractions
------------------------------
 
 -  max int
 -  oversend, overbet, overorder
    -  not btcpay, issuance (fragile!), dividend (?!)
 
 Expirations
------------
 
 -  max expiration times
 -  at beginning of block (before txes are parsed)
+-->
 
 Transaction Statuses
 --------------------
