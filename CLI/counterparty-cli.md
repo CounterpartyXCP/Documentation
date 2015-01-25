@@ -23,7 +23,7 @@ python3 setup.py install
 
 ## Windows
 
-*TODO*
+`pip install counterparty-cli`
 
 
 # Counterparty server
