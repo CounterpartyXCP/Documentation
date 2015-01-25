@@ -12,10 +12,12 @@ parsing out Counterparty transactions from the Bitcoin blockchain, and
 encoding new Counterparty transactions from a command issued via the
 command line, or an API call.
 
+For more information see: [counterparty-lib](/counterparty-lib.md) and [Counterparty CLI](/counterparty-cli.md)
+
 counterblockd
 -------------
 
-The `counterblockd` daemon provides a more high-level data processing, and
+The [`counterblockd`](/counterblockd_API.rst´) daemon provides a more high-level data processing, and
 an API that layers on top of counterpartyd’s API. `counterblockd`
 generates and allows querying of data such as market and price
 information, trade operations, asset history, and more. It is used
