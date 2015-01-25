@@ -17,13 +17,13 @@ python setup.py install`
 # Example Usage
 
 ```
-    from counterpartylib import server
+from counterpartylib import server
 
-    # initialise the server
-    db = server.initialise(...)
-    
-    # start synchronisation with the blockchain and RPC server
-    server.start_all(db)
+# initialise the server
+db = server.initialise(...)
+
+# start synchronisation with the blockchain and RPC server
+server.start_all(db)
 ```
 
 
