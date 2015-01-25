@@ -22,9 +22,9 @@ The configuration file must contains parameters to connect to the `counterparty-
 
 See the README for an example of the two configuration files: https://github.com/CounterpartyXCP/counterparty-cli/blob/develop/README.md
 
-`counterparty-cli` also can be installed via a simple `pip install counterparty-cli`. The install script takes care to install `counterparty-lib` and all other dependencies, and add the two command line script to the PATH.
+`counterparty-cli` also can be installed via a simple `pip install counterparty-cli`. The install script takes care to install `counterparty-lib` and all other dependencies, and add the two command line scripts to the PATH.
 
-`counterparty-cli` can be compiled as standalone `.exe` package for Windows with `pyton setup.py py2exe` (if you don't have py2exe, install it from console running with Administrator system privileges using `pip install py2exe`). Binaries will be available for download on Github and in a near future as an MSI installer.
+`counterparty-cli` can be compiled as standalone `.exe` package for Windows with `python.exe setup.py py2exe`. This process, however, is rather involving because it requires a number of other `pip` packages to be installed before `py2exe` can be used. To make the installation process easier, Windows binaries will be released and later followed by an MSI package.
 
 ## MIGRATON
 
@@ -36,7 +36,7 @@ See the README for an example of the two configuration files: https://github.com
 
 If you have a `counterpartyd` standard installation (ie. data dir in `~/.config/counterpartyd/`), the installation script will do automatically the following steps. Else, if you have a Bitcoin Core already installed the installation script will use `.bitcoin/bitcoin.conf` to generate the two configurations files. Else, it will generate the two configuration file with a random password for the `counterparty-server`. 
 
-If your configuration files (`counterpartyd` or Bitcoin Core's `bitcoin.conf`) are in non-default locations, the installation script will not look for them. You may want to place them - if only temporarily - in the default locations and then run the installation script. After that you can modify your startup parameters and move the configuration files back to non-default locations.
+If your configuration files (`counterpartyd` or Bitcoin Core's `bitcoin.conf`) are in non-default locations, the installation script will not look for them. You may want to place them - if only temporarily - in the default locations and then run the installation script. After that you can modify your service startup script(s) to use the names of new `counterparty-lib` script(s) and move the configuration files back to their non-default locations.
 
 **NOTE 2**
 
