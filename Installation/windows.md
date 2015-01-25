@@ -20,6 +20,10 @@ Minimally required to build ``counterpartyd`` from source is the following:
   - Use the default installer options (except, select *"Use Git from the Windows Command Prompt"* on the appropriate screen)
 
 
+Because of a bug in `pip3`'s `allow-external` option, Windows users must also run this command manually:
+`pip3 install https://github.com/petertodd/python-bitcoinlib/archive/c481254c623cc9a002187dc23263cce3e05f5754.zip#egg=python-bitcoinlib-0.3.0`
+
+
 ###Install Visual Studio 2010 Express and Its SP1
 
 [https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
