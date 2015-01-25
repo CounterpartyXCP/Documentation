@@ -1,28 +1,30 @@
-# Description
+#Counterparty CLI
+
+## Description
 
 `counterparty-cli` is a command line interface for [`counterparty-lib`](https://github.com/CounterpartyXCP/counterpartyd).
 
-# Installation
+## Installation
 
-## Pre‐Requisites
+### Pre‐Requisites
 
 * [Bitcoin Core](/bitcoin_core.md)
 * [Windows‐specific](/windows.md)
 
 
-## Install
+### Install
 
 `pip3 install counterparty-cli`
 
 
-# Upgrades
+## Upgrades
 
 `pip3 install --upgrade counterparty-cli`
 
 
-# Usage
+## Usage
 
-## Counterparty server
+### Counterparty server
 
 Use `counterparty-server` to start synchronization with the blockchain and RPC server.
 
@@ -54,7 +56,7 @@ A counterparty-server configuration file looks like this:
     rpc-password = password
 
 
-## Counterparty client
+### Counterparty client
 Use `counterparty-client` to manage your Counterparty wallet.
 
 For a list of the available command‐line arguments and options, see
