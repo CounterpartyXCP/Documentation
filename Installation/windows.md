@@ -1,10 +1,10 @@
-# Counterparty Depedencies on Windows
+# Counterparty Dependencies on Windows
 
 **NOTE:** These instructions cover building counterpartyd as 32-bit. This will
 work with both 32-bit and 64-bit versions of Windows, and is the simplier and
 recommended approach
 
-## Generic Depedencies
+## Generic Dependencies
 
 - Python 3.4.1 -- grab the [32-bit version](http://www.python.org/ftp/python/3.4.1/python-3.4.1.msi)
   - Install to the default ``C:\Python34`` location
@@ -34,4 +34,6 @@ Also install KB 2519277 ([Microsoft Visual C++ 2010 Service Pack 1 Compiler Upda
 ## python-bitcointools
 
 Because of a bug in `pip3`'s `allow-external` option on Windows, users must also run this command manually:
-`pip3 install https://github.com/petertodd/python-bitcoinlib/archive/c481254c623cc9a002187dc23263cce3e05f5754.zip#egg=python-bitcoinlib-0.3.0`
+```
+pip3 install https://github.com/petertodd/python-bitcoinlib/archive/c481254c623cc9a002187dc23263cce3e05f5754.zip#egg=python-bitcoinlib-0.3.0
+```
