@@ -21,8 +21,7 @@ bug report (instructions can be found below).
 -   In case of issues with transactions that require tracking, paste
     your address in text (not image!) format
 -   Related KB/FAQs:
-    -   [How to collect client-side debug info for Counterwallet
-        problems?][]
+    -   [How to collect client-side debug info for Counterwallet problems?](http://support.counterparty.io/solution/articles/5000013731-how-to-collect-client-side-debug-information-for-counterwallet-)
     -   [Diagnostic options in Counterwallet settings][]
 
 
@@ -108,5 +107,4 @@ counterpartyd
 
 [https://github.com/CounterpartyXCP]: https://github.com/CounterpartyXCP
 [the Countewallet issues]: https://github.com/CounterpartyXCP/counterwallet/issues
-[How to collect client-side debug info for Counterwallet problems?]: http://support.counterparty.io/solution/articles/5000013731-how-to-collect-client-side-debug-information-for-counterwallet-
 [Diagnostic options in Counterwallet settings]: http://support.counterparty.io/solution/articles/5000051310-what-do-various-strings-in-the-diagnostic-part-of-counterwallet-advanced-options-mean-
