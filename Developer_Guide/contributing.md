@@ -57,10 +57,7 @@ Developers
         logs can be found in product documentation (submit just the
         relevant part, usually the last few lines). In case of API
         errors, copy the error.
-    -   Test Suite
-    
-         The test suite is invoked with \$ py.test in the
-         counterpartylib directory of the counterparty-lib repository.
+    -   Test Suite - The test suite is invoked with \$ py.test in the counterpartylib directory of the counterparty-lib repository.
 
 -   All Counterparty projects are hosted on Github and can be found at
     [https://github.com/CounterpartyXCP](https://github.com/CounterpartyXCP).
