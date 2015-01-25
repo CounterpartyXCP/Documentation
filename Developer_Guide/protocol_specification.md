@@ -8,12 +8,11 @@ Counterparty is a suite of financial tools in a protocol built on top of
 the Bitcoin blockchain and using the blockchain as a service for the
 reliable publication and timestamping of its messages.
 
-The reference implementation is ``counterpartyd``, which is hosted at
-`https://github.com/CounterpartyXCP/counterpartyd <https://github.com/CounterpartyXCP/counterpartyd>`_.
+The reference implementation is ``counterpartyd``, which is hosted at https://github.com/CounterpartyXCP/counterpartyd.
 
 This document describes exclusively the latest version of the
 Counterparty protocol. For historical protocol changes, see the
-counterpartyd `CHANGELOG <https://github.com/CounterpartyXCP/counterpartyd/blob/master/ChangeLog.md>`_ .
+counterpartyd [CHANGELOG](https://github.com/CounterpartyXCP/counterpartyd/blob/master/ChangeLog.md).
 
 Transactions
 ------------
@@ -161,8 +160,7 @@ Message Types
 -  Burn
 -  Cancel
 
-Send
-~~~~
+###Send
 
 A **send** message sends a quantity of any Counterparty asset from the
 source address to the destination address. If the sender does not hold a
@@ -173,8 +171,7 @@ as much as it can be.
 counterpartyd supports sending bitcoins, for which no data output is
 used.
 
-Order
-~~~~~
+###Order
 
 An ‘order’ is an offer to *give* a particular quantity of a particular
 asset and *get* some quantity of some other asset in return. No
@@ -238,8 +235,8 @@ done with a **BTCpay** message, which stores in its data field only
 the string concatenation of the transaction hashes which compose the
 Order Match which it fulfils.
 
-Issue
-~~~~~
+###Issue
+
 
 Assets are issued with the **issuance** message type: the user picks a
 name and a quantity, and the protocol credits his address accordingly.
@@ -261,8 +258,7 @@ destruction) of now 0.5 XCP.
 
 Asset descriptions may be of arbitrary length.
 
-Broadcast
-~~~~~~~~~
+###Broadcast
 
 A **broadcast** message publishes textual and numerical information,
 along with a timestamp, as part of a series of broadcasts called a
@@ -294,8 +290,7 @@ feed. (This is equivalent to waiting for two weeks after the deadline.)
 Broadcasts with any other negative value are ignored for the purpose of
 bet settlement, but they still update the last broadcast time.
 
-Bet
-~~~
+###Bet
 
 A bet is a wager that the value of a particular feed will be equal (or not
 equal) to a certain value — the *target value* — at the *deadline*. Bets have
@@ -331,8 +326,7 @@ They are taken from, not added to, the quantities wagered.
 
 Feed fees are deducted from the final settlement amount.
 
-Dividend
-~~~~~~~~
+###Dividend
 
 A dividend payment is a payment of some quantity of any Counterparty
 asset (including BTC) to every holder of a an asset (except BTC or XCP)
@@ -347,34 +341,31 @@ larger and more expensive (in fees) than all other dividend payments.
 
 There is a small fee per recipient with dividends, to prevent SPAM.
 
-Burn
-~~~~
+###Burn
 
 Balances in Counterparty’s native currency, ‘XCP’, will be initialised
 by ‘burning’ bitcoins in miners’ fees during a particular period of time
 using the a **burn** message type. The number of XCP earned per bitcoin
 is calculated thus:
 
-::
-
     XCP_EARNED = BTC_BURNED * (1000 * (1 + .5 * 
                  ((END_BLOCK - CURRENT_BLOCK) / (END_BLOCK - START_BLOCK))
                  ))
 
-``END_BLOCK`` is the block after which the burn period is over (**block
-#283810**) and ``START_BLOCK`` is the block with which the burn period
+
+``END_BLOCK`` is the block after which the burn period is over (**block #283810**) and ``START_BLOCK`` is the block with which the burn period
 begins (**block #278310**). The earlier the burn, the better the price,
 which may be between 1000 and 1500 XCP/BTC.
 
 Burn messages have precisely the string ‘ProofOfBurn’ stored in the
 ``OP_RETURN`` output.
 
--  new data‐less burn
 
--  burn period is over
+- new data‐less burn
 
-Cancel
-~~~~~~
+- burn period is over
+
+###Cancel
 
 Open offers may be cancelled, which cancellation is irrevocable.
 
@@ -430,12 +421,11 @@ enough XCP.
 
 Further reading on the Ethereum contract language(s) is available here:
 
-- `Ethereum White Paper`_ 
-- `Ethereum Yellow Paper`_ 
-- `Pyethereum and Serpent Programming Guide`_ 
-- `Ethereum Wiki: Serpent`_
+- [Ethereum White Paper](https://www.ethereum.org/pdfs/EthereumWhitePaper.pdf)
 
-.. _Ethereum White Paper: https://www.ethereum.org/pdfs/EthereumWhitePaper.pdf
-.. _Ethereum Yellow Paper: http://gavwood.com/Paper.pdf
-.. _Pyethereum and Serpent Programming Guide: https://blog.ethereum.org/2014/04/10/pyethereum-and-serpent-programming-guide/
-.. _`Ethereum Wiki: Serpent`: https://github.com/ethereum/wiki/wiki/Serpent
+- [Ethereum Yellow Paper](http://gavwood.com/Paper.pdf)
+
+- [Pyethereum and Serpent Programming Guide](https://blog.ethereum.org/2014/04/10/pyethereum-and-serpent-programming-guide/)
+
+- [Ethereum Wiki: Serpent](https://github.com/ethereum/wiki/wiki/Serpent)
+
