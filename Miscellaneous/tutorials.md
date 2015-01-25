@@ -9,32 +9,28 @@ and Counterwallet Terms of Use. They can be found at the bottom of the
 Counterparty home page and are displayed every time you create a new
 wallet on Counterwallet.io.
 
-Centralized Exchanges
-~~~~~~~~~~~~~~~~~~~~~
+###Centralized Exchanges
 
 Counterparty (XCP) is currently traded at the following centralized (crypto)exchanges (listed by volume as of January 2015): 
 
-* `BTer`_ - buy/sell for BTC, CNY and USD (English, Chinese) 
+* [BTer](https://bter.com/trade/xcp_btc) - buy/sell for BTC, CNY and USD (English, Chinese) 
 
-* `Poloniex`_ - buy/sell for BTC 
+* [Poloniex](https://poloniex.com/exchange/btc_xcp) - buy/sell for BTC 
 
-* `Melotic`_ - buy/sell for BTC 
+* [Melotic](https://www.melotic.com/markets/xcp-btc) - buy/sell for BTC 
 
-* `ALTS`_ - buy/sell for BTC
+* [ALTS](https://alts.trade/trade/XCP/BTC) - buy/sell for BTC
 
 ***NOTE***: Centralized exchanges are controlled and operated by their
 respective owners.
 
-Counterparty Distributed Exchange
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+###Counterparty Distributed Exchange
 
 The Counterparty distributed exchange matches orders algorithmically using the Bitcoin blockchain. This means that access is as unfilterable and unrestrictable as the use of Bitcoin itself. Therefore, due diligence is highly advised.
 
--  `GUI-based Trading on the DEx: How to buy and sell Counterparty
-   assets on the DEx`_ - how to trade XCP and other Counterparty assets
+-  [GUI-based Trading on the DEx: How to buy and sell Counterparty assets on the DEx](http://support.counterparty.io/solution/categories/5000013624/folders/5000021046/articles/5000527145-buy-and-sell-assets-tokens-on-the-dex-using-xcp) - how to trade XCP and other Counterparty assets
 
--  `CLI-based Trading on the DEx: How to use the ``counterpartyd`` to
-   buy and sell BTC and other assets on the DEx`_
+- [CLI-based Trading on the DEx: How to use the ``counterpartyd`` to buy and sell BTC and other assets on the DEx](http://support.counterparty.io/support/solutions/articles/5000499251-manual-btc-sell-ing-on-the-counterparty-distributed-exchange-dex-using-counterpartyd)
 
 **NOTES**: (1) As you can see or deduce from the way Bitcoin works,
 trading on the DEx is slower because each “move” (make offer, cancel
@@ -44,8 +40,7 @@ liquidity of BTC trading (because it is not accessible from
 Counterwallet) is low. XCP and other assets are available from both the
 CLI and Counterwallet.
 
-Differences between Centralized and Distributed (Crypto)Exchanges
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+###Differences between Centralized and Distributed (Crypto)Exchanges
 
 -  While the Counterparty DEx eliminates the counterparty risk and
    withdrawal limits, centralized exchanges often provide increased
@@ -62,12 +57,6 @@ While that approach still suffers from the same inconveniences that
 existed in Counterwallet, it does allow trust-less P2P trading with BTC
 on the DEx.
 
-.. _BTer: https://bter.com/trade/xcp_btc
-.. _Poloniex: https://poloniex.com/exchange/btc_xcp
-.. _Melotic: https://www.melotic.com/markets/xcp-btc
-.. _ALTS: https://alts.trade/trade/XCP/BTC
-.. _`GUI-based Trading on the DEx: How to buy and sell Counterparty assets on the DEx`: http://support.counterparty.io/solution/categories/5000013624/folders/5000021046/articles/5000527145-buy-and-sell-assets-tokens-on-the-dex-using-xcp
-.. _`CLI-based Trading on the DEx: How to use the ``counterpartyd`` to buy and sell BTC and other assets on the DEx`: http://support.counterparty.io/support/solutions/articles/5000499251-manual-btc-sell-ing-on-the-counterparty-distributed-exchange-dex-using-counterpartyd
 
 How to access testnet using Counterwallet on Federated Node?
 ------------------------------------------------------------
@@ -76,8 +65,6 @@ There are two ways to do that:
 
 -  Edit your /etc/hosts file and add a hostname that has “testnet” in
    it. Example:
-
-   ::
 
        127.0.0.1 localhost localhost.localdomain testnet.cw.local cw.local
 
@@ -96,50 +83,47 @@ instance of counterpartyd is connected.
 This script takes a single command-line argument of the CSV file from
 which to pull the sources, destinations, quantities, assets and fees.
 
-Script
-~~~~~~
+###Script
   
-::
 
-  #! /usr/bin/env python3 import csv
-  import json
-  import sys
-  import requests
-  
-  # SETTINGS
-  RPC\_USER = ‘rpc’
-  RPC\_PASSWORD = RPC\_HOST = ‘localhost’
-  RPC\_PORT = 14000
-  
-  json\_print = lambda x: print(json.dumps(x, sort\_keys=True,indent=4))
-  headers = {‘content-type’: ‘application/json’}
-  
-  def api(payload):
-  host = ‘http://{}:{}@{}:{}’.format(RPC\_USER, RPC\_PASSWORD, RPC\_HOST, RPC\_PORT) response = requests.post(host,data=json.dumps(payload), headers=headers)
-    try:
-    return response.json()[‘result’]
-    except KeyError:
-    print(response.json()[‘error’])
-    return False
-  
-   with open(sys.argv[1], ‘r’) as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-    print(‘Row {}: {}’.format(reader.line\_num, row))
-    source, destination, asset, quantity, fee = row
+     #! /usr/bin/env python3 import csv
+     import json
+     import sys
+     import requests
+     
+     # SETTINGS
+     RPC\_USER = ‘rpc’
+     RPC\_PASSWORD = RPC\_HOST = ‘localhost’
+     RPC\_PORT = 14000
+     
+     json\_print = lambda x: print(json.dumps(x, sort\_keys=True,indent=4))
+     headers = {‘content-type’: ‘application/json’}
+     
+     def api(payload):
+     host = ‘http://{}:{}@{}:{}’.format(RPC\_USER, RPC\_PASSWORD, RPC\_HOST, RPC\_PORT) response = requests.post(host,data=json.dumps(payload), headers=headers)
+       try:
+       return response.json()[‘result’]
+       except KeyError:
+       print(response.json()[‘error’])
+       return False
+     
+      with open(sys.argv[1], ‘r’) as csvfile:
+       reader = csv.reader(csvfile)
+       for row in reader:
+       print(‘Row {}: {}’.format(reader.line\_num, row))
+       source, destination, asset, quantity, fee = row
+   
+           # Create send.                                                          
+           payload = {                                                             
+               "method": "do_send",                                            
+               "params": {'source': source, 'destination': destination, 'asset': asset, 'quantity': 
+                   int(quantity), 'fee': int(fee), 'encoding': 'opreturn'},
+               "jsonrpc": "2.0",                                                   
+               "id": 0                                                             
+           }                         
+           
 
-        # Create send.                                                          
-        payload = {                                                             
-            "method": "do_send",                                            
-            "params": {'source': source, 'destination': destination, 'asset': asset, 'quantity': 
-                int(quantity), 'fee': int(fee), 'encoding': 'opreturn'},
-            "jsonrpc": "2.0",                                                   
-            "id": 0                                                             
-        }                         
-        
-
-CSV File
-~~~~~~~~
+###CSV File
 
 All quantities are specified in satoshis. The format of the CSV file is
 “source,destination,asset,quantity,fee” and no header line (with field
@@ -147,13 +131,11 @@ names) is allowed.
 
 An example CSV file for input:
 
-::
 
-    mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,100000000,150
-    mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,200000000,100
+       mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,100000000,150
+       mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,200000000,100
 
-Instructions
-~~~~~~~~~~~~
+###Instructions
 
 If the CSV file with the data is called input.csv, and the script is
 called sendmany.py, then call this script with
