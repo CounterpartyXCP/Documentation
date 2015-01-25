@@ -1,31 +1,5 @@
 ## DESCRIPTION
 
-`counterpartyd` repository is divided into two parts: `counterparty-lib` and `counterparty-cli`.
-
-### counterparty-lib
-
-the main characteristics of `counterparty-lib` are:
-- it is a "pure" Python library and don't contains any command line script.
-- it can be installed/upgraded with a simple `pip3 install counterparty-lib`
-- it don't needs/manages a Wallet but only a block explorer (btw that why, in the API, the pubkey parameter is now mandatory if not present in the blockchain)
-- it don't needs/manages user configuration file
-
-### counterparty-cli
-
-`counterparty-cli` contains 2 command line scripts: 
-- `counterparty-server.py` 
-It replaces `counterpartyd.py` and uses its own configuration file (`~/.config/counterparty-server/counterparty-server.conf`).
-The configuration file must contains parameters to connect to the block explorer (addrindex backend), and parameters to serve the RPC API.
-- `counterparty-client.py`
-it replaces `counterparty-cli.py` and uses its own configuration file (`~/.config/counterparty-client/counterparty-client.conf`).
-The configuration file must contains parameters to connect to the `counterparty-server` and parameters to connect to the wallet (Bitcoin Core for now).
-
-See the README for an example of the two configuration files: https://github.com/CounterpartyXCP/counterparty-cli/blob/develop/README.md
-
-`counterparty-cli` also can be installed via a simple `pip3 install counterparty-cli`. The install script takes care to install `counterparty-lib` and all other dependencies, and add the two command line scripts to the PATH.
-
-`counterparty-cli` can be compiled as standalone `.exe` package for Windows with `python.exe setup.py py2exe`. This process, however, is rather involving because it requires a number of other `pip` packages to be installed before `py2exe` can be used. To make the installation process easier, Windows binaries will be released and later followed by an MSI package.
-
 ## MIGRATON
 
 ### For everyone:
