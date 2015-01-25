@@ -34,7 +34,7 @@ Basic Setup
 Adding Support in your Code
 ------------------------------------
 
-See the [API documentation](/counterpartyd_API.md).
+See the [API documentation](/API.md).
 
 Counterparty has a full-fledged JSON RPC API (which listens on port 4000
 by default and requires HTTP basic authentication to connect, for the
@@ -42,7 +42,7 @@ username and password listed as ``rpc-host`` and ``rpc-password``).
 Connecting to it and making queries is basically the same as bitcoind,
 except that it uses JSON RPC 2.0. We have an example of making API
 queries in Python and PHP listed
-[here](/counterpartyd_API.md).
+[here](/API.md).
 To integrate support into your exchange, you might adopt the following
 methods:
 
@@ -55,7 +55,7 @@ methods:
    for them (using the API of the bitcoind instance that your
    counterpartyd is running with).
 -  You can poll for XCP being sent to the user’s deposit address using
-   Counterpartyd’s ``get_balances`` [API command](/counterpartyd_API.md), and specifying ``filter for asset==XCP``
+   Counterpartyd’s ``get_balances`` [API command](/API.md), and specifying ``filter for asset==XCP``
    when you call it (or simply parsing the XCP balance out of the
    resulting list of asset balances – it’ll probably be the only entry,
    but you can’t guarantee that, as users could send non-XCP assets to
