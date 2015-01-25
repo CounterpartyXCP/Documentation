@@ -33,6 +33,7 @@ now!][]
 
 ***External sites with information about Counterparty***
 
+-   [Counterparty Foundation](http://counterpartyfoundation.org)
 -   [Coinmarketcap.com][] - XCP price, list of exchanges
 -   [Counterparty on Wikipedia][]
 
