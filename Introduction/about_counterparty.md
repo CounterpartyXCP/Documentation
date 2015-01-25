@@ -46,3 +46,21 @@ now!][]
   [Subscribe now!]: http://counterparty.us9.list-manage.com/subscribe/post?u=670b494916e05d6d2cfaa5206&id=cdae97fc90
   [Coinmarketcap.com]: http://coinmarketcap.com/currencies/counterparty/
   [Counterparty on Wikipedia]: https://en.wikipedia.org/wiki/Counterparty_(technology)
+
+
+***Repositories***
+
+-   [Github][]
+    -   [counterpartyd][] - Counterparty reference client
+    -   [counterparty-cli][] - Counterparty CLI
+    -   [counterparty-gui][] - Counterparty GUI (OS X and Windows)
+    -   [Counterwallet][] - web wallet
+    -   [counterblockd][] - Provides extended API services to Counterwallet, as well as Counterparty 3rd-party applications
+    -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) - Federated Node Build System
+
+[Github]: https://github.com/CounterpartyXCP
+[counterpartyd]: https://github.com/CounterpartyXCP/counterpartyd
+[counterparty-cli]: https://github.com/CounterpartyXCP/counterparty-cli
+[counterparty-gui]: https://github.com/CounterpartyXCP/counterparty-gui
+[counterblockd]: https://github.com/CounterpartyXCP/counterblockd
+[Counterwallet]: https://github.com/CounterpartyXCP/counterwallet
