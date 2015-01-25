@@ -1,8 +1,8 @@
 # Counterparty Dependencies on Windows
 
-**NOTE:** These instructions cover building counterpartyd as 32-bit. This will
-work with both 32-bit and 64-bit versions of Windows, and is the simplier and
-recommended approach
+**NOTE:** These instructions are for a 32-bit installation. This will work with
+both 32-bit and 64-bit versions of Windows, and is the simplier and recommended
+approach.
 
 ## Generic Dependencies
 
