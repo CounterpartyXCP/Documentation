@@ -6,9 +6,8 @@
 
 ## Pre‐Requisites
 
-* Bitcoin Core *TODO: LINK*
-
-* Windows‐specific *TODO: LINK*
+* [Bitcoin Core](/bitcoin_core.md)
+* [Windows‐specific](/windows.md)
 
 
 ## Install
