@@ -102,7 +102,7 @@ Asset Functions
 **get_asset_pair_market_info(asset1=None, asset2=None, limit=50):**
 
 
-   .. deprecated:: 1.5
+   *deprecated: 1.5*
       Use `get_market_details/get_market_info`
 
    Given two arbitrary assets, returns the base asset and the quote asset.
@@ -125,7 +125,7 @@ Asset Functions
 
   Given two arbitrary assets, returns the base asset and the quote asset.
 
-  .. deprecated:: 1.5
+  *deprecated: 1.5*
     Use `get_market_info/get_market_details`
 
   :param asset1: An asset
@@ -223,7 +223,7 @@ Asset Functions
 
 **get_market_price_summary(asset1, asset2, with_last_trades=0)**
 
-  .. deprecated:: 1.5
+  *deprecated: 1.5*
     Use `get_market_price_history`
 
   :param asset1: An asset
@@ -248,7 +248,7 @@ Asset Functions
 
 **get_order_book_buysell(buy_asset, sell_asset, pct_fee_provided=None, pct_fee_required=None)**
 
-   .. deprecated:: 1.5
+   *deprecated: 1.5*
       Use counterpartyd's `get_orders`
 
 
@@ -289,7 +289,7 @@ Asset Functions
 
 **get_order_book_simple(asset1, asset2, min_pct_fee_provided=None, max_pct_fee_required=None)**
 
-    .. deprecated:: 1.5
+    *deprecated: 1.5*
       Use counterpartyd's `get_orders`
 
     Easier to call version when you want all orders involving the two assets.
@@ -444,7 +444,7 @@ Debugging/Server Functions
 
 **get_chat_history(start_ts=None, end_ts=None, handle=None, limit=1000)**
 
-   .. deprecated:: 1.5
+   *deprecated: 1.5*
 
 **get_num_users_online()**
 
@@ -460,7 +460,8 @@ Debugging/Server Functions
 
 **is_chat_handle_in_use(handle)**
 
-  .. deprecated:: 1.5
+  *deprecated: 1.5*
+  
   :rtype: Boolean
 
 **is_ready()**
@@ -489,7 +490,7 @@ Blockchain Functions
 
 **get_chain_block_height()**
 
-  .. deprecated:: 1.5
+  *deprecated: 1.5*
     Use `get_chain_address_info`
 
   :return: The height of the block chain
@@ -624,7 +625,7 @@ Action/Write API Function Reference
 
 **cancel_btc_open_order(wallet_id, order_tx_hash)**
 
-    .. deprecated:: 1.5
+    *deprecated: 1.5*
 
 
 **proxy_to_counterpartyd(method='', params={})**
@@ -648,7 +649,7 @@ Action/Write API Function Reference
    Stores the preferences for a given wallet ID.
 
    :param string wallet_id: The wallet ID to store the preferences for.
-             :param object preferences: A :ref:`wallet preferences object <wallet-preferences-object>`
+             :param object preferences: A wallet-preferences-object_
    :return: ``true`` if the storage was successful, ``false`` otherwise.
 
 
