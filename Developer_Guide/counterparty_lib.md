@@ -1,29 +1,22 @@
-`counterparty-lib`
-==================
+# counterparty-lib
 
-Versioning
--------------
-* Major version changes require a full (automatic) rebuild of the database.
-* Minor version changes require a(n automatic) database reparse.
-* All protocol changes are retroactive on testnet.
+# Installation
 
-Installation
---------------------
-
-      `pip3 install counterparty-lib`
+```
+`pip3 install counterparty-lib`
+```
 
 or
-  
-        ```
-        git clone https://github.com/CounterpartyXCP/counterpartyd.git
-        cd counterpartyd
-        python setup.py install`
-        ```
 
-Example Usage
-------------------
+```
+git clone https://github.com/CounterpartyXCP/counterpartyd.git
+cd counterpartyd
+python setup.py install`
+```
 
+# Example Usage
 
+```
     from counterpartylib import server
 
     # initialise the server
@@ -31,4 +24,11 @@ Example Usage
     
     # start synchronisation with the blockchain and RPC server
     server.start_all(db)
+```
 
+
+# Versioning
+
+* Major version changes require a full (automatic) rebuild of the database.
+* Minor version changes require a(n automatic) database reparse.
+* All protocol changes are retroactive on testnet.
