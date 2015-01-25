@@ -28,3 +28,32 @@ proxy-based interface to all counterpartyd API methods, via the
 `proxy\_to\_counterpartyd` API call. This call is used in the Federated
 Node setup so that `counterpartyd` does not have to be directly exposed,
 and to allow `counterblockd` to cache counterpartyd API responses.
+
+
+Repositories
+------------
+
+-   [Github][]
+    -   [counterpartyd][] - Counterparty reference client
+    -   [counterparty-cli][] - Counterparty CLI
+    -   [counterparty-gui][] - Counterparty GUI (OS X and Windows)
+    -   [counterblockd][] - Provides extended API services to
+        Counterwallet, as well as Counterparty 3rd-party applications
+    -   [Counterwallet][] - the Web wallet
+    -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) - Federated Node Build System
+
+  [counterparty.io]: http://counterparty.io
+  [counterpartyfoundation.org]: http://counterpartyfoundation.org
+  [counterwallet.io]: https://counterwallet.io
+  [devtest.counterwallet.io]: https://devtest.counterwallet.io
+  [testnet.counterwallet.io]: https://testnet.counterwallet.io
+  [beta.counterwallet.io]: https://beta.counterwallet.io
+  [support.counterparty.io]: http://support.counterparty.io
+  [forums.counterparty.io]: http://forums.counterparty.io
+  [status.counterparty.io]: http://status.counterparty.io
+  [Github]: https://github.com/CounterpartyXCP
+  [counterpartyd]: https://github.com/CounterpartyXCP/counterpartyd
+  [counterparty-cli]: https://github.com/CounterpartyXCP/counterparty-cli
+  [counterparty-gui]: https://github.com/CounterpartyXCP/counterparty-gui
+  [counterblockd]: https://github.com/CounterpartyXCP/counterblockd
+  [Counterwallet]: https://github.com/CounterpartyXCP/counterwallet
