@@ -25,15 +25,15 @@ approach.
 
 ## MS SDK for Windows v7.1
 
-When installing, under ``Windows Native Code Development``, check
+* When installing, under ``Windows Native Code Development``, check
 ``Windows C++ Compilers`` [here](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=8279)
 
-Also install KB 2519277 ([Microsoft Visual C++ 2010 Service Pack 1 Compiler Update for the Windows SDK 7.1](http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70).
+* Also install KB 2519277 ([Microsoft Visual C++ 2010 Service Pack 1 Compiler Update for the Windows SDK 7.1](http://www.microsoft.com/downloads/en/details.aspx?FamilyID=689655b4-c55d-4f9b-9665-2c547e637b70).
 
 
 ## python-bitcointools
 
-Because of a bug in `pip3`'s `allow-external` option on Windows, users must also run this command manually:
+* Because of a bug in `pip3`'s `allow-external` option on Windows, users must also run this command manually:
 ```
 pip3 install https://github.com/petertodd/python-bitcoinlib/archive/c481254c623cc9a002187dc23263cce3e05f5754.zip#egg=python-bitcoinlib-0.3.0
 ```
