@@ -12,7 +12,7 @@ The reference implementation is ``counterpartyd``, which is hosted at [https://g
 
 This document describes exclusively the latest version of the
 Counterparty protocol. For historical protocol changes, see the
-counterpartyd [CHANGELOG](https://github.com/CounterpartyXCP/counterpartyd/blob/master/ChangeLog.md).
+counterpartyd [ChangeLog](https://github.com/CounterpartyXCP/counterpartyd/blob/master/ChangeLog.md).
 
 Transactions
 ------------
