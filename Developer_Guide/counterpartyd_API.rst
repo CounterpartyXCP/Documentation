@@ -5,12 +5,6 @@ Counterparty is a protocol for the creation and use of decentralised financial i
 
 ``counterpartyd`` is the reference client (and server daemon) implementation of the Counterparty protocol.
 
-To get ``counterpartyd`` installed and set up on your computer, you have two options:
-    
-    - Set it up manually, using the instructions `here <https://github.com/CounterpartyXCP/counterpartyd/blob/master/README.md>`_
-    - For Windows and Ubuntu Linux users, you can use the :doc:`automated build system </build_counterpartyd.rst>`
-
-
 API
 
 There will be no incompatible API pushes that do not either have: \* A
