@@ -8,7 +8,7 @@ Counterparty is a suite of financial tools in a protocol built on top of
 the Bitcoin blockchain and using the blockchain as a service for the
 reliable publication and timestamping of its messages.
 
-The reference implementation is ``counterpartyd``, which is hosted at https://github.com/CounterpartyXCP/counterpartyd.
+The reference implementation is ``counterpartyd``, which is hosted at [https://github.com/CounterpartyXCP/counterpartyd](https://github.com/CounterpartyXCP/counterpartyd).
 
 This document describes exclusively the latest version of the
 Counterparty protocol. For historical protocol changes, see the
