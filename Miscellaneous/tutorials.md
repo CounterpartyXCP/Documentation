@@ -14,11 +14,8 @@ wallet on Counterwallet.io.
 Counterparty (XCP) is currently traded at the following centralized (crypto)exchanges (listed by volume as of January 2015): 
 
 * [BTer](https://bter.com/trade/xcp_btc) - buy/sell for BTC, CNY and USD (English, Chinese) 
-
 * [Poloniex](https://poloniex.com/exchange/btc_xcp) - buy/sell for BTC 
-
 * [Melotic](https://www.melotic.com/markets/xcp-btc) - buy/sell for BTC 
-
 * [ALTS](https://alts.trade/trade/XCP/BTC) - buy/sell for BTC
 
 ***NOTE***: Centralized exchanges are controlled and operated by their
@@ -29,7 +26,6 @@ respective owners.
 The Counterparty distributed exchange matches orders algorithmically using the Bitcoin blockchain. This means that access is as unfilterable and unrestrictable as the use of Bitcoin itself. Therefore, due diligence is highly advised.
 
 -  [GUI-based Trading on the DEx: How to buy and sell Counterparty assets on the DEx](http://support.counterparty.io/solution/categories/5000013624/folders/5000021046/articles/5000527145-buy-and-sell-assets-tokens-on-the-dex-using-xcp) - how to trade XCP and other Counterparty assets
-
 - [CLI-based Trading on the DEx: How to use the ``counterpartyd`` to buy and sell BTC and other assets on the DEx](http://support.counterparty.io/support/solutions/articles/5000499251-manual-btc-sell-ing-on-the-counterparty-distributed-exchange-dex-using-counterpartyd)
 
 **NOTES**: (1) As you can see or deduce from the way Bitcoin works,
@@ -66,7 +62,7 @@ There are two ways to do that:
 -  Edit your /etc/hosts file and add a hostname that has “testnet” in
    it. Example:
 
-       127.0.0.1 localhost localhost.localdomain testnet.cw.local cw.local
+      127.0.0.1 localhost localhost.localdomain testnet.cw.local cw.local
 
    Now your mainnet Counterwallet can be accessed at ``cw.local`` and
    your testnet Counterwallet at ``tetstnet.cw.local``.
@@ -112,7 +108,6 @@ which to pull the sources, destinations, quantities, assets and fees.
        for row in reader:
        print(‘Row {}: {}’.format(reader.line\_num, row))
        source, destination, asset, quantity, fee = row
-   
            # Create send.                                                          
            payload = {                                                             
                "method": "do_send",                                            
@@ -130,7 +125,6 @@ All quantities are specified in satoshis. The format of the CSV file is
 names) is allowed.
 
 An example CSV file for input:
-
 
        mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,100000000,150
        mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,200000000,100
