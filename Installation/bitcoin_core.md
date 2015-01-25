@@ -22,12 +22,12 @@ Configuration
 On Windows
 -----------
 
-Type Windows Key-R and enter ``cmd.exe`` to open a Windows command prompt. Type the following::
+Type Windows Key-R and enter ``cmd.exe`` to open a Windows command prompt. Type the following:
 
     cd %APPDATA%\Bitcoin
     notepad bitcoin.conf  
 
-Say 'Yes' to when Notepad asks if you want to create a new file, then paste in the text below::
+Say 'Yes' to when Notepad asks if you want to create a new file, then paste in the text below:
 
     rpcuser=bitcoinrpc
     rpcpassword=
