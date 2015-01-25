@@ -12,7 +12,7 @@ Such roles may be:
 - Block explorer server (future)
 - A plain old ``counterpartyd`` server
 
-Each backend server runs [multiple services](http://counterparty.io/docs/components/) (some required, and some optional, or based on the role chosen).
+Each backend server runs multiple services (some required, and some optional, or based on the role chosen).
 As each server is self-contained, they can be combined by the client-side software to allow for high-availability/load balancing.
 
 For instance, software such as Counterwallet may then utilize these backend servers in making API calls either sequentially (i.e. failover) or in
