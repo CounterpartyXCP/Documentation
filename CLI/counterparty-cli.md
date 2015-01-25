@@ -6,7 +6,9 @@
 
 ## Pre‐Requisites
 
-* Bitcoin Core *TODO*
+* Bitcoin Core *TODO: LINK*
+
+* Windows‐specific Dependencies *TODO: LINK*
 
 
 ## Install
