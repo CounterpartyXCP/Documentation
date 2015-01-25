@@ -1,4 +1,4 @@
-Community How To's 
+Community How Tos 
 ===============================
 
 This page contains links to some useful community how to's and tutorials. As new documentation is created it will be added here.
