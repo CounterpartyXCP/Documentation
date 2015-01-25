@@ -8,7 +8,8 @@ enable an 'address index' is required.
 
 Download
 ========
-https://github.com/btcdrak/bitcoin/releases
+
+[https://github.com/btcdrak/bitcoin/releases](https://github.com/btcdrak/bitcoin/releases) 
 
 
 Installation
