@@ -32,7 +32,7 @@ Repositories
     -   [counterblockd][] - Provides extended API services to
         Counterwallet, as well as Counterparty 3rd-party applications
     -   [Counterwallet][] - the Web wallet
-    -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) -
+    -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) - Federated Node Build System
 
   [counterparty.io]: http://counterparty.io
   [counterpartyfoundation.org]: http://counterpartyfoundation.org
