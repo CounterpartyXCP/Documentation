@@ -1318,7 +1318,7 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 9.24.1
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-**Summary:** New API parsing engine added, as well as dynamic get_ method composition in ``api.py``: 
+**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``: 
 
 * Added ``sql`` API method
 * Filter params: Added ``LIKE``, ``NOT LIKE`` and ``IN``
