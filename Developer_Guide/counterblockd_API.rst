@@ -1,7 +1,19 @@
 counterblockd
 =================
 
-``counterblockd`` provides additional services to Counterwallet beyond those offered in the API provided by counterpartyd. It features a full-fledged JSON RPC-based API, which services Counterwallet, as well as any 3rd party services which wish to use it.
+``counterblockd`` provides additional services to Counterwallet beyond those offered in the API provided by counterpartyd. It features a full-fledged JSON RPC-based API, which services Counterwallet, as well as any 3rd party services which wish to use it. ``counterblockd`` has an extensible architecture, and developers may write custom plugins for it, which are loaded dynamically and allow them to extend counterblockd with new parsing functionality, write gateways to other currencies or services, and much more.
+
+counterblockd provides a more high-level data processing, and an API that
+layers on top of counterpartyd’s API.  `counterblockd` generates and allows
+querying of data such as market and price information, trade operations, asset
+history, and more. It is used extensively by Counterwallet itself, and is
+appropriate for use by applications that require additional API-based
+functionality beyond the scope of what counterpartyd provides. 
+
+`counterblockd` also provides a proxy-based interface to all counterpartyd API
+methods, via the `proxy\_to\_counterpartyd` API call. This call is used in the
+Federated Node setup so that `counterpartyd` does not have to be directly
+exposed, and to allow `counterblockd` to cache counterpartyd API responses.
 
 Such services include:
 
@@ -9,7 +21,6 @@ Such services include:
 - An extended API for Counterwallet-specific actions like wallet preferences storage and retrieval
 - API includes functionality for retieving processed time-series data suitable for display and manipulation (useful for distributed exchange price data, and more)
 
-``counterblockd`` has an extensible architecture, and developers may write custom plugins for it, which are loaded dynamically and allow them to extend counterblockd with new parsing functionality, write gateways to other currencies or services, and much more.
 
 Table of Contents
 --------------------------

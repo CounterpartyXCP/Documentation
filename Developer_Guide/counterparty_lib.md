@@ -1,5 +1,12 @@
 # counterparty-lib
 
+# Description
+
+counterparty-lib is a ‘pure’ Python library and doesn’t contain any
+command‐line scripts. It doesn’t interface a wallet, but only a block explorer.
+It does not interface with a user configuration file.
+
+
 # Installation
 
 ```
