@@ -15,12 +15,12 @@ Fully functional wallet for Counterparty (XCP) and bitcoin (BTC) tokens
 Where can I access it?
 --------------------------
 
-Counterwallet hosted by the Counterparty project is available at [Counterwallet.io] (https://counterwallet.io/). Because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
+Counterwallet hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). Because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
 
 Is Counterwallet down?
 -----------------------
 
-Counterparty health status monitor is available [here] (http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of "cw" servers from this page. Counterwallet.io is a multi-server cluster so if one node is down it is likely that others may be up.
+Counterparty health status monitor is available [here](http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of "cw" servers from this page. Counterwallet.io is a multi-server cluster so if one node is down it is likely that others may be up.
 
 Can I try Counterwallet on testnet?
 ------------------------------------------
