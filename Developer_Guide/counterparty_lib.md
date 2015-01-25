@@ -10,7 +10,7 @@ Versioning
 Installation
 --------------------
 
-      `pip install counterparty-lib`
+      `pip3 install counterparty-lib`
 
 or
   

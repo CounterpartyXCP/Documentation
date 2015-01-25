@@ -11,7 +11,7 @@
 
 ## Install
 
-`pip install counterparty-cli`
+`pip3 install counterparty-cli`
 
 or
 
@@ -23,7 +23,7 @@ python3 setup.py install
 
 ## Windows
 
-`pip install counterparty-cli`
+`pip3 install counterparty-cli`
 
 
 # Counterparty server

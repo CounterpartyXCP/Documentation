@@ -6,7 +6,7 @@
 
 the main characteristics of `counterparty-lib` are:
 - it is a "pure" Python library and don't contains any command line script.
-- it can be installed/upgraded with a simple `pip install counterparty-lib`
+- it can be installed/upgraded with a simple `pip3 install counterparty-lib`
 - it don't needs/manages a Wallet but only a block explorer (btw that why, in the API, the pubkey parameter is now mandatory if not present in the blockchain)
 - it don't needs/manages user configuration file
 
@@ -22,7 +22,7 @@ The configuration file must contains parameters to connect to the `counterparty-
 
 See the README for an example of the two configuration files: https://github.com/CounterpartyXCP/counterparty-cli/blob/develop/README.md
 
-`counterparty-cli` also can be installed via a simple `pip install counterparty-cli`. The install script takes care to install `counterparty-lib` and all other dependencies, and add the two command line scripts to the PATH.
+`counterparty-cli` also can be installed via a simple `pip3 install counterparty-cli`. The install script takes care to install `counterparty-lib` and all other dependencies, and add the two command line scripts to the PATH.
 
 `counterparty-cli` can be compiled as standalone `.exe` package for Windows with `python.exe setup.py py2exe`. This process, however, is rather involving because it requires a number of other `pip` packages to be installed before `py2exe` can be used. To make the installation process easier, Windows binaries will be released and later followed by an MSI package.
 
@@ -30,7 +30,7 @@ See the README for an example of the two configuration files: https://github.com
 
 ### For everyone:
 
-`pip install counterparty-cli`
+`pip3 install counterparty-cli`
 
 **NOTE 1** 
 
