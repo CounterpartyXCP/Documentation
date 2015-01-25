@@ -272,7 +272,7 @@ curl Example
 
 Here's an example using ``curl`` to make an API call to the ``get_running_info`` method on mainnet.
 
-.. code-block:: none
+.. code-block::
 
     curl http://127.0.0.1:4000/api/ --user rpcuser:rpcpassword -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
 
@@ -1316,7 +1316,7 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 9.24.1
 ~~~~~~~~~~~~~~~~
 
-**Summary:** New API parsing engine added, as well as dynamic get_ method composition in ``api.py``: 
+**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``: 
 
 * Added ``sql`` API method
 * Filter params: Added ``LIKE``, ``NOT LIKE`` and ``IN``
@@ -1364,6 +1364,4 @@ This section documents any changes to the ``counterpartyd`` API, for version num
 * \*_issuance: ``callable``, ``call_date`` and ``call_price`` are no longer valid parameters
 * \*_callback: removed
 * Bitcoin addresses may everywhere be replaced by pubkeys.
-* The API will no longer search the local wallet for pubkeys, so they must be
-passed to the API manually if being used for the first time. Otherwise, you may
-get a "<address> not published in blockchain" error.
+* The API will no longer search the local wallet for pubkeys, so they must be passed to the API manually if being used for the first time. Otherwise, you may get a "<address> not published in blockchain" error.
