@@ -16,7 +16,14 @@
 `pip3 install counterparty-cli`
 
 
-# Counterparty server
+# Upgrades
+
+`pip3 install --upgrade counterparty-cli`
+
+
+# Usage
+
+## Counterparty server
 
 Use `counterparty-server` to start synchronization with the blockchain and RPC server.
 
@@ -48,7 +55,7 @@ A counterparty-server configuration file looks like this:
     rpc-password = password
 
 
-# Counterparty client
+## Counterparty client
 Use `counterparty-client` to manage your Counterparty wallet.
 
 For a list of the available command‐line arguments and options, see

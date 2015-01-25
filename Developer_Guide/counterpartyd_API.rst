@@ -11,6 +11,12 @@ To get ``counterpartyd`` installed and set up on your computer, you have two opt
     - For Windows and Ubuntu Linux users, you can use the :doc:`automated build system </build_counterpartyd.rst>`
 
 
+API
+
+There will be no incompatible API pushes that do not either have: \* A
+well known set cut over date in the future \* Or, a deprecation process
+where the old API is supported for an amount of time
+
 .. contents:: **Table of Contents**
 
 Interacting with the API

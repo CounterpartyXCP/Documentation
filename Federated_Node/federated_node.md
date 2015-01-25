@@ -24,6 +24,17 @@ that Counterwallet utilizes. Or, one can utilize a simplier configuration based 
 This document describes how one can set up their own Counterblock Federated Node server(s). It is primarily intended
 for system administrators and developers.
 
+Upgrading a Federated Node
+--------------------------
+
+To update the system with new code releases, you simply need to rerun the **setup_federated_node** script, like so:
+    
+    cd ~xcp/counterpartyd_build
+    sudo ./setup_federated_node.py
+
+As prompted, you should be able to choose just to update (“U”), instead of to rebuild. However, you would choose the rebuild option if there were updates to the **counterpartyd_build** system files for the federated node itself (such as the **nginx** configuration, or the init scripts) that you wanted/needed to apply. Otherwise, update should be fine.
+
+
 
 Federated Node Services
 -------------------------

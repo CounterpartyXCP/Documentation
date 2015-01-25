@@ -69,6 +69,17 @@ Developers
 -   If you think you’ve identified a **security issue**, check out the
     [bounties page](https://counterparty.io/docs/bounties) and contact the Counterparty developers directly.
 
+
+####Branches
+
+-  The **master** branch contains the production-ready code. It is
+   updated for version releases and hotfixes only.
+-  The **develop** branch hosts the most recent version of the code,
+   with all finished features integrated together. ``develop`` should
+   always be in consensus with ``master``, and it should not break
+   often.
+-  **Feature** branches
+
 #Bounties
 
 ##The Counterparty Project Bounties
