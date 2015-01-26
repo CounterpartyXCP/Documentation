@@ -9,9 +9,8 @@ Counterwallet is a free web-wallet for Bitcoin (BTC) and [Counterparty](https://
 Counterwallet is being actively developed and currently implements most of Counterparty features.
 
 - Fully functional wallet for BTC, XCP, and user-created tokens
-- Distributed exchange
+- Distributed asset exchange with algorithmic order matching (XCP, other assets)
 - Custom asset creation
-- Asset trading (XCP, other assets)
 - Betting
 - Broadcasts to the BTC Blockchain
 
