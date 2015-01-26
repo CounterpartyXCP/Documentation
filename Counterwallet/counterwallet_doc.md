@@ -34,8 +34,8 @@ Features and Specifications
 Localization and Translation
 ----------------------------
 
-Counterwallet has been translated into several languages. However, because new
-strings get added periodically, existing languages need to be kept up to date. New translators and reviewers are welcome to join our project on Transifex.
+Counterwallet has been translated into several languages. However, new
+strings get added periodically, which means that existing languages need to be kept up to date. New translators and reviewers are welcome to join our project on Transifex.
 
 ### How to enable language translations in Counterwallet
 
