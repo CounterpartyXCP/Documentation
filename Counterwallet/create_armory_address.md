@@ -5,7 +5,7 @@ Creating an Armory Offline Wallet for Cold Storage
 
 **NOTE: This feature requires Armory 0.92.1 or later.**
 
-Set up an Armory offline wallet using the instructions from [here](https://bitcoinarmory.com/tutorials/armory-basics/). Additional video instructions are [here[(https://www.youtube.com/watch?v=PGvrai3JxxI).
+Set up an Armory offline wallet using the instructions from [here](https://bitcoinarmory.com/tutorials/armory-basics/). Additional video instructions are [here](https://www.youtube.com/watch?v=PGvrai3JxxI).
 
 Create a Counterwallet account if you haven't already. Once logged in, go to Create New Address | Create Armory Offline Address:
 
