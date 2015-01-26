@@ -4,7 +4,11 @@ Counterwallet FAQ
 What is Counterwallet?
 --------------------------
 
-Counterwallet is an open-source web wallet for Bitcoin (BTC) and [Counterparty](https://github.com/CounterpartyXCP/) (XCP), the world’s first protocol for decentralized financial tools. Counterwallet handles transaction signing locally, and your passphrase and private keys never leave your browser. All trades and actions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, which means that unlike centralized exchanges, no middleman is ever required.
+Counterwallet is an open-source web wallet for Bitcoin (BTC) and [Counterparty](https://github.com/CounterpartyXCP/) (XCP), the world’s first protocol for decentralized financial tools. 
+
+* Counterwallet handles transaction signing locally, which means your passphrase and private keys never leave your browser. 
+
+* All trades and actions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, which means that unlike centralized exchanges, no middleman is ever required.
 
 Counterwallet is being actively developed and currently implements most Counterparty features.
 
@@ -19,17 +23,19 @@ Where can I access it?
 
 Counterwallet hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). However, because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host and alter their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
 
-Where can I create addresses for different types of coins?
+What is an Asset/Token/Coin? How can I store them?
 --------------------------
 
-All Counterwallet addresses are regular Bitcoin addresses. Also, you can store BTC, XCP, and user created assets on any Bitcoin address as long as you have access to the private key.
+Assets (also known as tokens or coins) are user-created currencies that are stored inside the Bitcoin blockchain using Counterparty technology. Anyone can create their own. 
+
+All Counterwallet addresses are regular Bitcoin addresses. You can store BTC, XCP, and user created assets on any Counterwallet address. In fact, you can store any of these currencies on any regular Bitcoin address as well, provided that you have access to the private key of that address.
 
 (Altcoins that have their own blockchain, which is seperate from the Bitcoin blockchain, are not supported.)
 
 I want to trade a certain asset, is it legitimate?
 --------------------------
 
-Assets/tokens are issued on the Bitcoin blockchain directly. This means that anyone with access to the internet is able to create and trade tokens freely without restrictions. There is no way to 'block' any Bitcoin addresses and transactions, which means that there is also no way to 'block' any Counterparty activity. We recommend significant due diligence and research before trading. Counterwallet does not filter any assets. Please check the official website of whatever asset/token you are planning to trade, and make sure to verify that it is legitimate. 
+Assets/tokens are issued on the Bitcoin blockchain directly. This means that anyone with access to the internet is able to create and trade tokens freely without restrictions. There is no way to block Bitcoin addresses and transactions, which means that there is also no way to limit any Counterparty activity. We recommend significant due diligence and research before trading. Counterwallet does not filter any assets. Please check the official website of whatever asset/token you are planning to trade, and make sure to verify that it is legitimate. 
 
 Is Counterwallet down?
 -----------------------
@@ -75,5 +81,5 @@ What else do I need to know?
 I want to translate Counterwallet to my language
 -------------------------------------------------
 
-Translation is hosted at [Transifex](https://www.transifex.com/organization/counterparty/dashboard/counterwallet). Open an account (or login with
+Translations are hosted at [Transifex](https://www.transifex.com/organization/counterparty/dashboard/counterwallet). Open an account (or login with
 Github) and contribute as a translator or reviewer.
