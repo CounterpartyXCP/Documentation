@@ -1,4 +1,7 @@
-NOTE: This feature requires Armory 0.92.1 or later.
+Creating an Armory Offline Wallet
+---------------------------
+
+**NOTE: This feature requires Armory 0.92.1 or later.**
 
 Set up an Armory offline wallet using the instructions from here. Additional video instructions are here.
 
