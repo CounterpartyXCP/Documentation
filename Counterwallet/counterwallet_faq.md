@@ -17,7 +17,7 @@ Counterwallet is being actively developed and currently implements most Counterp
 Where can I access it?
 --------------------------
 
-Counterwallet hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). Because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
+Counterwallet hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). However, because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host and alter their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
 
 Where can I create addresses for different types of coins?
 --------------------------
