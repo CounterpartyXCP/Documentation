@@ -13,13 +13,15 @@ Features and Specifications
 -  Distribute profits to asset holders using BTC, XCP, or any other
    Counterparty currency
 -  Broadcast data feeds to the Bitcoin network
--  Trade XCP for any Counterparty asset
+-  Trade XCP for any Counterparty asset (peer-to-peer)
 -  Access P2P derivatives with no middleman, and no counterparty risk
 -  Monitor the Counterparty network statistics
+- Chat with other Counterwallet users (optional)
 -  Strong privacy - no registration required; you can run your own
    Counterwallet
 -  Multilingual (English, Chinese, Russian and other languages) -
    [become a translator!](https://www.transifex.com/organization/counterparty/dashboard/counterwallet)
+
 
 ### Technical Features and Specifications
 
@@ -28,13 +30,13 @@ Features and Specifications
 -  Client-side authentication/encryption
 -  Cold storage support (with Armory)
 -  Multi-sig support (up to 3-of-3)
+-  Watch-only addresses
 
 Localization and Translation
 ----------------------------
 
-Counterwallet has been translated into several languages, but new
-strings get added periodically so existing languages need to be kept up
-to date while new need translators and reviewers.
+Counterwallet has been translated into several languages. However, new
+strings get added periodically, which means that existing languages need to be kept up to date. New translators and reviewers are welcome to join our project on Transifex.
 
 ### How to enable language translations in Counterwallet
 
@@ -61,9 +63,9 @@ to date while new need translators and reviewers.
 
 #### Known Issues
 
--  Some parts of the GUI are available only in English. That sometimes
-   comes from 3rd party components that only support English and
-   sometimes may be a consequence of a translation falling behind the
+-  Some parts of the GUI are available only in English. This could be caused by
+   3rd party components that only support English or
+   may be a consequence of a translation falling behind the
    English original. If you can confirm it’s the latter, please help us
    out or submit a bug report.
--  Numbering formats are not internationalized to lessen the confusion
+-  Numbering formats are not internationalized to reduce confusion
