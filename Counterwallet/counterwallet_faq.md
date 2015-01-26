@@ -20,7 +20,7 @@ Where can I access it?
 
 Counterwallet hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). Because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
 
-Where can I create different addresses for different types of coins?
+Where can I create addresses for different types of coins?
 --------------------------
 
 Counterwallet uses regular Bitcoin addresses to store Bitcoin, XCP, as well as any other assets (also known as coins or tokens). You can store any of these, on any Counterwallet address, as long as they are issued using the Counterparty platform. Altcoins that have their own blockchain, separate from Bitcoin, are not supported. 
@@ -29,6 +29,16 @@ Is Counterwallet down?
 -----------------------
 
 Counterparty health status monitor is available [here](http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of "cw" servers from this page. Counterwallet.io is a multi-server cluster so if one node is down it is likely that others may be up. It is also possible that Counterwallet is being updated, as it is constantly undergoing development.
+
+Counterwallet is offline. Can I access my addresses and private keys with my passphrase?
+-----------------------
+
+Yes. Since the addresses are generated using JavaScript, it is possible to do this on your own computer (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
+
+How does Counterwallet Make Money?
+-----------------------
+
+It doesn't! Counterwallet development is a public service to the Counterparty and Bitcoin community. If you would like to contribute, you can click the donate button within Counterwallet itself. Or you can fork [the code](https://github.com/CounterpartyXCP/counterwallet/) and contribute that way.
 
 Can I try Counterwallet on testnet?
 ------------------------------------------
