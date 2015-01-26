@@ -29,7 +29,7 @@ All Counterwallet addresses are regular Bitcoin addresses. Also, you can store B
 I want to trade a certain asset, is it legitimate?
 --------------------------
 
-Assets/tokens are issued on the Bitcoin blockchain directly. This means that anyone with access to the internet is able to create and trade tokens freely without restrictions. There is no way to 'block' any Bitcoin addresses and transactions, which means that there is also no way to 'block' any Counterparty activity. Counterwallet does not filter any assets. Please check the official website of whatever asset/token you are planning to trade, and make sure to verify that it is legitimate. We recommend significant due diligence and research before trading.
+Assets/tokens are issued on the Bitcoin blockchain directly. This means that anyone with access to the internet is able to create and trade tokens freely without restrictions. There is no way to 'block' any Bitcoin addresses and transactions, which means that there is also no way to 'block' any Counterparty activity. We recommend significant due diligence and research before trading. Counterwallet does not filter any assets. Please check the official website of whatever asset/token you are planning to trade, and make sure to verify that it is legitimate. 
 
 Is Counterwallet down?
 -----------------------
