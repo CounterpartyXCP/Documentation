@@ -5,14 +5,15 @@ If you experience errors or bugs while using Counterwallet, you can create a sup
 
 ### To submit a support ticket:
 
-**If you are not logged in, click "problems logging in"**
+- **If you are not logged in, click "problems logging in"**
+
 ![Create Support Ticket](/_images/create_support_ticket1.png)
+- **If you are already logged in, press the ? icon on the top right**
 
-**If you are already logged in, press the ? icon on the top right**
 ![Create Support Ticket](/_images/create_support_ticket2.png)
+- **Click "open a support ticket"**
 
-**Click "open a support ticket"**
 ![Create Support Ticket](/_images/create_support_ticket3.png)
+- **Provide a _detailed_ description of your issue**
 
-**Provide a **detailed** description of your issue**
 ![Create Support Ticket](/_images/create_support_ticket4.png)
