@@ -12,7 +12,7 @@ Counterwallet is being actively developed and currently implements most of Count
 - Peer-to-peer asset trading with algorithmic order matching (XCP, other assets)
 - Custom asset creation
 - Betting
-- Broadcasting data to the BTC Blockchain
+- Broadcasting data on the Bitcoin Blockchain
 
 Where can I access it?
 --------------------------
