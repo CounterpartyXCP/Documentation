@@ -18,9 +18,10 @@ Features and Specifications
 -  Monitor the Counterparty network statistics
 -  Strong privacy - no registration required; you can run your own
    Counterwallet
+- Chat with other Counterwallet users
 -  Multilingual (English, Chinese, Russian and other languages) -
    [become a translator!](https://www.transifex.com/organization/counterparty/dashboard/counterwallet)
-- Built-in chat
+
 
 ### Technical Features and Specifications
 
