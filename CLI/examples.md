@@ -155,10 +155,6 @@ of February 3, 2014 1:39 PM US Eastern Standard Time (UTC-0500).
     --deadline=2014-02-03T13:39:00-0500 --wager=1 --counterwager=2 \
     --target-value=1 --expiration=100
 
-Note: Contracts for Difference (CfD’s) have been disabled and will be
-replaced by Ethereum Smart Contracts (available on testnet since late
-2014).
-
 
 Cancel
 ----------------------------------------
