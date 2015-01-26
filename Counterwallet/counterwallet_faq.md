@@ -24,7 +24,7 @@ Where can I create addresses for different types of coins?
 
 All Counterwallet addresses are regular Bitcoin addresses. Also, you can store BTC, XCP, and user created assets on any Bitcoin address as long as you have access to the private key.
 
-(Altcoins that have their own blockchain, separate from Bitcoin, are not supported.)
+(Altcoins that have their own blockchain, which is seperate from the Bitcoin blockchain, are not supported.)
 
 Is Counterwallet down?
 -----------------------
