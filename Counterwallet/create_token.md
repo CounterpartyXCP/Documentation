@@ -3,7 +3,18 @@ Create a Token/Asset
 
 You can create a token (also known as asset, coin, derivative) that is ‘owned’ by the address you choose. Ownership enables you to issue more units of your token, change the description, and customize other settings. Tokens can be divisible or indivisible. Tokens that are not divisible will only exist in whole units (1,2,3,etc.) Divisible tokens support up to 8 decimal places.  
 
-**Creating a token is fairly simple. There are two types of tokens:**
+**Creating a token is fairly simple:**
+
+* Log in or create a Counterwallet
+* Make sure your addresss has enough BTC for a transaction fee. (0.005 BTC)
+* Click **"address options"** on your address.
+* Click **"create new token"**.
+
+![Create new token](/_images/create_token1.png)
+
+![Create new token](/_images/create_token2.png)
+
+**There are two types of tokens:**
 
 ### Alphabetical 
 
