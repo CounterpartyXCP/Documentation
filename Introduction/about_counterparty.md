@@ -12,8 +12,10 @@ Along with the Counterparty protocol, the platform consists of the native XCP to
 **With Counterparty, users can:**
 
 * Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to any another
-* Create assets, pay dividends, buy back assets
-* Trade assets on Counterparty's distributed exchange
+* Create assets (numeric or alphabetical)
+* Issue additional units of their own assets (or lock them to prevent this)
+* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends)
+* Trade XCP and assets on Counterparty's distributed exchange
 * Broadcast textual and numeric data onto the Bitcoin blockchain
 * Make bets and derivatives on broadcasted data
 * Provably distribute ownership of assets through multi-signature support.
@@ -24,7 +26,7 @@ How can I learn more?
 
 ***Social Media***
 
--   Follow us on [Twitter][], [Faceboook][], [Google+][] and
+-   Follow us on [Twitter][], [Facebook][], [Google+][] and
 [LinkedIn][].
 -   Chat with us: [End Users/General][] & [Developers/Technical][]
 -   Receive updates via email: Counterparty currently has two free,
@@ -34,11 +36,12 @@ now!][]
 ***External sites with information about Counterparty***
 
 -   [Counterparty Foundation](http://counterpartyfoundation.org)
--   [Coinmarketcap.com][] - XCP price, list of exchanges
+-   [Coinmarketcap.com][] - XCP price, volumes, 24h average, and a list of exchanges
 -   [Counterparty on Wikipedia][]
+-   [Blockscan Block Explorer](http://blockscan.com)
 
   [Twitter]: https://twitter.com/CounterpartyXCP
-  [Faceboook]: https://www.facebook.com/CounterpartyXCP
+  [Facebook]: https://www.facebook.com/CounterpartyXCP
   [Google+]: https://plus.google.com/u/0/b/116178666129262850551/+CounterpartyIoXCP/posts
   [LinkedIn]: https://www.linkedin.com/company/3644957
   [End Users/General]: http://gitter.im/CounterpartyXCP/General
