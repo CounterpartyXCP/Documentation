@@ -22,7 +22,9 @@ Counterwallet hosted by the Counterparty project is available at [Counterwallet.
 Where can I create addresses for different types of coins?
 --------------------------
 
-Counterwallet uses regular Bitcoin addresses to store Bitcoin, XCP, as well as any other assets (also known as coins or tokens). You can store any of these, on any Counterwallet address, as long as they are issued using the Counterparty platform. Altcoins that have their own blockchain, separate from Bitcoin, are not supported. 
+All Counterwallet addresses are regular Bitcoin addresses. Also, you can store BTC, XCP, and user created assets on any Bitcoin address as long as you have access to the private key.
+
+(Altcoins that have their own blockchain, separate from Bitcoin, are not supported.)
 
 Is Counterwallet down?
 -----------------------
