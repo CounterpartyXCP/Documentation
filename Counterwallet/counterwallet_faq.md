@@ -1,7 +1,10 @@
 Counterwallet FAQ
 ==================
 
-Counterwallet is a web-wallet for Counterparty, the world’s first protocol for decentralized financial tools. All transactions made with Counterwallet use an automatic escrow system to keep them secure, with no middleman required.
+What is Counterwallet?
+--------------------------
+
+Counterwallet is a free web-wallet for Bitcoin and [Counterparty]((https://github.com/CounterpartyXCP/)), the world’s first protocol for decentralized financial tools. Counterwallet is open-source and handles passphrases, private keys as well as transaction signing within the browser itself, thereby avoiding the need to share this information with any server. All transactions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, and no middleman is required.
 
 Counterwallet is being actively developed and currently implements most of Counterparty features.
 
@@ -10,17 +13,22 @@ Fully functional wallet for Counterparty (XCP) and bitcoin (BTC) tokens
 - Distributed exchange
 - Asset trading (XCP, other assets)
 - Betting
-- Gaming
+- Broadcasts to the BTC Blockchain
 
 Where can I access it?
 --------------------------
 
 Counterwallet hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). Because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
 
+Where can I create different addresses for different types of coins?
+--------------------------
+
+Counterwallet uses regular Bitcoin addresses to store Bitcoin, XCP, as well as any other assets (also known as coins or tokens). You can store any of these, on any Counterwallet address, as long as they are issued using the Counterparty platform. Altcoins that have their own blockchain, separate from Bitcoin, are not supported. 
+
 Is Counterwallet down?
 -----------------------
 
-Counterparty health status monitor is available [here](http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of "cw" servers from this page. Counterwallet.io is a multi-server cluster so if one node is down it is likely that others may be up.
+Counterparty health status monitor is available [here](http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of "cw" servers from this page. Counterwallet.io is a multi-server cluster so if one node is down it is likely that others may be up. It is also possible that Counterwallet is being updated, as it is constantly undergoing development.
 
 Can I try Counterwallet on testnet?
 ------------------------------------------
