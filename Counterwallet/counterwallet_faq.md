@@ -26,6 +26,11 @@ All Counterwallet addresses are regular Bitcoin addresses. Also, you can store B
 
 (Altcoins that have their own blockchain, which is seperate from the Bitcoin blockchain, are not supported.)
 
+I want to trade a certain asset, is it legitimate?
+--------------------------
+
+Assets/tokens are issued on the Bitcoin blockchain directly. This means that anyone with access to the internet is able to create and trade tokens freely without restrictions. There is no way to 'block' any Bitcoin addresses and transactions, which means that there is also no way to 'block' any Counterparty activity. Counterwallet does not filter any assets. Please check the official website of whatever asset/token you are planning to trade, and make sure to verify that it is legitimate. We recommend significant due diligence and research before trading.
+
 Is Counterwallet down?
 -----------------------
 
@@ -36,7 +41,7 @@ Counterwallet is offline. Can I still access my funds?
 
 Yes. You can mathematically generate your public and private keys using your passphrase. Since the addresses are generated on the fly using JavaScript, it is possible to do this in your own browser (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
 
-How does Counterwallet Make Money?
+How does Counterwallet make profit?
 -----------------------
 
 It doesn't! Counterwallet development is a public service to the Counterparty and Bitcoin community. If you would like to contribute, you can click the donate button within Counterwallet itself. Or you can fork [the code](https://github.com/CounterpartyXCP/counterwallet/) and contribute that way.
