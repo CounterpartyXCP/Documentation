@@ -1,9 +1,9 @@
 Create a Token/Asset
 ---------------------------
 
-You can create a token (also known as asset, coin, derivative) that is then owned by the address you choose. Ownership enables you to issue more units of your token, lock the supply, change the description, and customize other settings. Once the issuance is confirmed by the Bitcoin network, your tokens can be freely traded on the Counterwallet decentralized exchange against XCP and other tokens and (if you can convince them) centralized exchanges as well.
+Counterwallet makes it possible for anyone to create tokens (also known as assets, coins, derivatives) that are then owned by the address they were issued from. Ownership enables you to issue more units of your token, lock the supply, change the description, and customize other settings. Once the issuance is confirmed by the Bitcoin network, your tokens can be freely traded on the Counterwallet decentralized exchange against XCP and other tokens and (if you can convince them) centralized exchanges as well.
 
-Tokens can be divisible or indivisible. Tokens that are not divisible will only exist in whole units (1,2,3,etc.) Divisible tokens support up to 8 decimal places. 
+Tokens can be divisible or indivisible. Tokens that are not divisible will only exist in whole units (1,2,3,etc.) Divisible tokens support up to 8 decimal places. You can create as many tokens as you need.
 
 ### There are two types of tokens:
 
