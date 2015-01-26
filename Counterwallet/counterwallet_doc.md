@@ -16,9 +16,9 @@ Features and Specifications
 -  Trade XCP for any Counterparty asset (peer-to-peer)
 -  Access P2P derivatives with no middleman, and no counterparty risk
 -  Monitor the Counterparty network statistics
+- Chat with other Counterwallet users (optional)
 -  Strong privacy - no registration required; you can run your own
    Counterwallet
-- Chat with other Counterwallet users
 -  Multilingual (English, Chinese, Russian and other languages) -
    [become a translator!](https://www.transifex.com/organization/counterparty/dashboard/counterwallet)
 
