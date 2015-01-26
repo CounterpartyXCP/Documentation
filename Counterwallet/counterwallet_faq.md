@@ -41,7 +41,7 @@ Counterwallet is offline. Can I still access my funds?
 
 Yes, and your orders and assets are still there*. You can mathematically generate your public and private keys using your passphrase. Since the addresses are generated on the fly using JavaScript, it is possible to do this in your own browser (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
 
-(The Counterparty exchange is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline.
+* The Counterparty exchange is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline.
 
 How does Counterwallet make profit?
 -----------------------
@@ -67,8 +67,10 @@ What else do I need to know?
 ------------------------------
 
 - All encryption is handled client-side. Neither your passphrase nor any of your private information ever leaves your browser. This also means that there is no password recovery, so make sure you do not lose your password.
+
 - Because Counterwallet does not store your credentials, it has no access to your information if/when you are not logged in. If you log off or close your browser, any pending orders on the distributed exchange may not execute and you will have to resubmit your order and pay another transaction fee required for the underlying bitcoin transaction processing.
-- Because of the US government regulations the betting functionality is limited to non-US-based client IP addresses.
+
+- Because of the US government regulations, betting functionality is limited to non-US-based client IP addresses by default.
 
 I want to translate Counterwallet to my language
 -------------------------------------------------
