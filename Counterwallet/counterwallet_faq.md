@@ -29,10 +29,10 @@ Is Counterwallet down?
 
 Counterparty health status monitor is available [here](http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of "cw" servers from this page. Counterwallet.io is a multi-server cluster so if one node is down it is likely that others may be up. It is also possible that Counterwallet is being updated, as it is constantly undergoing development.
 
-Counterwallet is offline. Can I access my addresses and private keys with my passphrase?
+Counterwallet is offline. Can I still access my funds?
 -----------------------
 
-Yes. Since the addresses are generated using JavaScript, it is possible to do this on your own computer (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
+Yes. You can mathematically generate your public and private keys using your passphrase. Since the addresses are generated using JavaScript, it is possible to do this on your own computer (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
 
 How does Counterwallet Make Money?
 -----------------------
