@@ -39,9 +39,9 @@ Counterparty health status monitor is available [here](http://status-backend.cou
 Counterwallet is offline. Can I still access my funds?
 -----------------------
 
-Yes. You can mathematically generate your public and private keys using your passphrase. Since the addresses are generated on the fly using JavaScript, it is possible to do this in your own browser (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
+Yes, and your orders and assets are still there*. You can mathematically generate your public and private keys using your passphrase. Since the addresses are generated on the fly using JavaScript, it is possible to do this in your own browser (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
 
-(The Counterparty exchange is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline.)
+(*The Counterparty exchange is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline.)
 
 How does Counterwallet make profit?
 -----------------------
