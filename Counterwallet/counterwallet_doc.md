@@ -20,7 +20,7 @@ Features and Specifications
    Counterwallet
 -  Multilingual (English, Chinese, Russian and other languages) -
    [become a translator!](https://www.transifex.com/organization/counterparty/dashboard/counterwallet)
-- Built-in Chat
+- Built-in chat
 
 ### Technical Features and Specifications
 
