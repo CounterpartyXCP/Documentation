@@ -10,6 +10,7 @@ Counterwallet is being actively developed and currently implements most of Count
 
 - Fully functional wallet for BTC, XCP, and user-created tokens
 - Distributed exchange
+- Custom asset creation
 - Asset trading (XCP, other assets)
 - Betting
 - Broadcasts to the BTC Blockchain
