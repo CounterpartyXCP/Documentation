@@ -17,3 +17,5 @@ If you experience errors or bugs while using Counterwallet, you can create a sup
 - **Provide a _detailed_ description of your issue**
 
 ![Create Support Ticket](/_images/create_support_ticket4.png)
+
+- **Click "Create Case" to submit your ticket.**
