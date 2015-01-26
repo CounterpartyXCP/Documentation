@@ -44,7 +44,7 @@ Yes. You can mathematically generate your public and private keys using your pas
 What happens if the exchange shuts down?
 -----------------------
 
-"The exchange" is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline. 
+The exchange is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline. 
 
 How does Counterwallet make profit?
 -----------------------
