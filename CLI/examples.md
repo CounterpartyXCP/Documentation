@@ -124,11 +124,6 @@ If USD/XCP falls, Bob will send XCP from [another\_address] to
     send --source=[another_address] --destination=[bobusd_address] --quantity=[quantity] --asset=XCP
 
 
-If Bob wants to call back 1% of all BOBUSD, he would run the following
-command: :
-
-    callback --source=[bobs_address] --fraction=.01 --asset=BOBUSD 
-
 If [user] wants to “cash in” 100 BOBUSD for 100 USD when the exchange
 rate is 10 USD/XCP, he would first send his BOBUSD to [bobs\_address]:
 
@@ -215,10 +210,6 @@ The `asset` action displays the basic properties of a given asset.
 To make [asset] callable and divisible, the command is:
 
     issuance --source=[address]--asset=[asset] --quantity=[quantity] --divisible --callable --call-date=[call_date] --call-price=[call_price] --description [asset_description]
-
-To call-back a fraction of an asset, the command is:
-
-    callback --source=[source] --fraction=[fraction] --asset=[asset]
 
 To lock an asset, the command is:
 
