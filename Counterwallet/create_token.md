@@ -3,7 +3,7 @@ Create a Token/Asset
 
 Counterwallet makes it possible for anyone to create tokens (also known as assets, coins, derivatives) that are then owned by the address they were issued from. Ownership enables you to issue more units of your token, lock the supply, change the description, and customize other settings. Once the issuance is confirmed by the Bitcoin network, your tokens can be freely traded on the Counterwallet decentralized exchange against XCP and other tokens and (if you can convince them) centralized exchanges as well.
 
-Tokens can be divisible or indivisible. Tokens that are not divisible will only exist in whole units (1,2,3,etc.) Divisible tokens support up to 8 decimal places. You can create as many tokens as you need.
+Tokens can be divisible or indivisible. Tokens that are not divisible will only exist in whole units (1,2,3,etc.) Divisible tokens support up to 8 decimal places. You can create as many tokens as you need. 
 
 ### There are two types of tokens:
 
@@ -25,7 +25,7 @@ Numeric tokens (for example A12149713090358620000) are free, and only require a 
 
 ![](/_images/create_token1.png)
 
-* Choose a type, description, quantity and divisiblity for your token. Note that the option to create an alphabetical token will only be available if the chosen address has 0.5 XCP available. You can create a description for your token, which can either be plain text, a URL to your token’s official page, or a URL to a JSON file containing extended info. To learn more about extended info, click here. 
+* Choose a type, description, quantity and divisiblity for your token. You can create a description for your token, which can either be plain text, a URL to your token’s official page, or a URL to a JSON file containing extended info. To learn more about extended info, click here. It is also possible to register a token with an issuance of 0 units, as a placeholder.
 
 ![](/_images/create_token2.png)
 
