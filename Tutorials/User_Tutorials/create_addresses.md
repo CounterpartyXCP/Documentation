@@ -32,7 +32,7 @@ Click the square next to address actions in order to set a color for your addres
 
 ![](/_images/create_addresses4.png)
 
-Click the - or + respectively next to the square in order to minimize or maximize the display of your address.
+Click the - or + respectively next to the square in order to minimize or maximize the display of your address, for more space on your screen.
 
 ![](/_images/create_addresses5.png)
 
