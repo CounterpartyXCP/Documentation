@@ -16,6 +16,6 @@ You can create descriptions for your addresses. However, keep in mind that this 
 
 ![](/_images/create_addresses2.png)
 
-If you would like to monitor the BTC, XCP and asset balance of an address, you can create a watch-only address. This means that you will be able to see the balance, and create raw transactions. However, there is no private key associated with such addresses. This means that you will have to sign any transactions manually. This feature is useful for keeping track of your cold-storage coins.
+If you would like to monitor the BTC, XCP and asset balance of any address, you can create a watch-only address. This means that you will be able to see the balance, and create raw transactions. However, there is no private key associated with such addresses. This means that you will have to sign any transactions manually. This feature is useful for keeping track of your cold-storage coins.
 
 ![](/_images/create_addresses3.png)
