@@ -17,10 +17,6 @@ There will be no incompatible API pushes that do not either have:
 Interacting with the API
 =========================
 
-.. warning::
-
-    This API documentation is still in an early state. It contains errors, omissions, etc., and could change drastically at any time.
-    
 
 Overview
 ----------
@@ -29,6 +25,10 @@ Overview
 third-party applications to perform functions on the Counterparty network
 without having to deal with the low‐level details of the protocol such as
 transaction encoding and state management.
+
+The API listens on port 4000 by default (14000 for ``testnet``) and requires
+HTTP basic authentication to connect. The API is designed to be very similar to
+Bitcoin Core's, though it uses JSON RPC 2.0.
 
 
 Connecting and Making Requests
@@ -74,6 +74,8 @@ Authentication
 Also note that the ``counterpartyd`` API interface requires HTTP basic authentication to use. The username and password required
 are stored in the ``counterpartyd.conf`` file, as ``rpc-user`` and ``rpc-password``, respectively. You can also modify
 ``rpc-host`` and ``rpc-port`` to change what interface and port number ``counterpartyd`` binds to from the defaults.
+
+**The default value for ``rpc-user`` is ``'rpc'``. The password must be set manually before the server will start.**
 
 .. _examples:
 

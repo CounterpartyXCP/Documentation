@@ -4,89 +4,65 @@
 
 `counterparty-cli` is a command line interface for [`counterparty-lib`](https://github.com/CounterpartyXCP/counterpartyd).
 
+
 ## Installation
 
 ### Pre‐Requisites
 
-* [Bitcoin Core](../Installation/bitcoin_core.md)
+* [Patched Bitcoin Core](../Installation/bitcoin_core.md)
 * [Windows‐specific](../Installation/windows.md)
 
 
 ### Install
 
-`pip3 install counterparty-cli`
+* `$ sudo pip3 install counterparty-cli` (temporarily, with the arguments `--no-use-wheel and --pre`)
 
 
 ## Upgrades
 
-`pip3 install --upgrade counterparty-cli`
+* `$ sudo pip3 install --upgrade counterparty-cli`
+
+
+## Configuration
+
+No configuration should be necessary for most use cases. The location of the configuration file is displayed upon starting the server:
+	`$ counterparty-server start`
+
+A `counterparty-server` configuration file looks like this:
+
+	[Default]
+	backend-name = addrindex
+	backend-user = <user>
+	backend-password = <password>
+	rpc-host = 0.0.0.0
+	rpc-user = <rpcuser>
+	rpc-password = <rpcpassword>
+
+A `counterparty-client` configuration file looks like this:
+
+	[Default]
+	wallet-name = bitcoincore
+	wallet-connect = localhost
+	wallet-user = <user>
+	wallet-password = <password>
+	counterparty-rpc-connect = localhost
+	counterparty-rpc-user = <rpcuser>
+	counterparty-rpc-password = <password>
 
 
 ## Usage
 
-### Counterparty server
+* The first time you run the server, you may bootstrap the local database with:
+	`$ counterparty-server bootstrap`
 
-Use `counterparty-server` to start synchronization with the blockchain and RPC server.
+* Start the server with:
+	`$ counterparty-server start`
 
-For a list of the available command‐line arguments and options, see
-`$ counterparty-server --help`.
+* Check the status of the server with:
+	`$ counterparty-client get_running_info`
 
-Example:
+* For additional command-line arguments and options:
+	`$ counterparty-server --help`
+	`$ counterparty-client --help`
 
-`counterparty-server --testnet server`
-
-Configuration file:
-
-OS  | Path
-------------- | -------------
-MacOS | ~/Library/Application Support/counterparty-server/counterparty-server.conf
-XP | C:\Documents and Settings\username\Application Data\counterparty-server\counterparty-server.conf
-Vista, 7 | C:\Users\username\AppData\Roaming\Counterparty\counterparty-server\counterparty-server.conf
-Linux | ~/.config/counterparty-server/counterparty-server.conf
-
-A counterparty-server configuration file looks like this:
-
-    [Default]
-    backend-name = addrindex
-    backend-connect = localhost
-    backend-user = rpcuser
-    backend-password = password
-    rpc-host = 0.0.0.0
-    rpc-user = rpcuser
-    rpc-password = password
-
-
-### Counterparty client
-Use `counterparty-client` to manage your Counterparty wallet.
-
-For a list of the available command‐line arguments and options, see
-`$ ./counterparty-client --help`.
-For a list of the available arguments for a particular command, see
-`$ ./counterparty-client send --help`.
-
-Example:
-
-`./counterparty-client --testnet send --source=mi9Q6EVaXL1n85J4pRAsR3nVoo2yfDmquV --asset=XCP --quantity=0.1 --destination=muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ`
-
-Configuration file:
-
-OS  | Path
-------------- | -------------
-MacOS | ~/Library/Application Support/counterparty-client/counterparty-client.conf
-XP | C:\Documents and Settings\username\Application Data\counterparty-client\counterparty-client.conf
-Vista, 7 | C:\Users\username\AppData\Roaming\Counterparty\counterparty-client\counterparty-client.conf
-Linux | ~/.config/counterparty-client/counterparty-client.conf
-
-A counterparty-client configuration file looks like this:
-
-    [Default]
-    wallet-name = bitcoincore
-    wallet-connect = localhost
-    wallet-user = rpcuser
-    wallet-password = password
-    counterparty-rpc-connect = localhost
-    counterparty-rpc-user = rpcuser
-    counterparty-rpc-password = password
-
-
-<!-- TODO: Logs, Configuration, Data directory -->
+<!-- TODO: Logs, Data directory -->

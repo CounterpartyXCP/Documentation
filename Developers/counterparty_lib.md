@@ -1,36 +1,47 @@
 # counterparty-lib
 
-# Description
+## Description
 
-counterparty-lib is a ‘pure’ Python library and doesn’t contain any
-command‐line scripts. It doesn’t interface a wallet, but only a block explorer.
-It does not interface with a user configuration file.
+`counterparty-lib` is the reference implementation of the [Counterparty Protocol](https://counterparty.io).
+
+`counterparty-lib` is a ‘pure’ Python library and doesn’t contain any command‐line scripts. It doesn’t interface a wallet, but only a block explorer (the ‘backend’). It does not interface with a user configuration file, but is configured through the `initialise()` function.
 
 
-# Installation
+## Requirements
 
-```
-`pip3 install counterparty-lib`
-```
+* [Patched Bitcoin Core](https://github.com/btcdrak/bitcoin/releases) with the following options set:
+
+	```
+	rpcuser=bitcoinrpc
+	rpcpassword=<password>
+	server=1
+	txindex=1
+	addrindex=1
+	rpcthreads=1000
+	rpctimeout=300
+	```
+
+
+## Installation
+
+`$ pip3 install counterparty-lib`
 
 or
 
 ```
-git clone https://github.com/CounterpartyXCP/counterpartyd.git
-cd counterpartyd
-python setup.py install`
+$ git clone https://github.com/CounterpartyXCP/counterpartyd.git
+$ cd counterpartyd
+$ python setup.py install`
 ```
 
-# Example Usage
+
+## Usage
 
 ```
-from counterpartylib import server
-
-# initialise the server
-db = server.initialise(...)
-
-# start synchronisation with the blockchain and RPC server
-server.start_all(db)
+$ python3
+>>> from counterpartylib import server
+>>> db = server.initialise(<options>)
+>>> server.start_all(db)
 ```
 
 
