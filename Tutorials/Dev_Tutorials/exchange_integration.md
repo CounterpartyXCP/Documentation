@@ -20,7 +20,7 @@ As Counterparty is not a fork of Bitcoin Core, adding Counterparty support to yo
 
 - Create a XCP holding address (or several primary XCP holding addresses). The address will hold deposited XCP funds for all users using the exchange.
 
-- When a user wants to deposit XCP, create a regular Bitcoin address for them (using the API of the Bitcoin Core instance that counterparty-server is connecting to).
+- Create a regular Bitcoin address for each user wanting to deposit XCP using the API of the Bitcoin Core instance that `counterparty-server` is connecting to.
 
 - Poll for deposits using `get_sends` [API method](/API.md), filtering for `asset==XCP`, `destination==deposit_address` and `block_index<=current_block_index-number_of_desired_confirmations`. Record the quantity of the send transaction and the transaction's `txid`.
 
