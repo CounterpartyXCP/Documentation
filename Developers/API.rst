@@ -91,7 +91,7 @@ Python Example
     
     url = "http://localhost:4000/api/"
     headers = {'content-type': 'application/json'}
-    auth = HTTPBasicAuth('rpcuser', 'rpcpassword')
+    auth = HTTPBasicAuth('rpc', '$PASSWORD')
     
     #Fetch all balances for all assets for a specific address, using keyword-based arguments
     payload = {
@@ -100,8 +100,7 @@ Python Example
       "jsonrpc": "2.0",
       "id": 0,
     }
-    response = requests.post(
-      url, data=json.dumps(payload), headers=headers, auth=auth).json()
+    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
     print("GET_BALANCES RESULT: ", response)
 
     #Fetch all balances for all assets for both of two addresses, using keyword-based arguments
@@ -113,8 +112,7 @@ Python Example
       "jsonrpc": "2.0",
       "id": 0,
     }
-    response = requests.post(
-      url, data=json.dumps(payload), headers=headers, auth=auth).json()
+    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
     print("GET_BALANCES RESULT: ", response)
 
     #Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by tx_hash (ascending order)
@@ -130,8 +128,7 @@ Python Example
       "jsonrpc": "2.0",
       "id": 0,
     }
-    response = requests.post(
-      url, data=json.dumps(payload), headers=headers, auth=auth).json()
+    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
     print("GET_BURNS RESULT: ", response)
     
     #Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
@@ -145,8 +142,7 @@ Python Example
       "jsonrpc": "2.0",
       "id": 0,
     }
-    response = requests.post(
-      url, data=json.dumps(payload), headers=headers, auth=auth).json()
+    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
     print("GET_DEBITS RESULT: ", response)
     
     
@@ -257,7 +253,7 @@ library. Here's a simple example that will get you the asset balances for a spec
     require 'JsonRPC/src/JsonRPC/Client.php';
     use JsonRPC\Client;
     $client = new Client('http://localhost:4000/api/');
-    $client->authentication('rpcuser', 'rpcpassword');
+    $client->authentication('rpc', '$PASSWORD');
     
     $result = $client->execute('get_balances', array('filters' => array('field' => 'address', 'op' => '==', 'value' => '1NFeBp9s5aQ1iZ26uWyiK2AYUXHxs7bFmB')));
     print("get_balances result:\n");
@@ -275,7 +271,7 @@ Here's an example using ``curl`` to make an API call to the ``get_running_info``
 
 .. code-block:: 
 
-    curl http://127.0.0.1:4000/api/ --user rpcuser:rpcpassword -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
+    curl http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
 
 For testnet, you could use the example above, but change the port to ``14000`` and change the username and password as necessary.
 

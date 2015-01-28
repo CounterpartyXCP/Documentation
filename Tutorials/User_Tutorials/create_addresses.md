@@ -3,7 +3,7 @@ Creating a new address
 
 Counterwallet uses regular Bitcoin addresses, and you can create up to 20 in each wallet. If you need more, it is recommended and more secure if you create a new passphrase. 
 
-**Counterwallet supports the creatoin of several different kinds of addresses:**
+**Counterwallet supports the creation of several different kinds of addresses:**
 
 - Regular Address 
 - Armory Offline Address - compatible with the [Armory wallet](https://bitcoinarmory.com/)
