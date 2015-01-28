@@ -1,6 +1,6 @@
 Get Token Information
 ---------------------------
-**Disclaimer:** All token information is provided by the creator and/or owner of the individual token and may not be accurate or up to date. Changing this information is an exclusive privilege of the address which owns the token on the blockchain. 
+**Disclaimer:** All token information is provided by the creator and/or owner of the individual token and may not be accurate or up to date. Changing this information is an exclusive privilege of the address which owns the token on the blockchain. _All_ counterparty tokens are stored entirely in the Bitcoin blockchain and cannot be limited, restricted, or altered by anyone except their owner in any shape or form.
 
 ### Showing information about a token you already have
 
