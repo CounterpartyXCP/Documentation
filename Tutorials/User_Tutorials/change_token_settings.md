@@ -13,6 +13,7 @@ Once you have created a token, the address you have used will automatically be t
 
 ### Issue additional tokens 
 **If your token is not locked, you will be able to issue additional units of your token to increase supply. Click "Issue Additional" to do so.**
+
 ![](/_images/change_token_settings2.png)
 
 ### Lock your token
