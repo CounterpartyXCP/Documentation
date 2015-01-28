@@ -26,3 +26,13 @@ If you would like to monitor the BTC, XCP and asset balance of any address, you 
 
 ![](/_images/create_addresses3.png)
 
+### Customizing the appearance of your addresses
+
+Click the square next to address actions in order to set a color for your address.
+
+![](/_images/create_addresses4.png)
+
+Click the - or + respectively next to the square in order to minimize or maximize the display of your address.
+
+![](/_images/create_addresses5.png)
+
