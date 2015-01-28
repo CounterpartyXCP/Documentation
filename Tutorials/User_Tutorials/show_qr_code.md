@@ -7,10 +7,10 @@ It is also a great way to display a Bitcoin address on a poster or sign. Someone
 
 In Counterwallet, the QR codes always represent your public address. You can make the QR code of an address public, just as you would with the regular address. 
 
-To display the QR code for your address, simply click address actions.
+**To display the QR code for your address, simply click address actions.**
 
 ![](/_images/show_qr_code1.png)
 
-Then click Show QR Code.
+**Then click Show QR Code.**
 
 ![](/_images/show_qr_code2.png)
