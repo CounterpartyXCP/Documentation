@@ -9,9 +9,9 @@ As Counterparty is not a fork of Bitcoin Core, adding Counterparty support to yo
 
 - Bootstrap and start the server:
 
-* `$ counterparty-server bootstrap`
+	* `$ counterparty-server bootstrap`
 
-* `$ counterparty-server start`
+	* `$ counterparty-server start`
 
 - Get started working with `counterparty-server`'s [API](/API.md).
 
