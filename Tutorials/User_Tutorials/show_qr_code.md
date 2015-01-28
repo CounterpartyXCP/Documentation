@@ -15,4 +15,4 @@ In Counterwallet, the QR codes always represent your public address. You can mak
 
 ![](/_images/show_qr_code2.png)
 
-You can then right-click and save the image file for printing, or later use. It is also possible to scale the QR code to a larger size, as long as you preserve the ratio between width and height so that it stays a perfect square.
+You can then right-click and save the QR code image for printing, or later use. It is also possible to scale the QR code to a larger size, as long as you preserve the ratio between width and height so that it stays a perfect square.
