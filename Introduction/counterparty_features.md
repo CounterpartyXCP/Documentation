@@ -235,8 +235,94 @@ his risk and his reputation. On the buyer’s side, the risk is obvious:
 BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
-Bets
-----
+# Broadcasts
+
+Counterparty allows for ''peer-to-peer betting'': users construct bets on broadcasts, the protocol itself matches various bets, and then, depending on the outcome of the bet, sends the bet funds to the appropriate users. 
+
+Bets are made in XCP, and a user cannot bet for more XCP than he has at his address and, having made a bet, the protocol immediately debits his wager from his address. All funds that are part of a bet are held in escrow by the protocol from the beginning. ''In Counterparty, the protocol itself is the escrow service for bets, which eliminates counterparty risk from betting''. In order for there to be a bet-match, there must be three things:
+
+* A ''broadcast'', which is the subject of a bet, and contains the necessary data to resolve the outcome of a bet.
+* A party who wishes to use the broadcast to make a bet.
+* A counterparty who wishes to take the other side of the bet.
+
+## Making a broadcast
+
+In order to make a bet, there needs to be data upon which to bet; in Counterparty, data is published by users making broadcasts. Anyone can make a broadcast. A series of broadcasts is called a ''feed''; someone who publishes a feed is a called a ''feed-operator''; and the address from which a feed-operator publishes a feed is the ''feed-address''. In order to make a broadcast, it must be specified:
+
+* from which address the broadcast is made (`source`)
+* the content of the broadcast (`text`)
+* the value that will resolve the bet (`value`)
+* what fraction of the bets made on the broadcast go to the feed-operator (`fee-fraction`)
+
+The `text` of a broadcast must be a string and may be up to 52 bytes (52 characters, in case of single-byte character sets). Thus, text beyond 52 bytes must be published off-chain. A feed-operator may change the text of his feed at any time, simply by publishing a broadcast from the same source address, but with a different text. 
+
+The `value` should correspond to the `text` of the broadcast. If, for example, the text specifies that the broadcast is publishing the price of gold in USD per ounce, then the `value` published should be that price at the time specified by the broadcast. 
+
+The `fee-fraction` (the fraction of a bet that goes to feed-operator) is expressed in decimal form: thus `fee-fraction=.01` means that 1% of all bets on a feed go to the feed-operator. The fee-fraction can be changed (updated) but it does not apply retroactively. A feed-operator may also lock his feed simply by publishing a broadcast where `text="LOCK"` or `text="lock"`. 
+
+If a feed is locked while there are open bets or unsettled bet matches that refer to it, then they will automatically expire, and the funds will automatically be sent back to the appropriate addresses. Once a feed has been locked by the feed-operator, broadcasts can no longer be published from that address. If a feed-operator would like to publish a broadcast that ''cannot'' decide a bet, he can set `value` equal to -1.
+
+### Broadcasts for binary bets
+
+Since the text of a broadcast may be only up to 52 bytes, any text beyond 52 bytes must be published off-chain; one may, for example, use the text space of a broadcast to provide a link to a website, where further information can be provided. If, however, a feed-operator would like to publish all of his text within the 52 bytes available, he will likely have to use a shorthand. Suppose, for example, a feed-operator wants to publish the following text:
+
+	text="Will the price of gold rise by 12:00 AM UTC, March1? 1=yes, 2=no"
+
+As this string is 64 characters, it will not fit in the space provided, and so the feed-operator might use the following short-hand:
+
+	text="Price of gold, 12AM UTC March1. 1=inc 2=dec/const"
+
+Above "inc" means "increase", "dec" means "decrease", and "const" means "constant". The feed-operator can specify off-chain what his short-hand notation means. The text of a broadcast may be changed at any time. Thus, using the example above suppose that 12:00 AM, March 1 passes, and
+the feed-operator wants to publish the results of the broadcast, he might change the text to the following:
+
+	text="12:00AM March 1. Gold price decreased!"
+
+Changing the text does not resolve the bet, the feed-operator must publish a value:
+
+	text="12:00AM March 1. Gold price decreased!" value=2
+
+Note that the feed-operator could have left the text unedited, and merely published a value, and the bet would have been resolved. **Bet resolution depends on, and only on, the value published.**
+
+
+### Broadcasts without bets
+
+While every bet must be made on a broadcast, not every broadcast can resolve a bet. That is, broadcasts can be used merely to publish information. Suppose, for example, the US presidential election had just been completed, someone could publish the following broadcast:
+
+	text="I just started using Counterwallet. Wow!"
+
+Since this broadcast is merely making an announcement, it should not, naturally, be bet on, but a feed-operator cannot stop users from betting on his broadcasts. Thus in order to ensure that bets are not resolved based on his broadcast, he can construct his broadcast such that `value=-1`.
+
+# Bets
+
+## Making a bet
+
+In order to make a bet, a user must specify:
+
+* his address (`source`)
+* what feed he is betting on (`feed-address`)
+* what kind of bet he is making (`bet-type`)
+* when his bet will be decided (`deadline`)
+* how much he is betting (`wager`)
+* how much the counterparty must bet (`counterwager`)
+* what value he is betting the feed-operator will publish (`target-value`)
+* how sensitive his bet will be to movements in the value he is betting on (`leverage`)
+* how many blocks a counterparty has to take the other side of the bet (`expiration`)
+
+
+To parse a `deadline` entered by a user, Counterparty uses Python's default `dateutil.parser`, a very powerful and accepts many different date formats, but it does not accept, for example, Unix time. For a list of date formats that `dateutil.parser` accepts, see [this page](http://labix.org/python-dateutil). In order for `dateutil.parser` to parse a deadline, `deadline` must be a string. 
+
+In Counterparty, the unit of leverage is 5040. This means that leverage has a granularity of 1/5040 in Counterparty. Thus, an unlevered bet is one where `leverage=5040`; a bet that is levered 2x is one where `leverage=10080`. For more about leverage, see the section titled Adjusting the parameters of a CFD.
+
+## Matching a bet
+
+By making a bet, a user also provides the conditions that must be fulfilled for a counterparty to take the other side of his bet. In this section we will specify those conditions. `[wager]1/[counterwager]1` is the ''ratio'' for a bet that a user stipulates, and is denoted by ratio<sub>1</sub>. In order for two bets to be matched, [ratio]<sub>1</sub> must always be ''greater than or equal to'' the inverse of [ratio]<sub>2</sub>.
+
+Suppose `wager1=10` and `counterwager1=20`, then `ratio1=10/20=1/2`. If `wager2=22` and `counterwager2=10`, then `ratio2=22/10=2.2/1, and the inverse of ratio2=1/2.2`. Thus, in this case, bet<sub>1</sub> and bet<sub>2</sub> have the appropriate ratios to be matched. If, on the other hand, `wager2=18` and `counterwager2=10`, then the inverse of ratio<sub>2</sub>=18/10=1.8/1, which is less than ratio<sub>1</sub>, and hence the bet<sub>2</sub> cannot match bet<sub>1</sub>. Beyond the `bet-type` and ratio conditions just mentioned, in order for two bets to be matched, they must have the same:
+
+* `feed-address`
+* `target-value`
+* `deadline`
+* `leverage`
 
 
 Smart Contracts
