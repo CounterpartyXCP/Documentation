@@ -1,4 +1,4 @@
-What is Counterparty?
+﻿What is Counterparty?
 =====================
 
 Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. 
@@ -58,12 +58,12 @@ now!][]
     -   [counterparty-cli][] - Counterparty CLI
     -   [counterparty-gui][] - Counterparty GUI (OS X and Windows)
     -   [Counterwallet][] - web wallet
-    -   [counterblockd][] - Provides extended API services to Counterwallet, as well as Counterparty 3rd-party applications
+    -   [counterblock][] - Provides extended API services to Counterwallet, as well as Counterparty 3rd-party applications
     -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) - Federated Node Build System
 
 [Github]: https://github.com/CounterpartyXCP
 [counterpartyd]: https://github.com/CounterpartyXCP/counterpartyd
 [counterparty-cli]: https://github.com/CounterpartyXCP/counterparty-cli
 [counterparty-gui]: https://github.com/CounterpartyXCP/counterparty-gui
-[counterblockd]: https://github.com/CounterpartyXCP/counterblockd
+[counterblock]: https://github.com/CounterpartyXCP/counterblock
 [Counterwallet]: https://github.com/CounterpartyXCP/counterwallet
