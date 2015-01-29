@@ -49,6 +49,16 @@ A `counterparty-client` configuration file looks like this:
 	counterparty-rpc-user = <rpcuser>
 	counterparty-rpc-password = <password>
 
+## Log Locations and File Names
+
+By default, logs are stored in the following directories:
+
+* Linux: `~/.cache/counterparty/log/`
+* Windows: `C:\Users\\<USER>\AppData\Local\Counterparty\counterparty\Logs`
+
+Log files are named as follows (`[testnet]` appears only in testnet log file names):
+* `counterparty.[testnet].api.log`
+* `counterparty.[testnet].log`
 
 ## Usage
 
