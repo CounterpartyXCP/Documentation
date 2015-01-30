@@ -24,7 +24,7 @@
 
 ## Installation
 
-`$ pip3 install counterparty-lib`
+`$ sudo pip3 install counterparty-lib`
 
 or
 

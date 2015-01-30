@@ -15,7 +15,7 @@
 
 ### Install
 
-* `$ sudo pip3 install counterparty-cli` (temporarily, with the arguments `--no-use-wheel` and `--pre`)
+* `$ sudo pip3 install counterparty-cli` (temporarily, with the argument `--pre`)
 
 
 ## Upgrades
