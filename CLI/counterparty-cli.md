@@ -7,7 +7,7 @@
 
 ## Installation
 
-### Pre‐Requisites
+### Prerequisites
 
 * [Patched Bitcoin Core](../Installation/bitcoin_core.md)
 * [Windows‐specific](../Installation/windows.md)
@@ -36,7 +36,7 @@ By default, the **configuration files** is located in the following directories:
 **Logging** and **database files** are handled by [`counterparty-lib`](/../Developers/counterparty_lib.md).
 
 
-### Example Configuration Files
+### Configuration File Format
 
 Manual configuration is not necessary for most use cases.
 
