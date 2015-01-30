@@ -42,7 +42,7 @@ $ python3 setup.py install`
 or
 
 ```
-$ cd countertpartyd/
+$ cd counterpartyd/
 $ git pull
 $ python3 setup.py install
 ```
