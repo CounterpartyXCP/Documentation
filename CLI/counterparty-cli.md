@@ -2,7 +2,7 @@
 
 ## Description
 
-`counterparty-cli` is a command line interface for [`counterparty-lib`](/../Developers/counterparty_lib.md).
+`counterparty-cli` is a command line interface for [`counterparty-lib`](../Developers/counterparty_lib.md).
 
 
 ## Installation
@@ -33,7 +33,7 @@ By default, the **configuration files** is located in the following directories:
 * Linux: `~/.config/counterparty/log/`
 * Windows: **TODO**
 
-**Logging** and **database files** are handled by [`counterparty-lib`](/../Developers/counterparty_lib.md).
+**Logging** and **database files** are handled by [`counterparty-lib`](../Developers/counterparty_lib.md).
 
 
 ### Configuration File Format
