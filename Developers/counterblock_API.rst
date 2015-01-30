@@ -1,19 +1,19 @@
-counterblockd
+﻿counterblock
 =================
 
-``counterblockd`` provides additional services to Counterwallet beyond those offered in the API provided by counterpartyd. It features a full-fledged JSON RPC-based API, which services Counterwallet, as well as any 3rd party services which wish to use it. ``counterblockd`` has an extensible architecture, and developers may write custom plugins for it, which are loaded dynamically and allow them to extend counterblockd with new parsing functionality, write gateways to other currencies or services, and much more.
+``counterblock`` provides additional services to Counterwallet beyond those offered in the API provided by counterpartyd. It features a full-fledged JSON RPC-based API, which services Counterwallet, as well as any 3rd party services which wish to use it. ``counterblock`` has an extensible architecture, and developers may write custom plugins for it, which are loaded dynamically and allow them to extend counterblock with new parsing functionality, write gateways to other currencies or services, and much more.
 
-counterblockd provides a more high-level data processing, and an API that
-layers on top of counterpartyd’s API.  `counterblockd` generates and allows
+counterblock provides a more high-level data processing, and an API that
+layers on top of counterpartyd’s API.  `counterblock` generates and allows
 querying of data such as market and price information, trade operations, asset
 history, and more. It is used extensively by Counterwallet itself, and is
 appropriate for use by applications that require additional API-based
 functionality beyond the scope of what counterpartyd provides. 
 
-`counterblockd` also provides a proxy-based interface to all counterpartyd API
+`counterblock` also provides a proxy-based interface to all counterpartyd API
 methods, via the `proxy\_to\_counterpartyd` API call. This call is used in the
 Federated Node setup so that `counterpartyd` does not have to be directly
-exposed, and to allow `counterblockd` to cache counterpartyd API responses.
+exposed, and to allow `counterblock` to cache counterpartyd API responses.
 
 Such services include:
 
@@ -21,7 +21,7 @@ Such services include:
 - An extended API for Counterwallet-specific actions like wallet preferences storage and retrieval
 - API includes functionality for retieving processed time-series data suitable for display and manipulation (useful for distributed exchange price data, and more)
 
-`counterblockd Release Documentation <https://github.com/CounterpartyXCP/counterblockd/releases>`_
+`counterblock Release Documentation <https://github.com/CounterpartyXCP/counterblock/releases>`_
 
 Table of Contents
 --------------------------
@@ -40,7 +40,7 @@ Interacting with the API
 Connecting to the API
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, ``counterblockd`` will listen on port ``4001`` for API
+By default, ``counterblock`` will listen on port ``4001`` for API
 requests. API requests are made via a HTTP POST request to ``/api/``, with JSON-encoded
 data passed as the POST body. For more information on JSON RPC, please see the `JSON RPC specification <http://json-rpc.org/wiki/specification>`__.
 
@@ -61,7 +61,7 @@ Terms & Conventions
 
 **wallet IDs**
 
-An individual Counterwallet user needs a way to identify themselves to ``counterblockd`` for things like storing
+An individual Counterwallet user needs a way to identify themselves to ``counterblock`` for things like storing
 and retrieving their wallet preferences data, and more.
 
 For this purpose, we define the concept of a wallet ID, which is simply the user's Counterwallet 12-word password,
@@ -690,7 +690,7 @@ An object that stores the Counterwallet preferences for the given wallet ID.
 API Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section documents any changes to the ``counterblockd`` API, for version numbers where there were API-level modifications.
+This section documents any changes to the ``counterblock`` API, for version numbers where there were API-level modifications.
 
 1.5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
