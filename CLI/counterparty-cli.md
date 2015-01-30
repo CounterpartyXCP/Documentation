@@ -2,7 +2,7 @@
 
 ## Description
 
-`counterparty-cli` is a command line interface for [`counterparty-lib`](https://github.com/CounterpartyXCP/counterpartyd).
+`counterparty-cli` is a command line interface for [`counterparty-lib`](/../Developers/counterparty_lib.md).
 
 
 ## Installation
@@ -23,10 +23,22 @@
 * `$ sudo pip3 install --upgrade counterparty-cli`
 
 
-## Configuration
+## Configuration and Maintenance
 
-No configuration should be necessary for most use cases. The location of the configuration file is displayed upon starting the server:
-	`$ counterparty-server start`
+The paths to the **configuration** files, **log** files and **database** files are printed to the screen when starting the server in ‘verbose’ mode:
+	`$ counterparty-server --verbose start`
+
+By default, the **configuration files** is located in the following directories:
+
+* Linux: `~/.config/counterparty/log/`
+* Windows: **TODO**
+
+**Logging** and **database files** are handled by [`counterparty-lib`](/../Developers/counterparty_lib.md).
+
+
+### Example Configuration Files
+
+Manual configuration is not necessary for most use cases.
 
 A `counterparty-server` configuration file looks like this:
 
@@ -49,16 +61,6 @@ A `counterparty-client` configuration file looks like this:
 	counterparty-rpc-user = <rpcuser>
 	counterparty-rpc-password = <password>
 
-## Log Locations and File Names
-
-By default, logs are stored in the following directories:
-
-* Linux: `~/.cache/counterparty/log/`
-* Windows: `C:\Users\\<USER>\AppData\Local\Counterparty\counterparty\Logs`
-
-Log files are named as follows (`[testnet]` appears only in testnet log file names):
-* `counterparty.[testnet].api.log`
-* `counterparty.[testnet].log`
 
 ## Usage
 

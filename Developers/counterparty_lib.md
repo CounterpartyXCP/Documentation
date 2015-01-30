@@ -44,8 +44,31 @@ $ python3
 >>> server.start_all(db)
 ```
 
+## Logging
 
-# Versioning
+By default, logs are located in the following directories:
+
+* Linux: `~/.cache/counterparty/log/`
+* Windows: `C:\Users\\<USER>\AppData\Local\Counterparty\counterparty\Logs`
+
+And the log files are named as follows:
+* `counterparty[.testnet].log`
+* `counterparty[.testnet].api.log`
+
+
+## Database Files
+
+By default, the database files are located in the following directories:
+
+* Linux: `~/.local/share/counterparty/`
+* Windows: **TODO**
+
+And the database files are named as follows:
+
+* `counterparty.N.[.testnet].log`, where `N` is the major version number.
+
+
+## Versioning
 
 * Major version changes require a full (automatic) rebuild of the database.
 * Minor version changes require a(n automatic) database reparse.
