@@ -30,8 +30,21 @@ or
 
 ```
 $ git clone https://github.com/CounterpartyXCP/counterpartyd.git
-$ cd counterpartyd
-$ python setup.py install`
+$ cd counterpartyd/
+$ python3 setup.py install`
+```
+
+
+## Upgrades
+
+* `$ sudo pip3 install --upgrade counterparty-cli`
+
+or
+
+```
+$ cd countertpartyd/
+$ git pull
+$ python3 setup.py install
 ```
 
 

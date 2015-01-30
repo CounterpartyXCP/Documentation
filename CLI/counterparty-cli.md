@@ -5,15 +5,13 @@
 `counterparty-cli` is a command line interface for [`counterparty-lib`](../Developers/counterparty_lib.md).
 
 
-## Installation
-
-### Prerequisites
+## Requirements
 
 * [Patched Bitcoin Core](../Installation/bitcoin_core.md)
 * [Windows‐specific](../Installation/windows.md)
 
 
-### Install
+## Installation
 
 * `$ sudo pip3 install counterparty-cli` (temporarily, with the argument `--pre`)
 
