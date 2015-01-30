@@ -2,13 +2,13 @@
 
 ## Description
 
-`counterparty-cli` is a command line interface for [`counterparty-lib`](../Developers/counterparty_lib.md).
+`counterparty-cli` is a command line interface for [`counterparty-lib`](counterparty_lib.md).
 
 
 ## Requirements
 
-* [Patched Bitcoin Core](../Installation/bitcoin_core.md)
-* [Windows‐specific](../Installation/windows.md)
+* [Patched Bitcoin Core](bitcoin_core.md)
+* [Windows‐specific](windows.md)
 
 
 ## Installation
@@ -31,7 +31,7 @@ By default, the **configuration files** is located in the following directories:
 * Linux: `~/.config/counterparty/log/`
 * Windows: **TODO**
 
-**Logging** and **database files** are handled by [`counterparty-lib`](../Developers/counterparty_lib.md).
+**Logging** and **database files** are handled by [`counterparty-lib`](counterparty_lib.md).
 
 
 ### Configuration File Format
