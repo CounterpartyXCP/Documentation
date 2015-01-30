@@ -9,6 +9,7 @@
 
 * [Patched Bitcoin Core](bitcoin_core.md)
 * [Windows‐specific](windows.md)
+* Terminal with Unicode Support
 
 
 ## Installation
