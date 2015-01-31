@@ -28,20 +28,7 @@ for system administrators and developers.
 Federated Node Services
 -------------------------
 
-A federated node runs several services on the same system. Let's look at what some of these are:
-
-###counterparty-cli and counterparty-lib (Required)
-
-`counterparty-cli` and `counterparty-lib` (which we'll collective call ``counterparty-server``) comprise the Counterparty reference client itself. It's responsibilities include parsing out Counterparty transactions from the Bitcoin blockchain. It has a basic command line interface, and a reletively low-level API for getting information on specific transactions, or general state info.
-
-###counterblock (Required, unless counterparty-server only)
-
-The ``counterblock`` daemon provides a more high-level API that layers on top of ``counterparty-server``'s API, and includes extended
-information, such as market and price data, trade operations, asset history, and more. It is used extensively by Counterwallet
-itself, and is appropriate for use by applications that require additional API-based functionality beyond the scope of
-what ``counterparty-server`` provides.
-
-``counterblock`` also provides a proxy-based interface to all ``counterparty-server`` API methods, via the ``proxy_to_counterpartyd`` API call. Counterwallet makes use of this.
+A federated node runs several services on the same system, which includes required [Counterparty platform components](platform_architecture.md) and the following optional services:
 
 ###armory_utxsvr (Optional)
 
@@ -52,10 +39,6 @@ This service requires Armory itself, which is automatically installed as part of
 ###nginx (Optional)
 
 ``nginx`` normally frontends communications on Counterwallet, Vending, etc nodes. Not used with `counterparty-server`-only nodes.
-
-###Counterwallet, etc.
-
-The specific end-functionality, that builds off of the base services provided.
 
 
 Federated Node Provisioning
