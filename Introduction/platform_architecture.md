@@ -7,15 +7,6 @@ In the figure below you can see how all Counterparty platform components interac
 The `counterblock` daemon provides a high-level API used by Counterwallet.  `counterparty-lib` is the reference implementation of the Counterparty Protocol used by counterparty-cli (the Command Line Interface of counterparty-lib) and counterparty-gui (the PyQT5 GUI for counterparty-lib).
 Following is a description of each individual component.
 
-##`counterblock`
-
-The [`counterblock`](counterblock_API.md) daemon provides a higher-level API that layers on top of counterparty-server‘s API, and includes extended information, such as market and price data, trade operations, asset history, and more. It is used extensively by Counterwallet itself, and is appropriate for use by applications that require additional API-based functionality beyond the scope of what counterparty-server provides.
-`counterblock` also provides a proxy-based interface to all `counterparty-server` API methods, via the `proxy_to_counterpartyd` API call.  Such services include:
-
-- Realtime data streaming via socket.io
-- An extended API for Counterwallet-specific actions like wallet preferences storage and retrieval
-- API includes functionality for retrieving processed time-series data suitable for display and manipulation (useful for distributed exchange price data, and more)
-
 ##Counterparty CLI and `counterparty-lib`
 
 [`counterparty-cli`](counterparty-cli.md) is a command line interface for counterparty-lib. counterparty-cli and counterparty-lib comprise the Counterparty reference client itself. It’s responsibilities include parsing out Counterparty transactions from the Bitcoin blockchain. It has a basic command line interface, and a relatively low-level API for getting information on specific transactions, or general state info.
@@ -33,3 +24,12 @@ The [`counterblock`](counterblock_API.md) daemon provides a higher-level API tha
 - Custom asset creation
 - Betting
 - Broadcasting data on the Bitcoin Blockchain
+
+##`counterblock`
+
+The [`counterblock`](counterblock_API.md) daemon provides a higher-level API that layers on top of counterparty-server‘s API, and includes extended information, such as market and price data, trade operations, asset history, and more. It is used extensively by Counterwallet itself, and is appropriate for use by applications that require additional API-based functionality beyond the scope of what counterparty-server provides.
+`counterblock` also provides a proxy-based interface to all `counterparty-server` API methods, via the `proxy_to_counterpartyd` API call.  Such services include:
+
+- Realtime data streaming via socket.io
+- An extended API for Counterwallet-specific actions like wallet preferences storage and retrieval
+- API includes functionality for retrieving processed time-series data suitable for display and manipulation (useful for distributed exchange price data, and more)
