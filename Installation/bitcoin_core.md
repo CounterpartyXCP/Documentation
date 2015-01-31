@@ -15,7 +15,7 @@ Depending on your OS and other preferences, download one of the binaries or sour
 
 ### Windows Installer
 
-Unline the Linux binaries, the Windows packages are installers. Uninstall any older version and download and install a 32-bit or 64-bit version. A 32-bit version consumes slightly less memory resources and is recommended for regular desktop use.
+Unlike the Linux binaries, the Windows packages are installers. Uninstall any older version and download and install a 32-bit or 64-bit version. A 32-bit version consumes slightly less memory resources and is recommended for regular desktop use.
 
 * 32-bit: `C:\Program Files (x86)\Bitcoin`
 * 64-bit: `C:\Program Files\Bitcoin`
