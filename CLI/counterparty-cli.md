@@ -29,8 +29,12 @@ The paths to the **configuration** files, **log** files and **database** files a
 
 By default, the **configuration files** is located in the following directories:
 
-* Linux: `~/.config/counterparty/log/`
+* Linux: `~/.config/counterparty/
 * Windows: **TODO**
+
+And the log files are named as follows:
+* `client.conf`
+* `server.conf`
 
 **Logging** and **database files** are handled by [`counterparty-lib`](counterparty_lib.md).
 
