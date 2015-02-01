@@ -279,6 +279,25 @@ For testnet, you could use the example above, but change the port to ``14000`` a
 
 **NOTE:** On Windows, the command may need to be formatted differently due to problems Windows has with escapes.
 
+
+Wallet Integration Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For maximum modularity, flexibility and robustness, the ``counterparty-lib`` server doesn’t interact with any Bitcoin wallets itself. Even Bitcoin Core's built-in one.
+
+The process of making a transaction, from start to finish, then, depends somewhat on the wallet software used. Below is an example of how one might integrate with Bitcoin Core's API to sign and broadcast a unsigned Counterparty transaction *created* with the `counterparty-lib` API, assuming that the source address of the transaction is in the Bitcoin Core wallet.
+
+.. code-block:: python
+        def do_send(source, destination, asset, quantity):
+                validateaddress = bitcoind_api('validateaddress', [source])
+                assert addr_info['is_mine']
+                pubkey = validateaddress['pubkey']
+                unsigned_tx = counterpartylib_api('create_send', {'source': source, 'destination': destination, 'asset': asset, 'quantity': quantity, 'pubkey': pubkey})
+                signed_tx = bitcoind_api('signrawtransaction', [unsigned_tx])
+                tx_hash = bitcoind_api('sendrawtransaction', [signed_tx])
+                return tx_hash
+
+
 Terms & Conventions
 ---------------------
 
