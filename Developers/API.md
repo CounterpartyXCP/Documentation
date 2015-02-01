@@ -289,7 +289,7 @@ the specific comparison logic used, please see `this page <http://www.sqlite.org
 
 
 
-###The ``encoding`` Parameter of ``create_`` Calls 
+###Transaction Encodings
 
 All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns
 with its raw transaction API calls).
