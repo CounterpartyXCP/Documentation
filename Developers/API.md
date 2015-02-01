@@ -208,7 +208,7 @@ library.
 
 ##Wallet Integration
 
-**Note:** *Before v9.49.4, the counterpartyd API provided an interface to Bitcoin Core's signing functionality through the `do_*`, `sign_tx` and `broadcast_tx` methods, which have all since been removed.*
+**Note:** Before v9.49.4, the counterpartyd API provided an interface to Bitcoin Core's signing functionality through the `do_*`, `sign_tx` and `broadcast_tx` methods, which have all since been removed.
 
 The process of making a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast a unsigned Counterparty transaction *created* with this API.
 
