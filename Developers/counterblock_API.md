@@ -74,7 +74,7 @@ Returns a list of changes for the specified asset, from its inception to the cur
 
 - **param asset:** The asset to retrieve a history on
 - **param reverse:** By default, the history is returned in the order of oldest to newest. Set this parameter to True to return items in the order of newest to oldest.
-- **:return:** Changes are returned as a list of dicts, with each dict having the following format:
+- **return:** Changes are returned as a list of dicts, with each dict having the following format:
     - type: One of 'created', 'issued_more', 'changed_description', 'locked', 'transferred', 'called_back'
     - 'at_block': The block number this change took effect
     - 'at_block_time': The block time this change took effect
@@ -102,19 +102,19 @@ Returns a list of changes for the specified asset, from its inception to the cur
 
 Given two arbitrary assets, returns the base asset and the quote asset.
 
-- **:param asset1:** An asset
-- **:param asset2:** An asset
-- **:param limit:** Max # of records to return
-- **:return:** Market info for the given pair
-- **:rtype:** {'24h_vol_in_btc', 'open_orders_count', 'lowest_ask', 'base_asset', 'completed_trades_count', '24h_pct_change', 'vol_quote', 'highest_bid', '24h_vol_in_xcp', 'vol_base', 'last_updated', 'quote_asset'}
+- **param asset1:** An asset
+- **param asset2:** An asset
+- **param limit:** Max # of records to return
+- **return:** Market info for the given pair
+- **rtype:** {'24h_vol_in_btc', 'open_orders_count', 'lowest_ask', 'base_asset', 'completed_trades_count', '24h_pct_change', 'vol_quote', 'highest_bid', '24h_vol_in_xcp', 'vol_base', 'last_updated', 'quote_asset'}
 
 **get_balance_history(asset, addresses, normalize=True, start_ts=None, end_ts=None)**
 
 Retrieves the ordered balance history for a given address (or list of addresses) and asset pair, within the specified date range
 
-- **:param normalize:** If set to True, return quantities that (if the asset is divisible) have been divided by 100M (satoshi).
-- **:return:** A list of tuples, with the first entry of each tuple being the block time (epoch TS), and the second being the new balance at that block time.
-- **:rtype:** [(<block time>, <balance>)]
+- **param normalize:** If set to True, return quantities that (if the asset is divisible) have been divided by 100M (satoshi).
+- **return:** A list of tuples, with the first entry of each tuple being the block time (epoch TS), and the second being the new balance at that block time.
+- **rtype:** [<block time>, <balance>]
 
 **get_base_quote_asset(asset1, asset2)**
 
@@ -123,35 +123,35 @@ Given two arbitrary assets, returns the base asset and the quote asset.
 *deprecated: 1.5*
 Use `get_market_info/get_market_details`
 
-- **:param asset1:** An asset
-- **:param asset2:** An asset
-- **:return:** Array:
-- **:rtype:** {'base_asset', 'quote_asset', 'pair_name'}
+- **param asset1:** An asset
+- **param asset2:** An asset
+- **return:** Array
+- **rtype:** {'base_asset', 'quote_asset', 'pair_name'}
 
 **get_escrowed_balance(addresses)**
 
-- **:param list addresses:** List of addresses to check
-- **:return:** An array of assets held in escrow
-- **:rtype:** {<address of escrowee>: {<asset>:<amount>}}
+- **param list addresses:** List of addresses to check
+- **return:** An array of assets held in escrow
+- **rtype:** {<address of escrowee>: {<asset>:<amount>}}
 
 **get_market_cap_history(start_ts=None, end_ts=None)**
 
-- **:param start_ts:** Unix timestamp
-- **:param end_ts:** Unix timestamp
-- **:return:** Array
-- **:rtype:** {'base_currency':[{'data':[ts,market_cap], 'name'}]}
+- **param start_ts:** Unix timestamp
+- **param end_ts:** Unix timestamp
+- **return:** Array
+- **rtype:** {'base_currency':[{'data':[ts,market_cap], 'name'}]}
 
 **get_market_info(assets)**
 
-- **:param list assets:** Assets to check
-- **:return:** Array
-- **:rtype:** {'24h_hlc_in_btc', 'extended_description', 'extended_pgpsig', 'aggregated_price_as_btc', 'price_in_btc', '24h_summary':{'vol', 'count'}, 'market_cap_in_btc', 'asset', 'price_as_xcp', '7d_history_in_btc':[[ts, price]], '24h_vol_price_change_in_xcp', 'price_in_xcp', 'extended_website', '24h_vol_price_change_in_btc', 'aggregated_price_as_xcp', 'market_cap_in_xcp', '7d_history_in_xcp':[[ts, price]], 'aggregated_price_in_btc', 'aggregated_price_in_xcp', 'price_as_btc', 'total_supply', '24h_ohlc_xcp', 'extended_image'}
+- **param list assets:** Assets to check
+- **return:** Array
+- **rtype:** {'24h_hlc_in_btc', 'extended_description', 'extended_pgpsig', 'aggregated_price_as_btc', 'price_in_btc', '24h_summary':{'vol', 'count'}, 'market_cap_in_btc', 'asset', 'price_as_xcp', '7d_history_in_btc':[[ts, price]], '24h_vol_price_change_in_xcp', 'price_in_xcp', 'extended_website', '24h_vol_price_change_in_btc', 'aggregated_price_as_xcp', 'market_cap_in_xcp', '7d_history_in_xcp':[[ts, price]], 'aggregated_price_in_btc', 'aggregated_price_in_xcp', 'price_as_btc', 'total_supply', '24h_ohlc_xcp', 'extended_image'}
 
 **get_market_info_leaderboard(limit=100)**
 
-- **:param limit:** Number of results to return
-- **:return:** Array
-- **:rtype:** {base_currency:[{
+- **param limit:** Number of results to return
+- **return:** Array
+- **rtype:** {base_currency:[{
              '24h_ohlc_in_btc',
              'total_supply',
              'aggregated_price_in_btc',
@@ -176,32 +176,32 @@ Use `get_market_info/get_market_details`
 
 Return detailed information on a market.
 
-- **:rtype:** {'base_asset','progression','supply', 'trend','price_24h', 'price','sell_orders': [{'fee_required', 'amount', 'total', 'type', 'price'}],'quote_asset_divisible','buy_orders': [{'amount', 'total', 'type', 'price', 'fee_provided'}], 'last_trades': [{'status', 'match_id', 'countersource', 'source', 'price', 'block_index', 'amount', 'block_time', 'total', 'type'}],'base_asset_infos','base_asset_divisible','quote_asset'}
+- **rtype:** {'base_asset','progression','supply', 'trend','price_24h', 'price','sell_orders': [{'fee_required', 'amount', 'total', 'type', 'price'}],'quote_asset_divisible','buy_orders': [{'amount', 'total', 'type', 'price', 'fee_provided'}], 'last_trades': [{'status', 'match_id', 'countersource', 'source', 'price', 'block_index', 'amount', 'block_time', 'total', 'type'}],'base_asset_infos','base_asset_divisible','quote_asset'}
 
 
 **get_markets_list()**
 
 Returns available markets
 
-- **:rtype:** [{'market_cap', 'base_asset', 'progression', 'supply', 'trend', 'price_24h', 'price', ' quote_divisibility', 'pos', 'volume', 'with_image', 'base_divisibility', 'quote_asset'}]
+- **rtype:** [{'market_cap', 'base_asset', 'progression', 'supply', 'trend', 'price_24h', 'price', ' quote_divisibility', 'pos', 'volume', 'with_image', 'base_divisibility', 'quote_asset'}]
 
 **get_market_price_history(asset1, asset2, start_ts=None, end_ts=None, as_dict=False)**
 
 Return block-by-block aggregated market history data for the specified asset pair, within the specified date range.
 
-- **:param asset1:** An asset
-- **:param asset2:** An asset                            .
-- **:param start_ts:** Unix timestamp
-- **:param end_ts:** Unix timestamp
-- **:param as_dict:** Return as list of list or list of dicts
-- **:return:** List of lists or dicts
-- **:rtype:** [{'block_time', 'block_index', 'open', 'high', 'low', 'close', 'vol', 'count'}]
+- **param asset1:** An asset
+- **param asset2:** An asset                            .
+- **param start_ts:** Unix timestamp
+- **param end_ts:** Unix timestamp
+- **param as_dict:** Return as list of list or list of dicts
+- **return:** List of lists or dicts
+- **rtype:** [{'block_time', 'block_index', 'open', 'high', 'low', 'close', 'vol', 'count'}]
 
 **get_market_orders(asset1, asset2, addresses=[], min_fee_provided=0.95, max_fee_required=0.95)**
 
 Returns orders for the search parameters
 
-- **:rtype:** [{'completion', 'tx_hash', 'fee_provided', 'block_index', 'price', 'tx_index', 'source', 'amount', 'block_time', 'total', 'type'}]
+- **rtype:** [{'completion', 'tx_hash', 'fee_provided', 'block_index', 'price', 'tx_index', 'source', 'amount', 'block_time', 'total', 'type'}]
 
 
 **get_market_price_summary(asset1, asset2, with_last_trades=0)**
@@ -209,25 +209,25 @@ Returns orders for the search parameters
 *deprecated: 1.5*
 Use `get_market_price_history`
 
-- **:param asset1:** An asset
-- **:param asset2:** An asset
-- **:param with_last_trades:** Include last trades
-- **:return:** Array
-- **:rtype:** {'quote_asset', 'base_asset', 'market_price',('last_trades')}
+- **param asset1:** An asset
+- **param asset2:** An asset
+- **param with_last_trades:** Include last trades
+- **return:** Array
+- **rtype:** {'quote_asset', 'base_asset', 'market_price',('last_trades')}
 
 **get_market_trades(asset1, asset2, addresses=[], limit=100)**
 
 Returns completed trades for the search parameters
 
-- **:rtype:** [{'status', 'match_id', 'countersource', 'block_index', 'price', 'source', 'amount', 'block_time', 'total', 'type'}]
+- **rtype:** [{'status', 'match_id', 'countersource', 'block_index', 'price', 'source', 'amount', 'block_time', 'total', 'type'}]
 
 **get_normalized_balances(addresses)**
 
 This call augments counterpartyd's get_balances with a normalized_quantity field. It also will include any owned assets for an address, even if their balance is zero. NOTE: Does not retrieve BTC balance. Use get_address_info for that.
 
-- **:param list addresses:** List of addresses to check
-- **:return:** List
-- **:rtype:** [{'address', 'asset', 'quantity', 'normalized_quantity', 'owner'}]
+- **param list addresses:** List of addresses to check
+- **return:** List
+- **rtype:** [{'address', 'asset', 'quantity', 'normalized_quantity', 'owner'}]
 
 **get_order_book_buysell(buy_asset, sell_asset, pct_fee_provided=None, pct_fee_required=None)**
 
@@ -235,12 +235,12 @@ This call augments counterpartyd's get_balances with a normalized_quantity field
   Use counterpartyd's `get_orders`
 
 
-- **:param buy_asset:** Asset
-- **:param sell_asset:** Asset
-- **:param pct_fee_provided:** A minimum fee level in satoshis
-- **:param pct_fee_required:** A minimum fee level in satoshis
-- **:return:** Object
-- **:rtype:** {'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
+- **param buy_asset:** Asset
+- **param sell_asset:** Asset
+- **param pct_fee_provided:** A minimum fee level in satoshis
+- **param pct_fee_required:** A minimum fee level in satoshis
+- **return:** Object
+- **rtype:** {'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
         'bid_depth',
         'raw_orders:[{
         'status',
@@ -277,12 +277,12 @@ This call augments counterpartyd's get_balances with a normalized_quantity field
 
 Easier to call version when you want all orders involving the two assets.
 
-- **:param asset1:** Asset
-- **:param asset2:** Asset
-- **:param pct_fee_provided:** A minimum fee level in satoshis
-- **:param pct_fee_required:** A minimum fee level in satoshis
-- **:return:** Object
-- **:rtype:** {'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
+- **param asset1:** Asset
+- **param asset2:** Asset
+- **param pct_fee_provided:** A minimum fee level in satoshis
+- **param pct_fee_required:** A minimum fee level in satoshis
+- **return:** Object
+- **rtype:** {'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
   'bid_depth',
   'raw_orders:[{
   'status',
@@ -316,15 +316,15 @@ Easier to call version when you want all orders involving the two assets.
 
 Returns the assets owned by the addresses
 
-- **:param addresses:** An array of addresses.
-- **:return:** Information on owned assets
-- **:rtype:** [{'_change_type', 'locked', 'description', '_at_block', 'divisible', 'total_issued_normalized', '_at_block_time', 'asset', 'total_issued', 'owner', history:[]]
+- **param addresses:** An array of addresses.
+- **return:** Information on owned assets
+- **rtype:** [{'_change_type', 'locked', 'description', '_at_block', 'divisible', 'total_issued_normalized', '_at_block_time', 'asset', 'total_issued', 'owner', history:[]]
 
 **get_users_pairs(addresses=[], max_pairs=12)**
 
 Return pairs held by the addresses.
 
-- **:rtype:** [{'base_asset', 'progression', 'trend', 'price_24h', 'price', 'quote_asset'}]
+- **rtype:** [{'base_asset', 'progression', 'trend', 'price_24h', 'price', 'quote_asset'}]
 
 ####Betting Functions
 
@@ -332,10 +332,10 @@ Return pairs held by the addresses.
 
 Returns bets with non-zero remaining counterwager for the specified search terms.
 
-- **:param bet_type:** 0, 1, 2 or 3
-- **:param feed_address:** An address
-- **:param deadline:** Unix timestamp
-- **:rtype:** [{'tx_hash'
+- **param bet_type:** 0, 1, 2 or 3
+- **param feed_address:** An address
+- **param deadline:** Unix timestamp
+- **rtype:** [{'tx_hash'
 'feed_address',
 'wager_quantity',
 'leverage',
@@ -356,9 +356,9 @@ Returns bets with non-zero remaining counterwager for the specified search terms
 
 **get_user_bets(addresses=[], status="open")**
 
-- **:param addresses:** List of addresses
-- **:param status:** "open", "filled","expired","cancelled","dropped", or "invalid"
-- **:rtype:** [{'tx_hash'
+- **param addresses:** List of addresses
+- **param status:** "open", "filled","expired","cancelled","dropped", or "invalid"
+- **rtype:** [{'tx_hash'
     'feed_address',
     'wager_quantity',
     'leverage',
@@ -379,19 +379,19 @@ Returns bets with non-zero remaining counterwager for the specified search terms
 
 **get_feed(address_or_url='')**
 
-- **:param address_or_url:** Feed URL or Bitcoin Address
-- **:rtype:** {'broadcasts':[{'status', 'tx_hash', 'locked', 'timestamp', 'source', 'text', 'tx_index', 'value', 'block_index', 'fee_fraction_int'}], 'counters':{'bets':[]}
+- **param address_or_url:** Feed URL or Bitcoin Address
+- **rtype:** {'broadcasts':[{'status', 'tx_hash', 'locked', 'timestamp', 'source', 'text', 'tx_index', 'value', 'block_index', 'fee_fraction_int'}], 'counters':{'bets':[]}
 
 **get_feeds_by_source(addresses=[])**
 
-- **:param addresses:** Address list
-- **:rtype:** {<address>:{'errors':[], 'locked', 'info_url', 'info_data':{}, 'fetch_info_retry', 'source', 'info_status', 'fee_fraction_int', 'last_broadcast':{}}}
+- **param addresses:** Address list
+- **rtype:** {<address>:{'errors':[], 'locked', 'info_url', 'info_data':{}, 'fetch_info_retry', 'source', 'info_status', 'fee_fraction_int', 'last_broadcast':{}}}
 
 **parse_base64_feed(base64_feed):**
 
 Takes a base64-encoded feed and decodes it.
 
-- **:rtype:** [{'tx_hash'
+- **rtype:** [{'tx_hash'
   'feed_address',
   'wager_quantity',
   'leverage',
@@ -416,12 +416,12 @@ Takes a base64-encoded feed and decodes it.
 
 create an email with the information received
 
-- **:param screenshot:** The base64 text of the screenshot itself, prefixed with data=image/png
-- **:param addtl_info:** A JSON-encoded string of a dict with additional information to include in the support request
+- **param screenshot:** The base64 text of the screenshot itself, prefixed with data=image/png
+- **param addtl_info:** A JSON-encoded string of a dict with additional information to include in the support request
 
 **get_chat_handle(wallet_id)**
 
-- **:rtype:** {'handle', 'is_op', 'last_updated', 'banned_until'}
+- **rtype:** {'handle', 'is_op', 'last_updated', 'banned_until'}
 
 **get_chat_history(start_ts=None, end_ts=None, handle=None, limit=1000)**
 
@@ -429,21 +429,21 @@ create an email with the information received
 
 **get_num_users_online()**
 
-- **:return:** The current number of users attached to the server's chat feed
+- **return:** The current number of users attached to the server's chat feed
         :rtype: Int
 
 **get_reflected_host_info()**
 
 Allows the requesting host to get some info about itself, such as its IP. Used for troubleshooting.
 
-- **:return:** Client host info
-- **:rtype:** {'ip', 'cookie', 'country'}
+- **return:** Client host info
+- **rtype:** {'ip', 'cookie', 'country'}
 
 **is_chat_handle_in_use(handle)**
 
 *deprecated: 1.5*
 
-- **:rtype:** Boolean
+- **rtype:** Boolean
 
 **is_ready()**
 
@@ -451,7 +451,7 @@ Used by the client to check if the server is alive, caught up, and ready to acce
 If the server is NOT caught up, a 525 error will be returned actually before hitting this point. Thus,
 if we actually return data from this function, it should always be true. (may change this behaviour later)
 
-- **:rtype:** Boolean
+- **rtype:** Boolean
 
 
 
@@ -461,11 +461,11 @@ if we actually return data from this function, it should always be true. (may ch
 
 Get info for one or more addresses
 
-- **:parameter list addresses:** Address to query
-- **:parameter boolean with_uxtos:** Include Unspent
-- **:parameter int with_last_txn_hashes:** Include n recent confirmed transactions
-- **:return:** Address info
-- **:rtype:** [{'addr', 'info',('uxto'),('last_txns'),('block_height')}]
+- **parameter list addresses:** Address to query
+- **parameter boolean with_uxtos:** Include Unspent
+- **parameter int with_last_txn_hashes:** Include n recent confirmed transactions
+- **return:** Address info
+- **rtype:** [{'addr', 'info',('uxto'),('last_txns'),('block_height')}]
 
 
 **get_chain_block_height()**
@@ -473,19 +473,19 @@ Get info for one or more addresses
 *deprecated: 1.5*
 Use `get_chain_address_info`
 
-- **:return:** The height of the block chain
+- **return:** The height of the block chain
 
 **get_chain_txns_status**
 
-- **:param list txn_hashes:** A list of one or more txn hashes
-- **:return:** Transaction information
-- **:rtype:** [{'tx_hash', 'blockhash', 'confirmations', 'blocktime'}]
+- **param list txn_hashes:** A list of one or more txn hashes
+- **return:** Transaction information
+- **rtype:** [{'tx_hash', 'blockhash', 'confirmations', 'blocktime'}]
 
 **get_pubkey_for_address(address)**
 
 Returns None if the address has made 0 transactions (as we wouldn't be able to get the public key)
 
-- **:returns:** String or None
+- **returns:** String or None
 
 
 
@@ -495,16 +495,16 @@ Returns None if the address has made 0 transactions (as we wouldn't be able to g
 
 Return latest messaages
 
-- **:param int count:** Number of messages to return. Must be < 1000 if specified.
-- **:return:** A list of messages
-- **:rtype:** [{'raw_tx_type', ... other fields vary per tx type}]
+- **param int count:** Number of messages to return. Must be < 1000 if specified.
+- **return:** A list of messages
+- **rtype:** [{'raw_tx_type', ... other fields vary per tx type}]
 
 **get_messagefeed_messages_by_index(message_indexes)**
 
 Alias for counterpartyd get_messages_by_index
 
-- **:param list message_indexs:** Message IDs to fetch
-- **:return:** A list of messages
+- **param list message_indexs:** Message IDs to fetch
+- **return:** A list of messages
 
 ####Transaction Functions
 
@@ -512,24 +512,24 @@ Alias for counterpartyd get_messages_by_index
 
 Gets raw transactions for a particular address
 
-- **:param address:** A single address string
-- **:param start_ts:** The starting date & time. Should be a unix epoch object. If passed as None, defaults to 60 days before the end_date
-- **:param end_ts:** The ending date & time. Should be a unix epoch object. If passed as None, defaults to the current date & time
-- **:param limit:** the maximum number of transactions to return; defaults to ten thousand
-- **:return:** Returns the data, ordered from newest txn to oldest. If any limit is applied, it will cut back from the oldest results
-- **:rtype:** {id: {status, tx_hash, _divisible, _tx_index, block_index, _category, destination, tx_index, _block_time, source, asset, _command, quantity}}
+- **param address:** A single address string
+- **param start_ts:** The starting date & time. Should be a unix epoch object. If passed as None, defaults to 60 days before the end_date
+- **param end_ts:** The ending date & time. Should be a unix epoch object. If passed as None, defaults to the current date & time
+- **param limit:** the maximum number of transactions to return; defaults to ten thousand
+- **return:** Returns the data, ordered from newest txn to oldest. If any limit is applied, it will cut back from the oldest results
+- **rtype:** {id: {status, tx_hash, _divisible, _tx_index, block_index, _category, destination, tx_index, _block_time, source, asset, _command, quantity}}
 
 **get_trade_history(asset1=None, asset2=None, start_ts=None, end_ts=None, limit=50)**
 
 Gets last N of trades within a specific date range (normally, for a specified asset pair, but this can be left blank to get any/all trades).
 
-- **:param asset1:** An asset
-- **:param asset2:** An asset
-- **:param start_ts:** Unix timestamp
-- **:param end_ts:** Unix timestamp
-- **:param limit:** Number of trades to return
-- **:return:** Array of length `n`
-- **:rtype:** [{'base_quantity',
+- **param asset1:** An asset
+- **param asset2:** An asset
+- **param start_ts:** Unix timestamp
+- **param end_ts:** Unix timestamp
+- **param limit:** Number of trades to return
+- **return:** Array of length `n`
+- **rtype:** [{'base_quantity',
           'message_index',
           'order_match_tx1_index',
           'base_asset',
@@ -550,10 +550,10 @@ Gets last N of trades within a specific date range (normally, for a specified as
 
 This function returns the number of transactions in each 24 hour clock within the given time range, or the last 360 days if no time range is given.
 
-- **:param start_ts:** Unix timestamp
-- **:param end_ts:** Unix timestamp
-- **:return:** The number of transactions in each time interval.
-- **:rtype:** [[`unix timestamp *in milliseconds* (e.g. 1000 * a typical unix timestamp)`, `transaction count`]]
+- **param start_ts:** Unix timestamp
+- **param end_ts:** Unix timestamp
+- **return:** The number of transactions in each time interval.
+- **rtype:** [[`unix timestamp *in milliseconds* (e.g. 1000 * a typical unix timestamp)`, `transaction count`]]
 
 
 ####Wallet Functions
@@ -563,9 +563,9 @@ This function returns the number of transactions in each 24 hour clock within th
 
 Gets stored wallet preferences
 
-- **:param network:** only required if for_login is specified. One of: 'mainnet' or 'testnet'
-- **:returns:** True if no error
-- **:rtype:** Boolean
+- **param network:** only required if for_login is specified. One of: 'mainnet' or 'testnet'
+- **returns:** True if no error
+- **rtype:** Boolean
 
 
 
@@ -573,27 +573,27 @@ Gets stored wallet preferences
 
 If timestamps omitted, queries the last 360 days.
 
-- **:param start_ts:** Unix timestamp
-- **:param end_ts:** Unix timestamp
-- **:return:** Wallet information
-- **:rtype:** {'wallet_stats':[id: {'data': [{}], 'name'}], 'num_wallets_testnet', 'num_wallets_mainnet', 'num_wallets_unknown'}
+- **param start_ts:** Unix timestamp
+- **param end_ts:** Unix timestamp
+- **return:** Wallet information
+- **rtype:** {'wallet_stats':[id: {'data': [{}], 'name'}], 'num_wallets_testnet', 'num_wallets_mainnet', 'num_wallets_unknown'}
 
 **is_wallet_online(wallet_id)**
 
-- **:rtype:** Boolean
+- **rtype:** Boolean
 
 
 ####Armory/UTC Functions
 
 **create_armory_utx(unsigned_tx_hex, public_key_hex)**
 
-- **:returns:** The signed tx hash
-- **:rtype:** String
+- **returns:** The signed tx hash
+- **rtype:** String
 
 **convert_armory_signedtx_to_raw_hex(signed_tx_ascii)**
 
-- **:returns:** The raw hash as hex
-- **:rtype:** String
+- **returns:** The raw hash as hex
+- **rtype:** String
 
 ###Action/Write API Function Reference
 
@@ -605,9 +605,9 @@ If timestamps omitted, queries the last 360 days.
 
 **proxy_to_counterpartyd(method='', params={})**
 
-- **:param method:** Method name to call in counterpartyd.
-- **:param params:** Array of function parameters.
-- **:returns:** The method response from counterpartyd
+- **param method:** Method name to call in counterpartyd.
+- **param params:** Array of function parameters.
+- **returns:** The method response from counterpartyd
 
 Relays a request to the counterpartyd server, with the given method and params, and returns the result. See the `counterpartyd API documentation <http://counterpartyd.readthedocs.org/en/latest/API.html>`_ for available methods.
 
@@ -623,9 +623,9 @@ to complete any trades where BTC is involved, and the seller (or at least their 
 
 Stores the preferences for a given wallet ID.
 
-- **:param string wallet_id:** The wallet ID to store the preferences for.
-- **:param object preferences:** A wallet-preferences-object_
-- **:return:** ``true`` if the storage was successful, ``false`` otherwise.
+- **param string wallet_id:** The wallet ID to store the preferences for.
+- **param object preferences:** A wallet-preferences-object_
+- **return:** ``true`` if the storage was successful, ``false`` otherwise.
 
 
 
