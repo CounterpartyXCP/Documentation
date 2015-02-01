@@ -7,9 +7,9 @@ Server API
 Overview
 --------
 
-The ``counterparty-lib`` server is a JSON RPC 2.0-based API based off of that
-of Bitcoin Core. It is the primary means by which other applications should
-interact with the Counterparty network.
+The ``counterparty-lib`` server provides a JSON RPC 2.0-based API based off of
+that of Bitcoin Core. It is the primary means by which other applications
+should interact with the Counterparty network.
 
 The API server is started either through the [`CLI interface`](counterparty-cli.md) or with the
 [`counterparty-lib`](counterparty_lib.md) Python library.
@@ -31,13 +31,7 @@ are made via a HTTP POST request to ``/api/`` (note the trailing slash), with JS
 General Format
 ^^^^^^^^^^^^^^^
 
-All requests must have POST data that is JSON encoded and in the format of:
-
-``{ "method": "METHOD NAME", "params": {"param1": "value1", "param2": "value2"}, "jsonrpc": "2.0", "id": 0 }``
-
-The ``jsonrpc`` and ``id`` properties are requirements under the JSON-RPC 2.0 spec.
-
-Here's an example of the POST data for a valid API request:
+All requests must have POST data that is JSON encoded. Here's an example of the POST data for a valid API request:
 
 .. code-block::
 
@@ -51,6 +45,8 @@ Here's an example of the POST data for a valid API request:
       "id": 0,
     }
 
+The ``jsonrpc`` and ``id`` properties are requirements under the JSON-RPC 2.0 spec.
+
 You should note that the data in ``params`` is a JSON object (e.g. mapping), not an array. In other words, 
 **the API only supports named arguments, not positional arguments** (e.g. use
 {"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"]). This is the case for safety and bug-minimzation reasons.
@@ -63,7 +59,8 @@ Authentication
 The API interface requires HTTP basic authentication to use. The configuration
 of the server depends on the method used to start it.
 
-**The default user is ``'rpc'``. The password must be set manually before the server will start.**
+**The default user is ``'rpc'``.**
+**The password must be set manually before the server will start.**
 
 .. _examples:
 
