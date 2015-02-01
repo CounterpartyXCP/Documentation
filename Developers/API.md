@@ -9,6 +9,10 @@ The ``counterparty-lib`` server provides a JSON RPC 2.0-based API based off of
 that of Bitcoin Core. It is the primary means by which other applications
 should interact with the Counterparty network.
 
+For maximum modularity, flexibility and robustness, the API server doesn’t
+interact with any Bitcoin wallets itself, even Bitcoin Core's built-in one.
+(See the section 'Wallet Integration'.)
+
 The API server is started either through the [`CLI interface`](counterparty-cli.md) or with the
 [`counterparty-lib`](counterparty_lib.md) Python library.
 
@@ -204,13 +208,15 @@ library.
 
 ##Wallet Integration
 
-For maximum modularity, flexibility and robustness, the API server doesn’t interact with any Bitcoin wallets itself, even Bitcoin Core's built-in one.
+**Note:** *Before v9.49.4, the counterpartyd API provided an interface to Bitcoin Core's signing functionality through the `do_*`, `sign_tx` and `broadcast_tx` methods, which have all since been removed.*
 
-The process of making a transaction, from start to finish, then, depends somewhat on the wallet software used. Below is an example of how one might integrate with Bitcoin Core's API to sign and broadcast a unsigned Counterparty transaction *created* with this API, assuming that the source address of the transaction is in the Bitcoin Core wallet.
+The process of making a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast a unsigned Counterparty transaction *created* with this API.
+
+*Bitcoin Core*
 
     def do_send(source, destination, asset, quantity):
             validateaddress = bitcoind_api('validateaddress', [source])
-            assert addr_info['is_mine']
+            assert validateaddress['is_mine']
             pubkey = validateaddress['pubkey']
             unsigned_tx = counterpartylib_api('create_send', {'source': source, 'destination': destination, 'asset': asset, 'quantity': quantity, 'pubkey': pubkey})
             signed_tx = bitcoind_api('signrawtransaction', [unsigned_tx])
@@ -356,8 +362,8 @@ There will be no incompatible API pushes that do not either have:
 * Bitcoin addresses may everywhere be replaced by pubkeys.
 * The API will no longer search the local wallet for pubkeys, so they must be passed to the API manually if being used for the first time. Otherwise, you may get a "<address> not published in blockchain" error.
 
-9###.49.4
-* The ``do_*`` and ``sign_tx`` methods now only work when passed a private key; the do not interact with the Bitcoin Core wallet at all.
+###9.49.4
+* The `do_*`, `sign_tx` and `broadcast_tx` methods have been completely deprecated. See the section 'Wallet Integration'.
 
 
 
