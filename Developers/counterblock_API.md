@@ -1,5 +1,4 @@
-﻿counterblock
-=================
+#counterblock
 
 ``counterblock`` provides additional services to Counterwallet beyond those offered in the API provided by counterpartyd. It features a full-fledged JSON RPC-based API, which services Counterwallet, as well as any 3rd party services which wish to use it. ``counterblock`` has an extensible architecture, and developers may write custom plugins for it, which are loaded dynamically and allow them to extend counterblock with new parsing functionality, write gateways to other currencies or services, and much more.
 
@@ -23,6 +22,8 @@ Such services include:
 
 `counterblock Release Documentation <https://github.com/CounterpartyXCP/counterblock/releases>`_
 
+##Table of Contents
+[TOC]
 
 ###Interacting with the API
 
