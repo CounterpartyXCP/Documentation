@@ -212,7 +212,7 @@ library.
 
 The process of making a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast a unsigned Counterparty transaction *created* with this API.
 
-*Bitcoin Core*
+**Bitcoin Core**
 
     def do_send(source, destination, asset, quantity):
             validateaddress = bitcoind_api('validateaddress', [source])
