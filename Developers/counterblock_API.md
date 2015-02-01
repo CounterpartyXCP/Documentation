@@ -114,7 +114,7 @@ Retrieves the ordered balance history for a given address (or list of addresses)
 
 - **param normalize:** If set to True, return quantities that (if the asset is divisible) have been divided by 100M (satoshi).
 - **return:** A list of tuples, with the first entry of each tuple being the block time (epoch TS), and the second being the new balance at that block time.
-- **rtype:** [<block time>, <balance>]
+- **rtype:** [\<block time>, \<balance>]
 
 **get_base_quote_asset(asset1, asset2)**
 
@@ -126,20 +126,20 @@ Use `get_market_info/get_market_details`
 - **param asset1:** An asset
 - **param asset2:** An asset
 - **return:** Array
-- **rtype:** {'base_asset', 'quote_asset', 'pair_name'}
+- **rtype:** {'base\_asset', 'quote\_asset', 'pair_name'}
 
 **get_escrowed_balance(addresses)**
 
 - **param list addresses:** List of addresses to check
 - **return:** An array of assets held in escrow
-- **rtype:** {<address of escrowee>: {<asset>:<amount>}}
+- **rtype:** {\<address of escrowee>\:{\<asset>\:\<amount>\}}
 
 **get_market_cap_history(start_ts=None, end_ts=None)**
 
 - **param start_ts:** Unix timestamp
 - **param end_ts:** Unix timestamp
 - **return:** Array
-- **rtype:** {'base_currency':[{'data':[ts,market_cap], 'name'}]}
+- **rtype:** {'base\_currency':[{'data':[ts,market_cap], 'name'}]}
 
 **get_market_info(assets)**
 
@@ -385,7 +385,7 @@ Returns bets with non-zero remaining counterwager for the specified search terms
 **get_feeds_by_source(addresses=[])**
 
 - **param addresses:** Address list
-- **rtype:** {<address>:{'errors':[], 'locked', 'info_url', 'info_data':{}, 'fetch_info_retry', 'source', 'info_status', 'fee_fraction_int', 'last_broadcast':{}}}
+- **rtype:** {\<address>\:{'errors':[], 'locked', 'info_url', 'info_data':{}, 'fetch_info_retry', 'source', 'info_status', 'fee_fraction_int', 'last_broadcast':{}}}
 
 **parse_base64_feed(base64_feed):**
 
