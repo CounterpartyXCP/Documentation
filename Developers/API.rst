@@ -1,44 +1,32 @@
-counterpartyd
-==============
-
-Counterparty is a protocol for the creation and use of decentralised financial instruments such as asset exchanges, contracts for difference and dividend payments. It uses Bitcoin as a transport layer. The Counterparty protocol specification may be found here.
-
-``counterpartyd`` is the reference client (and server daemon) implementation of the Counterparty protocol.
-
-API
-
-There will be no incompatible API pushes that do not either have: 
-
-* A well known set cut over date in the future 
-* Or, a deprecation process where the old API is supported for an amount of time
+Server API
+==========
 
 .. contents:: **Table of Contents**
 
-Interacting with the API
-=========================
-
 
 Overview
-----------
+--------
 
-``counterpartyd`` features a full-fledged JSON RPC 2.0-based API, which allows
-third-party applications to perform functions on the Counterparty network
-without having to deal with the low‐level details of the protocol such as
-transaction encoding and state management.
+The ``counterparty-lib`` server is a JSON RPC 2.0-based API based off of that
+of Bitcoin Core. It is the primary means by which other applications should
+interact with the Counterparty network.
+
+The API server is started either through the [`CLI interface`](counterparty-cli.md) or with the
+[`counterparty-lib`](counterparty_lib.md) Python library.
 
 The API listens on port 4000 by default (14000 for ``testnet``) and requires
-HTTP basic authentication to connect. The API is designed to be very similar to
-Bitcoin Core's, though it uses JSON RPC 2.0.
+HTTP Basic Authentication to connect. It uses JSON RPC 2.0.
 
 
-Connecting and Making Requests
----------------------------------
+Getting Started
+---------------
 
-By default, ``counterpartyd`` will listen on port ``4000`` (if on mainnet) or port ``14000`` (on testnet) for API
+By default, the server will listen on port ``4000`` (if on mainnet) or port ``14000`` (on testnet) for API
 requests. 
 
 Note that this API is built on JSON-RPC 2.0, not 1.1. JSON-RPC itself is pretty lightweight, and API requests
 are made via a HTTP POST request to ``/api/`` (note the trailing slash), with JSON-encoded data passed as the POST body.
+
 
 General Format
 ^^^^^^^^^^^^^^^
@@ -47,14 +35,14 @@ All requests must have POST data that is JSON encoded and in the format of:
 
 ``{ "method": "METHOD NAME", "params": {"param1": "value1", "param2": "value2"}, "jsonrpc": "2.0", "id": 0 }``
 
-In particular, note the ``jsonrpc`` and ``id`` properties. These are requirements under the JSON-RPC 2.0 spec.
+The ``jsonrpc`` and ``id`` properties are requirements under the JSON-RPC 2.0 spec.
 
 Here's an example of the POST data for a valid API request:
 
 .. code-block::
 
     {
-      "method": "get_burns",
+      "method": "get_sends",
       "params": {"order_by": 'tx_hash',
                  "order_dir": 'asc',
                  "start_block": 280537,
@@ -69,21 +57,24 @@ You should note that the data in ``params`` is a JSON object (e.g. mapping), not
 
 For more information on JSON RPC, please see the `JSON RPC 2.0 specification <http://www.jsonrpc.org/specification>`__.
 
+
 Authentication
 ^^^^^^^^^^^^^^^
-Also note that the ``counterpartyd`` API interface requires HTTP basic authentication to use. The username and password required
-are stored in the ``counterpartyd.conf`` file, as ``rpc-user`` and ``rpc-password``, respectively. You can also modify
-``rpc-host`` and ``rpc-port`` to change what interface and port number ``counterpartyd`` binds to from the defaults.
+The API interface requires HTTP basic authentication to use. The configuration
+of the server depends on the method used to start it.
 
-**The default value for ``rpc-user`` is ``'rpc'``. The password must be set manually before the server will start.**
+**The default user is ``'rpc'``. The password must be set manually before the server will start.**
 
 .. _examples:
 
-Below we provide a few examples of using the ``counterpartyd`` API. Examples in other languages are welcome,
-if you'd like to submit them to us, structured in a way to be useful to other people and use standard libraries/methods. 
+(Submissions for additional languages are welcome!) 
 
-Python Example
-^^^^^^^^^^^^^^^
+
+Example Implementations
+-----------------------
+
+Python
+^^^^^^
 
 .. code-block:: python
 
@@ -95,7 +86,6 @@ Python Example
     headers = {'content-type': 'application/json'}
     auth = HTTPBasicAuth('rpc', '$PASSWORD')
     
-    #Fetch all balances for all assets for a specific address, using keyword-based arguments
     payload = {
       "method": "get_balances",
       "params": {"filters": {'field': 'address', 'op': '==', 'value': "14qqz8xpzzEtj6zLs3M1iASP7T4mj687yq"}},
@@ -103,151 +93,14 @@ Python Example
       "id": 0,
     }
     response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("GET_BALANCES RESULT: ", response)
+    print("Response: ", response)
 
-    #Fetch all balances for all assets for both of two addresses, using keyword-based arguments
-    payload = {
-      "method": "get_balances",
-      "params": {"filters": [{'field': 'address', 'op': '==', 'value': "14qqz8xpzzEtj6zLs3M1iASP7T4mj687yq"},
-                             {'field': 'address', 'op': '==', 'value': "1bLockjTFXuSENM8fGdfNUaWqiM4GPe7V"}],
-                 "filterop": "or"},
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("GET_BALANCES RESULT: ", response)
 
-    #Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by tx_hash (ascending order)
-    #With this (and the rest of the examples below) we use positional arguments, instead of keyword-based arguments
-    payload = {
-      "method": "get_burns",
-      "params": {"filters": {'field': 'burned', 'op': '>', 'value': 20000000},
-                 "filterop": "AND",
-                 "order_by": 'tx_hash',
-                 "order_dir": 'asc',
-                 "start_block": 280537,
-                 "end_block": 280539},
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("GET_BURNS RESULT: ", response)
-    
-    #Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
-    payload = {
-      "method": "get_debits",
-      "params": {"filters": [{'field': 'asset', 'op': '==', 'value': "XCP"},
-                             {'field': 'quantity', 'op': '>', 'value': 200000000}],
-                "filterop": 'AND',
-                "order_by": 'quantity',
-                "order_dir": 'desc'},
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("GET_DEBITS RESULT: ", response)
-    
-    
-    #Send 1 XCP (specified in satoshis) from one address to another (you must have the sending address in your bitcoind wallet
-    # and it will be broadcast as a multisig transaction
-    payload = {
-      "method": "create_send",
-      "params": {'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
-                 'destination': "17rRm52PYGkntcJxD2yQF9jQqRS4S2nZ7E",
-                 'asset': "XCP",
-                 'quantity': 100000000},
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    unsigned_tx = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("\nCREATE_SEND RESULT: ", unsigned_tx)
+PHP
+^^^
 
-    #2. Now sign it with a key from the wallet
-    payload = {
-      "method": "sign_tx",
-      "params": {'unsigned_tx_hex': unsigned_tx}, #could also specify an external private key to use for signing here
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    signed_tx = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("\nSIGN_TX RESULT: ", signed_tx)
-
-    #3. Now broadcast the signed transaction
-    payload = {
-      "method": "broadcast_tx",
-      "params": {'signed_tx_hex': signed_tx},
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    tx_hash = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("\BROADCAST_TX RESULT: ", tx_hash)
-    
-
-    # Basic parameters for issuance (divisible, no callable)
-    payload = {
-      "method": "create_issuance",
-      "params": {
-        'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
-        'asset': "MYASSET",
-        'quantity': 1000
-      },
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    tx_hash = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("\CREATE ISSUANCE RESULT: ", tx_hash)
-
-    # Advanced parameters for issuance (indivisible)
-    payload = {
-      "method": "create_issuance",
-      "params": {
-        'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
-        'asset': "MYASSET",
-        'quantity': 1000,
-        'description': "my asset is cool",
-        'divisible': False
-      },
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    tx_hash = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("\CREATE ISSUANCE RESULT: ", tx_hash)
-
-    # Transfer asset ownership
-    payload = {
-      "method": "create_issuance",
-      "params": {
-        'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
-        'transfer_destination': "17rRm52PYGkntcJxD2yQF9jQqRS4S2nZ7E",
-        'asset': "MYASSET",
-        'quantity': 0
-      },
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    tx_hash = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("\TRANSFER ASSET RESULT: ", tx_hash)
-
-    # Lock asset
-    payload = {
-      "method": "create_issuance",
-      "params": {
-        'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
-        'asset': "MYASSET",
-        'quantity': 0,
-        'description': 'LOCK'
-      },
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
-    tx_hash = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("\LOCK ASSET RESULT: ", tx_hash)
-
-PHP Example
-^^^^^^^^^^^^
-
-With PHP, you can connect and query ``counterpartyd`` using the `JsonRPC <https://github.com/fguillot/JsonRPC>`__
-library. Here's a simple example that will get you the asset balances for a specific address:
+With PHP, you use the `JsonRPC <https://github.com/fguillot/JsonRPC>`__
+library.
 
 .. code-block:: php
 
@@ -266,26 +119,115 @@ library. Here's a simple example that will get you the asset balances for a spec
     var_dump($result2);
     ?>
     
-curl Example
-^^^^^^^^^^^^^
-
-Here's an example using ``curl`` to make an API call to the ``get_running_info`` method on mainnet.
+curl
+^^^^^^^^^^^^
 
 .. code-block:: 
 
     curl http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
 
-For testnet, you could use the example above, but change the port to ``14000`` and change the username and password as necessary.
-
-**NOTE:** On Windows, the command may need to be formatted differently due to problems Windows has with escapes.
+**NOTE:** On Windows, the command may need to be formatted differently due to problems that Windows has with escapes.
 
 
-Wallet Integration Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Example Parameters
+------------------
 
-For maximum modularity, flexibility and robustness, the ``counterparty-lib`` server doesn’t interact with any Bitcoin wallets itself. Even Bitcoin Core's built-in one.
+.. code-block:: python
 
-The process of making a transaction, from start to finish, then, depends somewhat on the wallet software used. Below is an example of how one might integrate with Bitcoin Core's API to sign and broadcast a unsigned Counterparty transaction *created* with the `counterparty-lib` API, assuming that the source address of the transaction is in the Bitcoin Core wallet.
+    # Fetch all balances for all assets for both of two addresses, using keyword-based arguments
+    payload = {
+      "method": "get_balances",
+      "params": {"filters": [{'field': 'address', 'op': '==', 'value': "14qqz8xpzzEtj6zLs3M1iASP7T4mj687yq"},
+                             {'field': 'address', 'op': '==', 'value': "1bLockjTFXuSENM8fGdfNUaWqiM4GPe7V"}],
+                 "filterop": "or"},
+      "jsonrpc": "2.0",
+      "id": 0,
+    }
+
+    # Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by tx_hash (ascending order)
+    payload = {
+      "method": "get_burns",
+      "params": {"filters": {'field': 'burned', 'op': '>', 'value': 20000000},
+                 "filterop": "AND",
+                 "order_by": 'tx_hash',
+                 "order_dir": 'asc',
+                 "start_block": 280537,
+                 "end_block": 280539},
+      "jsonrpc": "2.0",
+      "id": 0,
+    }
+    
+    # Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
+    payload = {
+      "method": "get_debits",
+      "params": {"filters": [{'field': 'asset', 'op': '==', 'value': "XCP"},
+                             {'field': 'quantity', 'op': '>', 'value': 200000000}],
+                "filterop": 'AND',
+                "order_by": 'quantity',
+                "order_dir": 'desc'},
+      "jsonrpc": "2.0",
+      "id": 0,
+    }
+    
+    
+    # Send 1 XCP (specified in satoshis) from one address to another.
+    payload = {
+      "method": "create_send",
+      "params": {'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
+                 'destination': "17rRm52PYGkntcJxD2yQF9jQqRS4S2nZ7E",
+                 'asset': "XCP",
+                 'quantity': 100000000},
+      "jsonrpc": "2.0",
+      "id": 0,
+    }
+    
+    # Issuance (indivisible)
+    payload = {
+      "method": "create_issuance",
+      "params": {
+        'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
+        'asset': "MYASSET",
+        'quantity': 1000,
+        'description': "my asset is cool",
+        'divisible': False
+      },
+      "jsonrpc": "2.0",
+      "id": 0,
+    }
+
+    # Transfer asset ownership
+    payload = {
+      "method": "create_issuance",
+      "params": {
+        'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
+        'transfer_destination': "17rRm52PYGkntcJxD2yQF9jQqRS4S2nZ7E",
+        'asset': "MYASSET",
+        'quantity': 0
+      },
+      "jsonrpc": "2.0",
+      "id": 0,
+    }
+
+    # Lock asset
+    payload = {
+      "method": "create_issuance",
+      "params": {
+        'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
+        'asset': "MYASSET",
+        'quantity': 0,
+        'description': 'LOCK'
+      },
+      "jsonrpc": "2.0",
+      "id": 0,
+    }
+
+
+Wallet Integration
+------------------
+
+For maximum modularity, flexibility and robustness, the API server doesn’t interact with any Bitcoin wallets itself, even Bitcoin Core's built-in one.
+
+The process of making a transaction, from start to finish, then, depends somewhat on the wallet software used. Below is an example of how one might integrate with Bitcoin Core's API to sign and broadcast a unsigned Counterparty transaction *created* with this API, assuming that the source address of the transaction is in the Bitcoin Core wallet.
 
 .. code-block:: python
         def do_send(source, destination, asset, quantity):
@@ -328,9 +270,10 @@ Examples:
 - 4381030000 = 43.8103 (if divisible asset)
 - 4381030000 = 4381030000 (if indivisible asset) 
 
-**NOTE:** XCP and BTC themselves are divisible assets, and thus are listed in satoshis.
+**NOTE:** XCP and BTC themselves are divisible assets.
 
 .. _floats:
+
 
 floats
 ^^^^^^^^^^^^^^^^^^^^
@@ -338,6 +281,10 @@ floats
 Floats are are ratios or floating point values with six decimal places of precision, used in bets and dividends.
 
 .. _filtering:
+
+
+Miscellaneous
+-------------
 
 Filtering Read API results
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -368,55 +315,109 @@ NOTE: Note that with strings being compared, operators like ``>=`` do a lexigrap
 compares, letter to letter, based on the ASCII ordering for individual characters. For more information on
 the specific comparison logic used, please see `this page <http://www.sqlite.org/lang_expr.html>`__.
 
+
 .. _encoding_param:
+
 
 The ``encoding`` Parameter of ``create_`` Calls 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All ``create_`` API calls return an *unsigned raw transaction string*, hex encoded (i.e. the same format that ``bitcoind`` returns
+All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns
 with its raw transaction API calls).
 
 The exact form and format of this unsigned raw transaction string is specified via the ``encoding`` and ``pubkey`` parameters on each ``create_``
 API call:
 
-- To return the transaction as an **OP_RETURN** transaction, specify ``opreturn`` for the ``encoding`` parameter.
-  Note that as of ``bitcoind`` 0.9.0, not all Counterparty transactions are possible with OP_RETURN, due to the 40
-  byte limit imposed by the ``bitcoind`` client in order for the transaction to be relayed on mainnet.
+- To return the transaction as an **OP_RETURN** transaction, specify ``opreturn`` for the ``encoding`` parameter. **OP_RETURN** transactions cannot have more than 40 bytes of data.
 - To return the transaction as a **multisig** transaction, specify ``multisig`` for the ``encoding`` parameter.
-    
-    - If the source address is in the local ``bitcoind`` ``wallet.dat``. ``pubkey`` can be left as ``null``.
-    - If the source address is *not* in the local ``bitcoind`` ``wallet.dat``, ``pubkey`` should be set to the hex-encoded
-      public key.
-- ``auto`` may also be specified to let ``counterpartyd`` choose here. Note that at this time, ``auto`` is effectively the same as
+    - ``pubkey`` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a **pubkeyhash** transaction, specify ``pubkeyhash`` for the ``encoding`` parameter.
+    - ``pubkey`` should be set to the hex-encoded public key of the source address.
+- ``auto`` may also be specified to let the server choose here. Note that at this time, ``auto`` is effectively the same as
   ``multisig``.
 
-- To return the Counterparty transaction encoded into arbitrary address outputs (i.e. pubkeyhash encoding), specify
-  ``pubkeyhash`` for the ``encoding`` parameter. ``pubkey`` is also required to be set (as above, with ``multisig`` encoding)
-  if the source address is not contained in the local ``bitcoind`` ``wallet.dat``. Note that this method is **not** recommended
-  as a first-resort, as it pollutes the UTXO set.
 
-With any of the above settings, as the *unsigned* raw transaction is returned from the ``create_`` API call itself, you
-then have two approaches with respect to broadcasting the transaction on the network:
+API Changes
+-------------
 
-- If the private key you need to sign the raw transaction is in the local ``bitcoind`` ``wallet.dat``, you should then call the
-  ``sign_tx`` API call and pass it to the raw unsigned transaction string as the ``tx_hex`` parameter, with the ``privkey`` parameter
-  set to None. This method will then return the signed hex transaction, which you can then broadcast using the ``broadcast_tx``
-  API method.
-- If the private key you need to sign the raw transaction is *not* in the local ``bitcoind`` ``wallet.dat``, you must first sign
-  the transaction yourself (or, alternatively, you can call the ``sign_tx`` API method and specify
-  the private key string to it, and ``counterpartyd`` will sign it for you). In either case, once you have the signed,
-  hex-encoded transaction string, you can then call the ``broadcast_tx`` API method, which will then broadcast the transaction on the
-  Bitcoin network for you.
-  
-**Note that you can also use a do_table_, which will take care of creating the transaction,
-signing it, and broadcasting it, all in one step.**
+This section documents any changes to the API, for version numbers where there were API-level modifications.
+
+There will be no incompatible API pushes that do not either have: 
+
+* A well known set cut over date in the future 
+* Or, a deprecation process where the old API is supported for an amount of time
 
 
+.. _9_24_1:
+
+9.24.1
+^^^^^^^^^^^^^^^^^^^^^^^
+
+**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``: 
+
+* Added ``sql`` API method
+* Filter params: Added ``LIKE``, ``NOT LIKE`` and ``IN``
+
+
+.. _9_25_0:
+
+9.25.0
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* new do_* methods: like create_*, but also sign and broadcast the transaction. Same parameters as create_*, plus optional privkey parameter.
+
+**backwards incompatible changes**
+
+* create_*: accept only dict as parameters
+* create_bet: ``bet_type`` must be a integer (instead string)
+* create_bet: ``wager`` and ``counterwager`` args are replaced by ``wager_quantity`` and ``counterwager_quantity``
+* create_issuance: parameter ``lock`` (boolean) removed (use LOCK in description)
+* create_issuance: parameter ``transfer_destination`` replaced by ``destination``
+* DatabaseError: now a DatabaseError is returned immediately if the database is behind the backend, instead of after fourteen seconds
+
+
+.. _9_32_0:
+
+9.32.0
+^^^^^^^^^^^^^^^^^^^^^^^
+
+**Summary:** API framework overhaul for performance and simplicity 
+
+* "/api" with no trailing slash no longer supported as an API endpoint (use "/" or "/api/" instead)
+* We now consistently reject positional arguments with all API methods. Make sure your API calls do not use positional
+  arguments (e.g. use {"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"])
+
+
+.. _9_43_0:
+
+9.43.0
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* create_issuance: ``callable`` is also accepted
+* create_*: None is used as default value for missing parameters 
+
+9.49.3
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* \*_issuance: ``callable``, ``call_date`` and ``call_price`` are no longer valid parameters
+* \*_callback: removed
+* Bitcoin addresses may everywhere be replaced by pubkeys.
+* The API will no longer search the local wallet for pubkeys, so they must be passed to the API manually if being used for the first time. Otherwise, you may get a "<address> not published in blockchain" error.
+
+9.49.4
+^^^^^^^^^^^^^^^^^^^^^^^
+* The ``do_*`` and ``sign_tx`` methods now only work when passed a private key; the do not interact with the Bitcoin Core wallet at all.
+
+
+
+
+Technical Specification
+=======================
 
 .. _read_api:
 
 Read API Function Reference
-------------------------------------
+---------------------------
 
 .. _get_table:
 
@@ -518,7 +519,7 @@ get_messages
 ^^^^^^^^^^^^^^
 **get_messages(block_index)**
 
-Return message feed activity for the specified block index. The message feed essentially tracks all counterpartyd
+Return message feed activity for the specified block index. The message feed essentially tracks all 
 database actions and allows for lower-level state tracking for applications that hook into it.
    
 **Parameters:**
@@ -613,7 +614,7 @@ get_running_info
 ^^^^^^^^^^^^^^^^^
 **get_running_info()**
 
-Gets some operational parameters for counterpartyd.
+Gets some operational parameters for the server.
 
 **Parameters:**
 
@@ -623,14 +624,14 @@ Gets some operational parameters for counterpartyd.
 
   An object with the following parameters:
 
-  - **db_caught_up** (*boolean*): ``true`` if counterpartyd block processing is caught up with the Bitcoin blockchain, ``false`` otherwise.
-  - **bitcoin_block_count** (**integer**): The block height on the Bitcoin network (may not necessarily be the same as ``last_block``, if ``counterpartyd`` is catching up)
-  - **last_block** (*integer*): The index (height) of the last block processed by ``counterpartyd``
-  - **counterpartyd_version** (*float*): The counterpartyd program version, expressed as a float, such as 0.5
-  - **last_message_index** (*integer*): The index (ID) of the last message in the ``counterpartyd`` message feed
-  - **running_testnet** (*boolean*): ``true`` if counterpartyd is configured for testnet, ``false`` if configured on mainnet.
-  - **db_version_major** (*integer*): The major version of the current counterpartyd database
-  - **db_version_minor** (*integer*): The minor version of the current counterpartyd database
+  - **db_caught_up** (*boolean*): ``true`` if block processing is caught up with the Bitcoin blockchain, ``false`` otherwise.
+  - **bitcoin_block_count** (**integer**): The block height on the Bitcoin network (may not necessarily be the same as ``last_block``, if the server is catching up)
+  - **last_block** (*integer*): The index (height) of the last block processed by the server
+  - **counterpartyd_version** (*float*): The program version, expressed as a float, such as 0.5
+  - **last_message_index** (*integer*): The index (ID) of the last message in the message feed
+  - **running_testnet** (*boolean*): ``true`` if the server is configured for testnet, ``false`` if configured on mainnet.
+  - **db_version_major** (*integer*): The major version of the current database
+  - **db_version_minor** (*integer*): The minor version of the current database
 
 
 Action/Write API Function Reference
@@ -647,8 +648,7 @@ Sign a transaction created with the Action/Write API.
 **Parameters:**
 
   * **tx_hex (string, required):** A hex-encoded raw transaction (which was created via one of the ``create_`` calls).
-  * **privkey (string):** The private key in WIF format to use for signing the transaction. If not provided,
-    the private key must to be known by the ``bitcoind`` wallet.
+  * **privkey (string, required):** The private key in WIF format to use for signing the transaction.
   
 **Return:** 
 
@@ -693,10 +693,10 @@ Issue a bet against a feed.
   * **target_value (float, default=None):** Target value for Equal/NotEqual bet
   * **leverage (integer, default=5040):** Leverage, as a fraction of 5040
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
-  * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
-  * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
+  * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose. 
+  * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
 
 **Return:** 
 
@@ -719,7 +719,7 @@ Broadcast textual and numerical information to the network.
   * **timestamp (integer, required):** The timestamp of the broadcast, in Unix time.
   * **value (float, required):** Numerical value of the broadcast.
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -741,7 +741,7 @@ Create and (optionally) broadcast a BTCpay message, to settle an Order Match for
 
   * **order_match_id (string, required):** The concatenation of the hashes of the two transactions which compose the order match.
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -763,7 +763,7 @@ Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 
   * **source (string, required):** The address with the BTC to burn.
   * **quantity (integer, required):** The quantitys_ of BTC to burn (1 BTC maximum burn per address).
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -784,7 +784,7 @@ Cancel an open order or bet you created.
 
   * **offer_hash (string, required):** The transaction hash of the order or bet.
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -808,7 +808,7 @@ Issue a dividend on a specific user defined asset.
   * **dividend_asset (string, required):** The assets_ that the dividends are paid in.
   * **quantity_per_unit (integer, required):** The quantitys_ of XCP rewarded per whole unit of the asset.
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -835,7 +835,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **description (string, default=''):** A textual description for the asset. 52 bytes max.
   * **transfer_destination (string, default=None):** The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -871,7 +871,7 @@ Issue an order request.
   * **fee_required (integer):** The miners' fee required to be paid by orders for them to match this one; in BTC; required only if buying BTC (may be zero, though). If not specified or set to ``null``, this defaults to 1% of the BTC desired for purchase.
   * **fee_provided (integer):** The miners' fee provided; in BTC; required only if selling BTC (should not be lower than is required for acceptance in a block).  If not specified or set to ``null``, this defaults to 1% of the BTC for sale. 
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -895,7 +895,7 @@ Send XCP or a user defined asset.
   * **quantity (integer, required):** The quantitys_ of the asset to send.
   * **asset (string, required):** The assets_ to send.
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -921,7 +921,7 @@ Open a Rock-Paper-Scissors (RPS) like game.
   * **move_random_hash (string, required):** A 32 bytes hex string (64 chars): sha256(sha256(random+move)). Where random is 16 bytes random number.
   * **expiration (integer, required):** The number of blocks for which the game should be valid.
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -943,7 +943,7 @@ Resolve a Rock-Paper-Scissors game.
   * **random (string, required):** A 16 bytes hex string (32 chars) used to generate the move_random_hash value.
   * **rps_match_id (string, required):** The concatenation of the hashes of the two transactions which compose the rps match.
   * **encoding (string):** The encoding method to use, see encoding_param_ for more info.  
-  * **pubkey (string):** The pubkey hex string. Required if multisig transaction encoding is specified for a key external to ``counterpartyd``'s local wallet. See encoding_param_ for more info.
+  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See encoding_param_ for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
@@ -951,33 +951,6 @@ Resolve a Rock-Paper-Scissors game.
 **Return:** 
 
   The unsigned transaction, as an hex-encoded string. See encoding_param_ for more information.
-
-.. _do_table:
-
-do_{table}
-^^^^^^^^^^^^^^
-**do_{entity}(VARIABLE)**
-
-This method is a simplified alternative to the appropriate ``create_`` method. Instead of returning just an unsigned
-raw transaction, which you must then sign and broadcast, this call will create the transaction, then sign it and broadcast
-it automatically.
-
-**{entity}** must be one of the following values:
-``bet``, ``broadcast``, ``btcpay``, ``burn``,  ``cancel``, ``dividend``, ``issuance``,
-``order``, ``send``,  ``rps``, ``rpsresolve``.
-
-For example: ``do_bet``, ``do_burn``, ``do_dividend``, etc are all valid API methods.
-
-**Parameters:**
-
-  * **privkey (string):** The private key in WIF format to use for signing the transaction. If not provided,
-    the private key must to be known by the ``bitcoind`` wallet.
-  * The other parameters for a given ``do_`` method are the same as the corresponding ``create_`` call.
-
-**Return:**
-
-  The created transaction's id on the Bitcoin network, or an error if the transaction is invalid for any reason.
-
 
 
 Objects
@@ -1322,66 +1295,3 @@ Here the list of all possible status for each table:
 * **order_matches**: pending, completed, expired
 * **orders**: open, filled, canceled, expired, invalid: {problem(s)}
 * **sends**: valid, invalid: {problem(s)}
-  
-
-API Changes
--------------
-
-This section documents any changes to the ``counterpartyd`` API, for version numbers where there were API-level modifications.
-
-
-.. _9_24_1:
-
-9.24.1
-^^^^^^^^^^^^^^^^^^^^^^^
-
-**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``: 
-
-* Added ``sql`` API method
-* Filter params: Added ``LIKE``, ``NOT LIKE`` and ``IN``
-
-
-.. _9_25_0:
-
-9.25.0
-^^^^^^^^^^^^^^^^^^^^^^^
-
-* new do_* methods: like create_*, but also sign and broadcast the transaction. Same parameters as create_*, plus optional privkey parameter.
-
-**backwards incompatible changes**
-
-* create_*: accept only dict as parameters
-* create_bet: ``bet_type`` must be a integer (instead string)
-* create_bet: ``wager`` and ``counterwager`` args are replaced by ``wager_quantity`` and ``counterwager_quantity``
-* create_issuance: parameter ``lock`` (boolean) removed (use LOCK in description)
-* create_issuance: parameter ``transfer_destination`` replaced by ``destination``
-* DatabaseError: now a DatabaseError is returned immediately if the counterpartyd database is behind the backend, instead of after fourteen seconds
-
-
-.. _9_32_0:
-
-9.32.0
-^^^^^^^^^^^^^^^^^^^^^^^
-
-**Summary:** API framework overhaul for performance and simplicity 
-
-* "/api" with no trailing slash no longer supported as an API endpoint (use "/" or "/api/" instead)
-* We now consistently reject positional arguments with all API methods. Make sure your API calls do not use positional
-  arguments (e.g. use {"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"])
-
-
-.. _9_43_0:
-
-9.43.0
-^^^^^^^^^^^^^^^^^^^^^^^
-
-* create_issuance: ``callable`` is also accepted
-* create_*: None is used as default value for missing parameters 
-
-9.49.3
-^^^^^^^^^^^^^^^^^^^^^^^
-
-* \*_issuance: ``callable``, ``call_date`` and ``call_price`` are no longer valid parameters
-* \*_callback: removed
-* Bitcoin addresses may everywhere be replaced by pubkeys.
-* The API will no longer search the local wallet for pubkeys, so they must be passed to the API manually if being used for the first time. Otherwise, you may get a "<address> not published in blockchain" error.
