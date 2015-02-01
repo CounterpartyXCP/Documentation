@@ -80,7 +80,7 @@ Returns a list of changes for the specified asset, from its inception to the cur
     - 'at_block': The block number this change took effect
     - 'at_block_time': The block time this change took effect
     - IF type = 'created': Has the following fields, as specified when the asset was initially created:
-      * owner, description, divisible, locked, total_issued, total_issued_normalized
+        - owner, description, divisible, locked, total_issued, total_issued_normalized
     - IF type = 'issued_more':
       - 'additional': The additional quantity issued (raw)
       - 'additional_normalized': The additional quantity issued (normalized)
@@ -610,7 +610,7 @@ If timestamps omitted, queries the last 360 days.
 - **param params:** Array of function parameters.
 - **returns:** The method response from counterpartyd
 
-Relays a request to the counterpartyd server, with the given method and params, and returns the result. See the `counterpartyd API documentation <http://counterpartyd.readthedocs.org/en/latest/API.html>`_ for available methods.
+Relays a request to the counterpartyd server, with the given method and params, and returns the result. See the [API documentation](API.rst) for available methods.
 
 **record_btc_open_order(wallet_id, order_tx_hash)**
 
