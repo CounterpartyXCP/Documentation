@@ -20,7 +20,7 @@ Such services include:
 - An extended API for Counterwallet-specific actions like wallet preferences storage and retrieval
 - API includes functionality for retieving processed time-series data suitable for display and manipulation (useful for distributed exchange price data, and more)
 
-`counterblock Release Documentation <https://github.com/CounterpartyXCP/counterblock/releases>`_
+[counterblock Release Documentation](https://github.com/CounterpartyXCP/counterblock/releases>)
 
 ##Table of Contents
 [TOC]
@@ -29,14 +29,14 @@ Such services include:
 
 **Warning:**
 
-    This API documentation is INCOMPLETE. It contains errors, omissions, etc., and could change drastically at any time.
+*This API documentation is INCOMPLETE. It contains errors, omissions, etc., and could change drastically at any time.*
 
     
 ###Connecting to the API
 
 By default, ``counterblock`` will listen on port ``4001`` for API
 requests. API requests are made via a HTTP POST request to ``/api/``, with JSON-encoded
-data passed as the POST body. For more information on JSON RPC, please see the `JSON RPC specification <http://json-rpc.org/wiki/specification>`__.
+data passed as the POST body. For more information on JSON RPC, please see the [JSON RPC specification](http://json-rpc.org/wiki/specification).
 
 
 ###Terms & Conventions
