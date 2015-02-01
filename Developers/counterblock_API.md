@@ -82,19 +82,19 @@ Returns a list of changes for the specified asset, from its inception to the cur
     - IF type = 'created': Has the following fields, as specified when the asset was initially created:
         - owner, description, divisible, locked, total_issued, total_issued_normalized
     - IF type = 'issued_more':
-      - 'additional': The additional quantity issued (raw)
-      - 'additional_normalized': The additional quantity issued (normalized)
-      - 'total_issued': The total issuance after this change (raw)
-      - 'total_issued_normalized': The total issuance after this change (normalized)
+        - 'additional': The additional quantity issued (raw)
+        - 'additional_normalized': The additional quantity issued (normalized)
+        - 'total_issued': The total issuance after this change (raw)
+        - 'total_issued_normalized': The total issuance after this change (normalized)
     - IF type = 'changed_description':
-      - 'prev_description': The old description
-      - 'new_description': The new description
+        - 'prev_description': The old description
+        - 'new_description': The new description
     - IF type = 'locked': NO EXTRA FIELDS
     - IF type = 'transferred':
-      - 'prev_owner': The address the asset was transferred from
-      - 'new_owner': The address the asset was transferred to
+        - 'prev_owner': The address the asset was transferred from
+        - 'new_owner': The address the asset was transferred to
     - IF type = 'called_back':
-      - 'percentage': The percentage of the asset called back (between 0 and 100)
+        - 'percentage': The percentage of the asset called back (between 0 and 100)
 
 **get_asset_pair_market_info(asset1=None, asset2=None, limit=50):**
 
