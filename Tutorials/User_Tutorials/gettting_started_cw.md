@@ -45,9 +45,11 @@ We've created an address for you to get started.
 
 You can send and receive both bitcoin and Counterparty tokens with it. To start using the wallet, simply send some BTC or XCP to the address (just single click on the address string itself to select it, then copy that text, which you can then give to others or use to send funds to).
 
+To send, click the down arrow button on BTC, XCP, or any user created token  to show the drop-down menu. Then click send.
+
 ![](/_images/getting_started_cw9.png)
 
-Click the down arrow on the BTC, XCP, or token box to show the drop-down menu. Then click send.
+Enter the address you wish to send to, and your desired amount.
 
 ![](/_images/getting_started_cw10.png)
 
