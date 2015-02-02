@@ -49,7 +49,7 @@ To send, click the down arrow button on BTC, XCP, or any user created token  to 
 
 ![](/_images/getting_started_cw9.png)
 
-Enter the address you wish to send to, and your desired amount.
+Enter the address you wish to send to, and your desired amount. The "MAX" button will send the entire balance of your sending address, minus the fees necessary for the transfer. Press send to sign and broadcast the transaction to the Bitcoin network.
 
 ![](/_images/getting_started_cw10.png)
 
