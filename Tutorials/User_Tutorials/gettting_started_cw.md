@@ -39,7 +39,7 @@ One important thing to know before getting started is that when you perform an a
 
 ![](/_images/getting_started_cw7.png)
 
-We've created an address for you to get started.
+**One Bitcoin address will be automatically visible once you have created your wallet:**
 
 ![](/_images/getting_started_cw8.png)
 
