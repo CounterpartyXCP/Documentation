@@ -155,7 +155,7 @@ library.
                    "method": "get_debits",
                    "params": {
                               "filters": [{'field': 'asset', 'op': '==', 'value': "XCP"},
-                                               {'field': 'quantity', 'op': '>', 'value': 200000000}],
+                                          {'field': 'quantity', 'op': '>', 'value': 200000000}],
                               "filterop": 'AND',
                               "order_by": 'quantity',
                               "order_dir": 'desc'
