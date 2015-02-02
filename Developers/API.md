@@ -11,7 +11,7 @@ should interact with the Counterparty network.
 
 For maximum modularity, flexibility and robustness, the API server doesn’t
 interact with any Bitcoin wallets itself, even Bitcoin Core's built-in one.
-(See the section 'Wallet Integration'.)
+(See the section [Wallet Integration](#Wallet-Integration).)
 
 The API server is started either through the [`CLI interface`](counterparty-cli.md) or with the
 [`counterparty-lib`](counterparty_lib.md) Python library.
@@ -365,7 +365,7 @@ There will be no incompatible API pushes that do not either have:
 * The API will no longer search the local wallet for pubkeys, so they must be passed to the API manually if being used for the first time. Otherwise, you may get a "<address> not published in blockchain" error.
 
 ###9.49.4
-* The `do_*`, `sign_tx` and `broadcast_tx` methods have been completely deprecated. See the section 'Wallet Integration'.
+* The `do_*`, `sign_tx` and `broadcast_tx` methods have been completely deprecated. See the section [Wallet Integration](#Wallet-Integration).
 
 
 
