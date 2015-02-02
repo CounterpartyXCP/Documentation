@@ -120,7 +120,8 @@ library.
 ##Example Parameters
 
 
-    # Fetch all balances for all assets for both of two addresses, using keyword-based arguments
+* Fetch all balances for all assets for both of two addresses, using keyword-based arguments
+
     payload = {
       "method": "get_balances",
       "params": {"filters": [{'field': 'address', 'op': '==', 'value': "14qqz8xpzzEtj6zLs3M1iASP7T4mj687yq"},
@@ -130,7 +131,8 @@ library.
       "id": 0,
     }
 
-    # Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by tx_hash (ascending order)
+* Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by tx_hash (ascending order)
+
     payload = {
       "method": "get_burns",
       "params": {"filters": {'field': 'burned', 'op': '>', 'value': 20000000},
@@ -143,7 +145,8 @@ library.
       "id": 0,
     }
     
-    # Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
+* Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
+
     payload = {
       "method": "get_debits",
       "params": {"filters": [{'field': 'asset', 'op': '==', 'value': "XCP"},
@@ -156,7 +159,8 @@ library.
     }
     
     
-    # Send 1 XCP (specified in satoshis) from one address to another.
+* Send 1 XCP (specified in satoshis) from one address to another.
+
     payload = {
       "method": "create_send",
       "params": {'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
@@ -167,7 +171,8 @@ library.
       "id": 0,
     }
     
-    # Issuance (indivisible)
+* Issuance (indivisible)
+
     payload = {
       "method": "create_issuance",
       "params": {
@@ -181,7 +186,8 @@ library.
       "id": 0,
     }
 
-    # Transfer asset ownership
+* Transfer asset ownership
+
     payload = {
       "method": "create_issuance",
       "params": {
@@ -194,7 +200,8 @@ library.
       "id": 0,
     }
 
-    # Lock asset
+* Lock asset
+
     payload = {
       "method": "create_issuance",
       "params": {
