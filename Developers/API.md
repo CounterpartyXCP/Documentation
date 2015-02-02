@@ -208,7 +208,7 @@ library.
 
         ```
         payload = {
-                         "method": "create_issuance",
+                   "method": "create_issuance",
                    "params": {
                               'source': "1CUdFmgK9trTNZHALfqGvd8d6nUZqH2AAf",
                               'transfer_destination': "17rRm52PYGkntcJxD2yQF9jQqRS4S2nZ7E",
