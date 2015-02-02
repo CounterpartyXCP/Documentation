@@ -67,6 +67,8 @@ of the server depends on the method used to start it.
 
 ##Example Implementations
 
+The following examples have the `user` set to its default value of `'rpc'`.
+
 ###Python
 
     import json
