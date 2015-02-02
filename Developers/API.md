@@ -122,14 +122,16 @@ library.
 
 * Fetch all balances for all assets for both of two addresses, using keyword-based arguments
 
-    payload = {
-      "method": "get_balances",
-      "params": {"filters": [{'field': 'address', 'op': '==', 'value': "14qqz8xpzzEtj6zLs3M1iASP7T4mj687yq"},
-                             {'field': 'address', 'op': '==', 'value': "1bLockjTFXuSENM8fGdfNUaWqiM4GPe7V"}],
-                 "filterop": "or"},
-      "jsonrpc": "2.0",
-      "id": 0,
-    }
+	```
+	payload = {
+	"method": "get_balances",
+	"params": {"filters": [{'field': 'address', 'op': '==', 'value': "14qqz8xpzzEtj6zLs3M1iASP7T4mj687yq"},
+			     {'field': 'address', 'op': '==', 'value': "1bLockjTFXuSENM8fGdfNUaWqiM4GPe7V"}],
+		 "filterop": "or"},
+	"jsonrpc": "2.0",
+	"id": 0,
+	}
+	```
 
 * Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by tx_hash (ascending order)
 
