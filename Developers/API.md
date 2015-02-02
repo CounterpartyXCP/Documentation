@@ -75,16 +75,16 @@ of the server depends on the method used to start it.
     
     url = "http://localhost:4000/api/"
     headers = {'content-type': 'application/json'}
-    auth = HTTPBasicAuth('rpc', '$PASSWORD')
+    auth = HTTPBasicAuth('rpc', PASSWORD)
     
     payload = {
-      "method": "get_balances",
-      "params": {"filters": {'field': 'address', 'op': '==', 'value': "14qqz8xpzzEtj6zLs3M1iASP7T4mj687yq"}},
+      "method": "get_running_info",
+      "params": {},
       "jsonrpc": "2.0",
       "id": 0,
     }
     response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
-    print("Response: ", response)
+    print("Response: ", response.text)
 
 
 ###PHP
@@ -97,7 +97,7 @@ library.
     require 'JsonRPC/src/JsonRPC/Client.php';
     use JsonRPC\Client;
     $client = new Client('http://localhost:4000/api/');
-    $client->authentication('rpc', '$PASSWORD');
+    $client->authentication('rpc', PASSWORD);
     
     $result = $client->execute('get_balances', array('filters' => array('field' => 'address', 'op' => '==', 'value' => '1NFeBp9s5aQ1iZ26uWyiK2AYUXHxs7bFmB')));
     print("get_balances result:\n");
