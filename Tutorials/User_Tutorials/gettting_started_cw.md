@@ -43,9 +43,11 @@ If this is your first time logging in, you will have to agree to the terms and c
 
 ### Logging in without a keyboard (to avoid malware)
 
-If you are worried about some form of malware reading your keyboard strokes, or cannot use a keyboard, it is possible to to use the on-screen keyboard to login. Simply click the blue keyboard icon to the right of the open wallet button, and then click on the Word 1 text field to get started.
+If you are worried about some form of malware reading your keyboard strokes, or cannot use a keyboard, it is possible to to use the on-screen keyboard to login. Simply click the blue keyboard icon to the right of the open wallet button.
 
 ![](/_images/getting_started_cw11.png)
+
+Then click on the text field of Word 1 to start typing. Note that this process is rather time consuming. Use it if you are worried or have reason to believe your computer has been compromised, and you need to move your coins.
 
 ![](/_images/getting_started_cw12.png)
 
