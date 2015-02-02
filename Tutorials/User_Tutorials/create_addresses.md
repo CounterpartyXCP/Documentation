@@ -36,7 +36,7 @@ Then you will be asked to confirm, to make sure nobody can see your screen.
 
 ![](/_images/create_addresses5.png)
 
-If you don't have access to Counterwallet at the moment, you can generate your keys from your passphrase using [this tool](https://blockscan.com/tool_generatekey). It's entirely client-side javascript, and you can even run it offline. 
+If you don't have access to Counterwallet at the moment, you can generate your addresses keys from your passphrase using [this key generator tool](https://blockscan.com/tool_generatekey). It's entirely client-side javascript. The source code is publicly visible, and you can even run it offline. 
 
 ### Customizing the appearance of your addresses
 
