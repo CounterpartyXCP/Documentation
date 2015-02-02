@@ -9,15 +9,8 @@
 
 ## Requirements
 
-* [Patched Bitcoin Core](https://github.com/btcdrak/bitcoin/releases) with the following options set:
-
-		rpcuser=bitcoinrpc
-		rpcpassword=<password>
-		server=1
-		txindex=1
-		addrindex=1
-		rpcthreads=1000
-		rpctimeout=300
+* [Patched Bitcoin Core](bitcoin_core.md)
+* [Windows‐specific](windows.md)
 
 
 ## Installation
