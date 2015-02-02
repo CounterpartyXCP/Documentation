@@ -1,6 +1,6 @@
 # Counterparty Dependencies on Windows
 
-**NOTE:** These instructions are for a 32-bit installation. This will work with
+**Note:** These instructions are for a 32-bit installation. This will work with
 both 32-bit and 64-bit versions of Windows, and is the recommended approach.
 
 - [Python 3.4.2](http://www.python.org/ftp/python/3.4.2/python-3.4.2.msi)
