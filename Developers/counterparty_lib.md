@@ -2,7 +2,7 @@
 
 ## Description
 
-`counterparty-lib` is the reference implementation of the [Counterparty Protocol](https://counterparty.io).
+`counterparty-lib` is the reference implementation of the [Counterparty Protocol](http://counterparty.io/docs/protocol_specification/).
 
 `counterparty-lib` is a ‘pure’ Python library and doesn’t contain any command‐line scripts. It doesn’t interface a wallet, but only a block explorer (the ‘backend’). It does not interface with a user configuration file, but is configured through the `initialise()` function.
 
