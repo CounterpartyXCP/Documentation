@@ -632,7 +632,7 @@ Issue a bet against a feed.
   * **expiration (integer, required):** The number of blocks after which the bet expires if it's still unmatched.
   * **target_value (float, default=None):** Target value for Equal/NotEqual bet
   * **leverage (integer, default=5040):** Leverage, as a fraction of 5040
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose. 
@@ -640,7 +640,7 @@ Issue a bet against a feed.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_broadcast
@@ -657,7 +657,7 @@ Broadcast textual and numerical information to the network.
   * **text (string, required):** The textual part of the broadcast.
   * **timestamp (integer, required):** The timestamp of the broadcast, in Unix time.
   * **value (float, required):** Numerical value of the broadcast.
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -665,7 +665,7 @@ Broadcast textual and numerical information to the network.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_btcpay
@@ -678,7 +678,7 @@ Create and (optionally) broadcast a BTCpay message, to settle an Order Match for
 **Parameters:**
 
   * **order_match_id (string, required):** The concatenation of the hashes of the two transactions which compose the order match.
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -686,7 +686,7 @@ Create and (optionally) broadcast a BTCpay message, to settle an Order Match for
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_burn
@@ -699,7 +699,7 @@ Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 
 
   * **source (string, required):** The address with the BTC to burn.
   * **quantity (integer, required):** The [quantities](#quantities-and-balances) of BTC to burn (1 BTC maximum burn per address).
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -707,7 +707,7 @@ Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_cancel
@@ -719,7 +719,7 @@ Cancel an open order or bet you created.
 **Parameters:**
 
   * **offer_hash (string, required):** The transaction hash of the order or bet.
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -727,7 +727,7 @@ Cancel an open order or bet you created.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_dividend
@@ -742,7 +742,7 @@ Issue a dividend on a specific user defined asset.
   * **asset (string, required):** The [assets](#assets) that the dividends are being rewarded on.
   * **dividend_asset (string, required):** The [assets](#assets) that the dividends are paid in.
   * **quantity_per_unit (integer, required):** The [quantities](#quantities-and-balances) of XCP rewarded per whole unit of the asset.
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -750,7 +750,7 @@ Issue a dividend on a specific user defined asset.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_issuance
@@ -768,7 +768,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **divisible (boolean, default=True):** Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description (string, default=''):** A textual description for the asset. 52 bytes max.
   * **transfer_destination (string, default=None):** The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -776,7 +776,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 **Notes:**
 
@@ -803,7 +803,7 @@ Issue an order request.
   * **expiration (integer, required):** The number of blocks for which the order should be valid.
   * **fee_required (integer):** The miners' fee required to be paid by orders for them to match this one; in BTC; required only if buying BTC (may be zero, though). If not specified or set to ``null``, this defaults to 1% of the BTC desired for purchase.
   * **fee_provided (integer):** The miners' fee provided; in BTC; required only if selling BTC (should not be lower than is required for acceptance in a block).  If not specified or set to ``null``, this defaults to 1% of the BTC for sale. 
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -811,7 +811,7 @@ Issue an order request.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_send
@@ -826,7 +826,7 @@ Send XCP or a user defined asset.
   * **destination (string, required):** The address to receive the asset.
   * **quantity (integer, required):** The [quantities](#quantities-and-balances) of the asset to send.
   * **asset (string, required):** The [assets](#assets) to send.
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -834,7 +834,7 @@ Send XCP or a user defined asset.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ###create_rps
@@ -851,7 +851,7 @@ Open a Rock-Paper-Scissors (RPS) like game.
   * **wager (integer, required):** The [quantities](#quantities-and-balances) of XCP to wager.
   * **move_random_hash (string, required):** A 32 bytes hex string (64 chars): sha256(sha256(random+move)). Where random is 16 bytes random number.
   * **expiration (integer, required):** The number of blocks for which the game should be valid.
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -859,7 +859,7 @@ Open a Rock-Paper-Scissors (RPS) like game.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 ###create_rpsresolve
 
@@ -873,7 +873,7 @@ Resolve a Rock-Paper-Scissors game.
   * **move (integer, required):** The selected move.
   * **random (string, required):** A 16 bytes hex string (32 chars) used to generate the move_random_hash value.
   * **rps_match_id (string, required):** The concatenation of the hashes of the two transactions which compose the rps match.
-  * **encoding (string):** The encoding method to use, see [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.  
+  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
@@ -881,7 +881,7 @@ Resolve a Rock-Paper-Scissors game.
 
 **Return:** 
 
-  The unsigned transaction, as an hex-encoded string. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more information.
+  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
 ##Objects
