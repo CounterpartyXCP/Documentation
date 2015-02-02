@@ -26,13 +26,24 @@ If you would like to monitor the BTC, XCP and asset balance of any address, you 
 
 ![](/_images/create_addresses3.png)
 
+### Displaying the private key of your address
+
+If you would like to show the private key of an address, click address actions and show private key. If you cannot access Counterwallet for whatever reason, you can also generate your addresses and keys from your passphrase. For example, by using [this tool](https://blockscan.com/tool_generatekey). It's entirely client-side javascript. The source code is publicly visible, and you can even run it offline. 
+
+![](/_images/create_addresses4.png)
+
+Then you will be asked to confirm, to make sure nobody can see your screen. 
+
+![](/_images/create_addresses5.png)
+
+
 ### Customizing the appearance of your addresses
 
 Click the square next to address actions in order to set a color for your address.
 
-![](/_images/create_addresses4.png)
+![](/_images/create_addresses6.png)
 
 Click the - or + respectively next to the square in order to minimize or maximize the display of your address, for more space on your screen.
 
-![](/_images/create_addresses5.png)
+![](/_images/create_addresses7.png)
 
