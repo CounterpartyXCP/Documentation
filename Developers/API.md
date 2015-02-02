@@ -122,7 +122,6 @@ library.
 
 * Fetch all balances for all assets for both of two addresses, using keyword-based arguments
 
-        ```
         payload = {
                    "method": "get_balances",
                    "params": {
@@ -133,11 +132,9 @@ library.
                    "jsonrpc": "2.0",
                    "id": 0,
                   }
-        ```
 
 * Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by tx_hash (ascending order)
 
-        ```
         payload = {
                    "method": "get_burns",
                    "params": {
@@ -151,11 +148,9 @@ library.
                    "jsonrpc": "2.0",
                    "id": 0,
                   }
-        ```
     
 * Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
 
-        ```
         payload = {
                    "method": "get_debits",
                    "params": {
@@ -168,12 +163,10 @@ library.
                    "jsonrpc": "2.0",
                    "id": 0,
                   }
-        ```
 
     
 * Send 1 XCP (specified in satoshis) from one address to another.
 
-        ```
         payload = {
                    "method": "create_send",
                    "params": {
@@ -185,11 +178,9 @@ library.
                    "jsonrpc": "2.0",
                    "id": 0,
                   }
-        ```
     
 * Issuance (indivisible)
 
-        ```
         payload = {
                    "method": "create_issuance",
                    "params": {
@@ -202,11 +193,9 @@ library.
                    "jsonrpc": "2.0",
                    "id": 0,
                   }
-        ```
 
 * Transfer asset ownership
 
-        ```
         payload = {
                    "method": "create_issuance",
                    "params": {
@@ -218,11 +207,9 @@ library.
                    "jsonrpc": "2.0",
                    "id": 0,
                   }
-        ```
 
 * Lock asset
 
-        ```
         payload = {
                    "method": "create_issuance",
                    "params": {
@@ -234,7 +221,6 @@ library.
                    "jsonrpc": "2.0",
                    "id": 0,
                   }
-        ```
 
 
 ##Wallet Integration
