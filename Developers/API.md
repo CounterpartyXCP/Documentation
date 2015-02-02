@@ -85,7 +85,7 @@ The following examples have the `user` set to its default value of `'rpc'`.
       "jsonrpc": "2.0",
       "id": 0,
     }
-    response = requests.post( url, data=json.dumps(payload), headers=headers, auth=auth)
+    response = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
     print("Response: ", response.text)
 
 
