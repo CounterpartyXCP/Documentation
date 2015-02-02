@@ -33,7 +33,7 @@ If this is your first time logging in, you will have to agree to the terms and c
 
 ![](/_images/getting_started_cw6.png)
 
-"One important thing to know before getting started is that when you perform an action in Counterwallet (i.e. place an order, create a token, etc), it doesn't take effect immediately as it must first be confirmed on the Bitcoin blockchain. Counterwallet lets you know this by displaying your actions under the Pending Actions panel (the Clock icon on the top bar), and then moving them to the Notifications panel (the Checkbox icon) automatically once the network has successfully confirmed them. You'll also see the future expected value in parenthesis next to the current balance to better alert you that the change is pending. Note that depending on the speed at which blocks are solved, it could take anywhere from 2 to 40 minutes for your actions to be confirmed."
+One important thing to know before getting started is that when you perform an action in Counterwallet (i.e. place an order, create a token, etc), it doesn't take effect immediately as it must first be confirmed on the Bitcoin blockchain. Counterwallet lets you know this by displaying your actions under the Pending Actions panel (the Clock icon on the top bar), and then moving them to the Notifications panel (the Checkbox icon) automatically once the network has successfully confirmed them. You'll also see the future expected value in parenthesis next to the current balance to better alert you that the change is pending. Note that depending on the speed at which blocks are solved, it could take anywhere from 2 to 40 minutes for your actions to be confirmed.
 
 ### Sending and receiving BTC, XCP, and user-created tokens
 
