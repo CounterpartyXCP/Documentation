@@ -584,38 +584,6 @@ Gets some operational parameters for the server.
 ##Action/Write API Function Reference
 
 
-###sign_tx
-
-**sign_tx(unsigned_tx_hex, privkey=None)**
-
-Sign a transaction created with the Action/Write API.
-
-**Parameters:**
-
-  * **tx_hex (string, required):** A hex-encoded raw transaction (which was created via one of the ``create_`` calls).
-  * **privkey (string, required):** The private key in WIF format to use for signing the transaction.
-  
-**Return:** 
-
-  A hex-encoded signed raw transaction ready to be broadcast with the ``broadcast_tx`` call.
-
-
-###broadcast_tx
-
-**broadcast_tx(signed_tx_hex)**
-
-Broadcast a signed transaction onto the Bitcoin network.
-
-**Parameters:**
-
-  * **signed_tx_hex (string, required):** A hex-encoded signed raw transaction (which was created via one of the ``create_`` calls
-    and signed with ``sign_tx`` method).
-  
-**Return:** 
-
-  The created transaction's id on the Bitcoin network, or an error if the transaction is invalid for any reason.
-
-
 ###create_bet
 
 **create_bet(source, feed_address, bet_type, deadline, wager, counterwager, expiration, target_value=0.0, leverage=5040, encoding='auto', pubkey=null,
