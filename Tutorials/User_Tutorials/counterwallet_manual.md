@@ -1,7 +1,8 @@
 #User Tutorials
 
-This page displays links to individual User tutorials.
+This page displays links to individual user tutorials.
 
+- [Getting started with Counterwallet](getting_started_cw.md)
 - [How to create a Counterwallet Address](create_addresses.md)
 - [How to create an Armory address](create_armory_address.md)
 - [How to create a token](create_token.md)
