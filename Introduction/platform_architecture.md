@@ -3,8 +3,6 @@
 In the figure below you can see how all Counterparty platform components interact with each other.
 
 ![](/_images/platform_architecture1.png)
-
-<br/>  
   
 ##Reference Implementation
 [`counterparty-lib`](counterparty-lib.md) is a Python library that serves as the reference implementation of the Counterparty Protocol. It has a number of interfaces, such as a CLI and desktop a GUI.
