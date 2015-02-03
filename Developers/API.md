@@ -229,7 +229,7 @@ library.
 
 The process of making a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast a unsigned Counterparty transaction *created* with this API.
 
-**Bitcoin Core**
+**Bitcoin Core with Python**
 
     def do_send(source, destination, asset, quantity):
             validateaddress = bitcoind_api('validateaddress', [source])
@@ -240,6 +240,39 @@ The process of making a transaction, from start to finish, depends somewhat on t
             tx_hash = bitcoind_api('sendrawtransaction', [signed_tx])
             return tx_hash
 
+**Bitcoin Core with Javascript**
+
+    <html>
+        <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwebdeps/master/js/util.bitcore.js"></script>
+        <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwebdeps/master/js/external/mnemonic.js"></script>
+        <script>
+        counterparty_api = function(method, params) {
+            // calls Counterparty API method with you prefered method
+        }
+
+        bitcoin_api = function(method, params) {
+            // calls Bitcoin Core API method with you prefered method
+        }
+
+        // generate a passphrase
+        var m = new Mnemonic(128); //128 bits of entropy (12 word passphrase)
+        var words = m.toWords();
+        var passphrase = words.join(' ')
+
+        // generate private key, public key and address from the passphrase
+        wallet = new CWHierarchicalKey(passphrase);
+        var cwk = wallet.getAddressKey(i); // i the number of the address
+        var source = key.getAddress();
+        var pubkey = cwk.getPub()
+
+        // generate unsigned transaction
+        unsigned_hex = counterparty_api('create_send', {'source': source, 'destination': destination, 'asset': asset, 'quantity': quantity, 'pubkey': pubkey})
+
+        CWBitcore.signRawTransaction2(self.unsignedTx(), cwk, function(signedHex) {
+            bitcoin_api('sendrawtransaction', signedHex)
+        })
+        </script>
+    </html>
 
 ##Terms & Conventions
 
