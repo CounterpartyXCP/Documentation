@@ -2,7 +2,7 @@
 
 In the figure below you can see how all Counterparty platform components interact with each other.
 
-![](/_images/architecture1.png)
+![](/_images/platform_architecture1.png)
 
 <br/>  
   
