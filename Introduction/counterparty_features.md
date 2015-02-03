@@ -21,10 +21,9 @@ Counterparty allows users to *issue assets*. An asset that is created
 within the Counterparty protocol is called a *user-created asset*.
 User-created assets are just as real as XCP or even BTC. With the asset
 issuance function, every user has the ability to contribute something
-new to Counterparty’s financial ecosystem. Note that asset names can be
-between 4 and up to 13 or 14 characters long (the exact length depends),
-and utilize capital letters A through Z only. Due to the asset name
-compression method used, asset names may not begin with ‘A’. For more
+new to Counterparty’s financial ecosystem. 
+
+Newly registered asset names can either be (unique) strings of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’, or integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’. Alphabetic asset names carry a one‐time issuance fee (by burn) of 0.5 XCP and numeric asset names are freely available. ‘BTC’ and ‘XCP’ are the only three‐character asset names. For more
 information, see the Assets section in the Counterparty specification.
 
 ### The different kinds of assets
@@ -36,8 +35,7 @@ The most basic kind of asset must specify:
 -   how much of [asset] is being issued ([quantity])
 -   a description of asset ([description])
 
-An asset’s name must comprise only capital Latin letters, be four
-characters or more, and not start with an ‘A’. It is possible to issue
+It is possible to issue
 more of [asset], but, at any one time, there can only be one address
 which issues [asset]. With that said, the Counterparty protocol allows
 [source] to transfer issuance rights of [asset]. Moreover, an asset can
@@ -54,9 +52,7 @@ callable) with every issuance thereafter. A divisible user-created asset
 is, like, Bitcoin and XCP, divisible up to 8 decimal places. A callable
 asset is an asset which the issuer can call back (i.e. repurchase) from
 its owners at a date (`call-date`) and for a price (`call-price`)
-specified at the initial issuance. *0.5 XCP are destroyed every time a
-new asset is issued; there must be at least 0.5 XCP at [address] in
-order to issue an asset.*
+specified at the initial issuance. 
 
 Making trades on the decentralized exchange
 ===========================================
@@ -235,9 +231,3 @@ his risk and his reputation. On the buyer’s side, the risk is obvious:
 BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
-Bets
-----
-
-
-Smart Contracts
----------------
