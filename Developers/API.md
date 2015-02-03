@@ -243,6 +243,7 @@ The process of making a transaction, from start to finish, depends somewhat on t
 **Bitcoin Core with Javascript**
 
     <html>
+        <script src="https://raw.githubusercontent.com/bitpay/bitcore/82ce08b8932c3c9d86105982109101bab1a47827/browser/bundle.js"></script>
         <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwebdeps/master/js/util.bitcore.js"></script>
         <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwebdeps/master/js/external/mnemonic.js"></script>
         <script>
