@@ -8,7 +8,7 @@ Counterparty allows users to *create*, *send*, *trade*, *pay dividends
 on* and *callback* assets, all in a decentralized and trustless fashion.
 Many of the actions described below can be accomplished in the official
 Counterparty Web-based wallet Counterwallet. End users and those without
-access to a working `counterpartyd` setup can examine Counterwallet
+access to a working `counterparty-cli` setup can examine Counterwallet
 first.
 
 Counterparty-issued assets (tokens) can have basic or enhanced
@@ -40,7 +40,7 @@ more of [asset], but, at any one time, there can only be one address
 which issues [asset]. With that said, the Counterparty protocol allows
 [source] to transfer issuance rights of [asset]. Moreover, an asset can
 also be locked, so that there can be no further issuances of it. (See
-the next section for instructions on how to do this with counterpartyd).
+the [examples](examples.md) for instructions on how to do this with `counterparty-cli`).
 A description must always be included, even if [description] is just an
 empty string; the syntax of an asset *with no description* is
 `description=""`.
