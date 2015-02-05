@@ -7,6 +7,8 @@ It is possible to trade on the Counterparty decentralized exchange directly insi
 
 * **All buy and sell orders are automatically escrowed _in the Bitcoin blockchain_ itself until they are completed.** The Counterparty exchange is decentralized and peer-to-peer. This means that there is never a third party or middleman (such as a server administrator, traditional exchange, clearing house, or bank). This kind of trading is called 'trustless', because you do not have to trust anyone to handle your funds and complete your trade correctly.
 
+![](/_images/trade10.png)
+
 * Placing and cancelling orders requires the Bitcoin network to confirm these transactions, which may take some time.
 
 * Each action requires a basic transaction fee (like any other regular Bitcoin transaction.)
