@@ -78,12 +78,10 @@ Before running this script, we strongly advise the following:
 
 - SSH should run on a different port, with root access disabled
 - Use ufw (software firewall) in addition to any hardware firewalls:
-
-  - sudo ufw allow ssh   #(or whatever your ssh port is, as '12345/tcp', in place of 'ssh')
-  - sudo ufw allow http
-  - sudo ufw allow https
-  - sudo ufw enable
-
+  - `sudo ufw allow ssh`   #(or whatever your ssh port is, as '12345/tcp', in place of 'ssh')
+  - `sudo ufw allow http`
+  - `sudo ufw allow https`
+  - `sudo ufw enable`
 - Only one or two trusted individuals should have access to the box. All root access through ``sudo``.
 - Utilize 2FA (two-factor authentication) on SSH and any other services that require login.
   [Duo](https://www.duosecurity.com/) is a good choice for this (and has great `SSH integration).
