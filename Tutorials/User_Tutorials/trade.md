@@ -30,11 +30,11 @@ You will see the pairs with the most current activity. Clicking on these will fo
 
 ![](/_images/trade2.png)
 
-You can also specify a custom token to trade, if it does not appear in the top pairs list. If you want to trade a token you have just created, you need have to wait until it has been verified by the Bitcoin blockchain first.)
+You can also specify a custom token to trade, if it does not appear in the top pairs list. 
 
 ![](/_images/trade3.png)
 
-Simply write your token in the field (autocomplete will try to help) and click XCP or other. Most tokens are primarily traded against XCP, but you can trade absolutely any token. 
+Simply write your token in the field (autocomplete will try to help) and click XCP or other. Most tokens are primarily traded against XCP, but you can trade absolutely any token. If you want to trade a token you have just created, you need have to wait until it has been verified by the Bitcoin blockchain first.)
 
 ![](/_images/trade4.png)
 
