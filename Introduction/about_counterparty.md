@@ -54,15 +54,15 @@ now!][]
 ***Repositories***
 
 -   [Github][]
-    -   [counterpartyd][] - Counterparty reference client
-    -   [counterparty-cli][] - Counterparty CLI
+    -   [counterparty-lib][] - Reference implementation of the Counterparty protocol
+    -   [counterparty-cli][] - Command-line Interface for counterparty-lib
     -   [counterparty-gui][] - Counterparty GUI (OS X and Windows)
-    -   [Counterwallet][] - web wallet
+    -   [Counterwallet][] - Web wallet
     -   [counterblock][] - Provides extended API services to Counterwallet, as well as Counterparty 3rd-party applications
     -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) - Federated Node Build System
 
 [Github]: https://github.com/CounterpartyXCP
-[counterpartyd]: https://github.com/CounterpartyXCP/counterpartyd
+[counterparty-lib]: https://github.com/CounterpartyXCP/counterpartyd
 [counterparty-cli]: https://github.com/CounterpartyXCP/counterparty-cli
 [counterparty-gui]: https://github.com/CounterpartyXCP/counterparty-gui
 [counterblock]: https://github.com/CounterpartyXCP/counterblock
