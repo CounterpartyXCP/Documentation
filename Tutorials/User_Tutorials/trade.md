@@ -73,3 +73,8 @@ You will be able to see the pending order by clicking the clock in the top left 
 If you click the check to the left of the clock, you can see orders that have already been confirmed.
 
 ![](/_images/trade14.png)
+
+After a while, you will be able to see that the order confirmed. And if there is someone selling for the price that you are buying at, the order will be matched and completed automatically.
+
+![](/_images/trade15.png)
+
