@@ -54,10 +54,22 @@ And below that is a listing of previously completed trades, if there are any.
 
 ![](/_images/trade8.png)
 
+Let's try to buy 10 [LTBCOIN](http://ltbcoin.com/) just as an example. Set your desired price and amount, and press Buy.
+
 ![](/_images/trade9.png)
+
+Counterwallet will ask you to confirm your order to make sure everything is correct.
 
 ![](/_images/trade11.png)
 
+The order will now take some time to become valid and visible, while it is processed by the Bitcoin network.
+
 ![](/_images/trade12.png)
 
+You will be able to see the pending order by clicking the clock in the top left of the screen.
+
 ![](/_images/trade13.png)
+
+If you click the check to the left of the clock, you can see orders that have already been confirmed.
+
+![](/_images/trade14.png)
