@@ -38,7 +38,11 @@ Simply write your token in the field (autocomplete will try to help) and click X
 
 ![](/_images/trade4.png)
 
+Then you will be able to see a graph showing the price and volume of that token (if there is enough data to display.)
+
 ![](/_images/trade5.png)
+
+Using this interface you can choose which of your addresses you are using to trade, and place orders directly.
 
 ![](/_images/trade6.png)
 
@@ -48,4 +52,8 @@ Simply write your token in the field (autocomplete will try to help) and click X
 
 ![](/_images/trade9.png)
 
-![](/_images/trade10.png)
+![](/_images/trade11.png)
+
+![](/_images/trade12.png)
+
+![](/_images/trade13.png)
