@@ -46,7 +46,11 @@ Using this interface you can choose which of your addresses you are using to tra
 
 ![](/_images/trade6.png)
 
+Below this interface, you can look at the current orderbook for that pair.
+
 ![](/_images/trade7.png)
+
+And below that is a listing of previously completed trades, if there are any.
 
 ![](/_images/trade8.png)
 
