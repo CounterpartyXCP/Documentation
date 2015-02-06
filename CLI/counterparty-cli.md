@@ -8,19 +8,27 @@
 ## Requirements
 
 * [Patched Bitcoin Core](bitcoin_core.md)
-* [Windows‐specific](windows.md)
 * Terminal with Unicode Support
-
 
 ## Installation
 
+**Linux and MacOS X**
+
 `$ sudo pip3 install counterparty-cli` (temporarily, with the argument `--pre`)
 
+**Windows**
+
+Download and decompress: https://github.com/CounterpartyXCP/counterparty-cli/releases
 
 ## Upgrades
 
+**Linux and MacOS X**
+
 `$ sudo pip3 install --upgrade counterparty-cli`
 
+**Windows**
+
+Download and decompress the last release: https://github.com/CounterpartyXCP/counterparty-cli/releases
 
 ## Configuration and Maintenance
 
@@ -79,5 +87,9 @@ A `counterparty-client` configuration file looks like this:
 * For additional command-line arguments and options:
 	`$ counterparty-server --help`
 	`$ counterparty-client --help`
+
+## Build Windows Binaries
+
+See https://github.com/CounterpartyXCP/counterparty-cli/blob/master/release_procedure.md
 
 <!-- TODO: Logs, Data directory -->
