@@ -14,12 +14,12 @@
 
 ## Installation
 
-* `$ sudo pip3 install counterparty-cli` (temporarily, with the argument `--pre`)
+`$ sudo pip3 install counterparty-cli` (temporarily, with the argument `--pre`)
 
 
 ## Upgrades
 
-* `$ sudo pip3 install --upgrade counterparty-cli`
+`$ sudo pip3 install --upgrade counterparty-cli`
 
 
 ## Configuration and Maintenance
