@@ -142,8 +142,8 @@ start (which includes both ``counterparty-server`` and ``counterblock``).
 process will take between 3 minutes to 20 minutes most likely. You can check on the status of ``counterblock``'s
 sync using:
 
-    sudo tail -f ~xcp/.config/counterblock/server.log
-    sudo tail -f ~xcp/.config/counterblock/server.testnet.log
+    sudo tail -f ~xcp/.cache/counterblock/server.log
+    sudo tail -f ~xcp/.cache/counterblock/server.testnet.log
 
 Once it is fully synced up, you should be good to proceed. The next step is to simply open up a web browser, and
 go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and
