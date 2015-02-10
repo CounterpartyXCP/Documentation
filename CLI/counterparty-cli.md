@@ -18,7 +18,7 @@
 
 **Windows**
 
-Download and decompress: https://github.com/CounterpartyXCP/counterparty-cli/releases
+Download and decompress: [https://github.com/CounterpartyXCP/counterparty-cli/releases](https://github.com/CounterpartyXCP/counterparty-cli/releases)
 
 ## Upgrades
 
@@ -28,7 +28,7 @@ Download and decompress: https://github.com/CounterpartyXCP/counterparty-cli/rel
 
 **Windows**
 
-Download and decompress the last release: https://github.com/CounterpartyXCP/counterparty-cli/releases
+Download and decompress the last release: [https://github.com/CounterpartyXCP/counterparty-cli/releases](https://github.com/CounterpartyXCP/counterparty-cli/releases)
 
 ## Configuration and Maintenance
 
@@ -90,6 +90,6 @@ A `counterparty-client` configuration file looks like this:
 
 ## Build Windows Binaries
 
-See https://github.com/CounterpartyXCP/counterparty-cli/blob/master/release_procedure.md
+See [https://github.com/CounterpartyXCP/counterparty-cli/blob/master/release_procedure.md](https://github.com/CounterpartyXCP/counterparty-cli/blob/master/release_procedure.md)
 
 <!-- TODO: Logs, Data directory -->
