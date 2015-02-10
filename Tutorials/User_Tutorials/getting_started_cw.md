@@ -39,7 +39,7 @@ One important thing to know before getting started is that when you perform an a
 
 ![](/_images/getting_started_cw7.png)
 
-**One Bitcoin address will be automatically visible once you have created your wallet:**
+**One Bitcoin address will be automatically visible once you have created your wallet.** You can learn how to create more [here](create_addresses.md) and if you would like create an Armory address, you can read more about that [here](create_armory_address.md).
 
 ![](/_images/getting_started_cw8.png)
 
