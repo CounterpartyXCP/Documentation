@@ -60,7 +60,7 @@ Here are the recommendations and/or requirements when setting up a production-gr
 
 The exact disk space required will be dependent on what services are run on the node:
 
-- Base System: **20GB** (to be safe)
+- Base System: **50GB** (to be safe)
 - ``counterparty``, ``counterblock`` databases: **~500MB**
 - ``armory_utxsvr``: **~25GB** (mainnet), **~3GB** (testnet)
 
@@ -130,21 +130,20 @@ downloading, you can launch the ``armory_utxsvr``, if you're using that (Counter
 And ``counterparty-server`` itself:
 
     sudo sv start counterparty
-    sudo sv start counterparty
+    sudo sv start counterparty-testnet
     
-    sudo tail -f ~xcp/.config/counterparty/server.log
-    sudo tail -f ~xcp/.config/counterparty/server.testnet.log
+    sudo tail -f ~xcp/.cache/counterparty/log/server.log
+    sudo tail -f ~xcp/.cache/counterparty/log/server.testnet.log
 
-Then, watching these log, wait for the insight sync (as well as the `bitcoind` sync and `counterparty-server` syncs) to finish,
-which should take between 7 and 12 hours. After this is all done, reboot the box for the new services to
+Then, watching these log, wait for `bitcoind` and `counterparty-server` synchronization to finish, which if started from scratch could take between 7 and 12 hours. After this is all done, reboot the box for the new services to
 start (which includes both ``counterparty-server`` and ``counterblock``).
 
 ``counterblock``, after starting up must then sync to ``counterparty-server``. It will do this automatically, and the
 process will take between 3 minutes to 20 minutes most likely. You can check on the status of ``counterblock``'s
 sync using:
 
-    sudo tail -f ~xcp/.config/counterblock/server.log
-    sudo tail -f ~xcp/.config/counterblock/server.testnet.log
+    sudo tail -f ~xcp/.cache/counterblock/server.log
+    sudo tail -f ~xcp/.cache/counterblock/server.testnet.log
 
 Once it is fully synced up, you should be good to proceed. The next step is to simply open up a web browser, and
 go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and
@@ -259,15 +258,10 @@ Other Topics
 Note that when you set up a federated node, the script creates two new users on the system: ``xcp`` and ``xcpd``. (The
 ``xcp`` user also has an ``xcp`` group created for it as well.) 
 
-**Important**: The setup script by default creates user home under the ``/home``. If you wish to store the ``xcp`` user's data on another volume, mount it to ``/home/xcp`` 
-(rather than, for example, ``/xcp``).
+**Important**: The setup script by default creates user home under the ``/home``. If you wish to store the ``xcp`` user's data on another volume, mount it to ``/home/xcp`` (rather than, for example, ``/xcp``).
 
 The script installs ``counterparty-server``, ``counterwallet``, etc into the home directory of the ``xcp`` user. This
-user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``insight``, ``counterparty-server``,
-``counterblock``, and ``nginx``) are actually run as the ``xcpd`` user, which has no write access to the files
-such as the ``counterwallet`` and ``counterparty-server`` source code files. The reason things are set up like this is so that
-even if there is a horrible bug in one of the products that allows for a RCE (or Remote Control Exploit), where the attacker
-would essentially be able to gain the ability to execute commands on the system as that user, two things should prevent this:
+user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``counterparty-server``, ``counterblock``, and ``nginx``) are actually run as the ``xcpd`` user, which has no write access to the files such as the ``counterwallet`` and ``counterparty-server`` source code files. The reason things are set up like this is so that even if there is a horrible bug in one of the products that allows for a RCE (or Remote Control Exploit), where the attacker would essentially be able to gain the ability to execute commands on the system as that user, two things should prevent this:
 
 * The ``xcpd`` user doesn't actually have write access to any sensitive files on the server (beyond the log and database
   files for ``bitcoind``, ``counterparty-server``, etc.)

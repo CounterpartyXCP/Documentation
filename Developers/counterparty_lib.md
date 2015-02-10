@@ -28,7 +28,7 @@ $ python3 setup.py install`
 
 ## Upgrades
 
-* `$ sudo pip3 install --upgrade counterparty-cli`
+`$ sudo pip3 install --upgrade counterparty-lib`
 
 or
 
@@ -53,7 +53,7 @@ $ python3
 By default, logs are located in the following directories:
 
 * Linux: `~/.cache/counterparty/log/`
-* Windows: `C:\Users\\<USER>\AppData\Local\Counterparty\counterparty\Logs`
+* Windows: `C:\Users\<USER>\AppData\Local\Counterparty\counterparty\Logs`
 
 And the log files are named as follows:
 * `counterparty[.testnet].log`
@@ -65,7 +65,7 @@ And the log files are named as follows:
 By default, the database files are located in the following directories:
 
 * Linux: `~/.local/share/counterparty/`
-* Windows: **TODO**
+* Windows: `C:\Users\<USER>\AppData\Roaming\Counterparty\counterparty`
 
 And the database files are named as follows:
 

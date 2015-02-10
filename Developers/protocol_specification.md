@@ -8,11 +8,11 @@ Counterparty is a suite of financial tools in a protocol built on top of
 the Bitcoin blockchain and using the blockchain as a service for the
 reliable publication and timestamping of its messages.
 
-The reference implementation is ``counterpartyd``, which is hosted at [https://github.com/CounterpartyXCP/counterpartyd](https://github.com/CounterpartyXCP/counterpartyd).
+The reference implementation is ``counterparty-lib``, which is hosted at [GitHub](https://github.com/CounterpartyXCP/counterpartyd).
 
 This document describes exclusively the latest version of the
 Counterparty protocol. For historical protocol changes, see the
-counterpartyd [ChangeLog](https://github.com/CounterpartyXCP/counterpartyd/blob/master/ChangeLog.md).
+counterparty-lib [ChangeLog](https://github.com/CounterpartyXCP/counterpartyd/blob/master/ChangeLog.md).
 
 Transactions
 ------------
@@ -74,7 +74,7 @@ are expired at the end of blocks.
 Non‐Counterparty transactions
 -----------------------------
 
-counterpartyd supports the construction of two kinds of transactions
+counterparty-lib supports the construction of two kinds of transactions
 that are not themselves considered Counterparty transactions:
 
 -  BTC sends
@@ -162,7 +162,7 @@ sufficient quantity of that asset at the time that the send message is
 parsed (in the sequence of transactions), then the send is filled
 as much as it can be.
 
-counterpartyd supports sending bitcoins, for which no data output is
+counterparty-lib supports sending bitcoins, for which no data output is
 used.
 
 ###Order
