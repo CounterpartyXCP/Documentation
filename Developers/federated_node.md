@@ -28,15 +28,15 @@ for system administrators and developers.
 Federated Node Services
 -------------------------
 
-A federated node runs several services on the same system, which includes required [Counterparty platform components](platform_architecture.md) and the following optional services:
+A federated node runs several services on the same system, which includes **required [Counterparty platform components](platform_architecture.md)** and the following *optional* services:
 
-###armory_utxsvr (Optional)
+###armory_utxsvr
 
 This service is used by ``counterblock`` with Counterwallet, to allow for the creation of unsigned transaction
 ASCII text blocks, which may then be used with an [Offline Armory configuration](https://bitcoinarmory.com/about/using-our-wallet/).
 This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
 
-###nginx (Optional)
+###nginx
 
 ``nginx`` normally frontends communications on Counterwallet, Vending, etc nodes. Not used with `counterparty-server`-only nodes.
 
@@ -150,6 +150,17 @@ go to the IP address/hostname of the server. You will then be presented to accep
 after doing that, should see the web interface for the role you selected (e.g. Counterwallet login screen, if Counterwallet
 was chosen at node setup time). From this point, you can proceed testing the necessary functionality on your own system(s).
 
+Easy Updating
+--------------------------
+
+To update the system with new code releases, you simply need to rerun the ``run.py`` script, like so:
+
+    cd ~xcp/federated_node
+    sudo ./run.py
+    
+As prompted, you should be able to choose just to update ("u"), instead of to rebuild. However, you would choose the rebuild
+option if there were updates to the ``federatednode_build`` system files (such as the
+``nginx`` configuration, or the init scripts) or `run.py` script itself that you want/need to apply. Otherwise, update should be fine. 
 
 Getting a SSL Certificate
 --------------------------
@@ -210,7 +221,7 @@ Also, you can start up the daemons in the foreground, for easier debugging, usin
     sudo su -s /bin/bash -c 'counterparty-server start' xcpd
     sudo su -s /bin/bash -c 'counterblock -v' xcpd
     
-    #counterparty & counterblock testnet
+    #counterparty-server & counterblock testnet
     sudo su -s /bin/bash -c 'counterparty-server --testnet --config-file=/home/xcp/.config/counterparty/server.testnet.conf start' xcpd
     sudo su -s /bin/bash -c 'counterblock --testnet --config-file=/home/xcp/.config/counterblockd/server.testnet.conf -v' xcpd
 
@@ -248,37 +259,6 @@ If all services but ``counterparty-server`` are up, a HTTP 500 response with ``"
 If ``counterblock`` is not working properly, ``nginx`` will return a HTTP 503 (Gateway unavailable) or 500 response.
 
 If ``nginx`` is not working properly, either a HTTP 5xx response, or no response at all (i.e. timeout) will be returned.
-
-
-Other Topics
---------------
-
-###User Configuration
-
-Note that when you set up a federated node, the script creates two new users on the system: ``xcp`` and ``xcpd``. (The
-``xcp`` user also has an ``xcp`` group created for it as well.) 
-
-**Important**: The setup script by default creates user home under the ``/home``. If you wish to store the ``xcp`` user's data on another volume, mount it to ``/home/xcp`` (rather than, for example, ``/xcp``).
-
-The script installs ``counterparty-server``, ``counterwallet``, etc into the home directory of the ``xcp`` user. This
-user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``counterparty-server``, ``counterblock``, and ``nginx``) are actually run as the ``xcpd`` user, which has no write access to the files such as the ``counterwallet`` and ``counterparty-server`` source code files. The reason things are set up like this is so that even if there is a horrible bug in one of the products that allows for a RCE (or Remote Control Exploit), where the attacker would essentially be able to gain the ability to execute commands on the system as that user, two things should prevent this:
-
-* The ``xcpd`` user doesn't actually have write access to any sensitive files on the server (beyond the log and database
-  files for ``bitcoind``, ``counterparty-server``, etc.)
-* The ``xcpd`` user uses ``/bin/false`` as its shell, which prevents the attacker from gaining shell-level access
-
-This setup is such to minimize (and hopefully eliminate) the impact from any kind of potential system-level exploit.
-
-###Easy Updating
-
-To update the system with new code releases, you simply need to rerun the ``run.py`` script, like so:
-
-    cd ~xcp/federated_node
-    sudo ./run.py
-    
-As prompted, you should be able to choose just to update ("U"), instead of to rebuild. However, you would choose the rebuild
-option if there were updates to the ``federatednode_build`` system files for the federated node itself (such as the
-``nginx`` configuration, or the init scripts) that you wanted/needed to apply. Otherwise, update should be fine. 
 
 
 Counterwallet-Specific
@@ -343,6 +323,26 @@ command line for every node in the cluster::
     #testnet
     mongo counterblockd_testnet
     db.chat_handles.update({handle: "testuser1"}, {$set: {op: true}})
+
+
+Other Topics
+--------------
+
+###System user configuration
+
+Note that when you set up a federated node, the script creates two new users on the system: ``xcp`` and ``xcpd``. (The
+``xcp`` user also has an ``xcp`` group created for it as well.) 
+
+**Important**: The setup script by default creates user home under the ``/home``. If you wish to store the ``xcp`` user's data on another volume, mount it to ``/home/xcp`` (rather than, for example, ``/xcp``).
+
+The script installs ``counterparty-server``, ``counterwallet``, etc into the home directory of the ``xcp`` user. This
+user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``counterparty-server``, ``counterblock``, and ``nginx``) are actually run as the ``xcpd`` user, which has no write access to the files such as the ``counterwallet`` and ``counterparty-server`` source code files. The reason things are set up like this is so that even if there is a horrible bug in one of the products that allows for a RCE (or Remote Control Exploit), where the attacker would essentially be able to gain the ability to execute commands on the system as that user, two things should prevent this:
+
+* The ``xcpd`` user doesn't actually have write access to any sensitive files on the server (beyond the log and database
+  files for ``bitcoind``, ``counterparty-server``, etc.)
+* The ``xcpd`` user uses ``/bin/false`` as its shell, which prevents the attacker from gaining shell-level access
+
+This setup is such to minimize (and hopefully eliminate) the impact from any kind of potential system-level exploit.
 
 ###Counterwallet MultiAPI specifics
 
