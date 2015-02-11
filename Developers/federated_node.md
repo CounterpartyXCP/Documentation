@@ -145,10 +145,18 @@ sync using:
     sudo tail -f ~xcp/.cache/counterblock/server.log
     sudo tail -f ~xcp/.cache/counterblock/server.testnet.log
 
-Once it is fully synced up, you should be good to proceed. The next step is to simply open up a web browser, and
-go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and
-after doing that, should see the web interface for the role you selected (e.g. Counterwallet login screen, if Counterwallet
-was chosen at node setup time). From this point, you can proceed testing the necessary functionality on your own system(s).
+Once it is fully synced up, you should be good to proceed.
+
+
+###Counterwallet server
+If you are setting up a Counterwallet server, you will next need to create a `counterwallet.conf.json` configuration file.
+Instructions for doing that are detailed in the *Counterwallet Configuration File* section later in this document. Once creating this file, open up a web browser, and go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and after doing that, should see the Counterwallet login screen.
+
+###Other roles
+If you are setting up another role, the necessary ports should be open for use, given that the daemons are running.
+
+* If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly from any other host (or localhost), using port `4000` (mainnet) or `14000` (testnet) and user `rpc` with password `1234`.
+* If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API directly from any other host (or localhost), using port `4100` (mainnet) or `14100` (testnet), with no user authentication required.
 
 Easy Updating
 --------------------------
