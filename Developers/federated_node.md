@@ -147,16 +147,24 @@ sync using:
 
 Once it is fully synced up, you should be good to proceed.
 
+###"Counterwallet server" role
 
-###Counterwallet server
 If you are setting up a Counterwallet server, you will next need to create a `counterwallet.conf.json` configuration file.
 Instructions for doing that are detailed in the *Counterwallet Configuration File* section later in this document. Once creating this file, open up a web browser, and go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and after doing that, should see the Counterwallet login screen.
 
-###Other roles
-If you are setting up another role, the necessary ports should be open for use, given that the daemons are running.
+###"counterparty-server only" role
 
-* If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly from any host (or localhost only, if you chose not to expose the interface publically during the setup), using port `4000` (mainnet) or `14000` (testnet) and user `rpc` with password `1234`.
-* If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API directly from any host (or localhost only, if you chose not to expose the interface publically during the setup), using port `4100` (mainnet) or `14100` (testnet), with no user authentication required.
+If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly, using port `4000` (mainnet) or `14000` (testnet).
+
+* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, using user `rpc` with password `1234`.
+* If you chose not to expose the interface publically during setup, you can access the API from localhost only, using the user and password defined in the appropriate counterparty-server `server.conf` file.
+
+###"counterblock basic" role
+
+If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API, using port `4100` (mainnet) or `14100` (testnet).
+
+* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, with no user authentication required. Moreover, the `counterparty-server` APIs are exposed to all hosts on the appropriate ports, using user `rpc` and password `1234`.
+* If you chose not to expose the interface publically during setup, you can access the API from localhost only, with no user authentication required. The `counterparty-server` ports and APIs are *not* exposed to any host except localhost.
 
 Easy Updating
 --------------------------
