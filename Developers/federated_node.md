@@ -280,7 +280,7 @@ If ``nginx`` is not working properly, either a HTTP 5xx response, or no response
 Counterwallet-Specific
 -----------------------
 
-###Counterwallet Configuration File
+###Creating a configuration file
 
 Counterwallet can be configured via creating a small file called ``counterwallet.conf.json`` in the ``counterwallet/`` directory.
 This file will contain a valid JSON-formatted object, containing an a number of possible configuration properties. For example::
