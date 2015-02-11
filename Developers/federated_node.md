@@ -163,7 +163,7 @@ If you selected the "counterparty-server only" role, you can access the `counter
 
 If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API, using port `4100` (mainnet) or `14100` (testnet).
 
-* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, with no user authentication required. Moreover, the `counterparty-server` APIs are exposed to all hosts on the appropriate ports, using user `rpc` and password `1234`.
+* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, with no user authentication required. Moreover, the `counterparty-server` APIs are exposed to all hosts on the ports noted above, using the user and password noted above (`rpc` and `1234`).
 * If you chose not to expose the interface publically during setup, you can access the API from localhost only, with no user authentication required. The `counterparty-server` ports and APIs are *not* exposed to any host except localhost.
 
 Easy Updating
