@@ -155,8 +155,8 @@ Instructions for doing that are detailed in the *Counterwallet Configuration Fil
 ###Other roles
 If you are setting up another role, the necessary ports should be open for use, given that the daemons are running.
 
-* If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly from any other host (or localhost), using port `4000` (mainnet) or `14000` (testnet) and user `rpc` with password `1234`.
-* If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API directly from any other host (or localhost), using port `4100` (mainnet) or `14100` (testnet), with no user authentication required.
+* If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly from any host (or localhost only, if you chose not to expose the interface publically during the setup), using port `4000` (mainnet) or `14000` (testnet) and user `rpc` with password `1234`.
+* If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API directly from any host (or localhost only, if you chose not to expose the interface publically during the setup), using port `4100` (mainnet) or `14100` (testnet), with no user authentication required.
 
 Easy Updating
 --------------------------
