@@ -340,6 +340,17 @@ command line for every node in the cluster::
     mongo counterblockd_testnet
     db.chat_handles.update({handle: "testuser1"}, {$set: {op: true}})
 
+###Enabling multi-lingual support
+
+By default, Counterwallet builds with only (US) English support enabled. To enable support for other languages and I18N features, you must build the Transifex translations. This process is manual as Transifex unfortunately requires a username and password to do this, instead of an API key or some other method of access. Here's the process:
+
+1. Make sure the federated node build process completed successfully, and that you chose "Counterwallet server" for the role.
+2. Sign up for an account on http://www.transifex.com
+3. Create a file at `/home/xcp/.transifex` with your account username and password the format of `user:password` (i.e. all on one line)
+4. Run the command: `sudo su -s /bin/bash -c 'cd ~xcp/counterwallet && grunt transifex --force' xcp`
+
+The translations should then be built, and multilingual support will be enabled on the site.
+
 
 Other Topics
 --------------
@@ -360,16 +371,13 @@ user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``c
 
 This setup is such to minimize (and hopefully eliminate) the impact from any kind of potential system-level exploit.
 
-###Counterwallet MultiAPI specifics
+###More on multiple Counterwallet servers
 
-**Note:**
-
-    By default, Counterblock Federated Nodes can also host Counterwallet content (this will change in the future).
-    Regarding this, the Counterparty team itself operates the primary Counterwallet platform. However, as Counterwallet is open     source software, it is possible to host your own site with Counterwallet site (for your personal use, or as an offering to
-    others), or to even host your own Counterwallet servers to use with your own Counterparty wallet implementation.
-    The Counterparty team supports this kind of activity (as long as the servers are secure), as it aids with increasing           decentralization.
+For the time being, the Counterparty team itself operates the primary Counterwallet platform at `counterwallet.io`. However, as Counterwallet is open source software, it is possible to host your own site with Counterwallet site (for your personal use, or as an offering to others), or to even host your own Counterwallet servers to use with your own Counterparty wallet implementation. The Counterparty team supports and encourages this kind of activity (as long as the servers are secure), as it aids with increasing decentralization.
         
-    Also note that due to the nature of Counterwallet being a deterministic wallet, users using one Counterwallet platform         (i.e. the official one, for instance) have the flexibility to start using a different Counterwallet platform instead at any     time, and as funds (i.e. private keys) are not stored on the server in any fashion, they will be able to see their funds on     either. (Note that the only thing that will not migrate are saved preferences, such as address aliases, the theme setting,     etc.)
+Also note that due to the nature of Counterwallet being a deterministic wallet, users using one Counterwallet platform (i.e. the official one, for instance) have the flexibility to start using a different Counterwallet platform instead at any time, and as funds (i.e. private keys) are not stored on the server in any fashion, they will be able to see their funds on either. (Note that the only thing that will not migrate are saved preferences, such as address aliases, the theme setting, etc.)
+
+###Counterwallet MultiAPI specifics
 
 Counterwallet utilizes a sort of a "poor man's load balancing/failover" implementation called multiAPI (and implemented
 [here](https://github.com/CounterpartyXCP/counterwallet/blob/master/src/js/util.api.js)). multiAPI can operate in a number of fashions.
