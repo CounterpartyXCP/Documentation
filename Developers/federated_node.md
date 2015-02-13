@@ -172,7 +172,7 @@ Easy Updating
 To update the system with new code releases, you simply need to rerun the ``run.py`` script, like so:
 
     cd ~xcp/federated_node
-    sudo ./run.py
+    sudo python3 ./run.py
     
 As prompted, you should be able to choose just to update ("u"), instead of to rebuild. However, you would choose the rebuild
 option if there were updates to the ``federatednode_build`` system files (such as the
@@ -230,24 +230,24 @@ status of ``counterparty``/``counterblock``.
 Also, you can start up the daemons in the foreground, for easier debugging, using the following sets of commands:
 
     #bitcoind
-    sudo su -s /bin/bash -c 'bitcoind -datadir=/home/xcp/.bitcoin' xcpd
-    sudo su -s /bin/bash -c 'bitcoind -datadir=/home/xcp/.bitcoin -testnet -conf=bitcoin.testnet.conf' xcpd
+    sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.conf' xcpd
+    sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.testnet.conf' xcpd
 
     #counterparty-server & counterblock mainnet
     sudo su -s /bin/bash -c 'counterparty-server start' xcpd
     sudo su -s /bin/bash -c 'counterblock -v' xcpd
     
     #counterparty-server & counterblock testnet
-    sudo su -s /bin/bash -c 'counterparty-server --testnet --config-file=/home/xcp/.config/counterparty/server.testnet.conf start' xcpd
-    sudo su -s /bin/bash -c 'counterblock --testnet --config-file=/home/xcp/.config/counterblockd/server.testnet.conf -v' xcpd
+    sudo su -s /bin/bash -c 'counterparty-server --config-file /home/xcp/.config/counterparty/server.testnet.conf start' xcpd
+    sudo su -s /bin/bash -c 'counterblock --config-file /home/xcp/.config/counterblockd/server.testnet.conf -v' xcpd
 
-You can also run ``bitcoind`` commands directly, e.g.:
+You can also interface with Bitcoin Core by running ``bitcoin-cli`` commands, e.g.:
 
     #mainnet
-    sudo su - xcpd -s /bin/bash -c "bitcoind -datadir=/home/xcp/.bitcoin getinfo"
+    sudo su - xcpd -s /bin/bash -c "bitcoin-cli -conf=/home/xcp/.bitcoin/bitcoin.conf getinfo"
     
     #testnet
-    sudo su - xcpd -s /bin/bash -c "bitcoind -datadir=/home/xcp/.bitcoin -testnet -conf=bitcoin.testnet.conf getinfo"
+    sudo su - xcpd -s /bin/bash -c "bitcoin-cli -conf=/home/xcp/.bitcoin/bitcoin.testnet.conf getinfo"
 
 
 Monitoring the Server
