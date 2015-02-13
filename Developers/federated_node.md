@@ -101,7 +101,7 @@ Node Setup
 Once the server is provisioned and set up as above, you will need to install all of the necessary software and dependencies using the Bash shell. We have an
 installation script for this, that is fully automated **and installs ALL dependencies, including ``bitcoind``**
 
-    BRANCH=develop
+    BRANCH=master
     wget -q -O /tmp/fednode_run.py https://raw.github.com/CounterpartyXCP/federatednode_build/${BRANCH}/run.py
     sudo python3 /tmp/fednode_run.py
 
