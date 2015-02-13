@@ -172,7 +172,7 @@ Easy Updating
 To update the system with new code releases, you simply need to rerun the ``run.py`` script, like so:
 
     cd ~xcp/federated_node
-    sudo python3 ./run.py
+    sudo python3 run.py
     
 As prompted, you should be able to choose just to update ("u"), instead of to rebuild. However, you would choose the rebuild
 option if there were updates to the ``federatednode_build`` system files (such as the
