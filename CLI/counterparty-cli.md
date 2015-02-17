@@ -14,7 +14,7 @@
 
 **Linux and MacOS X**
 
-`$ sudo pip3 install counterparty-cli` (temporarily, with the argument `--pre`)
+`$ sudo pip3 install counterparty-cli`
 
 **Windows**
 

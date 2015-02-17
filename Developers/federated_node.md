@@ -28,15 +28,15 @@ for system administrators and developers.
 Federated Node Services
 -------------------------
 
-A federated node runs several services on the same system, which includes required [Counterparty platform components](platform_architecture.md) and the following optional services:
+A federated node runs several services on the same system, which includes **required [Counterparty platform components](platform_architecture.md)** and the following *optional* services:
 
-###armory_utxsvr (Optional)
+###armory_utxsvr
 
 This service is used by ``counterblock`` with Counterwallet, to allow for the creation of unsigned transaction
 ASCII text blocks, which may then be used with an [Offline Armory configuration](https://bitcoinarmory.com/about/using-our-wallet/).
 This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
 
-###nginx (Optional)
+###nginx
 
 ``nginx`` normally frontends communications on Counterwallet, Vending, etc nodes. Not used with `counterparty-server`-only nodes.
 
@@ -101,7 +101,7 @@ Node Setup
 Once the server is provisioned and set up as above, you will need to install all of the necessary software and dependencies using the Bash shell. We have an
 installation script for this, that is fully automated **and installs ALL dependencies, including ``bitcoind``**
 
-    BRANCH=develop
+    BRANCH=master
     wget -q -O /tmp/fednode_run.py https://raw.github.com/CounterpartyXCP/federatednode_build/${BRANCH}/run.py
     sudo python3 /tmp/fednode_run.py
 
@@ -145,11 +145,38 @@ sync using:
     sudo tail -f ~xcp/.cache/counterblock/server.log
     sudo tail -f ~xcp/.cache/counterblock/server.testnet.log
 
-Once it is fully synced up, you should be good to proceed. The next step is to simply open up a web browser, and
-go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and
-after doing that, should see the web interface for the role you selected (e.g. Counterwallet login screen, if Counterwallet
-was chosen at node setup time). From this point, you can proceed testing the necessary functionality on your own system(s).
+Once it is fully synced up, you should be good to proceed.
 
+###"Counterwallet server" role
+
+If you are setting up a Counterwallet server, you will next need to create a `counterwallet.conf.json` configuration file.
+Instructions for doing that are detailed in the *Counterwallet Configuration File* section later in this document. Once creating this file, open up a web browser, and go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and after doing that, should see the Counterwallet login screen.
+
+###"counterparty-server only" role
+
+If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly, using port `4000` (mainnet) or `14000` (testnet).
+
+* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, using user `rpc` with password `1234`.
+* If you chose not to expose the interface publically during setup, you can access the API from localhost only, using the user and password defined in the appropriate counterparty-server `server.conf` file.
+
+###"counterblock basic" role
+
+If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API, using port `4100` (mainnet) or `14100` (testnet).
+
+* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, with no user authentication required. Moreover, the `counterparty-server` APIs are exposed to all hosts on the ports noted above, using the user and password noted above (`rpc` and `1234`).
+* If you chose not to expose the interface publically during setup, you can access the API from localhost only, with no user authentication required. The `counterparty-server` ports and APIs are *not* exposed to any host except localhost.
+
+Easy Updating
+--------------------------
+
+To update the system with new code releases, you simply need to rerun the ``run.py`` script, like so:
+
+    cd ~xcp/federated_node
+    sudo python3 run.py
+    
+As prompted, you should be able to choose just to update ("u"), instead of to rebuild. However, you would choose the rebuild
+option if there were updates to the ``federatednode_build`` system files (such as the
+``nginx`` configuration, or the init scripts) or `run.py` script itself that you want/need to apply. Otherwise, update should be fine. 
 
 Getting a SSL Certificate
 --------------------------
@@ -203,24 +230,24 @@ status of ``counterparty``/``counterblock``.
 Also, you can start up the daemons in the foreground, for easier debugging, using the following sets of commands:
 
     #bitcoind
-    sudo su -s /bin/bash -c 'bitcoind -datadir=/home/xcp/.bitcoin' xcpd
-    sudo su -s /bin/bash -c 'bitcoind -datadir=/home/xcp/.bitcoin -testnet -conf=bitcoin.testnet.conf' xcpd
+    sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.conf' xcpd
+    sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.testnet.conf' xcpd
 
     #counterparty-server & counterblock mainnet
     sudo su -s /bin/bash -c 'counterparty-server start' xcpd
     sudo su -s /bin/bash -c 'counterblock -v' xcpd
     
-    #counterparty & counterblock testnet
-    sudo su -s /bin/bash -c 'counterparty-server --testnet --config-file=/home/xcp/.config/counterparty/server.testnet.conf start' xcpd
-    sudo su -s /bin/bash -c 'counterblock --testnet --config-file=/home/xcp/.config/counterblockd/server.testnet.conf -v' xcpd
+    #counterparty-server & counterblock testnet
+    sudo su -s /bin/bash -c 'counterparty-server --config-file /home/xcp/.config/counterparty/server.testnet.conf start' xcpd
+    sudo su -s /bin/bash -c 'counterblock --config-file /home/xcp/.config/counterblockd/server.testnet.conf -v' xcpd
 
-You can also run ``bitcoind`` commands directly, e.g.:
+You can also interface with Bitcoin Core by running ``bitcoin-cli`` commands, e.g.:
 
     #mainnet
-    sudo su - xcpd -s /bin/bash -c "bitcoind -datadir=/home/xcp/.bitcoin getinfo"
+    sudo su - xcpd -s /bin/bash -c "bitcoin-cli -conf=/home/xcp/.bitcoin/bitcoin.conf getinfo"
     
     #testnet
-    sudo su - xcpd -s /bin/bash -c "bitcoind -datadir=/home/xcp/.bitcoin -testnet -conf=bitcoin.testnet.conf getinfo"
+    sudo su - xcpd -s /bin/bash -c "bitcoin-cli -conf=/home/xcp/.bitcoin/bitcoin.testnet.conf getinfo"
 
 
 Monitoring the Server
@@ -250,41 +277,10 @@ If ``counterblock`` is not working properly, ``nginx`` will return a HTTP 503 (G
 If ``nginx`` is not working properly, either a HTTP 5xx response, or no response at all (i.e. timeout) will be returned.
 
 
-Other Topics
---------------
-
-###User Configuration
-
-Note that when you set up a federated node, the script creates two new users on the system: ``xcp`` and ``xcpd``. (The
-``xcp`` user also has an ``xcp`` group created for it as well.) 
-
-**Important**: The setup script by default creates user home under the ``/home``. If you wish to store the ``xcp`` user's data on another volume, mount it to ``/home/xcp`` (rather than, for example, ``/xcp``).
-
-The script installs ``counterparty-server``, ``counterwallet``, etc into the home directory of the ``xcp`` user. This
-user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``counterparty-server``, ``counterblock``, and ``nginx``) are actually run as the ``xcpd`` user, which has no write access to the files such as the ``counterwallet`` and ``counterparty-server`` source code files. The reason things are set up like this is so that even if there is a horrible bug in one of the products that allows for a RCE (or Remote Control Exploit), where the attacker would essentially be able to gain the ability to execute commands on the system as that user, two things should prevent this:
-
-* The ``xcpd`` user doesn't actually have write access to any sensitive files on the server (beyond the log and database
-  files for ``bitcoind``, ``counterparty-server``, etc.)
-* The ``xcpd`` user uses ``/bin/false`` as its shell, which prevents the attacker from gaining shell-level access
-
-This setup is such to minimize (and hopefully eliminate) the impact from any kind of potential system-level exploit.
-
-###Easy Updating
-
-To update the system with new code releases, you simply need to rerun the ``run.py`` script, like so:
-
-    cd ~xcp/federated_node
-    sudo ./run.py
-    
-As prompted, you should be able to choose just to update ("U"), instead of to rebuild. However, you would choose the rebuild
-option if there were updates to the ``federatednode_build`` system files for the federated node itself (such as the
-``nginx`` configuration, or the init scripts) that you wanted/needed to apply. Otherwise, update should be fine. 
-
-
 Counterwallet-Specific
 -----------------------
 
-###Counterwallet Configuration File
+###Creating a configuration file
 
 Counterwallet can be configured via creating a small file called ``counterwallet.conf.json`` in the ``counterwallet/`` directory.
 This file will contain a valid JSON-formatted object, containing an a number of possible configuration properties. For example::
@@ -344,16 +340,44 @@ command line for every node in the cluster::
     mongo counterblockd_testnet
     db.chat_handles.update({handle: "testuser1"}, {$set: {op: true}})
 
-###Counterwallet MultiAPI specifics
+###Enabling multi-lingual support
 
-**Note:**
+By default, Counterwallet builds with only (US) English support enabled. To enable support for other languages and I18N features, you must build the Transifex translations. This process is manual as Transifex unfortunately requires a username and password to do this, instead of an API key or some other method of access. Here's the process:
 
-    By default, Counterblock Federated Nodes can also host Counterwallet content (this will change in the future).
-    Regarding this, the Counterparty team itself operates the primary Counterwallet platform. However, as Counterwallet is open     source software, it is possible to host your own site with Counterwallet site (for your personal use, or as an offering to
-    others), or to even host your own Counterwallet servers to use with your own Counterparty wallet implementation.
-    The Counterparty team supports this kind of activity (as long as the servers are secure), as it aids with increasing           decentralization.
+1. Make sure the federated node build process completed successfully, and that you chose "Counterwallet server" for the role.
+2. Sign up for an account on http://www.transifex.com
+3. Create a file at `/home/xcp/.transifex` with your account username and password the format of `user:password` (i.e. all on one line)
+4. Run the command: `sudo su -s /bin/bash -c 'cd ~xcp/counterwallet && grunt transifex --force' xcp`
+
+The translations should then be built, and multilingual support will be enabled on the site.
+
+
+Other Topics
+--------------
+
+###System user configuration
+
+Note that when you set up a federated node, the script creates two new users on the system: ``xcp`` and ``xcpd``. (The
+``xcp`` user also has an ``xcp`` group created for it as well.) 
+
+**Important**: The setup script by default creates user home under the ``/home``. If you wish to store the ``xcp`` user's data on another volume, mount it to ``/home/xcp`` (rather than, for example, ``/xcp``).
+
+The script installs ``counterparty-server``, ``counterwallet``, etc into the home directory of the ``xcp`` user. This
+user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``counterparty-server``, ``counterblock``, and ``nginx``) are actually run as the ``xcpd`` user, which has no write access to the files such as the ``counterwallet`` and ``counterparty-server`` source code files. The reason things are set up like this is so that even if there is a horrible bug in one of the products that allows for a RCE (or Remote Control Exploit), where the attacker would essentially be able to gain the ability to execute commands on the system as that user, two things should prevent this:
+
+* The ``xcpd`` user doesn't actually have write access to any sensitive files on the server (beyond the log and database
+  files for ``bitcoind``, ``counterparty-server``, etc.)
+* The ``xcpd`` user uses ``/bin/false`` as its shell, which prevents the attacker from gaining shell-level access
+
+This setup is such to minimize (and hopefully eliminate) the impact from any kind of potential system-level exploit.
+
+###More on multiple Counterwallet servers
+
+For the time being, the Counterparty team itself operates the primary Counterwallet platform at `counterwallet.io`. However, as Counterwallet is open source software, it is possible to host your own site with Counterwallet site (for your personal use, or as an offering to others), or to even host your own Counterwallet servers to use with your own Counterparty wallet implementation. The Counterparty team supports and encourages this kind of activity (as long as the servers are secure), as it aids with increasing decentralization.
         
-    Also note that due to the nature of Counterwallet being a deterministic wallet, users using one Counterwallet platform         (i.e. the official one, for instance) have the flexibility to start using a different Counterwallet platform instead at any     time, and as funds (i.e. private keys) are not stored on the server in any fashion, they will be able to see their funds on     either. (Note that the only thing that will not migrate are saved preferences, such as address aliases, the theme setting,     etc.)
+Also note that due to the nature of Counterwallet being a deterministic wallet, users using one Counterwallet platform (i.e. the official one, for instance) have the flexibility to start using a different Counterwallet platform instead at any time, and as funds (i.e. private keys) are not stored on the server in any fashion, they will be able to see their funds on either. (Note that the only thing that will not migrate are saved preferences, such as address aliases, the theme setting, etc.)
+
+###Counterwallet MultiAPI specifics
 
 Counterwallet utilizes a sort of a "poor man's load balancing/failover" implementation called multiAPI (and implemented
 [here](https://github.com/CounterpartyXCP/counterwallet/blob/master/src/js/util.api.js)). multiAPI can operate in a number of fashions.
