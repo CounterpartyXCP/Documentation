@@ -17,15 +17,17 @@ For example:
 
 Choose the address which owns the token you want to make a distribution payment on. 
 
-Click address actions, and "Pay Distribution".
+**Click address actions, and "Pay Distribution".**
 
 ![](/_images/distribution1.png)
 
-**Write the name of your token.**
+**Write the name of your token in the first field. You can only distribute funds to a token you have issued or have been transferred ownership of.**
 
 ![](/_images/distribution2.png)
 
 **Specify the token to be distributed.**
 
 ![](/_images/distribution3.png)
+
+**Specify the amount of the token to be distributed per unit ("_share_") and the costs will be displayed.**
 ![](/_images/distribution4.png)
