@@ -1,7 +1,7 @@
 How to Proportionally Distribute Funds to Token Holders
 ---------------------------
 
-Counterparty natively supports payment distributions. This feature lets you distribute XCP, BTC or any other token to the holders of your own token. You can specify an amount per unit, and everyone who holds units of your own token will receive a proportional amount of the secondary token being distributed. Depending on the way it is used, this can also be referred to as 'dividend payments'. This feature has many clever uses, such as [transparent voting](voting_with_tokens.md)
+Counterparty natively supports payment distributions. This feature lets you distribute XCP, BTC or any other token to the holders of your own token. You can specify an amount per unit, and everyone who holds units of your own token will receive a proportional amount of the secondary token being distributed. Depending on the way it is used, this can also be referred to as 'dividend payments'. This feature has many clever uses, such as [transparent voting](voting_with_tokens.md).
 
 **For example:**
 
