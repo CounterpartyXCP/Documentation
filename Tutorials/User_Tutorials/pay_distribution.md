@@ -1,7 +1,7 @@
-Making a distribution/dividend payment
+How to Proportionally Distribute Funds to Token Holders
 ---------------------------
 
-When you have created or acquired ownership of a token, you will be able to make distribution payments. This feature can send any asset (even XCP and BTC) to the holders of your token. You can specify an amount per unit, and everyone who has units of your token will receive a proportional amount to their holdings. 
+Counterparty natively supports payment distributions. This feature lets you distribute XCP, BTC or any other token to the holders of your own token. You can specify an amount per unit, and everyone who holds units of your own token will receive a proportional amount of the secondary token being distributed. Depending on the way it is used, this can also be referred to as 'dividend payments'. 
 
 For example:
 
@@ -13,4 +13,19 @@ For example:
 6. User A will receive 0.025 BTC
 7. User B will receive 0.025 BTC
 
+### How to make a Distribution Payment in Counterwallet
 
+Choose the address which owns the token you want to make a distribution payment on. 
+
+Click address actions, and "Pay Distribution".
+
+![](/_images/distribution1.png)
+
+**Write the name of your token.**
+
+![](/_images/distribution2.png)
+
+**Specify the token to be distributed.**
+
+![](/_images/distribution3.png)
+![](/_images/distribution4.png)
