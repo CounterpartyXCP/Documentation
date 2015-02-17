@@ -1,7 +1,7 @@
 Making a distribution/dividend payment
 ---------------------------
 
-When you have created or acquired ownership of a token, you will be able to make distribution payments. This feature can send XCP, BTC, or other tokens to the holders of your token. You can specify an amount per unit, and everyone who has units of your token will receive a proportional amount to their holdings. 
+When you have created or acquired ownership of a token, you will be able to make distribution payments. This feature can send any asset (even XCP and BTC) to the holders of your token. You can specify an amount per unit, and everyone who has units of your token will receive a proportional amount to their holdings. 
 
 For example:
 
