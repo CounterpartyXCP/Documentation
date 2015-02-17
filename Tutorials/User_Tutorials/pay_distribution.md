@@ -21,7 +21,7 @@ Choose the address which owns the token you want to make a distribution payment 
 
 ![](/_images/distribution1.png)
 
-**Write the name of your token in the first field. You can only distribute funds to a token you have issued or have been transferred ownership of.**
+**Write the name of your token in the first field. You can only distribute funds to a token you have issued or control.**
 
 ![](/_images/distribution2.png)
 
@@ -29,5 +29,5 @@ Choose the address which owns the token you want to make a distribution payment 
 
 ![](/_images/distribution3.png)
 
-**Specify the amount of the token to be distributed per unit ("_share_") and the costs will be displayed.**
+**Specify the amount of the token to be distributed per unit ("_share_") and the costs will be displayed. Click "Pay Distribution" and after a while it will be confirmed by the Bitcoin network.**
 ![](/_images/distribution4.png)
