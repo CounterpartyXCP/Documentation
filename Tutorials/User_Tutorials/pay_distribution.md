@@ -3,7 +3,7 @@ How to Proportionally Distribute Funds to Token Holders
 
 Counterparty natively supports payment distributions. This feature lets you distribute XCP, BTC or any other token to the holders of your own token. You can specify an amount per unit, and everyone who holds units of your own token will receive a proportional amount of the secondary token being distributed. Depending on the way it is used, this can also be referred to as 'dividend payments'. 
 
-For example:
+**For example:**
 
 1. You create a token TRADEME with 100 total units.
 2. You sell 25 TRADEME to user A.
