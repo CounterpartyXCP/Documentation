@@ -239,7 +239,7 @@ Also, you can start up the daemons in the foreground, for easier debugging, usin
     
     #counterparty-server & counterblock testnet
     sudo su -s /bin/bash -c 'counterparty-server --config-file /home/xcp/.config/counterparty/server.testnet.conf start' xcpd
-    sudo su -s /bin/bash -c 'counterblock --config-file /home/xcp/.config/counterblockd/server.testnet.conf -v' xcpd
+    sudo su -s /bin/bash -c 'counterblock --config-file /home/xcp/.config/counterblock/server.testnet.conf -v' xcpd
 
 You can also interface with Bitcoin Core by running ``bitcoin-cli`` commands, e.g.:
 
