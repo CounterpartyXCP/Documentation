@@ -178,6 +178,17 @@ As prompted, you should be able to choose just to update ("u"), instead of to re
 option if there were updates to the ``federatednode_build`` system files (such as the
 ``nginx`` configuration, or the init scripts) or `run.py` script itself that you want/need to apply. Otherwise, update should be fine. 
 
+Other Operations
+--------------------------
+
+###Stop all configured services
+
+``sudo ~xcp/federatednode_build/run.py --op=stop``
+
+###Restart all configured services
+
+``sudo ~xcp/federatednode_build/run.py --op=restart``
+
 Getting a SSL Certificate
 --------------------------
 
