@@ -29,10 +29,10 @@ Examples
 
 Here's an example for an token called <b>MYTOKEN</b>:
 
-      { “asset”: “MYTOKEN”, “description”: “This is a description of
-      MYTOKEN”, “image”: “<http://www.mysite.com/mytoken.png>”, “website”:
-      “<http://www.mysite.com>”, “pgpsig”:
-      “<http://www.mysite.com/MYTOKEN.pgp>” }
+      { "asset": "MYTOKEN", "description": "This is a description of
+      MYTOKEN", "image": "<http://www.mysite.com/mytoken.png>", "website":
+      "<http://www.mysite.com>", "pgpsig":
+      "<http://www.mysite.com/MYTOKEN.pgp>" }
 
 Other Topics
 ------------
@@ -52,5 +52,5 @@ To check your data against this schema, go [here][]. Paste the schema
 from the link above into the **Schema** field, and place your example
 output into the **Data** field. Then click the **Validate** button
 
-  [this]: https://raw.githubusercontent.com/CounterpartyXCP/counterblockd/master/schemas/asset.schema.json
+  [this]: https://raw.githubusercontent.com/CounterpartyXCP/counterblock/master/counterblock/schemas/asset.schema.json
   [here]: http://json-schema-validator.herokuapp.com/
