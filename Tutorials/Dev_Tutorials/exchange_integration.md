@@ -5,7 +5,7 @@ As Counterparty is not a fork of Bitcoin Core, adding Counterparty support to yo
 
 ## Basic Setup
 
-- Install and configure [counterparty-cli](/../../CLI/counterparty-cli.md) normally (including a patched Bitcoin Core).
+- Install and configure [counterparty-cli](/counterparty-cli.md) normally (including a patched Bitcoin Core).
 
 - Bootstrap and start the server:
 
