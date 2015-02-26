@@ -21,7 +21,7 @@ HTTP Basic Authentication to connect. It uses JSON RPC 2.0.
 
 Additionally, ``counterparty-lib`` provides a complementary RESTful API also based off of that
 of Bitcoin Core. This REST API is still under development and will include more functionality
-in the future. The REST API listens on the same server as JSON RPC one.
+in the future. The REST API listens on the same port as JSON RPC one.
 
 
 ##Getting Started
@@ -37,8 +37,9 @@ The requests to the secondary REST API are made via HTTP GET to ``/rest/``, with
 
 ###General Format
 
-All requests must have POST data that is JSON encoded. Here's an example of the POST data for a valid API request:
+####JSON-RPC
 
+All requests must have POST data that is JSON encoded. Here's an example of the POST data for a valid API request:
 
     {
       "method": "get_sends",
@@ -58,26 +59,25 @@ You should note that the data in ``params`` is a JSON object (e.g. mapping), not
 
 For more information on JSON RPC, please see the [JSON RPC 2.0 specification](http://www.jsonrpc.org/specification).
 
-For REST API all requests are made via GET where query-specific arguments are encoded as URL parameters. There are only two methods supported:
+####REST
+
+For REST API all requests are made via GET where query-specific arguments are encoded as URL parameters. There are two methods supported:
 ``get`` and ``compose``. The URL formats are as follows respectively:
 `/rest/<table_name>/get?<filters>&op=<operator>`
 `/rest/<message_type>/compose?<transaction arguments>`
 
 ###Authentication
 
-The API interface requires HTTP basic authentication to use. The configuration
-of the server depends on the method used to start it. The authentication is turned off by default.
-
-**The default user is ``'rpc'``.**
-**The password must be set manually before the server will start.**
-
-
-(Submissions for additional languages are welcome!) 
+The API support HTTP basic authentication to use, which is enabled if and only
+if a password is set. **The default user is ``'rpc'``.**
 
 
 ##Example Implementations for JSON RPC API
 
-The following examples have the `user` set to its default value of `'rpc'`.
+(Submissions for additional languages are welcome!) 
+
+The following examples have authentication enabled and the `user` set to its
+default value of `'rpc'`.
 
 ###Python
 
@@ -132,7 +132,7 @@ The following examples don't use authentication as with default settings.
 
 ###Python
 
-    import requestsfq
+    import requests
     
     url = "http://localhost:4000/rest/"
     headers = {'content-type': 'application/json'}
