@@ -19,14 +19,20 @@ The API server is started either through the [`CLI interface`](counterparty-cli.
 The API listens on port 4000 by default (14000 for ``testnet``) and requires
 HTTP Basic Authentication to connect. It uses JSON RPC 2.0.
 
+Additionally, ``counterparty-lib`` provides a complementary RESTful API also based off of that
+of Bitcoin Core. This REST API is still under development and will include more functionality
+in the future. The REST API listens on the same server as JSON RPC one.
+
 
 ##Getting Started
 
 By default, the server will listen on port ``4000`` (if on mainnet) or port ``14000`` (on testnet) for API
 requests. 
 
-Note that this API is built on JSON-RPC 2.0, not 1.1. JSON-RPC itself is pretty lightweight, and API requests
+Note that the main API is built on JSON-RPC 2.0, not 1.1. JSON-RPC itself is pretty lightweight, and API requests
 are made via a HTTP POST request to ``/api/`` (note the trailing slash), with JSON-encoded data passed as the POST body.
+
+The requests to the secondary REST API are made via HTTP GET to ``/rest/``, with request action and parameters encoded in the URL.
 
 
 ###General Format
@@ -48,15 +54,19 @@ The ``jsonrpc`` and ``id`` properties are requirements under the JSON-RPC 2.0 sp
 
 You should note that the data in ``params`` is a JSON object (e.g. mapping), not an array. In other words, 
 **the API only supports named arguments, not positional arguments** (e.g. use
-{"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"]). This is the case for safety and bug-minimzation reasons.
+{"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"]). This is the case for safety and bug-minimization reasons.
 
 For more information on JSON RPC, please see the [JSON RPC 2.0 specification](http://www.jsonrpc.org/specification).
 
+For REST API all requests are made via GET where query-specific arguments are encoded as URL parameters. There are only two methods supported:
+``get`` and ``compose``. The URL formats are as follows respectively:
+`/rest/<table_name>/get?<filters>&op=<operator>`
+`/rest/<message_type>/compose?<transaction arguments>`
 
 ###Authentication
 
 The API interface requires HTTP basic authentication to use. The configuration
-of the server depends on the method used to start it.
+of the server depends on the method used to start it. The authentication is turned off by default.
 
 **The default user is ``'rpc'``.**
 **The password must be set manually before the server will start.**
@@ -65,7 +75,7 @@ of the server depends on the method used to start it.
 (Submissions for additional languages are welcome!) 
 
 
-##Example Implementations
+##Example Implementations for JSON RPC API
 
 The following examples have the `user` set to its default value of `'rpc'`.
 
@@ -112,10 +122,30 @@ library.
 
 ###curl
 
-    curl http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
+    curl -X POST http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
 
 **NOTE:** On Windows, the command may need to be formatted differently due to problems that Windows has with escapes.
 
+##Example Implementations for REST API
+
+The following examples don't use authentication as with default settings.
+
+###Python
+
+    import requestsfq
+    
+    url = "http://localhost:4000/rest/"
+    headers = {'content-type': 'application/json'}
+
+    query = 'sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND'
+    
+    response = requests.get(url + query, headers=headers)
+    print("Response: ", response.text)
+
+
+###curl
+
+    curl http://127.0.0.1:4000/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' 
 
 ##Example Parameters
 
@@ -415,6 +445,7 @@ There will be no incompatible API pushes that do not either have:
 
 ###9.49.4
 * The `do_*`, `sign_tx` and `broadcast_tx` methods have been completely deprecated. See the section [Wallet Integration](#Wallet-Integration).
+* Added REST API.
 
 
 
@@ -901,6 +932,68 @@ Resolve a Rock-Paper-Scissors game.
 **Return:** 
 
   The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
+
+##REST API Function Reference
+
+
+###get
+
+**get(table_name, filters, filterop)**
+
+Query table_name in the database using filters concatenated using filterop.
+
+URL format: 
+
+`/rest/<table_name>/get?<table_filters>&op=<filter_op>`
+
+Example query: 
+
+`/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND`
+
+**Parameters:**
+  * **table_name (string, required):** The name of the desired table. List of all available tables:
+              `assets`, `balances`, `credits`, `debits`, `bets`, `bet_matches`,
+              `broadcasts`, `btcpays`, `burns`, `cancels`, `dividends`, `issuances`,
+              `orders`, `order_matches`, `sends`, `bet_expirations`, `order_expirations`,
+              `bet_match_expirations`, `order_match_expirations`, `bet_match_resolutions`, `rps`,
+              `rpsresolves`, `rps_matches`, `rps_expirations`, `rps_match_expirations`, `mempool`
+  * **filters (dict, optional):** Data filters as a dictionary. The filter format is same as for get_{} JSON API queries. See [Filtering Read API Results](#filtering-read-api-results) for more information on filters and [Object Definitions](#objects) for fields available for specific objects.
+  * **filterop (string, optional):** The logical operator concatenating the filters. Defaults to `AND`.
+
+**Headers:**
+  * **Accept (string, optional):** The format of return data. Can be either `application/json` or `application/xml`. Defaults to JSON.
+
+**Return:** 
+
+  Desired database rows from table_name sieved using filters.
+
+
+###compose
+
+**compose(message_type, transaction_params)**
+
+Compose message_type transaction with transaction_params as data.
+
+URL format: 
+
+`/rest/<tx_type>/compose?<tx_data>`
+
+Example query: 
+
+`/rest/send/compose?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&asset=BTC&quantity=1`
+
+**Parameters:**
+  * **message_type (string, required):** The type of desired transaction message. List of all available transactions:
+                `bet`, `broadcast`, `btcpay`, `burn`, `cancel`, `dividend`, `issuance`,
+                `order`, `send`, `rps`, `rpsresolve`, `publish`, `execute`
+  * **transaction_params (dict, required):** The parameters to be passed to the compose_transaction function. See [Write API Function Reference](#actionwrite-api-function-reference) for list of transactions and their parameters.
+
+**Headers:**
+  * **Accept (string, optional):** The format of return data. Can be either `application/json` or `application/xml`. Defaults to JSON.
+
+**Return:** 
+
+  The hex data of composed transaction.
 
 
 ##Objects
