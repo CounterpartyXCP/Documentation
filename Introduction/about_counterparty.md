@@ -24,6 +24,10 @@ Along with the Counterparty protocol, the platform consists of the native XCP to
 How can I learn more?
 =====================
 
+**For example, you could start by reading our [Frequently Asked Questions](FAQ.md) or taking a look at our [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md).**
+
+**Here are some other ways to get involved:**
+
 ***Social Media***
 
 -   Follow us on [Twitter][], [Facebook][], [Google+][] and
