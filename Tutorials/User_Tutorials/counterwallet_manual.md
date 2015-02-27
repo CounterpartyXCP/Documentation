@@ -1,9 +1,5 @@
 #User Tutorials
 
-This page displays links to individual user tutorials.
-
-**Tutorials:**
-
 - [Get started with Counterwallet](getting_started_cw.md)
 - [Create a Counterwallet address](create_addresses.md)
 - [Trade on the decentralized exchange](trade.md)
