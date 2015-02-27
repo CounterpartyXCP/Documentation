@@ -20,7 +20,7 @@ It may be a good idea to create burn addresses for this purpose (addresses where
 
 ### Monitoring votes
 
-If you want to get info about your votes, or other polls, you can use the voting page on the [Blockscan](http://blockscan.com/votes) Bitcoin & Counterparty block explorer. 
+If you want to get info about your votes, or other polls, you can use the voting page on the block explorer [Blockscan](http://blockscan.com/votes). 
 
 For [example](http://blockscan.com/vote/FLDCVOTEI):
 
