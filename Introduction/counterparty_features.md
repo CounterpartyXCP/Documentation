@@ -4,21 +4,17 @@ Features
 Assets
 ------
 
-Counterparty allows users to *create*, *send*, *trade*, *pay dividends
-on* and *callback* assets, all in a decentralized and trustless fashion.
-Many of the actions described below can be accomplished in the official
-Counterparty Web-based wallet Counterwallet. End users and those without
-access to a working `counterparty-cli` setup can examine Counterwallet
-first.
+Counterparty allows users to *create*, *send*, *trade*, and *pay dividends
+on*, all in a decentralized and trustless fashion.
+Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without access to a working `counterparty-cli` setup can benefit from the convenience of Counterwallet.
 
-Counterparty-issued assets (tokens) can have basic or enhanced
-([Enhanced Asset Info](/enhanced_asset_info.md) for details)
-information.
+Counterparty-issued assets (tokens) can have plain-text or
+[Enhanced Asset Information](/Counterwallet/enhanced_asset_info.md).
 
 ### Creating assets
 
 Counterparty allows users to *issue assets*. An asset that is created
-within the Counterparty protocol is called a *user-created asset*.
+within the Counterparty protocol is called a *user-created token*.
 User-created assets are just as real as XCP or even BTC. With the asset
 issuance function, every user has the ability to contribute something
 new to Counterparty’s financial ecosystem. 
@@ -57,9 +53,9 @@ specified at the initial issuance.
 Making trades on the decentralized exchange
 ===========================================
 
-Counterparty allows for *peer-to-peer asset exchange*: users can trade
+Counterparty supports *peer-to-peer asset exchange*: users can trade
 assets with no middleman and no counterparty risk. The platform upon
-which trading is done is Counterparty’s *decentralized exchange*. In
+which trading is done is Counterparty’s *decentralized exchange* and the Bitcoin blockchain. In
 what follows trading on the decentralized exchange will be detailed and
 explained by means of examples. For the purposes of the following
 use-cases:
@@ -172,6 +168,8 @@ holds the asset in proportion to how many units he holds; specifically:
 specifically, let [total] equal the total dividends paid out, and
 [quantity] be the total amount of asset, then:
 `quantity-per-unit = [total]/[quantity]`
+
+Dividends can be paid out to any assets that you ownership and control over. You can freely select The currency in which dividends are to be paid out: BTC, XCP, or any other user-created asset.
 
 Use-cases
 =========
