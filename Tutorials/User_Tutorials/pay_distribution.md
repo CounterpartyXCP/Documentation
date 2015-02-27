@@ -31,3 +31,5 @@ Choose the address which owns the token you want to make a distribution payment 
 
 **Specify the amount of the token to be distributed per unit ("_share_") and the costs will be displayed. Click "Pay Distribution" and after a while it will be confirmed by the Bitcoin network.**
 ![](/_images/distribution4.png)
+
+**Note:** If you are paying out BTC dividends, this process is a regular Bitcoin transaction. This means it will not be possible to distinguish it as a Counterparty type transaction. We recommend that if you plan to pay out BTC dividends, do not use that particular address for anything else. And only use one address per asset. This will make it much easier to keep track of past BTC dividends for yourself, as well as your users. Otherwise it may be difficult to retain an overview over your payments. 
