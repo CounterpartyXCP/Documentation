@@ -1,7 +1,7 @@
 Verifiable Voting with Tokens
 ---------------------------
 
-Counterparty supports voting through user-created tokens, as well as broadcasting information onto the Bitcoin blockchain. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens. 
+Peer-to-peer power to the people! Counterparty supports voting through user-created tokens, as well as broadcasting information onto the Bitcoin blockchain. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens. 
 
 If you create an token (‘EXAMPLE’), you can create any other tokens (such as EXAMPLEVOTE) and [pay distributions](distribution.md) of EXAMPLEVOTE to all holders of EXAMPLE in one single action.
 
@@ -16,4 +16,10 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 * You create a address for each option of the vote.
 * You create a broadcast from the issuance address, describing the vote, the choices, and the addresses which represent the choices.
 
-It may be a good idea to create burn addresses for this purpose (addresses where the private key is not known). This way, the votes cannot be recycled or moved.
+It may be a good idea to create burn addresses for this purpose (addresses where the private key is not known). This way, the votes cannot be recycled or moved. This can be done with a [simple python script](https://gist.github.com/CoinWhisperer/6d673f1f3d13da1611cd)
+
+### Monitoring votes
+
+If you want to get info about your votes, or other polls, you can use the voting page on the [Blockscan](http://blockscan.com/votes) Bitcoin & Counterparty block explorer.
+
+![](/_images/voting_with_tokens1.png)
