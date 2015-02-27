@@ -2,10 +2,9 @@
 
 This page displays links to individual user tutorials.
 
-- [Getting started with Counterwallet](getting_started_cw.md)
-
 **Tutorials:**
 
+- [Get started with Counterwallet](getting_started_cw.md)
 - [Create a Counterwallet address](create_addresses.md)
 - [Trade on the decentralized exchange](trade.md)
 - [Create an Armory address](create_armory_address.md)
