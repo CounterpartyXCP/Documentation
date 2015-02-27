@@ -1,6 +1,8 @@
 Frequently Asked Questions
 ========
 
+[TOC]
+
 ### Is XCP an alt-coin or competitor to Bitcoin?
 
 No. XCP cannot exist without Bitcoin, as Counterparty extends the basic features of Bitcoin with proof-of-publication, oracle betting, decentralized exchange, automatic escrow, order matching, and smart contracts. 
@@ -31,7 +33,7 @@ Counterparty is optimal for mainly higher value transactions and greatly benefit
 
 ### Can I secure my XCP and tokens in cold storage?
 
-Yes
+Yes. You can make a regular Bitcoin paper wallet and store them there. Later, you can sweep the funds into Counterwallet.
 
 ### How does the Counterparty protocol achieve consensus? 
 
