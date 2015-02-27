@@ -11,7 +11,7 @@ Counterparty lets you publish text and data on the Bitcoin blockchain, called a 
 
 ![](/_images/broadcast2.png)
 
-**Enter the text or data you want to publish. The fields for fee and value are only used when creating a betting feed, you can leave the default values if you only wish to publish information.**
+**Enter the text or data you want to publish on the BTC blockchain. Note: The fields for fee and value are only used when creating a betting feed, you can leave the default values if you only wish to publish information.**
 
 ![](/_images/broadcast3.png)
 
