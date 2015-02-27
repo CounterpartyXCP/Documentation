@@ -1,7 +1,7 @@
 Verifiable Voting with Tokens
 ---------------------------
 
-Peer-to-peer power to the people! Counterparty supports voting through user-created tokens, as well as broadcasting information onto the Bitcoin blockchain. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens. 
+Counterparty supports voting through user-created tokens, as well as broadcasting information onto the Bitcoin blockchain. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens. 
 
 If you create an token (‘EXAMPLE’), you can create any other tokens (such as EXAMPLEVOTE) and [pay distributions](distribution.md) of EXAMPLEVOTE to all holders of EXAMPLE in one single action.
 
