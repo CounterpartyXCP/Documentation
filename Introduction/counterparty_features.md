@@ -229,3 +229,11 @@ his risk and his reputation. On the buyer’s side, the risk is obvious:
 BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
+Verifiable Voting
+============
+
+Counterparty supports voting through the use of user-created tokens. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens.
+
+If you create a token (‘EXAMPLE’), you can create any other tokens (such as EXAMPLEVOTE) and pay distributions of EXAMPLEVOTE to all holders of EXAMPLE in one single action. Create a distribution payment and choose EXAMPLEVOTE as the currency to distribute. This way, all holders of EXAMPLE will receive EXAMPLEVOTE in the amount you specify.
+
+Now all you need are as many different Bitcoin addresses as there are choices in your poll. For example: one Bitcoin address for yes, one for no. To cast their votes, holders of EXAMPLE can then send the EXAMPLEVOTE they have received to whichever address they agree with. The results of the poll will then be public and verifiable on the Bitcoin blockchain.
