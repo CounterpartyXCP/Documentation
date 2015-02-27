@@ -4,21 +4,17 @@ Features
 Assets
 ------
 
-Counterparty allows users to *create*, *send*, *trade*, *pay dividends
-on* and *callback* assets, all in a decentralized and trustless fashion.
-Many of the actions described below can be accomplished in the official
-Counterparty Web-based wallet Counterwallet. End users and those without
-access to a working `counterparty-cli` setup can examine Counterwallet
-first.
+Counterparty allows users to *create*, *send*, *trade*, and *pay dividends
+on*, all in a decentralized and trustless fashion.
+Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without access to a working `counterparty-cli` setup can benefit from the convenience of Counterwallet.
 
-Counterparty-issued assets (tokens) can have basic or enhanced
-([Enhanced Asset Info](/enhanced_asset_info.md) for details)
-information.
+Counterparty-issued assets (tokens) can have plain-text or
+[Enhanced Asset Information](/Counterwallet/enhanced_asset_info.md).
 
 ### Creating assets
 
 Counterparty allows users to *issue assets*. An asset that is created
-within the Counterparty protocol is called a *user-created asset*.
+within the Counterparty protocol is called a *user-created token*.
 User-created assets are just as real as XCP or even BTC. With the asset
 issuance function, every user has the ability to contribute something
 new to Counterparty’s financial ecosystem. 
@@ -57,9 +53,9 @@ specified at the initial issuance.
 Making trades on the decentralized exchange
 ===========================================
 
-Counterparty allows for *peer-to-peer asset exchange*: users can trade
+Counterparty supports *peer-to-peer asset exchange*: users can trade
 assets with no middleman and no counterparty risk. The platform upon
-which trading is done is Counterparty’s *decentralized exchange*. In
+which trading is done is Counterparty’s *decentralized exchange* and the Bitcoin blockchain. In
 what follows trading on the decentralized exchange will be detailed and
 explained by means of examples. For the purposes of the following
 use-cases:
@@ -173,6 +169,8 @@ specifically, let [total] equal the total dividends paid out, and
 [quantity] be the total amount of asset, then:
 `quantity-per-unit = [total]/[quantity]`
 
+Dividends can be paid out to any assets that you ownership and control over. You can freely select The currency in which dividends are to be paid out: BTC, XCP, or any other user-created asset.
+
 Use-cases
 =========
 
@@ -231,3 +229,11 @@ his risk and his reputation. On the buyer’s side, the risk is obvious:
 BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
+Verifiable Voting
+============
+
+Counterparty supports voting through the use of user-created tokens. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens.
+
+If you create a token (‘EXAMPLE’), you can create any other tokens (such as EXAMPLEVOTE) and pay distributions of EXAMPLEVOTE to all holders of EXAMPLE in one single action. Create a distribution payment and choose EXAMPLEVOTE as the currency to distribute. This way, all holders of EXAMPLE will receive EXAMPLEVOTE in the amount you specify.
+
+Now all you need are as many different Bitcoin addresses as there are choices in your poll. For example: one Bitcoin address for yes, one for no. To cast their votes, holders of EXAMPLE can then send the EXAMPLEVOTE they have received to whichever address they agree with. The results of the poll will then be public and verifiable on the Bitcoin blockchain.
