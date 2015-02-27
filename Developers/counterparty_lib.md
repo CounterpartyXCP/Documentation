@@ -15,7 +15,7 @@
 
 ## Installation
 
-`$ sudo pip3 install counterparty-lib`
+`$ pip3 install counterparty-lib`
 
 or
 
@@ -28,7 +28,7 @@ $ python3 setup.py install`
 
 ## Upgrades
 
-`$ sudo pip3 install --upgrade counterparty-lib`
+`$ pip3 install --upgrade counterparty-lib`
 
 or
 

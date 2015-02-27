@@ -178,6 +178,17 @@ As prompted, you should be able to choose just to update ("u"), instead of to re
 option if there were updates to the ``federatednode_build`` system files (such as the
 ``nginx`` configuration, or the init scripts) or `run.py` script itself that you want/need to apply. Otherwise, update should be fine. 
 
+Other Operations
+--------------------------
+
+###Stop all configured services
+
+``sudo ~xcp/federatednode_build/run.py --op=stop``
+
+###Restart all configured services
+
+``sudo ~xcp/federatednode_build/run.py --op=restart``
+
 Getting a SSL Certificate
 --------------------------
 
@@ -235,11 +246,11 @@ Also, you can start up the daemons in the foreground, for easier debugging, usin
 
     #counterparty-server & counterblock mainnet
     sudo su -s /bin/bash -c 'counterparty-server start' xcpd
-    sudo su -s /bin/bash -c 'counterblock -v' xcpd
+    sudo su -s /bin/bash -c 'counterblock' xcpd
     
     #counterparty-server & counterblock testnet
     sudo su -s /bin/bash -c 'counterparty-server --config-file /home/xcp/.config/counterparty/server.testnet.conf start' xcpd
-    sudo su -s /bin/bash -c 'counterblock --config-file /home/xcp/.config/counterblockd/server.testnet.conf -v' xcpd
+    sudo su -s /bin/bash -c 'counterblock --config-file /home/xcp/.config/counterblock/server.testnet.conf' xcpd
 
 You can also interface with Bitcoin Core by running ``bitcoin-cli`` commands, e.g.:
 
