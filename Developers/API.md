@@ -61,8 +61,9 @@ For more information on JSON RPC, please see the [JSON RPC 2.0 specification](ht
 
 ####REST
 
-For REST API all requests are made via GET where query-specific arguments are encoded as URL parameters. There are two methods supported:
-``get`` and ``compose``. The URL formats are as follows respectively:
+For REST API all requests are made via GET where query-specific arguments are encoded as URL parameters. Moreover, the same requests can be
+passed via HTTP POST in order to encrypt the transaction parameters. There are only two methods supported: ``get`` and ``compose``. The URL
+formats are as follows respectively:
 `/rest/<table_name>/get?<filters>&op=<operator>`
 `/rest/<message_type>/compose?<transaction arguments>`
 
@@ -146,6 +147,10 @@ The following examples don't use authentication as with default settings.
 ###curl
 
     curl http://127.0.0.1:4000/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' 
+
+###curl with POST encryption
+
+    curl -X POST http://127.0.0.1:4000/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' 
 
 ##Example Parameters
 
@@ -935,6 +940,7 @@ Resolve a Rock-Paper-Scissors game.
 
 ##REST API Function Reference
 
+The REST API documentation is hosted both on our webiste and on a new API documentation platform called apiary.io. This experimental documentation, complementary to the one in this document, is located [here](http://docs.counterpartylib.apiary.io/#).
 
 ###get
 
