@@ -1,8 +1,9 @@
 Features
 ========
+[TOC]
 
-Assets
-------
+
+# Assets
 
 Counterparty allows users to *create*, *send*, *trade*, and *pay dividends
 on*, all in a decentralized and trustless fashion.
@@ -50,8 +51,7 @@ asset is an asset which the issuer can call back (i.e. repurchase) from
 its owners at a date (`call-date`) and for a price (`call-price`)
 specified at the initial issuance. 
 
-Making trades on the decentralized exchange
-===========================================
+## Making trades on the decentralized exchange
 
 Counterparty supports *peer-to-peer asset exchange*: users can trade
 assets with no middleman and no counterparty risk. The platform upon
@@ -65,8 +65,7 @@ use-cases:
 -   Sally’s creates order1 and Alice creates order2
 -   `[give_asset]2=[get_asset]1`
 
-Creating an order
-=================
+### Creating an order
 
 At its most basic level, a trade on Counterparty’s decentralized
 exchange consists of two *orders*, which are *matched* by the protocol.
@@ -79,8 +78,7 @@ When Sally is constructing her order, she must specify:
 -   the quantity of [get\_asset]1 she will get ([get\_quantity])
 -   how long before her order expires ([expiration]1)
 
-The Counterparty protocol escrow service
-========================================
+### The Counterparty protocol escrows funds directly on the Bitcoin blockchain
 
 Once Sally publishes her order [give\_quantity]1 of [give\_asset 1is
 debited from her address; her address is debited *before* her order is
@@ -92,8 +90,7 @@ thereby eliminates counterparty risk from the exchange of assets*. If
 another order is placed which satisfies Sally’s order, the protocol
 matches them, and sends each counterparty its respective funds.
 
-Matching an order
-=================
+### Counterparty has automatic order matching
 
 `[give_quantity]1/[get_quantity]1` is the ‘’ratio’‘in which Sally will
 exchange [give\_asset]1 for [get\_asset]1, and is denoted by ratio1. In
@@ -105,9 +102,7 @@ ratio to match Sally’s bet, but if
 matched, the exchange is always made at [ratio]1. Further, when when an
 order is matched, the exchange is always settled as much as it can be.
 
-
-A straightforward case
-======================
+#### A straightforward case
 
 Suppose that Alice places order2 before [expiration]1 which matches
 order1 perfectly: `[give_quantity]2=[get_quantity]1`
@@ -117,8 +112,7 @@ her order satisfies Sally’s, Alice’s order funds are sent to Alice, and
 Sally’s order funds are sent to Alice. This completes the trade between
 Alice and Sally.
 
-Matching an order: partially fulfilling an order
-================================================
+#### Matching an order: partially fulfilling an order
 
 For the following example, let [give\_quantity]1=10 and
 [get\_quantity]1=20, and that neither [give\_asset]1 nor [get\_asset]1
@@ -135,8 +129,7 @@ unit of [give\_asset]1 that Sally gives Alice, she will get two units of
 `[give_quantity]2=18` Sally will receive’‘18’’ [get\_asset]1 in exchange
 for 9 [give\_asset 1.
 
-Trading BTC on the decentralized exchange
-=========================================
+### Trading BTC on the decentralized exchange
 
 Suppose Sally makes an order to trade [asset] in exchange for BTC, and
 Alice makes an order to trade BTC in exchange for [asset]. Upon placing
@@ -149,8 +142,7 @@ protocol will send her the XCP and thereby complete the transaction,
 otherwise, the trade expires, and the protocol will re-credit Sally’s
 address with [give\_asset].
 
-Sending assets (`send`)
-=======================
+### Sending assets (`send`)
 
 To send an asset in Counterparty, one must specify:
 
@@ -159,41 +151,22 @@ To send an asset in Counterparty, one must specify:
 -   how much of [asset] [source] is sending ([quantity])
 -   to whom [source] is sending [quantity] of asset ([destination])
 
-Paying dividends on assets
-==========================
+### Paying distributions on assets
 
-It is possible to pay dividends on an asset using the `dividend`
-function. Dividends are paid in in any ‘dividend\_asset’ to everyone who
-holds the asset in proportion to how many units he holds; specifically:
-specifically, let [total] equal the total dividends paid out, and
+It is possible to distribute funds proportionally among asset holders using the `distribution`
+function. This feature is also also known as 'dividend payments', depending on their desired purpose. Distributions are paid in in any ‘distribution\_asset’ to everyone who
+holds the asset in proportion to how many units he holds; specifically: 
+Let [total] equal the total distribution paid out, and
 [quantity] be the total amount of asset, then:
 `quantity-per-unit = [total]/[quantity]`
 
-Dividends can be paid out to any assets that you ownership and control over. You can freely select The currency in which dividends are to be paid out: BTC, XCP, or any other user-created asset.
+Distributions can be paid out to any assets that you ownership and control over. You can freely select the currency in which distributions are to be paid out: BTC, XCP, or any other user-created asset.
 
 Use-cases
 =========
 
 Below are just a few of the many uses of assets, and this page will be
 updated as new use-cases are constructed.
-
-Tokens
-======
-
-Suppose Alice intends to issue a series of assets and sell them on
-Counterparty’s decentralized exchange, and would like to issue her own
-currency, “[token]”, with which these assets can be bought. Alice would
-like to monitor the circulated amount of token very closely, while not
-sacrificing usability, hence she will make [token] indivisible; thus, if
-Alice issues 10 [token] there are 10, and only 10, usable units of
-token, whereas if [token] were divisible, there would be 10\^8\^ usable
-units of [token]. Alice would like [token] itself to be a commodity, and
-hence she will make [token] callable.
-
-This will allow her to buy back [token] after [call\_date] for
-[call\_price] and resell it when she wants to issue a new asset which
-can be purchased only with [token].
-
 
 Currency peg
 ============
@@ -236,4 +209,4 @@ Counterparty supports voting through the use of user-created tokens. This means 
 
 If you create a token (‘EXAMPLE’), you can create any other tokens (such as EXAMPLEVOTE) and pay distributions of EXAMPLEVOTE to all holders of EXAMPLE in one single action. Create a distribution payment and choose EXAMPLEVOTE as the currency to distribute. This way, all holders of EXAMPLE will receive EXAMPLEVOTE in the amount you specify.
 
-Now all you need are as many different Bitcoin addresses as there are choices in your poll. For example: one Bitcoin address for yes, one for no. To cast their votes, holders of EXAMPLE can then send the EXAMPLEVOTE they have received to whichever address they agree with. The results of the poll will then be public and verifiable on the Bitcoin blockchain.
+Now all you need are as many different Bitcoin addresses as there are choices in your poll. For example: one Bitcoin address for yes, one for no. To cast their votes, holders of EXAMPLE can then send the EXAMPLEVOTE they have received to whichever address they agree with. The results of the poll will then be public and verifiable on the Bitcoin blockchain, and can be visualized in a [block explorer](http://blockscan.com/votes).
