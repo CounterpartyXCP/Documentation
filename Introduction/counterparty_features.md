@@ -12,7 +12,7 @@ Many of the features described below can be accessed using the Web-based Counter
 Counterparty-issued assets (tokens) can have plain-text or
 [Enhanced Asset Information](/Counterwallet/enhanced_asset_info.md).
 
-### Creating assets
+## Creating assets
 
 Counterparty allows users to *issue assets*. An asset that is created
 within the Counterparty protocol is called a *user-created token*.
@@ -23,7 +23,7 @@ new to Counterparty’s financial ecosystem.
 Newly registered asset names can either be (unique) strings of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’, or integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’. Alphabetic asset names carry a one‐time issuance fee (by burn) of 0.5 XCP and numeric asset names are freely available. ‘BTC’ and ‘XCP’ are the only three‐character asset names. For more
 information, see the Assets section in the Counterparty specification.
 
-### The different kinds of assets
+## The different kinds of assets
 
 The most basic kind of asset must specify:
 
@@ -51,7 +51,27 @@ asset is an asset which the issuer can call back (i.e. repurchase) from
 its owners at a date (`call-date`) and for a price (`call-price`)
 specified at the initial issuance. 
 
-## Making trades on the decentralized exchange
+## Sending assets (`send`)
+
+To send an asset in Counterparty, one must specify:
+
+-   who is sending the asset ([source])
+-   what asset [source] is sending ([asset])
+-   how much of [asset] [source] is sending ([quantity])
+-   to whom [source] is sending [quantity] of asset ([destination])
+
+## Paying distributions on assets
+
+It is possible to distribute funds proportionally among asset holders using the `distribution`
+function. This feature is also also known as 'dividend payments', depending on their desired purpose. Distributions are paid in in any ‘distribution\_asset’ to everyone who
+holds the asset in proportion to how many units he holds; specifically: 
+Let [total] equal the total distribution paid out, and
+[quantity] be the total amount of asset, then:
+`quantity-per-unit = [total]/[quantity]`
+
+Distributions can be paid out to any assets that you ownership and control over. You can freely select the currency in which distributions are to be paid out: BTC, XCP, or any other user-created asset.
+
+# Trading on the decentralized exchange
 
 Counterparty supports *peer-to-peer asset exchange*: users can trade
 assets with no middleman and no counterparty risk. The platform upon
@@ -65,7 +85,7 @@ use-cases:
 -   Sally’s creates order1 and Alice creates order2
 -   `[give_asset]2=[get_asset]1`
 
-### Creating an order
+## Creating an order
 
 At its most basic level, a trade on Counterparty’s decentralized
 exchange consists of two *orders*, which are *matched* by the protocol.
@@ -78,19 +98,19 @@ When Sally is constructing her order, she must specify:
 -   the quantity of [get\_asset]1 she will get ([get\_quantity])
 -   how long before her order expires ([expiration]1)
 
-### The Counterparty protocol escrows funds directly on the Bitcoin blockchain
+## Protocol-based trustless escrow
 
-Once Sally publishes her order [give\_quantity]1 of [give\_asset 1is
+**The Counterparty protocol acts as an escrow service, and
+thereby eliminates counterparty risk from the exchange of assets** Once Sally publishes her order [give\_quantity]1 of [give\_asset 1is
 debited from her address; her address is debited *before* her order is
 matched with Alice’s, and so she cannot spend those funds before
 [expiration]1 passes, i.e. until her order expires. In the meantime,
 Sally’s funds are not lost or borrowed, they are held by the protocol
-itself. *The Counterparty protocol acts as an escrow service, and
-thereby eliminates counterparty risk from the exchange of assets*. If
+itself. If
 another order is placed which satisfies Sally’s order, the protocol
 matches them, and sends each counterparty its respective funds.
 
-### Counterparty has automatic order matching
+## Counterparty has automatic order matching
 
 `[give_quantity]1/[get_quantity]1` is the ‘’ratio’‘in which Sally will
 exchange [give\_asset]1 for [get\_asset]1, and is denoted by ratio1. In
@@ -102,7 +122,7 @@ ratio to match Sally’s bet, but if
 matched, the exchange is always made at [ratio]1. Further, when when an
 order is matched, the exchange is always settled as much as it can be.
 
-#### A straightforward case
+### A straightforward case
 
 Suppose that Alice places order2 before [expiration]1 which matches
 order1 perfectly: `[give_quantity]2=[get_quantity]1`
@@ -112,7 +132,7 @@ her order satisfies Sally’s, Alice’s order funds are sent to Alice, and
 Sally’s order funds are sent to Alice. This completes the trade between
 Alice and Sally.
 
-#### Matching an order: partially fulfilling an order
+### Matching an order: partially fulfilling an order
 
 For the following example, let [give\_quantity]1=10 and
 [get\_quantity]1=20, and that neither [give\_asset]1 nor [get\_asset]1
@@ -142,34 +162,12 @@ protocol will send her the XCP and thereby complete the transaction,
 otherwise, the trade expires, and the protocol will re-credit Sally’s
 address with [give\_asset].
 
-### Sending assets (`send`)
-
-To send an asset in Counterparty, one must specify:
-
--   who is sending the asset ([source])
--   what asset [source] is sending ([asset])
--   how much of [asset] [source] is sending ([quantity])
--   to whom [source] is sending [quantity] of asset ([destination])
-
-### Paying distributions on assets
-
-It is possible to distribute funds proportionally among asset holders using the `distribution`
-function. This feature is also also known as 'dividend payments', depending on their desired purpose. Distributions are paid in in any ‘distribution\_asset’ to everyone who
-holds the asset in proportion to how many units he holds; specifically: 
-Let [total] equal the total distribution paid out, and
-[quantity] be the total amount of asset, then:
-`quantity-per-unit = [total]/[quantity]`
-
-Distributions can be paid out to any assets that you ownership and control over. You can freely select the currency in which distributions are to be paid out: BTC, XCP, or any other user-created asset.
-
-Use-cases
-=========
+# Use-cases
 
 Below are just a few of the many uses of assets, and this page will be
 updated as new use-cases are constructed.
 
-Currency peg
-============
+## Currency peg
 
 Using the issuance function, it is possible to make a sort of *currency
 peg*. Let’s suppose Bob issues the divisible, callable asset BOBUSD. In
@@ -202,8 +200,7 @@ his risk and his reputation. On the buyer’s side, the risk is obvious:
 BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
 appropriate amount of XCP when [user] sends him BOBUSD.
 
-Verifiable Voting
-============
+## Verifiable Voting
 
 Counterparty supports voting through the use of user-created tokens. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens.
 
