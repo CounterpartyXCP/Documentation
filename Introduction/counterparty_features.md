@@ -167,39 +167,6 @@ address with [give\_asset].
 Below are just a few of the many uses of assets, and this page will be
 updated as new use-cases are constructed.
 
-## Currency peg
-
-Using the issuance function, it is possible to make a sort of *currency
-peg*. Let’s suppose Bob issues the divisible, callable asset BOBUSD. In
-the description space, Bob provides a link to a website (bobusd.com)
-where explains that he will sell BOBUSD at the exchange rate of XCP per
-USD at the time he puts BOBUSD on the market, plus a premium. In
-exchange for the premium, Bob will buy back BOBUSD before call date for
-the call price, as per their specification in the initial issuance of
-BOBUSD.
-
-On bobusd.com, Bob further explains that he will send XCP from
-[another\_address] to [bobusd\_address] at a fixed frequency, depending
-on how much XCP falls relative to USD. There are several ways Bob could
-*prove* he has the private key for [another\_address]. The amount of XCP
-at [another\_address] plus [bobusd\_address] theoretically indicates the
-minimum *backing* of BOBUSD. If, after [call-date] has passed, Bob wants
-to call back some BOBUSD, he can use Counterparty’s `callback` function
-and call back the fraction of BOBUSD that he specifies.
-
-If [user] bought 100 BOBUSD on the decentralized exchange, and would
-like to “cash it in” for 100 USD worth of XCP at [time], he would first
-send his BOBUSD to [bobs\_address], and in return Bob would send the
-appropriate amount of XCP. Bob’s risk is proportional to how far in the
-future the call date of BOBUSD is; thus, if BOBUSD were not callable,
-Bob’s promise to buy back BOBUSD would be indefinite, and he would be
-taking on maximal risk. The risk incurred by buyer’s of BOBUSD is
-largely a function of Bob’s trustworthiness or *reputation*. The premium
-that Bob can charge will depend on a few things, though most especially
-his risk and his reputation. On the buyer’s side, the risk is obvious:
-BOBUSD is a satisfactory USD peg to the extent that Bob sends [user] the
-appropriate amount of XCP when [user] sends him BOBUSD.
-
 ## Verifiable Voting
 
 Counterparty supports voting through the use of user-created tokens. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens.
