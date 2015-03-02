@@ -3,10 +3,14 @@ Features
 [TOC]
 
 
-# Assets
+# Assets 
 
-Counterparty allows users to *create*, *send*, *trade*, and *pay dividends
-on*, all in a decentralized and trustless fashion.
+**Also known as:** tokens, coins, derivatives, coupons, currencies, etc.
+
+Assets are metacoins that exist on the Bitcoin blockchain. They are seperate from Bitcoin the currency itself, but exist in as metadata within Bitcoin transactions. They can be received, stored, and sent from any Bitcoin address to any other.
+
+Counterparty allows users to *create*, *send*, *trade*, and *pay distributions
+on* assets, all in a decentralized and trustless fashion. 
 Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without access to a working `counterparty-cli` setup can benefit from the convenience of Counterwallet.
 
 Counterparty-issued assets (tokens) can have plain-text or
