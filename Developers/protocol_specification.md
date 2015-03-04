@@ -43,8 +43,8 @@ on any blockchain), this string is ‘XX’.
 
 Counterparty data may be stored in three different types of outputs, or
 in some combinations of those formats. All of the data is obfuscated by
-ARC4 encryption using the public key of the first sender as the
-encryption key.
+ARC4 encryption using the transaction identifier (TXID) of the first
+unspent transaction output (UTXO) as the encryption key.
 
 Multi‐signature data outputs are one‐of‐three outputs where the first
 public key is that of the sender, so that the value of the output is
