@@ -175,6 +175,16 @@ address with `give_asset`. This feature is enabled on the CLI, and disabled on [
 
 Below are just a few of the many uses of assets, feel free to propose new uses if you find them.
 
+## Programmable Smart Contracts
+
+Turing-complete smart contracts scripting is one of the most powerful Counterparty features. Users can write their own custom financial instruments and decentralized applications (Dapp). Counterparty contracts are 100% compatible with Ethereum scripting, and pretty much all contracts can be run on both platforms without code changes.
+
+## Currency Peg
+
+## Betting
+
+Counterparty turns the Bitcoin blockchain into a betting platform and prediction market. Oracles can create broadcasts of information, and users can then place bets on these broadcasts. Funds are escrowed automatically by the protocol, and benefit from being stored securely inside the Bitcoin blockchain. Funds placed on bets are be provably inaccessible until the bet is resolved or expires. Oracles can set a fee fraction to receive for their betting feeds, providing incentive to run their broadcasts.
+
 ## Verifiable Voting
 
 Counterparty supports voting through the use of user-created tokens. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens.
@@ -185,18 +195,6 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 
 **[Example](http://blockscan.com/vote/UGH7GN1STK):**
 ![](/_images/counterparty_features2.png)
-
-## Betting
-
-Counterparty turns the Bitcoin blockchain into a betting platform and prediction market. Oracles can create broadcasts of information, and users can then place bets on these broadcasts. Funds are escrowed automatically by the protocol, and benefit from being stored securely inside the Bitcoin blockchain. Funds placed on bets are be provably inaccessible until the bet is resolved or expires. Oracles can set a fee fraction to receive for their betting feeds, providing incentive to run their broadcasts.
-
-## Crowdfunding
-
-Counterparty tokens can be used for crowdfunding. You can issue a certain amount of tokens and sell these to start your project. Due to the high amount of trust involved, it is better to use a Counterparty-based crowdfunding platform which can perform due-diligence on your project. This will provide your users trust, and demonstrate the legitimacy of your project. There is nothing stopping you from doing this on your own, but users may rightfully be suspicious about your project. 
-
-## Programmable Smart Contracts
-
-Turing-complete smart contracts scripting is one of the most powerful Counterparty features. Users can write their own custom financial instruments and decentralized applications (Dapp). Counterparty contracts are 100% compatible with Ethereum scripting, and pretty much all contracts can be run on both platforms without code changes.
 
 ## Tickets & Coupons
 
@@ -209,6 +207,10 @@ Token Controlled Access is the idea of granting access to private forums, chatro
 ## Proof of Publication
 
 Using broadcasts, users can publish timestamped information onto the Bitcoin blockchain. This makes it possible to verifiy that something has been posted at a certain time, and it cannot be deleted.
+
+## Crowdfunding
+
+Counterparty tokens can be used for crowdfunding. You can issue a certain amount of tokens and sell these to start your project. Due to the high amount of trust involved, it is better to use a Counterparty-based crowdfunding platform which can perform due-diligence on your project. This will provide your users trust, and demonstrate the legitimacy of your project. There is nothing stopping you from doing this on your own, but users may rightfully be suspicious about your project. 
 
 ## Derivatives
 
