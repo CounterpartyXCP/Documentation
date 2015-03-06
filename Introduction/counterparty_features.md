@@ -221,5 +221,5 @@ If you create a token (`EXAMPLE`), you can create any other tokens (such as EXAM
 
 Now all you need are as many different Bitcoin addresses as there are choices in your poll. For example: one Bitcoin address for yes, one for no. To cast their votes, holders of `EXAMPLE` can then send the EXAMPLEVOTE they have received to whichever address they agree with. The results of the poll will then be public and verifiable on the Bitcoin blockchain, and can be visualized in a [block explorer](http://blockscan.com/votes).
 
-**[Example](http://blockscan.com/vote/UGH7GN1STK):**
+**[For example](http://blockscan.com/vote/UGH7GN1STK):**
 ![](/_images/counterparty_features2.png)
