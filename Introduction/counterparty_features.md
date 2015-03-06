@@ -192,6 +192,8 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 ## Smart Property
 ## Ticket Systems
 ## Token Controlled Access (TCA)
+## Proof of Publication
+#### Notary Chains
 ## Artist Coins
 ## Derivatives
 ## In-game Currency
