@@ -27,12 +27,12 @@ the Bitcoin and Counterparty ecosystem.
 
 **You can create two different types of assets:**
 
-* **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’ 
+1. **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’ 
 
 Alphabetic asset names carry a one‐time issuance fee of 0.5 XCP. This fee is burned (permanently taken out of circulation). ‘BTC’ and ‘XCP’ are the only three‐character asset names. For more
 information, see the Assets section in the Counterparty specification.
 
-* **Numeric Asset (FREE)**: An integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’. 
+2. **Numeric Asset (FREE)**: An integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’. 
 
 Numeric assets only require one Bitcoin transaction fee to be created.
 
