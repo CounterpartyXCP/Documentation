@@ -173,8 +173,8 @@ address with `give_asset`. This feature is enabled on the CLI, and disabled on [
 
 # Use-cases
 
-Below are just a few of the many uses of assets, and this page will be
-updated as new use-cases are constructed.
+Below are just a few of the many uses of assets, feel free to propose new uses if you find them.
+
 ## Verifiable Voting
 
 Counterparty supports voting through the use of user-created tokens. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens.
@@ -191,6 +191,11 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 ## Programmable Smart Contracts
 ## Smart Property & Tickets
 ## Token Controlled Access (TCA)
+
+In a given system, different levels of access to that system and abilities within it are granted according to the combination of tokens inside a wallet wallet.
+
+Each piece of information, or block of information, is associated with a token(s) and quantity(s). If the quantity is zero, the information is viewable to users with or without accounts. If the quantity required is more than zero, the information is not loaded unless the address(s) associated with the user contain the required token(s).
+
 ## Proof of Publication
 ## Artist Coins
 ## Derivatives
