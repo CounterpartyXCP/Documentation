@@ -119,7 +119,7 @@ itself. If
 another order is placed which satisfies Sally’s order, the protocol
 matches them, and sends each counterparty its respective funds.
 
-## Counterparty has automatic order matching
+### Automatic order matching on the Bitcoin blockchain
 
 `[give_quantity]1/[get_quantity]1` is the ‘’ratio’‘in which Sally will
 exchange `give_asset1` for `get_asset1`, and is denoted by `ratio1`. In
