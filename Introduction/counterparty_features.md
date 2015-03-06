@@ -169,7 +169,7 @@ XCP until Alice sends her BTC using Counterparty’s `btcpay` function. If
 Alice sends the BTC using `btcpay` in ‘’fewer than 10 blocks’’, the
 protocol will send her the XCP and thereby complete the transaction,
 otherwise, the trade expires, and the protocol will re-credit Sally’s
-address with `give_asset`.
+address with `give_asset`. This feature is enabled on the CLI, and disabled on [Counterwallet](http://counterwallet.io), due to incompatibility with the browser-based security model.
 
 # Use-cases
 
