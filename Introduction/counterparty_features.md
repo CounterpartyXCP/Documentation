@@ -187,16 +187,21 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 ![](/_images/counterparty_features2.png)
 
 ## Betting
+
 ## Crowdfunding
+
 ## Programmable Smart Contracts
+
 ## Smart Property & Tickets
+
 ## Token Controlled Access (TCA)
 
-In a given system, different levels of access to that system and abilities within it are granted according to the combination of tokens inside a wallet wallet.
-
-Each piece of information, or block of information, is associated with a token(s) and quantity(s). If the quantity is zero, the information is viewable to users with or without accounts. If the quantity required is more than zero, the information is not loaded unless the address(s) associated with the user contain the required token(s).
+Token Controlled Access is the idea of granting access to private forums, chatrooms, games, projects or other social media based on the ownership of tokens. Different types of tokens represent different types of membership, and holders of that token can register and/or view the restricted content. To invite new users, smaller fractions of these tokens can be transfered. If the token is indivisible and scarce, it will limit the amount of users others are able to invite. These tokens are also publicly tradable on the DEX and therefore can have a monetary value, and/or one proportional to other types of these tokens.
 
 ## Proof of Publication
+
+Using broadcasts, users can publish timestamped information onto the Bitcoin blockchain. This makes it possible to verifiy that something has been posted at a certain time, and it cannot be deleted.
+
 ## Artist Coins
 ## Derivatives
 ## In-game Currency
