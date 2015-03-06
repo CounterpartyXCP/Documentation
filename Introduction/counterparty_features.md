@@ -25,7 +25,7 @@ User-created tokens are just as real as XCP or even BTC. With the asset
 issuance function, every user has the ability to create a new currency project inside
 the Bitcoin and Counterparty ecosystem. 
 
-**You can create two different types of assets:**
+*You can create two different types of assets:*
 
 1. **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic asset names carry a one‐time issuance fee of 0.5 XCP. This fee is burned (permanently taken out of circulation). ‘BTC’ and ‘XCP’ are the only three‐character asset names. For more
 information, see the Assets section in the Counterparty specification.
