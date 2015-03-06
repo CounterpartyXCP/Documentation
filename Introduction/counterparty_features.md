@@ -76,7 +76,7 @@ function. This feature is also also known as `dividend payments`, depending on t
 holds the asset in proportion to how many units he holds; specifically: 
 Let `total` equal the total distribution paid out, and
 `quantity` be the total amount of asset, then:
-`quantity-per-unit = [total]/[quantity]`
+`quantity-per-unit = total/quantity`
 
 Distributions can be paid out to any assets that you ownership and control over. You can freely select the currency in which distributions are to be paid out: BTC, XCP, or any other user-created asset.
 
@@ -89,10 +89,10 @@ what follows trading on the decentralized exchange will be detailed and
 explained by means of examples. For the purposes of the following
 use-cases:
 
--   “ordern” denotes the *nth* order in time, `give_asset]n` denotes
-    the asset being given in ordern, etc.
+-   “ordern” denotes the *nth* order in time, `give_asset n` denotes
+    the asset being given in the order, etc.
 -   Sally’s creates order1 and Alice creates order2
--   `[give_asset]2=[get_asset]1`
+-   `give_asset2 = get_asset1`
 
 ## Creating an order
 
@@ -110,7 +110,7 @@ When Sally is constructing her order, she must specify:
 ## Protocol-based trustless escrow
 
 **The Counterparty protocol acts as an escrow service, and
-thereby eliminates counterparty risk from the exchange of assets.**      Once Sally publishes her order `give_quantity1` of `give_asset1`is
+thereby eliminates counterparty risk from the exchange of assets.**      Once Sally publishes her order `give_quantity1` of `give_asset1` is
 debited from her address; her address is debited *before* her order is
 matched with Alice’s, and so she cannot spend those funds before
 `expiration1` passes, i.e. until her order expires. In the meantime,
@@ -121,22 +121,22 @@ matches them, and sends each counterparty its respective funds.
 
 ### Automatic order matching on the Bitcoin blockchain
 
-`[give_quantity]1/[get_quantity]1` is the ‘’ratio’‘in which Sally will
+`give_quantity1 / get_quantity1` is the ‘’ratio’‘in which Sally will
 exchange `give_asset1` for `get_asset1`, and is denoted by `ratio1`. In
 order for two orders to be matched, `ratio1  must always be’‘greater
 than or equal’’ to the inverse of `ratio2`, Thus, if, for example
-`[ratio]2 ([give_quantity]1 + 1)/[get_quantity]1` would be high enough
+`ratio2 (give_quantity1 + 1) / get_quantity1` would be high enough
 ratio to match Sally’s bet, but if
-`ratio2=([quantity_2] -1)/[quantity_2]` it would not. Having been
+`ratio2 =(quantity2 - 1) / quantity2` it would not. Having been
 matched, the exchange is always made at `ratio1`. Further, when when an
 order is matched, the exchange is always settled as much as it can be.
 
 ### A straightforward case
 
 Suppose that Alice places order2 before `expiration`1 which matches
-order1 perfectly: `[give_quantity]2=[get_quantity]1`
-`[get_quantity]2=[give_quantity]1`. Once Alice has made her order, the
-protocol debits `quantity_2` of `asset_2` from her address, and, since
+order1 perfectly: `give_quantity2 == get_quantity1`
+`get_quantity2 == give_quantity1`. Once Alice has made her order, the
+protocol debits `quantity2` of `asset2` from her address, and, since
 her order satisfies Sally’s, Alice’s order funds are sent to Alice, and
 Sally’s order funds are sent to Alice. This completes the trade between
 Alice and Sally.
