@@ -44,7 +44,7 @@ The most basic kind of asset must specify:
 It is possible to issue
 more of `asset`, but, at any one time, there can only be one address
 which issues `asset`. With that said, the Counterparty protocol allows
-`source` to transfer issuance rights of [asset]. Moreover, an asset can
+`source` to transfer issuance rights of `asset`. Moreover, an asset can
 also be locked, so that there can be no further issuances of it. (See
 the [examples](examples.md) for instructions on how to do this with `counterparty-cli`).
 A description must always be included, even if `description` is just an
@@ -72,7 +72,7 @@ To send an asset in Counterparty, one must specify:
 ## Paying distributions on assets
 
 It is possible to distribute funds proportionally among asset holders using the `distribution`
-function. This feature is also also known as 'dividend payments', depending on their desired purpose. Distributions are paid in in any ‘distribution\_asset’ to everyone who
+function. This feature is also also known as `dividend payments`, depending on their desired purpose. Distributions are paid in in any `distribution_asset` to everyone who
 holds the asset in proportion to how many units he holds; specifically: 
 Let `total` equal the total distribution paid out, and
 `quantity` be the total amount of asset, then:
