@@ -188,7 +188,7 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 
 ## Betting
 ## Crowdfunding
-## Turing-Complete Smart Contracts
+## Programmable Smart Contracts
 ## Smart Property
 ## Ticket Systems
 ## Token Controlled Access (TCA)
