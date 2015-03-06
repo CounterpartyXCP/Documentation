@@ -7,11 +7,12 @@ Features
 
 **Also known as:** tokens, coins, derivatives, coupons, currencies, etc.
 
-Counterparty enhances the Bitcoin blockchain with making it possible for users to create their own currencies. These are seperate from Bitcoin itself, and exist inside Bitcoin transactions. assets can be received, stored, and sent from any Bitcoin address to any other.
+Counterparty enhances the Bitcoin blockchain with making it possible for users to create their own currencies. These are seperate from Bitcoin itself, and exist entirely inside Bitcoin transactions. Assets can be received, stored, and sent from any Bitcoin address to any other.
 
-Counterparty allows users to *create*, *send*, *trade*, and *pay distributions
-on* assets, all in a decentralized and trustless fashion. 
-Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without access to a working `counterparty-cli` setup can benefit from the convenience of Counterwallet.
+Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions
+on* assets, in a fully decentralized and trustless manner. To create and trade an asset, you will need enough Bitcoin for transaction fees.
+
+Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet.
 
 Counterparty-issued assets (tokens) can have plain-text or
 [Enhanced Asset Information](/Counterwallet/enhanced_asset_info.md).
@@ -19,13 +20,21 @@ Counterparty-issued assets (tokens) can have plain-text or
 ## Creating assets
 
 Counterparty allows users to *issue assets*. An asset that is created
-within the Counterparty protocol is called a *user-created token*.
-User-created assets are just as real as XCP or even BTC. With the asset
-issuance function, every user has the ability to contribute something
-new to Counterparty’s financial ecosystem. 
+within the Counterparty protocol is often called a *user-created token*.
+User-created tokens are just as real as XCP or even BTC. With the asset
+issuance function, every user has the ability to create a new currency project inside
+the Bitcoin and Counterparty ecosystem. 
 
-Newly registered asset names can either be (unique) strings of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’, or integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’. Alphabetic asset names carry a one‐time issuance fee (by burn) of 0.5 XCP and numeric asset names are freely available. ‘BTC’ and ‘XCP’ are the only three‐character asset names. For more
+**You can create two different types of assets:**
+
+* **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’ 
+
+Alphabetic asset names carry a one‐time issuance fee of 0.5 XCP. This fee is burned (permanently taken out of circulation). ‘BTC’ and ‘XCP’ are the only three‐character asset names. For more
 information, see the Assets section in the Counterparty specification.
+
+* **Numeric Asset (FREE)**: An integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’. 
+
+Numeric assets only require one Bitcoin transaction fee to be created.
 
 ## The different kinds of assets
 
