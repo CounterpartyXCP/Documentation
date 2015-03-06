@@ -5,7 +5,7 @@ Features
 
 # Assets 
 
-**Also known as:** `tokens, coins, derivatives, coupons, currencies, etc.`
+**Also known as:** `tokens, coins, currencies`
 
 Counterparty enhances the Bitcoin blockchain with making it possible for users to create their own currencies. These are seperate from Bitcoin itself, and exist entirely inside Bitcoin transactions. Assets can be received, stored, and sent from any Bitcoin address to any other.
 
