@@ -110,7 +110,7 @@ When Sally is constructing her order, she must specify:
 ## Protocol-based trustless escrow
 
 **The Counterparty protocol acts as an escrow service, and
-thereby eliminates counterparty risk from the exchange of assets** Once Sally publishes her order `give_quantity1` of `give_asset1`is
+thereby eliminates counterparty risk from the exchange of assets.**      Once Sally publishes her order `give_quantity1` of `give_asset1`is
 debited from her address; her address is debited *before* her order is
 matched with Alice’s, and so she cannot spend those funds before
 `expiration1` passes, i.e. until her order expires. In the meantime,
