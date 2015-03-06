@@ -188,11 +188,19 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 
 ## Betting
 
+Counterparty turns the Bitcoin blockchain into a betting platform and prediction market. Oracles can create broadcasts of information, and users can then place bets on these broadcasts. Funds are escrowed automatically by the protocol, and benefit from being stored securely inside the Bitcoin blockchain. Funds placed on bets are be provably inaccessible until the bet is resolved or expires. Oracles can set a fee fraction to receive for their betting feeds, providing incentive to run their broadcasts.
+
 ## Crowdfunding
+
+Counterparty tokens can be used for crowdfunding. You can issue a certain amount of tokens and sell these to start your project. Due to the high amount of trust involved, it is better to use a Counterparty-based crowdfunding platform which can perform due-diligence on your project. This will provide your users trust, and demonstrate the legitimacy of your project. There is nothing stopping you from doing this on your own, but users may rightfully be suspicious about your project. 
 
 ## Programmable Smart Contracts
 
-## Smart Property & Tickets
+Turing-complete smart contracts scripting is one of the most powerful Counterparty features. Users can write their own custom financial instruments and decentralized applications (Dapp). Counterparty contracts are 100% compatible with Ethereum scripting, and pretty much all contracts can be run on both platforms without code changes.
+
+## Tickets & Coupons
+
+Tokens can be used as tickets to a music event, parking tickets, coupons, etc.
 
 ## Token Controlled Access (TCA)
 
@@ -202,8 +210,14 @@ Token Controlled Access is the idea of granting access to private forums, chatro
 
 Using broadcasts, users can publish timestamped information onto the Bitcoin blockchain. This makes it possible to verifiy that something has been posted at a certain time, and it cannot be deleted.
 
-## Artist Coins
 ## Derivatives
+
+You can back Counterparty assets with tangible goods, such as gold.
+
 ## In-game Currency
+
+To integrate your multiplayer game into the global economy, Counterparty tokens can also be used as in-game currency.
+
 ## Altcoin Migration
 
+If you have an altcoin that seeks to fulfill a specific purpose, but do not wish to continue mining, you can migrate it to Counterparty with proof-of-burn.
