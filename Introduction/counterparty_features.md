@@ -42,12 +42,12 @@ The most basic kind of asset must specify:
 -   a description of asset (`description`)
 
 It is possible to issue
-more of [asset], but, at any one time, there can only be one address
-which issues [asset]. With that said, the Counterparty protocol allows
-[source] to transfer issuance rights of [asset]. Moreover, an asset can
+more of `asset`, but, at any one time, there can only be one address
+which issues `asset`. With that said, the Counterparty protocol allows
+`source` to transfer issuance rights of [asset]. Moreover, an asset can
 also be locked, so that there can be no further issuances of it. (See
 the [examples](examples.md) for instructions on how to do this with `counterparty-cli`).
-A description must always be included, even if [description] is just an
+A description must always be included, even if `description` is just an
 empty string; the syntax of an asset *with no description* is
 `description=""`.
 
@@ -64,18 +64,18 @@ specified at the initial issuance.
 
 To send an asset in Counterparty, one must specify:
 
--   who is sending the asset ([source])
--   what asset [source] is sending ([asset])
--   how much of [asset] [source] is sending ([quantity])
--   to whom [source] is sending [quantity] of asset ([destination])
+-   who is sending the asset (`source`)
+-   what asset `source` is sending (`asset`)
+-   how much of `asset` `source` is sending (`quantity`)
+-   to whom `source` is sending `quantity` of asset (`destination`)
 
 ## Paying distributions on assets
 
 It is possible to distribute funds proportionally among asset holders using the `distribution`
 function. This feature is also also known as 'dividend payments', depending on their desired purpose. Distributions are paid in in any ‘distribution\_asset’ to everyone who
 holds the asset in proportion to how many units he holds; specifically: 
-Let [total] equal the total distribution paid out, and
-[quantity] be the total amount of asset, then:
+Let `total` equal the total distribution paid out, and
+`quantity` be the total amount of asset, then:
 `quantity-per-unit = [total]/[quantity]`
 
 Distributions can be paid out to any assets that you ownership and control over. You can freely select the currency in which distributions are to be paid out: BTC, XCP, or any other user-created asset.
@@ -100,7 +100,7 @@ At its most basic level, a trade on Counterparty’s decentralized
 exchange consists of two *orders*, which are *matched* by the protocol.
 When Sally is constructing her order, she must specify:
 
--   her address ([source]1)
+-   her address (`source`1)
 -   the asset she will give ([give\_asset]1)
 -   the quantity of [give\_asset]1 she will give ([give\_quantity]1)
 -   the asset she will get ([get\_asset]1)
@@ -113,7 +113,7 @@ When Sally is constructing her order, she must specify:
 thereby eliminates counterparty risk from the exchange of assets** Once Sally publishes her order [give\_quantity]1 of [give\_asset 1is
 debited from her address; her address is debited *before* her order is
 matched with Alice’s, and so she cannot spend those funds before
-[expiration]1 passes, i.e. until her order expires. In the meantime,
+`expiration`1 passes, i.e. until her order expires. In the meantime,
 Sally’s funds are not lost or borrowed, they are held by the protocol
 itself. If
 another order is placed which satisfies Sally’s order, the protocol
@@ -133,7 +133,7 @@ order is matched, the exchange is always settled as much as it can be.
 
 ### A straightforward case
 
-Suppose that Alice places order2 before [expiration]1 which matches
+Suppose that Alice places order2 before `expiration`1 which matches
 order1 perfectly: `[give_quantity]2=[get_quantity]1`
 `[get_quantity]2=[give_quantity]1`. Once Alice has made her order, the
 protocol debits [quantity\_2] of [asset\_2] from her address, and, since
@@ -143,10 +143,10 @@ Alice and Sally.
 
 ### Matching an order: partially fulfilling an order
 
-For the following example, let [give\_quantity]1=10 and
-[get\_quantity]1=20, and that neither [give\_asset]1 nor [get\_asset]1
+For the following example, let `give_quantity`1=10 and
+[get\_quantity]1=20, and that neither `give_asset`1 nor `get_asset`1
 is BTC. Suppose that Alice wants to match Sally’s order, does not want
-all 10 of [give\_asset]1; rather, she only wants 8.
+all 10 of `give\_asset`; rather, she only wants 8.
 
 Since the `ratio1=10/20=1/2`, Alice must `ratio2 >= 2/1`, to match
 Sally’s order. In other words Alice must offer ‘’at least’‘16 of
@@ -160,8 +160,8 @@ for 9 [give\_asset 1.
 
 ### Trading BTC on the decentralized exchange
 
-Suppose Sally makes an order to trade [asset] in exchange for BTC, and
-Alice makes an order to trade BTC in exchange for [asset]. Upon placing
+Suppose Sally makes an order to trade `asset` in exchange for BTC, and
+Alice makes an order to trade BTC in exchange for `asset`. Upon placing
 order1, Sally’s account is immediately debited, as usual, and, once
 Alice has placed order2, it is matched with order1. However, her BTC is
 not debited from her account, and the protocol will not send her Sally’s
@@ -169,7 +169,7 @@ XCP until Alice sends her BTC using Counterparty’s `btcpay` function. If
 Alice sends the BTC using `btcpay` in ‘’fewer than 10 blocks’’, the
 protocol will send her the XCP and thereby complete the transaction,
 otherwise, the trade expires, and the protocol will re-credit Sally’s
-address with [give\_asset].
+address with `give_asset`.
 
 # Use-cases
 
