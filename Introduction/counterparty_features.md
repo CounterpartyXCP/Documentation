@@ -143,20 +143,20 @@ Alice and Sally.
 
 ### Matching an order: partially fulfilling an order
 
-For the following example, let `give_quantity`1=10 and
-`get_quantity1=20`, and that neither `give_asset`1 nor `get_asset1`
+For the following example, let `give_quantity1 = 10` and
+`get_quantity1 = 20`, and that neither `give_asset1` nor `get_asset1`
 is BTC. Suppose that Alice wants to match Sally’s order, does not want
 all 10 of `give_asset`; rather, she only wants 8.
 
-Since the `ratio1=10/20=1/2`, Alice must `ratio2 >= 2/1`, to match
+Since the `ratio1 == 10/20 == 1/2`, Alice must `ratio2 >= 2/1`, to match
 Sally’s order. In other words Alice must offer ‘’at least’‘16 of
 `asset_2` to get 8 of `asset_1` from Sally’s order. Let’s say Alice
-constructs order2 such that `give_quantity2=18` and hence
-`ratio2=18/8 > 2/1`. The order will be settled at `ratio]1: for every
+constructs order2 such that `give_quantity2 == 18` and hence
+`ratio2 = 18/8 > 2/1`. The order will be settled at `ratio1`: for every
 unit of `give_asset1` that Sally gives Alice, she will get two units of
 `get_asset1`. Moreover, since every trade is settled as much and
-`give_quantity2=18` Sally will receive’‘18’’ `get_asset1` in exchange
-for 9 [give\_asset 1.
+`give_quantity2 == 18` Sally will receive’‘18’’ `get_asset1` in exchange
+for 9 `give_asset1`.
 
 ### Trading BTC on the decentralized exchange
 
