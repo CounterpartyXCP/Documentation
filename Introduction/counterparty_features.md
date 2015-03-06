@@ -5,7 +5,7 @@ Features
 
 # Assets 
 
-**Also known as:** tokens, coins, derivatives, coupons, currencies, etc.
+**Also known as:** `tokens, coins, derivatives, coupons, currencies, etc.`
 
 Counterparty enhances the Bitcoin blockchain with making it possible for users to create their own currencies. These are seperate from Bitcoin itself, and exist entirely inside Bitcoin transactions. Assets can be received, stored, and sent from any Bitcoin address to any other.
 
@@ -27,19 +27,19 @@ the Bitcoin and Counterparty ecosystem.
 
 *You can create two different types of assets:*
 
-1. **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic asset names carry a one‐time issuance fee of 0.5 XCP. This fee is burned (permanently taken out of circulation). ‘BTC’ and ‘XCP’ are the only three‐character asset names. For more
+1. **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic asset names carry a one‐time issuance fee of `0.5 XCP`. This fee is burned (permanently taken out of circulation). `BTC` and `XCP` are the only three‐character asset names. For more
 information, see the Assets section in the Counterparty specification.
 
-2. **Numeric Asset (FREE)**: An integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’. Numeric assets only require one Bitcoin transaction fee to be created.
+2. **Numeric Asset (FREE)**: An integers between `26^12 + 1` and `256^8` (inclusive), prefixed with `A`. Numeric assets only require one Bitcoin transaction fee to be created.
 
 ## The different kinds of assets
 
 The most basic kind of asset must specify:
 
--   who is issuing it ([source])
--   the name of the asset ([asset])
--   how much of [asset] is being issued ([quantity])
--   a description of asset ([description])
+-   who is issuing it (`source`)
+-   the name of the asset (`asset`)
+-   how much of `asset` is being issued (`quantity`)
+-   a description of asset (`description`)
 
 It is possible to issue
 more of [asset], but, at any one time, there can only be one address
