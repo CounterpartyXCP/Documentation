@@ -186,7 +186,9 @@ Now all you need are as many different Bitcoin addresses as there are choices in
 **[Example](http://blockscan.com/vote/UGH7GN1STK):**
 ![](/_images/counterparty_features2.png)
 
+## Betting
 ## Crowdfunding
+## Smart Contracts
 ## Smart Property
 ## Ticket Systems
 ## Token Controlled Access (TCA)
