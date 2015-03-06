@@ -175,7 +175,6 @@ address with `give_asset`. This feature is enabled on the CLI, and disabled on [
 
 Below are just a few of the many uses of assets, and this page will be
 updated as new use-cases are constructed.
-
 ## Verifiable Voting
 
 Counterparty supports voting through the use of user-created tokens. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens.
@@ -183,3 +182,16 @@ Counterparty supports voting through the use of user-created tokens. This means 
 If you create a token (`EXAMPLE`), you can create any other tokens (such as EXAMPLEVOTE) and pay distributions of EXAMPLEVOTE to all holders of `EXAMPLE` in one single action. Create a distribution payment and choose EXAMPLEVOTE as the currency to distribute. This way, all holders of `EXAMPLE` will receive EXAMPLEVOTE in the amount you specify.
 
 Now all you need are as many different Bitcoin addresses as there are choices in your poll. For example: one Bitcoin address for yes, one for no. To cast their votes, holders of `EXAMPLE` can then send the EXAMPLEVOTE they have received to whichever address they agree with. The results of the poll will then be public and verifiable on the Bitcoin blockchain, and can be visualized in a [block explorer](http://blockscan.com/votes).
+
+**[Example](http://blockscan.com/vote/UGH7GN1STK):**
+![](/_images/counterparty_features2.png)
+
+## Crowdfunding
+## Smart Property
+## Ticket Systems
+## Token Controlled Access (TCA)
+## Artist Coins
+## Derivatives
+## In-game Currency
+## Altcoin Migration
+
