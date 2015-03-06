@@ -7,7 +7,7 @@ Features
 
 **Also known as:** tokens, coins, derivatives, coupons, currencies, etc.
 
-Assets are metacoins that exist on the Bitcoin blockchain. They are seperate from Bitcoin the currency itself, but exist in as metadata within Bitcoin transactions. They can be received, stored, and sent from any Bitcoin address to any other.
+Counterparty enhances the Bitcoin blockchain with making it possible for users to create their own currencies. These are seperate from Bitcoin itself, and exist inside Bitcoin transactions. assets can be received, stored, and sent from any Bitcoin address to any other.
 
 Counterparty allows users to *create*, *send*, *trade*, and *pay distributions
 on* assets, all in a decentralized and trustless fashion. 
