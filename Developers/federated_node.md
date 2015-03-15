@@ -142,8 +142,8 @@ start (which includes both ``counterparty-server`` and ``counterblock``).
 process will take between 3 minutes to 20 minutes most likely. You can check on the status of ``counterblock``'s
 sync using:
 
-    sudo tail -f ~xcp/.cache/counterblock/server.log
-    sudo tail -f ~xcp/.cache/counterblock/server.testnet.log
+    sudo tail -f ~xcp/.cache/counterblock/log/server.log
+    sudo tail -f ~xcp/.cache/counterblock/log/server.testnet.log
 
 Once it is fully synced up, you should be good to proceed.
 
