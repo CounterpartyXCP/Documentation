@@ -469,8 +469,7 @@ limit=1000, offset=0, show_expired=True)**
 **{table}** must be one of the following values:
 ``balances``, ``credits``, ``debits``, ``bets``, ``bet_matches``, ``broadcasts``, ``btcpays``, ``burns``, 
 ``cancels``, ``dividends``, ``issuances``, ``orders``, ``order_matches``, ``sends``,
-``bet_expirations``, ``order_expirations``, ``bet_match_expirations``, ``order_match_expirations``,
-``rps``, ``rps_expirations``, ``rps_matches``, ``rps_match_expirations``, or ``rpsresolves``.
+``bet_expirations``, ``order_expirations``, ``bet_match_expirations``, or ``order_match_expirations``.
 
 For example: ``get_balances``, ``get_credits``, ``get_debits``, etc are all valid API methods.
 
@@ -927,52 +926,6 @@ Send XCP or a user defined asset.
   The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
 
 
-###create_rps
-
-**create_rps(source, possible_moves, wager, move_random_hash, expiration, encoding='multisig', pubkey=null,
-allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
-
-Open a Rock-Paper-Scissors (RPS) like game.
-
-**Parameters:**
-
-  * **source (string, required):** The address that will be sending (must have the necessary quantity of the specified asset).
-  * **possible_moves (integer, required):** The number of possible moves. Must be an odd number greater or equal than 3.
-  * **wager (integer, required):** The [quantities](#quantities-and-balances) of XCP to wager.
-  * **move_random_hash (string, required):** A 32 bytes hex string (64 chars): sha256(sha256(random+move)). Where random is 16 bytes random number.
-  * **expiration (integer, required):** The number of blocks for which the game should be valid.
-  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
-  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
-  * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
-  * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
-  * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
-
-**Return:** 
-
-  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
-
-###create_rpsresolve
-
-**create_rpsresolve(source, move, random, rps_match_id, encoding='multisig', pubkey=null,
-allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
-
-Resolve a Rock-Paper-Scissors game.
-
-**Parameters:**
-  * **source (string, required):** The address that will be sending (must have the necessary quantity of the specified asset).
-  * **move (integer, required):** The selected move.
-  * **random (string, required):** A 16 bytes hex string (32 chars) used to generate the move_random_hash value.
-  * **rps_match_id (string, required):** The concatenation of the hashes of the two transactions which compose the rps match.
-  * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
-  * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
-  * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
-  * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
-  * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
-
-**Return:** 
-
-  The unsigned transaction, as an hex-encoded string. See [transaction encodings](#transaction-encodings) for more information.
-
 ##REST API Function Reference
 
 The REST API documentation is hosted both on our webiste and on a new API documentation platform called apiary.io. This experimental documentation, complementary to the one in this document, is located [here](http://docs.counterpartylib.apiary.io/#).
@@ -996,8 +949,7 @@ Example query:
               `assets`, `balances`, `credits`, `debits`, `bets`, `bet_matches`,
               `broadcasts`, `btcpays`, `burns`, `cancels`, `dividends`, `issuances`,
               `orders`, `order_matches`, `sends`, `bet_expirations`, `order_expirations`,
-              `bet_match_expirations`, `order_match_expirations`, `bet_match_resolutions`, `rps`,
-              `rpsresolves`, `rps_matches`, `rps_expirations`, `rps_match_expirations`, `mempool`
+              `bet_match_expirations`, `order_match_expirations`, `bet_match_resolutions`, `mempool`
   * **filters (dict, optional):** Data filters as a dictionary. The filter format is same as for get_{} JSON API queries. See [Filtering Read API Results](#filtering-read-api-results) for more information on filters and [Object Definitions](#objects) for fields available for specific objects.
   * **filterop (string, optional):** The logical operator concatenating the filters. Defaults to `AND`.
 
@@ -1026,7 +978,7 @@ Example query:
 **Parameters:**
   * **message_type (string, required):** The type of desired transaction message. List of all available transactions:
                 `bet`, `broadcast`, `btcpay`, `burn`, `cancel`, `dividend`, `issuance`,
-                `order`, `send`, `rps`, `rpsresolve`, `publish`, `execute`
+                `order`, `send`, `publish`, `execute`
   * **transaction_params (dict, required):** The parameters to be passed to the compose_transaction function. See [Write API Function Reference](#actionwrite-api-function-reference) for list of transactions and their parameters.
 
 **Headers:**
