@@ -515,6 +515,41 @@ For example: ``get_balances``, ``get_credits``, ``get_debits``, etc are all vali
     or blockchain.info.
 
 
+###get_tx_info
+
+**get_tx_info(tx_hex)**
+
+Gets information on a transaction.
+
+**Parameters:**
+
+  * **tx_hex(string):** The hexadecimal serialization of the transaction hash (little-endian)
+
+**Return:**
+
+  - **source** (*string*):
+  - **destination** (*string*):
+  - **btc_amount** (*boolean*)
+  - **fee** (*boolean*):
+  - **data_hex** (*integer*):
+
+
+###unpack
+
+**unpack(data_hex)**
+
+Parse the data_hex of a message into its parameters. Defined dynamically for all messages for which there is an `unpack()` method.
+
+**Parameters:**
+
+  * **tx_hex(string):** The hexadecimal serialization of the transaction hash (little-endian)
+
+**Return:**
+
+  - **message_type_id** (*int*): the ID of the message type (e.g. send's is `1`)
+  - **unpacked** (*list*): a list of message parameters (e.g. for sends: `source`, `destination`, `asset`, `quantity`)
+
+
 
 ###get_asset_info
 
