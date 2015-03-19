@@ -5,6 +5,7 @@
 - [Trade on the decentralized exchange](trade.md)
 - [Create an Armory address](create_armory_address.md)
 - [Display a QR code](show_qr_code.md)
+- [Import funds from another address using the private key](import_private_key.md)
 - [Get information about any token](get_token_info.md)
 - [Create a token](create_token.md)
 - [Manage a token you created](change_token_settings.md)
