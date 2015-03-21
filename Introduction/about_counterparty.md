@@ -51,7 +51,7 @@ _Note: The following features do not require users to own, or even know about XC
 
 * Provably distribute ownership of assets through multi-signature support.
 
-* Take advantage of turing-complete scripting to craft smart contracts and financial instruments. (_XCP fees are required for each computational step._)
+* Craft smart contracts and custom financial instruments using Turing-complete smart contracts scripting. (_XCP fees are required for each computational step._)
 
 How can I learn more?
 =====================
