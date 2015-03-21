@@ -3,9 +3,9 @@
 
 **Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. By encoding data in ordinary Bitcoin transactions, Counterparty expands the uses and features of Bitcoin in new and unprecedented ways.**
 
-While Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection, it is clear that finance requires more than the ability to send coins from A to B. Consider, for example, that the internet only reached the mainstream after it evolved far beyond the transfer of basic data, and additional protocol layers were developed. 
+While Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection, it is clear that global finance requires more than the ability to send coins from A to B. Consider, for example, that the internet only reached the mainstream after it evolved far beyond the transfer of basic data, and additional protocol layers were developed. 
 
-Because Counterparty is an additional layer on top of the Bitcoin network, it has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. Counterparty adds valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
+And because Counterparty is an additional layer on top of the Bitcoin network, it has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. Counterparty adds valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
 
 Besides providing users with the world’s first functioning decentralized exchange, as well as the ability to create virtual assets, issue dividends, create price feeds and bets, Counterparty enables anyone to create smart contracts on the Bitcoin blockchain. Smart contracts are agreements whose terms and conditions are digitized, and do not require arbitration by a third-party to determine their outcome, but instead are executed automatically, with no intermediation. Counterparty's built-in Turing-complete scripting language allows anyone to create custom smart contracts and execute their code on the Bitcoin blockchain.
 
@@ -17,7 +17,7 @@ Besides providing users with the world’s first functioning decentralized excha
 
 * [counterparty-gui][] is a modular graphical interface for counterparty-lib.
 
-* `XCP` is the native token of the platform. It exists as a technical necessity for most advanced Counterparty features. It is **not** a competitor of Bitcoin, and in fact cannot exist without it. It acts as fuel for smart contracts, wherein execution steps are paid by destroying XCP as fees. 
+* `XCP` is the native, deflationary token of the platform. It exists as a technical necessity for most advanced Counterparty features, is **not** a competitor of Bitcoin, and in fact cannot exist without it. XCP is the fuel of smart contracts, as each execution step requires a fee to be paid. However, all XCP fees are _burned_, which means they are taken out of circulation permanently. The increasing rarity of XCP thereby provides a benefit to all holders thereof, instead of any specific group or individual.
 
 * [Counterwallet][], a secure web wallet with client-side logins and transaction signing. A hosted version is available on [Counterwallet.io](http://counterwallet.io)
 
