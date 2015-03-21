@@ -25,7 +25,7 @@ XCP exists as a technical necessity for advanced Counterparty features, is **not
 
 XCP is the fuel of smart contracts, as each execution step in a contract requires a fee. Spam fees for distribution payments and registering token names, are also paid in XCP. However, all XCP fees are _burned_, which means they are taken out of circulation permanently. The increasing rarity of XCP thereby provides a benefit to all holders thereof, instead of any specific group or individual.
 
-XCP cannot be mined, staked or otherwise created. The initial supply of XCP was established in a process called proof-of-burn. From Jan 2nd to Feb 3rd 2014, users were able to send Bitcoins to a verifiably unspendable Bitcoin address and automatically receive XCP in return. A total of ~2125 BTC was destroyed, and a total of ~2,649,791 XCP was created. This can be verified using a block explorer, for example on [Blockscan](http://blockscan.com/burn).
+XCP cannot be mined, staked or otherwise created. The initial supply of XCP was established in a process called proof-of-burn. From Jan 2nd to Feb 3rd 2014, users were able to send Bitcoins to a verifiably unspendable Bitcoin address and automatically receive XCP in return. A total of ~2125 BTC was destroyed, and a total of ~2,649,791 XCP was created. This can be verified using a block explorer, for example on [Blockscan](http://blockscan.com/burn). No new XCP can _ever_ be created, and the supply is decreasing with each paid fee.
 
 
 **With Counterparty, users can:**
@@ -59,6 +59,7 @@ How can I learn more?
 
 -   Follow us on [Twitter][], [Facebook][], [Google+][] and
 [LinkedIn][].
+-   Become a member of our [Official Forum](https://forums.counterparty.io/).
 -   Join our official chat: [End Users/General][] & [Developers/Technical][]
 -   Receive updates via email: Counterparty currently has two free,
 low-volume mailing lists (Community & Developer). [Subscribe
