@@ -1,13 +1,23 @@
 ﻿What is Counterparty?
 =====================
 
-Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. 
+**Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network.**
 
-By encoding data in ordinary Bitcoin transactions, Counterparty extends Bitcoin’s functionality in new and unprecedented ways, opening the door for innovation. The Bitcoin protocol stays exactly the same, while supporting the development and adoption of valuable new features, all secured by the full power of the Bitcoin network. 
+By encoding data in ordinary Bitcoin transactions, Counterparty extends Bitcoin’s functionality in new and unprecedented ways, opening the door for innovation. The Bitcoin protocol stays exactly the same, while enabling the development and adoption of valuable new features, all secured by the full power of the Bitcoin network. 
 
 Besides providing users with the world’s first functioning decentralized exchange, as well as the ability to create virtual assets, issue dividends, create price feeds and bets, Counterparty enables anyone to create smart contracts on the Bitcoin blockchain. Smart contracts are agreements whose terms and conditions are digitized, and do not require arbitration by a third-party to determine their outcome, but instead are executed automatically, with no intermediation. Counterparty's built-in Turing-complete scripting language allows anyone to create custom smart contracts and execute their code on the Bitcoin blockchain.
 
-Along with the Counterparty protocol, the platform consists of the native XCP token, which is required for performing advanced operations on the Blockchain, and the secure, browser-based Counterwallet that provides a client-side graphical interface and login system.
+**The Counterparty platform consists of several components:**
+
+* [counterparty-lib][] is the reference implementation of the Counterparty Protocol.
+
+* [counterparty-cli][] is a command line interface for counterparty-lib.
+
+* [counterparty-gui][] is a modular graphical interface for counterparty-lib.
+
+* `XCP`, which is the native token of the platform. `XCP` exists as a technical necessity for most advanced Counterparty features. It is **not** a competitor of Bitcoin, and in fact cannot exist without it. It acts as fuel for smart contracts, wherein execution steps are paid by destroying XCP as fees. 
+
+* [Counterwallet][], a secure web wallet with client-side logins and transaction signing.
 
 **With Counterparty, users can:**
 
