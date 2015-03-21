@@ -27,7 +27,7 @@ XCP is the fuel of smart contracts, as each execution step in a contract require
 
 XCP cannot be mined, staked or otherwise created. The initial supply of XCP was established in a process called proof-of-burn. From Jan 2nd to Feb 3rd 2014, users were able to send Bitcoins to a verifiably unspendable Bitcoin address and automatically receive XCP in return from the protocol. 
 
-A total of ~2125 BTC was destroyed, and a total of ~2,649,791 XCP was created. This can be verified using a block explorer, for example on [Blockscan](http://blockscan.com/burn). No new XCP can _ever_ be created, and the supply is decreasing with each paid fee. To prevent a complete depletion of the supply, the fees for smart contracts are a fraction of the total supply.
+A total of ~2125 BTC was destroyed, and a total of ~2,649,791 XCP was created. This can be verified using a block explorer, for example on [Blockscan](http://blockscan.com/burn). No new XCP can _ever_ be created, and the supply is decreasing with each paid fee. To prevent a complete depletion of the supply, the fees for smart contracts are a fraction of the total supply. This means the supply will continue to reduce, but cannot ever reach zero. 
 
 **With Counterparty, users can:**
 
