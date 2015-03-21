@@ -56,7 +56,9 @@ _Note: The following features do not require users to own, or even know about XC
 How can I learn more?
 =====================
 
-For example, you could start by reading our [Frequently Asked Questions](FAQ.md) or taking a look at our [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md).
+For a more in-depth look at Counterparty features, see this [page](counterparty_features.md).
+
+Also you could read the [Frequently Asked Questions](FAQ.md) or taking a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
 
 **Here are some other ways to get involved:**
 
