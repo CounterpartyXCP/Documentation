@@ -3,14 +3,14 @@ Features
 [TOC]
 
 
-# Assets 
+# Tokens 
 
-**Also known as:** `tokens, coins, currencies`
+**Also known as:** `assets, coins, currencies`
 
-Counterparty enhances the Bitcoin blockchain with making it possible for users to create their own currencies. These are seperate from Bitcoin itself, and exist entirely inside Bitcoin transactions. Assets can be received, stored, and sent from any Bitcoin address to any other.
+With Counterparty, users can create their own currencies _inside_ the Bitcoin blockchain. These are seperate from Bitcoin the currency itself, but exist entirely inside ordinary Bitcoin transactions. Tokens can be received, stored, and sent from any Bitcoin address to any other.
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions
-on* assets, in a fully decentralized and trustless manner. To create and trade an asset, you will need enough Bitcoin for transaction fees.
+on* tokens, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
 
 Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet.
 
