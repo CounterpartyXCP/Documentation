@@ -19,11 +19,14 @@ Besides providing users with the world’s first functioning decentralized excha
 
 * [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
 
-* `XCP` is the native, deflationary token of the platform. 
+* **XCP** is the native, deflationary token of the platform. 
 
-XCP exists as a technical necessity for advanced Counterparty features, is **not** a competitor of Bitcoin, and in fact cannot exist without it. XCP is the fuel of smart contracts, as each execution step in a contract requires a fee. 
+XCP exists as a technical necessity for advanced Counterparty features, is **not** a competitor of Bitcoin, and in fact cannot exist without it. 
 
-Spam fees for distribution payments and registering token names, are also paid in XCP. However, all XCP fees are _burned_, which means they are taken out of circulation permanently. The increasing rarity of XCP thereby provides a benefit to all holders thereof, instead of any specific group or individual.
+XCP is the fuel of smart contracts, as each execution step in a contract requires a fee. Spam fees for distribution payments and registering token names, are also paid in XCP. However, all XCP fees are _burned_, which means they are taken out of circulation permanently. The increasing rarity of XCP thereby provides a benefit to all holders thereof, instead of any specific group or individual.
+
+XCP cannot be mined, staked or otherwise created. The initial supply of XCP was established in a process called proof-of-burn. From Jan 2nd to Feb 3rd 2014, users were able to send Bitcoins to a verifiably unspendable Bitcoin address and automatically receive XCP in return. A total of ~2125 BTC was destroyed, and a total of ~2,649,791 XCP was created. This can be verified using a block explorer, for example on [Blockscan](http://blockscan.com/burn).
+
 
 **With Counterparty, users can:**
 
