@@ -31,23 +31,27 @@ A total of ~2125 BTC was destroyed, and a total of ~2,649,791 XCP was created. T
 
 **With Counterparty, users can:**
 
+_Note:_The following features do not require users to own, or even know about XCP, unless explicitly stated._
+
 * Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
 
-* Create assets (numeric or alphabetical)
+* Create numeric tokens 
+
+* Create alphabetical tokens (0.5 XCP anti-spam fee)
 
 * Issue additional units of their own assets (or lock them to prevent this)
 
-* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends)
+* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends) (0.002 XCP fee per recipient)
 
 * Trade XCP and assets on Counterparty's distributed exchange
 
 * Broadcast textual and numeric data onto the Bitcoin blockchain
 
-* Make bets and derivatives on broadcasted data
+* Make bets and derivatives on broadcasted data (Using XCP)
 
 * Provably distribute ownership of assets through multi-signature support.
 
-* Take advantage of turing-complete scripting to craft smart contracts and financial instruments.
+* Take advantage of turing-complete scripting to craft smart contracts and financial instruments. (XCP is required to pay for each computational step.)
 
 How can I learn more?
 =====================
