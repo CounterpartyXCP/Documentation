@@ -19,18 +19,26 @@ Besides providing users with the world’s first functioning decentralized excha
 
 * `XCP` is the native, deflationary token of the platform. It exists as a technical necessity for advanced Counterparty features, is **not** a competitor of Bitcoin, and in fact cannot exist without it. XCP is the fuel of smart contracts, as each execution step requires a fee to be paid. Spam fees for distribution payments and registering token names, are also paid in XCP. However, all XCP fees are _burned_, which means they are taken out of circulation permanently. The increasing rarity of XCP thereby provides a benefit to all holders thereof, instead of any specific group or individual.
 
-* [Counterwallet][], a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io)
+* [Counterwallet][], a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
 
 **With Counterparty, users can:**
 
 * Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
+
 * Create assets (numeric or alphabetical)
+
 * Issue additional units of their own assets (or lock them to prevent this)
+
 * Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends)
+
 * Trade XCP and assets on Counterparty's distributed exchange
+
 * Broadcast textual and numeric data onto the Bitcoin blockchain
+
 * Make bets and derivatives on broadcasted data
+
 * Provably distribute ownership of assets through multi-signature support.
+
 * Take advantage of turing-complete scripting to craft smart contracts and financial instruments.
 
 How can I learn more?
