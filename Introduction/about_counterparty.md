@@ -58,7 +58,7 @@ How can I learn more?
 
 For a more in-depth look, see [Counterparty Features](counterparty_features.md).
 
-Read the [Frequently Asked Questions](FAQ.md) or taking a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
+Read the [Frequently Asked Questions](FAQ.md) or take a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
 
 **Here are some other ways to get involved:**
 
