@@ -21,7 +21,7 @@ Besides providing users with the world’s first functioning decentralized excha
 
 * **XCP** is the native, deflationary token of the platform. 
 
-XCP exists as a technical necessity for advanced Counterparty features, is **not** a competitor of Bitcoin, and in fact cannot exist without it. 
+XCP exists as a technical necessity for advanced Counterparty features, is **not** a competitor of Bitcoin, and in fact cannot exist without it. It is not designed to be a traditional currency (for purchasing products or services), although it can easily be used as such.
 
 XCP is the fuel of smart contracts, as each execution step in a contract requires a fee. Spam fees for distribution payments and registering token names, are also paid in XCP. However, all XCP fees are _burned_, which means they are taken out of circulation permanently. The increasing rarity of XCP thereby provides a benefit to all holders thereof, instead of any specific group or individual.
 
