@@ -15,9 +15,9 @@ Besides providing users with the world’s first functioning decentralized excha
 
 * [counterparty-gui][] is a modular graphical interface for counterparty-lib.
 
-* `XCP`, which is the native token of the platform. `XCP` exists as a technical necessity for most advanced Counterparty features. It is **not** a competitor of Bitcoin, and in fact cannot exist without it. It acts as fuel for smart contracts, wherein execution steps are paid by destroying XCP as fees. 
+* `XCP` is the native token of the platform. It exists as a technical necessity for most advanced Counterparty features. It is **not** a competitor of Bitcoin, and in fact cannot exist without it. It acts as fuel for smart contracts, wherein execution steps are paid by destroying XCP as fees. 
 
-* [Counterwallet][], a secure web wallet with client-side logins and transaction signing.
+* [Counterwallet][], a secure web wallet with client-side logins and transaction signing. A hosted version is available on [Counterwallet.io](http://counterwallet.io)
 
 **With Counterparty, users can:**
 
