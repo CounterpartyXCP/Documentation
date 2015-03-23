@@ -18,7 +18,7 @@ Besides providing users with the world’s first functioning decentralized excha
 
 * [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
 
-* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. To learn more, see the article on [XCP](about_xcp.md).
+* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. 
 
 **With Counterparty, users can:**
 
