@@ -3,9 +3,9 @@
 
 **Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. By encoding data in ordinary Bitcoin transactions, Counterparty expands the uses and features of Bitcoin in new and unprecedented ways.**
 
-Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection. But it became clear that global finance requires more than the ability to transfer from A to B. Even the internet itself had to evolve beyond this to reach its true potential.
+Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection. But it became clear that global finance requires more than the ability to simply transfer from A to B. And as many have witnessed, even the internet itself had to evolve beyond this to reach its true potential.
 
-And because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. Similarily, Counterparty is an additional layer that adds valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
+Because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. Similarily, Counterparty is an additional layer that adds valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
 
 With the recent addition of programmable money (smart contracts), Counterparty has become the most feature complete DApp toolkit on the Bitcoin blockchain. 
 
