@@ -8,7 +8,7 @@ both 32-bit and 64-bit versions of Windows, and is the recommended approach.
 - [APSW 3.8.8.1-r1](https://github.com/rogerbinns/apsw/releases/download/3.8.8.1-r1/apsw-3.8.8.1-r1.win32-py3.4.exe)
 - [Pycrypto 2.6.1](https://s3.amazonaws.com/counterparty-bootstrap/pycrypto-2.6.1.win32-py3.4.exe)
 - [Microsoft Visual C++ 2008 Redistributable Package (x86)](http://www.microsoft.com/downloads/details.aspx?familyid=9B2DA534-3E03-4391-8A4D-074B9F2BC1BF)
-- [OpenSSL 1.0.1](https://slproweb.com/download/Win32OpenSSL_Light-1_0_1L.exe)
+- [OpenSSL 1.0.2a](hhttp://slproweb.com/download/Win32OpenSSL_Light-1_0_2a.exe)
 - [Git](http://git-scm.com/download/win) (Optional) (Select "**Use Git from the Windows Command Prompt**".)- 
 
 # Usage and notes for Windows
