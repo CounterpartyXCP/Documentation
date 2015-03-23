@@ -3,10 +3,17 @@
 
 **Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. By encoding data in ordinary Bitcoin transactions, Counterparty expands the uses and features of Bitcoin in new and unprecedented ways.**
 
-While Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection, it is clear that global finance requires more than the ability to send coins from A to B. Consider, for example, that the internet only reached the mainstream after it evolved far beyond the transfer of basic data, and additional protocol layers were developed. 
-And because Counterparty is an additional layer on top of the Bitcoin network, it has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. On the same note, Counterparty adds valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
+Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection. But it was clear that global finance required more than the ability to transfer from A to B. Consider that even the internet itself had to evolve beyond this limitation to reach the mainstream.
 
-Besides providing users with the world’s first functioning decentralized exchange, as well as the ability to create virtual assets, issue dividends, create price feeds and bets, Counterparty enables anyone to create smart contracts on the Bitcoin blockchain. Smart contracts are agreements whose terms and conditions are digitized, and do not require arbitration by a third-party to determine their outcome, but instead are executed automatically, with no intermediation. Counterparty's built-in Turing-complete scripting language allows anyone to create custom smart contracts and execute their code on the Bitcoin blockchain.
+And because Counterparty is an additional layer on top of the Bitcoin network, it has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. Similarily, Counterparty adds valuable new features that are secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
+
+With the recent addition of programmable money (smart contracts), Counterparty has become the most feature complete DApp toolkit on the Bitcoin blockchain. Additionally, you can create tokens (custom currencies), make distribution payments, participate in decentralized betting, create your own bets. 
+
+Smart contracts are agreements whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically with no intermediation. Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum, and code is cross-compatible. 
+
+The smart contracts system is Turing-complete, creating limitless potential for custom financial instruments, intelligent markets, and decentralized applications. 
+
+Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, making cross-platform compatible development effortless.
 
 **The Counterparty platform consists of several components:**
 
