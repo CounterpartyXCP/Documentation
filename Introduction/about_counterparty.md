@@ -18,7 +18,7 @@ Besides providing users with the world’s first functioning decentralized excha
 
 * [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
 
-* **XCP** is the native, deflationary token of the platform. XCP exists as a technical necessity for advanced Counterparty features, is **not** a competitor of Bitcoin, and in fact cannot exist without it. It is not designed to be a traditional currency (for purchasing products or services), although it can easily be used as such. To learn more, see the article on [XCP](about_xcp.md).
+* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. To learn more, see the article on [XCP](about_xcp.md).
 
 **With Counterparty, users can:**
 
