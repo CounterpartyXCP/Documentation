@@ -240,17 +240,20 @@ status of ``counterparty``/``counterblock``.
 
 Also, you can start up the daemons in the foreground, for easier debugging, using the following sets of commands:
 
-    #bitcoind
+    #launch bitcoind mainnet
     sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.conf' xcpd
+    #launch bitcoind testnet
     sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.testnet.conf' xcpd
 
-    #counterparty-server & counterblock mainnet
+    #launch counterparty-server mainnet
     sudo su -s /bin/bash -c 'counterparty-server start' xcpd
-    sudo su -s /bin/bash -c 'counterblock' xcpd
+    #launch counterblock mainnet
+    sudo su -s /bin/bash -c 'PYTHON_EGG_CACHE=/tmp/counterblock.eggs counterblock' xcpd
     
-    #counterparty-server & counterblock testnet
+    #launch counterparty-server testnet
     sudo su -s /bin/bash -c 'counterparty-server --config-file /home/xcp/.config/counterparty/server.testnet.conf start' xcpd
-    sudo su -s /bin/bash -c 'counterblock --config-file /home/xcp/.config/counterblock/server.testnet.conf' xcpd
+    #launch counterblock testnet
+    sudo su -s /bin/bash -c 'PYTHON_EGG_CACHE=/tmp/counterblock.eggs counterblock --config-file /home/xcp/.config/counterblock/server.testnet.conf' xcpd
 
 You can also interface with Bitcoin Core by running ``bitcoin-cli`` commands, e.g.:
 
