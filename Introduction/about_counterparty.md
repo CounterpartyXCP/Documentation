@@ -27,7 +27,7 @@ Counterparty has successfully ported Ethereum's smart contracts system onto the 
 
 **With Counterparty, users can:**
 
-_Note: The following features do not require users to own, or even know about XCP, unless explicitly stated._
+_Note: All features only require regular bitcoin transaction fees unless explicitly stated._
 
 * Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
 
