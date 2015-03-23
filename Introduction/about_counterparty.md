@@ -3,7 +3,7 @@
 
 **Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. By encoding data in ordinary Bitcoin transactions, Counterparty expands the uses and features of Bitcoin in new and unprecedented ways.**
 
-Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection. But it was clear that global finance required more than the ability to transfer from A to B. Consider that even the internet itself had to evolve beyond this limitation to reach the mainstream.
+Bitcoin has made fully peer-to-peer transfer of value available to anyone with an internet connection. But it became clear that global finance required more than the ability to transfer from A to B. Which makes sense, considering that even the internet itself had to evolve beyond this limitation to reach the mainstream.
 
 And because Counterparty is an additional layer on top of the Bitcoin network, it has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. Similarily, Counterparty adds valuable new features that are secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
 
