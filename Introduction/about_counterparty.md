@@ -11,7 +11,7 @@ With the recent addition of programmable money (smart contracts), Counterparty h
 
 Smart contracts are agreements whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically with no intermediation. 
 
-Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain. Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum, and code is cross-compatible. The smart contracts system is Turing-complete, creating limitless potential for custom financial instruments, intelligent markets, and decentralized applications. 
+Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain. Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, as the virtual machines is entirely cross-compatible. The smart contracts system is Turing-complete, creating limitless potential for custom financial instruments, intelligent markets, and decentralized applications. 
 
 **The Counterparty platform consists of several components:**
 
