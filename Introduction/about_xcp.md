@@ -31,5 +31,8 @@ Since the BTC on the burn address will never be spendable again, they are consid
 
 #### Smart contracts execution steps (gas) are paid in XCP.
 
-Every computational step of a smart contract (decentralized application) requires a fee to be paid in XCP. This fee is referred to as gas and is, aptly enough, burned. What this means, is that the XCP spent on these fees is destroyed and taken out of circulation permanently. By using fractions of the total supply instead of fixed costs, a depletion of the XCP supply through fees can be avoided indefinitely.
+XCP is the fuel for smart contracts. When smart contracts are running, fuel is used for each execution step. Appropriately enough, this fuel is **burned** (destroyed). This means that the supply of XCP is continously decreasing. However, the cost of fuel adjusts proportionally as the supply of XCP goes down, so that it cannot reach 0.
 
+XCP is always the easiest token to trade against, as it is represented across all exchanges that support Counterparty. It is also used for anti-spam fees when registering named tokens, and when making distribution payments to token holders. The betting system also uses XCP.
+
+Unfortunately these features cannot reach the achieve of the main Bitcoin blockchain without a metatoken, such as XCP. This intermediate step is a technical necessity, and many Counterparty features such as betting therefore use XCP. 
