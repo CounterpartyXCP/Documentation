@@ -5,7 +5,7 @@ Frequently Asked Questions
 
 ### Is XCP an alt-coin or competitor to Bitcoin?
 
-No. XCP cannot exist without Bitcoin. XCP is simply a technical necessity for harnessing more advanced blockchain technology, such as programmable smart contracts. It represents stake in Counterparty itself, is protocol-aware, as well as used for various fees. To learn more about XCP, see [about XCP](about_xcp.md).
+No. XCP cannot exist without Bitcoin. XCP is simply a technical necessity for harnessing more advanced blockchain technology, such as programmable smart contracts. It represents stake in Counterparty itself, is protocol-aware, as well as used for various fees. Although it can be used as such, it was not designed to be an alternative currency. To learn more about XCP, see [about XCP](about_xcp.md).
 
 ### What kind of addresses does Counterparty use?
 
