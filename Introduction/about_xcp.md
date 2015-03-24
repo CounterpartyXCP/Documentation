@@ -5,6 +5,8 @@ XCP is the native token of Counterparty. Creating XCP was a technical necessity 
 
 #### Smart contracts execution steps (gas) are paid in XCP.
 
+Every computational step of a smart contract (decentralized application) requires a fee to be paid in XCP. This fee is referred to as gas and is, aptly enough, burned. What this means, is that the XCP spent on these fees is destroyed and taken out of circulation permanently.
+
 ####
 
 When evaluating XCP, there are other several facts to keep in mind:
