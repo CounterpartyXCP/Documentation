@@ -50,6 +50,6 @@ Counterparty only needs some Bitcoin full nodes somewhere to have an unpruned co
 
 To do a 51% attack on Counterparty, you have to do a 51% attack on Bitcoin, and the effects would be the same, too. Blockchain reorganizations are handled by Counterparty the same way they are handled by Bitcoin.
 
-### How can a thin client trustlessly lookup the Bitcoin public address associated with the OSTOCK asset name?
+### How can a thin client trustlessly lookup the Bitcoin public address associated with an asset name?
 
 You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue now. Protocols like VerSum offer excellent models for untrusted verification here.
