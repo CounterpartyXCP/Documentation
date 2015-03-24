@@ -1,7 +1,10 @@
 What is XCP?
 =====================
 
-XCP is the native token of Counterparty. 
+XCP is the native token of Counterparty. Creating XCP was a technical necessity for adding advanced features to Counterparty, which by nature require a protocol aware 'currency'. When evaluating XCP, there are other several facts to keep in mind:
+
+* XCP cannot be seen as a competitor of Bitcoin, since it cannot conceivably exist without it.
+* It is not intended to be used as a purchasing currency, although there is nothing to prevent this.
 
 #### How was XCP launched?
 
