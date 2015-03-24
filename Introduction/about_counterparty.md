@@ -27,8 +27,6 @@ Counterparty has successfully ported Ethereum's smart contracts system onto the 
 
 **With Counterparty, users can:**
 
-_Note: All features only require regular bitcoin transaction fees unless explicitly stated._
-
 * Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
 
 * Create numeric tokens 
@@ -49,12 +47,14 @@ _Note: All features only require regular bitcoin transaction fees unless explici
 
 * Craft smart contracts and custom financial instruments using Turing-complete smart contracts scripting. (_XCP fees are required for each computational step._)
 
+_Note: Counterparty features do not require the use of XCP unless explicitly stated._
+
 How can I learn more?
 =====================
 
 For a more in-depth look, see [Counterparty Features](counterparty_features.md).
 
-Read the [Frequently Asked Questions](FAQ.md) or take a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
+Additionally, you can read the [Frequently Asked Questions](FAQ.md) or take a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
 
 **Here are some other ways to get involved:**
 
