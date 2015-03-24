@@ -39,7 +39,7 @@ Creating custom contracts and DApps on the Bitcoin blockchain is now possible us
 
 * Trade XCP and assets on Counterparty's distributed exchange
 
-* Broadcast textual and numeric data onto the Bitcoin blockchain
+* Broadcast textual and numeric data onto the Bitcoin blockchain (e.g. proof of publication)
 
 * Make bets and derivatives on broadcasted data (_Using XCP_)
 
