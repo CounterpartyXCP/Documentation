@@ -74,6 +74,7 @@ now!][]
 -   [Coinmarketcap.com][] - XCP price, volumes, 24h average, and a list of exchanges
 -   [Counterparty on Wikipedia][]
 -   [Blockscan Block Explorer](http://blockscan.com)
+-   [Bitcointalk](https://bitcointalk.org/index.php?topic=3957610).
 
   [Twitter]: https://twitter.com/CounterpartyXCP
   [Facebook]: https://www.facebook.com/CounterpartyXCP
