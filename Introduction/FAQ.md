@@ -5,35 +5,24 @@ Frequently Asked Questions
 
 ### Is XCP an alt-coin or competitor to Bitcoin?
 
-No. XCP cannot exist without Bitcoin, as Counterparty extends the basic features of Bitcoin with proof-of-publication, oracle betting, decentralized exchange, automatic escrow, order matching, and smart contracts. 
+No. XCP cannot exist without Bitcoin. XCP is simply a technical necessity for harnessing more advanced blockchain technology, such as programmable smart contracts. It represents stake in the Counterparty protcool, and is used for various fees. To learn more about XCP, see [about XCP](about_xcp.md).
 
 ### What kind of addresses does Counterparty use?
 
 _Exactly_ the same Bitcoin addresses we all know and love. Counterparty uses the Bitcoin blockchain exclusively.
 
-### How was the supply of XCP created?
-
-During the proof-of-burn process, users were able to send Bitcoins to an provably unspendable address, and automatically receive XCP in return from the protocol. In accordance with Satoshi's philosophy, this created an equal opportunity for both developers and users.
-
-### Can more XCP be created?
-
-No. The supply of XCP is fixed, and decreasing because of fees being burned.
-
-### Why does XCP have value?
-
-XCP is the fuel for smart contracts. When smart contracts are running, fuel is used for each execution step. Appropriately enough, this fuel is **burned** (destroyed). This means that the supply of XCP is continously decreasing. However, the cost of fuel adjusts proportionally as the supply of XCP goes down, so that it cannot reach 0.
-
-XCP is always the easiest token to trade against, as it is represented across all exchanges that support Counterparty. It is also used for anti-spam fees when registering named tokens, and when making distribution payments to token holders. The betting system also uses XCP.
-
-Unfortunately these features cannot reach the achieve of the main Bitcoin blockchain without a metatoken, such as XCP. This intermediate step is a technical necessity, and many Counterparty features such as betting therefore use XCP. 
-
-### What about Sidechains?
+### What about sidechains?
 
 Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason not to make them work with Counterparty.
 
 ### Can I secure my XCP and tokens in cold storage?
 
 Yes. You can make a regular Bitcoin paper wallet and store them there. Later, you can sweep the funds into Counterwallet.
+
+### Does Counterparty support m-of-n multi-sig?
+
+Yes, but currently only bare multi-signatures and not P2SH. This means that the addresses are in the format:
+`{m}_addr1_addr2_addr3_{n}` 
 
 ### How does the Counterparty protocol achieve consensus? 
 
