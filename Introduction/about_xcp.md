@@ -31,11 +31,3 @@ Since the BTC on the burn address will never be spendable again, they are consid
 
 Every computational step of a smart contract (decentralized application) requires a fee to be paid in XCP. This fee is referred to as gas and is, aptly enough, burned. What this means, is that the XCP spent on these fees is destroyed and taken out of circulation permanently. By using fractions of the total supply instead of fixed costs, a depletion of the XCP supply through fees can be avoided indefinitely.
 
-###
-
-**When evaluating XCP, there are other several facts to keep in mind:**
-
-* XCP cannot be seen as a competitor of Bitcoin, since it cannot conceivably exist without it.
-* It is not intended to be used as a purchasing currency, although there is nothing to prevent this.
-
-
