@@ -7,9 +7,11 @@ Bitcoin has made fully peer-to-peer transfer of value available to anyone with a
 
 To address this, Counterparty adds an additional layer of valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same. Because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
-With the recent addition of the smart contracts system, Counterparty has become the most feature complete solution for developing decentralized applications on top of the Bitcoin blockchain. Smart contracts are agreements whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically with no intermediation. 
+Counterparty was founded as direct descendant of Satoshi's original philosophy, combining the security and first mover advantage of Bitcoin, with the programmability of Ethereum, as well as concepts from traditional finance. Its purpose is to provide free, open-source financial tools accessible to anyone in the world.
 
-Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain. Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, and the virtual machines are entirely cross-compatible. The smart contracts system is Turing-complete, offering limitless potential for building custom financial instruments, intelligent markets, organizations, games, and countless other creative uses. 
+Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or counterparty risk. 
+
+Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, and the virtual machines are entirely cross-compatible. The smart contracts system is Turing-complete, offering limitless potential for building custom financial instruments, intelligent markets, organizations, games, and countless other creative uses. 
 
 **The Counterparty platform consists of several components:**
 
@@ -47,12 +49,12 @@ Counterparty has successfully ported Ethereum's smart contracts system onto the 
 
 _Note: Counterparty features do not require the use of XCP unless explicitly stated._
 
+For a more in-depth look at what you can do with Counterparty, see [Counterparty Features](counterparty_features.md).
+
 How can I learn more?
 =====================
 
-For a more in-depth look, see [Counterparty Features](counterparty_features.md).
-
-Additionally, you can read the [Frequently Asked Questions](FAQ.md) or take a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
+You can read the [Frequently Asked Questions](FAQ.md) or take a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
 
 **Here are some other ways to get involved:**
 
