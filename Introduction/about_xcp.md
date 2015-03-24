@@ -7,9 +7,7 @@ _Note: It is a common misconception that XCP is a competitor to Bitcoin, when in
 
 ### How was XCP launched?
 
-The supply of XCP was created in a process called 'proof-of-burn' that lasted a total of 5000 Bitcoin blocks from January 2nd to February 3rd 2014). 
-
-**During this period, anyone was able to exchange bitcoins for XCP automatically on a protocol level under the following conditions:**
+The supply of XCP was created in a process called 'proof-of-burn' that lasted a total of 5000 Bitcoin blocks from January 2nd to February 3rd 2014). During this period, anyone was able to exchange bitcoins for XCP automatically on a protocol level under the following conditions:
 
 * Users sent their BTC to a verifiably unspendable Bitcoin address with no known private key. ([1CounterpartyXXXXXXXXXXXXXXXUWLpVr](http://blockscan.com/burn))
 
