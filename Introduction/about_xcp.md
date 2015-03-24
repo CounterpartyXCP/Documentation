@@ -17,7 +17,15 @@ The supply of XCP was created in a process called 'proof-of-burn' that lasted a 
 
 * Each address was limited to 1 BTC.
 
-Since the BTC on the burn address will never be spendable again, they are considered destroyed or 'burned'.
+Since the BTC on the burn address will never be spendable again, they are considered destroyed or 'burned'. The main advantage of using this process is to create an equal opportunity for all users, including the founders of the project. The result is that nobody started out with a pre-existing supply of XCP. This method is relatively rare in the crypto space, because it does not provide the founders with starting capital. This, however, means that it is a truly decentralized platform similar to Bitcoin's proof-of-work system.
+
+A truly decentralized system without a crowdfunder has various advantages:
+
+* Avoids issues with regulatory uncertainty and legal liability because there is no direct profit model, nor a central authority.
+* Incentivises developers and users equally.
+* Funds are never in the control of any 3rd party.
+* Full transparency
+* No "pre-mine"
  
 ### Smart contracts execution steps (gas) are paid in XCP.
 
