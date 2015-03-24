@@ -25,7 +25,7 @@ A truly decentralized system without a crowdfunder has various advantages:
 * Incentivises developers and users equally.
 * Funds are never in the control of any 3rd party.
 * Full transparency
-* No "pre-mine"
+* Zero "pre-mined" coins
  
 ### Smart contracts execution steps (gas) are paid in XCP.
 
