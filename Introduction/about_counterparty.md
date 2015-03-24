@@ -7,11 +7,11 @@ Bitcoin has made fully peer-to-peer transfer of value available to anyone with a
 
 Because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. Similarily, Counterparty is an additional layer that adds valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same.  
 
-With the recent addition of programmable money (smart contracts), Counterparty has become the most feature complete DApp toolkit on the Bitcoin blockchain. 
+With the recent addition of the smart contracts system, Counterparty has become the most feature complete solution for developing decentralized financial instruments and markets.
 
 Smart contracts are agreements whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically with no intermediation. 
 
-Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain. Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, and the virtual machines are entirely cross-compatible. The smart contracts system is Turing-complete, creating limitless potential for building custom financial instruments, intelligent markets, and decentralized applications. 
+Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain. Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, and the virtual machines are entirely cross-compatible. The smart contracts system is Turing-complete, offering limitless potential for building custom financial instruments, intelligent markets, and decentralized applications. 
 
 **The Counterparty platform consists of several components:**
 
