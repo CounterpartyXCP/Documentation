@@ -25,7 +25,7 @@ Since the BTC on the burn address will never be spendable again, they are consid
 * Incentivises developers and users equally.
 * Funds are never in the control of any 3rd party.
 * Full transparency
-* Zero "pre-mined" coins
+* Zero pre-mine
 
 ### What is XCP used for?
 
