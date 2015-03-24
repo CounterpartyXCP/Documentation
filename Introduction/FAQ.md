@@ -22,7 +22,7 @@ Yes. You can make a regular Bitcoin paper wallet and store them there. Later, yo
 ### Does Counterparty support m-of-n multi-sig?
 
 Yes, but currently only bare multi-signatures and not P2SH. This means that the addresses are in the format:
-`{m}_addr1_addr2_addr3_{n}` 
+`{m}_addr1_addr2_addr3_{n}` where m is the number of keys required, and n is the total number of keys.
 
 ### How does the Counterparty protocol achieve consensus? 
 
