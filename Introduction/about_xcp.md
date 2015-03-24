@@ -1,7 +1,7 @@
 What is XCP?
 =====================
 
-XCP is the native token of Counterparty. Creating XCP was a technical necessity for adding advanced features to Counterparty, which by nature require a protocol aware currency. It is a common misconception that XCP is a competitor to Bitcoin, when in fact it cannot exist without it. **Even though XCP is not a traditional currency, it serves a steady and critical purpose within the Counterparty ecosystem.**
+XCP is the native token of Counterparty. Creating XCP was a technical necessity for adding advanced features to Counterparty, which by nature require a protocol aware currency. It is a common misconception that XCP is a competitor to Bitcoin, when in fact it cannot exist without it. Even though XCP is not a traditional currency, it serves a steady and critical purpose within the Counterparty ecosystem.
 
 ### How was XCP launched?
 
@@ -19,7 +19,7 @@ The supply of XCP was created in a process called 'proof-of-burn' that lasted a 
 
 Since the BTC on the burn address will never be spendable again, they are considered destroyed or 'burned'. The main advantage of using this process is to create an equal opportunity for all users, including the founders of the project. The result is that nobody started out with a pre-existing supply of XCP. This method is relatively rare in the crypto space, because it does not provide the founders with starting capital. This, however, means that it is a truly decentralized platform similar to Bitcoin's proof-of-work system.
 
-A truly decentralized system without a crowdfunder has various advantages:
+**A truly decentralized system without a crowdfunder has various advantages:**
 
 * Avoids issues with regulatory uncertainty and legal liability because there is no direct profit model, nor a central authority.
 * Incentivises developers and users equally.
