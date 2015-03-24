@@ -5,7 +5,7 @@ XCP is the native token of Counterparty. Creating XCP was a technical necessity 
 
 ### How was XCP launched?
 
-The supply of XCP was created in a process called 'proof-of-burn' that started January 2nd and ended February 3rd of 2014 (a total of 5000 Bitcoin blocks). 
+The supply of XCP was created in a process called 'proof-of-burn' that lasted a total of 5000 Bitcoin blocks from January 2nd to February 3rd 2014). 
 
 **During this period, anyone was able to exchange bitcoins for XCP automatically on a protocol level under the following conditions:**
 
