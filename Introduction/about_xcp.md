@@ -26,8 +26,10 @@ Since the BTC on the burn address will never be spendable again, they are consid
 * Funds are never in the control of any 3rd party.
 * Full transparency
 * Zero "pre-mined" coins
- 
-### Smart contracts execution steps (gas) are paid in XCP.
+
+### What is XCP used for?
+
+#### Smart contracts execution steps (gas) are paid in XCP.
 
 Every computational step of a smart contract (decentralized application) requires a fee to be paid in XCP. This fee is referred to as gas and is, aptly enough, burned. What this means, is that the XCP spent on these fees is destroyed and taken out of circulation permanently. By using fractions of the total supply instead of fixed costs, a depletion of the XCP supply through fees can be avoided indefinitely.
 
