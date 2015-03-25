@@ -93,7 +93,7 @@ functionality, and custom plugins should only utilize priority settings under th
     @<Processor>.subscribe()
 ```
 
-``MessageProcessor`` runs once for each message as obtained from `counterpartyd`, ``msg`` will pass the message
+``MessageProcessor`` runs once for each message as obtained from the `counterpartyd` message feed, for all activity that has been confirmed on the blockchain (i.e. at least 1 Bitcoin confirmation). ``msg`` will pass the message
  in the same format as the ``get_messages`` counterpartyd api method, msg_data corresponds to ``json.loads(msg['bindings'])``. 
 
 ```python
@@ -108,8 +108,25 @@ functionality, and custom plugins should only utilize priority settings under th
         return
 ```
 
-Note that with ``MessageProcessor`` handlers, you can return ``'continue'`` to prevent the running of further MessageProcessors (i.e.
-of lesser priority than the current one) for the message being currently processed.
+Note that with ``MessageProcessor`` handlers, you can return ``'continue'`` to prevent the running of further MessageProcessors (i.e. of lesser priority than the current one) for the message being currently processed.
+
+``MempoolMessageProcessor`` also exists and works similar to ``MessageProcessor``, however, for messages out the mempool (i.e.
+that are not confirmed and included on the blockchain yet). The format of the data supplied to the processor is slightly different though, and looks like this:
+
+```python
+    @MempoolMessageProcessor.subscribe(enabled=True, priority=90) 
+    def custom_received_xcp_alert(msg, msg_data):
+        assert msg['_message_index'] == 'mempool'
+        assert msg['tx_hash']
+        assert msg['command']
+        assert msg['category']
+        assert msg_data #the actual message data
+        assert msg['timestamp']
+        assert msg['viewed_in_block']
+        
+        #prevent running of further MempoolMessageProcessors of lesser priority for the message being processed
+        return 'continue'
+```
 
 ``BlockProcessor`` run once per new block, after all ``MessageProcessor`` functions have completed. 
 
