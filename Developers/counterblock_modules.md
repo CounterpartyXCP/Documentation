@@ -93,6 +93,8 @@ functionality, and custom plugins should only utilize priority settings under th
     @<Processor>.subscribe()
 ```
 
+**MessageProcessor**
+
 ``MessageProcessor`` runs once for each message as obtained from the `counterpartyd` message feed, for all activity that has been confirmed on the blockchain (i.e. at least 1 Bitcoin confirmation). ``msg`` will pass the message
  in the same format as the ``get_messages`` counterpartyd api method, msg_data corresponds to ``json.loads(msg['bindings'])``. 
 
@@ -109,6 +111,8 @@ functionality, and custom plugins should only utilize priority settings under th
 ```
 
 Note that with ``MessageProcessor`` handlers, you can return ``'continue'`` to prevent the running of further MessageProcessors (i.e. of lesser priority than the current one) for the message being currently processed.
+
+**MempoolMessageProcessor**
 
 ``MempoolMessageProcessor`` also exists and works similar to ``MessageProcessor``, however, for messages out the mempool (i.e.
 that are not confirmed and included on the blockchain yet). The format of the data supplied to the processor is slightly different though, and looks like this:
@@ -128,6 +132,8 @@ that are not confirmed and included on the blockchain yet). The format of the da
         return 'continue'
 ```
 
+**BlockProcessor**
+
 ``BlockProcessor`` run once per new block, after all ``MessageProcessor`` functions have completed. 
 
 ```python
@@ -135,6 +141,8 @@ that are not confirmed and included on the blockchain yet). The format of the da
     def alertBlock(): 
         print('Finished processing messages for this block')
 ```
+
+**config.state**
 
 A number of changing variables that a module may need to access are stored in ``config.state`` - For example if you
 want to run a process for every new block (but not when counterblock is catching up). 
@@ -147,6 +155,8 @@ want to run a process for every new block (but not when counterblock is catching
         #Do stuff here
 ```
 
+**StartUpProcessor**
+
 ``StartUpProcessor`` runs once on ``counterblock`` startup. 
 
 ```python
@@ -155,6 +165,8 @@ want to run a process for every new block (but not when counterblock is catching
         config.my_db = pymongo.Connection()['my_db'] 
 ```
 
+**CaughtUpProcessor**
+
 ``CaughtUpProcessor`` runs once when ``counterblock`` catches up to the latest Counterpartyd block. 
 
 ```python
@@ -162,6 +174,8 @@ want to run a process for every new block (but not when counterblock is catching
     def caughtUpAlert(): 
         print('counterblock is now caught up to Counterpartyd!') 
 ```
+
+**RollbackProcessor**
 
 ``RollbackProcessor`` runs whenever the ``counterblock`` database is rolled back (either due to a blockchain
 reorg, or an explicit rollback command being specified to ``counterblock`` via the command line).
@@ -175,6 +189,8 @@ all block data.
         print('counterblock block database rolled back! Anything newer than block index %i removed!' % max_block_index) 
 ```
 
+**Enhancing the API**
+
 To add a method from a module to the API dispatcher: 
 
 ```python
@@ -184,4 +200,20 @@ To add a method from a module to the API dispatcher:
     @API.add_method
     def my_foo_api_method(): 
         return 'bar'
+```
+
+**start_task**
+
+To start a task that runs in a seperate lightweight thread (either immediately, or with a delay), use ``start_task``:
+
+```python
+    from lib.processor import start_task
+    
+    def run_my_task():
+        print("Foo bar!!")
+        #start again in 5 minutes
+        start_task(run_my_task, delay=5*60)
+        
+    #start task the first time with no delay
+    start_task(run_my_task)
 ```
