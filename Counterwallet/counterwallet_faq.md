@@ -9,9 +9,9 @@ Counterwallet FAQ
 
 * Counterwallet handles transaction signing locally, which means your passphrase and private keys never leave your browser. 
 
-* Additional security features such as m-of-n (max 3) multi-signature addresses, watch-only addresses are also natively supported.
+* Additional security features such as m-of-n (max 3) multi-signature addresses, watch-only, and [Armory](/Tutorials/User_Tutorials/create_armory_address.md) addresses are also natively supported.
 
-* All trades and actions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, which means that unlike centralized exchanges, no middleman is ever required.
+* All trades and actions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, which means that unlike centralized exchanges, _no middleman is ever required_.
 
 **Counterwallet is being actively developed and currently implements many current Counterparty features.**
 
