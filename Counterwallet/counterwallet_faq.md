@@ -64,30 +64,34 @@ This will make use of assets owned in this address very secure... Basically Armo
 
 ## I logged in and my address is different, and I have no balance! Help!
 
+Please see [missing balance](no_balance.md)
 
 ## I sent funds to a crowdsale vending machine, why didn’t they show up?
 
 
-##I sent BTC to Counterwallet, why doesn't it show up?
+## I sent BTC to Counterwallet, why doesn't it show up?
   
     
 ## Why do I need small amounts of Bitcoin to do things in Counterwallet?
 
+Counterparty builds directly on top of the Bitcoin network, and every Counterparty transaction is a Bitcoin transaction as well. This means that Counterparty transactions are the same as as Bitcoin transactions, with some information attached. 
 
-## An address I added in Counterwallet is not showing -- why?
+Because of this, Counterparty transactions must pay a small BTC fee to the Bitcoin miners for each transaction sent. Beyond being a sign of our commitment to the health of the Bitcoin network, this allows Counterparty transactions to be given a high priority and be confirmed quickly.
+
+If speed of confirmation is not as important to you as the fee amount paid, note that it is possible to have lower fees in Counterparty, especially involving bulk sends. This functionality will also be coming to Counterwallet as well.
 
 ## Does Counterwallet support two-factor authentication?
 
+Currently, no. But you can create multi-signature addresses.
 
 ## What else do I need to know?
 
-- All encryption is handled client-side. Neither your passphrase nor any of your private information ever leaves your browser. This also means that there is no password recovery, so make sure you do not lose your password.
+- All encryption is handled client-side. Neither your passphrase nor any of your private information ever leaves your browser. This also means that there is no password recovery, so make sure you do not lose your passphrase
 
-- Because Counterwallet does not store your credentials, it has no access to your information if/when you are not logged in.
+- Because Counterwallet does not store your credentials, it has no access to your information.
 
-- Because of the US government regulations, betting functionality is limited to non-US-based client IP addresses by default.
+- Because of the US government regulations, betting functionality is limited to non-US-based client IP addresses by default. This is not a limitation of the protocol itself.
 
 ## I want to translate Counterwallet to my language
 
-Translations are hosted at [Transifex](https://www.transifex.com/organization/counterparty/dashboard/counterwallet). Open an account (or login with
-Github) and contribute as a translator or reviewer.
+Translations are hosted at [Transifex](https://www.transifex.com/organization/counterparty/dashboard/counterwallet). Open an account (or login with Github) and contribute as a translator or reviewer. We appreciate any contributions.
