@@ -5,9 +5,11 @@ Counterwallet FAQ
 
 ## What is Counterwallet?
 
-**Counterwallet is an open-source web wallet for Bitcoin (BTC) and [Counterparty](https://github.com/CounterpartyXCP/) (XCP), the world’s first protocol for decentralized financial tools.**
+**Counterwallet is an open-source web wallet for Bitcoin (BTC) and [Counterparty](https://github.com/CounterpartyXCP/) (XCP), the world’s first protocol for decentralized financial tools. It is built using Javascript, Bitcoin libraries and Counterparty software.**
 
 * Counterwallet handles transaction signing locally, which means your passphrase and private keys never leave your browser. 
+
+* Additional security features such as m-of-n (max 3) multi-signature addresses, watch-only addresses are also natively supported.
 
 * All trades and actions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, which means that unlike centralized exchanges, no middleman is ever required.
 
