@@ -1,6 +1,6 @@
 #Enhanced Asset Info
 
-When initially setting or changing your asset's (token's) description, you can enable enhanced functionality (such as an token image and a longer description) by providing a URL to a specially formatted .json file (e.g. http://www.mydomain.com/foo.json) as the description. This allows the token owner to provide enhanced information to the token's holders, and enhances the user experience for these holders for wallet implementations that support this spec.
+When initially setting or changing your asset's (token's) description, you can enable enhanced functionality (such as an token image and a longer description) by providing a URL to a specially formatted .json file (e.g. http://www.mydomain.com/foo.json) as the description. This provides enhanced information to the token's holders, and enhances the user experience for wallet implementations that support this spec.
 
 Token Info URL format
 ---------------------------
