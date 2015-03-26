@@ -23,7 +23,7 @@ Counterwallet FAQ
 
 ## Where can I access it?
 
-Counterwallet (CW) hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). However, because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host and alter their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host.
+Counterwallet (CW) hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). However, because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host and alter their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host. Any geographic restrictions and other limitations of Counterwallet can be disabled at the user's own peril.
 
 If you are having trouble accessing CW, try one of the individual servers. Although keep in mind that it is possible that they are down for maintenance:
 
