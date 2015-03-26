@@ -369,6 +369,32 @@ The translations should then be built, and multilingual support will be enabled 
 Other Topics
 --------------
 
+###Development workflow
+
+With a federated node setup, it's rather easy to make source-level changes to Counterparty-related changes and test/debug them. First, run the federated node setup as normal. Then, issue the following commands:
+
+```
+cd ~xcp/federatednode_build/dist
+
+#remove any symlinks that exist
+sudo rm -f counterparty-lib counterparty-cli counterblock
+
+#checkout the develop branches of everything (or whatever other branch you see fit)
+git clone -b develop https://github.com/CounterpartyXCP/counterpartyd.git counterparty-lib
+git clone -b develop https://github.com/CounterpartyXCP/counterparty-cli.git
+git clone -b develop https://github.com/CounterpartyXCP/counterblock.git
+```
+
+Then you can make your changes to the source code as you see fit. To test the changes, run the ``setup.py install`` for the appropriate component, using the appropriate ``python``.
+
+For ``counterparty-lib`` this would be:
+sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 counterparty-lib/setup.py install
+
+For ``counterblock`` this would be:
+sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 counterblock/setup.py install
+
+You can then re-launch the component (most likely in the console) using the appropriate command, documented earlier.
+
 ###System user configuration
 
 Note that when you set up a federated node, the script creates two new users on the system: ``xcp`` and ``xcpd``. (The
