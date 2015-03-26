@@ -14,7 +14,7 @@ The URL itself in the broadcast text field must conform to the following:
 
 ## Token Info JSON format
 
-The JSON object/mapping the URL points to must contain the following data:
+The URL must point to a JSON object/mapping that contains the following data:
 
 <table>
 <tr><td><b>asset</b></td><td>Required</td><td>The name of the token. Must match your token's name exactly. 24 characters max.</td></tr>
@@ -41,7 +41,7 @@ Other Topics
 
 Every 30-60 minutes, the Counterwallet system will query this URL provided to validate and fetch the necessary information. If the information you provided is reachable and valid (within a 1 second response time), your token's information will be enhanced based on this data.
 
-In order for this data file to be deemed as valid for a specific token/asset, there must have been either an initial issuance, or a description change transaction for that asset, and the text field of that description must have been set to the URL of this JSON file. If the information you provided is reachable and valid (within a 5 second response time), your token's information will be enhanced based on this data. If it is not, counterblockd will retry up to 2 additional times, over the next 30 or so minutes, and then give up until another transaction is made that changes the description field (it may be to the same URL, but another description change transaction is necessary to reinitialize the validity check by counterblockd).
+In order for this data file to be deemed as valid for a specific token/asset, there must have been either an initial issuance, or a description change transaction for that asset, and the text field of that description must be set to the URL of this JSON file. If the information you provided is reachable and valid (within a 5 second response time), your token's information will be enhanced based on this data. If it is not, counterblockd will retry up to 2 additional times, over the next 30 or so minutes, and then give up until another transaction is made that changes the description field (it may be to the same URL, but another description change transaction is necessary to reinitialize the validity check by counterblockd).
 
 ### Validating your JSON data
 
