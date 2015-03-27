@@ -522,7 +522,7 @@ Gets information on a transaction.
 
 **Parameters:**
 
-  * **tx_hex(string):** The hexadecimal transaction hash (little-endian)
+  * **tx_hex(string):** The canonical hexadecimal serialization of the transaction (not its hash)
 
 **Return:**
 
@@ -541,7 +541,7 @@ Parse the data_hex of a message into its parameters. Defined dynamically for all
 
 **Parameters:**
 
-  * **tx_hex(string):** The hexadecimal serialization of the transaction hash (little-endian)
+  * **tx_hex(string):** The canonical hexadecimal serialization of the transaction (not its hash)
 
 **Return:**
 
