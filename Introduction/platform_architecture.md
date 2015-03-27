@@ -43,6 +43,6 @@ functionality beyond the scope of what counterpartyd provides.
 
 ##Federated Node
 
-A federated node is a term for a [Linux-based counterparty build](https://github.com/CounterpartyXCP/federatednode_build) that inludes the various components in an integrated, out-of-the-box fashion.
+A federated node is a term for a [Linux-based counterparty build](https://github.com/CounterpartyXCP/federatednode_build) that inludes the various components in an integrated, out-of-the-box fashion. It's used primarily for Counterwallet server installations, but has other uses as well.
 
 **NOTE:** If your application does not require this kind of functionality or APIs that `counterblock` provides, we recommend that you build and install `counterparty-cli` and `counterparty-lib` directly, via [these instructions](http://counterparty.io/docs/counterparty_lib/) for `counterparty-lib` and [these](http://counterparty.io/docs/counterparty-cli/) for `counterparty-cli`.
