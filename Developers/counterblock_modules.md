@@ -5,15 +5,28 @@ Writing counterblock Modules (Plugins)
 Additional processors and/or event handlers can also be added. This allows developers to easily extend the
 capabilities of ``counterblock``, as well as deactivate unused portions of the system as necessary.
 
+`counterblock` ships out of the box with the following core modules:
+* `assets`: Implements basic asset functionality, such as extended asset info parsing, basic asset-related APIs, and more.
+* `betting`: Implements betting-specific API calls, tasks, and more.
+* `dex`: Implements API methods, order book and market info parsing, and more for Counterparty's distributed exchange. (Requires that the `assets` module be loaded for use.)
+* `transaction_stats`: Handles the compliation of transaction statistics.
+* `counterwallet`: Implements Counterwallet-specific API calls, tasks, and more. (Requires that the `assets` module be loaded for use.)
+* `counterwallet_iofeeds`: Adds socket.io feed support, as well as a chat feed and a message feed, used by Counterwallet.
+
+Any of these core modules may be enabled or disabled, allowing you to tune `counterblock` to your exact needs out of the box.
+
+This document discusses how you can write your own custom modules for `counterblock`, as well as covering the APIs and specifics of how the above core modules were written.
+
 configuration file
 ----------------------
-All configurations are contained in ``modules.conf`` by default (or ``modules.testnet.conf`` for testnet), which should be placed in to the
-counterblock `config-dir` (`~xcp/.config/counterblock` on a federated node). To load a custom module specify the module path under ``[LoadModule]`` relative to
+All configurations are contained in ``modules.conf`` by default (or ``modules.testnet.conf`` for testnet), which should be placed in to the counterblock `config-dir` (`~xcp/.config/counterblock` on a federated node). To load a custom module specify the module path under ``[LoadModule]`` relative to
 the `counterblock base-dir`. i.e.:
 
     [LoadModule]
     'lib/vendor' = True
     
+The above configuration would look for a `vendor.py`, or `vendor` folder (with required `__init__.py` file present), and load the plugin code from there.
+
 To change the default behavior for ``counterblock`` modules/events, change the corresponding processor config.
 (Note: function names must be exact.) 
 
@@ -39,7 +52,8 @@ To change priority and enable:
 Here's an extensive ``counterblock`` ``modules.conf`` example config file:
 
     [MessageProcessor]
-    #Tweak core messaging processing (don't use these unless you know what you're doing)
+    #Tweak core messaging processing
+    # (don't use these unless you know what you're doing)
     handle_exceptional = True
     handle_invalid = True
     parse_insert = True
@@ -50,7 +64,8 @@ Here's an extensive ``counterblock`` ``modules.conf`` example config file:
     parse_broadcast = True
     
     [StartUpProcessor]
-    #Enable/disable core functionality (all enabled by default, don't use these unless you know what you're doing)
+    #Enable/disable core functionality (all enabled by
+    # default, don't use these unless you know what you're doing)
     start_cpd_blockfeed = True
     check_blockchain_service = True
     expire_stale_orders = True
