@@ -17,6 +17,8 @@ data passed as the POST body. For more information on JSON RPC, please see the [
 
 ###Terms & Conventions
 
+The API calls documented are categorized based on the `counterblock` module/plug-in they appear in.
+
 **Return Types**
 
 * `[ ]` indicates a list of one or more items, the structure will be detailed inside the brackets if regular.
@@ -34,15 +36,11 @@ and retrieving their wallet preferences data, and more.
 For this purpose, we define the concept of a wallet ID, which is simply the user's Counterwallet 12-word password,
 double-hashed with SHA256 and converted to base 64.
 
-
-###API Reference
-
-The API calls below are categorized based on the `counterblock` module/plug-in they appear in.
-
-####core API
+###core API
 
 These API methods are part of the core `counterblock` code, and not part of a plugin module.
 
+####get_messagefeed_messages_by_index
 
 **get_messagefeed_messages_by_index(message_indexes)**
 
@@ -52,6 +50,8 @@ Alias for counterpartyd get_messages_by_index
 - **return:** A list of messages
 
 
+####get_chain_block_height
+
 **get_chain_block_height()**
 
 *deprecated: 1.5*
@@ -59,11 +59,13 @@ Use `get_chain_address_info`
 
 - **return:** The height of the block chain
 
+####get_insight_block_info
 
 **get_insight_block_info(block_hash)**
 
 Get block info for a specific block hash from the backend (insight, bitcoind, etc).
 
+####get_chain_address_info
 
 **get_chain_address_info(addresses, with_uxtos=True, with_last_txn_hashes=4)**
 
@@ -75,6 +77,7 @@ Get info for one or more addresses
 - **return:** Address info
 - **rtype:** [{'addr', 'info',('uxto'),('last_txns'),('block_height')}]
 
+####get_chain_txns_status
 
 **get_chain_txns_status**
 
@@ -82,6 +85,7 @@ Get info for one or more addresses
 - **return:** Transaction information
 - **rtype:** [{'tx_hash', 'blockhash', 'confirmations', 'blocktime'}]
 
+####get_last_n_messages
 
 **get_last_n_messages(count=100)**
 
@@ -91,6 +95,7 @@ Return latest messaages
 - **return:** A list of messages
 - **rtype:** [{'raw_tx_type', ... other fields vary per tx type}]
 
+####get_pubkey_for_address
 
 **get_pubkey_for_address(address)**
 
@@ -98,12 +103,14 @@ Returns None if the address has made 0 transactions (as we wouldn't be able to g
 
 - **returns:** String or None
 
+####get_script_pub_key
 
 **get_script_pub_key(tx_hash, vout_index)**
 
 
 **broadcast_tx(signed_tx_hex)**
 
+####get_raw_transactions
 
 **get_raw_transactions(address, start_ts=None, end_ts=None, limit=500):**
 
@@ -116,6 +123,7 @@ Gets raw transactions for a particular address
 - **return:** Returns the data, ordered from newest txn to oldest. If any limit is applied, it will cut back from the oldest results
 - **rtype:** {id: {status, tx_hash, _divisible, _tx_index, block_index, _category, destination, tx_index, _block_time, source, asset, _command, quantity}}
 
+####proxy_to_counterpartyd
 
 **proxy_to_counterpartyd(method='', params={})**
 
@@ -128,7 +136,9 @@ Relays a request to the counterpartyd server, with the given method and params, 
 **NOTE:** This method may be depreciated/removed in the future.
 
 
-####assets Module API
+###assets Module API
+
+####get_normalized_balances
 
 **get_normalized_balances(addresses)**
 
@@ -142,6 +152,7 @@ This call augments counterparty's get_balances with a normalized_quantity field.
   - quantity: The quantity in satoshi
   - normalized_quantity: The quantity, as a human readable number 
 
+####get_escrowed_balance
 
 **get_escrowed_balance(addresses)**
 
@@ -151,6 +162,7 @@ Gets a list of address balances that are escrowed away by the protocol (either d
 - **return:** An array of assets held in escrow
 - **rtype:** `{<address of escrowee>:{<asset>:<amount>}}`
 
+####get_assets_info
 
 **get_assets_info(assetsList)**
 
@@ -166,6 +178,7 @@ Returns information on the specified assets.
   - description: The asset's current description
   - issuer: The issuing address of the asset
 
+####get_base_quote_asset
 
 **get_base_quote_asset(asset1, asset2)**
 
@@ -179,6 +192,7 @@ Use `get_market_info/get_market_details`
 - **return:** Array
 - **rtype:** `{'base_asset', 'quote_asset', 'pair_name'}`
 
+####get_owned_assets
 
 **get_owned_assets(addresses)**
 
@@ -188,6 +202,7 @@ Returns the assets owned by the addresses
 - **return:** Information on owned assets
 - **rtype:** [{'_change_type', 'locked', 'description', '_at_block', 'divisible', 'total_issued_normalized', '_at_block_time', 'asset', 'total_issued', 'owner', history:[]]
 
+####get_asset_pair_market_info
 
 **get_asset_pair_market_info(asset1=None, asset2=None, limit=50):**
 
@@ -202,7 +217,7 @@ Given two arbitrary assets, returns the base asset and the quote asset.
 - **return:** Market info for the given pair
 - **rtype:** {'24h_vol_in_btc', 'open_orders_count', 'lowest_ask', 'base_asset', 'completed_trades_count', '24h_pct_change', 'vol_quote', 'highest_bid', '24h_vol_in_xcp', 'vol_base', 'last_updated', 'quote_asset'}
 
-
+####get_asset_extended_info
 **get_asset_extended_info(asset)**
 
 Returns extended asset data (i.e. that published via an external .json file, as documented [here](http://counterparty.io/docs/enhanced_asset_info/)), if available, for a specific asset.
@@ -211,6 +226,7 @@ Returns extended asset data (i.e. that published via an external .json file, as 
  - **return:** Information on the asset or False if no extended info exists. Contains the data as documented in the extended asset info JSON format, among other fields.
  - **rtype:** {}
 
+####get_asset_history
 **get_asset_history(asset, reverse=False**
 
 Returns a list of changes for the specified asset, from its inception to the current time.
@@ -238,7 +254,7 @@ Returns a list of changes for the specified asset, from its inception to the cur
     - IF type = 'called_back':
         - 'percentage': The percentage of the asset called back (between 0 and 100)
 
-
+####get_balance_history
 **get_balance_history(asset, addresses, normalize=True, start_ts=None, end_ts=None)**
 
 Retrieves the ordered balance history for a given address (or list of addresses) and asset pair, within the specified date range
@@ -248,8 +264,9 @@ Retrieves the ordered balance history for a given address (or list of addresses)
 - **rtype:** `[<block time>, <balance>]`
 
 
-####dex Module
+###dex Module
 
+####get_market_price_summary
 **get_market_price_summary(asset1, asset2, with_last_trades=0)**
 
 *deprecated: 1.5*
@@ -261,7 +278,7 @@ Use `get_market_price_history`
 - **return:** Array
 - **rtype:** {'quote_asset', 'base_asset', 'market_price',('last_trades')}
 
-
+####get_market_cap_history
 **get_market_cap_history(start_ts=None, end_ts=None)**
 
 - **param start_ts:** Unix timestamp
@@ -269,13 +286,14 @@ Use `get_market_price_history`
 - **return:** Array
 - **rtype:** `{'base_currency':[{'data':[ts,market_cap], 'name'}]}`
 
-
+####get_market_info
 **get_market_info(assets)**
 
 - **param list assets:** Assets to check
 - **return:** Array
 - **rtype:** {'24h_hlc_in_btc', 'extended_description', 'extended_pgpsig', 'aggregated_price_as_btc', 'price_in_btc', '24h_summary':{'vol', 'count'}, 'market_cap_in_btc', 'asset', 'price_as_xcp', '7d_history_in_btc':[[ts, price]], '24h_vol_price_change_in_xcp', 'price_in_xcp', 'extended_website', '24h_vol_price_change_in_btc', 'aggregated_price_as_xcp', 'market_cap_in_xcp', '7d_history_in_xcp':[[ts, price]], 'aggregated_price_in_btc', 'aggregated_price_in_xcp', 'price_as_btc', 'total_supply', '24h_ohlc_xcp', 'extended_image'}
 
+####get_market_info_leaderboard
 **get_market_info_leaderboard(limit=100)**
 
 - **param limit:** Number of results to return
@@ -302,6 +320,7 @@ Use `get_market_price_history`
              'aggregated_price_as_btc'}]}
 
 
+####get_market_price_history
 **get_market_price_history(asset1, asset2, start_ts=None, end_ts=None, as_dict=False)**
 
 Return block-by-block aggregated market history data for the specified asset pair, within the specified date range.
@@ -315,6 +334,7 @@ Return block-by-block aggregated market history data for the specified asset pai
 - **rtype:** [{'block_time', 'block_index', 'open', 'high', 'low', 'close', 'vol', 'count'}]
 
 
+####get_trade_history
 **get_trade_history(asset1=None, asset2=None, start_ts=None, end_ts=None, limit=50)**
 
 Gets last N of trades within a specific date range (normally, for a specified asset pair, but this can be left blank to get any/all trades).
@@ -343,6 +363,7 @@ Gets last N of trades within a specific date range (normally, for a specified as
           'quote_asset'}]
 
 
+####get_order_book_simple
 **get_order_book_simple(asset1, asset2, min_pct_fee_provided=None, max_pct_fee_required=None)**
 
 *deprecated: 1.5*
@@ -386,6 +407,7 @@ Easier to call version when you want all orders involving the two assets.
   'id'}
 
 
+####get_order_book_buysell
 **get_order_book_buysell(buy_asset, sell_asset, pct_fee_provided=None, pct_fee_required=None)**
 
 *deprecated: 1.5*
@@ -428,12 +450,14 @@ Easier to call version when you want all orders involving the two assets.
         'id'}
 
 
+####get_users_pairs
 **get_users_pairs(addresses=[], max_pairs=12)**
 
 Return asset pairs held by the addresses.
 
 - **rtype:** [{'base_asset', 'progression', 'trend', 'price_24h', 'price', 'quote_asset'}]
 
+####get_market_orders
 **get_market_orders(asset1, asset2, addresses=[], min_fee_provided=0.95, max_fee_required=0.95)**
 
 Returns orders for the search parameters
@@ -441,6 +465,7 @@ Returns orders for the search parameters
 - **rtype:** [{'completion', 'tx_hash', 'fee_provided', 'block_index', 'price', 'tx_index', 'source', 'amount', 'block_time', 'total', 'type'}]
 
 
+####get_market_trades
 **get_market_trades(asset1, asset2, addresses=[], limit=100)**
 
 Returns completed trades for the search parameters
@@ -448,6 +473,7 @@ Returns completed trades for the search parameters
 - **rtype:** [{'status', 'match_id', 'countersource', 'block_index', 'price', 'source', 'amount', 'block_time', 'total', 'type'}]
 
 
+####get_markets_list
 **get_markets_list()**
 
 Returns available markets
@@ -455,6 +481,7 @@ Returns available markets
 - **rtype:** [{'market_cap', 'base_asset', 'progression', 'supply', 'trend', 'price_24h', 'price', ' quote_divisibility', 'pos', 'volume', 'with_image', 'base_divisibility', 'quote_asset'}]
 
 
+####get_market_details
 **get_market_details(asset1, asset2, min_fee_provided=0.95, max_fee_required=0.95)**
 
 Return detailed information on a market.
@@ -462,8 +489,9 @@ Return detailed information on a market.
 - **rtype:** {'base_asset','progression','supply', 'trend','price_24h', 'price','sell_orders': [{'fee_required', 'amount', 'total', 'type', 'price'}],'quote_asset_divisible','buy_orders': [{'amount', 'total', 'type', 'price', 'fee_provided'}], 'last_trades': [{'status', 'match_id', 'countersource', 'source', 'price', 'block_index', 'amount', 'block_time', 'total', 'type'}],'base_asset_infos','base_asset_divisible','quote_asset'}
 
 
-####betting Module
+###betting Module
 
+####get_bets
 **get_bets(bet_type, feed_address, deadline, target_value=None, leverage=5040)**
 
 Returns bets with non-zero remaining counterwager for the specified search terms.
@@ -490,6 +518,7 @@ Returns bets with non-zero remaining counterwager for the specified search terms
 'target_value'
 }]
 
+####get_user_bets
 **get_user_bets(addresses=[], status="open")**
 
 - **param addresses:** List of addresses
@@ -513,16 +542,19 @@ Returns bets with non-zero remaining counterwager for the specified search terms
     'target_value'
     }]
 
+####get_feed
 **get_feed(address_or_url='')**
 
 - **param address_or_url:** Feed URL or Bitcoin Address
 - **rtype:** {'broadcasts':[{'status', 'tx_hash', 'locked', 'timestamp', 'source', 'text', 'tx_index', 'value', 'block_index', 'fee_fraction_int'}], 'counters':{'bets':[]}
 
+####get_feeds_by_source
 **get_feeds_by_source(addresses=[])**
 
 - **param addresses:** Address list
 - **rtype:** ```{<address>:{'errors':[], 'locked', 'info_url', 'info_data':{}, 'fetch_info_retry', 'source', 'info_status', 'fee_fraction_int', 'last_broadcast':{}}}```
 
+####parse_base64_feed
 **parse_base64_feed(base64_feed):**
 
 Takes a base64-encoded feed and decodes it.
@@ -547,8 +579,9 @@ Takes a base64-encoded feed and decodes it.
   }]
 
 
-####counterwallet Module
+###counterwallet Module
 
+####is_ready
 **is_ready()**
 
 Used by the client to check if the server is alive, caught up, and ready to accept requests.
@@ -557,7 +590,7 @@ if we actually return data from this function, it should always be true. (may ch
 
 - **rtype:** Boolean
 
-
+####get_reflected_host_info
 **get_reflected_host_info()**
 
 Allows the requesting host to get some info about itself, such as its IP. Used for troubleshooting.
@@ -565,7 +598,7 @@ Allows the requesting host to get some info about itself, such as its IP. Used f
 - **return:** Client host info
 - **rtype:** {'ip', 'cookie', 'country'}
 
-
+####get_wallet_stats
 **get_wallet_stats(start_ts=None, end_ts=None):**
 
 If timestamps omitted, queries the last 360 days.
@@ -575,7 +608,7 @@ If timestamps omitted, queries the last 360 days.
 - **return:** Wallet information
 - **rtype:** {'wallet_stats':[id: {'data': [{}], 'name'}], 'num_wallets_testnet', 'num_wallets_mainnet', 'num_wallets_unknown'}
 
-
+####get_preferences
 **get_preferences(wallet_id, for_login=False, network=None)**
 
 Gets stored wallet preferences
@@ -589,7 +622,7 @@ Gets stored wallet preferences
    for this address. Using aliases helps make the wallet more user-friendly.
 - **rtype:** Boolean
 
-
+####store_preferences
 **store_preferences(wallet_id, preferences)**
 
 Stores the preferences for a given wallet ID.
@@ -598,7 +631,7 @@ Stores the preferences for a given wallet ID.
 - **param object preferences:** A wallet preferences object (see above)
 - **return:** ``true`` if the storage was successful, ``false`` otherwise.
 
-
+####create_armory_utx
 **create_armory_utx(unsigned_tx_hex, public_key_hex)**
 
 Used to create an offline Armory transaction for signing in Armory.
@@ -606,7 +639,7 @@ Used to create an offline Armory transaction for signing in Armory.
 - **returns:** The signed tx hash
 - **rtype:** String
 
-
+####convert_armory_signedtx_to_raw_hex
 **convert_armory_signedtx_to_raw_hex(signed_tx_ascii)**
 
 Used to convert a signed armory transaction to a hex-encoded raw transaction suitable for broadcasting on the Bitcoin network.
@@ -614,7 +647,7 @@ Used to convert a signed armory transaction to a hex-encoded raw transaction sui
 - **returns:** The raw hash as hex
 - **rtype:** String
 
-
+####create_support_case
 **create_support_case(name, from_email, problem, screenshot=None, addtl_info='')**
 
 create an email with the information received
@@ -623,40 +656,42 @@ create an email with the information received
 - **param addtl_info:** A JSON-encoded string of a dict with additional information to include in the support request
 
 
-####counterwallet_iofeeds Module
+###counterwallet_iofeeds Module
 
+####get_num_users_online
 **get_num_users_online()**
 
 - **return:** The current number of users attached to the server's chat feed
         :rtype: Int
 
-
+####is_chat_handle_in_use
 **is_chat_handle_in_use(handle)**
 
 *deprecated: 1.5*
 
 - **rtype:** Boolean
 
-
+####get_chat_handle
 **get_chat_handle(wallet_id)**
 
 - **rtype:** {'handle', 'is_op', 'last_updated', 'banned_until'}
 
-
+####store_chat_handle
 **store_chat_handle(wallet_id, handle)**
 
-
+####get_chat_history
 **get_chat_history(start_ts=None, end_ts=None, handle=None, limit=1000)**
 
 *deprecated: 1.5*
 
-
+####is_wallet_online
 **is_wallet_online(wallet_id)**
 
 - **rtype:** Boolean
 
-####transaction_stats Module
+###transaction_stats Module
 
+####get_transaction_stats
 **get_transaction_stats(start_ts=None, end_ts=None)**
 
 This function returns the number of transactions in each 24 hour clock within the given time range, or the last 360 days if no time range is given.
