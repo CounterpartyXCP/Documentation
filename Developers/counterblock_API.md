@@ -1,7 +1,8 @@
 #counterblock API
 
 For an overview of `counterblock`, see [here](http://counterparty.io/docs/platform_architecture/).
-`counterblock` release information is available from [this link](https://github.com/CounterpartyXCP/counterblock/releases>)
+
+`counterblock` release information is available from [this link](https://github.com/CounterpartyXCP/counterblock/releases>).
 
 **Warning:** *This API documentation is INCOMPLETE. It contains errors, omissions, etc., and could change drastically at any time.*
 
@@ -17,7 +18,7 @@ data passed as the POST body. For more information on JSON RPC, please see the [
 
 ###Terms & Conventions
 
-The API calls documented are categorized based on the `counterblock` module/plug-in they appear in.
+The API calls documented are categorized based on the `counterblock` module/plug-in they appear in. For a list of the various modules with a description of each one, see [the counterblock modules document](http://counterparty.io/docs/counterblock_modules/).
 
 **Return Types**
 
