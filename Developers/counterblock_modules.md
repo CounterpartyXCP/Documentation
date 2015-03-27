@@ -1,7 +1,17 @@
 Writing counterblock Plug-in Modules
 =============================================
 
-``counterblock`` is a modular application that allows developers to turn on or off various bits of its out-of-the-box functionality (as well as extending it with new functionality) through it's plug-in system.
+``counterblock`` is a modular application that allows developers to turn on or off various bits of its out-of-the-box functionality, as well as extending it with new functionality, through its plug-in architecture.
+
+This document introduces the built-in modules, as well as discussing how you can write your own custom modules for `counterblock` that extend its functionality beyond what is possible out of the box.
+
+Table of Contents
+-------------------
+
+[TOC]
+
+Built-in Modules
+-----------------
 
 `counterblock` ships with the following built-in modules:
 
@@ -14,18 +24,12 @@ Writing counterblock Plug-in Modules
 
 Any of these above modules may be enabled or disabled, allowing you to tune `counterblock` to your exact needs out of the box.
 
-This document discusses how you can write your own custom modules for `counterblock` that extend its functionality beyond what is possible with the modules above.
-
-Table of Contents
--------------------
-
-[TOC]
 
 Custom Module Development
 -----------------------------------
 A `counterblock` module is simply a python module that utilizes a special plug-in API, to provide runtime integration into the `counterblock` base code.
 
-For some examples of modules in use, check out the [modules directory](https://github.com/CounterpartyXCP/counterblock/tree/master/counterblock/lib/modules) of the `counterblock` respository.
+For some examples of modules in use, check out the [modules directory](https://github.com/CounterpartyXCP/counterblock/tree/master/counterblock/lib/modules) of the `counterblock` respository. These built-in modules are written just like any custom module would be, and provide a good launching point to see what is possible.
 
 ###Processors: Hooking into runtime functionality
 
