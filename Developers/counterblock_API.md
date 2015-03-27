@@ -708,10 +708,18 @@ This function returns the number of transactions in each 24 hour clock within th
 
 This section documents any changes to the ``counterblock`` API, for version numbers where there were API-level modifications.
 
-####1.5
+####1.2.0
 
+Removed the following API calls:
 
-**Summary:** Deprecated several redundant/unused functions for removal in a future version. Any code calling these functions should be re-written. Refer to the documentation of the individual functions for replacements.
+-``record_btc_open_order``
+-``cancel_btc_open_order``
+
+Since BTC trading was removed from Counterwallet months ago, these calls are not necessary.
+
+####1.1.0
+
+Deprecated several redundant/unused functions for removal in a future version. Any code calling these functions should be re-written. Refer to the documentation of the individual functions for replacements.
 
 - ``cancel_btc_open_order``
 - ``get_asset_pair_market_info``
