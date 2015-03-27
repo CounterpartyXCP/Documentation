@@ -6,6 +6,7 @@ Additional processors and/or event handlers can also be added. This allows devel
 capabilities of ``counterblock``, as well as deactivate unused portions of the system as necessary.
 
 `counterblock` ships out of the box with the following core modules:
+
 * `assets`: Implements basic asset functionality, such as extended asset info parsing, basic asset-related APIs, and more.
 * `betting`: Implements betting-specific API calls, tasks, and more.
 * `dex`: Implements API methods, order book and market info parsing, and more for Counterparty's distributed exchange. (Requires that the `assets` module be loaded for use.)
