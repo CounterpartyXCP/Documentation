@@ -1,11 +1,9 @@
-Writing counterblock Modules (Plugins)
+Writing counterblock Plug-in Modules
 =============================================
 
-``counterblock`` allows the default set of processors and/or event handlers to be disabled or re-prioritized.
-Additional processors and/or event handlers can also be added. This allows developers to easily extend the
-capabilities of ``counterblock``, as well as deactivate unused portions of the system as necessary.
+``counterblock`` is a modular application that allows developers to turn on or off various bits of its out-of-the-box functionality (as well as extending it with new functionality) through it's plug-in system.
 
-`counterblock` ships out of the box with the following built-in modules:
+`counterblock` ships with the following built-in modules:
 
 * `assets`: Implements basic asset functionality, such as extended asset info parsing, basic asset-related APIs, and more.
 * `betting`: Implements betting-specific API calls, tasks, and more.
@@ -17,6 +15,11 @@ capabilities of ``counterblock``, as well as deactivate unused portions of the s
 Any of these above modules may be enabled or disabled, allowing you to tune `counterblock` to your exact needs out of the box.
 
 This document discusses how you can write your own custom modules for `counterblock` that extend its functionality beyond what is possible with the modules above.
+
+Table of Contents
+-------------------
+
+[TOC]
 
 Custom Module Development
 -----------------------------------
