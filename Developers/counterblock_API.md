@@ -712,8 +712,8 @@ This section documents any changes to the ``counterblock`` API, for version numb
 
 Removed the following API calls:
 
--``record_btc_open_order``
--``cancel_btc_open_order``
+- ``record_btc_open_order``
+- ``cancel_btc_open_order``
 
 Since BTC trading was removed from Counterwallet months ago, these calls are not necessary.
 
