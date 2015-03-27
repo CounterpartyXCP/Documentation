@@ -522,7 +522,7 @@ Gets information on a transaction.
 
 **Parameters:**
 
-  * **tx_hex(string):** The hexadecimal serialization of the transaction hash (little-endian)
+  * **tx_hex(string):** The hexadecimal transaction hash (little-endian)
 
 **Return:**
 
