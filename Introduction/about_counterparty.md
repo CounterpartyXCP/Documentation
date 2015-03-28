@@ -5,7 +5,7 @@
 
 [Bitcoin](http://en.wikipedia.org/wiki/Bitcoin) has made transferring value from A to B available to anyone with an internet connection, but this is only the basic foundation of its technical potential. To put this into perspective, consider that even the Internet had to overcome its limitation of transferring plain data. 
 
-To address this, Counterparty adds an additional layer of valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same. Because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
+To address this, Counterparty adds an additional layer of programmability secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same. Because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
 **Counterparty is:**
 
