@@ -7,6 +7,8 @@ Pioneering in its field, the true innovation of [Bitcoin](http://en.wikipedia.or
 
 To address this, Counterparty was developed as an application layer secured by the full power of the Bitcoin network, while the underlying Bitcoin protocol itself stays exactly the same. Therefore, many compare Counterparty to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
+The Counterparty protocol (and its internal token XCP) was launched in January 2014 without raising any funds. Its first introduction to the world was a release of working source code. This was in full accordance with the core Counterparty philosophy, or in the words of Bitcoin inventor Satoshi Nakamoto, "We can try to use words to help the situation until code gets there." To learn more about the internal token of Counterparty, [read about XCP](about_xcp.md).
+
 ***
 
 **In summary, Counterparty is:**
@@ -25,23 +27,10 @@ To address this, Counterparty was developed as an application layer secured by t
 
 ***
 
-The Counterparty protocol (and its internal token XCP) was launched in January 2014 without raising any funds. Its first introduction to the world was a release of working source code. This was in full accordance with the core Counterparty philosophy, which is "code first". Or in the words of Bitcoin inventor Satoshi Nakamoto, "We can try to use words to help the situation until code gets there." To learn more about the internal token of Counterparty, [read about XCP](about_xcp.md).
-
 Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or any counterparty risk. 
 
 Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, and the virtual machines are entirely cross-compatible. The smart contracts system is Turing-complete, offering limitless potential for building custom financial instruments, intelligent markets, organizations, games, and countless other creative uses. 
 
-**The Counterparty platform consists of several components:**
-
-* [counterparty-lib][] is the reference implementation of the Counterparty Protocol.
-
-* [counterparty-cli][] is a command line interface for counterparty-lib.
-
-* [counterparty-gui][] is a modular graphical interface for counterparty-lib.
-
-* [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
-
-* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. It is a technical necessity, and forms a symbiosis with bitcoin. It is not designed to be a traditional currency per se, although it can be used as such if desired.  
 
 **With Counterparty, users can:**
 
@@ -68,6 +57,20 @@ Creating custom contracts and DApps on the Bitcoin blockchain is now possible us
 _Note: Counterparty features do not require the use of XCP unless explicitly stated._
 
 For a more in-depth look at what you can do with Counterparty, see [Counterparty Features](counterparty_features.md).
+
+
+
+**The Counterparty platform consists of several components:**
+
+* [counterparty-lib][] is the reference implementation of the Counterparty Protocol.
+
+* [counterparty-cli][] is a command line interface for counterparty-lib.
+
+* [counterparty-gui][] is a modular graphical interface for counterparty-lib.
+
+* [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
+
+* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. It is a technical necessity, and forms a symbiosis with bitcoin. It is not designed to be a traditional currency per se, although it can be used as such if desired.  
 
 How can I learn more?
 =====================
