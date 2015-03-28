@@ -13,7 +13,7 @@ To address this, Counterparty was developed as an additional layer of programmab
 * a feature-complete toolkit for designing decentralized applications and financial instruments
 * a method for proof-of-publication and proof-of-ownership with the same security as Bitcoin 
 * a peer-to-peer system for creating and trading tokens without any counterparty risk
-* _100% free software_
+* _100% free, modular and extensible open-source software_
 
 In accordance with Satoshi's philosophy, the Counterparty protocol was launched in January 2014 without raising any funds and began with functioning source code instead of hype. Initially, the core developers were anonymous. To learn more, read [about XCP](about_xcp.md).
 
