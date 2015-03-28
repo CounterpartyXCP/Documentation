@@ -7,19 +7,25 @@ Pioneering in its field, the true innovation of [Bitcoin](http://en.wikipedia.or
 
 To address this, Counterparty was developed as an application layer secured by the full power of the Bitcoin network, while the underlying Bitcoin protocol itself stays exactly the same. Therefore, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
+One can think of Bitcoin as a road, which can be used to transport coins from A to B. To develop new features, one does not need to reinvent the wheel and rebuild the road. The better solution is to build better vehicles.
+
+***
+
 **Counterparty is:**
 
 * a feature-complete toolkit for developing decentralized applications and financial instruments
+
 * a system for issuing and trading tokens and currencies without counterparty risk
+
 * a decentralized exchange with algorithmic order matching and trustless escrow
+
 * a method for proof-of-publication and proof-of-ownership with the security of the Bitcoin blockchain 
+
 * _100% free, modular and extensible open-source software_
 
-```"We can try to use words to help the situation until code gets there." - Satoshi Nakamoto```
+***
 
 The Counterparty protocol was launched in January 2014 without raising any funds and began with functioning source code instead of hype. Initially, the core developers were anonymous. To learn more, read [about XCP](about_xcp.md).
-
-One can think of Bitcoin as a road, which can be used to transport coins from A to B. To develop new features, one does not need to reinvent the wheel and rebuild the road. The better solution is to build better cars.
 
 Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or any counterparty risk. 
 
