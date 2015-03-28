@@ -7,7 +7,7 @@ Pioneering in its field, the true innovation of [Bitcoin](http://en.wikipedia.or
 
 To address this, Counterparty was developed as an application layer secured by the full power of the Bitcoin network, while the underlying Bitcoin protocol itself stays exactly the same. Therefore, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
-One can think of Bitcoin as a road, which can be used to transport coins from A to B. To develop new features, one does not need to reinvent the wheel and rebuild the road. The better solution is to build better vehicles.
+One can think of Bitcoin as a railroad, which can be used to transport coins from A to B. To develop new features, one does not need to reinvent the wheel and build a better railroad. A better solution is to build better trains.
 
 ***
 
