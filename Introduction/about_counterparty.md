@@ -15,12 +15,9 @@ To address this, Counterparty was developed as an additional layer of programmab
 * Peer-to-peer system for creating and trading tokens, pegged currencies, and 'altcoins' without any counterparty risk
 * A future-proof commitment to Bitcoin maximalism
 
-The purpose of Counterparty is to offer a feature-complete toolkit for designing decentralized applications on the Bitcoin network. In accordance with Satoshi's philosophy, the Counterparty protocol was launched in January 2014 without a fundraiser and began with functioning source code. To learn more, read [about XCP](about_xcp.md).
-
-
+In accordance with Satoshi's philosophy, the Counterparty protocol was launched in January 2014 without raising any funds and began with functioning source code instead of hype. Initially, the core developers were anonymous. To learn more, read [about XCP](about_xcp.md).
 
 One can think of Bitcoin as a road, which can be used to transport coins from A to B. To develop new features, one does not need to reinvent the wheel and rebuild the road. The better solution is to build better cars.
-
 
 Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or any counterparty risk. 
 
