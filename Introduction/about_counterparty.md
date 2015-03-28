@@ -13,13 +13,15 @@ To address this, Counterparty was developed as an application layer secured by t
 
 * a feature-complete toolkit for developing decentralized applications and financial instruments
 
+* a smart contracts environment that is 100% cross-compatible with Ethereum
+
 * a system for issuing and trading tokens and currencies without counterparty risk
 
 * a decentralized exchange with algorithmic order matching and trustless escrow
 
 * a method for proof-of-publication and proof-of-ownership with the security of the Bitcoin blockchain 
 
-* _100% free, modular and extensible open-source software_
+* _Entirely free, modular and extensible open-source software_
 
 ***
 
