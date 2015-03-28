@@ -15,7 +15,7 @@ To address this, Counterparty was developed as an application layer secured by t
 * a method for proof-of-publication and proof-of-ownership with the security of the Bitcoin blockchain 
 * _100% free, modular and extensible open-source software_
 
-```We can try to use words to help the situation until code gets there. ``` - Satoshi Nakamoto
+```"We can try to use words to help the situation until code gets there." - Satoshi Nakamoto```
 
 The Counterparty protocol was launched in January 2014 without raising any funds and began with functioning source code instead of hype. Initially, the core developers were anonymous. To learn more, read [about XCP](about_xcp.md).
 
