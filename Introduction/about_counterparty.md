@@ -5,7 +5,7 @@
 
 Pioneering in its field, the true innovation of [Bitcoin](http://en.wikipedia.org/wiki/Bitcoin) is making peer-to-peer transfer of currency available to anyone with an internet connection. But as many nascent technologies before it, Bitcoin only offers the technical foundation necessary to reach the full potential of programmable money. This becomes especially obvious when one considers that even the Internet had to evolve past simply transferring plaintext to break through into the mainstream. 
 
-To address this, Counterparty was developed as an additional layer of programmability secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same. Therefore, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
+To address this, Counterparty was developed as an application layer secured by the full power of the Bitcoin network, while the underlying Bitcoin protocol itself stays exactly the same. Therefore, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
 **Counterparty is:**
 
