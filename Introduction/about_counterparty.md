@@ -3,20 +3,22 @@
 
 **Counterparty is a peer-to-peer financial platform and a distributed, open-source protocol built on top of the Bitcoin blockchain and network. By encoding data in ordinary Bitcoin transactions, Counterparty expands the uses and features of Bitcoin in new and unprecedented ways.**
 
+[Bitcoin](http://en.wikipedia.org/wiki/Bitcoin) has made transferring value from A to B available to anyone with an internet connection, but this is only the basic foundation of its technical potential. To put this into perspective, consider that even the Internet had to overcome its limitation of transferring plain data. 
+
+To address this, Counterparty adds an additional layer of valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same. Because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
+
 **Counterparty is:**
 
 * A feature-complete toolkit for designing decentralized applications
-* 
-* 
-
+* A decentralized system for creating and trading tokens without any counterparty risk
+* A proof-of-publication and proof-of-ownership platform
 
 The purpose of Counterparty is to offer a feature-complete toolkit for designing decentralized applications on the Bitcoin network. In accordance with Satoshi's philosophy, the Counterparty protocol was launched in January 2014 without a fundraiser and began with functioning source code. To learn more, read [about XCP](about_xcp.md).
 
-The [Bitcoin](http://en.wikipedia.org/wiki/Bitcoin) protocol has made transferring value from A to B available to anyone with an internet connection, but this is only the basic foundation of its technical potential. To put this into perspective, consider that even the Internet had to overcome its limitation of transferring plain data in order to succeed. 
+
 
 One can think of Bitcoin as a road, which can be used to transport coins from A to B. To develop new features, one does not need to reinvent the wheel and rebuild the road. The better solution is to build better cars.
 
-To address this, Counterparty adds an additional layer of valuable new features secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same. Because of this, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
 Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or any counterparty risk. 
 
