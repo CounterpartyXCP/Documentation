@@ -15,7 +15,7 @@ The Counterparty protocol (and its internal token XCP) was launched in January 2
 
 * a feature-complete toolkit for developing decentralized applications and financial instruments
 
-* a smart contracts environment that is 100% cross-compatible with Ethereum
+* a Turing-complete smart contracts platform (100% cross-compatible with Ethereum)
 
 * a system for issuing and trading tokens and currencies without counterparty risk
 
