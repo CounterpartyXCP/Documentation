@@ -23,7 +23,7 @@ To address this, Counterparty was developed as an application layer secured by t
 
 ***
 
-The Counterparty protocol was launched in January 2014 without raising any funds and began with functioning source code instead of hype. Initially, the core developers were anonymous. To learn more, read [about XCP](about_xcp.md).
+The Counterparty protocol and its internal token XCP were launched in January 2014 without raising any funds and its introduction to the world was functionioning release of source code. To learn more, read [about XCP](about_xcp.md).
 
 Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or any counterparty risk. 
 
