@@ -25,6 +25,19 @@ The Counterparty protocol (and its internal token XCP) was launched in January 2
 
 * _Entirely free, modular and extensible open-source software_
 
+**The Counterparty platform consists of several components:**
+
+* [counterparty-lib][] is the reference implementation of the Counterparty Protocol.
+
+* [counterparty-cli][] is a command line interface for counterparty-lib.
+
+* [counterparty-gui][] is a modular graphical interface for counterparty-lib.
+
+* [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
+
+* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. It is a technical necessity, and forms a symbiosis with bitcoin. It is not designed to be a traditional currency per se, although it can be used as such if desired.  
+
+
 ***
 
 Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or any counterparty risk. 
@@ -36,9 +49,7 @@ Creating custom contracts and DApps on the Bitcoin blockchain is now possible us
 
 * Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
 
-* Create numeric tokens 
-
-* Create alphabetical tokens (_0.5 XCP anti-spam fee_)
+* Create numeric (free) and alphabetical tokens (_0.5 XCP_)
 
 * Issue additional units of their own assets (or lock them to prevent this)
 
@@ -57,20 +68,6 @@ Creating custom contracts and DApps on the Bitcoin blockchain is now possible us
 _Note: Counterparty features do not require the use of XCP unless explicitly stated._
 
 For a more in-depth look at what you can do with Counterparty, see [Counterparty Features](counterparty_features.md).
-
-
-
-**The Counterparty platform consists of several components:**
-
-* [counterparty-lib][] is the reference implementation of the Counterparty Protocol.
-
-* [counterparty-cli][] is a command line interface for counterparty-lib.
-
-* [counterparty-gui][] is a modular graphical interface for counterparty-lib.
-
-* [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
-
-* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. It is a technical necessity, and forms a symbiosis with bitcoin. It is not designed to be a traditional currency per se, although it can be used as such if desired.  
 
 How can I learn more?
 =====================
