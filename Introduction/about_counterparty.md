@@ -7,13 +7,13 @@ Pioneering in its field, the true innovation of [Bitcoin](http://en.wikipedia.or
 
 To address this, Counterparty was developed as an additional layer of programmability secured by the full power of the Bitcoin network, while the Bitcoin protocol itself stays exactly the same. Therefore, Counterparty has often been compared to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
-**Counterparty is a:**
+**Counterparty is:**
 
-* Feature-complete toolkit for designing decentralized applications
-* Standardized implementation for creating advanced Bitcoin transactions 
-* Method for proof-of-publication and proof-of-ownership with the security of the Bitcoin network
-* Peer-to-peer system for creating and trading tokens, pegged currencies, and 'altcoins' without any counterparty risk
-* A future-proof commitment to Bitcoin maximalism
+* a feature-complete toolkit for designing decentralized applications
+* a standardized implementation for creating advanced Bitcoin transactions 
+* a method for proof-of-publication and proof-of-ownership with the security of the Bitcoin network
+* a peer-to-peer system for creating and trading tokens without any counterparty risk
+* open and 100% free for any users and developers
 
 In accordance with Satoshi's philosophy, the Counterparty protocol was launched in January 2014 without raising any funds and began with functioning source code instead of hype. Initially, the core developers were anonymous. To learn more, read [about XCP](about_xcp.md).
 
