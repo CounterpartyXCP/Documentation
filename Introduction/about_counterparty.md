@@ -44,31 +44,6 @@ Counterparty has successfully ported Ethereum's smart contracts system onto the 
 
 Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, and the virtual machines are entirely cross-compatible. The smart contracts system is Turing-complete, offering limitless potential for building custom financial instruments, intelligent markets, organizations, games, and countless other creative uses. 
 
-
-**With Counterparty, users can:**
-
-* Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
-
-* Create numeric (free) and alphabetical tokens (_0.5 XCP_)
-
-* Issue additional units of their own assets (or lock them to prevent this)
-
-* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends) (_0.002 XCP fee per recipient_)
-
-* Trade XCP and assets on Counterparty's distributed exchange
-
-* Broadcast textual and numeric data onto the Bitcoin blockchain (e.g. proof of publication)
-
-* Make bets and derivatives on broadcasted data (_Using XCP_)
-
-* Provably distribute ownership of assets through multi-signature support.
-
-* Craft smart contracts and custom financial instruments using Turing-complete smart contracts scripting. (_XCP fees are required for each computational step._)
-
-_Note: Counterparty features do not require the use of XCP unless explicitly stated._
-
-For a more in-depth look at what you can do with Counterparty, see [Counterparty Features](counterparty_features.md).
-
 How can I learn more?
 =====================
 
@@ -85,7 +60,6 @@ You can read the [Frequently Asked Questions](FAQ.md) or take a look at the [Use
 -   Receive updates via email: Counterparty currently has two free,
 low-volume mailing lists (Community & Developer). [Subscribe
 now!][]
-
 ***External sites with information about Counterparty***
 
 -   [Counterparty Foundation](http://counterpartyfoundation.org)
