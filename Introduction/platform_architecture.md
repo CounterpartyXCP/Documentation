@@ -32,14 +32,18 @@ In the figure below you can see how all Counterparty platform components interac
 
 ##Counterblock
 
-The [`counterblock`](counterblock_API.md) daemon provides a higher-level API that layers on top of counterparty-server‘s API, and includes extended information, such as market and price data, trade operations, asset history, and more. It is used extensively by Counterwallet itself, and is appropriate for use by applications that require additional API-based functionality beyond the scope of what counterparty-server provides.
+``counterblock`` provides additional services to Counterwallet beyond those offered in the API provided by counterpartyd. It features a full-fledged JSON RPC-based API, which services Counterwallet, as well as any 3rd party services which wish to use it. ``counterblock`` has an extensible architecture, and developers may write custom plugins for it, which are loaded dynamically and allow them to extend counterblock with new parsing functionality, write gateways to other currencies or services, and much more.
 
-`counterblock` also provides a proxy-based interface to all `counterparty-server` API methods, via the `proxy_to_counterpartyd` API call.  Such services include:
+With its set of core-plugins, counterblock provides a more high-level data processing, and an API that
+layers on top of counterpartyd’s API.  `counterblock` generates and allows
+querying of data such as market and price information, trade operations, asset
+history, and more. It is used extensively by Counterwallet itself, and is
+appropriate for use by applications that require additional API-based
+functionality beyond the scope of what counterpartyd provides. 
 
-- Realtime data streaming via socket.io
-- An extended API for Counterwallet-specific actions like wallet preferences storage and retrieval
-- API includes functionality for retrieving processed time-series data suitable for display and manipulation (useful for distributed exchange price data, and more)
 
 ##Federated Node
 
-**TODO**
+A federated node is a term for a [Linux-based counterparty build](https://github.com/CounterpartyXCP/federatednode_build) that inludes the various components in an integrated, out-of-the-box fashion. It's used primarily for Counterwallet server installations, but has other uses as well.
+
+**NOTE:** If your application does not require this kind of functionality or APIs that `counterblock` provides, we recommend that you build and install `counterparty-cli` and `counterparty-lib` directly, via [these instructions](http://counterparty.io/docs/counterparty_lib/) for `counterparty-lib` and [these](http://counterparty.io/docs/counterparty-cli/) for `counterparty-cli`.
