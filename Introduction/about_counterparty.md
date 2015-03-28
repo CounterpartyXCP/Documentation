@@ -9,6 +9,7 @@ To address this, Counterparty was developed as an additional layer of programmab
 
 **Counterparty is:**
 
+* A standardized format for creating advanced Bitcoin transactions 
 * A feature-complete toolkit for designing decentralized applications
 * A decentralized system for creating and trading tokens without any counterparty risk
 * A proof-of-publication and proof-of-ownership platform
