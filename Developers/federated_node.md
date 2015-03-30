@@ -136,7 +136,7 @@ Next, (for all server types), start ``counterparty-server`` itself:
     sudo tail -f ~xcp/.cache/counterparty/log/server.log
     sudo tail -f ~xcp/.cache/counterparty/log/server.testnet.log
 
-Then, watching these log, wait for `bitcoind` and `counterparty-server` synchronization to finish. Given that `counterparty-server` will bootstrap by default, it may take only a few minutes for it to finish catching up.
+Then, watching these log(s), wait for `bitcoind` and `counterparty-server` synchronization to finish. Given that `counterparty-server` will bootstrap by default, it may take only a few minutes for it to finish catching up.
 
 After this is all done, reboot the box for the new services to start (which includes both ``counterparty-server`` and ``counterblock``).
 
