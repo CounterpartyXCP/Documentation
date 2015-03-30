@@ -22,7 +22,7 @@ or
 ```
 $ git clone https://github.com/CounterpartyXCP/counterpartyd.git
 $ cd counterpartyd/
-$ python3 setup.py install`
+$ python3 setup.py install
 ```
 
 
