@@ -48,7 +48,7 @@ $ python3
 >>> server.start_all(db)
 ```
 
-A wrapper command `counterparty-server` is provided by a matching `counterparty-cli` package (e.g. `counterparty-lib` from `master` requires `counterparty-cli` from master, or the both need to be the latest release, respectively).
+A wrapper command `counterparty-server` is provided by a matching `counterparty-cli` package (e.g. `counterparty-lib` from `master` requires `counterparty-cli` from `master`, or the both need to be the latest release, respectively).
 
 ## Logging
 
