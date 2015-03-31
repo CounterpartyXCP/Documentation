@@ -118,8 +118,9 @@ Once done, start up ``bitcoind`` daemon(s)
     sudo tail -f ~xcp/.bitcoin/debug.log
     sudo tail -f ~xcp/.bitcoin/testnet3/debug.log
 
-That last command will give you information on the Bitcoin blockchain download status. After the blockchain starts
-downloading, you can launch the ``armory_utxsvr``, if you're using that (Counterwallet role only):
+That last command will give you information on the Bitcoin blockchain download status. As we are running the 10.0.0+ bitcoind release, a full blockchain sync may take as little as 2-4 hours.
+
+After the blockchain starts downloading, you can launch the ``armory_utxsvr``, if you're using that (**Counterwallet role only**):
 
     sudo sv start armory_utxsvr
     sudo sv start armory_utxsvr-testnet
@@ -127,7 +128,7 @@ downloading, you can launch the ``armory_utxsvr``, if you're using that (Counter
     sudo tail -f ~xcp/.armory/armorylog.txt
     sudo tail -f ~xcp/.armory/testnet3/armorylog.txt
 
-And ``counterparty-server`` itself:
+Next, (for all server types), start ``counterparty-server`` itself:
 
     sudo sv start counterparty
     sudo sv start counterparty-testnet
@@ -135,12 +136,16 @@ And ``counterparty-server`` itself:
     sudo tail -f ~xcp/.cache/counterparty/log/server.log
     sudo tail -f ~xcp/.cache/counterparty/log/server.testnet.log
 
-Then, watching these log, wait for `bitcoind` and `counterparty-server` synchronization to finish, which if started from scratch could take between 7 and 12 hours. After this is all done, reboot the box for the new services to
-start (which includes both ``counterparty-server`` and ``counterblock``).
+Then, watching these log(s), wait for `bitcoind` and `counterparty-server` synchronization to finish. Given that `counterparty-server` will bootstrap by default, it may take only a few minutes for it to finish catching up.
 
-``counterblock``, after starting up must then sync to ``counterparty-server``. It will do this automatically, and the
-process will take between 3 minutes to 20 minutes most likely. You can check on the status of ``counterblock``'s
-sync using:
+After this is all done, reboot the box for the new services to start (which includes both ``counterparty-server`` and ``counterblock``).
+
+``counterblock``, after starting up must then sync to ``counterparty-server``:
+
+    sudo sv start counterblock
+    sudo sv start counterblock-testnet
+
+It will do this automatically, and the process will take between 3 minutes to 20 minutes most likely. You can check on the status of ``counterblock``'s sync using:
 
     sudo tail -f ~xcp/.cache/counterblock/log/server.log
     sudo tail -f ~xcp/.cache/counterblock/log/server.testnet.log
