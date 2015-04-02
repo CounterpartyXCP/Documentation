@@ -138,9 +138,9 @@ Broadcast
 **Note:** for some users counterpartyd has trouble parsing spaces in the
 `--text` argument. One workaround is to add an additional set of quotes.
 For example, `--text='"Bitcoin price feed"'`. This may not work on
-Windows due to Python/Windows issues unrelated to Counterparty.  Another 
+Windows due to Python/Windows issues unrelated to Counterparty. Another 
 situation where double quotes may be required on Windows is filtering
-(`--filter "source" "=" "mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns"`).
+(e.g. `--filter "source" "=" "mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns"`).
 
 Bet (Equal/Not Equal)
 ----------------------------------------
