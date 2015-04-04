@@ -32,6 +32,8 @@ with open(sys.argv[1], 'r') as csvfile:
             print('{}|{}|{}'.format(reader.line_num, ','.join(row), tx_hash))
 ```
 
+where `do_send` is defined in the [API Documentation](/Developers/API.md).
+
 ##CSV File
 
 All quantities are specified in satoshis. The format of the CSV file is as follows:
