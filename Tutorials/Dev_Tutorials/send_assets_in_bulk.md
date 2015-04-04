@@ -21,15 +21,15 @@ with open(sys.argv[1], 'r') as csvfile:
             if reader.line_num == 1:                                            
                   continue                                                        
 
-          source, destination, asset, quantity, fee = row
-          fee, quantity = int(fee), int(quantity)
+            source, destination, asset, quantity, fee = row
+            fee, quantity = int(fee), int(quantity)
 
-          try:
-              tx_hash = do_send(source, destination, asset, quantity, fee, 'opreturn')
-          except (util.RPCError, addrindex.BackendRPCError) as e:
-              tx_hash = str(e)
+            try:
+                  tx_hash = do_send(source, destination, asset, quantity, fee, 'opreturn')
+            except (util.RPCError, addrindex.BackendRPCError) as e:
+                  tx_hash = str(e)
 
-          print('{}|{}|{}'.format(reader.line_num, ','.join(row), tx_hash))
+            print('{}|{}|{}'.format(reader.line_num, ','.join(row), tx_hash))
 ```
 
 ##CSV File
