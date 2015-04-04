@@ -17,6 +17,7 @@ import sys
 with open(sys.argv[1], 'r') as csvfile:
       reader = csv.reader(csvfile)
       print('{}|{}|{}'.format('linenum', 'input', 'result'))
+
       for row in reader:
             if reader.line_num == 1:                                            
                   continue                                                        
@@ -26,7 +27,7 @@ with open(sys.argv[1], 'r') as csvfile:
 
             try:
                   tx_hash = do_send(source, destination, asset, quantity, fee, 'opreturn')
-            except (util.RPCError, addrindex.BackendRPCError) as e:
+            except Exception as e:
                   tx_hash = str(e)
 
             print('{}|{}|{}'.format(reader.line_num, ','.join(row), tx_hash))
