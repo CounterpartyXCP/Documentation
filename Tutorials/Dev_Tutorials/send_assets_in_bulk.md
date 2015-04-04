@@ -18,6 +18,9 @@ with open(sys.argv[1], 'r') as csvfile:
       reader = csv.reader(csvfile)
       print('{}|{}|{}'.format('linenum', 'input', 'result'))
       for row in reader:
+            if reader.line_num == 1:                                            
+                  continue                                                        
+
           source, destination, asset, quantity, fee = row
           fee, quantity = int(fee), int(quantity)
 
@@ -31,14 +34,11 @@ with open(sys.argv[1], 'r') as csvfile:
 
 ##CSV File
 
-All quantities are specified in satoshis. The format of the CSV file is
-“source,destination,asset,quantity,fee” and no header line (with field
-names) is allowed.
+All quantities are specified in satoshis. The format of the CSV file is as follows:
 
-An example CSV file for input:
-
-       mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,100000000,150
-       mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,200000000,100
+      source,destination,asset,quantity,fee
+      mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,100000000,150
+      mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,200000000,100
 
 ##Instructions
 
