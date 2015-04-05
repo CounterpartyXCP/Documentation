@@ -87,8 +87,8 @@ now!][]
 -   [Github][]
     -   [counterparty-lib][] - Reference implementation of the Counterparty protocol
     -   [counterparty-cli][] - Command-line Interface for counterparty-lib
-    -   [counterparty-gui][] - Counterparty GUI (OS X and Windows)
-    -   [Counterwallet][] - Web wallet
+    -   [counterparty-gui][] - Counterparty Graphical User Interface (OS X and Windows)
+    -   [Counterwallet][] - Web wallet with client-side passphrases and transaction signing
     -   [counterblock][] - Provides extended API services to Counterwallet, as well as Counterparty 3rd-party applications
     -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) - Federated Node Build System
 
