@@ -4,8 +4,8 @@ Protocol Specification
 Summary
 -------
 
-Counterparty is a suite of financial tools in a protocol built on top of
-the Bitcoin blockchain and using the blockchain as a service for the
+Counterparty is an open-source suite of financial tools and a protocol built on top of
+the Bitcoin blockchain to ensure the
 reliable publication and timestamping of its messages.
 
 The reference implementation is ``counterparty-lib``, which is hosted at [GitHub](https://github.com/CounterpartyXCP/counterpartyd).
