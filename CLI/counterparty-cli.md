@@ -76,7 +76,7 @@ A `counterparty-client` configuration file looks like this:
 
 ## Usage
 
-* The first time you run the server, you may bootstrap the local database with:
+* The first time you run the server, you can bootstrap the local database with:
 	`$ counterparty-server bootstrap`
 
 * Start the server with:
