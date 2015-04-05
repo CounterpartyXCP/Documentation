@@ -32,8 +32,7 @@ To send an asset, the command is:
 Buy BTC for XCP
 ----------------------------------------
 
-BTC Pay has been disabled in Counterwallet, but remains available in the
-CLI.
+BTC Pay has been disabled in Counterwallet due to incompatibilites with the browser security model, but this functionality remains available in the CLI.
 
 To make a trade that involves BTC, the `order` function requires an
 extra parameter, and a second step is needed. If [address\_1] is trading
