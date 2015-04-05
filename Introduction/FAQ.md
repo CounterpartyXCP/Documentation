@@ -56,7 +56,7 @@ To do a 51% attack on Counterparty, you have to do a 51% attack on Bitcoin, and 
 
 ### How can a thin client trustlessly lookup the Bitcoin public address associated with an asset name?
 
-You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue now. Protocols like VerSum offer excellent models for untrusted verification here.
+You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue now. Protocols like [VerSum](http://www.bu.edu/hic/files/2015/01/versum-ccs14.pdf) offer excellent models for untrusted verification here.
 
 ### What about sidechains?
 
