@@ -28,7 +28,7 @@ Download and decompress: [https://github.com/CounterpartyXCP/counterparty-cli/re
 
 **Windows**
 
-Download and decompress the last release: [https://github.com/CounterpartyXCP/counterparty-cli/releases](https://github.com/CounterpartyXCP/counterparty-cli/releases)
+Download and decompress the latest release: [https://github.com/CounterpartyXCP/counterparty-cli/releases](https://github.com/CounterpartyXCP/counterparty-cli/releases)
 
 ## Configuration and Maintenance
 
