@@ -40,7 +40,7 @@ By default, the **configuration files** is located in the following directories:
 * Linux: `~/.config/counterparty/`
 * Windows: `%APPDATA%/CounterParty/counterparty/`
 
-*(Where %APPDATA% is usually C:\Users\{USERNAME}\AppData\Roaming)*
+*(%APPDATA% typically leads to  C:\Users\{USERNAME}\AppData\Roaming)*
 
 And are named as follows:
 * `client.conf`
