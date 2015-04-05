@@ -4,7 +4,7 @@ Features
 
 # Overview
 
-**With Counterparty, users can:**
+**With Counterparty, anyone can:**
 
 * Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
 
@@ -12,11 +12,11 @@ Features
 
 * Issue additional units of their own assets (or lock them to prevent this)
 
-* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends) (_0.002 XCP fee per recipient_)
-
 * Trade XCP and assets on Counterparty's distributed exchange
 
 * Broadcast textual and numeric data onto the Bitcoin blockchain (e.g. proof of publication)
+
+* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends) (_0.002 XCP fee per recipient_)
 
 * Make bets and derivatives on broadcasted data (_Using XCP_)
 
@@ -30,7 +30,7 @@ _Note: Counterparty features do not require the use of XCP unless explicitly sta
 
 **Also known as:** `assets, coins, currencies`
 
-With Counterparty, users can create their own currencies _inside_ the Bitcoin blockchain. These are seperate from Bitcoin the currency itself, but exist entirely inside ordinary Bitcoin transactions. Tokens can be received, stored, and sent from any Bitcoin address to any other.
+With Counterparty, users can create their own currencies _inside_ the Bitcoin blockchain. These are seperate from Bitcoin the currency itself, but exist entirely inside ordinary Bitcoin transactions. Tokens can be received, stored, and sent from any Bitcoin address to any other. They can also be placed in cold storage. Unlike Colored Coins, Counterparty tokens are _not_ tied to the BTC balance of any given address. This means that sending/receiving bitcoins has no effect on the balance of tokens.
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions
 on* tokens, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
