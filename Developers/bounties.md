@@ -1,6 +1,6 @@
 # Counterparty Bug Bounty Program
 
-**Donation Address: 14Tf35AovvRVURzd623q5i9kry2EW8WzyL **
+**Donation Address: 14Tf35AovvRVURzd623q5i9kry2EW8WzyL**
 
 According to [Linus’ Law](http://en.wikipedia.org/wiki/Linus), “given enough eyeballs, all bugs are shallow”. That’s one of the reasons why Counterparty’s source code is publicly available; but merely making the source code available doesn't accomplish anything if people don’t read it!
 
