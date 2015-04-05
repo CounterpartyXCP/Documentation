@@ -35,27 +35,26 @@ With Counterparty, users can create their own currencies _inside_ the Bitcoin bl
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions
 on* tokens, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
 
-Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet.
+Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet. 
 
 Counterparty-issued assets (tokens) can have plain-text or
 [Enhanced Asset Information](/Counterwallet/enhanced_asset_info.md).
 
-## Creating assets
+## Creating tokens
 
-Counterparty allows users to *issue assets*. An asset that is created
-within the Counterparty protocol is often called a *user-created token*.
-User-created tokens are just as real as XCP or even BTC. With the asset
+Counterparty allows users to *issue tokens*. A token that is created
+within the Counterparty protocol is often called a *user-created asset*.
+User-created tokens are just as real as XCP or even BTC. With the token
 issuance function, every user has the ability to create a new currency project inside
 the Bitcoin and Counterparty ecosystem. 
 
-*You can create two different types of assets:*
+*You can create two different types of tokens:*
 
-1. **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic asset names carry a one‐time issuance fee of `0.5 XCP`. This fee is burned (permanently taken out of circulation). `BTC` and `XCP` are the only three‐character asset names. For more
-information, see the Assets section in the Counterparty specification.
+1. **Named**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic tokens carry a one‐time issuance fee of `0.5 XCP` to discourage spam and squatting. This fee is burned (permanently taken out of circulation). `BTC` and `XCP` are the only three‐character asset names. For more information, see the Assets section in the Counterparty specification.
 
-2. **Numeric Asset (Free)**: An integers between `26^12 + 1` and `256^8` (inclusive), prefixed with `A`. Numeric assets only require one Bitcoin transaction fee to be created.
+2. **Numeric (Free)**: An integer between `26^12 + 1` and `256^8` (inclusive), prefixed with `A`. Numeric assets only require one Bitcoin transaction fee to be created.
 
-## The different kinds of assets
+## The different kinds of tokens
 
 The most basic kind of asset must specify:
 
