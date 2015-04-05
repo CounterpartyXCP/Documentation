@@ -1,7 +1,7 @@
 CLI Example Usage
 =================
 
-The following examples must be preceded by `counterparty-cli`, i.e. the `burn` command would be called with `counterparty-cli burn`. 
+The following examples must be preceded by `counterparty-cli`. (I.e. the `burn` command would be called with `counterparty-cli burn`.)
 
 Server
 ------
