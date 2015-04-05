@@ -11,9 +11,9 @@ No. XCP cannot exist without Bitcoin. XCP is simply a technical necessity for ha
 
 _Exactly_ the same Bitcoin addresses we all know and love. Counterparty uses the Bitcoin blockchain exclusively.
 
-### What about sidechains?
+### If I send or receive bitcoins on an address that holds tokens, will they disappear or become 'uncolored'?
 
-Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason not to make them work with Counterparty.
+No, that can only happen with Colored Coins. In the Counterparty platform, BTC balances and token balances are entirely separate and _cannot_ affect each other. 
 
 ### Can I secure my XCP and tokens in cold storage?
 
@@ -53,3 +53,8 @@ To do a 51% attack on Counterparty, you have to do a 51% attack on Bitcoin, and 
 ### How can a thin client trustlessly lookup the Bitcoin public address associated with an asset name?
 
 You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue now. Protocols like VerSum offer excellent models for untrusted verification here.
+
+### What about sidechains?
+
+Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason not to make them work with Counterparty.
+
