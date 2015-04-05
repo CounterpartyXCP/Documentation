@@ -35,19 +35,19 @@ Buy BTC for XCP
 BTC Pay has been disabled in Counterwallet due to incompatibilites with the browser security model, but this functionality remains available in the CLI.
 
 To make a trade that involves BTC, the `order` function requires an
-extra parameter, and a second step is needed. If [address\_1] is trading
-[give\_quantity]1 of BTC in exchange for [get\_quantity]1 of [asset],
+extra parameter, and a second step is needed. If `address_1` is trading
+`give_quantity_1` of BTC in exchange for `get_quantity_1` of `asset`,
 the command is:
 
-    order --source=[address_1] --give-asset=BTC --give-quantity=[give_quantity]1 --get-asset=[get_asset]1 --get-quantity=[get_quantity]1 --fee-provided=[fee_provided] --expiration=[expiration]1
+    order --source=[address_1] --give-asset=BTC --give-quantity=[give_quantity_1] --get-asset=[get_asset_1] --get-quantity=[get_quantity_1] --fee-provided=[fee_provided] --expiration=[expiration_1]
 
-If [address\_2] is trading [give\_quantity]2 of [asset] in exchange BTC,
+If `address_2` is trading `give_quantity_2` of `asset` in exchange BTC,
 the command is:
 
-    order --source=[address_2] --give-asset=[asset] --give-quantity=[give_quantity]2 --get-asset=BTC --get-quantity=[get_quantity]2 --fee-required=[fee_required] --expiration=[expiration]2
+    order --source=[address_2] --give-asset=[asset] --give-quantity=[give_quantity_2] --get-asset=BTC --get-quantity=[get_quantity_2] --fee-required=[fee_required] --expiration=[expiration_2]
 
-[asset] is debited immediately from [address\_2] and is held in escrow.
-[address\_1] then must complete the trade using `btcpay` before 10
+`asset` is debited immediately from `address_2` and is held in escrow.
+`address_1` then must complete the trade using `btcpay` before 10
 blocks have passed (or the lesser of the two `expiration` periods has
 passed, if the latter is less than 10 blocks from the time of match).
 The command for a `btcpay` is:
@@ -75,12 +75,12 @@ function. For Sally to receive [get\_quantity]1 of [get\_asset]1 in
 exchange for [give\_quantity]1 of [give\_asset]1, the command is the
 following:
 
-    order --source=[sallys_address] --give-asset=[give_asset]1 --give-quantity=[give_quantity]1 --get-asset=[get_asset]1 --get-quantity=[get_quantity]1 --expiration=EXPIRATION
+    order --source=[sallys_address] --give-asset=[give_asset_1] --give-quantity=[give_quantity_1] --get-asset=[get_asset_1] --get-quantity=[get_quantity_1] --expiration=EXPIRATION
 
 In order for Alice to receive [get\_quantity]2 of [give\_asset]2 in
 exchange for [give\_quantity]2 of [get\_asset]2, the command is:
 
-    order --source=[address_2] --give-asset=[get_asset]2 --give-quantity=[give_quantity]2 --get-asset=[get_asset]2 --get-quantity=[get_quantity]2 --expiration=expiration2
+    order --source=[address_2] --give-asset=[get_asset_2] --give-quantity=[give_quantity_2] --get-asset=[get_asset_2] --get-quantity=[get_quantity_2] --expiration=expiration2
 
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
     --get-asset=XCP --give-quantity=20 --give-asset=BBBC --expiration=10
