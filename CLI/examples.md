@@ -14,8 +14,8 @@ Bitcoin Core.
 Burn
 ----
 
-The `burn` command currently usable only on testnet because on mainnet
-the burn period finished in early 2014.
+The `burn` command is only available on testnet, since the [mainnet
+burn period](/Introduction/about_xcp.md) ended February 3rd 2014.
 
 `burn --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=0.5`
 
