@@ -37,8 +37,10 @@ The paths to the **configuration** files, **log** files and **database** files a
 
 By default, the **configuration files** is located in the following directories:
 
-* Linux: `~/.config/counterparty/
-* Windows: **TODO**
+* Linux: `~/.config/counterparty/`
+* Windows: `%APPDATA%/CounterParty/counterparty/`
+
+*(Where %APPDATA% is usually C:\Users\{USERNAME}\AppData\Roaming)*
 
 And the log files are named as follows:
 * `client.conf`
