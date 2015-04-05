@@ -60,13 +60,16 @@ You can read the [Frequently Asked Questions](FAQ.md) or take a look at the [Use
 -   Receive updates via email: Counterparty currently has two free,
 low-volume mailing lists (Community & Developer). [Subscribe
 now!][]
+
 ***External sites with information about Counterparty***
 
 -   [Counterparty Foundation](http://counterpartyfoundation.org)
 -   [Coinmarketcap.com][] - XCP price, volumes, 24h average, and a list of exchanges
 -   [Counterparty on Wikipedia][]
 -   [Blockscan Block Explorer](http://blockscan.com)
--   [Bitcointalk](https://bitcointalk.org/index.php?topic=3957610).
+-   [Counterpartychain Block Explorer](https://counterpartychain.io)
+-   [Coindaddy Asset Services & Marketplace](https://coindaddy.io/)
+-   [Bitcointalk Thread](https://bitcointalk.org/index.php?topic=3957610)
 
   [Twitter]: https://twitter.com/CounterpartyXCP
   [Facebook]: https://www.facebook.com/CounterpartyXCP
