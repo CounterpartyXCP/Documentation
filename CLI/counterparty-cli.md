@@ -42,12 +42,11 @@ By default, the **configuration files** is located in the following directories:
 
 *(Where %APPDATA% is usually C:\Users\{USERNAME}\AppData\Roaming)*
 
-And the log files are named as follows:
+And are named as follows:
 * `client.conf`
 * `server.conf`
 
 **Logging** and **database files** are handled by [`counterparty-lib`](counterparty_lib.md).
-
 
 ### Configuration File Format
 
