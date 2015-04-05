@@ -11,9 +11,13 @@ No. XCP cannot exist without Bitcoin. XCP is simply a technical necessity for ha
 
 _Exactly_ the same Bitcoin addresses we all know and love. Counterparty uses the Bitcoin blockchain exclusively.
 
+### Can token balances be manipulated? 
+
+No. XCP and token balances rely on the consensus of the Bitcoin network, and are cryptographically secured. (Much like BTC.) 
+
 ### If I send or receive bitcoins on an address that holds tokens, will they disappear or become 'uncolored'?
 
-No. In the Counterparty platform, BTC balances and token balances are entirely separate and _cannot_ affect each other. It is possible that you are thinking of Colored Coins, where this can happen in specific cases.
+No. In the Counterparty platform, BTC balances and token balances are entirely separate and _cannot_ affect each other. There is no risk of removing or changing the tokens.
 
 ### Can I secure my XCP and tokens in cold storage?
 
