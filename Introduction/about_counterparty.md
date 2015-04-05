@@ -63,7 +63,7 @@ now!][]
 
 ***External sites with information about Counterparty***
 
--   [Counterparty Foundation](http://counterpartyfoundation.org)
+-   [Counterparty Foundation](http://counterpartyfoundation.org) - independent non-profit organization dedicated to the open development of the platform.
 -   [Coinmarketcap.com][] - XCP price, volumes, 24h average, and a list of exchanges
 -   [Counterparty on Wikipedia][]
 -   [Blockscan Block Explorer](http://blockscan.com)
