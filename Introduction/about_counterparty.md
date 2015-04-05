@@ -35,7 +35,7 @@ The Counterparty protocol (and its internal token XCP) was launched in January 2
 
 * [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
 
-* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. It is a technical necessity, and forms a symbiosis with bitcoin. It is not designed to be a traditional currency per se, although it can be used as such if desired.  
+* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. It is a technical necessity, and forms a symbiosis with bitcoin. It is not designed to be a traditional (crypto)currency, although it can be used as such if desired.  
 
 
 ***
