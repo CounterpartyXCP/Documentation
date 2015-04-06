@@ -3,6 +3,8 @@ Counterwallet
 
 [Counterwallet Release Documentation](https://github.com/CounterpartyXCP/counterwallet/releases)
 
+[Official Counterwallet Server](https://counterwallet.io/#)
+
 Features and Specifications
 ---------------------------
 

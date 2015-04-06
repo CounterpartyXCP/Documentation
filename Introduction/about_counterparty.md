@@ -1,30 +1,53 @@
 ﻿What is Counterparty?
 =====================
 
-Counterparty is a peer-to-peer financial platform and a distributed, open-source Internet protocol built on top of the Bitcoin blockchain and network. 
+**Counterparty is a peer-to-peer financial platform. It is a distributed, open-source protocol built on top of the Bitcoin network. By encoding data in ordinary Bitcoin transactions, Counterparty expands the uses and features of Bitcoin in new and unprecedented ways.**
 
-By encoding data in ordinary Bitcoin transactions, Counterparty extends Bitcoin’s functionality in new and unprecedented ways, opening the door for innovation. The Bitcoin protocol stays exactly the same, while supporting the development and adoption of valuable new features, all secured by the full power of the Bitcoin network. 
+Pioneering in its field, the true innovation of [Bitcoin](http://en.wikipedia.org/wiki/Bitcoin) has made peer-to-peer transfer of value available to anyone with an internet connection. But as many nascent technologies before, Bitcoin only provides the foundation necessary to reach the full potential of its main purpose: decentralized finance. This is especially obvious when one considers that even the Internet had to evolve past simply transferring plaintext from A to B to break through into the mainstream. 
 
-Besides providing users with the world’s first functioning decentralized exchange, as well as the ability to create virtual assets, issue dividends, create price feeds and bets, Counterparty enables anyone to create smart contracts on the Bitcoin blockchain. Smart contracts are agreements whose terms and conditions are digitized, and do not require arbitration by a third-party to determine their outcome, but instead are executed automatically, with no intermediation. Counterparty's built-in Turing-complete scripting language allows anyone to create custom smart contracts and execute their code on the Bitcoin blockchain.
+To address this, Counterparty was developed as an additional layer secured by the full power of the Bitcoin network, while the underlying Bitcoin protocol itself stays exactly the same. Therefore, many compare Counterparty to the 'Hypertext Transfer Protocol' ([HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)), which exists as a layer on [TCP/IP](http://en.wikipedia.org/wiki/Internet_protocol_suite), and provides the foundation of the internet as we know it today. 
 
-Along with the Counterparty protocol, the platform consists of the native XCP token, which is required for performing advanced operations on the Blockchain, and the secure, browser-based Counterwallet that provides a client-side graphical interface and login system.
+The Counterparty protocol (and its internal token XCP) was launched in January 2014 without raising any funds. Its first introduction to the world was a release of working source code. This was in full accordance with the core Counterparty philosophy, or in the words of Bitcoin inventor Satoshi Nakamoto, "We can try to use words to help the situation until code gets there." To learn more about the internal token of Counterparty, [read about XCP](about_xcp.md).
 
-**With Counterparty, users can:**
+***
 
-* Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
-* Create assets (numeric or alphabetical)
-* Issue additional units of their own assets (or lock them to prevent this)
-* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends)
-* Trade XCP and assets on Counterparty's distributed exchange
-* Broadcast textual and numeric data onto the Bitcoin blockchain
-* Make bets and derivatives on broadcasted data
-* Provably distribute ownership of assets through multi-signature support.
-* Take advantage of turing-complete scripting to craft smart contracts and financial instruments.
+**In summary, Counterparty is:**
+
+* a feature-complete toolkit for developing decentralized applications and financial instruments
+
+* a Turing-complete smart contracts platform (_100% cross-compatible with Ethereum_)
+
+* a system for issuing and trading tokens and currencies without counterparty risk
+
+* a decentralized exchange with algorithmic order matching and trustless escrow
+
+* a method for proof-of-publication and proof-of-ownership with the security of the Bitcoin blockchain 
+
+* _Entirely free, modular and extensible open-source software_
+
+**The Counterparty platform consists of several components:**
+
+* [counterparty-lib][] is the reference implementation of the Counterparty Protocol.
+
+* [counterparty-cli][] is a command line interface for counterparty-lib.
+
+* [counterparty-gui][] is a modular graphical interface for counterparty-lib.
+
+* [Counterwallet][] is a secure web wallet with client-side logins and transaction signing. A hosted version is available [here](http://counterwallet.io).
+
+* **[XCP](about_xcp.md)** is the native, deflationary token of the platform. It is a technical necessity, and forms a symbiosis with bitcoin. It is not designed to be a traditional (crypto)currency, although it can be used as such if desired.  
+
+
+***
+
+Counterparty has successfully ported Ethereum's smart contracts system onto the Bitcoin blockchain, pioneering the most feature complete solution for developing decentralized applications on the Bitcoin blockchain. Smart contracts are agreements (or applications) whose terms and conditions are upheld by the protocol itself, and do not require arbitration by a third-party to determine their outcome. These agreements are secured by the blockchain, and execute automatically without intermediation or any counterparty risk. 
+
+Creating custom contracts and DApps on the Bitcoin blockchain is now possible using the same languages as Ethereum DApps, and the virtual machines are entirely cross-compatible. The smart contracts system is Turing-complete, offering limitless potential for building custom financial instruments, intelligent markets, organizations, games, and countless other creative uses. 
 
 How can I learn more?
 =====================
 
-**For example, you could start by reading our [Frequently Asked Questions](FAQ.md) or taking a look at our [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md).**
+You can read the [Frequently Asked Questions](FAQ.md) or take a look at the [User Tutorials](/Tutorials/User_Tutorials/counterwallet_manual.md). 
 
 **Here are some other ways to get involved:**
 
@@ -32,6 +55,7 @@ How can I learn more?
 
 -   Follow us on [Twitter][], [Facebook][], [Google+][] and
 [LinkedIn][].
+-   Become a member of our [Official Forum](https://forums.counterparty.io/).
 -   Join our official chat: [End Users/General][] & [Developers/Technical][]
 -   Receive updates via email: Counterparty currently has two free,
 low-volume mailing lists (Community & Developer). [Subscribe
@@ -39,10 +63,13 @@ now!][]
 
 ***External sites with information about Counterparty***
 
--   [Counterparty Foundation](http://counterpartyfoundation.org)
+-   [Counterparty Foundation](http://counterpartyfoundation.org) - independent non-profit organization dedicated to the open development of the platform.
 -   [Coinmarketcap.com][] - XCP price, volumes, 24h average, and a list of exchanges
 -   [Counterparty on Wikipedia][]
 -   [Blockscan Block Explorer](http://blockscan.com)
+-   [Counterpartychain Block Explorer](https://counterpartychain.io)
+-   [Coindaddy Asset Services & Marketplace](https://coindaddy.io/)
+-   [Bitcointalk Thread](https://bitcointalk.org/index.php?topic=3957610)
 
   [Twitter]: https://twitter.com/CounterpartyXCP
   [Facebook]: https://www.facebook.com/CounterpartyXCP
@@ -60,8 +87,8 @@ now!][]
 -   [Github][]
     -   [counterparty-lib][] - Reference implementation of the Counterparty protocol
     -   [counterparty-cli][] - Command-line Interface for counterparty-lib
-    -   [counterparty-gui][] - Counterparty GUI (OS X and Windows)
-    -   [Counterwallet][] - Web wallet
+    -   [counterparty-gui][] - Counterparty Graphical User Interface (OS X and Windows)
+    -   [Counterwallet][] - Web wallet with client-side passphrases and transaction signing
     -   [counterblock][] - Provides extended API services to Counterwallet, as well as Counterparty 3rd-party applications
     -   [federatednode_build](https://github.com/CounterpartyXCP/federatednode_build) - Federated Node Build System
 

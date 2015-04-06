@@ -28,7 +28,7 @@ Download and decompress: [https://github.com/CounterpartyXCP/counterparty-cli/re
 
 **Windows**
 
-Download and decompress the last release: [https://github.com/CounterpartyXCP/counterparty-cli/releases](https://github.com/CounterpartyXCP/counterparty-cli/releases)
+Download and decompress the latest release: [https://github.com/CounterpartyXCP/counterparty-cli/releases](https://github.com/CounterpartyXCP/counterparty-cli/releases)
 
 ## Configuration and Maintenance
 
@@ -37,15 +37,16 @@ The paths to the **configuration** files, **log** files and **database** files a
 
 By default, the **configuration files** is located in the following directories:
 
-* Linux: `~/.config/counterparty/
-* Windows: **TODO**
+* Linux: `~/.config/counterparty/`
+* Windows: `%APPDATA%/CounterParty/counterparty/`
 
-And the log files are named as follows:
+*(%APPDATA% typically leads to  C:\Users\{USERNAME}\AppData\Roaming)*
+
+And are named as follows:
 * `client.conf`
 * `server.conf`
 
 **Logging** and **database files** are handled by [`counterparty-lib`](counterparty_lib.md).
-
 
 ### Configuration File Format
 
@@ -75,7 +76,7 @@ A `counterparty-client` configuration file looks like this:
 
 ## Usage
 
-* The first time you run the server, you may bootstrap the local database with:
+* The first time you run the server, you can bootstrap the local database with:
 	`$ counterparty-server bootstrap`
 
 * Start the server with:

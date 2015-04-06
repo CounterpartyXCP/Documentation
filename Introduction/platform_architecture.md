@@ -15,19 +15,20 @@ In the figure below you can see how all Counterparty platform components interac
 
 ##Counterparty GUI
 
-`counterparty-gui` is a PyQT5 GUI for counterparty-lib. (*forthcoming*)
+`counterparty-gui` is a PyQT5 GUI for counterparty-lib (and is currently in [BETA](https://github.com/CounterpartyXCP/counterparty-gui/releases/tag/v1.0.0-BETA)).
 
 
 ##Counterwallet
 
-[Counterwallet](counterwallet_doc.md) is a web wallet for Bitcoin (BTC) and Counterparty (XCP). It is being actively developed and currently implements most Counterparty features.
+[Counterwallet](counterwallet_doc.md) is a free, open-source web wallet for Bitcoin (BTC), Counterparty (XCP) and user-created tokens. It is being actively developed and currently implements most Counterparty features.
 
+- Deterministic client-side wallet
 - Fully functional wallet for BTC, XCP, and user-created tokens
 - Peer-to-peer asset trading with algorithmic order matching (XCP, other assets)
 - Custom asset creation
+- Payment distributions
 - Betting
-- Broadcasting data on the Bitcoin Blockchain
-
+- Publishing information on the Bitcoin Blockchain
 
 ##Counterblock
 

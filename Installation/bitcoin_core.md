@@ -75,4 +75,4 @@ you'll need to launch ``bitcoind`` (once only) as follows:
 
 This will have `bitcoind` complete a one-time reindexing of the local blockchain. Windows users can do the same, or simply run Bitcoin-Core (`Start > Programs > Bitcoin Core > Bitcoin Core`) which will prompt them to reindex their blockchain if necessary.
 
-Even on a fast machine, reindexing of the entire mainnet blockchain takes hours.
+Even on a fast machine, reindexing of the entire mainnet blockchain takes hours. It is recommended to use a SSD.

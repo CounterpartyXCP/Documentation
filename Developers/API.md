@@ -5,7 +5,7 @@
 
 ##Overview
 
-The ``counterparty-lib`` server provides a JSON RPC 2.0-based API based off of
+The ``counterparty-lib`` server provides a JSON RPC 2.0-based API based on
 that of Bitcoin Core. It is the primary means by which other applications
 should interact with the Counterparty network.
 

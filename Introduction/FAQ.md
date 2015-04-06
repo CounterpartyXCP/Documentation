@@ -5,35 +5,28 @@ Frequently Asked Questions
 
 ### Is XCP an alt-coin or competitor to Bitcoin?
 
-No. XCP cannot exist without Bitcoin, as Counterparty extends the basic features of Bitcoin with proof-of-publication, oracle betting, decentralized exchange, automatic escrow, order matching, and smart contracts. 
+No. XCP cannot exist without Bitcoin. XCP is simply a technical necessity for harnessing more advanced blockchain technology, such as programmable smart contracts. It represents stake in Counterparty itself, is protocol-aware, as well as used for various fees. Although it can be used as such, it was not designed to be an alternative currency. To learn more about XCP, see [about XCP](about_xcp.md).
 
 ### What kind of addresses does Counterparty use?
 
 _Exactly_ the same Bitcoin addresses we all know and love. Counterparty uses the Bitcoin blockchain exclusively.
 
-### How was the supply of XCP created?
+### Can token balances be manipulated? 
 
-During the proof-of-burn process, users were able to send Bitcoins to an provably unspendable address, and automatically receive XCP in return from the protocol. In accordance with Satoshi's philosophy, this created an equal opportunity for both developers and users.
+No. XCP and token balances rely on the consensus of the Bitcoin network, and are cryptographically secured. (Much like BTC.) 
 
-### Can more XCP be created?
+### If I send or receive bitcoins on an address that holds tokens, will they disappear or become 'uncolored'?
 
-No. The supply of XCP is fixed, and decreasing because of fees being burned.
-
-### Why does XCP have value?
-
-XCP is the fuel for smart contracts. When smart contracts are running, fuel is used for each execution step. Appropriately enough, this fuel is **burned** (destroyed). This means that the supply of XCP is continously decreasing. However, the cost of fuel adjusts proportionally as the supply of XCP goes down, so that it cannot reach 0.
-
-XCP is always the easiest token to trade against, as it is represented across all exchanges that support Counterparty. It is also used for anti-spam fees when registering named tokens, and when making distribution payments to token holders. The betting system also uses XCP.
-
-Unfortunately these features cannot reach the achieve of the main Bitcoin blockchain without a metatoken, such as XCP. This intermediate step is a technical necessity, and many Counterparty features such as betting therefore use XCP. 
-
-### What about Sidechains?
-
-Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason not to make them work with Counterparty.
+No. In the Counterparty platform, BTC balances and token balances are entirely separate and _cannot_ affect each other. There is no risk of removing or changing the tokens.
 
 ### Can I secure my XCP and tokens in cold storage?
 
 Yes. You can make a regular Bitcoin paper wallet and store them there. Later, you can sweep the funds into Counterwallet.
+
+### Does Counterparty support m-of-n multi-sig?
+
+Yes, but currently only bare multi-signatures and not P2SH. This means that the addresses are in the format:
+`{m}_addr1_addr2_addr3_{n}` where m is the number of keys required, and n is the total number of keys.
 
 ### How does the Counterparty protocol achieve consensus? 
 
@@ -61,6 +54,11 @@ Counterparty only needs some Bitcoin full nodes somewhere to have an unpruned co
 
 To do a 51% attack on Counterparty, you have to do a 51% attack on Bitcoin, and the effects would be the same, too. Blockchain reorganizations are handled by Counterparty the same way they are handled by Bitcoin.
 
-### How can a thin client trustlessly lookup the Bitcoin public address associated with the OSTOCK asset name?
+### How can a thin client trustlessly lookup the Bitcoin public address associated with an asset name?
 
-You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue now. Protocols like VerSum offer excellent models for untrusted verification here.
+You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue now. Protocols like [VerSum](http://www.bu.edu/hic/files/2015/01/versum-ccs14.pdf) offer excellent models for untrusted verification here.
+
+### What about sidechains?
+
+Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason not to make them work with Counterparty.
+

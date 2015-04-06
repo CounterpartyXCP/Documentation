@@ -48,6 +48,7 @@ As Counterparty is not a fork of Bitcoin Core, adding Counterparty support to yo
 
 - Set a maximum XCP and BTC withdrawal amount, both per day and per event.
 
+- Use multi-signature addresses for your hot wallet.
 
 ## Improving performance
 
