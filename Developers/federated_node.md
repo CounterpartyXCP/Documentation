@@ -393,10 +393,12 @@ git clone -b develop https://github.com/CounterpartyXCP/counterblock.git
 Then you can make your changes to the source code as you see fit. To test the changes, run the ``setup.py install`` for the appropriate component, using the appropriate ``python``.
 
 For ``counterparty-lib`` this would be:
-sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 counterparty-lib/setup.py install
+
+```sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 counterparty-lib/setup.py install```
 
 For ``counterblock`` this would be:
-sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 counterblock/setup.py install
+
+```sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 counterblock/setup.py install```
 
 You can then re-launch the component (most likely in the console) using the appropriate command, documented earlier.
 
