@@ -10,7 +10,7 @@ Depending on the type of bug and when it is reported, different bounties will be
 
 ## Things that do not qualify under the bug bounty
 
--   **forums.counterparty.io website** (unless the issue is a serious misconfiguration where user security details are being leaked in a way that they can be proven to be exploited)
+-   **counterpartytalk.org website** (unless the issue is a serious misconfiguration where user security details are being leaked in a way that they can be proven to be exploited)
 -   **Please do not try XSS attacks in the Counterwallet chat box. It is annoying, and it has already been tested extensively**
 -   Vulnerabilities which are too broad or not documented properly (i.e. do not include a specific example relevant to a Counterparty-controlled site)
 -   Bugs or issues with a third-party site, software, or service that we use, such as support.counterparty.io (freshdesk.com), which is not due to an improper configuration issue specific to us. Please submit any potential issues **to the maintainers of that site or providers of that service**
@@ -41,7 +41,7 @@ Depending on the type of bug and when it is reported, different bounties will be
 
 Bounties will be paid out for bugs found in the `master` branch of the official GitHub repositories.
 
-## Bounties for the Counterparty forums (forums.counterparty.io)
+## Bounties for the Counterparty forums (counterpartytalk.org)
 
 | Total USD amount (BTC/XCP mix) | Type of bug |
 | ----------------------------------------|------------------------------------|
