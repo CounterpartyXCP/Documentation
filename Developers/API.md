@@ -469,7 +469,13 @@ There will be no incompatible API pushes that do not either have:
 * The `do_*`, `sign_tx` and `broadcast_tx` methods have been completely deprecated. See the section [Wallet Integration](#Wallet-Integration).
 * Added REST API.
 
-
+###9.51.0
+* Deprecate `get_asset_info(assets)` API method.
+* Deprecate `get_xcp_supply()` API method in favor of get_supply(asset).
+* Changed `get_unspent_txouts` API method parameter and return values.
+* Added HTTP Rest API.
+* Authentication on JSON‐RPC API is off by default
+* `rpc_password` configuration parameter is no longer mandatory
 
 
 #Technical Specification
@@ -567,11 +573,13 @@ Parse the data_hex of a message into its parameters. Defined dynamically for all
 
 
 
-###get_asset_info
+###get_asset_info - Deprecated, use get_issuances() and get_supply() 
 
-**get_asset_info(assets)**
+**get_issuances(assets)**
 
 Gets information on an issued asset. 
+
+**get_supply(assets)**
 
 **Parameters:**
 
