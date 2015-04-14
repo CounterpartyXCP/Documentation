@@ -15,7 +15,7 @@ In the figure below you can see how all Counterparty platform components interac
 
 ##Counterparty GUI
 
-`counterparty-gui` is a PyQT5 GUI for counterparty-lib. (*forthcoming*)
+[`counterparty-gui`](CLI/counterparty-cli.md) is a PyQT5 GUI for counterparty-lib. 
 
 
 ##Counterwallet
