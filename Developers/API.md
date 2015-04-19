@@ -123,9 +123,11 @@ library.
 
 ###curl
 
-    curl -X POST http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{"jsonrpc":"2.0","id":0,"method":"get_running_info"}'
+    curl -X POST http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{ "jsonrpc": "2.0", "id": 0, "method": "get_running_info" }'
 
-**NOTE:** On Windows, the command may need to be formatted differently due to problems that Windows has with escapes.
+**NOTE:** 
+* Remember to surround non-numeric parameter values with the double quotes (not single, as frequently done in Python, including most examples on this page), as per [JSON-RPC 2.0 examples](http://www.jsonrpc.org/specification#examples). For example, with curl `"order_by": "tx_hash"` is correct and will work, `"order_by": 'tx_hash'` won't.
+* On Windows, curl commands may need to be formatted differently due to problems that Windows has with escapes. Try escapes before double quotes and reference curl help resources for additional details.
 
 ##Example Implementations for REST API
 
