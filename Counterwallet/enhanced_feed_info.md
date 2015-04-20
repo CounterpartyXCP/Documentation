@@ -1,3 +1,5 @@
+#Enhanced Feed Info
+
 Feed providers can initialize a feed via a broadcast where the broadcast text field contains a URL to a specially formatted .json file (e.g. http://www.mydomain.com/foo.json). This allows the feed operator to provide enhanced information to their users.
 
 
