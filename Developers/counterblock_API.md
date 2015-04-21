@@ -2,7 +2,7 @@
 
 For an overview of `counterblock`, see [here](http://counterparty.io/docs/platform_architecture/).
 
-`counterblock` release information is available from [this link](https://github.com/CounterpartyXCP/counterblock/releases>).
+`counterblock` release information is available from [this link](https://github.com/CounterpartyXCP/counterblock/releases).
 
 **Warning:** *This API documentation is INCOMPLETE. It contains errors, omissions, etc., and could change drastically at any time.*
 
@@ -132,7 +132,7 @@ Gets raw transactions for a particular address
 - **param params:** Array of function parameters.
 - **returns:** The method response from counterpartyd
 
-Relays a request to the counterpartyd server, with the given method and params, and returns the result. See the [API documentation](API.rst) for available methods.
+Relays a request to the counterpartyd server, with the given method and params, and returns the result. See the [API documentation](counterblock_api.rst) for available methods.
 
 **NOTE:** This method may be depreciated/removed in the future.
 
