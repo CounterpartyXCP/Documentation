@@ -133,7 +133,7 @@ Broadcast
 ----------------------------------------
 
     broadcast --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --text="Bitcoin price feed" \
-    --value=825.22 --fee-multiplier=0.001
+    --value=825.22 --fee-multiplier=0.001 --fee-fraction=0.01
 
 **Note:** for some users counterpartyd has trouble parsing spaces in the
 `--text` argument. One workaround is to add an additional set of quotes.
