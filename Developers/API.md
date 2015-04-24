@@ -932,7 +932,7 @@ Issue an order request.
 
 ###create_send
 
-**create_send(source, destination, asset, quantity, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
+**create_send(source, destination, asset, quantity, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000, regular_dust_size=XXXX(optional))**
 
 Send XCP or a user defined asset.
 
@@ -947,6 +947,7 @@ Send XCP or a user defined asset.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
   * **fee (integer):** If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for ``counterpartyd`` to automatically choose. 
   * **fee_per_kb (integer):** The fee per kilobyte of transaction data constant that ``counterpartyd`` uses when deciding on the dynamic fee to use (in satoshi). Leave as default unless you know what you're doing.
+  * **regular_dust_size (decimal):** Leave this out unless you know what you're doing! Used to specify the custom dust size. This option can be used to send BTC in addition to an asset send in a single transaction.
 
 **Return:** 
 
