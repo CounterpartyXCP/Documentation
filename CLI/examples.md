@@ -29,7 +29,7 @@ To send an asset, the command is:
     send --source=[source] --asset=[asset] --quantity=[quantity] --destination=[destination]
 
     send --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=3 --asset=BBBC \
-    --to=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7
+    --destination=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7
 
 Buy BTC for XCP
 ----------------------------------------
