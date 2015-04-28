@@ -17,13 +17,9 @@ Burn
 The `burn` command is currently usable only on testnet because on mainnet
 the burn period finished in early 2014.
 
-**Arguments:**
-
 * --source = the source address
 * --quantity = quantity of BTC to be burned
 * --fee = the exact BTC fee to be paid to miners
-
-**Examples:**
 
 `burn --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=0.5`
 
@@ -31,15 +27,12 @@ Send
 ----------------------------------------
 *Create and broadcast a `send` message*
 
-**Arguments:**
-
 * --source = the source address
 * --destination = the destination address
 * --quantity = the quantity of ASSET to send
 * --asset = the ASSET of which you would like to send QUANTITY
 * --fee = the exact BTC fee to be paid to miners
 
-**Examples:**
 
     send --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=3 --asset=BBBC --destination=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7
 
@@ -47,8 +40,6 @@ Send
 Order
 ----------------------------------------
 *Create and broadcast an `order` message*
-
-**Arguments:**
 
 * --source = the source address
 * --get-quantity = the quantity of GET_ASSET that you would like to receive
@@ -63,13 +54,13 @@ To make a trade that involves BTC, the `order` function requires an
 extra parameter, and a second step is needed. If [address\_1] is trading
 [give\_quantity]1 of BTC in exchange for [get\_quantity]1 of [asset].
 
-**Example:**
+
 
     order --source=[address_1] --give-asset=BTC --give-quantity=[give_quantity]1 --get-asset=[get_asset]1 --get-quantity=[get_quantity]1 --fee-provided=[fee_provided] --expiration=[expiration]1
 
 If [address\_2] is trading [give\_quantity]2 of [asset] in exchange BTC.
 
-**Example:**
+
 
     order --source=[address_2] --give-asset=[asset] --give-quantity=[give_quantity]2 --get-asset=BTC --get-quantity=[get_quantity]2 --fee-required=[fee_required] --expiration=[expiration]2
 
@@ -101,6 +92,7 @@ exchange for [give\_quantity]2 of [get\_asset]2, the command is:
 
     order --source=[address_2] --give-asset=[get_asset]2 --give-quantity=[give_quantity]2 --get-asset=[get_asset]2 --get-quantity=[get_quantity]2 --expiration=expiration2
 
+
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
     --get-asset=XCP --give-quantity=20 --give-asset=BBBC --expiration=10
     
@@ -112,13 +104,10 @@ BTCPay
 BTC Pay has been disabled in Counterwallet, but remains available in the
 CLI.
 
-**Arguments:**
-
 * --source = the source address
 * --order-match-id = the concatenation of the hashes of the two transactions which compose the order match
 * --fee = the exact BTC fee to be paid to miners
 
-**Examples:**
 
     btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
     --order-match-id=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
@@ -128,8 +117,6 @@ Order Match ID can be obtained with the `pending` command.
 Issuance
 ------------------------
 *Issue a new asset, issue more of an existing asset or transfer the ownership of an asset.*
-
-**Arguments:**
 
 * --source = the source address
 * --transfer-destination = for transfer of ownership of asset issuance rights
@@ -141,7 +128,7 @@ Issuance
 
 Assets can be divisible or indivisible (the smallest unit is 1).
 
-**Examples:**
+
 
     issuance --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=100 --asset='BBBC'
 
@@ -152,8 +139,6 @@ Assets can be divisible or indivisible (the smallest unit is 1).
 Destroy
 ------------
 *Destroy a quantity of a Counterparty asset*
-
-**Arguments:**
 
 * --source = the source address
 * --asset = the ASSET of which you would like to destroy QUANTITY
@@ -167,15 +152,12 @@ Broadcast
 
 *Broadcast textual and numerical information to the network.*
 
-**Arguments:**
-
 * --source = the source address
 * --text = the textual part of the broadcast (set to ‘LOCK’ to lock feed)
 * --value = numerical value of the broadcast
 * --fee-fraction = the fraction of bets on this feed that go to its operator
 * --fee = the exact fee to be paid to miners
 
-**Examples:**
 
     broadcast --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --text="Bitcoin price feed" --value=825.22 --fee-multiplier=0.001
 
@@ -190,8 +172,6 @@ Bet (Equal/Not Equal)
 ----------------------------------------
 *Offer to make a bet on the value of a feed*
 
-**Arguments:**
-
 * --source = the source address
 * --feed-address = the address which publishes the feed to bet on
 * --bet-type = choices: {}
@@ -203,7 +183,6 @@ Bet (Equal/Not Equal)
 * --expiration = the number of blocks for which the bet should be valid
 * --fee = the exact BTC fee to be paid to miners
 
-**Examples:**
 
 Bet on Super Bowl Feed. Denver vs. Seattle. Feed value of 1
 means Seattle Wins. Feed value of 2 means Denver Wins. This command
@@ -222,13 +201,10 @@ Cancel
 ----------------------------------------
 *Cancel an open order or bet you created*
 
-**Arguments:**
-
 * --source = the source address
 * --offer-hash = the transaction hash of the order or bet
 * --fee = the exact BTC fee to be paid to miners
 
-**Examples:**
 
     cancel --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --offer-hash=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
 
@@ -236,8 +212,6 @@ Cancel
 Dividend
 ----------------------------------------
 *Pay dividends to the holders of an asset (in proportion to their stake in it)*
-
-**Arguments:**
 
 * --source = the source address
 * --quantity-per-unit = the quantity of XCP to be paid per whole unit held of ASSET
@@ -249,7 +223,7 @@ To pay dividends in BTC, you should, for now, just use a regular Bitcoin
 client, coupled with the output from `counterpartyd asset ASSET`, which
 will list all of the shareholders (and their holdings) of ASSET.
 
-**Examples:**
+
 
     dividend --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity-per-share=1 \
     --asset=MULTIPOOLSTOCK
@@ -270,7 +244,7 @@ Balances
 ----------------
 *The `balances` action displays the balances of an address.*
 
-**Examples:**
+
 
     balances --address=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns
 
@@ -290,8 +264,6 @@ Getrows
 
 *The `getrows` action gets rows from a Counterparty table.*
 
-**Arguments:**
-
 * --table = table name
 * --filter = filters to get specific rows
 * --filter-op = operator uses to combine filters
@@ -303,7 +275,8 @@ Getrows
 * --limit = number of rows to return
 * --offset = number of rows to skip
 
-**Examples:**
+
+
 
     getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ'    
 
@@ -320,8 +293,6 @@ Market
 *Fill the screen with an always up-to-date summary of the market*
 
 The market action prints out tables of open orders, open bets, feeds, and order matches currently awaiting Bitcoin payments from one of your addresses. It is capable of filtering orders by assets to be bought and sold.
-
-**Examples:**
 
 To filter the market to only show offers to sell (give) BTC:
 
