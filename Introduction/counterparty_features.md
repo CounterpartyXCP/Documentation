@@ -2,17 +2,40 @@ Features
 ========
 [TOC]
 
+# Overview
 
-# Assets 
+**With Counterparty, anyone can:**
+
+* Send assets (also known as tokens, coins, derivatives, or shares depending on the context) from any Bitcoin address to another
+
+* Create numeric (free) and alphabetical tokens (_0.5 XCP_)
+
+* Issue additional units of their own assets (or lock them to prevent this)
+
+* Trade XCP and assets on Counterparty's distributed exchange
+
+* Broadcast textual and numeric data onto the Bitcoin blockchain (e.g. proof of publication)
+
+* Pay distributions on assets using BTC, XCP, or other assets (e.g. dividends) (_0.002 XCP fee per recipient_)
+
+* Make bets and derivatives on broadcasted data (_Using XCP_)
+
+* Provably distribute ownership of assets through multi-signature support.
+
+* Craft smart contracts and custom financial instruments using Turing-complete smart contracts scripting. (_XCP fees are required for each computational step._)
+
+_Note: Counterparty features do not require the use of XCP unless explicitly stated._
+
+# Assets
 
 **Also known as:** `tokens, coins, currencies`
 
-Counterparty enhances the Bitcoin blockchain with making it possible for users to create their own currencies. These are seperate from Bitcoin itself, and exist entirely inside Bitcoin transactions. Assets can be received, stored, and sent from any Bitcoin address to any other.
+With Counterparty, users can create their own currencies _inside_ the Bitcoin blockchain. These are seperate from Bitcoin the currency itself, but exist entirely inside ordinary Bitcoin transactions. Tokens can be received, stored, and sent from any Bitcoin address to any other. They can also be placed in cold storage. Unlike Colored Coins, Counterparty tokens are _not_ tied to the BTC balance of any given address. This means that sending/receiving bitcoins has no effect on the balance of tokens.
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions
-on* assets, in a fully decentralized and trustless manner. To create and trade an asset, you will need enough Bitcoin for transaction fees.
+on* assets, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
 
-Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet.
+Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet. 
 
 Counterparty-issued assets (tokens) can have plain-text or
 [Enhanced Asset Information](/Counterwallet/enhanced_asset_info.md).
@@ -27,10 +50,9 @@ the Bitcoin and Counterparty ecosystem.
 
 *You can create two different types of assets:*
 
-1. **Named Asset**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic asset names carry a one‐time issuance fee of `0.5 XCP`. This fee is burned (permanently taken out of circulation). `BTC` and `XCP` are the only three‐character asset names. For more
-information, see the Assets section in the Counterparty specification.
+1. **Named**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic tokens carry a one‐time issuance fee of `0.5 XCP` to discourage spam and squatting. This fee is burned (permanently taken out of circulation). `BTC` and `XCP` are the only three‐character asset names. For more information, see the Assets section in the Counterparty specification.
 
-2. **Numeric Asset (Free)**: An integers between `26^12 + 1` and `256^8` (inclusive), prefixed with `A`. Numeric assets only require one Bitcoin transaction fee to be created.
+2. **Numeric (Free)**: An integer between `26^12 + 1` and `256^8` (inclusive), prefixed with `A`. Numeric assets only require one Bitcoin transaction fee to be created.
 
 ## The different kinds of assets
 
@@ -187,7 +209,7 @@ Counterparty turns the Bitcoin blockchain into a betting platform and prediction
 
 ## Tickets & Coupons
 
-Tokens can be used as tickets to a music event, parking tickets, coupons, etc.
+Assets can be used as tickets to a music event, parking tickets, coupons, etc.
 
 ## Token Controlled Access (TCA)
 
@@ -199,7 +221,7 @@ Using broadcasts, users can publish timestamped information onto the Bitcoin blo
 
 ## Crowdfunding
 
-Counterparty tokens can be used for crowdfunding. You can issue a certain amount of tokens and sell these to start your project. Due to the high amount of trust involved, it is better to use a Counterparty-based crowdfunding platform which can perform due-diligence on your project. This will provide your users trust, and demonstrate the legitimacy of your project. There is nothing stopping you from doing this on your own, but users may rightfully be suspicious about your project. 
+Counterparty assets can be used for crowdfunding. You can issue a certain amount of assets and sell these to start your project. Due to the high amount of trust involved, it is better to use a Counterparty-based crowdfunding platform which can perform due-diligence on your project. This will provide your users trust, and demonstrate the legitimacy of your project. There is nothing stopping you from doing this on your own, but users may rightfully be suspicious about your project. 
 
 ## Derivatives
 
@@ -207,7 +229,7 @@ You can back Counterparty assets with tangible goods, such as gold.
 
 ## In-game Currency
 
-To integrate your multiplayer game into the global economy, Counterparty tokens can also be used as in-game currency.
+To integrate your multiplayer game into the global economy, Counterparty assets can also be used as in-game currency.
 
 ## Altcoin Migration
 
@@ -220,6 +242,3 @@ Counterparty supports voting through the use of user-created tokens. This means 
 If you create a token (`EXAMPLE`), you can create any other tokens (such as EXAMPLEVOTE) and pay distributions of EXAMPLEVOTE to all holders of `EXAMPLE` in one single action. Create a distribution payment and choose EXAMPLEVOTE as the currency to distribute. This way, all holders of `EXAMPLE` will receive EXAMPLEVOTE in the amount you specify.
 
 Now all you need are as many different Bitcoin addresses as there are choices in your poll. For example: one Bitcoin address for yes, one for no. To cast their votes, holders of `EXAMPLE` can then send the EXAMPLEVOTE they have received to whichever address they agree with. The results of the poll will then be public and verifiable on the Bitcoin blockchain, and can be visualized in a [block explorer](http://blockscan.com/votes).
-
-**[For example](http://blockscan.com/vote/UGH7GN1STK):**
-![](/_images/counterparty_features2.png)
