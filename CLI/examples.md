@@ -34,7 +34,7 @@ Send
 * --fee = the exact BTC fee to be paid to miners
 
 
-    send --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=3 --asset=BBBC --destination=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7
+`send --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=3 --asset=BBBC --destination=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7`
 
 
 Order
@@ -108,9 +108,7 @@ CLI.
 * --order-match-id = the concatenation of the hashes of the two transactions which compose the order match
 * --fee = the exact BTC fee to be paid to miners
 
-
-    btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
-    --order-match-id=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
+`btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --order-match-id=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23`
 
 Order Match ID can be obtained with the `pending` command.
 
@@ -127,8 +125,6 @@ Issuance
 * --fee = the exact fee to be paid to miners
 
 Assets can be divisible or indivisible (the smallest unit is 1).
-
-
 
     issuance --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=100 --asset='BBBC'
 
@@ -158,8 +154,7 @@ Broadcast
 * --fee-fraction = the fraction of bets on this feed that go to its operator
 * --fee = the exact fee to be paid to miners
 
-
-    broadcast --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --text="Bitcoin price feed" --value=825.22 --fee-multiplier=0.001
+`broadcast --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --text="Bitcoin price feed" --value=825.22 --fee-multiplier=0.001`
 
 **Note:** for some users counterpartyd has trouble parsing spaces in the
 `--text` argument. One workaround is to add an additional set of quotes.
@@ -205,8 +200,7 @@ Cancel
 * --offer-hash = the transaction hash of the order or bet
 * --fee = the exact BTC fee to be paid to miners
 
-
-    cancel --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --offer-hash=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
+`cancel --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --offer-hash=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23`
 
 
 Dividend
@@ -222,8 +216,6 @@ Dividend
 To pay dividends in BTC, you should, for now, just use a regular Bitcoin
 client, coupled with the output from `counterpartyd asset ASSET`, which
 will list all of the shareholders (and their holdings) of ASSET.
-
-
 
     dividend --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity-per-share=1 \
     --asset=MULTIPOOLSTOCK
@@ -243,8 +235,6 @@ To lock an asset, the command is:
 Balances
 ----------------
 *The `balances` action displays the balances of an address.*
-
-
 
     balances --address=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns
 
@@ -275,13 +265,11 @@ Getrows
 * --limit = number of rows to return
 * --offset = number of rows to skip
 
+    `getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ'    `
 
 
-
-    getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ'    
-
-
-    getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ' --filter 'asset' '=' 'UTXO'
+    `getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ' --filter 'asset' '=' 'UTXO'`
+    
 
 GetInfo
 ---------
