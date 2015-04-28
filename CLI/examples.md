@@ -2,50 +2,65 @@ CLI Example Usage
 =================
 
 The following examples are abridged for parsimony (meaning: actions are
-normally preceded by `counterpartyd`, i.e. the `burn` command would be
-called with `counterpartyd burn`).
+normally preceded by `counterparty-client`, i.e. the `burn` command would be
+called with `counterparty-client burn`).
 
-Server
-------
-
-The `server` command should always be running in the background (or
+`counterparty-server` should always be running in the background (or
 another console). All other commands will fail if the index of the last
 block in the database is less than that of the last block seen by
 Bitcoin Core.
 
 Burn
 ----
+*Destroy BTC to earn XCP, during an initial period of time*
 
-The `burn` command currently usable only on testnet because on mainnet
+The `burn` command is currently usable only on testnet because on mainnet
 the burn period finished in early 2014.
+
+* --source = the source address
+* --quantity = quantity of BTC to be burned
+* --fee = the exact BTC fee to be paid to miners
 
 `burn --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=0.5`
 
-Send divisible or indivisible assets
+Send
 ----------------------------------------
+*Create and broadcast a `send` message*
 
-To send an asset, the command is:
+* --source = the source address
+* --destination = the destination address
+* --quantity = the quantity of ASSET to send
+* --asset = the ASSET of which you would like to send QUANTITY
+* --fee = the exact BTC fee to be paid to miners
 
-    send --source=[source] --asset=[asset] --quantity=[quantity] --destination=[destination]
 
-    send --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=3 --asset=BBBC \
-    --destination=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7
+`send --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=3 --asset=BBBC --destination=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7`
 
-Buy BTC for XCP
+
+Order
 ----------------------------------------
+*Create and broadcast an `order` message*
 
-BTC Pay has been disabled in Counterwallet, but remains available in the
-CLI.
+* --source = the source address
+* --get-quantity = the quantity of GET_ASSET that you would like to receive
+* --get-asset = the asset that you would like to buy
+* --give-quantity = the quantity of GIVE_ASSET that you are willing to give
+* --give-asset = the asset that you would like to sell
+* --expiration = the number of blocks for which the order should be valid
+* --fee-fraction-required = the miners’ fee required for an order to match 
+* --fee = the exact BTC fee to be paid to miners
 
 To make a trade that involves BTC, the `order` function requires an
 extra parameter, and a second step is needed. If [address\_1] is trading
-[give\_quantity]1 of BTC in exchange for [get\_quantity]1 of [asset],
-the command is:
+[give\_quantity]1 of BTC in exchange for [get\_quantity]1 of [asset].
+
+
 
     order --source=[address_1] --give-asset=BTC --give-quantity=[give_quantity]1 --get-asset=[get_asset]1 --get-quantity=[get_quantity]1 --fee-provided=[fee_provided] --expiration=[expiration]1
 
-If [address\_2] is trading [give\_quantity]2 of [asset] in exchange BTC,
-the command is:
+If [address\_2] is trading [give\_quantity]2 of [asset] in exchange BTC.
+
+
 
     order --source=[address_2] --give-asset=[asset] --give-quantity=[give_quantity]2 --get-asset=BTC --get-quantity=[get_quantity]2 --fee-required=[fee_required] --expiration=[expiration]2
 
@@ -53,28 +68,20 @@ the command is:
 [address\_1] then must complete the trade using `btcpay` before 10
 blocks have passed (or the lesser of the two `expiration` periods has
 passed, if the latter is less than 10 blocks from the time of match).
+
 The command for a `btcpay` is:
 
     btcpay –order-match-id=[txhash1]+[txhash2]
+    
 
-    order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 --get-asset=BTC \
-    --give-quantity=20 --give-asset=XCP --expiration=10 --fee_required=0.001
+    order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 --get-asset=BTC --give-quantity=20 --give-asset=XCP --expiration=10 --fee_required=0.001
 
-Buy BBBC for BTC
-----------------------------------------
-
-BTC Pay has been disabled in Counterwallet, but remains available in the
-CLI.
 
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
     --get-asset=BBBC --give-quantity=20 --give-asset=BTC --expiration=10 \
     --fee_provided=0.001
 
-Buy XCP for BBBC
-----------------------------------------
-
-Assets can be trade on the decentralized exchange using the `order`
-function. For Sally to receive [get\_quantity]1 of [get\_asset]1 in
+For Sally to receive [get\_quantity]1 of [get\_asset]1 in
 exchange for [give\_quantity]1 of [give\_asset]1, the command is the
 following:
 
@@ -85,55 +92,69 @@ exchange for [give\_quantity]2 of [get\_asset]2, the command is:
 
     order --source=[address_2] --give-asset=[get_asset]2 --give-quantity=[give_quantity]2 --get-asset=[get_asset]2 --get-quantity=[get_quantity]2 --expiration=expiration2
 
+
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
     --get-asset=XCP --give-quantity=20 --give-asset=BBBC --expiration=10
+    
+    
 BTCPay
 ----------------------------------------
+*Create and broadcast a `BTCpay` message, to settle an Order Match for which you owe*
 
 BTC Pay has been disabled in Counterwallet, but remains available in the
 CLI.
 
-    btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
-    --order-match-id=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
+* --source = the source address
+* --order-match-id = the concatenation of the hashes of the two transactions which compose the order match
+* --fee = the exact BTC fee to be paid to miners
+
+`btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --order-match-id=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23`
 
 Order Match ID can be obtained with the `pending` command.
 
--   Issue
+Issuance
+------------------------
+*Issue a new asset, issue more of an existing asset or transfer the ownership of an asset.*
+
+* --source = the source address
+* --transfer-destination = for transfer of ownership of asset issuance rights
+* --quantity = the quantity of ASSET to be issued
+* --asset = the name of the asset to be issued (if it’s available)
+* --divisible = whether or not the asset is divisible (must agree with previous issuances)
+* --description = a description of the asset (set to ‘LOCK’ to lock against further issuances with non‐zero quantitys)
+* --fee = the exact fee to be paid to miners
 
 Assets can be divisible or indivisible (the smallest unit is 1).
 
-`issuance --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=100 --asset='BBBC'`
-
-`issuance --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=100 --asset='BBBQ' --divisible`
-
-To issue the most basic asset the command is:
-
-    issuance --source=[address]--asset=[asset] --quantity=[quantity]  --description=""
-
-Having run this command, [address] will have issued [quantity] of
-[asset]. Since neither `callable` nor `divisible` is an argument of
-`issue`, [asset] is indivisible and not callable.
-
-To issue BOBUSD, the command line operation is:
-
-    issuance --source=[bobusd_address] --asset=BOBUSD --quantity=[quantity] --divisible --callable --call-date=[call-date] --call-price=[call_price] --description="For more info see bobusd.com"
-
-If USD/XCP falls, Bob will send XCP from [another\_address] to
-[bobusd\_address], for which the command line operation is:
-
-    send --source=[another_address] --destination=[bobusd_address] --quantity=[quantity] --asset=XCP
+    issuance --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=100 --asset='BBBC'
 
 
-If [user] wants to “cash in” 100 BOBUSD for 100 USD when the exchange
-rate is 10 USD/XCP, he would first send his BOBUSD to [bobs\_address]:
+    issuance --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=100 --asset='BBBQ' --divisible
+    
 
-    send source=[users_address] destination=[bobs_address] --quantity=100 --asset=BOBUSD
+Destroy
+------------
+*Destroy a quantity of a Counterparty asset*
+
+* --source = the source address
+* --asset = the ASSET of which you would like to destroy QUANTITY
+* --quantity = the quantity of ASSET to destroy
+* --tag = tag
+* --fee = the exact BTC fee to be paid to miners
+
 
 Broadcast
 ----------------------------------------
 
-    broadcast --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --text="Bitcoin price feed" \
-    --value=825.22 --fee-multiplier=0.001
+*Broadcast textual and numerical information to the network.*
+
+* --source = the source address
+* --text = the textual part of the broadcast (set to ‘LOCK’ to lock feed)
+* --value = numerical value of the broadcast
+* --fee-fraction = the fraction of bets on this feed that go to its operator
+* --fee = the exact fee to be paid to miners
+
+`broadcast --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --text="Bitcoin price feed" --value=825.22 --fee-multiplier=0.001`
 
 **Note:** for some users counterpartyd has trouble parsing spaces in the
 `--text` argument. One workaround is to add an additional set of quotes.
@@ -144,8 +165,21 @@ situation where double quotes may be required on Windows is filtering
 
 Bet (Equal/Not Equal)
 ----------------------------------------
+*Offer to make a bet on the value of a feed*
 
-Example: Bet on Super Bowl Feed. Denver vs. Seattle. Feed value of 1
+* --source = the source address
+* --feed-address = the address which publishes the feed to bet on
+* --bet-type = choices: {}
+* --deadline = the date and time at which the bet should be decided/settled
+* --wager = the quantity of XCP to wager
+* --counterwager = the minimum quantity of XCP to be wagered by the user to bet against you, if he were to accept the whole thing
+* --target-value = target value for Equal/NotEqual bet
+* --leverage = leverage, as a fraction of 5040
+* --expiration = the number of blocks for which the bet should be valid
+* --fee = the exact BTC fee to be paid to miners
+
+
+Bet on Super Bowl Feed. Denver vs. Seattle. Feed value of 1
 means Seattle Wins. Feed value of 2 means Denver Wins. This command
 places a 1 XCP bet on the Super Bowl Feed for Seattle to win, paying out
 2 to 1. The bet will expire in 100 blocks and the settlement value of
@@ -160,16 +194,24 @@ of February 3, 2014 1:39 PM US Eastern Standard Time (UTC-0500).
 
 Cancel
 ----------------------------------------
+*Cancel an open order or bet you created*
 
-    cancel --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
-    --offer-hash=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
+* --source = the source address
+* --offer-hash = the transaction hash of the order or bet
+* --fee = the exact BTC fee to be paid to miners
+
+`cancel --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --offer-hash=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23`
+
 
 Dividend
 ----------------------------------------
+*Pay dividends to the holders of an asset (in proportion to their stake in it)*
 
-The form of every dividend command is:
-
-    dividend --source=SOURCE  --asset=[asset] --quantity-per-share=[unit_per_share]
+* --source = the source address
+* --quantity-per-unit = the quantity of XCP to be paid per whole unit held of ASSET
+* --asset = the asset to which pay dividends
+* --dividend-asset = asset in which to pay the dividends
+* --fee = the exact BTC fee to be paid to miners
 
 To pay dividends in BTC, you should, for now, just use a regular Bitcoin
 client, coupled with the output from `counterpartyd asset ASSET`, which
@@ -178,15 +220,67 @@ will list all of the shareholders (and their holdings) of ASSET.
     dividend --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity-per-share=1 \
     --asset=MULTIPOOLSTOCK
 
-Market
+
+
+Asset
 ----------------------------------------
+*The `asset` action displays the basic properties of a given asset.*
 
-The `market` action prints out tables of open orders, open bets, feeds,
-and order matches currently awaiting Bitcoin payments from one of your
-addresses. It is capable of filtering orders by assets to be bought and
-sold.
 
-Examples:
+To lock an asset, the command is:
+
+    issuance --source=[source] --asset=[asset] --description=""
+
+
+Balances
+----------------
+*The `balances` action displays the balances of an address.*
+
+    balances --address=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns
+
+
+Wallet
+-----------
+*The `wallet` action lists the addresses in your backend wallet along with their balances in all assets.*
+
+
+Pending
+-----------
+*The `pending` action lists pending order matches awaiting payment from you.*
+
+
+Getrows
+---------
+
+*The `getrows` action gets rows from a Counterparty table.*
+
+* --table = table name
+* --filter = filters to get specific rows
+* --filter-op = operator uses to combine filters
+* --order-by = field used to order results
+* --order-dir = direction used to order results
+* --start-block = return only rows with block_index greater than start-block
+* --end-block = return only rows with block_index lower than end-block
+* --status = return only rows with the specified status
+* --limit = number of rows to return
+* --offset = number of rows to skip
+
+    `getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ'    `
+
+
+    `getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ' --filter 'asset' '=' 'UTXO'`
+    
+
+GetInfo
+---------
+*The `getinfo` action gets the current state of the server.*
+
+
+Market
+---------------------
+*Fill the screen with an always up-to-date summary of the market*
+
+The market action prints out tables of open orders, open bets, feeds, and order matches currently awaiting Bitcoin payments from one of your addresses. It is capable of filtering orders by assets to be bought and sold.
 
 To filter the market to only show offers to sell (give) BTC:
 
@@ -200,24 +294,6 @@ To filter the market to only show offers to sell BTC for XCP:
 
     market --give-asset=BTC --get-asset=XCP
 
-Asset
-----------------------------------------
-
-The `asset` action displays the basic properties of a given asset.
-
-To make [asset] callable and divisible, the command is:
-
-    issuance --source=[address]--asset=[asset] --quantity=[quantity] --divisible --callable --call-date=[call_date] --call-price=[call_price] --description [asset_description]
-
-To lock an asset, the command is:
-
-    issuance --source=[source] --asset=[asset] --description=""
-
-Address
-----------------------------------------
-
-The `address` action displays the details of all transactions involving
-the Counterparty address which is its argument.
 
 Input and Output
 ----------------------------------------
