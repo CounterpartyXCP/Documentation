@@ -22,6 +22,7 @@ or
 ```
 $ git clone https://github.com/CounterpartyXCP/counterpartyd.git
 $ cd counterpartyd/
+$ pip3 install -r requirements.txt
 $ python3 setup.py install
 ```
 
