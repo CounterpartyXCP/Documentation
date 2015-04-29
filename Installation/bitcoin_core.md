@@ -1,6 +1,6 @@
 # Bitcoin Core with ``addrindex`` Patch
 
-Bitcoin Core is used by Counterparty to interact with the Bitcoin blockchain.  However, vanilla Bitcoin Core is insufficient---instead, a version patched to enable an 'address index' is required.
+Bitcoin Core is used by Counterparty to interact with the Bitcoin blockchain.  However, vanilla Bitcoin Core is insufficient - instead, a version patched to enable an 'address index' is required.
 
 
 ## Download
@@ -25,7 +25,7 @@ Unlike the Linux binaries, the Windows packages are installers. Uninstall any ol
 
 The Linux binaries are precompiled executables + dependencies, and they're deployed by decompressing them into the desired location. Once that is done, they can be executed directly like so. 
 
-        ./bitcoin-0.10.0/bin/bitcoind --help
+        ./bitcoin-0.10.1/bin/bitcoind --help
 
 You may want to do one or more of the following optional steps:
 * Move the binaries around.
