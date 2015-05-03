@@ -386,7 +386,7 @@ filters are ORed together, and that any match must satisfy only one of them.
 To disable filtering, you can just not specify the filter argument (if using keyword-based arguments), or,
 if using positional arguments, just pass ``null`` or ``[]`` (empty list) for the parameter.
 
-For examples of filtering in-use, please see the [examples](#example-implementations).
+For examples of filtering in-use, please see the [examples](#example-parameters).
 
 NOTE: Note that with strings being compared, operators like ``>=`` do a lexigraphic string comparison (which
 compares, letter to letter, based on the ASCII ordering for individual characters. For more information on
