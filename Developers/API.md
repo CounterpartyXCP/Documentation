@@ -407,8 +407,7 @@ API call:
     - ``pubkey`` should be set to the hex-encoded public key of the source address.
 - To return the transaction as a **pubkeyhash** transaction, specify ``pubkeyhash`` for the ``encoding`` parameter.
     - ``pubkey`` should be set to the hex-encoded public key of the source address.
-- ``auto`` may also be specified to let the server choose here. Note that at this time, ``auto`` is effectively the same as
-  ``multisig``.
+- ``auto`` may also be specified to let the server choose wether to use ``OP_RETURN`` (when possible) or ``multisig``.
 
 
 ##API Changes
