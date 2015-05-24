@@ -76,11 +76,9 @@ This will make use of assets owned in this address very secure... Basically Armo
 
 Please see [missing balance](no_balance.md)
 
-## I sent funds to a crowdsale vending machine, why didn’t they show up?
-
-
 ## I sent BTC to Counterwallet, why doesn't it show up?
-  
+
+It either was not sent (check on a blockchain explorer), or it has not arrived (check on a blockchain explorer).  
     
 ## Why do I need small amounts of Bitcoin to do things in Counterwallet?
 
