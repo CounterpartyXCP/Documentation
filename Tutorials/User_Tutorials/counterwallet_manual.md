@@ -13,3 +13,4 @@
 - [Create a vote using broadcasts and tokens](vote_with_tokens.md)
 - [Contact support](create_support_ticket.md)
 - [Buy and Sell Assets on the DEx](buy_and_sell_assets_on_the_dex.md)
+- [Multisig Tech Preview](multisig_tech_preview.md)
