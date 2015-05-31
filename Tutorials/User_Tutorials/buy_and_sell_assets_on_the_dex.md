@@ -30,18 +30,18 @@ If not, move to the right and under **Select Another Pair **start typing the a
 
 Here we keep it simple and look for TESTASSETONE/XCP.
 
-![](/_images/counterparty-dex-find-asset-to-buy1.png)
+![](/_images/counterparty-dex-find-asset-to-buy1.jpg)
   
 
 Once you click on TESTASSETONE, you will see the market. If it's any liquid, you'll see some buy and sell orders. We're buying so we're looking for Sell orders. At the very bottom of the screen we can see one sell offer: somebody is selling 22 TESTASSETONE in exchange for 2.2 XCP.  
 
-![](/_images/counterparty-dex-select-sell-offer.png)  
+![](/_images/counterparty-dex-select-sell-offer.jpg)  
 
 If you're happy with that price, simply click on it and Counterwallet will populate your Buy Order form. Make sure the price is acceptable because matched orders cannot be cancelled! (It is not rare to hear that someone paid 0.001 for an asset that normally costs 0.0001.)
 
 A populated buy form can be modified (**Price, Amount**). Visually inspect all fields (especially if **Total** is a large number) to make sure one last time and then press the Buy button.
 
-![](/_images/counterparty-dex-populate-buy-order.png)    
+![](/_images/counterparty-dex-populate-buy-order.jpg)    
 
 Now your order will remain valid until it's matched, cancelled or expired (whichever comes faster - see related KB mentioned under 3d, above). 
 
