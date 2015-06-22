@@ -25,8 +25,6 @@ XCP is the fuel for smart contracts. When smart contracts are running, fuel is u
 
 XCP is always the easiest token to trade against, as it is represented across all exchanges that support Counterparty. It is also used for anti-spam fees when registering named tokens, and when making distribution payments to token holders. The betting system also uses XCP.
 
-Unfortunately these features cannot reach the achieve of the main Bitcoin blockchain without a metatoken, such as XCP. This intermediate step is a technical necessity, and many Counterparty features such as betting therefore use XCP. 
-
 ### What about Sidechains?
 
 Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason not to make them work with Counterparty.
