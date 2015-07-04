@@ -165,6 +165,6 @@ If the information you provided is reachable and valid (within a 5 second respon
 
 ###Validating your JSON data
 
-Your JSON data must respect and validate against [https://raw.githubusercontent.com/CounterpartyXCP/counterblockd/master/schemas/feed.schema.json this] JSON schema. If the validation fails on any level, counterblockd will not accept the data.
+Your JSON data must respect and validate against [https://github.com/CounterpartyXCP/counterblock/blob/master/counterblock/schemas/feed.schema.json this] JSON schema. If the validation fails on any level, counterblockd will not accept the data.
 
 To check your data against this schema, go [http://json-schema-validator.herokuapp.com/ here]. Paste the schema from the link above into the '''Schema''' field, and place your example output into the '''Data''' field. Then click the '''Validate''' button
