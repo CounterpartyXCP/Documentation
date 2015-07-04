@@ -740,7 +740,7 @@ Issue a bet against a feed.
 
   * **source (string, required):** The address that will make the bet.
   * **feed_address (string, required):** The address that host the feed to be bet on.
-  * **bet_type (integer, required):** 0 for Bullish CFD, 1 for Bearish CFD, 2 for Equal, 3 for NotEqual.
+  * **bet_type (integer, required):** 0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for NotEqual.
   * **deadline (integer, required):** The time at which the bet should be decided/settled, in Unix time.
   * **wager (integer, required):** The [quantities](#quantities-and-balances) of XCP to wager.
   * **counterwager (integer, required):** The minimum [quantities](#quantities-and-balances) of XCP to be wagered against, for the bets to match.
@@ -1040,7 +1040,7 @@ An object that describes a specific bet:
 * **block_index** (*integer*): The block index (block number in the block chain)
 * **source** (*string*): The address that made the bet
 * **feed_address** (*string*): The address with the feed that the bet is to be made on
-* **bet_type** (*integer*): 0 for Bullish CFD, 1 for Bearish CFD, 2 for Equal, 3 for Not Equal
+* **bet_type** (*integer*): 0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for Not Equal
 * **deadline** (*integer*): The timestamp at which the bet should be decided/settled, in Unix time.
 * **wager_quantity** (*integer*): The [quantities](#quantities-and-balances) of XCP to wager
 * **counterwager_quantity** (*integer*): The minimum [quantities](#quantities-and-balances) of XCP to be wagered by the user to bet against the bet issuer, if the other party were to accept the whole thing
@@ -1063,13 +1063,13 @@ An object that describes a specific occurance of two bets being matched (either 
 * **tx0_block_index** (*integer*): The Bitcoin block index of the initial bet
 * **tx0_expiration** (*integer*): The number of blocks over which the initial bet was valid
 * **tx0_address** (*string*): The address that issued the initial bet
-* **tx0_bet_type** (*string*): The type of the initial bet (0 for Bullish CFD, 1 for Bearish CFD, 2 for Equal, 3 for Not Equal)
+* **tx0_bet_type** (*string*): The type of the initial bet (0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for Not Equal)
 * **tx1_index** (*integer*): The transaction index of the matching (counter) bet
 * **tx1_hash** (*string*): The transaction hash of the matching bet
 * **tx1_block_index** (*integer*): The block index of the matching bet
 * **tx1_address** (*string*): The address that issued the matching bet
 * **tx1_expiration** (*integer*): The number of blocks over which the matching bet was valid
-* **tx1_bet_type** (*string*): The type of the counter bet (0 for Bullish CFD, 1 for Bearish CFD, 2 for Equal, 3 for Not Equal)
+* **tx1_bet_type** (*string*): The type of the counter bet (0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for Not Equal)
 * **feed_address** (*string*): The address of the feed that the bets refer to
 * **initial_value** (*integer*): 
 * **deadline** (*integer*): The timestamp at which the bet match was made, in Unix time.
@@ -1302,7 +1302,7 @@ Here the list of all possible status for each table:
 * **balances**: No status field
 * **bet_expirations**: No status field
 * **bet_match_expirations**: No status field
-* **bet_matches**: pending, settled: liquidated for bear, settled, settled: liquidated for bull, settled: for equal, settled: for notequal, dropped, expired
+* **bet_matches**: pending, settled: liquidated for bear (deprecated), settled, settled: liquidated for bull (deprecated), settled: for equal, settled: for notequal, dropped, expired
 * **bets**: open, filled, cancelled, expired, dropped, invalid: {problem(s)}
 * **broadcasts**: valid, invalid: {problem(s)}
 * **btcpays**: valid, invalid: {problem(s)}
