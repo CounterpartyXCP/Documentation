@@ -394,11 +394,11 @@ Then you can make your changes to the source code as you see fit. To test the ch
 
 For ``counterparty-lib`` this would be:
 
-```cd ~xcp/federatednode_build/dist/counterparty-lib && sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 setup.py install```
+```cd ~xcp/federatednode_build/dist/counterparty-lib && sudo ~xcp/federatednode_build/env/bin/python3 setup.py install```
 
 For ``counterblock`` this would be:
 
-```cd ~xcp/federatednode_build/dist/counterblock && sudo ~xcp/federatednode_build/env.counterblock/bin/python2.7 setup.py install```
+```cd ~xcp/federatednode_build/dist/counterblock && sudo ~xcp/federatednode_build/env.counterblock/bin/python2 setup.py install```
 
 You can then re-launch the component (most likely in the console) using the appropriate command, documented earlier.
 
