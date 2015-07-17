@@ -44,6 +44,8 @@ Your Bitcoin Core configuration file should match this:
     rpctimeout=300
     txindex=1
     addrindex=1
+    minrelaytxfee=0.00005
+    limitfreerelay=0
 
 * Choose a **secure password**.
 * By default, on Windows, this file is located at `%APPDATA%\Bitcoin\bitcoin.conf`.
