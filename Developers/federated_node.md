@@ -136,9 +136,17 @@ Next, (for all server types), start ``counterparty-server`` itself:
     sudo tail -f ~xcp/.cache/counterparty/log/server.log
     sudo tail -f ~xcp/.cache/counterparty/log/server.testnet.log
 
-Then, watching these log(s), wait for `bitcoind` and `counterparty-server` synchronization to finish. Given that `counterparty-server` will bootstrap by default, it may take only a few minutes for it to finish catching up.
+Then, watching these log(s), wait for `bitcoind` and `counterparty-server` synchronization to finish. Given that `counterparty-server` will not bootstrap by default, you can stop` counterparty` (or `counterparty-testnet`) and issue the bootstrap command like so:
 
-After this is all done, reboot the box for the new services to start (which includes both ``counterparty-server`` and ``counterblock``).
+    #mainnet
+    sudo su -s /bin/bash -c 'counterparty-server --config-file=~xcp/.config/counterparty/server.conf bootstrap' xcpd
+    
+    #testnet
+    sudo su -s /bin/bash -c 'counterparty-server --config-file=~xcp/.config/counterparty/server.testnet.conf bootstrap' xcpd
+
+After the database has been downloaded, you may start counterparty (or counterparty-testnet) and it will take a few minutes for it to finish catching up.
+
+After this is all done, reboot the box for the new services to start (which includes both ``counterparty-server`` and ``counterblock``, if you installed it). 
 
 ``counterblock``, after starting up must then sync to ``counterparty-server``:
 
@@ -310,12 +318,11 @@ This file will contain a valid JSON-formatted object, containing an a number of 
       "googleAnalyticsUA": "UA-48454783-2",
       "googleAnalyticsUA-testnet": "UA-48454783-4",
       "rollbarAccessToken": "39d23b5a512f4169c98fc922f0d1b121Click to send altcoins to this BTC address ",
-      "disabledFeatures": ["rps", "betting"],
+      "disabledFeatures": ["betting"],
       "restrictedAreas": {
         "pages/betting.html": ["US"],
         "pages/openbets.html": ["US"],
         "pages/matchedbets.html": ["US"],
-        "pages/rps.html": ["US"],
         "dividend": ["US"]
       },
     }
@@ -334,30 +341,13 @@ If you just want to use the current server (and don't have a multi-server setup)
 * **googleAnalyticsUA** / **googleAnalyticsUA-testnet**: Set to enable google analytics for mainnet/testnet. You must have a google analytics account.
 * **rollbarAccessToken**: Set to enable client-side error tracking via rollbar.com. Must have a rollbar account.
 * **disabledFeatures**: Set to a list of zero or more features to disable in the UI. Possible features are:
-  ``betting``, ``rps``, ``dividend``, ``exchange``, ``leaderboard``, ``portfolio``, ``stats`` and ``history``. Normally
+  ``betting``, ``dividend``, ``exchange``, ``leaderboard``, ``portfolio``, ``stats`` and ``history``. Normally
   this can just be ``[]`` (an empty list) to not disable anything.
 * **restrictedAreas**: Set to an object containing a specific page path as the key (or "dividend" for dividend functionality),
   and a list of one or more ISO 2-letter country codes as the key value, to allow for country-level blacklisting of pages/features.
 
 Once done, save this file and make sure it exists on all servers you are hosting Counterwallet static content on. Now, when you go to your Counterwallet site, the server will read in this file immediately after loading the page, and set the list of
 backend API hosts from it automatically.
-
-###Giving Op Chat Access
-
-Counterwallet has its own built-in chatbox. Users in the chat box are able to have operator (op) status, which allows them
-to do things like ban or rename other users. Any op can give any other user op status via the ``/op`` command, typed into
-the chat window. However, manual database-level intervention is required to give op status to the first op in the system.
-
-Doing this, however, is simple. Here's an example that gives ``testuser1`` op access. It needs to be issued at the
-command line for every node in the cluster::
-
-    #mainnet
-    mongo counterblockd
-    db.chat_handles.update({handle: "testuser1"}, {$set: {op: true}})
-    
-    #testnet
-    mongo counterblockd_testnet
-    db.chat_handles.update({handle: "testuser1"}, {$set: {op: true}})
 
 ###Enabling multi-lingual support
 
