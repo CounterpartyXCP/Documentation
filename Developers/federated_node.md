@@ -169,7 +169,7 @@ Instructions for doing that are detailed in the *Counterwallet Configuration Fil
 
 If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly, using port `4000` (mainnet) or `14000` (testnet).
 
-* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, using user `rpc` with password `1234`.
+* If you chose to expose the interface publicly during setup, you can access the API from localhost or any other host, using user `rpc` with password `1234`.
 * If you chose not to expose the interface publically during setup, you can access the API from localhost only, using the user and password defined in the appropriate counterparty-server `server.conf` file.
 
 ###"counterblock basic" role
