@@ -856,7 +856,7 @@ Issue a dividend on a specific user defined asset.
   * **source (string, required):** The address that will be issuing the dividend (must have the ownership of the asset which the dividend is being issued on).
   * **asset (string, required):** The [assets](#assets) that the dividends are being rewarded on.
   * **dividend_asset (string, required):** The [assets](#assets) that the dividends are paid in.
-  * **quantity_per_unit (integer, required):** The [quantities](#quantities-and-balances) of XCP rewarded per whole unit of the asset.
+  * **quantity_per_unit (integer, required):** The amount of **dividend_asset** rewarded.
   * **encoding (string):** The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
   * **pubkey (string/list):** The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``multisig`` and ``pubkeyhash`` transaction encodings. See [encoding parameter](#the-encoding-parameter-of-create-calls) for more info.
   * **allow_unconfirmed_inputs (boolean):** Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs.
