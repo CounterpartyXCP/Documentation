@@ -359,7 +359,7 @@ Examples:
 
 ###floats
 
-Floats are are ratios or floating point values with six decimal places of precision, used in bets and dividends.
+Floats are ratios or floating point values with six decimal places of precision, used in bets and dividends.
 
 
 ##Miscellaneous
