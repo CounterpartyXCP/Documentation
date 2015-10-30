@@ -126,45 +126,15 @@ Here's an example for a binary feed called <b>Superbowl 2014</b>:
 }
 </pre></blockquote>
 
-Here's an example for a cfd feed called <b>Bistamp BTC Price</b>:
-<blockquote><pre>
-{
-	"version": "1.0",
-	"address": "mfzSPkV7kAYma5oxZ37pHkw9qtwAEQx8Wy",
-	"type": "cfd",
-	"category": "economics",
-	"title": "Bistamp BTC Price",
-	"image": "https://www.jahpowerbit.org/feeds/image-1.png",
-	"description": "Bitstamp price broadcasted each hour",
-	"url": "http://www.jahpowerbit.org/bitstamp",
-	"broadcast_date": "R/2014-05-01T05:06:07+00:00/PT1H",
-	"deadline": "R/2014-05-08T05:06:07+00:00/P7D",
-	"odds": {
-		"initial": 2,
-		"suggested": 3
-	},
-	"labels": {
-		"bull": "to the moon!!",
-		"bear": "to the abyss!!"
-	},
-	"operator": {
-		"name": "JahPowerBit",
-		"image": "https://www.jahpowerbit.org/feeds/image-1.png",
-		"description": "Development site",
-		"url": "http://www.jahpowerbit.org"
-	}
-}
-</pre></blockquote>
-
 ## Other Topics
 
 ###Validity and refreshing
-In order for this data file to be deemed as valid against the specified address, there must have been a broadcast at that address, and the text field of that broadcast must have been set to the URL of this JSON file and the value field set to -1. From this feed broadcast, Counterwallet system will pull the fee-fraction, to use as the fee for the given feed, and will query this URL provided to validate and fetch the necessary information. 
+In order for this data file to be deemed as valid against the specified address, there must have been a broadcast at that address, and the text field of that broadcast must have been set to the URL of this JSON file and the value field set to -1 (negative 1). From this feed broadcast, Counterwallet system will pull the fee-fraction, to use as the fee for the given feed, and will query this URL provided to validate and fetch the necessary information. 
 
 If the information you provided is reachable and valid (within a 5 second response time), the feed's information will be enhanced based on this data. If it is not, counterblockd will retry up to 2 additional times, over the next 30 or so minutes, and then give up until rebroadcast is made with a JSON URL and value=-1 (the URL may be the same).
 
 ###Validating your JSON data
 
-Your JSON data must respect and validate against [https://github.com/CounterpartyXCP/counterblock/blob/master/counterblock/schemas/feed.schema.json this] JSON schema. If the validation fails on any level, counterblockd will not accept the data.
+Your JSON data must respect and validate against [this](https://github.com/CounterpartyXCP/counterblock/blob/master/counterblock/schemas/feed.schema.json) JSON schema. If the validation fails on any level, counterblockd will not accept the data.
 
-To check your data against this schema, go [http://json-schema-validator.herokuapp.com/ here]. Paste the schema from the link above into the '''Schema''' field, and place your example output into the '''Data''' field. Then click the '''Validate''' button
+To check your data against this schema, go [here](http://json-schema-validator.herokuapp.com/). Paste the schema from the link above into the '''Schema''' field, and place your example output into the '''Data''' field. Then click the '''Validate''' button.
