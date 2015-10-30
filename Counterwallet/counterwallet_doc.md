@@ -11,12 +11,11 @@ Features and Specifications
 -  Supports BTC, XCP and all Counterparty assets
 -  Create and manage new assets (tokens) on the Bitcoin blockchain
 -  Distribute profits to asset holders using BTC, XCP, or any other
-   Counterparty currency
+   Counterparty token (asset)
 -  Broadcast data feeds to the Bitcoin network
 -  Trade XCP for any Counterparty asset (peer-to-peer)
--  Access P2P derivatives with no middleman, and no counterparty risk
+-  Access P2P assets with no middleman, and no counterparty risk
 -  Monitor the Counterparty network statistics
-- Chat with other Counterwallet users (optional)
 -  Strong privacy - no registration required; you can run your own
    Counterwallet
 -  Multilingual (English, Chinese, Russian and other languages) -
