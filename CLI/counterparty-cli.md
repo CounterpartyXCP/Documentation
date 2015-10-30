@@ -7,7 +7,7 @@
 
 ## Requirements
 
-* [Patched Bitcoin Core](bitcoin_core.md)
+* [Patched Bitcoin Core](https://github.com/CounterpartyXCP/Documentation/blob/master/Installation/bitcoin_core.md)
 * Terminal with Unicode Support
 
 ## Installation
