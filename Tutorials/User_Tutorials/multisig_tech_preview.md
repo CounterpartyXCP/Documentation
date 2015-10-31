@@ -1,21 +1,10 @@
-#Multisig Tech Preview
+#Using multisig with counterparty-server
 
-Multisig is in an early testing stage on Bitcoin `testnet`.
-
-### Prerequisites
-
-Use the `multisig` branch with the `addrindex-0.9.2` branch of jmcorgan's fork of Bitcoin Core.  
-```
-
-  git clone '[https://github.com/jmcorgan/bitcoin.git](https://github.com/jmcorgan/bitcoin.git)' --branch=addrindex-0.9.2 bitcoin.addrindex-0.9.2
-  
-  ```
-
-You'll need to do a complete DB rebuild (slow), and then the new, backwards-incompatible parsing rules will go into effect with (testnet) block 271000: transactions not made with the `multisig` branch will not show up properly.  
+"Bare Multisig" (i.e. not P2SH) is supported with Counterparty. This document shows you how to use it with `counterparty-server` on testnet.
 
 ### Making a Multisig Tx
 
-An example multi‐sig source transaction is tx hash _e06d22276699de6ed1c5322133b0968114067ce833120bb9126182a1ad19de83_
+An example testnet multi‐sig source transaction is tx hash _e06d22276699de6ed1c5322133b0968114067ce833120bb9126182a1ad19de83_
 
 Here's how you can make a multisig transaction:
 ```
