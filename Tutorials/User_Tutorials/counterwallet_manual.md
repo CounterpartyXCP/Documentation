@@ -1,6 +1,5 @@
-#User Tutorials
+#User/Counterwallet Tutorials
 
-## Counterwallet
 - [Get started with Counterwallet](getting_started_cw.md)
 - [Create a Counterwallet address](create_addresses.md)
 - [Trade on the decentralized exchange](trade.md)
@@ -14,9 +13,4 @@
 - [Publish text and data onto the Blockchain using broadcasts](broadcast.md)
 - [Create a vote using broadcasts and tokens](vote_with_tokens.md)
 - [Buy and Sell Assets on the DEx](buy_and_sell_assets_on_the_dex.md)
-
-## `counterparty-server`
-- [Using multisig with `counterparty-server`](multisig_counterparty-server.md)
-
-## Support, etc
 - [Contact support](create_support_ticket.md)
