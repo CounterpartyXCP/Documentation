@@ -1,4 +1,6 @@
-#User/Counterwallet Tutorials
+#Counterwallet Tutorials
+
+This page contains links to some useful tutorials intended for users of the Counterwallet interface. As new documentation is created it will be added here.
 
 - [Get started with Counterwallet](getting_started_cw.md)
 - [Create a Counterwallet address](create_addresses.md)
