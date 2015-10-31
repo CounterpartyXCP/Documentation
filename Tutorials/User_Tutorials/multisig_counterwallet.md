@@ -6,15 +6,16 @@ Counterparty and Counterwallet support a basic form of multisig. Here’s an exa
 * Create 3 separate Counterwallet accounts. (Each one will normally be owned by a separate person, although this is not a requirement.)
 * Each new wallet will have 1 Bitcoin/Counterparty address by default. That will be utilized for the multisig
 * Send some Bitcoin to each address in each of the 3 wallets
-* For each address in each of the 3 wallets, send a very small amount (e.g. 0.0001) back to the sender address. This is necessary to broadcast each addresses public key onto the blockchain, which Counterparty multisig currently requires to operate.
+* For each address in each of the 3 wallets, send a very small amount (e.g. 0.0001) from them back to the sender address. This is necessary to broadcast each address' public key onto the blockchain, which Counterparty multisig currently requires to operate.
 * In the first Counterwallet, click **Create New Address**, then choose **Create Multisig Address**
 * On the dialog that appears, select 2-of-3 for **Type**, and enter the 3 addresses from the 3 separate Counterwallet accounts
 * A multisig address entry will be created in that first Counterwallet account. Get that address by clicking on address area of the titlebar for it, and copying it. It will be in a format like: _2_1HrSbJR3fcjCDrp2mMJCzGrWR7jtYu4wq5_1Dzfoo4QmhMtHNthmC8hZBry3KPS9FUtgo_152f1muMCNa7goXYhYAQC61hxEgGacmncB_3_
+* Send a bit of BTC (e.g .001, .005, etc) to this multisig address from another address in your Counterwallet. This will be necessary for sending things _from_ the multi-sig address
 
-## To Receive BTC or a Counterparty asset via multisig:
+## To Receive BTC or a Counterparty asset to the multisig address:
 * You can send to this address from another Counterwallet address just like you would with any other address, e.g. click **Send** for the appropriate asset in the appropriate sending address, paste in the full multisig address (as in above), and click **Send** again.
 
-## To Send BTC or a Counterparty asset via multisig:
+## To Send BTC or a Counterparty asset from the multisig address:
 * Log into the Counterwallet for the first multisig signer (which will have the entry for the multisig address)
 * For the multisig address, click Address Actions, click **Send** for the appropriate asset, and fill out the required info.
 * A raw unsigned TX will be produced once the Send dialog’s **Send** button is clicked 
