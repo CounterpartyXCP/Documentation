@@ -66,7 +66,7 @@ Some other notes on processors:
         return
 ```
 
-Note that with ``MessageProcessor`` handlers, you can return ``'continue'`` to prevent the running of further MessageProcessors (i.e. of lesser priority than the current one) for the message being currently processed.
+Note that with ``MessageProcessor`` handlers, you can return ``'ABORT_THIS_MESSAGE_PROCESSING'`` to prevent the running of further MessageProcessors (i.e. of lesser priority than the current one) for the message being currently processed.
 
 ####MempoolMessageProcessor
 
@@ -84,8 +84,8 @@ that are not confirmed and included on the blockchain yet). The format of the da
         assert msg['timestamp']
         assert msg['viewed_in_block']
         
-        #prevent running of further MempoolMessageProcessors of lesser priority for the message being processed
-        return 'continue'
+        #prevent running of further message processors of lesser priority for the message being processed
+        return 'ABORT_THIS_MESSAGE_PROCESSING'
 ```
 
 ####BlockProcessor
