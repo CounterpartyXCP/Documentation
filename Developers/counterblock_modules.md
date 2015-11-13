@@ -46,7 +46,7 @@ Most of the API functionality follows a specific Python decorator type syntax, t
 Some other notes on processors:
 
 * If not specified, the defaults are ``enabled=true, priority=0``.
-* When a processor is triggered methods are run in order of priority from the highest.
+* When a processor is triggered methods are run in order of priority from highest to lowest.
 * *Please note that any priority less than ``0`` or greater than ``1000`` is reserved for internal ``counterblock``
   functionality, and custom plugins should only utilize priority settings under this number.*
 
