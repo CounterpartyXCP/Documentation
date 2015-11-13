@@ -84,7 +84,7 @@ that are not confirmed and included on the blockchain yet). The format of the da
         assert msg['timestamp']
         assert msg['viewed_in_block']
         
-        #prevent running of further message processors of lesser priority for the message being processed
+        #prevent running of further MempoolMessageProcessor's of lesser priority for the message being processed
         return 'ABORT_THIS_MESSAGE_PROCESSING'
 ```
 
