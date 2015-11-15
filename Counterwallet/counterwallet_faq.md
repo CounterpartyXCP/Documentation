@@ -25,14 +25,6 @@ Counterwallet FAQ
 
 Counterwallet (CW) hosted by the Counterparty project is available at [Counterwallet.io](https://counterwallet.io/). However, because Counterwallet source code is [open source](https://github.com/CounterpartyXCP/counterwallet/), anyone can host and alter their own instance of Counterwallet. Those instances, however, are not under control of Counterparty.io, so it is up to the user to assess reliability and trustworthiness of the host. 
 
-If you are having trouble accessing CW, try one of the individual servers. Although keep in mind that it is possible that they are down for maintenance:
-
-* https://cw01.counterwallet.io/#
-
-* https://cw02.counterwallet.io/#
-
-* https://cw03.counterwallet.io/#
-
 ## What is an Asset/Token/Coin? How can I store them?
 
 Assets (also known as tokens or coins) are user-created currencies that are stored inside the Bitcoin blockchain using Counterparty technology. Anyone can create their own. 
@@ -47,13 +39,13 @@ Assets/tokens are issued on the Bitcoin blockchain directly. This means that any
 
 ## Is Counterwallet down?
 
-Counterparty health status monitor is available [here](http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of "cw" servers from this page. Counterwallet.io is a multi-server cluster so if one node is down it is likely that others may be up. It is also possible that Counterwallet is being updated, as it is constantly undergoing development.
+Counterparty health status monitor is available [here](http://status-backend.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of servers listed at [counterwallet.io](http://counterwallet.io/). It is also possible that Counterwallet is being updated or dealing with a blockchain reorganization.
 
 ## Counterwallet is offline. Can I still access my funds?
 
 Yes, and your orders and assets are still there*. You can mathematically generate your public and private keys using your passphrase. Since the addresses are generated on the fly using JavaScript, it is possible to do this in your own browser (even offline). You can use [this tool](https://blockscan.com/tool_generatekey). 
 
-* The Counterparty exchange is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline.
+* The Counterparty Distributed Exchange is actually part of the Bitcoin blockchain. This means that Bitcoin itself would have to be shut down entirely in order for it to go offline.
 
 ## How does Counterwallet make profit?
 
@@ -74,11 +66,11 @@ This will make use of assets owned in this address very secure... Basically Armo
 
 ## I logged in and my address is different, and I have no balance! Help!
 
-Please see [missing balance](no_balance.md)
+In rare circumstances an address can disappear from the view. You can add another address from the Counterwallet user interface and in all likelihood the address will reappear. Otherwise you can use [this tool](https://blockscan.com/tool_generatekey) to obtain the private key for the missing address and then use the import feature in Counterwallet to import its assets to another address in your Counterwallet.
 
 ## I sent BTC to Counterwallet, why doesn't it show up?
 
-It either was not sent (check on a blockchain explorer), or it has not arrived (check on a blockchain explorer).  
+It either was not sent, or it has not arrived. To check for BTC transactions, use a Bitcoin blockchain explorer (e.g. blockchain.info) and to check for XCP and other Counterparty-based tokens, use blockscan.com or coindaddy.io.
     
 ## Why do I need small amounts of Bitcoin to do things in Counterwallet?
 
@@ -90,15 +82,19 @@ If speed of confirmation is not as important to you as the fee amount paid, note
 
 ## Does Counterwallet support two-factor authentication?
 
-Currently, no. But you can create multi-signature addresses.
+Currently, no. But you can create multi-signature addresses to better protect your assets.
 
 ## What else do I need to know?
 
-- All encryption is handled client-side. Neither your passphrase nor any of your private information ever leaves your browser. This also means that there is no password recovery, so make sure you do not lose your passphrase
+- All encryption is handled client-side. Neither your passphrase nor any of your private information ever leaves your browser. This also means that there is no password recovery, so make sure you do not lose your passphrase.
 
-- Because Counterwallet does not store your credentials, it has no access to your information.
+- Because Counterwallet does not store your credentials, it has no access to your information. However it is important to use a reputable Counterwallet provider.
 
 - Because of the US government regulations, betting functionality is limited to non-US-based client IP addresses by default. This is not a limitation of the protocol itself. Please ensure that the use-case you are aiming for is legal within your jurisdiction, and seek professional legal advice when starting a project.
+
+## Can I run my own Counterwallet server?
+
+Yes, although that requires a full bitcoin node and some technical knowledge. Please refer to (this page)[http://counterparty.io/docs/federated_node/] for details on how to setup a Counterparty Federated Node. If you are starting from scratch, it may take several days to download and index the bitcoin blockchain.
 
 ## I want to translate Counterwallet to my language
 
