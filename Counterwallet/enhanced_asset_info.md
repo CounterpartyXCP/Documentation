@@ -27,7 +27,7 @@ The JSON object/mapping the URL points to must contain the following data:
 Examples
 --------
 
-Here's an example for an token called <b>MYTOKEN</b>:
+Here's an example for a token called <b>MYTOKEN</b>:
 
       { "asset": "MYTOKEN", "description": "This is a description of
       MYTOKEN", "image": "<http://www.mysite.com/mytoken.png>", "website":
