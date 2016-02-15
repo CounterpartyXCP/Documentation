@@ -60,8 +60,8 @@ Here are the recommendations and/or requirements when setting up a production-gr
 
 The exact disk space required will be dependent on what services are run on the node:
 
-- Base System: **50GB** (to be safe)
-- ``counterparty``, ``counterblock`` databases: **~500MB**
+- Base System: **150GB** (to be safe)
+- ``counterparty``, ``counterblock`` databases: **~1500MB**
 - ``armory_utxsvr``: **~25GB** (mainnet), **~3GB** (testnet)
 
 Generally, we recommend building on a server with at least 120GB of available disk space.
