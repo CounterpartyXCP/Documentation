@@ -3,7 +3,7 @@
 **Note:** These instructions are for a 32-bit installation. This will work with
 both 32-bit and 64-bit versions of Windows, and is the recommended approach.
 
-- [Python 3.4.4](http://www.python.org/ftp/python/3.4.3/python-3.4.4.msi)
+- [Python 3.4.4](https://www.python.org/ftp/python/3.4.4/python-3.4.4.msi)
 - [Python Win32 extensions](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win32-py3.4.exe/download) (Install as an **administrator**, or you will get an error about missing DLL files later.)
 - [APSW 3.8.8.1-r1](https://github.com/rogerbinns/apsw/releases/download/3.8.8.1-r1/apsw-3.8.8.1-r1.win32-py3.4.exe)
 - [Pycrypto 2.6.1](https://s3.amazonaws.com/counterparty-bootstrap/pycrypto-2.6.1.win32-py3.4.exe)
