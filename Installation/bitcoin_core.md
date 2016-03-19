@@ -25,7 +25,7 @@ Unlike the Linux binaries, the Windows packages are installers. Uninstall any ol
 
 The Linux binaries are precompiled executables + dependencies, and they're deployed by decompressing them into the desired location. Once that is done, they can be executed directly like so. 
 
-        ./bitcoin-*/bin/bitcoind --help
+        ./bitcoin-*/bin/bitcoind -help
 
 You may want to do one or more of the following optional steps:
 * Move the binaries around.
@@ -44,8 +44,6 @@ Your Bitcoin Core configuration file should match this:
     rpctimeout=300
     txindex=1
     addrindex=1
-    minrelaytxfee=0.00005
-    limitfreerelay=0
 
 * Choose a **secure password**.
 * By default, on Windows, this file is located at `%APPDATA%\Bitcoin\bitcoin.conf`.
@@ -54,8 +52,8 @@ Your Bitcoin Core configuration file should match this:
 ## Usage
 
 To run with the standard GUI interface, start Bitcoin Core (`./bitcoin-qt` on Linux), and to run the daemon, execute `bitcoind`. A full list of options can be obtained like this:
-* Bitcoin Core: go to `Help > Command-line options` or execute `./bitcoin-qt --help`
-* bitcoind: run `./bitcoind --help` (`bitcoind.exe --help` on Windows)
+* Bitcoin Core: go to `Help > Command-line options` or execute `./bitcoin-qt -help`
+* bitcoind: run `./bitcoind --help` (`bitcoind.exe -help` on Windows)
 
 Use `bitcoin-cli` to interact with Bitcoin Core.
 
@@ -70,11 +68,10 @@ To interact with a testnet instance of Bitcoin Core, use `bitcoin-cli` with the 
 
 ## Reindex
 
-If this is not the first time you are running Bitcoin Core (with `addrindex` or `txindex`) on this computer,
-you'll need to launch ``bitcoind`` (once only) as follows:
+If this is the first time you are running Bitcoin Core (with `addrindex` or `txindex`) on this computer, you'll need to launch ``bitcoind`` (once only) as follows:
 
     bitcoind -reindex
 
-This will have `bitcoind` complete a one-time reindexing of the local blockchain. Windows users can do the same, or simply run Bitcoin-Core (`Start > Programs > Bitcoin Core > Bitcoin Core`) which will prompt them to reindex their blockchain if necessary.
+Add `-testnet` to reindex testnet blockchain. This will have `bitcoind` complete a one-time reindexing of the local blockchain. Windows users can do the same, or simply run Bitcoin-Core (`Start > Programs > Bitcoin Core > Bitcoin Core`) which will prompt them to reindex their blockchain if necessary.
 
-Even on a fast machine, reindexing of the entire mainnet blockchain takes hours.
+Even on a fast machine, reindexing of the entire mainnet blockchain takes hours. 
