@@ -155,7 +155,7 @@ Within one week before voting period begins:
 - During this two week voting period:
     - Owners of addresses with XCP balance may give their votes to one or more candidates by broadcasting a message with the following parameters: 1. text = XCPELECTION + Candidate Number, 2. value = votes. The sum total of the values must be less than the XCP balance of the source address at the close of the voting period
 - Immediately after this two week voting period:
-    - Current Executive Director will tally and report on the results of the voting. The top three (3)candidate address with the highest number of votes will be announced as the winners of the election, and will receive the Community Director positions for the term of one (1) year from the date of the end of the voting period.
+    - Current Executive Director will tally and report on the results of the voting. The top four (4)candidate address with the highest number of votes will be announced as the winners of the election, and will receive the Community Director positions for the term of one (1) year from the date of the end of the voting period.
 
 (c) Observers: Each director shall have the right to designate a single observer to attend Board of Directors meetings when such director is unable to be present. However, the director shall provide prior notice to the Chairman of the Board and the Chairman approves the request. Such a request shall not be unreasonably denied. An observer attending in place of a director shall have the right to fully participate in the general session, but may not vote on or put forth any motion. Notwithstanding the foregoing, an Observer may vote by proxy if approved by the Board in advance.
 
