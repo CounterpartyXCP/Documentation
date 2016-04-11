@@ -265,8 +265,8 @@ The Board of Directors may, by resolution, establish a board of advisors (the "A
 
 ##Section 6.1 Officers: The officers of the Corporation shall be:
 
-(a) Chairman of the Board (who shall initially be Robby Dermody) (b) Vice Chairman (who shall initially be Adam Krellenstein) 
-(c) Executive Director (who shall initially be Ivana Zuber) (d) General Counsel (who shall initially be Robby Dermody) (e) Treasurer (who shall initially be Ivana Zuber) (f) Secretary (who shall initially be Ivana Zuber) (g) any other officers as the Board of Directors may appoint.
+(a) Chairman of the Board (who shall initially be Robert Dermody) (b) Vice Chairman (who shall initially be Adam Krellenstein) 
+(c) Executive Director (who shall initially be Ivana Zuber) (d) General Counsel (who shall initially be Robert Dermody) (e) Treasurer (who shall initially be Ivana Zuber) (f) Secretary (who shall initially be Ivana Zuber) (g) any other officers as the Board of Directors may appoint.
 Adam Krellenstein shall serve as the initial Chief Scientist.
 The roles enumerated in this section 6.1 shall collectively be referred to as the Executive Committee.
 One person may hold multiple offices.
