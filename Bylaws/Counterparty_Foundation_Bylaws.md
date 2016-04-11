@@ -141,9 +141,7 @@ The minimum authorized number of directors is five (5). The number of directors 
 
 ##Section 5.3 Composition of Board of Directors Terms:
 
-All directors serving on the Board of Directors shall be selected in the manner set forth in this Section 5.3. Preceding the first round of formal elections completing by April 2, 2015, an interim board shall be designated, as put forth in this 
-
-##Section 5.3.
+All directors serving on the Board of Directors shall be selected in the manner set forth in this Section 5.3. Preceding the first round of formal elections completing by April 2, 2015, an interim board shall be designated, as put forth in this Section 5.3.
 
 (a) Founding Directors: The Founding Members shall elect two (2) directors. All directors elected by Founding Members shall hereafter be known as “Founding Directors”. Each Founding Director shall be deemed to have been duly elected upon receipt by the Chairman of the Board of a written ballot from the Founding Members. The interim Founding Directors shall be Robert Dermody and Evan Wagner.
 
