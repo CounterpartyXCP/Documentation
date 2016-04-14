@@ -143,23 +143,22 @@ The minimum authorized number of directors is five (5). The number of directors 
 
 All directors serving on the Board of Directors shall be selected in the manner set forth in this Section 5.3.
 
-(a) Founding Directors: The Founding Members shall elect two (2) directors. All directors elected by Founding Members shall hereafter be known as “Founding Directors”. Each Founding Director shall be deemed to have been duly elected upon receipt by the Chairman of the Board of a written ballot from the Founding Members. The interim Founding Directors shall be Robert Dermody and Evan Wagner.
+(a) Founding Director: The Founding Members shall elect one (1) director, known as the “Founding Director”. The Founding Director shall be deemed to have been duly elected upon receipt by the Chairman of the Board of a written ballot from the Founding Members. The Founding Director elected by the Foundating Members is Robert Dermody.
 
-(b) Community Directors: Community Members of the Corporation, voting as a class, shall elect three (3) directors known as "Community Directors", during a once yearly two (2) week voting period. The following procedure shall be undertaken:
+(b) Community Directors: Community Members of the Corporation, voting as a class, shall elect four (4) directors known as "Community Directors", during a once yearly two (2) week voting period. The following procedure shall be undertaken:
 Within one week before voting period begins:
 - Community Director candidate nominated. May self nominate, or be nominated by another individual. Each candidate must hold at least 50 XCP, which they will prove by signing a specific message (chosen by the Executive Director) with their private key. The sitting board of directors, by a super-majority vote, may disqualify non-viable candidates from election.
 - At the start of the two week voting period: 
     - Current Executive Director (or other Executive Committee member of the Executive Director’s choosing) will generate a Bitcoin address for each Community Director candidate.
-    - Current Executive Director (or other Executive Committee member of the Executive Director’s choosing) will issue a specific vote token of a specific quantity of 10 million units, divisible, and locked. (Quantity may be changed by a majority vote of directors.)
-    - Current Executive Director (or other executive committee member of the Executive Director’s choosing) will issue a dividend to XCP holders with this vote token as the dividend asset. (Meaning that all XCP addresses will receive some quantity vote token in proportion to their XCP balance.)
 - During this two week voting period:
-    - Owners of addresses with a vote token balance may send vote tokens to one or more of the addresses corresponding to the candidate(s) they wish to vote for.
+    - Owners of addresses with XCP balance may give their votes to one or more candidates by broadcasting a message with the following parameters: 1. text = XCPELECTION + Candidate Number, 2. value = votes. The sum total of the values must be less than the XCP balance of the source address at the close of the voting period
 - Immediately after this two week voting period:
-    - Current Executive Director will tally and report on the results of the voting. The candidate address with the highest vote token balance will be announced as the winner of the election, and will receive the Community Director position for the term of one (1) year from the date of the end of the voting period.
+    - Current Executive Director will tally and report on the results of the voting. The top four (4)candidate address with the highest number of votes will be announced as the winners of the election, and will receive the Community Director positions for the term of one (1) year from the date of the end of the voting period.
 
 (c) Observers: Each director shall have the right to designate a single observer to attend Board of Directors meetings when such director is unable to be present. However, the director shall provide prior notice to the Chairman of the Board and the Chairman approves the request. Such a request shall not be unreasonably denied. An observer attending in place of a director shall have the right to fully participate in the general session, but may not vote on or put forth any motion. Notwithstanding the foregoing, an Observer may vote by proxy if approved by the Board in advance.
 
-(d) Terms and Election Dates: All directors shall hold office until their successor is elected. Except for adjustments that may be made by the Board from time-to-time to maintain or create staggered terms upon any increase or decrease in the authorized number of directors, the term of office for Founding Directors, Industry Directors, Community Directors and At-Large Directors shall be one (1) year and shall run every May first (May 1) of the calendar year, with elections preceeding at least two (2) weeks before. Unless elected by written ballot pursuant to Section 4.9, the positions of directors then expiring shall be filled and elections held at the annual meeting of members called for such purpose. The Board of Directors may issue resolutions establishing procedures governing elections of directors, provided that those resolutions are consistent with these Bylaws and the Articles.
+(d) Terms and Election Dates: All directors shall hold office until their successor is elected. Except for adjustments that may be made by the Board from time-to-time to maintain or create staggered terms upon any increase or decrease in the authorized number of directors, the term of office for the Founding Director, and all Community Directors and At-Large Directors shall be one (1) year and shall run every May first (May 1) of the calendar year, with elections preceeding at least two (2) weeks before. Unless elected by written ballot pursuant to Section 4.9, the positions of directors then expiring shall be filled and elections held at the annual meeting of members called for such purpose. The Board of Directors may issue resolutions establishing procedures governing elections of directors, provided that those resolutions are consistent with these Bylaws and the Articles.
+
 
 ##Section 5.4 Vacancies:
 
@@ -265,8 +264,8 @@ The Board of Directors may, by resolution, establish a board of advisors (the "A
 
 ##Section 6.1 Officers: The officers of the Corporation shall be:
 
-(a) Chairman of the Board (who shall initially be Robby Dermody) (b) Vice Chairman (who shall initially be Adam Krellenstein) 
-(c) Executive Director (who shall initially be Ivana Zuber) (d) General Counsel (who shall initially be Robby Dermody) (e) Treasurer (who shall initially be Ivana Zuber) (f) Secretary (who shall initially be Ivana Zuber) (g) any other officers as the Board of Directors may appoint.
+(a) Chairman of the Board (who shall initially be Robert Dermody) (b) Vice Chairman (who shall initially be Adam Krellenstein) 
+(c) Executive Director (who shall initially be Ivana Zuber) (d) General Counsel (who shall initially be Robert Dermody) (e) Treasurer (who shall initially be Ivana Zuber) (f) Secretary (who shall initially be Ivana Zuber) (g) any other officers as the Board of Directors may appoint.
 Adam Krellenstein shall serve as the initial Chief Scientist.
 The roles enumerated in this section 6.1 shall collectively be referred to as the Executive Committee.
 One person may hold multiple offices.
