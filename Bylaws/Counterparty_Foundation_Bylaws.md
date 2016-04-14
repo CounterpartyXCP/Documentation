@@ -141,7 +141,7 @@ The minimum authorized number of directors is five (5). The number of directors 
 
 ##Section 5.3 Composition of Board of Directors Terms:
 
-All directors serving on the Board of Directors shall be selected in the manner set forth in this Section 5.3. Preceding the first round of formal elections completing by April 2, 2015, an interim board shall be designated, as put forth in this Section 5.3.
+All directors serving on the Board of Directors shall be selected in the manner set forth in this Section 5.3.
 
 (a) Founding Director: The Founding Members shall elect one (1) director, known as the “Founding Director”. The Founding Director shall be deemed to have been duly elected upon receipt by the Chairman of the Board of a written ballot from the Founding Members. The Founding Director elected by the Foundating Members is Robert Dermody.
 
@@ -157,7 +157,8 @@ Within one week before voting period begins:
 
 (c) Observers: Each director shall have the right to designate a single observer to attend Board of Directors meetings when such director is unable to be present. However, the director shall provide prior notice to the Chairman of the Board and the Chairman approves the request. Such a request shall not be unreasonably denied. An observer attending in place of a director shall have the right to fully participate in the general session, but may not vote on or put forth any motion. Notwithstanding the foregoing, an Observer may vote by proxy if approved by the Board in advance.
 
-(d) Terms and Election Dates: All directors shall hold office until their successor is elected. Except for adjustments that may be made by the Board from time-to-time to maintain or create staggered terms upon any increase or decrease in the authorized number of directors, the term of office for the Founding Director, and all Community Directors and At-Large Directors shall be one (1) year and shall run from January 1 to December 31 of the calendar year after election (with the term of the first elected Board of Directors running from April 2, 2015 until December 31, 2015). Elections of directors whose terms are expiring in any calendar year shall be held as soon as practicable following the commencement of the membership year. Unless elected by written ballot pursuant to Section 4.9, the positions of directors then expiring shall be filled and elections held at the annual meeting of members called for such purpose. The Board of Directors may issue resolutions establishing procedures governing elections of directors, provided that those resolutions are consistent with these Bylaws and the Articles.
+(d) Terms and Election Dates: All directors shall hold office until their successor is elected. Except for adjustments that may be made by the Board from time-to-time to maintain or create staggered terms upon any increase or decrease in the authorized number of directors, the term of office for the Founding Director, and all Community Directors and At-Large Directors shall be one (1) year and shall run every May first (May 1) of the calendar year, with elections preceeding at least two (2) weeks before. Unless elected by written ballot pursuant to Section 4.9, the positions of directors then expiring shall be filled and elections held at the annual meeting of members called for such purpose. The Board of Directors may issue resolutions establishing procedures governing elections of directors, provided that those resolutions are consistent with these Bylaws and the Articles.
+
 
 ##Section 5.4 Vacancies:
 
