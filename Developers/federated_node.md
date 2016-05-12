@@ -139,10 +139,10 @@ Next, (for all server types), start ``counterparty-server`` itself:
 Then, watching these log(s), wait for `bitcoind` and `counterparty-server` synchronization to finish. Given that `counterparty-server` will not bootstrap by default, you can stop` counterparty` (or `counterparty-testnet`) and issue the bootstrap command like so:
 
     #mainnet
-    sudo su -s /bin/bash -c 'counterparty-server --config-file=~xcp/.config/counterparty/server.conf bootstrap' xcpd
+    sudo su -s /bin/bash -c 'counterparty-server --config-file=/home/xcp/.config/counterparty/server.conf bootstrap' xcpd
     
     #testnet
-    sudo su -s /bin/bash -c 'counterparty-server --config-file=~xcp/.config/counterparty/server.testnet.conf bootstrap' xcpd
+    sudo su -s /bin/bash -c 'counterparty-server --config-file=/home/xcp/.config/counterparty/server.testnet.conf bootstrap' xcpd
 
 After the database has been downloaded, you may start counterparty (or counterparty-testnet) and it will take a few minutes for it to finish catching up.
 
