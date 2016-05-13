@@ -561,11 +561,11 @@ Gets information on a transaction.
 
 **unpack(data_hex)**
 
-Parse the data_hex of a message into its parameters. Defined dynamically for all messages for which there is an `unpack()` method.
+Parse the data_hex of a message into its parameters. Currently only works with `send` messages, but support will be added for all other message types in the future.
 
 **Parameters:**
 
-  * **tx_hex(string):** The canonical hexadecimal serialization of the transaction (not its hash)
+  * **data_hex(string):** The canonical hexadecimal serialization of the transaction (not its hash), e.g. from the `data_hex` return value from `get_tx_info`
 
 **Return:**
 
