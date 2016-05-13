@@ -569,8 +569,8 @@ Parse the data_hex of a message into its parameters. Currently only works with `
 
 **Return:**
 
-  - **message_type_id** (*int*): the ID of the message type (e.g. send's is `1`)
-  - **unpacked** (*list*): a list of message parameters (e.g. for sends: `source`, `destination`, `asset`, `quantity`)
+  - **message_type_id** (*int*): the ID of the message type (e.g. send's is `0`)
+  - **unpacked** (*list*): a list of message parameters (e.g. for sends it is `asset`, `quantity` -- get the source and destination from the bitcoin transaction itself)
 
 
 
