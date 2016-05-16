@@ -11,22 +11,22 @@ for system administrators and developers.
 
 Services run on a Federated Node include some or all of the following:
 
-#### counterparty-server
+**counterparty-server**
 `counterparty-lib` + `counterparty-cli`. Implements support for the core Counterparty protocol, via a provided REST API and command line interface.
 
-#### counterblock
+**counterblock**
 Provides additional services (required by `counterwallet` and potentially other services) beyond those offered in the API provided by `counterparty-server`. It features a full-fledged JSON RPC-based API, and has an extensible architecture to support custom plugins.
 
-#### counterwallet
+**counterwallet**
 The reference Web wallet for Counterparty.
 
-#### bitcoind
+**bitcoind**
 Reference Bitcoin implementation. We use the [`addrindex`](https://github.com/btcdrak/bitcoin/tree/addrindex-0.12) branch.
 
-#### armory_utxsvr
+**armory_utxsvr**
 A service used by ``counterblock`` with Counterwallet to support [Offline Armory transactions](http://counterparty.io/docs/create_armory_address/). This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
 
-#### nginx
+**nginx**
 Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only or `counterblock`-only nodes.
 
 ## Provisioning
@@ -34,6 +34,7 @@ Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only
 ### Hardware / OS selection
 
 **For Production Systems**
+
 Here are the recommendations and/or requirements when setting up a production-grade Federated Node:
 
 - Xeon E3+ or similar-class processor
@@ -58,6 +59,7 @@ of memory, and enough disk space to cover the installation and use of the desire
 (This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)
 
 **Update system**
+
 Update your base system to the newest packages:
 ```
 sudo apt-get update
@@ -65,12 +67,13 @@ sudo apt-get upgrade
 ```
 
 **Install dependencies**
-* Install git
+
+Install git:
 ```
 sudo apt-get install git
 ```
 
-* Install docker and docker-compose (see [here](https://docs.docker.com/compose/install/) for more info)
+Install docker and docker-compose (see [here](https://docs.docker.com/compose/install/) for more info):
 ```
 sudo apt-get install -y apt-transport-https ca-certificates
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -79,9 +82,13 @@ sudo apt-get update
 sudo apt-get purge lxc-docker
 sudo apt-get install linux-image-extra-$(uname -r) docker-engine
 ```
-* Generate an SSH key, or place your existing Github SSH key into `~/.ssh` (see [here](https://help.github.com/articles/generating-an-ssh-key/) for more info)
+
+**Generate/install an SSH key**
+
+To be able to pull the sources from Github, you'll need to generate an SSH key, or place your existing Github SSH key into `~/.ssh` on the host machine (see [here](https://help.github.com/articles/generating-an-ssh-key/) for more info)
 
 **Port/firewalling setup**
+
 If installing `counterwallet`, ensure that no services are running on port 80, and uninstall/stop them if so:
 ```
 sudo netstat -tulpn | grep ":80 "
@@ -112,7 +119,8 @@ sudo ufw allow https
 sudo ufw enable
 ```
 
-** Additional security hardening (optional)**
+**Additional security hardening (optional)**
+
 Some other helpful security-related practices, execute the `extra/ubuntu_secure/run.py` script, which will:
 * Enable automatic updates (`unattended-upgrades` package on Ubuntu)
 * Install and set up the `fail2ban`, `psad`, `chrootkit`, `rkhunter`, `logwatch`, `auditd`, and `iwatch` packages
@@ -132,7 +140,7 @@ sudo docker-compose -f docker-compose.base.yml up -d
 
 **Option 2:** If you would like to run `counterparty-server` and `counterblock`, but not `counterwallet`:
 ```
-sudo docker-compose -f docker-compose.cblock.yml up -d
+sudo docker-compose -f docker-compose.counterblock.yml up -d
 ```
 
 **Option 3:** If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and other required third-party services:
@@ -151,7 +159,7 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 * `https://<host>/` - main production URL (uses minified JS/CSS)
 * `https://<host>/src/` - development URL (uses un-minified JS/CSS)
 
-### Initial sync
+**Initial sync**
 
 After installation, the services will be automatically started. Note that it will take some time for bitcoind to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
 
@@ -162,7 +170,7 @@ You may check the sync status by tailing the appropriate service logs.
 
 Run `docker-compose ps` to check the status of the containers at any time.
 
-### Logging
+**Tailing logs**
 
 To view (tail) the logs, use the following command:
 ```
@@ -178,9 +186,9 @@ Where `<service>` may be one of:
 * `counterblock-testnet`
 * `bitcoin-testnet`
 * `armory_utxsvr-testnet`
-* `nginx`
+* `counterwallet`
 
-### Stopping and restarting containers
+**Stopping and restarting containers**
 
 ```
 fednode stop <service>
@@ -190,7 +198,7 @@ fednode restart <service>
 
 Where `<service>` is one of the service names listed above.
 
-### Getting a shell in a conainer
+**Getting a shell in a conainer**
 
 ```
 fednode shell <service>
@@ -198,7 +206,7 @@ fednode shell <service>
 
 Where `<service>` is one of the service names listed above.
 
-### Issuing a counterparty-server command
+**Issuing a counterparty-server command**
 
 ```
 fednode cmd <counterparty|counterparty-testnet> <cmd>
@@ -206,7 +214,7 @@ fednode cmd <counterparty|counterparty-testnet> <cmd>
 
 For example: `fednode cmd counterparty send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP`
 
-### Issuing a bitcoind command
+**Issuing a bitcoind command**
 
 ```
 fednode cmd <bitcoin|bitcoin-testnet> <cmd>
@@ -225,10 +233,10 @@ fednode upgrade <service>
 Where `<service>` is one of the following:
 * `counterparty`
 * `counterblock`
-* `counterwallet`
 * `counterparty-testnet`
 * `counterblock-testnet`
-* `counterwallet-testnet`
+* `counterwallet`
+
 
 ## Component development
 
@@ -257,29 +265,16 @@ Instructions for doing that are detailed in the *Counterwallet Configuration Fil
 
 By default, the system is set up to use a self-signed SSL certificate. If you are hosting your services for others, 
 you should get your own SSL certificate from your DNS registrar so that your users don't see a certificate warning when
-they visit your site. Once you have that certificate, create a nginx-compatible ``.pem`` file, and place that
-at ``/etc/ssl/certs/counterblock.pem``. Then, place your SSL private key at ``/etc/ssl/private/counterblock.key``.
+they visit your site. Once you have that certificate, create a nginx-compatible ``.pem`` file, and issue the following command:
 
-After doing this, edit the ``/etc/nginx/sites-enabled/counterblock.conf`` file. Comment out the two development
-SSL certificate lines, and uncomment the production SSL cert lines, like so:
-
-    #SSL - For production use
-    ssl_certificate      /etc/ssl/certs/counterblock.pem;
-    ssl_certificate_key  /etc/ssl/private/counterblock.key;
-  
-    #SSL - For development use
-    #ssl_certificate      /etc/ssl/certs/ssl-cert-snakeoil.pem;
-    #ssl_certificate_key  /etc/ssl/private/ssl-cert-snakeoil.key;
-
-Then restart nginx:
-
-    sudo sv restart nginx
+```
+fednode instcert <certfile> <keyfile>
+```
 
 ### Monitoring the Server
 
 To monitor the server, you can use a 3rd-party service such as [Pingdom](http://www.pingdom.com) or [StatusCake](http://statuscake.com).
-The federated node allows these (and any other monitoring service) to query the basic status of the server (e.g. the ``nginx``,
-``counterblock`` and ``counterparty`` services) via making a HTTP GET call to one of the following URLs:
+The federated node allows these (and any other monitoring service) to query the basic status of the Federated Node via making a HTTP GET call to one of the following URLs:
 
 * ``/_api/`` (for mainnet) 
 * ``/_t_api/`` (for testnet)
@@ -303,7 +298,11 @@ If ``nginx`` is not working properly, either a HTTP 5xx response, or no response
 
 ### Creating a configuration file
 
-Counterwallet can be configured via creating a small file called ``counterwallet.conf.json`` in the ``counterwallet/`` directory.
+Counterwallet can be configured via editing the `counterwallet.conf.json` file, via issuing the following command:
+```
+sudo docker exec -it counterwallet vim /root/counterwallet/counterwallet.conf.json
+```
+
 This file will contain a valid JSON-formatted object, containing an a number of possible configuration properties. For example::
 
     { 
@@ -340,7 +339,7 @@ If you just want to use the current server (and don't have a multi-server setup)
 * **restrictedAreas**: Set to an object containing a specific page path as the key (or "dividend" for dividend functionality),
   and a list of one or more ISO 2-letter country codes as the key value, to allow for country-level blacklisting of pages/features.
 
-Once done, save this file and make sure it exists on all servers you are hosting Counterwallet static content on. Now, when you go to your Counterwallet site, the server will read in this file immediately after loading the page, and set the list of
+Once done, save this file and make sure it exists on all servers you are hosting Counterwallet static content on, and restart the `counterwallet` service. Now, when you go to your Counterwallet site, the server will read in this file immediately after loading the page, and set the list of
 backend API hosts from it automatically.
 
 ### Enabling multi-lingual support
