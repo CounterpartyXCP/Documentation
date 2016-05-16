@@ -1,54 +1,40 @@
-Setting up a Counterparty Federated Node
-==============================================
+# Setting up a Counterparty Federated Node
 
-Introduction
--------------
+## Introduction
 
-A Counterblock Federated Node is a self-contained server that runs the software necessary to support one or more "roles".
-Such roles may be:
-
-- Counterwallet server
-- Vending machine (future)
-- Block explorer server (future)
-- A plain old ``counterparty-server`` installation
-
-Each backend server runs multiple services (some required, and some optional, or based on the role chosen).
-As each server is self-contained, they can be combined by the client-side software to allow for high-availability/load balancing.
-
-For instance, software such as Counterwallet may then utilize these backend servers in making API calls either sequentially (i.e. failover) or in
-parallel (i.e. consensus-based). For instance, with Counterwallet, when a user logs in, this list is shuffled so that
-in aggregate, user requests are effectively load-balanced across available servers. Indeed, by setting up multiple such
-(Counterblock) Federated Nodes, one can utilize a similar redundancy/reliability model in one's own 3rd party application
-that Counterwallet utilizes. Or, one can utilize a simplier configuration based on a single, stand-alone server.
+A Counterblock Federated Node is a self-contained server that runs the some or all of the Counterparty software via Docker. Each server is fully self-contained, and can be combined by client-side software to allow for high-availability/load balancing.
 
 This document describes how one can set up their own Counterblock Federated Node server(s). It is primarily intended
 for system administrators and developers.
 
+### Node Services
 
-Federated Node Services
--------------------------
+Services run on a Federated Node include some or all of the following:
 
-A federated node runs several services on the same system, which includes **required [Counterparty platform components](platform_architecture.md)** and the following *optional* services:
+#### counterparty-server
+`counterparty-lib` + `counterparty-cli`. Implements support for the core Counterparty protocol, via a provided REST API and command line interface.
 
-###armory_utxsvr
+#### counterblock
+Provides additional services (required by `counterwallet` and potentially other services) beyond those offered in the API provided by `counterparty-server`. It features a full-fledged JSON RPC-based API, and has an extensible architecture to support custom plugins.
 
-This service is used by ``counterblock`` with Counterwallet, to allow for the creation of unsigned transaction
-ASCII text blocks, which may then be used with an [Offline Armory configuration](https://bitcoinarmory.com/about/using-our-wallet/).
-This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
+#### counterwallet
+The reference Web wallet for Counterparty.
 
-###nginx
+#### bitcoind
+Reference Bitcoin implementation. We use the [`addrindex`](https://github.com/btcdrak/bitcoin/tree/addrindex-0.12) branch.
 
-``nginx`` normally frontends communications on Counterwallet, Vending, etc nodes. Not used with `counterparty-server`-only nodes.
+#### armory_utxsvr
+A service used by ``counterblock`` with Counterwallet to support [Offline Armory transactions](http://counterparty.io/docs/create_armory_address/). This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
 
+#### nginx
+Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only or `counterblock`-only nodes.
 
-Federated Node Provisioning
---------------------------------
+## Provisioning
 
-###Production
+### Hardware / OS selection
 
-Here are the recommendations and/or requirements when setting up a production-grade Counterblock Federated Node:
-
-**Server Hardware/Network Recommendations:**
+**For Production Systems**
+Here are the recommendations and/or requirements when setting up a production-grade Federated Node:
 
 - Xeon E3+ or similar-class processor
 - 16GB+ RAM (ECC)
@@ -56,154 +42,218 @@ Here are the recommendations and/or requirements when setting up a production-gr
 - Hosted in a secure data center with physical security and access controls
 - DDOS protection recommended if you will be offering your service to others
 
-**Disk Space Requirements:**
+The exact disk space required will be dependent on what services are run on the node. We recommend **150GB** (to be safe), plus:
+- For ``counterparty``, ``counterblock`` databases: **~1500MB**
+- For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
 
-The exact disk space required will be dependent on what services are run on the node:
+For the OS, we recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
 
-- Base System: **150GB** (to be safe)
-- ``counterparty``, ``counterblock`` databases: **~1500MB**
-- ``armory_utxsvr``: **~25GB** (mainnet), **~3GB** (testnet)
+**For Testing and Development**
 
-Generally, we recommend building on a server with at least 120GB of available disk space.
-
-**Server Software:**
-
-- Ubuntu 14.04 64-bit required
-
-**Server Security:**
-
-The build script includes basic automated security hardening.
-
-Before running this script, we strongly advise the following:
-
-- SSH should run on a different port, with root access disabled
-- Use ufw (software firewall) in addition to any hardware firewalls:
-  - `sudo ufw allow ssh`   #(or whatever your ssh port is, as '12345/tcp', in place of 'ssh')
-  - `sudo ufw allow http`
-  - `sudo ufw allow https`
-  - `sudo ufw enable`
-- Only one or two trusted individuals should have access to the box. All root access through ``sudo``.
-- Utilize 2FA (two-factor authentication) on SSH and any other services that require login.
-  [Duo](https://www.duosecurity.com/) is a good choice for this (and has great `SSH integration).
-- The system should have a proper hostname (e.g. counterblock.myorganization.org), and your DNS provider should be DDOS resistant
-- If running multiple servers, consider other tweaks on a per-server basis to reduce homogeneity.  
-- Enable Ubuntu's automated security updates (our script will do this if you didn't)
-
-###Testing / Development
-
-If you'd like to set up a Counterblock Federated Node system for testing and development, the requirements are minimal. Basically you
-need to set up a Virtual Machine (VM) instance (or hardware) at the Ubuntu version listed above, at least **2 GB**
+If you'd like to set up a Counterblock Federated Node system for testing and development, you
+need to set up a Linux Virtual Machine (VM) instance (or hardware), with at least **4 GB**
 of memory, and enough disk space to cover the installation and use of the desired components.
 
-Node Setup
------------
+### Host system configuration
+(This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)
 
-Once the server is provisioned and set up as above, you will need to install all of the necessary software and dependencies using the Bash shell. We have an
-installation script for this, that is fully automated **and installs ALL dependencies, including ``bitcoind``**
+**Update system**
+Update your base system to the newest packages:
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
 
-    BRANCH=master
-    wget -q -O /tmp/fednode_run.py https://raw.github.com/CounterpartyXCP/federatednode_build/${BRANCH}/run.py
-    sudo python3 /tmp/fednode_run.py
+**Install dependencies**
+* Install git
+```
+sudo apt-get install git
+```
 
-Note: above ``wget`` commands overwrite previously downloaded setup scripts (if any). Make a backup if you want to keep them.
+* Install docker and docker-compose (see [here](https://docs.docker.com/compose/install/) for more info)
+```
+sudo apt-get install -y apt-transport-https ca-certificates
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+sudo bash -c ‘echo “deb https://apt.dockerproject.org/repo ubuntu-xenial main” > /etc/apt/sources.list.d/docker.list’
+sudo apt-get update
+sudo apt-get purge lxc-docker
+sudo apt-get install linux-image-extra-$(uname -r) docker-engine
+```
+* Generate an SSH key, or place your existing Github SSH key into `~/.ssh` (see [here](https://help.github.com/articles/generating-an-ssh-key/) for more info)
 
-Then just follow the on-screen prompts (choosing to build from *master* if you are building a production node,
-or from *develop* **only** if you are a developer or want access to bleeding edge code that is not fully tested).
+**Port/firewalling setup**
+If installing `counterwallet`, ensure that no services are running on port 80, and uninstall/stop them if so:
+```
+sudo netstat -tulpn | grep ":80 "
+```
 
-Once done, start up ``bitcoind`` daemon(s)
+It’s highly recommended that you use a firewall on the system:
+```
+sudo ufw allow ssh
 
-    sudo sv start bitcoin
-    sudo sv start bitcoin-testnet
-    
-    sudo tail -f ~xcp/.bitcoin/debug.log
-    sudo tail -f ~xcp/.bitcoin/testnet3/debug.log
+#Issue these as needed to firewall through specific ports
+# counterparty-server mainnet
+sudo ufw allow 4000/tcp
 
-That last command will give you information on the Bitcoin blockchain download status. As we are running the 10.0.0+ bitcoind release, a full blockchain sync may take as little as 2-4 hours.
+# counterparty-server testnet
+sudo ufw allow 14000/tcp
 
-After the blockchain starts downloading, you can launch the ``armory_utxsvr``, if you're using that (**Counterwallet role only**):
+# counterblock mainnet
+sudo ufw allow 4001/tcp
 
-    sudo sv start armory_utxsvr
-    sudo sv start armory_utxsvr-testnet
-    
-    sudo tail -f ~xcp/.armory/armorylog.txt
-    sudo tail -f ~xcp/.armory/testnet3/armorylog.txt
+# counterblock testnet
+sudo ufw allow 14001/tcp
 
-Next, (for all server types), start ``counterparty-server`` itself:
+# counterwallet
+sudo ufw allow http
+sudo ufw allow https
 
-    sudo sv start counterparty
-    sudo sv start counterparty-testnet
-    
-    sudo tail -f ~xcp/.cache/counterparty/log/server.log
-    sudo tail -f ~xcp/.cache/counterparty/log/server.testnet.log
+#ENABLE THE FIREWALL
+sudo ufw enable
+```
 
-Then, watching these log(s), wait for `bitcoind` and `counterparty-server` synchronization to finish. Given that `counterparty-server` will not bootstrap by default, you can stop` counterparty` (or `counterparty-testnet`) and issue the bootstrap command like so:
+** Additional security hardening (optional)**
+Some other helpful security-related practices, execute the `extra/ubuntu_secure/run.py` script, which will:
+* Enable automatic updates (`unattended-upgrades` package on Ubuntu)
+* Install and set up the `fail2ban`, `psad`, `chrootkit`, `rkhunter`, `logwatch`, `auditd`, and `iwatch` packages
 
-    #mainnet
-    sudo su -s /bin/bash -c 'counterparty-server --config-file=/home/xcp/.config/counterparty/server.conf bootstrap' xcpd
-    
-    #testnet
-    sudo su -s /bin/bash -c 'counterparty-server --config-file=/home/xcp/.config/counterparty/server.testnet.conf bootstrap' xcpd
+## Installation
 
-After the database has been downloaded, you may start counterparty (or counterparty-testnet) and it will take a few minutes for it to finish catching up.
+Clone and checkout everything:
+```
+git clone https://github.com/CounterpartyXCP/federatednode_build.git && cd federatednode_build
+git submodule init && git submodule update
+```
 
-After this is all done, reboot the box for the new services to start (which includes both ``counterparty-server`` and ``counterblock``, if you installed it). 
+**Option 1:** If you would like to run `counterparty-server` only:
+```
+sudo docker-compose -f docker-compose.base.yml up -d
+```
 
-``counterblock``, after starting up must then sync to ``counterparty-server``:
+**Option 2:** If you would like to run `counterparty-server` and `counterblock`, but not `counterwallet`:
+```
+sudo docker-compose -f docker-compose.cblock.yml up -d
+```
 
-    sudo sv start counterblock
-    sudo sv start counterblock-testnet
+**Option 3:** If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and other required third-party services:
+```
+sudo docker-compose -f docker-compose.full.yml up -d
+```
 
-It will do this automatically, and the process will take between 3 minutes to 20 minutes most likely. You can check on the status of ``counterblock``'s sync using:
+Once running, the system listens on the following ports:
+* `counterparty-server`: 4000/tcp (mainnet), 14000/tcp (testnet)
+* `counterblock`: 4001/tcp (mainnet), 14001/tcp (testnet)
 
-    sudo tail -f ~xcp/.cache/counterblock/log/server.log
-    sudo tail -f ~xcp/.cache/counterblock/log/server.testnet.log
+For `counterparty-server`, use RPC username `rpc` and default password `1234`.
 
-Once it is fully synced up, you should be good to proceed.
+If `counterwallet` is installed, access to the following URLs will be possible:
+* `http://<host>/` — directs to `https`
+* `https://<host>/` - main production URL (uses minified JS/CSS)
+* `https://<host>/src/` - development URL (uses un-minified JS/CSS)
 
-###"Counterwallet server" role
+### Initial sync
+
+After installation, the services will be automatically started. Note that it will take some time for bitcoind to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
+
+You may check the sync status by tailing the appropriate service logs.
+
+
+## Administration
+
+Run `docker-compose ps` to check the status of the containers at any time.
+
+### Logging
+
+To view (tail) the logs, use the following command:
+```
+fednode tail <service>
+```
+
+Where `<service>` may be one of:
+* `counterparty` (`counterparty-server` mainnet)
+* `counterblock` (`counterblock` mainnet)
+* `bitcoin` (`bitcoin` mainnet)
+* `armory_utxsvr` (`armory_utxsvr` mainnet)
+* `counterparty-testnet`
+* `counterblock-testnet`
+* `bitcoin-testnet`
+* `armory_utxsvr-testnet`
+* `nginx`
+
+### Stopping and restarting containers
+
+```
+fednode stop <service>
+fednode start <service>
+fednode restart <service>
+```
+
+Where `<service>` is one of the service names listed above.
+
+### Getting a shell in a conainer
+
+```
+fednode shell <service>
+```
+
+Where `<service>` is one of the service names listed above.
+
+### Issuing a counterparty-server command
+
+```
+fednode cmd <counterparty|counterparty-testnet> <cmd>
+```
+
+For example: `fednode cmd counterparty send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP`
+
+### Issuing a bitcoind command
+
+```
+fednode cmd <bitcoin|bitcoin-testnet> <cmd>
+```
+
+For example: `fednode cmd bitcoin-testnet getpeerinfo`
+
+## Updating components
+
+To pull the newest software from the git repositories and restart the appropriate daemon, issue the following command:
+
+```
+fednode upgrade <service>
+```
+
+Where `<service>` is one of the following:
+* `counterparty`
+* `counterblock`
+* `counterwallet`
+* `counterparty-testnet`
+* `counterblock-testnet`
+* `counterwallet-testnet`
+
+## Component development
+
+The system allows for easy development and modification of the Counterparty software components. To do so, simply update code in the `counterparty-lib`, `counterparty-cli`, `counterblock` and/or `counterwallet` directories as you see fit.
+
+Once done updating the source code, issue the following command(s) to load the new code:
+```
+fednode reinst <service>
+```
+
+Where `<service>` is one of the following:
+* `counterparty`
+* `counterblock`
+* `counterwallet`
+* `counterparty-testnet`
+* `counterblock-testnet`
+* `counterwallet-testnet`
+
+
+## Counterwallet-Specific
 
 If you are setting up a Counterwallet server, you will next need to create a `counterwallet.conf.json` configuration file.
 Instructions for doing that are detailed in the *Counterwallet Configuration File* section later in this document. Once creating this file, open up a web browser, and go to the IP address/hostname of the server. You will then be presented to accept your self-signed SSL certificate, and after doing that, should see the Counterwallet login screen.
 
-###"counterparty-server only" role
-
-If you selected the "counterparty-server only" role, you can access the `counterparty-server` API directly, using port `4000` (mainnet) or `14000` (testnet).
-
-* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, using user `rpc` with password `1234`.
-* If you chose not to expose the interface publically during setup, you can access the API from localhost only, using the user and password defined in the appropriate counterparty-server `server.conf` file.
-
-###"counterblock basic" role
-
-If you selected the "counterblock basic" role, `counterblock`, you can access the `counterblock` API, using port `4100` (mainnet) or `14100` (testnet).
-
-* If you chose to expose the interface publically during setup, you can access the API from localhost or any other host, with no user authentication required. Moreover, the `counterparty-server` APIs are exposed to all hosts on the ports noted above, using the user and password noted above (`rpc` and `1234`).
-* If you chose not to expose the interface publically during setup, you can access the API from localhost only, with no user authentication required. The `counterparty-server` ports and APIs are *not* exposed to any host except localhost.
-
-Easy Updating
---------------------------
-
-To update the system with new code releases, you simply need to rerun the ``run.py`` script, like so:
-
-    cd ~xcp/federated_node
-    sudo python3 run.py
-    
-As prompted, you should be able to choose just to update ("u"), instead of to rebuild. However, you would choose the rebuild
-option if there were updates to the ``federatednode_build`` system files (such as the
-``nginx`` configuration, or the init scripts) or `run.py` script itself that you want/need to apply. Otherwise, update should be fine. 
-
-Other Operations
---------------------------
-
-###Stop all configured services
-
-``sudo ~xcp/federatednode_build/run.py --op=stop``
-
-###Restart all configured services
-
-``sudo ~xcp/federatednode_build/run.py --op=restart``
-
-Getting a SSL Certificate
---------------------------
+### Getting a SSL Certificate
 
 By default, the system is set up to use a self-signed SSL certificate. If you are hosting your services for others, 
 you should get your own SSL certificate from your DNS registrar so that your users don't see a certificate warning when
@@ -225,60 +275,7 @@ Then restart nginx:
 
     sudo sv restart nginx
 
-
-Troubleshooting
-------------------------------------
-
-If you experience issues with your Counterblock Federated Node, a good start is to check out the logs. Something like the following should work::
-
-    #mainnet
-    sudo tail -f ~xcp/.cache/counterparty/log/server.log
-    sudo tail -f ~xcp/.cache/counterparty/log/api.log
-    sudo tail -f ~xcp/.cache/counterblock/log/server.log
-    sudo tail -f ~xcp/.cache/counterblock/log/api.log
-
-    #testnet
-    sudo tail -f ~xcp/.cache/counterparty/log/server.testnet.log
-    sudo tail -f ~xcp/.cache/counterparty/log/server.testnet.api.log
-    sudo tail -f ~xcp/.cache/counterblock/log/server.testnet.log
-    sudo tail -f ~xcp/.cache/counterblock/log/server.testnet.api.log
-    
-    #relevant nginx logs
-    sudo tail -f /var/log/nginx/counterblock.access.log
-    sudo tail -f /var/log/nginx/counterblock.error.log
-
-These logs should hopefully provide some useful information that will help you further diagnose your issue. You can also
-keep tailing them (or use them with a log analysis tool like Splunk) to gain insight on the current
-status of ``counterparty``/``counterblock``.
-
-Also, you can start up the daemons in the foreground, for easier debugging, using the following sets of commands:
-
-    #launch bitcoind mainnet
-    sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.conf' xcpd
-    #launch bitcoind testnet
-    sudo su -s /bin/bash -c 'bitcoind -conf=/home/xcp/.bitcoin/bitcoin.testnet.conf' xcpd
-
-    #launch counterparty-server mainnet
-    sudo su -s /bin/bash -c 'counterparty-server start' xcpd
-    #launch counterblock mainnet
-    sudo su -s /bin/bash -c 'PYTHON_EGG_CACHE=/tmp/counterblock.eggs counterblock' xcpd
-    
-    #launch counterparty-server testnet
-    sudo su -s /bin/bash -c 'counterparty-server --config-file /home/xcp/.config/counterparty/server.testnet.conf start' xcpd
-    #launch counterblock testnet
-    sudo su -s /bin/bash -c 'PYTHON_EGG_CACHE=/tmp/counterblock.eggs counterblock --config-file /home/xcp/.config/counterblock/server.testnet.conf' xcpd
-
-You can also interface with Bitcoin Core by running ``bitcoin-cli`` commands, e.g.:
-
-    #mainnet
-    sudo su - xcpd -s /bin/bash -c "bitcoin-cli -conf=/home/xcp/.bitcoin/bitcoin.conf getinfo"
-    
-    #testnet
-    sudo su - xcpd -s /bin/bash -c "bitcoin-cli -conf=/home/xcp/.bitcoin/bitcoin.testnet.conf getinfo"
-
-
-Monitoring the Server
-----------------------
+### Monitoring the Server
 
 To monitor the server, you can use a 3rd-party service such as [Pingdom](http://www.pingdom.com) or [StatusCake](http://statuscake.com).
 The federated node allows these (and any other monitoring service) to query the basic status of the server (e.g. the ``nginx``,
@@ -304,10 +301,7 @@ If ``counterblock`` is not working properly, ``nginx`` will return a HTTP 503 (G
 If ``nginx`` is not working properly, either a HTTP 5xx response, or no response at all (i.e. timeout) will be returned.
 
 
-Counterwallet-Specific
------------------------
-
-###Creating a configuration file
+### Creating a configuration file
 
 Counterwallet can be configured via creating a small file called ``counterwallet.conf.json`` in the ``counterwallet/`` directory.
 This file will contain a valid JSON-formatted object, containing an a number of possible configuration properties. For example::
@@ -349,7 +343,7 @@ If you just want to use the current server (and don't have a multi-server setup)
 Once done, save this file and make sure it exists on all servers you are hosting Counterwallet static content on. Now, when you go to your Counterwallet site, the server will read in this file immediately after loading the page, and set the list of
 backend API hosts from it automatically.
 
-###Enabling multi-lingual support
+### Enabling multi-lingual support
 
 By default, Counterwallet builds with only (US) English support enabled. To enable support for other languages and I18N features, you must build the Transifex translations. This process is manual as Transifex unfortunately requires a username and password to do this, instead of an API key or some other method of access. Here's the process:
 
@@ -360,61 +354,15 @@ By default, Counterwallet builds with only (US) English support enabled. To enab
 
 The translations should then be built, and multilingual support will be enabled on the site.
 
+## Appendix 
 
-Other Topics
---------------
-
-###Development workflow
-
-With a federated node setup, it's rather easy to make source-level changes to Counterparty-related changes and test/debug them. First, run the federated node setup as normal. Then, issue the following commands:
-
-```
-cd ~xcp/federatednode_build/dist
-
-#remove any symlinks that exist
-sudo rm -f counterparty-lib counterparty-cli counterblock
-
-#checkout the develop branches of everything (or whatever other branch you see fit)
-git clone -b develop https://github.com/CounterpartyXCP/counterpartyd.git counterparty-lib
-git clone -b develop https://github.com/CounterpartyXCP/counterparty-cli.git
-git clone -b develop https://github.com/CounterpartyXCP/counterblock.git
-```
-
-Then you can make your changes to the source code as you see fit. To test the changes, run the ``setup.py install`` for the appropriate component, using the appropriate ``python``.
-
-For ``counterparty-lib`` this would be:
-
-```cd ~xcp/federatednode_build/dist/counterparty-lib && sudo ~xcp/federatednode_build/env/bin/python3 setup.py install```
-
-For ``counterblock`` this would be:
-
-```cd ~xcp/federatednode_build/dist/counterblock && sudo ~xcp/federatednode_build/env.counterblock/bin/python2 setup.py install```
-
-You can then re-launch the component (most likely in the console) using the appropriate command, documented earlier.
-
-###System user configuration
-
-Note that when you set up a federated node, the script creates two new users on the system: ``xcp`` and ``xcpd``. (The
-``xcp`` user also has an ``xcp`` group created for it as well.) 
-
-**Important**: The setup script by default creates user home under the ``/home``. If you wish to store the ``xcp`` user's data on another volume, mount it to ``/home/xcp`` (rather than, for example, ``/xcp``).
-
-The script installs ``counterparty-server``, ``counterwallet``, etc into the home directory of the ``xcp`` user. This
-user also owns all installed files. However, the daemons (i.e. ``bitcoind``, ``counterparty-server``, ``counterblock``, and ``nginx``) are actually run as the ``xcpd`` user, which has no write access to the files such as the ``counterwallet`` and ``counterparty-server`` source code files. The reason things are set up like this is so that even if there is a horrible bug in one of the products that allows for a RCE (or Remote Control Exploit), where the attacker would essentially be able to gain the ability to execute commands on the system as that user, two things should prevent this:
-
-* The ``xcpd`` user doesn't actually have write access to any sensitive files on the server (beyond the log and database
-  files for ``bitcoind``, ``counterparty-server``, etc.)
-* The ``xcpd`` user uses ``/bin/false`` as its shell, which prevents the attacker from gaining shell-level access
-
-This setup is such to minimize (and hopefully eliminate) the impact from any kind of potential system-level exploit.
-
-###More on multiple Counterwallet servers
+### More on multiple Counterwallet servers
 
 For the time being, the Counterparty team itself operates the primary Counterwallet platform at `counterwallet.io`. However, as Counterwallet is open source software, it is possible to host your own site with Counterwallet site (for your personal use, or as an offering to others), or to even host your own Counterwallet servers to use with your own Counterparty wallet implementation. The Counterparty team supports and encourages this kind of activity (as long as the servers are secure), as it aids with increasing decentralization.
         
 Also note that due to the nature of Counterwallet being a deterministic wallet, users using one Counterwallet platform (i.e. the official one, for instance) have the flexibility to start using a different Counterwallet platform instead at any time, and as funds (i.e. private keys) are not stored on the server in any fashion, they will be able to see their funds on either. (Note that the only thing that will not migrate are saved preferences, such as address aliases, the theme setting, etc.)
 
-###Counterwallet MultiAPI specifics
+### Counterwallet MultiAPI specifics
 
 Counterwallet utilizes a sort of a "poor man's load balancing/failover" implementation called multiAPI (and implemented
 [here](https://github.com/CounterpartyXCP/counterwallet/blob/master/src/js/util.api.js)). multiAPI can operate in a number of fashions.
