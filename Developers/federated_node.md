@@ -12,24 +12,31 @@ for system administrators and developers.
 Services run on a Federated Node include some or all of the following:
 
 **counterparty-server**
+
 `counterparty-lib` + `counterparty-cli`. Implements support for the core Counterparty protocol, via a provided REST API and command line interface.
 
 **counterblock**
+
 Provides additional services (required by `counterwallet` and potentially other services) beyond those offered in the API provided by `counterparty-server`. It features a full-fledged JSON RPC-based API, and has an extensible architecture to support custom plugins.
 
 **counterwallet**
+
 The reference Web wallet for Counterparty. This is a collection of HTML, CSS and javascript resources, served by `nginx`.
 
 **bitcoind**
+
 Reference Bitcoin implementation, used by `counterparty-server` to sync to the Bitcoin blockchain. We use the [`addrindex`](https://github.com/btcdrak/bitcoin/tree/addrindex-0.12) branch, as it has additional functionality Counterparty requires.
 
 **armory_utxsvr**
+
 A service used by ``counterblock`` with Counterwallet to support [Offline Armory transactions](http://counterparty.io/docs/create_armory_address/). This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
 
 **nginx**
+
 Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only or `counterblock`-only nodes.
 
 **mongodb and redis**
+
 Used by `counterblock`.
 
 ## Provisioning
