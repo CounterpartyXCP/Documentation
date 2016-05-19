@@ -129,6 +129,8 @@ git clone https://github.com/CounterpartyXCP/federatednode_build.git && cd feder
 git submodule init && git submodule update
 ```
 
+Perform **one** of the following:
+
 **Option 1:** If you would like to run `counterparty-server` only:
 ```
 sudo docker-compose -f docker-compose.base.yml up -d
@@ -139,7 +141,7 @@ sudo docker-compose -f docker-compose.base.yml up -d
 sudo docker-compose -f docker-compose.counterblock.yml up -d
 ```
 
-**Option 3:** If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and other required third-party services:
+**Option 3:** If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services:
 ```
 sudo docker-compose -f docker-compose.full.yml up -d
 ```
