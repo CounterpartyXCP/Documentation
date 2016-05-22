@@ -47,78 +47,85 @@ Order
 *Create and broadcast an `order` message*
 
 * --source = the source address
-* --get-quantity = the quantity of GET_ASSET that you would like to receive
+* --get-quantity = the quantity of GET_ASSET that the seller would like to receive
 * --get-asset = the asset that you would like to buy
-* --give-quantity = the quantity of GIVE_ASSET that you are willing to give
-* --give-asset = the asset that you would like to sell
+* --give-quantity = the quantity of GIVE_ASSET that the seller is willing to give
+* --give-asset = the asset that the seller would like to sell
 * --expiration = the number of blocks for which the order should be valid
 * --fee-fraction-required = the miners’ fee required for an order to match 
 * --fee = the exact BTC fee to be paid to miners
 
 To make a trade that involves BTC, the `order` function requires an
-extra parameter, and a second step is needed. If [address\_1] is trading
-[give\_quantity]1 of BTC in exchange for [get\_quantity]1 of [asset].
+extra parameter, and a second step (`btcpay`) is needed. If [address_1] is trading
+[give_quantity_1] of BTC in exchange for [get_quantity_1] of [asset].
 
 
-    order --source=[address_1] --give-asset=BTC --give-quantity=[give_quantity]1 \
-    --get-asset=[get_asset]1 --get-quantity=[get_quantity]1 \
-    --fee-provided=[fee_provided] --expiration=[expiration]1
+    order --source=[address_1] --give-asset=BTC --give-quantity=[give_quantity_1] \
+    --get-asset=[asset] --get-quantity=[get_quantity_1] --fee-provided=[fee_provided] \
+    --expiration=[expiration_1]
 
-If [address\_2] is trading [give\_quantity]2 of [asset] in exchange BTC.
-
-
-    order --source=[address_2] --give-asset=[asset] --give-quantity=[give_quantity]2 \
-    --get-asset=BTC --get-quantity=[get_quantity]2 --fee-required=[fee_required] \
-    --expiration=[expiration]2
+If [address_2] is trading [give_quantity_2] of [asset] in exchange for BTC:
 
 
-[asset] is debited immediately from [address\_2] and is held in escrow.
-[address\_1] then must complete the trade using `btcpay` before 10
-blocks have passed (or the lesser of the two `expiration` periods has
-passed, if the latter is less than 10 blocks from the time of match).
+    order --source=[address_2] --give-asset=[asset] --give-quantity=[give_quantity_2] \
+    --get-asset=BTC --get-quantity=[get_quantity_2] --fee-required=[fee_required] \
+    --expiration=[expiration_2]
+
+
+[asset] is debited immediately from [address_2] and is held in the Counterparty 
+protocol escrow. [address_1] then must complete the trade using `btcpay` before 10
+blocks have passed (or the lesser of the two `expiration` periods has passed, 
+if the latter is less than 10 blocks from the time of match). After the payment 
+transaction has received enough confirmations, the asset will be automatically 
+released to the BTC seller by the Counterparty protocol.
 
 The command for a `btcpay` is:
 
 
-    btcpay –order-match-id=[txhash1]+[txhash2]
+    btcpay --source=[source_address] -–order-match-id=[txhash1]+[txhash2]
 
 
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
     --get-asset=BTC --give-quantity=20 --give-asset=XCP --expiration=10 \
-    --fee_required=0.001
+    --fee_required=0.0002
 
 
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
     --get-asset=BBBC --give-quantity=20 --give-asset=BTC --expiration=10 \
-    --fee_provided=0.001
+    --fee_provided=0.0002
 
-For Sally to receive [get\_quantity]1 of [get\_asset]1 in
-exchange for [give\_quantity]1 of [give\_asset]1, the command is the
-following:
-
-
-    order --source=[sallys_address] --give-asset=[give_asset]1 \
-    --give-quantity=[give_quantity]1 --get-asset=[get_asset]1 \
-    --get-quantity=[get_quantity]1 --expiration=EXPIRATION`
-
-In order for Alice to receive [get\_quantity]2 of [give\_asset]2 in
-exchange for [give\_quantity]2 of [get\_asset]2, the command is:
+For orders that do not involve BTC buy or sell, `BTCpay` is not required. 
+For Sally to receive [get_quantity_1] of [get_asset_1] in exchange for 
+[give_quantity_1] of [give_asset_1], the command is the following:
 
 
-    order --source=[address_2] --give-asset=[get_asset]2 \
-    --give-quantity=[give_quantity]2 --get-asset=[get_asset]2 \
-    --get-quantity=[get_quantity]2 --expiration=expiration2
+    order --source=[sallys_address] --give-asset=[give_asset_1] \
+    --give-quantity=[give_quantity_1] --get-asset=[get_asset_1] \
+    --get-quantity=[get_quantity_1] --expiration=expiration_1
+
+In order for Alice to receive [get_quantity_2] of Sally's [give_asset_1] 
+in exchange for [give_quantity_2] of [get_asset_2], the command is:
+
+
+    order --source=[alices_address] --give-asset=[give_asset_2] \
+    --give-quantity=[give_quantity_2] --get-asset=[get_asset_2] \
+    --get-quantity=[get_quantity_2] --expiration=expiration_2
+
+For example, Alice wants to sell 20 BBBC for 10 XCP within (expiration) 
+144 bitcoin blocks (approximately 144 * 10 min = 24 hours):
+
 
     order --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --get-quantity=10 \
-    --get-asset=XCP --give-quantity=20 --give-asset=BBBC --expiration=10
-    
+    --get-asset=XCP --give-quantity=20 --give-asset=BBBC --expiration=144
+
+Note that orders can be partially matched.    
     
 BTCPay
 ----------------------------------------
 *Create and broadcast a `BTCpay` message, to settle an Order Match for which you owe*
 
 BTC Pay has been disabled in Counterwallet, but remains available in the
-CLI.
+CLI (and API).
 
 * --source = the source address
 * --order-match-id = the concatenation of the hashes of the two transactions which compose the order match
