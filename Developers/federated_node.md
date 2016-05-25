@@ -52,7 +52,7 @@ need to set up a Linux Virtual Machine (VM) instance (or hardware), with at leas
 of memory, and enough disk space to cover the installation and use of the desired components.
 
 ### Host system configuration
-(This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)
+*(This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)*
 
 **Update system**
 
@@ -117,9 +117,13 @@ sudo ufw enable
 
 **Additional security hardening (optional)**
 
-Some other helpful security-related practices, execute the `extra/ubuntu_secure/run.py` script, which will:
-* Enable automatic updates (`unattended-upgrades` package on Ubuntu)
-* Install and set up the `fail2ban`, `psad`, `chrootkit`, `rkhunter`, `logwatch`, `auditd`, and `iwatch` packages
+If you are running a node in a production scenario, it is recommended that you properly secure it. If your host OS is Ubuntu Linux, you can optionally run a little script that will issue a number of commands to assist with this:
+```
+cd extras/host_security
+./run.py
+```
+
+Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode_build/blob/master/extras/host_security/run.py).
 
 ## Installation
 
@@ -234,16 +238,6 @@ Where `<service>` is one of the following:
 * `counterparty-testnet`
 * `counterblock-testnet`
 * `counterwallet`
-
-## Securing the host system
-
-If you are running a node in a production scenario, it is recommended that you properly secure it. If your host OS is Ubuntu Linux, you can optionally run a little script that will issue a number of commands to assist with this:
-```
-cd extras/host_security
-./run.py
-```
-
-Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode_build/blob/master/extras/host_security/run.py).
 
 ## Component development
 
