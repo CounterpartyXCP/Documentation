@@ -235,6 +235,15 @@ Where `<service>` is one of the following:
 * `counterblock-testnet`
 * `counterwallet`
 
+## Securing the host system
+
+If you are running a node in a production scenario, it is recommended that you properly secure it. If your host OS is Ubuntu Linux, you can optionally run a little script that will issue a number of commands to assist with this:
+```
+cd extras/host_security
+./run.py
+```
+
+Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode_build/blob/master/extras/host_security/run.py).
 
 ## Component development
 
