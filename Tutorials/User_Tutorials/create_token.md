@@ -15,7 +15,7 @@ Alphabetical tokens (for example BACON) can be named, but must be between 4 and 
 
 **Numeric**
 
-Numeric (or more precisely alphanumeric) tokens (for example A12149713090358620000) are free to register and only require a Bitcoin transaction fee (like all other Counterwallet actions). If you only want to create and trade numeric tokens, you will not require any XCP. Numeric tokens must start with an "A".
+Numeric (or more precisely alphanumeric) tokens (for example A12149713090358620000) are free to register and only require a Bitcoin transaction fee (like all other Counterwallet actions) on the issuing address. If you only want to create and trade numeric tokens, you will not require any XCP. Numeric tokens must start with an "A".
 
 ### Creating a token is fairly simple:
 
