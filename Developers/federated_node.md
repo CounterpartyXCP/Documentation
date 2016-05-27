@@ -40,7 +40,8 @@ Here are the recommendations and/or requirements when setting up a production-gr
 - DDOS protection recommended if you will be offering your service to others
 
 The exact disk space required will be dependent on what services are run on the node. We recommend **150GB** (to be safe), plus:
-- For ``counterparty``, ``counterblock`` databases: **~1500MB**
+- For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
+- For ``counterparty`` and ``counterblock`` databases: **~1500MB** each
 - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
 
 For the OS, we recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
@@ -58,8 +59,7 @@ of memory, and enough disk space to cover the installation and use of the desire
 
 Update your base system to the newest packages:
 ```
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update && apt-get upgrade
 ```
 
 **Install dependencies**
@@ -78,10 +78,6 @@ sudo apt-get update
 sudo apt-get purge lxc-docker
 sudo apt-get install linux-image-extra-$(uname -r) docker-engine
 ```
-
-**Generate/install an SSH key**
-
-To be able to pull the sources from Github, you'll need to generate an SSH key, or place your existing Github SSH key into `~/.ssh` on the host machine (see [here](https://help.github.com/articles/generating-an-ssh-key/) for more info)
 
 **Port/firewalling setup**
 
@@ -256,6 +252,7 @@ Where `<service>` is one of the following:
 * `counterblock-testnet`
 * `counterwallet-testnet`
 
+Note that, HTTPS repository URLs are used. You can cache your GitHub username and password using [these instructions](https://help.github.com/articles/caching-your-github-password-in-git/).
 
 ## Counterwallet-Specific
 
