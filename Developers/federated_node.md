@@ -252,7 +252,7 @@ Where `<service>` is one of the following:
 * `counterblock-testnet`
 * `counterwallet-testnet`
 
-Note that, HTTPS repository URLs are used. You can cache your GitHub username and password using [these instructions](https://help.github.com/articles/caching-your-github-password-in-git/).
+Note that HTTPS repository URLs are used for all of the submodules checked out under `src`. If you are committing changes back, you will be asked for your Github username and password by default. You can avoid this via following [these instructions](https://help.github.com/articles/caching-your-github-password-in-git/).
 
 ## Counterwallet-Specific
 
