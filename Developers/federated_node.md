@@ -33,11 +33,9 @@ Services run on a Federated Node include some or all of the following:
 
 Here are the recommendations and/or requirements when setting up a production-grade Federated Node:
 
-- Xeon E3+ or similar-class processor
+- Modern CPU (such as a Xeon E3 or similar)
 - 8GB+ RAM (ECC)
-- Disk drives in RAID-1 (mirrored) configuration (SSD prefered)
-- Hosted in a secure data center with physical security and access controls
-- DDOS protection recommended if you will be offering your service to others
+- Data redundancy, i.e. 2+ disk drives in a RAID-1, 5 or 6 configuration (SSD prefered)
 
 The exact disk space required will be dependent on what services are run on the node. We recommend **150GB** (to be safe), plus:
 - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
