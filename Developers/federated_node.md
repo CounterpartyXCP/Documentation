@@ -27,28 +27,15 @@ Services run on a Federated Node include some or all of the following:
 
 ## Provisioning
 
-### Hardware / OS selection
+### Hardware / OS requirements
 
-**For Production Systems**
-
-Here are the recommendations and/or requirements when setting up a production-grade Federated Node:
-
-- Modern CPU (such as a Xeon E3 or similar)
-- 8GB+ RAM (ECC)
-- Data redundancy, i.e. 2+ disk drives in a RAID-1, 5 or 6 configuration (SSD prefered)
-
-The exact disk space required will be dependent on what services are run on the node. We recommend **150GB** (to be safe), plus:
-- For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
-- For ``counterparty`` and ``counterblock`` databases: **~1500MB** each
-- For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
-
-For the OS, we recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
-
-**For Testing and Development**
-
-If you'd like to set up a Counterblock Federated Node system for testing and development, you
-need to set up a Linux Virtual Machine (VM) instance (or hardware), with at least **4 GB**
-of memory, and enough disk space to cover the installation and use of the desired components.
+- **Memory**: 4GB RAM (bitcoin, counterparty only), 8GB+ RAM (full stack)
+- **Disk space:** The exact disk space required will be dependent on what services are run on the node. We recommend **150GB** (to be safe), plus:
+  
+  - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
+  - For ``counterparty`` and ``counterblock`` databases: **~1500MB** each
+  - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
+- **OS:** we recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
 
 ### Host system configuration
 *(This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)*
