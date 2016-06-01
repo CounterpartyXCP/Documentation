@@ -34,16 +34,14 @@ Services run on a Federated Node include some or all of the following:
 ### Host system configuration
 *(This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)*
 
-**Update system**
+**Update system & install dependencies**
 
-Update your base system to the newest packages:
 ```
 sudo apt-get update && apt-get upgrade
 ```
 
-**Install dependencies**
+Install base dependencies:
 
-Install git:
 ```
 sudo apt-get install git
 ```
@@ -60,33 +58,30 @@ sudo apt-get install linux-image-extra-$(uname -r) docker-engine
 
 **Port/firewalling setup**
 
-If installing `counterwallet`, ensure that no services are running on port 80, and uninstall/stop them if so:
+If installing `counterwallet`, ensure that no services are running on port 80 and 443, and uninstall/stop them if so:
 ```
 sudo netstat -tulpn | grep ":80 "
+sudo netstat -tulpn | grep ":443 "
 ```
 
-It’s highly recommended that you use a firewall on the system:
+It’s highly recommended that you use a firewall on the system. Issue the appropriate commands, depending on what services you will be running and thus which ports you'd like to allow through:
 ```
+# Always a good idea
 sudo ufw allow ssh
 
-#Issue these as needed to firewall through specific ports
-# counterparty-server mainnet
+# counterparty-server mainnet (4000) and testnet (14000)
 sudo ufw allow 4000/tcp
-
-# counterparty-server testnet
 sudo ufw allow 14000/tcp
 
-# counterblock mainnet
+# counterblock mainnet (4001) and testnet (14001)
 sudo ufw allow 4001/tcp
-
-# counterblock testnet
 sudo ufw allow 14001/tcp
 
 # counterwallet
 sudo ufw allow http
 sudo ufw allow https
 
-#ENABLE THE FIREWALL
+# ENABLE THE FIREWALL (verify your config first)
 sudo ufw enable
 ```
 
