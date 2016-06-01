@@ -102,28 +102,50 @@ Note that this script will make several modifications to your host system as it 
 
 ## Installation
 
-Clone and checkout everything:
+**Clone and check out the code**
 ```
 git clone https://github.com/CounterpartyXCP/federatednode_build.git && cd federatednode_build
 git submodule init && git submodule update
 ```
 
-Perform **one** of the following:
+**Define the release to use**
 
-**Option 1:** If you would like to run `counterparty-server` only:
+For `master` (stable and recommended):
+```
+export FEDNODE_RELEASE_TAG="master"
+```
+
+For `develop` (cutting edge, likely with bugs):
+```
+export FEDNODE_RELEASE_TAG="develop"
+```
+
+**Build and link the containers***
+
+Perform **only one** of the following:
+
+* *Option 1:* If you would like to run `counterparty-server` only:
 ```
 sudo docker-compose -f docker-compose.base.yml up -d
 ```
 
-**Option 2:** If you would like to run `counterparty-server` and `counterblock`, but not `counterwallet`:
+* *Option 2:* If you would like to run `counterparty-server` and `counterblock`, but not `counterwallet`:
 ```
 sudo docker-compose -f docker-compose.counterblock.yml up -d
 ```
 
-**Option 3:** If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services:
+* *Option 3:* If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services:
 ```
 sudo docker-compose -f docker-compose.full.yml up -d
 ```
+
+**Wait for initial sync**
+
+After installation, the services will be automatically started. Note that it will take some time for bitcoind to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
+
+You may check the sync status by tailing the appropriate service logs.
+
+** Access the system **
 
 Once running, the system listens on the following ports:
 * `counterparty-server`: 4000/tcp (mainnet), 14000/tcp (testnet)
@@ -135,12 +157,6 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 * `http://<host>/` — directs to `https`
 * `https://<host>/` - main production URL (uses minified JS/CSS)
 * `https://<host>/src/` - development URL (uses un-minified JS/CSS)
-
-**Initial sync**
-
-After installation, the services will be automatically started. Note that it will take some time for bitcoind to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
-
-You may check the sync status by tailing the appropriate service logs.
 
 
 ## Administration
