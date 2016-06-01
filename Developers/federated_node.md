@@ -124,17 +124,17 @@ Perform **only one** of the following:
 
 * *Option 1:* If you would like to run `counterparty-server` only:
 ```
-sudo docker-compose -f docker-compose.base.yml up -d
+sudo -E bash -c "docker-compose -f docker-compose.base.yml up -d"
 ```
 
 * *Option 2:* If you would like to run `counterparty-server` and `counterblock`, but not `counterwallet`:
 ```
-sudo docker-compose -f docker-compose.counterblock.yml up -d
+sudo -E bash -c "sudo docker-compose -f docker-compose.counterblock.yml up -d"
 ```
 
 * *Option 3:* If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services:
 ```
-sudo docker-compose -f docker-compose.full.yml up -d
+sudo -E bash -c "sudo docker-compose -f docker-compose.full.yml up -d"
 ```
 
 **Wait for initial sync**
