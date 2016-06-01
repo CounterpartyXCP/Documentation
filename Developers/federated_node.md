@@ -120,7 +120,7 @@ For `develop` (cutting edge, likely with bugs):
 export FEDNODE_RELEASE_TAG="develop"
 ```
 
-**Build and link the containers***
+**Build and link the containers**
 
 Perform **only one** of the following:
 
@@ -145,7 +145,7 @@ After installation, the services will be automatically started. Note that it wil
 
 You may check the sync status by tailing the appropriate service logs.
 
-** Access the system **
+**Access the system**
 
 Once running, the system listens on the following ports:
 * `counterparty-server`: 4000/tcp (mainnet), 14000/tcp (testnet)
