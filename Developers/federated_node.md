@@ -96,13 +96,13 @@ cd extras/host_security
 ./run.py
 ```
 
-Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode_build/blob/master/extras/host_security/run.py).
+Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode/blob/master/extras/host_security/run.py).
 
 ## Installation
 
 **Clone and check out the code**
 ```
-git clone https://github.com/CounterpartyXCP/federatednode_build.git && cd federatednode_build
+git clone https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
 git submodule init && git submodule update
 ```
 
