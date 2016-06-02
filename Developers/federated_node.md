@@ -139,9 +139,13 @@ sudo -E bash -c "sudo docker-compose -f docker-compose.full.yml up -d"
 
 **Wait for initial sync**
 
-After installation, the services will be automatically started. Note that it will take some time for bitcoind to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
+After installation, the services will be automatically started. You can issue `docker-compose ps` to double check this. Note that it will take some time for `bitcoind` to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
 
-You may check the sync status by tailing the appropriate service logs.
+You may check the sync status by tailing the appropriate service logs, e.g. for `bitcoind` and `counterparty-server` mainnet:
+```
+fednode tail bitcoin
+fednode tail counterparty
+```
 
 **Access the system**
 
