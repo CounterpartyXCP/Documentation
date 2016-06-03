@@ -107,52 +107,46 @@ git submodule init && git submodule update
 sudo ln -sf fednode.py /usr/local/bin/fednode
 ```
 
-**Define the release to use**
-
-For `master` (stable and recommended):
-```
-export FEDNODE_RELEASE_TAG="master"
-```
-
-For `develop` (cutting edge, likely with bugs):
-```
-export FEDNODE_RELEASE_TAG="develop"
-```
-
 **Build and link the containers**
 
-Perform **only one** of the following:
-
-* *Option 1:* If you would like to run `counterparty-server` only:
+Run the following command:
 ```
-sudo -E bash -c "docker-compose -f docker-compose.base.yml up -d"
+sudo fednode install <CONFIG> <BRANCH>
 ```
 
-* *Option 2:* If you would like to run `counterparty-server` and `counterblock`, but not `counterwallet`:
-```
-sudo -E bash -c "sudo docker-compose -f docker-compose.counterblock.yml up -d"
-```
+Where `<CONFIG>` is one of the following:
 
-* *Option 3:* If you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services:
+* **`base`** if you want to run `counterparty-server` only
+* **`counterblock`** if you want to run `counterparty-server` and `counterblock`, but not `counterwallet`
+* **`full`** if you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services
+
+And where `<BRANCH>` is one of the following:
+
+* **`master`** (stable and recommended)
+* **`develop`** (cutting edge, likely with bugs
+
+For example:
 ```
-sudo -E bash -c "sudo docker-compose -f docker-compose.full.yml up -d"
+# install a base configuration for the master branch
+sudo fednode install base master
+
+# install a full configuration for the develop branch
+sudo fednode install full develop
 ```
 
 **Wait for initial sync**
 
 After installation, the services will be automatically started. To check the status, issue:
 ```
-sudo docker-compose -f docker-compose.base.yml ps
+sudo fednode ps
 ```
-
-Replacing `docker-compose.base.yml` with the name of the configuration file used, if different.
 
 Once the containers are installed and running, keep in mind that it will take some time for `bitcoind` to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
 
 You may check the sync status by tailing the appropriate service logs, e.g. for `bitcoind` and `counterparty-server` mainnet:
 ```
-fednode tail bitcoin
-fednode tail counterparty
+sudo fednode tail bitcoin
+sudo fednode tail counterparty
 ```
 
 **Access the system**
@@ -171,16 +165,16 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 
 ## Administration
 
-Run `docker-compose ps` to check the status of the containers at any time.
+Run `sudo fednode ps` to check the status of the containers at any time.
 
 **Tailing logs**
 
 To view (tail) the logs, use the following command:
 ```
-fednode tail <service>
+sudo fednode tail <service>
 ```
 
-Where `<service>` may be one of:
+<a name="servicenames"></a>Where `<service>` may be one the following, or blank to tail all services:
 * `counterparty` (`counterparty-server` mainnet)
 * `counterblock` (`counterblock` mainnet)
 * `bitcoin` (`bitcoin` mainnet)
@@ -194,49 +188,72 @@ Where `<service>` may be one of:
 **Stopping and restarting containers**
 
 ```
-fednode stop <service>
-fednode start <service>
-fednode restart <service>
+sudo fednode stop <service>
+sudo fednode start <service>
+sudo fednode restart <service>
 ```
 
-Where `<service>` is one of the service names listed above.
+Where `<service>` is one of the service names listed [above](#servicenames), or blank for all services.
 
 **Issuing a single shell command**
 
 ```
-fednode exec <service> <CMD>
+sudo fednode exec <service> <CMD>
 ```
 
-Where `<service>` is one of the service names listed above, and `<CMD>` is an arbitrary shell command.
+Where `<service>` is one of the service names listed [above](#servicenames), and `<CMD>` is an arbitrary shell command.
 
 For example:
 ```
-fednode exec counterparty counterparty-server send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP
-fednode cmd bitcoin-testnet bitcoin-cli getpeerinfo
-fednode exec counterblock ls ~
+sudo fednode exec counterparty counterparty-server send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP
+sudo fednode cmd bitcoin-testnet bitcoin-cli getpeerinfo
+sudo fednode exec counterblock ls /root
 ```
+
 **Getting a shell in a conainer**
 
 ```
-fednode shell <service>
+sudo fednode shell <service>
 ```
 
-Where `<service>` is one of the service names listed above.
+Where `<service>` is one of the service names listed [above](#servicenames).
 
-## Updating components
+
+## Updating, rebuilding, uninstalling
 
 To pull the newest software from the git repositories and restart the appropriate daemon, issue the following command:
 
 ```
-fednode upgrade <service>
+sudo fednode update <service>
 ```
 
-Where `<service>` is one of the following:
+<a name="servicenames_code"></a>Where `<service>` is one of the following, or blank for all applicable services:
 * `counterparty`
-* `counterblock`
 * `counterparty-testnet`
+* `counterblock`
 * `counterblock-testnet`
+* `armory_utxsvr`
+* `armory_utxsvr-testnet`
 * `counterwallet`
+
+**Rebuilding a service container**
+
+As a more extensive option, if you want to remove, rebuild and reinstall a container (downloading the newest container image/`Dockerfile` and utilizing that):
+
+```
+sudo fednode rebuild <service>
+```
+
+Where `<service>` is one of the service names listed [earlier](#servicenames), or blank for all services. Note that you are just looking to update the source code and restart the service, `update` is a better option.
+
+**Uninstalling**
+
+To uninstall the entire fednode setup, run:
+
+```
+sudo fednode unisntall
+```
+
 
 ## Component development
 
@@ -244,16 +261,10 @@ The system allows for easy development and modification of the Counterparty soft
 
 Once done updating the source code, issue the following command(s) to load the new code:
 ```
-fednode reinst <service>
+fednode restart <service>
 ```
 
-Where `<service>` is one of the following:
-* `counterparty`
-* `counterblock`
-* `counterwallet`
-* `counterparty-testnet`
-* `counterblock-testnet`
-* `counterwallet-testnet`
+Where `<service>` is one of the services mentioned [here](#servicenames_code).
 
 Note that HTTPS repository URLs are used for all of the submodules checked out under `src`. If you are committing changes back, you will be asked for your Github username and password by default. You can avoid this via following [these instructions](https://help.github.com/articles/caching-your-github-password-in-git/).
 
@@ -269,7 +280,9 @@ you should get your own SSL certificate from your DNS registrar so that your use
 they visit your site. Once you have that certificate, create a nginx-compatible ``.pem`` file, and issue the following command:
 
 ```
-fednode instcert <certfile> <keyfile>
+sudo docker cp <certfile_path> federatednode_counterwallet_1:/etc/ssl/certs/counterwallet.pem
+sudo docker cp <keyfile_path> federatednode_counterwallet_1:/etc/ssl/private/counterwallet.key
+sudo fednode restart counterwallet
 ```
 
 ### Monitoring the Server
@@ -301,7 +314,7 @@ If ``nginx`` is not working properly, either a HTTP 5xx response, or no response
 
 Counterwallet can be configured via editing the `counterwallet.conf.json` file, via issuing the following command:
 ```
-sudo docker exec -it counterwallet vim /root/counterwallet/counterwallet.conf.json
+sudo docker exec -it federatednode_counterwallet_1 vim /counterwallet/counterwallet.conf.json
 ```
 
 This file will contain a valid JSON-formatted object, containing an a number of possible configuration properties. For example::
@@ -342,70 +355,3 @@ If you just want to use the current server (and don't have a multi-server setup)
 
 Once done, save this file and make sure it exists on all servers you are hosting Counterwallet static content on, and restart the `counterwallet` service. Now, when you go to your Counterwallet site, the server will read in this file immediately after loading the page, and set the list of
 backend API hosts from it automatically.
-
-### Enabling multi-lingual support
-
-By default, Counterwallet builds with only (US) English support enabled. To enable support for other languages and I18N features, you must build the Transifex translations. This process is manual as Transifex unfortunately requires a username and password to do this, instead of an API key or some other method of access. Here's the process:
-
-1. Make sure the federated node build process completed successfully, and that you chose "Counterwallet server" for the role.
-2. Sign up for an account on http://www.transifex.com
-3. Create a file at `/home/xcp/.transifex` with your account username and password the format of `user:password` (i.e. all on one line)
-4. Run the command: `sudo su -s /bin/bash -c 'cd ~xcp/counterwallet && grunt transifex --force' xcp`
-
-The translations should then be built, and multilingual support will be enabled on the site.
-
-## Appendix 
-
-### More on multiple Counterwallet servers
-
-For the time being, the Counterparty team itself operates the primary Counterwallet platform at `counterwallet.io`. However, as Counterwallet is open source software, it is possible to host your own site with Counterwallet site (for your personal use, or as an offering to others), or to even host your own Counterwallet servers to use with your own Counterparty wallet implementation. The Counterparty team supports and encourages this kind of activity (as long as the servers are secure), as it aids with increasing decentralization.
-        
-Also note that due to the nature of Counterwallet being a deterministic wallet, users using one Counterwallet platform (i.e. the official one, for instance) have the flexibility to start using a different Counterwallet platform instead at any time, and as funds (i.e. private keys) are not stored on the server in any fashion, they will be able to see their funds on either. (Note that the only thing that will not migrate are saved preferences, such as address aliases, the theme setting, etc.)
-
-### Counterwallet MultiAPI specifics
-
-Counterwallet utilizes a sort of a "poor man's load balancing/failover" implementation called multiAPI (and implemented
-[here](https://github.com/CounterpartyXCP/counterwallet/blob/master/src/js/util.api.js)). multiAPI can operate in a number of fashions.
-
-**multiAPIFailover for Read API (``get_``) Operations**
-
-*multiAPIFailover* functionality is currently used for all read API operations. In this model, the first Federated Node
-on the shuffled list is called for the data, and if it returns an error or the request times out, the second one on the
-list is called, and so on. The result of the first server to successfully return are used.
-
-Here, a "hacked" server could be modified to return bogus data. As (until being discovered) the server would be in the
-shuffled list, some clients may end up consulting it. However, as this functionality is essentially for data queries only,
-the worse case result is that a Counterwallet client is shown incorrect/modified data which leads to misinformed actions
-on the user's behalf. Moreover, the option always exists to move all read-queries to use multiAPIConsensus in the future should the need arise.
-
-**multiAPIConsensus for Action/Write (``create_``) Operations**
-
-Based on this multiAPI capability, the wallet itself consults more than one of these Federated Nodes via consensus especially
-for all ``create_``-type operations. For example, if you send XCP, `counterparty-server` on each server is still composing and sending
-back the unsigned raw transaction, but for data security, it compares the results returned from all servers, and will 
-only sign and broadcast (both client-side) if all the results match). This is known as *multiAPIConsensus*.
-
-The ultimate goal here is to have a federated net of semi-trusted backend servers not tied to any one country, provider, network or
-operator/admin. Through requiring consensus on the unsigned transactions returned for all ``create_`` operations, 'semi-trust'
-on a single server basis leads to an overall trustworthy network. Worst case, if backend server is hacked and owned
-(and the `counterparty-server` code modified), then you may get some invalid read results, but it won't be rewriting your XCP send
-destination address, for example. The attackers would have to hack the code on every single server in the same exact
-way, undetected, to do that.
-
-Moreover, the Counterwallet web client contains basic transaction validation code that will check that any unsigned Bitcoin
-transaction returned from a Counterblock Federated Node contains expected inputs and outputs. This provides further
-protection against potential attacks.
-
-multiAPIConsensus actually helps discover any potential "hacked" servers as well, since a returned consensus set with
-a divergent result will be rejected by the client, and thus trigger an examination of the root cause by the team.
-
-**multiAPINewest for Redundant storage**
-
-In the same way, these multiple servers are used to provide redundant storage of client-side preferences, to ensure we
-have no single point of failure. In the case of the stored preferences for instance, when retrieved on login, the data from all servers
-is taken in, and the newest result is used. This *multiAPINewest* functionality effectively makes a query across all available
-Federated Nodes, and chooses the newest result (based on a "last updated"-type timestamp).
-
-Note that with this, a "hacked" server could be modified to always return the latest timestamp, so that its results
-were used. However, wallet preferences (and other data stored via this functionality) is non-sensitive, and thus user's
-funds would not be at risk before the hacked server could be discovered and removed.
