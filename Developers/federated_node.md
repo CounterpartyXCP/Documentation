@@ -209,21 +209,25 @@ fednode shell <service>
 
 Where `<service>` is one of the service names listed above.
 
-**Issuing a counterparty-server command**
+**Issuing a single shell command**
 
 ```
-fednode cmd <counterparty|counterparty-testnet> <cmd>
+fednode exec <service> <CMD>
 ```
 
-For example: `fednode cmd counterparty send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP`
+Where `<service>` is one of the service names listed above, and `<CMD>` is an arbitrary shell command.
 
-**Issuing a bitcoind command**
+**Issuing a bitcoind or counterparty-server command**
 
 ```
-fednode cmd <bitcoin|bitcoin-testnet> <cmd>
+fednode cmd <bitcoin|bitcoin-testnet|counterparty|counterparty-testnet> <cmd>
 ```
 
-For example: `fednode cmd bitcoin-testnet getpeerinfo`
+For example:
+```
+fednode cmd counterparty send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP
+fednode cmd bitcoin-testnet getpeerinfo
+```
 
 ## Updating components
 
