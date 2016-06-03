@@ -3,7 +3,7 @@ Creating an Armory Offline Wallet for Cold Storage
 
 ### 
 
-**NOTE: This feature requires Armory 0.92.1 or later.**
+**NOTE: This feature requires Armory 0.92.1 or later. As of this documentation update Counterwallet supports Armory 0.93.3.**
 
 Set up an Armory offline wallet using the instructions from [here](https://bitcoinarmory.com/tutorials/armory-basics/). Additional video instructions are [here](https://www.youtube.com/watch?v=PGvrai3JxxI).
 
