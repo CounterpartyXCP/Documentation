@@ -104,6 +104,7 @@ Note that this script will make several modifications to your host system as it 
 ```
 git clone https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
 git submodule init && git submodule update
+sudo ln -sf fednode.py /usr/local/bin/fednode
 ```
 
 **Define the release to use**
