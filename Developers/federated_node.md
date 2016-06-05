@@ -61,12 +61,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 **Port/firewalling setup**
 
-If installing `counterwallet`, ensure that no services are running on port 80 and 443, and uninstall/stop them if so:
-```
-sudo netstat -tulpn | grep ":80 "
-sudo netstat -tulpn | grep ":443 "
-```
-
 It’s highly recommended that you use a firewall on the system. Issue the appropriate commands, depending on what services you will be running and thus which ports you'd like to allow through:
 ```
 # Always a good idea
