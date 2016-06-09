@@ -32,6 +32,7 @@ Services run on a Federated Node include some or all of the following:
 ## Installation
 
 **Update system & install dependencies**
+
 *(The next sections assume a base machine running on Ubuntu. Similar steps apply for other OSes.)*
 
 ```
@@ -150,7 +151,12 @@ Note that this script will make several modifications to your host system as it 
 
 ## Administration
 
-Run `sudo fednode ps` to check the status of the containers at any time.
+**Checking status**
+
+To check the status of the containers, run:
+```
+sudo fednode ps
+```
 
 **Tailing logs**
 
