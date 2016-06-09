@@ -9,8 +9,7 @@ This page contains links to some useful tutorials intended for advanced users an
 
 ## Development-related
 - [Integrating XCP and assets into an exchange](exchange_integration.md)
-
-
-
-
+- [Counterwallet Enhanced Asset Info](enhanced_asset_info.md)
+- [Counterwallet Enhanced Feed Info](enhanced_feed_info.md)
+- [Counterwallet failover mechanics and misc notes](counterwallet_notes.md)
 

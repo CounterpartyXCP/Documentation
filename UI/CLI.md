@@ -1,5 +1,5 @@
-CLI Example Usage
-=================
+CLI (`counterparty-client`) Usage
+=====================================
 
 The following examples are abridged for parsimony (meaning: actions are
 normally preceded by `counterparty-client`, i.e. the `burn` command would be

@@ -1,3 +1,3 @@
 # Official Documentation of the Counterparty Project
 
-The documentation is hosted on http://counterparty.io/docs/. 
+All documentation at http://counterparty.io/docs/ is rendered from the markdown sources in this repository.
