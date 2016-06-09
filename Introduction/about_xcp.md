@@ -27,12 +27,16 @@ Since the BTC on the burn address will never be spendable again, they are consid
 * Full transparency
 * Zero pre-mine
 
-### What is XCP used for?
+### Is XCP an alt-coin or competitor to Bitcoin?
 
-#### Smart contracts execution steps (gas) are paid in XCP.
+No. XCP cannot exist without Bitcoin, as Counterparty extends the basic features of Bitcoin with proof-of-publication, oracle betting, decentralized exchange, automatic escrow, order matching, and smart contracts. 
+
+### Can more XCP be created?
+
+No. The supply of XCP is fixed, and decreasing because of fees being burned.
+
+### What is XCP used for?
 
 XCP is the fuel for smart contracts. When smart contracts are running, fuel is used for each execution step. Appropriately enough, this fuel is **burned** (destroyed). This means that the supply of XCP is continously decreasing. However, the cost of fuel adjusts proportionally as the supply of XCP goes down, so that it cannot reach 0.
 
 XCP is always the easiest token to trade against, as it is represented across all exchanges that support Counterparty. It is also used for anti-spam fees when registering named tokens, and when making distribution payments to token holders. The betting system also uses XCP.
-
-Unfortunately these features cannot reach the achieve of the main Bitcoin blockchain without a metatoken, such as XCP. This intermediate step is a technical necessity, and many Counterparty features such as betting therefore use XCP. 
