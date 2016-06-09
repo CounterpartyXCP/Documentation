@@ -24,13 +24,12 @@ Services run on a Federated Node include some or all of the following:
 
 ### Hardware / OS requirements
 
-- **Memory**: 4GB RAM (bitcoin, counterparty only), 8GB+ RAM (full stack)
-- **Disk space:** The exact disk space required will be dependent on what services are run on the node. We recommend **150GB** (to be safe), plus:
-  
-  - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
-  - For ``counterparty`` and ``counterblock`` databases: **~1500MB** each
-  - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
-- **OS:** we recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
+- **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
+- **Disk space:** The exact disk space required will be dependent on what services are run on the node:
+    - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
+    - For ``counterparty`` and ``counterblock`` databases: **~1.5GB** each
+    - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
+- **OS:** We recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
 
 ### Host system configuration
 *(This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)*
@@ -39,11 +38,6 @@ Services run on a Federated Node include some or all of the following:
 
 ```
 sudo apt-get update && apt-get upgrade
-```
-
-Install base dependencies:
-
-```
 sudo apt-get install git
 ```
 
@@ -59,39 +53,6 @@ sudo apt-get install linux-image-extra-$(uname -r) docker-engine
 sudo /bin/sh -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
 sudo chmod +x /usr/local/bin/docker-compose
 ```
-
-**Port/firewalling setup**
-
-It’s highly recommended that you use a firewall on the system. Issue the appropriate commands, depending on what services you will be running and thus which ports you'd like to allow through:
-```
-# Always a good idea
-sudo ufw allow ssh
-
-# counterparty-server mainnet (4000) and testnet (14000)
-sudo ufw allow 4000/tcp
-sudo ufw allow 14000/tcp
-
-# counterblock mainnet (4001) and testnet (14001)
-sudo ufw allow 4001/tcp
-sudo ufw allow 14001/tcp
-
-# counterwallet
-sudo ufw allow http
-sudo ufw allow https
-
-# ENABLE THE FIREWALL (verify your config first)
-sudo ufw enable
-```
-
-**Additional security hardening (optional)**
-
-If you are running a node in a production scenario, it is recommended that you properly secure it. If your host OS is Ubuntu Linux, you can optionally run a little script that will issue a number of commands to assist with this:
-```
-cd extras/host_security
-./run.py
-```
-
-Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode/blob/master/extras/host_security/run.py).
 
 ## Installation
 
@@ -156,6 +117,39 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 * `http://<host>/` — directs to `https`
 * `https://<host>/` - main production URL (uses minified JS/CSS)
 * `https://<host>/src/` - development URL (uses un-minified JS/CSS)
+
+**Post-installation tasks**
+
+It’s highly recommended that you use a firewall on the system. Issue the appropriate commands, depending on what services you will be running and thus which ports you'd like to allow through:
+```
+# Always a good idea
+sudo ufw allow ssh
+
+# counterparty-server mainnet (4000) and testnet (14000)
+sudo ufw allow 4000/tcp
+sudo ufw allow 14000/tcp
+
+# counterblock mainnet (4001) and testnet (14001)
+sudo ufw allow 4001/tcp
+sudo ufw allow 14001/tcp
+
+# counterwallet
+sudo ufw allow http
+sudo ufw allow https
+
+# ENABLE THE FIREWALL (verify your config first)
+sudo ufw enable
+```
+
+**Additional security hardening (optional)**
+
+If you are running a node in a production scenario, it is recommended that you properly secure it. If your host OS is Ubuntu Linux, you can optionally run a little script that will issue a number of commands to assist with this:
+```
+cd extras/host_security
+./run.py
+```
+
+Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode/blob/master/extras/host_security/run.py).
 
 
 ## Administration
