@@ -20,8 +20,6 @@ Services run on a Federated Node include some or all of the following:
 * **nginx**: Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only or `counterblock`-only nodes.
 * **mongodb and redis**: Used by `counterblock`.
 
-## Provisioning
-
 ### Hardware / OS requirements
 
 - **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
@@ -31,10 +29,10 @@ Services run on a Federated Node include some or all of the following:
     - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
 - **OS:** We recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
 
-### Host system configuration
-*(This section assumes a base machine running on Ubuntu. Similar steps apply for other OSes.)*
+## Installation
 
 **Update system & install dependencies**
+*(The next sections assume a base machine running on Ubuntu. Similar steps apply for other OSes.)*
 
 ```
 sudo apt-get update && apt-get upgrade
@@ -53,8 +51,6 @@ sudo apt-get install linux-image-extra-$(uname -r) docker-engine
 sudo /bin/sh -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
 sudo chmod +x /usr/local/bin/docker-compose
 ```
-
-## Installation
 
 **Clone and check out the code**
 ```
