@@ -13,13 +13,26 @@ Counterwallet FAQ
 
 * All trades and actions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, which means that unlike centralized exchanges, _no middleman is ever required_.
 
-**Counterwallet is being actively developed and currently implements many current Counterparty features.**
+## What are some of Counterwallet's features?
 
-- Fully functional wallet for BTC, XCP, and user-created tokens
-- Peer-to-peer asset trading with algorithmic order matching (XCP, other assets)
-- Custom asset creation
-- Betting
-- Broadcasting data on the Bitcoin Blockchain
+-  Supports BTC, XCP and all Counterparty assets
+-  Create and manage new assets (tokens) on the Bitcoin blockchain
+-  Distribute profits to asset holders using BTC, XCP, or any other
+   Counterparty token (asset)
+-  Broadcast data feeds to the Bitcoin network
+-  Trade XCP for any Counterparty asset (peer-to-peer)
+-  Access P2P assets with no middleman, and no counterparty risk
+-  Monitor the Counterparty network statistics
+-  Strong privacy - no registration required; you can run your own
+   Counterwallet
+-  Multilingual (English, Chinese, Russian and other languages) -
+   [become a translator!](https://www.transifex.com/organization/counterparty/dashboard/counterwallet)
+-  Deterministic hierarchical wallet
+-  Supports desktop and mobile browsers
+-  Client-side authentication/encryption
+-  Cold storage support (with Armory)
+-  Multi-sig support (up to 3-of-3)
+-  Watch-only addresses
 
 ## Where can I access it?
 
