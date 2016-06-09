@@ -4,45 +4,27 @@ In the figure below you can see how all Counterparty platform components interac
 
 ![](/_images/platform_architecture1.png)
   
-##Reference Implementation
-[`counterparty-lib`](Developers/counterparty_lib.md) is a Python library that serves as the reference implementation of the Counterparty Protocol. It has a number of interfaces, such as a CLI and desktop a GUI.
 
+## counterparty-server
 
-##Counterparty CLI
+`counterparty-server` is the name for the combination of `counterparty-lib` and `counterparty-cli`. It serves as the reference client for Counterparty, and implements support for the core Counterparty protocol via a provided REST API and command line interface.
 
-[`counterparty-cli`](counterparty-cli.md) is a command‐line interface for `counterparty-lib`, including its API server.
+## counterblock
 
+`counterblock` provides additional services (required by counterwallet and potentially other services) beyond those offered in the API provided by `counterparty-server`. It features a full-fledged JSON RPC-based API, and has an extensible architecture to support custom plugins.
 
-##Counterparty GUI
+## Counterwallet
 
-`counterparty-gui` is a PyQT5 GUI for counterparty-lib. (*forthcoming*)
+Counterwallet is a web wallet for Bitcoin (BTC) and Counterparty (XCP). It is being actively developed and currently implements most Counterparty features, such as:
 
+* Fully functional wallet for BTC, XCP, and user-created tokens
+* Peer-to-peer asset trading with algorithmic order matching (XCP, other assets)
+* Custom asset creation
+* Betting
+* Broadcasting data on the Bitcoin Blockchain
+* Multisig
+* Offline (Armory) transactions
 
-##Counterwallet
+## armory_utxsvr
 
-[Counterwallet](counterwallet_doc.md) is a web wallet for Bitcoin (BTC) and Counterparty (XCP). It is being actively developed and currently implements most Counterparty features.
-
-- Fully functional wallet for BTC, XCP, and user-created tokens
-- Peer-to-peer asset trading with algorithmic order matching (XCP, other assets)
-- Custom asset creation
-- Betting
-- Broadcasting data on the Bitcoin Blockchain
-
-
-##Counterblock
-
-``counterblock`` provides additional services to Counterwallet beyond those offered in the API provided by counterpartyd. It features a full-fledged JSON RPC-based API, which services Counterwallet, as well as any 3rd party services which wish to use it. ``counterblock`` has an extensible architecture, and developers may write custom plugins for it, which are loaded dynamically and allow them to extend counterblock with new parsing functionality, write gateways to other currencies or services, and much more.
-
-With its set of core-plugins, counterblock provides a more high-level data processing, and an API that
-layers on top of counterpartyd’s API.  `counterblock` generates and allows
-querying of data such as market and price information, trade operations, asset
-history, and more. It is used extensively by Counterwallet itself, and is
-appropriate for use by applications that require additional API-based
-functionality beyond the scope of what counterpartyd provides. 
-
-
-##Federated Node
-
-A federated node is a term for a [Linux-based counterparty build](https://github.com/CounterpartyXCP/federatednode_build) that inludes the various components in an integrated, out-of-the-box fashion. It's used primarily for Counterwallet server installations, but has other uses as well.
-
-**NOTE:** If your application does not require this kind of functionality or APIs that `counterblock` provides, we recommend that you build and install `counterparty-cli` and `counterparty-lib` directly, via [these instructions](http://counterparty.io/docs/counterparty_lib/) for `counterparty-lib` and [these](http://counterparty.io/docs/counterparty-cli/) for `counterparty-cli`.
+A service used by counterblock with Counterwallet to support Offline Armory transactions. This service requires Armory itself.
