@@ -206,16 +206,6 @@ sudo fednode cmd bitcoin-testnet bitcoin-cli getpeerinfo
 sudo fednode exec counterblock ls /root
 ```
 
-**Reparsing blockchain data**
-
-Both `counterparty-server` and `counterblock` read in blockchain data and construct their own internal databases. To reset these databases and trigger a reparse of this blockchain data for one of the services, run:
-
-```
-sudo fednode reparse <service>
-```
-
-Where service is `counterparty`, `counterparty-testnet`, `counterblock`, or `counterblock-testnet`.
-
 **Getting a shell in a conainer**
 
 ```
@@ -241,6 +231,16 @@ sudo fednode update <service>
 * `armory_utxsvr`
 * `armory_utxsvr-testnet`
 * `counterwallet`
+
+**Reparsing blockchain data**
+
+Both `counterparty-server` and `counterblock` read in blockchain data and construct their own internal databases. To reset these databases and trigger a reparse of this blockchain data for one of the services, run:
+
+```
+sudo fednode reparse <service>
+```
+
+Where service is `counterparty`, `counterparty-testnet`, `counterblock`, or `counterblock-testnet`.
 
 **Rebuilding a service container**
 
