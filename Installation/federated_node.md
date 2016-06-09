@@ -158,7 +158,7 @@ To check the status of the containers, run:
 sudo fednode ps
 ```
 
-**View logs**
+**Viewing logs**
 
 To tail the logs, use the following command:
 ```
