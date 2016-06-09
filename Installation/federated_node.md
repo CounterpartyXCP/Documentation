@@ -7,6 +7,8 @@ A Federated Node is a self-contained server that runs the some or all of the Cou
 This document describes how one can set up their own Counterblock Federated Node server(s). It is primarily intended
 for system administrators and developers.
 
+Currently this documentation is written for Linux-based installations, but will be enhanced in the future to work with Windows and Mac OS-based hosts.
+
 ### Node Services
 
 Services run on a Federated Node include some or all of the following:
