@@ -1,4 +1,4 @@
-CLI (`counterparty-client`) Usage
+Command-line Usage
 =====================================
 
 The following examples are abridged for parsimony (meaning: actions are
