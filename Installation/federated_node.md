@@ -158,11 +158,16 @@ To check the status of the containers, run:
 sudo fednode ps
 ```
 
-**Tailing logs**
+**View logs**
 
-To view (tail) the logs, use the following command:
+To tail the logs, use the following command:
 ```
 sudo fednode tail <service>
+```
+
+Or, to view the entire log, run:
+```
+sudo fednode logs <service>
 ```
 
 <a name="servicenames"></a>Where `<service>` may be one the following, or blank to tail all services:
@@ -200,6 +205,16 @@ sudo fednode exec counterparty counterparty-server send --source=12u4Vymr3bGTywj
 sudo fednode cmd bitcoin-testnet bitcoin-cli getpeerinfo
 sudo fednode exec counterblock ls /root
 ```
+
+**Reparsing blockchain data**
+
+Both `counterparty-server` and `counterblock` read in blockchain data and construct their own internal databases. To reset these databases and trigger a reparse of this blockchain data for one of the services, run:
+
+```
+sudo fednode reparse <service>
+```
+
+Where service is `counterparty`, `counterparty-testnet`, `counterblock`, or `counterblock-testnet`.
 
 **Getting a shell in a conainer**
 
@@ -242,9 +257,8 @@ Where `<service>` is one of the service names listed [earlier](#servicenames), o
 To uninstall the entire fednode setup, run:
 
 ```
-sudo fednode unisntall
+sudo fednode uninstall
 ```
-
 
 ## Component development
 
