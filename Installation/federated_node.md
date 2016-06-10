@@ -105,12 +105,14 @@ sudo fednode tail counterparty
 **Access the system**
 
 Once running, the system listens on the following ports:
+
 * `counterparty-server`: 4000/tcp (mainnet), 14000/tcp (testnet)
 * `counterblock`: 4001/tcp (mainnet), 14001/tcp (testnet)
 
 For `counterparty-server`, use RPC username `rpc` and default password `1234`.
 
 If `counterwallet` is installed, access to the following URLs will be possible:
+
 * `http://<host>/` — directs to `https`
 * `https://<host>/` - main production URL (uses minified JS/CSS)
 * `https://<host>/src/` - development URL (uses un-minified JS/CSS)
@@ -171,6 +173,7 @@ sudo fednode logs <service>
 ```
 
 <a name="servicenames"></a>Where `<service>` may be one the following, or blank to tail all services:
+
 * `counterparty` (`counterparty-server` mainnet)
 * `counterblock` (`counterblock` mainnet)
 * `bitcoin` (`bitcoin` mainnet)
@@ -224,6 +227,7 @@ sudo fednode update <service>
 ```
 
 <a name="servicenames_code"></a>Where `<service>` is one of the following, or blank for all applicable services:
+
 * `counterparty`
 * `counterparty-testnet`
 * `counterblock`
