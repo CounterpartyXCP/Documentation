@@ -56,7 +56,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 **Clone and check out the code**
 ```
 git clone https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
-git submodule init && git submodule update
 sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
 ```
 
@@ -275,7 +274,7 @@ fednode restart <service>
 
 Where `<service>` is one of the services mentioned [here](#servicenames_code).
 
-Note that HTTPS repository URLs are used for all of the submodules checked out under `src`. If you are committing changes back, you will be asked for your Github username and password by default. You can avoid this via following [these instructions](https://help.github.com/articles/caching-your-github-password-in-git/).
+Note that HTTPS repository URLs are used by default for all of the repositories checked out under `src`. To use SSH URIs instead, specify the `--use-ssh-uris` to the install command.
 
 ## Counterwallet-Specific
 
