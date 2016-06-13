@@ -49,7 +49,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 **Clone and check out the code**
 ```
-git clone https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
+git clone -b develop https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
 sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
 ```
 
