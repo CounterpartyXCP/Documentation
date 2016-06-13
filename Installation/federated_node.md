@@ -112,7 +112,7 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 * `https://<host>/` - main production URL (uses minified JS/CSS)
 * `https://<host>/src/` - development URL (uses un-minified JS/CSS)
 
-**Post-installation tasks**
+**Post-installation tasks for Ubuntu Linux**
 
 It’s highly recommended that you use a firewall on the system. Issue the appropriate commands, depending on what services you will be running and thus which ports you'd like to allow through:
 ```
@@ -135,15 +135,13 @@ sudo ufw allow https
 sudo ufw enable
 ```
 
-**Additional security hardening (optional)**
-
-If you are running a node in a production scenario, it is recommended that you properly secure it. If your host OS is Ubuntu Linux, you can optionally run a little script that will issue a number of commands to assist with this:
+In addition, if you are running a node in a production scenario, it is recommended that you properly secure it. Ubuntu users can optionally run a little script that will issue a number of commands to assist with this:
 ```
 cd extras/host_security
 ./run.py
 ```
 
-Note that this script will make several modifications to your host system as it runs. Feel free to review what it does [here](https://github.com/CounterpartyXCP/federatednode/blob/master/extras/host_security/run.py).
+Note that this script will make several modifications to your host system as it runs. Please review what it does [here](https://github.com/CounterpartyXCP/federatednode/blob/master/extras/host_security/run.py) before using it.
 
 
 ## Administration
