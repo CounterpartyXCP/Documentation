@@ -49,7 +49,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 **Clone and check out the code**
 ```
-git clone -b develop https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
+git clone https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
 sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
 ```
 
@@ -71,7 +71,7 @@ And where `<BRANCH>` is one of the following:
 * **`master`** (stable and recommended)
 * **`develop`** (cutting edge, likely with bugs
 
-&#x1F534;&#x1F534;**_NOTE: For now, specifying `master` will not work, as Docker images are not yet available in the `master` branches yet. Please use `develop`._**&#x1F534;&#x1F534;
+&#x1F534; **NOTE: For now, specifying `master` will not work, as Docker images are not yet available in the `master` branches yet. Please use `develop`.** &#x1F534;
 
 For example:
 ```
