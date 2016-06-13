@@ -261,16 +261,18 @@ sudo fednode uninstall
 
 ## Component development
 
-The system allows for easy development and modification of the Counterparty software components. To do so, simply update code in the `counterparty-lib`, `counterparty-cli`, `counterblock` and/or `counterwallet` directories as you see fit. (Note that by default, the `master` branch is checked out of each component, and you'll probably want to switch to `develop` or some other branch before doing your work.)
+The system allows for easy development and modification of the Counterparty software components. To do so, simply update code in the directories under `federatednode/src/` as you see fit. (Note that HTTPS repository URLs are used by default for all of the repositories checked out under `src` by `fednode.py`. To use SSH URIs instead, specify the `--use-ssh-uris` to the `fednode install` command.)
 
-Once done updating the source code, issue the following command(s) to load the new code:
+Once done updating the source code, issue the following command(s) to restart the container with the new code:
 ```
 fednode restart <service>
 ```
-
 Where `<service>` is one of the services mentioned [here](#servicenames_code).
 
-Note that HTTPS repository URLs are used by default for all of the repositories checked out under `src`. To use SSH URIs instead, specify the `--use-ssh-uris` to the install command.
+To run the `counterparty-lib` test suite, execute:
+```
+sudo fednode exec counterparty "cd /counterparty-lib/counterpartylib; py.test --verbose --skiptestbook=all --cov-config=../.coveragerc --cov-report=term-missing --cov=./"
+```
 
 ## Counterwallet-Specific
 
