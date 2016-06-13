@@ -4,7 +4,7 @@
 
 A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node", and can be combined by client-side software to allow for high-availability and load balancing.
 
-This document describes how one can set up their own Counterblock Federated Node system. It is primarily intended for power users and developers. Currently this documentation is written for Linux-based installations, but will be enhanced in the future to work with Windows and Mac OS-based hosts.
+This document describes how one can set up their own Federated Node system. It is primarily intended for power users and developers. Currently this documentation is written for Linux-based installations, but will be enhanced in the future to work with Windows and Mac OS-based hosts.
 
 (Note that as an alternative to building a Federated Node, one can manually install each of the services. Instructions for that are generally provided on each service's [respective Git repositories](https://github.com/CounterpartyXCP).)
 
