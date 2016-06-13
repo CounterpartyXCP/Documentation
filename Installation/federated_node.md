@@ -71,6 +71,8 @@ And where `<BRANCH>` is one of the following:
 * **`master`** (stable and recommended)
 * **`develop`** (cutting edge, likely with bugs
 
+&#x1F534;&#x1F534;**_NOTE: For now, specifying `master` will not work, as Docker images are not yet available in the `master` branches yet. Please use `develop`._**&#x1F534;&#x1F534;
+
 For example:
 ```
 # install a base configuration for the master branch
