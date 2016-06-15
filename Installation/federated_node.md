@@ -153,6 +153,19 @@ To check the status of the containers, run:
 sudo fednode ps
 ```
 
+**Modifying configurations**
+
+Configuration files for the `bitcoin`, `counterparty` and `counterblock` services are stored under `federatednode/config/` and may be freely edited. The various locations are as follows:
+
+* `bitcoin`: See `federatednode/config/bitcoin/bitcoin.conf`
+* `bitcoin-testnet`: See `federatednode/config/bitcoin/bitcoin.testnet.conf`
+* `counterparty`: See `federatednode/config/counterparty/server.conf`
+* `counterparty-testnet`: See `federatednode/config/counterparty/server.testnet.conf`
+* `counterblock`: See `federatednode/config/counterblock/server.conf`
+* `counterblock-testnet`: See `federatednode/config/counterblock/server.testnet.conf`
+
+Remember: once done editing a configuration file, you must `restart` the cooresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
+
 **Viewing logs**
 
 To tail the logs, use the following command:
@@ -281,13 +294,8 @@ Instructions for doing that are detailed in the *Counterwallet Configuration Fil
 
 By default, the system is set up to use a self-signed SSL certificate. If you are hosting your services for others, 
 you should get your own SSL certificate from your DNS registrar so that your users don't see a certificate warning when
-they visit your site. Once you have that certificate, create a nginx-compatible ``.pem`` file, and issue the following command:
+they visit your site. Once you have that certificate, create a nginx-compatible ``.pem`` file. Copy that `.pem` file to `federatednode/config/counterwallet/ssl/counterwallet.pem` and the cooresponding certificate `.key` file to `federatednode/config/counterwallet/ssl/counterwallet.key`. Then, restart the `counterwallet` service for the new certificate to take effect.
 
-```
-sudo docker cp <certfile_path> federatednode_counterwallet_1:/etc/ssl/certs/counterwallet.pem
-sudo docker cp <keyfile_path> federatednode_counterwallet_1:/etc/ssl/private/counterwallet.key
-sudo fednode restart counterwallet
-```
 
 ### Monitoring the Server
 
