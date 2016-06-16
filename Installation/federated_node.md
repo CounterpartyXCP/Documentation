@@ -294,7 +294,9 @@ Instructions for doing that are detailed in the *Counterwallet Configuration Fil
 
 By default, the system is set up to use a self-signed SSL certificate. If you are hosting your services for others, 
 you should get your own SSL certificate from your DNS registrar so that your users don't see a certificate warning when
-they visit your site. Once you have that certificate, create a nginx-compatible ``.pem`` file. Copy that `.pem` file to `federatednode/config/counterwallet/ssl/counterwallet.pem` and the cooresponding certificate `.key` file to `federatednode/config/counterwallet/ssl/counterwallet.key`. Then, restart the `counterwallet` service for the new certificate to take effect.
+they visit your site.
+
+Once you have that certificate, create a nginx-compatible ``.pem`` file. Copy that `.pem` file to `federatednode/config/counterwallet/ssl/counterwallet.pem` and the cooresponding certificate `.key` file to `federatednode/config/counterwallet/ssl/counterwallet.key`. (Note that there will be a `counterwallet.key` and `counterwallet.pem` file already there, which are the default, self-signed certificates, and can be safely overridden.) Then, restart the `counterwallet` service for the new certificate to take effect.
 
 
 ### Monitoring the Server
