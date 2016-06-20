@@ -1,8 +1,8 @@
-# Setting up a Counterparty Federated Node
+# Setting up a Counterparty Node
 
 ## Introduction
 
-This document describes how one can set up their own Counterparty Federated Node system. A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node". Using this toolset, one can generally get started running the Counterparty software much quicker and more easily than a manual installation of the various components.
+This document describes how one can set up their own Counterparty "Federated Node" system. A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node". Using this toolset, one can generally get started running the Counterparty software much quicker and more easily than a manual installation of the various components.
 
 The document is primarily intended for power users and developers, and currently is written for Linux-based installations, enhancements for Windows and Mac OS-based hosts forthcoming.
 
