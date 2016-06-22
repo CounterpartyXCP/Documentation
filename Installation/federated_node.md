@@ -40,7 +40,7 @@ Services run on a Federated Node include some or all of the following:
 * **Docker**: If using Windows 10, we recommend to [install Docker for Windows](https://docs.docker.com/engine/installation/windows/). For all other versions of Windows, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/). 
 * **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/win) (note that if using Docker Toolbox, it will install it by default).
 
-If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Windows, launch the "Docker" application and allow it to set itself up.
+If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Windows, launch the "Docker" application and allow it to set itself up (a reboot may be required), then, launch [a command prompt as Administrator](https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx).
 
 ### OS X
 
@@ -73,19 +73,25 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 **Clone and check out the code**
 ```
-git clone https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
+git clone https://github.com/CounterpartyXCP/federatednode.git
+cd federatednode
 ```
 
-On Linux/OS X:
+On Linux and OS X:
 ```
 sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
 ```
 
-On Windows:
+On Windows (if using Docker Quickstart Terminal, a.k.a MINGW64):
 ```
 mkdir ~/bin
 ln -sf `pwd`/fednode.py ~/bin/fednode
 echo "`which python` \$*" > ~/bin/python3
+```
+
+On Windows (if using Windows Command prompt):
+```
+> C:\Windows\fednode.bat echo python.exe %CD%\fednode.py \%*
 ```
 
 **Build and link the containers**
@@ -149,34 +155,9 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 
 ## Post-installation tasks
 
-### Windows / OS X
-
 Ensure that your firewall software is enabled. If you want to provide access from external systems, you can allow through some or all of the [appropriate ports](#accessing).
 
-### Linux
-
-It’s highly recommended that you use a firewall on the system. Issue the appropriate commands, depending on what services you will be running and thus [which ports](#accessing) you'd like to allow through:
-```
-# Always a good idea
-sudo ufw allow ssh
-
-# counterparty-server mainnet (4000) and testnet (14000)
-sudo ufw allow 4000/tcp
-sudo ufw allow 14000/tcp
-
-# counterblock mainnet (4001) and testnet (14001)
-sudo ufw allow 4001/tcp
-sudo ufw allow 14001/tcp
-
-# counterwallet
-sudo ufw allow http
-sudo ufw allow https
-
-# ENABLE THE FIREWALL (verify your config first)
-sudo ufw enable
-```
-
-In addition, if you are running a node in a production scenario, it is recommended that you properly secure it. Ubuntu users can optionally run a little script that will issue a number of commands to assist with this:
+In addition, if you are running a node in a production scenario, it is recommended that you properly secure it. Ubuntu Linux users can optionally run a little script that will issue a number of commands to assist with this:
 ```
 cd extras/host_security
 sudo ./run.py
