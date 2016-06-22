@@ -9,7 +9,7 @@ A Federated Node is a self-contained system that runs the some or all of the Cou
 The document is primarily intended for power users and developers.
 
 ### Node Services
-
+<a name="services"></a>
 Services run on a Federated Node include some or all of the following:
 
 * **counterparty-server**: `counterparty-lib` + `counterparty-cli`. Implements support for the core Counterparty protocol, via a provided REST API and command line interface.
@@ -80,7 +80,7 @@ On Windows:
 ```
 mkdir ~/bin
 ln -sf `pwd`/fednode.py ~/bin/fednode
-alias python3=python.exe
+echo "`which python` \$*" > ~/bin/python3
 ```
 
 **Build and link the containers**
@@ -92,9 +92,9 @@ fednode install <CONFIG> <BRANCH>
 
 Where `<CONFIG>` is one of the following:
 
-* **`base`** if you want to run `counterparty-server` only
-* **`counterblock`** if you want to run `counterparty-server` and `counterblock`, but not `counterwallet`
-* **`full`** if you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services
+* **`base`** if you want to run `counterparty-server` and `bitcoind` only
+* **`counterblock`** if you want to run everything in `base`, with the addition of `counterblock` and its dependencies (`mongodb` and `redis`)
+* **`full`** if you would like to run a *full federated node configuration*, which is all services on the [list above](#services)
 
 And where `<BRANCH>` is one of the following:
 
