@@ -36,15 +36,20 @@ Services run on a Federated Node include some or all of the following:
 
 ### Windows
 
-* [Download and install]((https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page.
-* Follow [this guide](https://docs.docker.com/toolbox/toolbox_install_windows/) to install Docker Toolbox for Windows (install all options).
-* Launch the "Docker Quickstart Terminal" when done, and continue this guide using that.
+* **Python 3.5.x**: [Download and install]((https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page. (If you get an error during installation, make sure your windows system is fully updated via Windows Update.)
+* **Docker**: If using Windows 10, we recommend to [install Docker for Windows](https://docs.docker.com/engine/installation/windows/). For all other versions of Windows, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/). 
+* **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/win) (note that if using Docker Toolbox, it will install it by default).
+
+If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Windows, launch the "Docker" application and allow it to set itself up.
 
 ### OS X
 
-* [Download and install]((https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page.
-*Follow [this guide](https://docs.docker.com/toolbox/toolbox_install_mac/) to install Docker Toolbox for Mac OS X (install all options).
-* Launch the "Docker Quickstart Terminal" when done, and continue this guide using that.
+* **Python 3.5.x**: [Download and install]((https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page.
+* **Docker**: If using OS X Yosemite or higher, we recommend to [install Docker for Mac](https://docs.docker.com/engine/installation/mac/). For Older Macs, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_mac/).
+* **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/mac) (note that if using Docker Toolbox, it will install it by default).
+
+If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Mac, launch the "Docker" application and allow it to set itself up.
+
 
 ### Linux
 
