@@ -36,6 +36,8 @@ Services run on a Federated Node include some or all of the following:
 
 ### Windows
 
+**NOTE**: Installation on Windows is still in *BETA* state, and we can promise a fully-working environment. [Please report](https://github.com/CounterpartyXCP/federatednode/issues) any bugs you find.
+
 * **Python 3.5.x**: [Download and install](https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page. (If you get an error during installation, make sure your windows system is fully updated via Windows Update.)
 * **Docker**: If using Windows 10, we recommend to [install Docker for Windows](https://docs.docker.com/engine/installation/windows/). For all other versions of Windows, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/). 
 * **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/win) (note that if using Docker Toolbox, it will install it by default).
@@ -154,9 +156,11 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 
 ## Post-installation tasks
 
-Ensure that your firewall software is enabled. If you want to provide access from external systems, you can allow through some or all of the [appropriate ports](#accessing).
+Ensure that your firewall software is enabled. If you want to provide access from external systems, you can allow through some or all of the [appropriate ports](#accessing). In addition, if you are running a node in a production scenario, it is recommended that you properly secure it.
 
-In addition, if you are running a node in a production scenario, it is recommended that you properly secure it. Ubuntu Linux users can optionally run a little script that will issue a number of commands to assist with this:
+**Ubuntu Linux**
+
+Ubuntu Linux users can optionally run a little script that will issue a number of commands to assist with securing their systems:
 ```
 cd extras/host_security
 sudo ./run.py
@@ -186,6 +190,17 @@ Configuration files for the `bitcoin`, `counterparty` and `counterblock` service
 * `counterblock-testnet`: See `federatednode/config/counterblock/server.testnet.conf`
 
 Remember: once done editing a configuration file, you must `restart` the cooresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
+
+**Viewing/working with stored data**
+
+The various services use [Docker named volumes](https://docs.docker.com/engine/tutorials/dockervolumes/) to store data that is meant to be persistent:
+
+* `bitcoin` and `bitcoin-testnet`: Stores blockchain data in the `federatednode_bitcoin-data` volume
+* `counterparty` and `counterparty-testnet`: Stores Counterparty databases in the `federatednode_counterparty-data` volume
+* `counterblock` and `counterblock-testnet`: Stores Counterblock asset info (images), etc in the `federatednode_counterblock-data` volume
+* `mongodb`: Stores the databases for `counterblock` and `counterblock-testnet` in the `federatednode_mongodb-data` volume
+
+See `docker volume --help` for help on how to interact with Docker volumes.
 
 **Viewing logs**
 
