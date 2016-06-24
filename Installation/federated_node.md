@@ -22,6 +22,7 @@ Services run on a Federated Node include some or all of the following:
 
 ### Hardware / OS requirements
 <a name="requirements"></a>
+
 - **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
 - **Disk space:** The exact disk space required will be dependent on what services are run on the node:
     - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
