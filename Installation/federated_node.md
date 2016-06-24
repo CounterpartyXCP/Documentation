@@ -42,9 +42,16 @@ Services run on a Federated Node include some or all of the following:
 * **Docker**: If using Windows 10, we recommend to [install Docker for Windows](https://docs.docker.com/engine/installation/windows/). For all other versions of Windows, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/). 
 * **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/win) (note that if using Docker Toolbox, it will install it by default).
 
-If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Windows, launch the "Docker" application and allow it to set itself up (a reboot may be required), then, launch [a command prompt as Administrator](https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx).
+**If using Docker for Windows**: 
 
-<a name="docker-toolbox-note"></a> **Important note for Docker Toolbox Users**: If using Docker Toolbox, note that it currently limits all VMs to 1GB of memory and  20GB hard disk space total by default. You will need to update this to _at least_ 2 or 4GB memory and 50-100GB space. To do this, execute commands like the following (replacing the numbers in the second command as appropriate, based on the [system requirements](#requirements)):
+* After installing Docker for Windows, launch the "Docker" application and allow it to set itself up (a reboot may be required).
+* Next, you will need to enable access to your host hard drive so that some of the shared volumes work properly. To do this, right click on the Docker Whale icon in your system tray. Then go to "Docker Settings" and then "Shared Drives". Turn on access to the drive on which the `federatednode` folder will reside (most likely your "C" drive).
+* Finally, launch [a command prompt as Administrator](https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx)
+
+<a name="docker-toolbox-note"></a> **If using Docker Toolbox**:
+
+* After installation completes, launch the "Docker Quickstart Terminal" and let it configure itself.
+* Once this finishes, you will need to resize the Virtual Machine that Docker Toolbox uses to run the Docker containers. Note that it currently limits this VM to 1GB of memory and  20GB hard disk space total by default (shared across _all_ containers). You will need to update this to _at least_ 2 or 4GB memory and 50-100GB space. To do this, execute commands like the following (replacing the numbers in the second command as appropriate, based on the [system requirements](#requirements)):
 ```
 docker-machine rm default
 docker-machine create --driver virtualbox --virtualbox-disk-size "100000" --virtualbox-memory "4096" default
@@ -58,7 +65,9 @@ Then, relaunch the Docker Quickstart Terminal, and verify that `docker ps` funct
 * **Docker**: If using OS X Yosemite or higher, we recommend to [install Docker for Mac](https://docs.docker.com/engine/installation/mac/). For Older Macs, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_mac/).
 * **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/mac) (note that if using Docker Toolbox, it will install it by default).
 
-If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Mac, launch the "Docker" application and allow it to set itself up. If using Docker Toolbox, please also follow the [important note above](#docker-toolbox-note).
+If using **Docker for Mac**, launch the "Docker" application and allow it to set itself up, then open a terminal prompt.
+
+If using **Docker Toolbox**, launch the "Docker Quickstart Terminal" once installation finishes, and follow the instructions on resizing your VM [above](#docker-toolbox-note).
 
 
 ### Linux
