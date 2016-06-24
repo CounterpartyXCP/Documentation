@@ -21,7 +21,7 @@ Services run on a Federated Node include some or all of the following:
 * **mongodb and redis**: Used by `counterblock`.
 
 ### Hardware / OS requirements
-
+<a name="requirements"></a>
 - **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
 - **Disk space:** The exact disk space required will be dependent on what services are run on the node:
     - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
@@ -44,13 +44,20 @@ Services run on a Federated Node include some or all of the following:
 
 If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Windows, launch the "Docker" application and allow it to set itself up (a reboot may be required), then, launch [a command prompt as Administrator](https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx).
 
+<a name="docker-toolbox-note"></a> **Important note for Docker Toolbox Users**: If using Docker Toolbox, note that it currently limits all VMs to 1GB of memory and  20GB hard disk space total by default. You will need to update this to _at least_ 2 or 4GB memory and 50-100GB space. To do this, execute commands like the following (replacing the numbers in the second command as appropriate, based on the [system requirements](#requirements)):
+```
+docker-machine rm default
+docker-machine create --driver virtualbox --virtualbox-disk-size "100000" --virtualbox-memory "4096" default
+```
+
 ### OS X
 
 * **Python 3.5.x**: [Download and install](https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page.
 * **Docker**: If using OS X Yosemite or higher, we recommend to [install Docker for Mac](https://docs.docker.com/engine/installation/mac/). For Older Macs, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_mac/).
 * **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/mac) (note that if using Docker Toolbox, it will install it by default).
 
-If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Mac, launch the "Docker" application and allow it to set itself up.
+If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Mac, launch the "Docker" application and allow it to set itself up. If using Docker Toolbox, please also follow the [important note above](#docker-toolbox-note).
+
 
 ### Linux
 
