@@ -95,8 +95,8 @@ sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
 On Windows (if using Docker Quickstart Terminal, a.k.a MINGW64):
 ```
 mkdir ~/bin
-ln -sf `pwd`/fednode.py ~/bin/fednode
-echo "\"`which python`\" \$*" > ~/bin/python3
+echo "python.exe \"`pwd`\\fednode.py\" \$*" > ~/bin/fednode
+chmod +x ~/bin/fednode
 ```
 
 On Windows (if using Windows Command prompt):
