@@ -50,6 +50,8 @@ docker-machine rm default
 docker-machine create --driver virtualbox --virtualbox-disk-size "100000" --virtualbox-memory "4096" default
 ```
 
+Then, relaunch the Docker Quickstart Terminal, and verify that `docker ps` functions normally (if not, restart the system and try the command again).
+
 ### OS X
 
 * **Python 3.5.x**: [Download and install](https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page.
