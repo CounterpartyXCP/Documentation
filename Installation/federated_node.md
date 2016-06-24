@@ -2,12 +2,14 @@
 
 ## Introduction
 
-This document describes how one can set up their own Counterparty "Federated Node" system. A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node". Using this toolset, one can generally get started running the Counterparty software much quicker and more easily than a manual installation of the various components.
+This document describes how one can set up their own Counterparty "Federated Node" system, on Linux, Windows or OS X.
 
-The document is primarily intended for power users and developers, and currently is written for Linux-based installations, enhancements for Windows and Mac OS-based hosts forthcoming.
+A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node". Using this toolset, one can generally get started running the Counterparty software much quicker and more easily than a manual installation of the various components.
+
+The document is primarily intended for power users and developers.
 
 ### Node Services
-
+<a name="services"></a>
 Services run on a Federated Node include some or all of the following:
 
 * **counterparty-server**: `counterparty-lib` + `counterparty-cli`. Implements support for the core Counterparty protocol, via a provided REST API and command line interface.
@@ -25,13 +27,36 @@ Services run on a Federated Node include some or all of the following:
     - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
     - For ``counterparty`` and ``counterblock`` databases: **~1.5GB** each
     - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
-- **OS:** We recommend Ubuntu 16.04 64-bit, but other versions of Linux may work, although we can offer no guarantees.
+- **OS:**
+    - **Linux**: We recommend Ubuntu 16.04 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
+    - **Windows**: Windows 7 or higher, or Server 2008 or higher. 64-bit required
+    - **OS X**: 10.8 "Mountain Lion" or higher
 
-## Installation
+## Pre-installation
+
+### Windows
+
+**NOTE**: Installation on Windows is still in *BETA* state, and we cannot promise a fully-working environment. [Please report](https://github.com/CounterpartyXCP/federatednode/issues) any bugs you find.
+
+* **Python 3.5.x**: [Download and install](https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page. (If you get an error during installation, make sure your windows system is fully updated via Windows Update.)
+* **Docker**: If using Windows 10, we recommend to [install Docker for Windows](https://docs.docker.com/engine/installation/windows/). For all other versions of Windows, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/). 
+* **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/win) (note that if using Docker Toolbox, it will install it by default).
+
+If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Windows, launch the "Docker" application and allow it to set itself up (a reboot may be required), then, launch [a command prompt as Administrator](https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx).
+
+### OS X
+
+* **Python 3.5.x**: [Download and install](https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page.
+* **Docker**: If using OS X Yosemite or higher, we recommend to [install Docker for Mac](https://docs.docker.com/engine/installation/mac/). For Older Macs, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_mac/).
+* **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/mac) (note that if using Docker Toolbox, it will install it by default).
+
+If using Docker Toolbox, launch the "Docker Quickstart Terminal" when done, and continue this guide using that. If using Docker for Mac, launch the "Docker" application and allow it to set itself up.
+
+### Linux
+
+(Instructions are provided for Ubuntu Linux. Other Linuxes will be similar.)
 
 **Update system & install dependencies**
-
-*(The next sections assume a base machine running on Ubuntu. Similar steps apply for other OSes.)*
 
 ```
 sudo apt-get update && apt-get upgrade
@@ -45,24 +70,43 @@ sudo /bin/sh -c "curl -L https://github.com/docker/compose/releases/download/1.7
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+## Installation
+
 **Clone and check out the code**
 ```
-git clone https://github.com/CounterpartyXCP/federatednode.git && cd federatednode
+git clone https://github.com/CounterpartyXCP/federatednode.git
+cd federatednode
+```
+
+On Linux and OS X:
+```
 sudo ln -sf `pwd`/fednode.py /usr/local/bin/fednode
+```
+
+On Windows (if using Docker Quickstart Terminal, a.k.a MINGW64):
+```
+mkdir ~/bin
+ln -sf `pwd`/fednode.py ~/bin/fednode
+echo "`which python` \$*" > ~/bin/python3
+```
+
+On Windows (if using Windows Command prompt):
+```
+> C:\Windows\fednode.bat echo python.exe %CD%\fednode.py \%*
 ```
 
 **Build and link the containers**
 
 Run the following command:
 ```
-sudo fednode install <CONFIG> <BRANCH>
+fednode install <CONFIG> <BRANCH>
 ```
 
 Where `<CONFIG>` is one of the following:
 
-* **`base`** if you want to run `counterparty-server` only
-* **`counterblock`** if you want to run `counterparty-server` and `counterblock`, but not `counterwallet`
-* **`full`** if you would like to run a *full federated node configuration*: `counterparty-server`, `counterblock`, `counterwallet` and all required third-party services
+* **`base`** if you want to run `counterparty-server` and `bitcoind` only
+* **`counterblock`** if you want to run everything in `base`, with the addition of `counterblock` and its dependencies (`mongodb` and `redis`)
+* **`full`** if you would like to run a *full federated node configuration*, which is all services on the [list above](#services)
 
 And where `<BRANCH>` is one of the following:
 
@@ -74,28 +118,28 @@ And where `<BRANCH>` is one of the following:
 For example:
 ```
 # install a base configuration for the master branch
-sudo fednode install base master
+fednode install base master
 
 # install a full configuration for the develop branch
-sudo fednode install full develop
+fednode install full develop
 ```
 
 **Wait for initial sync**
 
 After installation, the services will be automatically started. To check the status, issue:
 ```
-sudo fednode ps
+fednode ps
 ```
 
 Once the containers are installed and running, keep in mind that it will take some time for `bitcoind` to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
 
 You may check the sync status by tailing the appropriate service logs, e.g. for `bitcoind` and `counterparty-server` mainnet:
 ```
-sudo fednode tail bitcoin
-sudo fednode tail counterparty
+fednode tail bitcoin
+fednode tail counterparty
 ```
 
-**Access the system**
+<a name="accessing"></a>**Access the system**
 
 Once running, the system listens on the following ports:
 
@@ -110,33 +154,16 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 * `https://<host>/` - main production URL (uses minified JS/CSS)
 * `https://<host>/src/` - development URL (uses un-minified JS/CSS)
 
-**Post-installation tasks for Ubuntu Linux**
+## Post-installation tasks
 
-It’s highly recommended that you use a firewall on the system. Issue the appropriate commands, depending on what services you will be running and thus which ports you'd like to allow through:
-```
-# Always a good idea
-sudo ufw allow ssh
+Ensure that your firewall software is enabled. If you want to provide access from external systems, you can allow through some or all of the [appropriate ports](#accessing). In addition, if you are running a node in a production scenario, it is recommended that you properly secure it.
 
-# counterparty-server mainnet (4000) and testnet (14000)
-sudo ufw allow 4000/tcp
-sudo ufw allow 14000/tcp
+**Ubuntu Linux**
 
-# counterblock mainnet (4001) and testnet (14001)
-sudo ufw allow 4001/tcp
-sudo ufw allow 14001/tcp
-
-# counterwallet
-sudo ufw allow http
-sudo ufw allow https
-
-# ENABLE THE FIREWALL (verify your config first)
-sudo ufw enable
-```
-
-In addition, if you are running a node in a production scenario, it is recommended that you properly secure it. Ubuntu users can optionally run a little script that will issue a number of commands to assist with this:
+Ubuntu Linux users can optionally run a little script that will issue a number of commands to assist with securing their systems:
 ```
 cd extras/host_security
-./run.py
+sudo ./run.py
 ```
 
 Note that this script will make several modifications to your host system as it runs. Please review what it does [here](https://github.com/CounterpartyXCP/federatednode/blob/master/extras/host_security/run.py) before using it.
@@ -148,7 +175,7 @@ Note that this script will make several modifications to your host system as it 
 
 To check the status of the containers, run:
 ```
-sudo fednode ps
+fednode ps
 ```
 
 **Modifying configurations**
@@ -164,16 +191,27 @@ Configuration files for the `bitcoin`, `counterparty` and `counterblock` service
 
 Remember: once done editing a configuration file, you must `restart` the cooresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
 
+**Viewing/working with stored data**
+
+The various services use [Docker named volumes](https://docs.docker.com/engine/tutorials/dockervolumes/) to store data that is meant to be persistent:
+
+* `bitcoin` and `bitcoin-testnet`: Stores blockchain data in the `federatednode_bitcoin-data` volume
+* `counterparty` and `counterparty-testnet`: Stores Counterparty databases in the `federatednode_counterparty-data` volume
+* `counterblock` and `counterblock-testnet`: Stores Counterblock asset info (images), etc in the `federatednode_counterblock-data` volume
+* `mongodb`: Stores the databases for `counterblock` and `counterblock-testnet` in the `federatednode_mongodb-data` volume
+
+See `docker volume --help` for help on how to interact with Docker volumes.
+
 **Viewing logs**
 
 To tail the logs, use the following command:
 ```
-sudo fednode tail <service>
+fednode tail <service>
 ```
 
 Or, to view the entire log, run:
 ```
-sudo fednode logs <service>
+fednode logs <service>
 ```
 
 <a name="servicenames"></a>Where `<service>` may be one the following, or blank to tail all services:
@@ -191,9 +229,9 @@ sudo fednode logs <service>
 **Stopping and restarting containers**
 
 ```
-sudo fednode stop <service>
-sudo fednode start <service>
-sudo fednode restart <service>
+fednode stop <service>
+fednode start <service>
+fednode restart <service>
 ```
 
 Where `<service>` is one of the service names listed [above](#servicenames), or blank for all services.
@@ -201,22 +239,22 @@ Where `<service>` is one of the service names listed [above](#servicenames), or 
 **Issuing a single shell command**
 
 ```
-sudo fednode exec <service> <CMD>
+fednode exec <service> <CMD>
 ```
 
 Where `<service>` is one of the service names listed [above](#servicenames), and `<CMD>` is an arbitrary shell command.
 
 For example:
 ```
-sudo fednode exec counterparty counterparty-server send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP
-sudo fednode cmd bitcoin-testnet bitcoin-cli getpeerinfo
-sudo fednode exec counterblock ls /root
+fednode exec counterparty counterparty-server send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP
+fednode cmd bitcoin-testnet bitcoin-cli getpeerinfo
+fednode exec counterblock ls /root
 ```
 
 **Getting a shell in a conainer**
 
 ```
-sudo fednode shell <service>
+fednode shell <service>
 ```
 
 Where `<service>` is one of the service names listed [above](#servicenames).
@@ -227,7 +265,7 @@ Where `<service>` is one of the service names listed [above](#servicenames).
 To pull the newest software from the git repositories and restart the appropriate daemon, issue the following command:
 
 ```
-sudo fednode update <service>
+fednode update <service>
 ```
 
 <a name="servicenames_code"></a>Where `<service>` is one of the following, or blank for all applicable services:
@@ -245,7 +283,7 @@ sudo fednode update <service>
 Both `counterparty-server` and `counterblock` read in blockchain data and construct their own internal databases. To reset these databases and trigger a reparse of this blockchain data for one of the services, run:
 
 ```
-sudo fednode reparse <service>
+fednode reparse <service>
 ```
 
 Where service is `counterparty`, `counterparty-testnet`, `counterblock`, or `counterblock-testnet`.
@@ -255,7 +293,7 @@ Where service is `counterparty`, `counterparty-testnet`, `counterblock`, or `cou
 As a more extensive option, if you want to remove, rebuild and reinstall a container (downloading the newest container image/`Dockerfile` and utilizing that):
 
 ```
-sudo fednode rebuild <service>
+fednode rebuild <service>
 ```
 
 Where `<service>` is one of the service names listed [earlier](#servicenames), or blank for all services. Note that you are just looking to update the source code and restart the service, `update` is a better option.
@@ -265,7 +303,7 @@ Where `<service>` is one of the service names listed [earlier](#servicenames), o
 To uninstall the entire fednode setup, run:
 
 ```
-sudo fednode uninstall
+fednode uninstall
 ```
 
 ## Component development
@@ -280,7 +318,7 @@ Where `<service>` is one of the services mentioned [here](#servicenames_code).
 
 To run the `counterparty-lib` test suite, execute:
 ```
-sudo fednode exec counterparty "cd /counterparty-lib/counterpartylib; py.test --verbose --skiptestbook=all --cov-config=../.coveragerc --cov-report=term-missing --cov=./"
+fednode exec counterparty "cd /counterparty-lib/counterpartylib; py.test --verbose --skiptestbook=all --cov-config=../.coveragerc --cov-report=term-missing --cov=./"
 ```
 
 ## Counterwallet-Specific
