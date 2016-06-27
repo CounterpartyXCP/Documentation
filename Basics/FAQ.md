@@ -7,7 +7,7 @@ Frequently Asked Questions
 
 XCP is the native token of Counterparty. It is a technical necessity for adding advanced features to Counterparty, which by nature require a protocol aware currency. Bitcoin can only be aware of BTC, while Counterparty can be aware of both BTC and XCP itself. This makes it possible to escrow funds, trade in a decentralized manner, and harness the full potential of programmable money.
 
-**To learn more about XCP, see [about XCP](FAQ_XCP.md).**
+*To learn more about XCP, see [about XCP](FAQ-XCP.md).*
 
 ### What kind of addresses does Counterparty use?
 
