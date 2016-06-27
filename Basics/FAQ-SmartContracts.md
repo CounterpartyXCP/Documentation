@@ -36,7 +36,7 @@ We support both Solidity and Serpent.
 * You can then use Counterparty to create and broadcast an `execute` transaction to call a specific function or method in the smart contract code
 * Once an execution transaction is broadcast and confirmed by a Bitcoin miner, every running Counterparty node will receive this request, and execute that method. As the smart contract code executes, it modifies the contract state, which is stored in the Counterparty database. Since each Counterparty node has the same contract code (guaranteed by Bitcoin) as well as the same EVM code, and the code is all [deterministic](https://en.wikipedia.org/wiki/Deterministic_algorithm), these state changes are the same for every node
 * Others can also send Counterparty assets to the smart contract, which will store them and can use them in future `execute` calls. This is useful for things like funding contracts, for instance
-* Essentially, we see that the publishing of smart contracts and the command to kick off the execution of a specific function or method in the code are made as actual transactions on the Bitcoin blockchain. Thus, these two operations are limited by Bitcoin's ~10 minute blocktimes. However, once an execution is kicked off of smart contract code, that generally runs as fast as the node can process it
+* Essentially, we see that the publishing of smart contracts and the command to kick off the execution of a specific function or method in a contract are made as actual transactions on the Bitcoin blockchain. Thus, these two operations are limited by Bitcoin's ~10 minute blocktimes. However, once an execution is kicked off of smart contract code, that generally runs as fast as the node can process it
 
 ### When will it be released on Bitcoin mainnet?
 
