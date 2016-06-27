@@ -1,4 +1,4 @@
-Counterparty Smart Contracts/EVM FAQ
+Smart Contracts/EVM FAQ
 ====================
 
 [TOC]
