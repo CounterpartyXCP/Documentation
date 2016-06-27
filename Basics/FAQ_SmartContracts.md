@@ -8,6 +8,7 @@ Smart Contracts/EVM FAQ
 At the level of crypto-currencies, a smart contract is a computer program that is stored on a blockchain and specifies contractual terms, along with possessing the means to enforce those terms.
 
 For more information, please see the following:
+
 * [A gentle introduction to smart contracts](https://bitsonblocks.net/2016/02/01/a-gentle-introduction-to-smart-contracts/)
 * [Smart contracts Wikipedia page](https://en.wikipedia.org/wiki/Smart_contract)
 * [Nick Szabo’s writings on smart contracts](http://szabo.best.vwh.net/smart_contracts_idea.html)
@@ -54,6 +55,7 @@ Unlike with Ethereum, where smart contracts are a fundamental and required compo
 ### What are the differences between the current EVM and the one announced in 2014?
 
 In comparison to the [Proof-of-Concept EVM port](http://counterparty.io/news/counterparty-recreates-ethereums-smart-contract-platform-on-bitcoin/) carried out in late 2014, the current port:
+
 * Is with the newest version of the EVM software that is successfully running on Ethereum today and, we believe mature enough for use on Counterparty/Bitcoin mainnet (with appropriate precautions)
 * Adds the ability for smart contracts to interact with Counterparty assets
 * Includes the EVM Safeguard feature (see below)
