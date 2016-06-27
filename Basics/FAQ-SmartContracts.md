@@ -46,6 +46,14 @@ Yes, smart contracts may hold and control any Counterparty asset, such as XCP, S
 
 XCP is “burned” (destroyed) when smart contracts are executed, to essentially pay the network for their execution. However, unlike ETH, the supply of XCP is fixed. Due to this, for a given smart contract execution, the amount of XCP consumed will slowly decrease as the supply in existence shrinks. This will ensure that the amount of XCP never goes to zero.
 
+### How is this different than Rootstock?
+
+* The Counterparty EVM will operate on Bitcoin mainnet, while Rootstock runs on a sidechain.
+* Counterparty uses proven technology (i.e. embedded consensus) that has been in use for > 2.5 years on mainnet. Sidechains are very new and expirimental.
+* Rootstock utilizes merged mining and federated pegs in their model. Both of these have a variety of possible issues with them.
+* Counterparty is a non-profit effort, Rootstock is commercial (and indeed the commercial entity will be taxing a percentage of gas used to operate the network).
+* On the positive side for Rootstock, their use of a sidechain (if successful) could lead to considerably higher transaction throughput than Bitcoin mainnet. However, if sidechains successfully work out, there’s no reason Counterparty can’t adopt them as well, using the same embedded consensus approach as on mainnet, with much faster block times.
+
 ### Are my Counterparty assets at risk of any issue with a smart contract?
 
 Not if you don’t send those funds to the smart contract (which allows it to control the funds via its code).
