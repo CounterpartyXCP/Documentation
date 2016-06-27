@@ -38,6 +38,10 @@ We support both Solidity and Serpent.
 * Others can also send Counterparty assets to the smart contract, which will store them and can use them in future `execute` calls. This is useful for things like funding contracts, for instance
 * Essentially, we see that the publishing of smart contracts and the command to kick off the execution of a specific function or method in the code are made as actual transactions on the Bitcoin blockchain. Thus, these two operations are limited by Bitcoin's ~10 minute blocktimes. However, once an execution is kicked off of smart contract code, that generally runs as fast as the node can process it
 
+### When will it be released on Bitcoin mainnet?
+
+Basically, "When It Is Ready" (TM). A lot of it depends on how good of a job the community can do testing the EVM code on testnet. Nonetheless, we have an agressive timeschedule (within the guidance of prudent safety measures), and an interest to release as soon as we deem it ready. Realistically, we expect sometime in Autumn of this year (2016) for the mainnet release.
+
 ### Can I use a counterparty asset in a smart contract?
 
 Yes, smart contracts may hold and control any Counterparty asset, such as XCP, SJCX, CAKE, and more.
