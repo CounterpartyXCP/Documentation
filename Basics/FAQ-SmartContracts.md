@@ -58,6 +58,10 @@ XCP is “burned” (destroyed) when smart contracts are executed, to essentiall
 * Counterparty is a non-profit effort, Rootstock is commercial (and indeed the commercial entity will be taxing a percentage of gas used to operate the network).
 * On the positive side for Rootstock, their use of a sidechain (if successful) could lead to considerably higher transaction throughput than Bitcoin mainnet. However, if sidechains successfully work out, there’s no reason Counterparty can’t adopt them as well, using the same embedded consensus approach as on mainnet, with much faster block times.
 
+### Why would an Ethereum developer develop on Counterparty?
+
+We don't see this as an "either-or" type decision. With very little effort, Ethereum developers can port existing smart contracts to Counterparty, and extend their reach to not just the Ethereum community, but the Bitcoin community as well.
+
 ### I heard about The DAO hack. What was the problem?
 
 The problem was not with a bug in the EVM, but a problem in how “The DAO” smart contract (which was holding > $100 million at the time worth of ETH tokens) was written. Basically, the DAO was written to allow “splitting”, where one or several holders in a DAO can separate off into their own DAO fund if they don’t like the proposals that their current DAO is voting on (more info [here](https://github.com/slockit/DAO/wiki/How-to-split-the-DAO)). This splitting functionality was poorly designed and implemented and had numerous issues in the code. “The attacker” took advantage of these issues to award himself more ETH than he was entitled to, therefore draining the DAO of funds.
