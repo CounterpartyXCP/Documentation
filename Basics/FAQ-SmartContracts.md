@@ -52,7 +52,11 @@ While Counterparty smart contracts can interact with any Counterparty asset, the
 
 ### What is used as Gas?
 
-XCP is “burned” (destroyed) when smart contracts are executed, to essentially pay the network for their execution. However, unlike ETH, the supply of XCP is fixed. Due to this, for a given smart contract execution, the amount of XCP consumed will slowly decrease as the supply in existence shrinks. This will ensure that the amount of XCP never goes to zero.
+XCP is “burned” (destroyed) when smart contracts are executed, to essentially pay the network for their execution.
+
+### Won't that cause deflation of the XCP supply?
+
+Yes, as unlike ETH, the supply of XCP is fixed. However, this should not endanger the network itself: for a given smart contract execution, the amount of XCP consumed will slowly decrease as the supply in existence shrinks. This will ensure that the amount of XCP never goes to zero.
 
 ### How is this different than Rootstock?
 
