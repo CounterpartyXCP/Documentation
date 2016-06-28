@@ -5,15 +5,11 @@ As Counterparty is not a fork of Bitcoin Core, adding Counterparty support to yo
 
 ## Basic Setup
 
-- Install and configure [counterparty-cli](/counterparty-cli.md) normally (including a patched Bitcoin Core).
+- Follow the instructions [here](http://counterparty.io/docs/federated_node/) to set up a full node. You can install the `base` configuration (e.g. `fednode install base master`)
 
-- Bootstrap and start the server:
+- Alternatively, you can install and configure manually. Those instructions are [here](https://github.com/CounterpartyXCP/counterparty-lib/blob/develop/README.md#manual-installation).
 
-	* `$ counterparty-server bootstrap`
-
-	* `$ counterparty-server start`
-
-- Get started working with `counterparty-server`'s [API](/API.md).
+- Once the system is set up, get started working with `counterparty-server`'s [API](/API.md).
 
 
 ## Handling Deposits
@@ -48,7 +44,3 @@ As Counterparty is not a fork of Bitcoin Core, adding Counterparty support to yo
 
 - Set a maximum XCP and BTC withdrawal amount, both per day and per event.
 
-
-## Improving performance
-
-- Add the options `api-num-threads=100` and `api-request-queue-size=500` to your server configuration.
