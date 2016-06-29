@@ -1,7 +1,8 @@
 # Counterparty Exchange Integration
 
-As Counterparty is not a fork of Bitcoin Core, adding Counterparty support to your exchange is slightly different from adding support for a cryptocurrency that is.  We outline the general process below (for XCP, but the process is identical for all Counterparty assets):
+By adding support for Counterparty, your exchange not only gets XCP market support, but support for any other Counterparty asset (such as `Storjcoin X` and `Bitcrystals`).
 
+Technically, the process is rather straightforward. However, as Counterparty is not a fork of Bitcoin Core, adding Counterparty support to your exchange is slightly different from adding support for a cryptocurrency that is, like Litecoin or Dogecoin.  We outline the general process below (for XCP, but the process is identical for all Counterparty assets):
 
 ## Basic Setup
 
