@@ -456,4 +456,5 @@ The Corporation may be dissolved upon the approval of all of the directors then 
 
 
 ##Schedule A - Board Membership Dues
-See www.counterpartyfoundation.org/join
+
+No membership dues or fees are currently in effect, nor is any program currently creating and/or granting special status and privileges to subclasses of Community or Industry Members currently in effect.
