@@ -6,7 +6,7 @@ This document describes how one can set up their own Counterparty "Federated Nod
 
 A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node". Using this toolset, one can generally get started running the Counterparty software much quicker and more easily than a manual installation of the various components.
 
-The document is primarily intended for power users and developers.
+The document is primarily intended for power users and developers. 
 
 ### Node Services
 <a name="services"></a>
@@ -28,7 +28,7 @@ Services run on a Federated Node include some or all of the following:
     - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
     - For ``counterparty`` and ``counterblock`` databases: **~1.5GB** each
     - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
-- **OS:**
+- **OS:** *Please note that Ubuntu Linux is the recommended OS at this time, as most of our testing is performed on it. Windows and OS X support is considered in BETA.*
     - **Linux**: We recommend Ubuntu 16.04 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
     - **Windows**: Windows 7 or higher, or Server 2008 or higher. 64-bit required
     - **OS X**: 10.8 "Mountain Lion" or higher
