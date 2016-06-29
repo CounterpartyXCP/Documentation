@@ -462,5 +462,5 @@ The Counterparty Development Team is hereby forbidden from publishing code to fo
 
 Where the fault is due to a bug in the underlying EVM or platform as a whole — and not any specific smart contract that runs on it — the development team may respond as they see fit.
 
-##Schedule A - Board Membership Dues
+#Schedule A - Board Membership Dues
 See www.counterpartyfoundation.org/join
