@@ -454,6 +454,13 @@ To the fullest extent permitted by law, the authority to make, alter, amend, or 
 
 The Corporation may be dissolved upon the approval of all of the directors then in office without the vote or consent of any member(s) or third parties. Any distribution of the assets of this corporation shall be made in a manner consistent with the tax status of the Corporation at the time of such dissolution.
 
-
+#ARTICLE X - PROJECT AND NETWORK POLICY
+
+##Section 10.1 Smart Contract Anti-Fork, Anti-Rollback Provision:
+
+The Counterparty Development Team is hereby forbidden from publishing code to fork and/or roll-back the Counterparty network as a response to a bug or bugs in any published Ethereum Virtual Machine (EVM) smart contract code, and/or otherwise encouraging or advocating for such an action in any kind of official capacity.
+
+Where the fault is due to a bug in the underlying EVM or platform as a whole — and not any specific smart contract that runs on it — the development team may respond as they see fit.
+
 ##Schedule A - Board Membership Dues
 See www.counterpartyfoundation.org/join
