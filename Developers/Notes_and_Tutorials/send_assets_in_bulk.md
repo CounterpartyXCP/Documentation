@@ -14,6 +14,31 @@ which to pull the sources, destinations, quantities, assets and fees.
 import csv
 import sys
 
+from counterpartylib.lib import util
+from counterpartylib.lib import config
+from counterpartylib.lib.backend import addrindex
+
+config.BACKEND_URL = 'http://user:password@localhost:4000'
+config.BACKEND_SSL_NO_VERIFY = False
+config.TESTNET = False
+config.REQUESTS_TIMEOUT = 5
+
+def counterparty_api(method, params):
+    return util.api(method, params)
+
+def bitcoin_api(method, params):
+    return addrindex.rpc(method, params)
+
+def do_send(source, destination, asset, quantity, fee, encoding):
+    validateaddress = bitcoin_api('validateaddress', [source])
+    assert validateaddress['ismine']
+    pubkey = validateaddress['pubkey']
+    unsigned_tx = counterparty_api('create_send', {'source': source, 'destination': destination, 'asset': asset, 'quantity': quantity, 'pubkey': pubkey, 'allow_unconfirmed_inputs': True})
+    signed_tx = bitcoin_api('signrawtransaction', [unsigned_tx])['hex']
+    tx_hash = bitcoin_api('sendrawtransaction', [signed_tx])
+    return tx_hash
+
+
 with open(sys.argv[1], 'r') as csvfile:
       reader = csv.reader(csvfile)
       print('{}|{}|{}'.format('linenum', 'input', 'result'))
@@ -33,8 +58,6 @@ with open(sys.argv[1], 'r') as csvfile:
             print('{}|{}|{}'.format(reader.line_num, ','.join(row), tx_hash))
 ```
 
-where `do_send()` is defined in the [API Documentation](/Developers/API.md).
-
 ##CSV File
 
 All quantities are specified in satoshis. The format of the CSV file is as follows:
@@ -44,6 +67,8 @@ All quantities are specified in satoshis. The format of the CSV file is as follo
       mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns,XCP,200000000,100
 
 ##Instructions
+
+Use this script on a system with `counterparty-lib` installed and in the `PYTHONPATH`. (If using a Federated Node, this is possible by issuing the command `fednode shell counterparty` or `fednode shell counterparty-testnet` as appropriate, and using the script in that shell.)
 
 If the CSV file with the data is called input.csv, and the script is
 called sendmany.py, then call this script with
