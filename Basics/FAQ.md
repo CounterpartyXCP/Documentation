@@ -3,6 +3,20 @@ Frequently Asked Questions
 
 [TOC]
 
+### How does Counterparty work?
+
+Counterparty embeds data into regular Bitcoin transactions. To a regular Bitcoin client, these transactions look like a normal Bitcoin transaction, with one party sending another party a very small amount of Bitcoin. A Counterparty node (which runs the Bitcoin client along with [the Counterparty client software](https://github.com/CounterpartyXCP/counterparty-lib)) will recognize and interpret the data in these Bitcoin transactions based on specific rules. From this, it constructs its own ledger of Counterparty transactions that it has seen on the Bitcoin network.
+
+### So Counterparty is not its own Blockchain, but "rides on top of" Bitcoin?
+
+Yes. Another way to think of it is similar to a [Russian nesting doll](https://en.wikipedia.org/wiki/Matryoshka_doll), where the largest doll may be a Bitcoin transaction, and the next smaller doll would be a Counterparty transaction.
+
+### How do the Counterparty nodes stay in sync? What's to stop one node from disagreeing with another?
+
+Because all Counterparty nodes run the same code, and all receive the same Bitcoin transaction data, the ledgers across each node match exactly. Counterparty nodes are not like Bitcoin nodes in that they don't communicate with each other: they simply connect to the Bitcoin software and download transactions from it, decoding each one as they go along. In this way, the immense security and computing power behind Bitcoin is leveraged as the "transport network" for Counterparty data.
+
+Given the above, there is no "Counterparty peer to peer network" like there is a "Bitcoin peer-to-peer network": Counterparty-aware nodes comprise a subset of the Bitcoin full nodes in existance.
+
 ### What is XCP?
 
 XCP is the native token of Counterparty. It is a technical necessity for adding advanced features to Counterparty, which by nature require a protocol aware currency. Bitcoin can only be aware of BTC, while Counterparty can be aware of both BTC and XCP itself. This makes it possible to escrow funds, trade in a decentralized manner, and harness the full potential of programmable money.
@@ -11,7 +25,7 @@ XCP is the native token of Counterparty. It is a technical necessity for adding 
 
 ### What kind of addresses does Counterparty use?
 
-_Exactly_ the same Bitcoin addresses we all know and love. Counterparty uses the Bitcoin blockchain exclusively.
+_Exactly_ the same Bitcoin addresses we all know and love. As such, Counterparty tokens (such as XCP, SJCX, CAKE, and more) may be sent to _any_ Bitcoin address.
 
 ### What about Sidechains?
 
@@ -21,32 +35,38 @@ Counterparty is optimal for mainly higher value transactions and greatly benefit
 
 Yes. You can make a regular Bitcoin paper wallet and store them there. Later, you can sweep the funds into Counterwallet.
 
-### How does the Counterparty protocol achieve consensus? 
+### Is a 51% attack against Counterparty possible?
 
-The local Counterparty SQLite database is like the Bitcoin LevelDB database—independent of the consensus mechanism. What goes in the database s the parsed blockchain data: debits, credits, etc. Counterparty only uses prunable outputs to store its data. 
+As every Counterparty transaction is a Bitcoin transaction, to do a 51% attack on Counterparty you would have to do a 51% attack on Bitcoin.
 
-### What are the risks to consensus?
+### Besides a 51% attack, what are the other risks to consensus?
 
-All of the Counterparty code is completely open-source. If someone published malicious code, people would notice and not update their clients. Same as with Bitcoin.
+The Counterparty network could be effectively "forked" by a sizable number of people running different versions of the Counterparty client that had different "consensus sensitive code" (i.e. protocol code). In this case, if a transaction was read in from the Bitcoin client software, the differing code may cause two different interpretations of the data, and thus, two different ledger states.
 
-All of the data in the Bitcoin blockchain is safely parsed by the Counterparty client. The code is not ‘executed’. Again, all Bitcoin clients also parse Bitcoin blockchain data safely.
+As long as all participants run software that has the same protocol rules (even if it is different Counterparty client implementations), this situation will not happen. The reference client includes numerous safeguards that help detect and prevent this from happening.
 
-### How do Smart Contracts form a consensus?
-
-Smart contracts don’t form consensus. Every network participant just executes each contract in the same way (like a ‘send’ transaction). The consensus is formed with the blockchain determining which contracts exist and the order they are found in.
+That being said, [the Counterparty client](https://github.com/CounterpartyXCP/counterparty-lib) is completely open-source. Anyone is able to copy the code and make their own modifications. They can then run their modified version of the software, which technically may generate a different ledger than everyone else. This is similar to Bitcoin itself. However, to have any impact, that person would have to get others to run it, who would have to trust this individual more than they trust the Counterparty development team. This new ledger would not be "Counterparty". It would be a separate ledger with its own protocol rules. Services built on this ledger (such as a block explorer) would not agree with similar services built on the Counterparty ledger.
 
 ### Can the Counterparty Team rewrite the Counterparty ledger’s history, in an emergency or by decree? How does that compare to the same risks with Bitcoin Core devs?
 
-It’s identical to the case with Bitcoin. The Bitcoin core devs could publish a copy of Bitcoin Core that does anything, but no one would download it. There aren’t ‘Counterparty nodes’—Counterparty clients only communicate with each other through the Bitcoin blockchain.
+It’s identical to the case with Bitcoin. The Bitcoin core devs could publish a copy of Bitcoin Core that does anything, but no one would download it.
+
+### What about other blockchains instead of Bitcoin?
+
+Counterparty is built on Bitcoin. That has always been the case and we do not see it changing ever. For other blockchains, there are “forks” of the Counterparty software. Examples would be Dogeparty for Dogecoin, and Viacoin’s ClearingHouse. We generally encourage forks on other blockchains, especially if they help contribute back bug fixes and enhancements to the main Counterparty codebase.
+
+### What is Bitcoin fails or becomes co-opted?
+
+In the event of a catastrophic failure of the Bitcoin network, Counterparty does have the technical capability of “freezing” balances and migrating to another blockchain, like Litecoin, for instance.
 
 ### What happens when OP_RETURN data is auto-pruned as Gavin Andresen stated quite plainly would happen in due time at MIT?
 
 Counterparty only needs some Bitcoin full nodes somewhere to have an unpruned copy of the blockchain (which is easy, especially as all Counterparty clients will have one).
 
-### Is a 51% attack against Counterparty possible?
+### How are blockchain reorganizations ("reorgs") handled by Counterparty?
 
-To do a 51% attack on Counterparty, you have to do a 51% attack on Bitcoin, and the effects would be the same, too. Blockchain reorganizations are handled by Counterparty the same way they are handled by Bitcoin.
+Blockchain reorganizations are essentially handled by Counterparty the same way they are handled by Bitcoin. If the Counterparty software detects that a reorganization has occurred, it will utilize an internal "undolog" to quickly undo (roll back) transactions up to the point of the chain branching, and then process new transactions on the now-longest chain.
 
 ### How can a thin client trustlessly lookup the Bitcoin public address associated with the OSTOCK asset name?
 
-You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue now. Protocols like VerSum offer excellent models for untrusted verification here.
+You can use a local copy of the blockchain just fine. The only difference between Counterparty and Bitcoin here is that Counterparty doesn’t support SPV. We’re working on solutions to this issue. Protocols like VerSum offer excellent models for untrusted verification here.
