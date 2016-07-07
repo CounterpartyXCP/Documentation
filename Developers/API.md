@@ -1,11 +1,11 @@
-#Server API
+# counterparty-server API
 
 [TOC]
 
 
 ##Overview
 
-The ``counterparty-lib`` server provides a JSON RPC 2.0-based API based off of
+``counterparty-lib`` provides a JSON RPC 2.0-based API based off of
 that of Bitcoin Core. It is the primary means by which other applications
 should interact with the Counterparty network.
 
@@ -61,9 +61,7 @@ For more information on JSON RPC, please see the [JSON RPC 2.0 specification](ht
 
 ####REST
 
-For REST API all requests are made via GET where query-specific arguments are encoded as URL parameters. Moreover, the same requests can be
-passed via HTTP POST in order to encrypt the transaction parameters. There are only two methods supported: ``get`` and ``compose``. The URL
-formats are as follows respectively:
+For REST API all requests are made via GET where query-specific arguments are encoded as URL parameters. Moreover, the same requests can be passed via HTTP POST in order to encrypt the transaction parameters. There are only two methods supported: ``get`` and ``compose``. The URL formats are as follows, respectively:
 `/rest/<table_name>/get?<filters>&op=<operator>`
 `/rest/<message_type>/compose?<transaction arguments>`
 
@@ -75,10 +73,8 @@ if a password is set. **The default user is ``'rpc'``.**
 
 ##Example Implementations for JSON RPC API
 
-(Submissions for additional languages are welcome!) 
-
 The following examples have authentication enabled and the `user` set to its
-default value of `'rpc'`.
+default value of `'rpc'`. (Submissions for additional languages are welcome!)
 
 ###Python
 
@@ -104,7 +100,6 @@ default value of `'rpc'`.
 
 With PHP, you use the [JsonRPC](https://github.com/fguillot/JsonRPC)
 library.
-
 
     <?php
     require 'JsonRPC/src/JsonRPC/Client.php';
@@ -155,7 +150,6 @@ The following examples don't use authentication as with default settings.
     curl -X POST http://127.0.0.1:4000/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' 
 
 ##Example Parameters
-
 
 * Fetch all balances for all assets for both of two addresses, using keyword-based arguments
 
@@ -331,18 +325,15 @@ The process of making a transaction, from start to finish, depends somewhat on t
 
 ##Terms & Conventions
 
-
 ###assets
 
-Everywhere in the API an asset is referenced by its name, not its ID. See the
-Counterparty protocol specification for what constitutes a valid asset name.
+Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](/Developers/protocol_specification.md#assets) for what constitutes a valid asset name.
 Examples:
 
 - "BTC"
 - "XCP"
 - "FOOBAR"
 - "A7736697071037023001"
-
 
 ###Quantities and balances
 
@@ -355,7 +346,6 @@ Examples:
 - 4381030000 = 4381030000 (if indivisible asset) 
 
 **NOTE:** XCP and BTC themselves are divisible assets.
-
 
 ###floats
 
@@ -392,91 +382,22 @@ NOTE: Note that with strings being compared, operators like ``>=`` do a lexigrap
 compares, letter to letter, based on the ASCII ordering for individual characters. For more information on
 the specific comparison logic used, please see [this page](http://www.sqlite.org/lang_expr.html).
 
-
-
 ###Transaction Encodings
 
-All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns
-with its raw transaction API calls).
+All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns with its raw transaction API calls). This raw transaction's inputs must then be signed (i.e. via Bitcoin core, a 3rd party Bitcoin library like Bitcore, etc), and then can be broadcast on the Bitcoin network.
 
-The exact form and format of this unsigned raw transaction string is specified via the ``encoding`` and ``pubkey`` parameters on each ``create_``
-API call:
+The exact form and format of this unsigned raw transaction string is specified via the ``encoding`` and ``pubkey`` parameters on each ``create_`` API call.
 
-- To return the transaction as an **OP_RETURN** transaction, specify ``opreturn`` for the ``encoding`` parameter. **OP_RETURN** transactions cannot have more than 40 bytes of data.
+By default, the default ``encoding`` is ``auto``, _and should not be changed unless you know what you are doing_:
+
+- To return the transaction as an **OP_RETURN** transaction, specify ``opreturn`` for the ``encoding`` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
 - To return the transaction as a **multisig** transaction, specify ``multisig`` for the ``encoding`` parameter.
     - ``pubkey`` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-lib/pull/9).
 - To return the transaction as a **pubkeyhash** transaction, specify ``pubkeyhash`` for the ``encoding`` parameter.
     - ``pubkey`` should be set to the hex-encoded public key of the source address.
-- ``auto`` may also be specified to let the server choose wether to use ``OP_RETURN`` (when possible) or ``multisig``.
 
-
-##API Changes
-
-This section documents any changes to the API, for version numbers where there were API-level modifications.
-
-There will be no incompatible API pushes that do not either have: 
-
-* A well known set cut over date in the future 
-* Or, a deprecation process where the old API is supported for an amount of time
-
-
-###9.24.1
-
-**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``: 
-
-* Added ``sql`` API method
-* Filter params: Added ``LIKE``, ``NOT LIKE`` and ``IN``
-
-
-
-###9.25.0
-
-* new do_* methods: like create_*, but also sign and broadcast the transaction. Same parameters as create_*, plus optional privkey parameter.
-
-**backwards incompatible changes**
-
-* create_*: accept only dict as parameters
-* create_bet: ``bet_type`` must be a integer (instead string)
-* create_bet: ``wager`` and ``counterwager`` args are replaced by ``wager_quantity`` and ``counterwager_quantity``
-* create_issuance: parameter ``lock`` (boolean) removed (use LOCK in description)
-* create_issuance: parameter ``transfer_destination`` replaced by ``destination``
-* DatabaseError: now a DatabaseError is returned immediately if the database is behind the backend, instead of after fourteen seconds
-
-
-
-###9.32.0
-
-**Summary:** API framework overhaul for performance and simplicity 
-
-* "/api" with no trailing slash no longer supported as an API endpoint (use "/" or "/api/" instead)
-* We now consistently reject positional arguments with all API methods. Make sure your API calls do not use positional
-  arguments (e.g. use {"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"])
-
-
-
-###9.43.0
-
-* create_issuance: ``callable`` is also accepted
-* create_*: None is used as default value for missing parameters 
-
-###9.49.3
-
-* \*_issuance: ``callable``, ``call_date`` and ``call_price`` are no longer valid parameters
-* \*_callback: removed
-* Bitcoin addresses may everywhere be replaced by pubkeys.
-* The API will no longer search the local wallet for pubkeys, so they must be passed to the API manually if being used for the first time. Otherwise, you may get a "<address> not published in blockchain" error.
-
-###9.49.4
-* The `do_*`, `sign_tx` and `broadcast_tx` methods have been completely deprecated. See the section [Wallet Integration](#Wallet-Integration).
-* Added REST API.
-
-###9.51.0
-* Deprecate `get_asset_info(assets)` API method.
-* Deprecate `get_xcp_supply()` API method in favor of get_supply(asset).
-* Changed `get_unspent_txouts` API method parameter and return values.
-* Added HTTP Rest API.
-* Authentication on JSON‐RPC API is off by default
-* `rpc_password` configuration parameter is no longer mandatory
 
 
 #Technical Specification
@@ -678,9 +599,7 @@ Gets some basic information on a specific block.
   - **block_time** (*integer*): A UNIX timestamp of when the block was processed by the network 
 
 
-
 ###get_blocks
-
 
 **get_blocks(block_indexes)**
 
@@ -726,13 +645,12 @@ Gets some operational parameters for the server.
   - **db_version_minor** (*integer*): The minor version of the current database
 
 
-##Action/Write API Function Reference
 
+##Action/Write API Function Reference
 
 ###create_bet
 
-**create_bet(source, feed_address, bet_type, deadline, wager, counterwager, expiration, target_value=0.0, leverage=5040, encoding='auto', pubkey=null,
-allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
+**create_bet(source, feed_address, bet_type, deadline, wager, counterwager, expiration, target_value=0.0, leverage=5040, encoding='auto', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Issue a bet against a feed.
 
@@ -760,8 +678,7 @@ Issue a bet against a feed.
 
 ###create_broadcast
 
-**create_broadcast(source, fee_fraction, text, value=0, encoding='multisig', pubkey=null,
-allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
+**create_broadcast(source, fee_fraction, text, value=0, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Broadcast textual and numerical information to the network.
 
@@ -785,8 +702,7 @@ Broadcast textual and numerical information to the network.
 
 ###create_btcpay
 
-**create_btcpay(order_match_id, encoding='multisig', pubkey=null,
-allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
+**create_btcpay(order_match_id, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Create and (optionally) broadcast a BTCpay message, to settle an Order Match for which you owe BTC. 
 
@@ -870,8 +786,7 @@ Issue a dividend on a specific user defined asset.
 
 ###create_issuance
 
-**create_issuance(source, asset, quantity, divisible, description,
-transfer_destination=null, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
+**create_issuance(source, asset, quantity, divisible, description, transfer_destination=null, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset (note that you can only do one of these operations in a given create_issuance call).
 
@@ -903,8 +818,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 
 ###create_order
 
-**create_order(source, give_asset, give_quantity, get_asset, get_quantity, expiration, fee_required=0, fee_provided=0, encoding='multisig', pubkey=null,
-allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
+**create_order(source, give_asset, give_quantity, get_asset, get_quantity, expiration, fee_required=0, fee_provided=0, encoding='multisig', pubkey=null, allow_unconfirmed_inputs=false, fee=null, fee_per_kb=10000)**
 
 Issue an order request.
 
@@ -992,7 +906,7 @@ Example query:
 
 **compose(message_type, transaction_params)**
 
-Compose message_type transaction with transaction_params as data.
+Compose a `message_type` transaction with `transaction_params` as data.
 
 URL format: 
 
@@ -1030,7 +944,6 @@ An object that describes a balance that is associated to a specific address:
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset at this address
 
 
-
 ###Bet Object
 
 An object that describes a specific bet:
@@ -1051,7 +964,6 @@ An object that describes a specific bet:
 * **expiration** (*integer*): The number of blocks for which the bet should be valid
 * **fee_multiplier** (*integer*): 
 * **validity** (*string*): Set to "valid" if a valid bet. Any other setting signifies an invalid/improper bet
-
 
 
 ###Bet Match Object
@@ -1081,7 +993,6 @@ An object that describes a specific occurance of two bets being matched (either 
 * **validity** (*string*): Set to "valid" if a valid order match. Any other setting signifies an invalid/improper order match
 
 
-
 ###Broadcast Object
 
 An object that describes a specific occurance of a broadcast event (i.e. creating/extending a feed):
@@ -1095,7 +1006,6 @@ An object that describes a specific occurance of a broadcast event (i.e. creatin
 * **fee_multiplier** (*float*): How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. .05 is five percent)
 * **text** (*string*): The textual component of the broadcast
 * **validity** (*string*): Set to "valid" if a valid broadcast. Any other setting signifies an invalid/improper broadcast
-
 
 
 ###BTCPay Object
@@ -1135,7 +1045,6 @@ An object that describes a cancellation of a (previously) open order or bet:
 * **validity** (*string*): Set to "valid" if a valid burn. Any other setting signifies an invalid/improper burn
 
 
-
 ###Debit/Credit Object
 
 An object that describes a account debit or credit:
@@ -1146,7 +1055,6 @@ An object that describes a account debit or credit:
 * **address** (*string*): The address debited or credited
 * **asset** (*string*): The [assets](#assets) debited or credited
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset debited or credited
-
 
 
 ###Dividend Object
@@ -1162,7 +1070,6 @@ An object that describes an issuance of dividends on a specific user defined ass
 * **validity** (*string*): Set to "valid" if a valid burn. Any other setting signifies an invalid/improper burn
 
 
-
 ###Issuance Object
 
 An object that describes a specific occurance of a user defined asset being issued, or re-issued:
@@ -1176,7 +1083,6 @@ An object that describes a specific occurance of a user defined asset being issu
 * **issuer** (*string*): 
 * **transfer** (*boolean*): Whether or not this objects marks the transfer of ownership rights for the specified quantity of this asset
 * **validity** (*string*): Set to "valid" if a valid issuance. Any other setting signifies an invalid/improper issuance
-
 
 
 ###Order Object
@@ -1197,7 +1103,6 @@ An object that describes a specific order:
 * **expiration** (*integer*): The number of blocks over which the order should be valid
 * **fee_provided** (*integer*): The miners' fee provided; in BTC; required only if selling BTC (should not be lower than is required for acceptance in a block)
 * **fee_required** (*integer*): The miners' fee required to be paid by orders for them to match this one; in BTC; required only if buying BTC (may be zero, though)
-
 
 
 ###Order Match Object
@@ -1221,7 +1126,6 @@ An object that describes a specific occurance of two orders being matched (eithe
 * **validity** (*string*): Set to "valid" if a valid order match. Any other setting signifies an invalid/improper order match
 
 
-
 ###Send Object
 
 An object that describes a specific send (e.g. "simple send", of XCP, or a user defined asset):
@@ -1234,7 +1138,6 @@ An object that describes a specific send (e.g. "simple send", of XCP, or a user 
 * **asset** (*string*): The [assets](#assets) being sent
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset sent
 * **validity** (*string*): Set to "valid" if a valid send. Any other setting signifies an invalid/improper send
-
 
 
 ###Message Object
@@ -1251,7 +1154,6 @@ to track state changes to the counterpartyd database on a block-by-block basis).
   columns in the table referred to by **category**.
 
   
-
 ###Bet Expiration Object
 
 An object that describes the expiration of a bet created by the source address.
@@ -1260,7 +1162,6 @@ An object that describes the expiration of a bet created by the source address.
 * **bet_hash** (*string*): The transaction hash of the bet expiriing
 * **block_index** (*integer*): The block index (block number in the block chain) when this expiration occurred
 * **source** (*string*): The source address that created the bet
-
 
 
 ###Order Expiration Object
@@ -1273,7 +1174,6 @@ An object that describes the expiration of an order created by the source addres
 * **source** (*string*): The source address that created the order
 
 
-
 ###Bet Match Expiration Object
 
 An object that describes the expiration of a bet match.
@@ -1282,7 +1182,6 @@ An object that describes the expiration of a bet match.
 * **tx0_address** (*string*): The tx0 (first) address for the bet match
 * **tx1_address** (*string*): The tx1 (second) address for the bet match
 * **block_index** (*integer*): The block index (block number in the block chain) when this expiration occurred
-
 
 
 ###Order Match Expiration Object
@@ -1317,3 +1216,66 @@ Here the list of all possible status for each table:
 * **order_matches**: pending, completed, expired
 * **orders**: open, filled, canceled, expired, invalid: {problem(s)}
 * **sends**: valid, invalid: {problem(s)}
+
+
+
+#API Changes
+
+This section documents any changes to the API, for version numbers where there were API-level modifications.
+
+There will be no incompatible API pushes that do not either have: 
+
+* A well known set cut over date in the future 
+* Or, a deprecation process where the old API is supported for an amount of time
+
+##9.51.0
+* Deprecate `get_asset_info(assets)` API method.
+* Deprecate `get_xcp_supply()` API method in favor of get_supply(asset).
+* Changed `get_unspent_txouts` API method parameter and return values.
+* Added HTTP Rest API.
+* Authentication on JSON‐RPC API is off by default
+* `rpc_password` configuration parameter is no longer mandatory
+
+##9.49.4
+* The `do_*`, `sign_tx` and `broadcast_tx` methods have been completely deprecated. See the section [Wallet Integration](#Wallet-Integration).
+* Added REST API.
+
+##9.49.3
+
+* \*_issuance: ``callable``, ``call_date`` and ``call_price`` are no longer valid parameters
+* \*_callback: removed
+* Bitcoin addresses may everywhere be replaced by pubkeys.
+* The API will no longer search the local wallet for pubkeys, so they must be passed to the API manually if being used for the first time. Otherwise, you may get a "<address> not published in blockchain" error.
+
+##9.43.0
+
+* create_issuance: ``callable`` is also accepted
+* create_*: None is used as default value for missing parameters 
+
+##9.32.0
+
+**Summary:** API framework overhaul for performance and simplicity 
+
+* "/api" with no trailing slash no longer supported as an API endpoint (use "/" or "/api/" instead)
+* We now consistently reject positional arguments with all API methods. Make sure your API calls do not use positional
+  arguments (e.g. use {"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"])
+
+##9.25.0
+
+* new do_* methods: like create_*, but also sign and broadcast the transaction. Same parameters as create_*, plus optional privkey parameter.
+
+**backwards incompatible changes**
+
+* create_*: accept only dict as parameters
+* create_bet: ``bet_type`` must be a integer (instead string)
+* create_bet: ``wager`` and ``counterwager`` args are replaced by ``wager_quantity`` and ``counterwager_quantity``
+* create_issuance: parameter ``lock`` (boolean) removed (use LOCK in description)
+* create_issuance: parameter ``transfer_destination`` replaced by ``destination``
+* DatabaseError: now a DatabaseError is returned immediately if the database is behind the backend, instead of after fourteen seconds
+
+##9.24.1
+
+**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``: 
+
+* Added ``sql`` API method
+* Filter params: Added ``LIKE``, ``NOT LIKE`` and ``IN``
