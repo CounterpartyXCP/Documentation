@@ -11,9 +11,9 @@ To better help understand this, [here](https://counterpartychain.io/transaction/
 
 ### So Counterparty is not its own Blockchain, but "rides on top of" Bitcoin?
 
-Yes. Another way to think of it is similar to a [Russian nesting doll](https://en.wikipedia.org/wiki/Matryoshka_doll), where the largest doll may be a Bitcoin transaction, and the next smaller doll would be a Counterparty transaction.
+Yes. Another way to think of it is similar to a [Russian nesting doll](https://en.wikipedia.org/wiki/Matryoshka_doll), where the bigger doll would be the Bitcoin transaction, and the next doll (inside of it) would be a Counterparty transaction.
 
-This embedding method is technically known as "embedded consensus".
+This embedding method is technically known as **embedded consensus**.
 
 ### Is Counterparty "polluting" the Bitcoin blockchain, then?
 
@@ -53,13 +53,13 @@ Counterwallet also supports the use of Offline Armory. More info on that is [her
 
 ### Is a 51% attack against Counterparty possible?
 
-As every Counterparty transaction is a Bitcoin transaction, to do a 51% attack on Counterparty you would have to do a 51% attack on Bitcoin.
+As every Counterparty transaction is a Bitcoin transaction, to do a "51% attack" on Counterparty you would have to do a 51% attack on Bitcoin.
 
 ### Besides a 51% attack, what are the other risks to consensus?
 
 The Counterparty network could be effectively "forked" by a sizable number of people running different versions of the Counterparty client that had different "consensus sensitive code" (i.e. protocol code). In this case, if a transaction was read in from the Bitcoin client software, the differing code may cause two different interpretations of the data, and thus, two different ledger states.
 
-As long as all participants run software that has the same protocol rules (even if it is different Counterparty client implementations), this situation will not happen. The reference client includes numerous safeguards that help detect and prevent this from happening.
+As long as all participants run software that has the same protocol rules (even if it is different Counterparty client implementations), this situation will not happen. The reference client includes extensive safeguards that help detect and prevent this from happening.
 
 That being said, [the Counterparty client](https://github.com/CounterpartyXCP/counterparty-lib) is completely open-source. Anyone is able to copy the code and make their own modifications. They can then run their modified version of the software, which technically may generate a different ledger than everyone else. This is similar to Bitcoin itself. However, to have any impact, that person would have to get others to run it, who would have to trust this individual more than they trust the Counterparty development team. This new ledger would not be "Counterparty". It would be a separate ledger with its own protocol rules. Services built on this ledger (such as a block explorer) would not agree with similar services built on the Counterparty ledger.
 
@@ -67,7 +67,7 @@ That being said, [the Counterparty client](https://github.com/CounterpartyXCP/co
 
 It’s identical to the case with Bitcoin. The Bitcoin core devs could publish a copy of Bitcoin Core that does anything, but no one would download it.
 
-Counterparty is 100% open source, with a list of code changes from one release to the next visible for all to see and inspect.
+Counterparty is 100% open source, with [a list of code changes](https://github.com/CounterpartyXCP/counterparty-lib/releases) from one release to the next visible for all to see and inspect.
 
 ### What about support for other blockchains instead of Bitcoin?
 
@@ -75,7 +75,7 @@ Counterparty is built on Bitcoin. That has always been the case and we do not se
 
 ### What is Bitcoin fails or becomes co-opted?
 
-In the event of a catastrophic failure of the Bitcoin network, Counterparty does have the technical capability of "freezing" balances and migrating to another blockchain, like Litecoin for instance, with relative ease.
+In the event of a catastrophic failure of the Bitcoin network, Counterparty _does_ have the technical capability of "freezing" balances and migrating to another blockchain, like Litecoin for instance, with relative ease.
 
 ### What happens if and when OP_RETURN data is auto-pruned?
 
