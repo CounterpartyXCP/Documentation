@@ -23,7 +23,7 @@ On top of this, every Counterparty transaction pays a fair fee to the network fo
 
 ### Are Counterparty transactions less secure than Bitcoin transactions?
 
-As Counterparty transactions _are_ Bitcoin transactions, their data is proably just as secure as a vanilla Bitcoin transaction.
+As Counterparty transactions _are_ Bitcoin transactions, their data is proably just as secure as any other Bitcoin transaction.
 
 ### How do the Counterparty nodes stay in sync? What's to stop one node from disagreeing with another?
 
