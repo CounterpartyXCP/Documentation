@@ -27,13 +27,13 @@ As Counterparty transactions _are_ Bitcoin transactions, their data is proably j
 
 ### How do the Counterparty nodes stay in sync? What's to stop one node from disagreeing with another?
 
-Because all Counterparty nodes run the same code, and all receive the same Bitcoin transaction data, the ledgers across each node match exactly. Counterparty nodes are not like Bitcoin nodes in that they don't communicate with each other: they simply connect to the Bitcoin software and download transactions from it, decoding each one as they go along. In this way, the immense security and computing power behind Bitcoin is leveraged as the "transport network" for Counterparty data.
+As all Counterparty nodes run the same code, and all receive the same Bitcoin transaction data, the ledgers across each node match exactly. Counterparty nodes are not like Bitcoin nodes in that they don't communicate with each other: they simply connect to the Bitcoin software and download transactions from it, decoding each one as they go along. In this way, the immense security and computing power behind Bitcoin is leveraged as the "transport network" for Counterparty data.
 
 Given the above, there is no "Counterparty peer to peer network" like there is a "Bitcoin peer-to-peer network": Counterparty-aware nodes comprise a subset of the Bitcoin full nodes in existance.
 
 ### What about Sidechains?
 
-Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason not to make them work with Counterparty. This is the beauty of Counterparty's embedded consensus technology -- it can work with just about any blockchain out there, including sidechains.
+Counterparty is optimal for mainly higher value transactions and greatly benefits from the security of the main chain. However, if sidechains are ever released, there is no reason that they couldn't be made to work with Counterparty. This is the beauty of Counterparty's embedded consensus technology -- it can work with just about any blockchain out there, including sidechain designs.
 
 ### What kind of addresses does Counterparty use?
 
