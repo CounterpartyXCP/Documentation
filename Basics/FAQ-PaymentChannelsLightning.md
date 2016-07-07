@@ -7,23 +7,23 @@ Payment channels, Lightning FAQ
 
 **Payment channels** allow two users of Bitcoin to transact commitments to pay back and forth between each other much faster and more fluidly than Bitcoin’s 10 minute block times would normally allow. These commitments are exchanged between the users outside of the Bitcoin blockchain. Once the users are done, they can close the payment channel by committing the last commitment to the blockchain, which will finalize the amount actually transacted.
 
-An ideal use case for the technology would be to enable **micropayments**: Imagine user A making numerous very small payments (e.g. .0001 BTC) to Big Music Company as she listens to songs over a certain period. Without payment channels, the Bitcoin transaction fees from these small payments would be as much or more than the payments themselves, and each payment would take on average 10 minutes to clear.
+An ideal use case for the technology is **micropayments**: Imagine a user making numerous very small payments (e.g. .0001 BTC) to Big Music Company as she listens to songs over a certain period. Without payment channels, the Bitcoin transaction fees from these small payments would be as much or more than the payments themselves, and each payment would take on average 10 minutes to clear.
 
 Shawn Wilkinson of [Storj](https://storj.io/) (a Counterparty project) provides a [good overview](http://super3.org/introduction-to-micropayment-channels/) of payment channels (which goes into detail on both unidirectional and bidirectional channels.
 
 ### What is the Lightning Network?
 
-Still under development, the **Lightning Network** will allow for secure, instant off-chain payments between two arbitrary participants. It is one of the primary methods of scaling Bitcoin to have credit card network-like transaction throughput, while preserving its decentralized qualities.
+The **Lightning Network**, which is still under development, will allow for secure, instant off-chain payments between two arbitrary participants. The Lightning Network is one of the primary methods of scaling Bitcoin to have credit card network-like transaction throughput, while preserving its decentralized qualities.
 
-Lightning Network technology uses bidirectional payment channels under the hood. Much like the internet does in routing data packets from network point to network point, the Lightning Network routes payments across multiple interconnected payment channels. This avoids the need for you having to construct a new payment channel for every party that you want to transact with. Instead, you may have a channel set up with a party you have an established relationship with, such as a payment provider like Coinbase, who (possibly through multiple degrees of separation) has a payment channel connection to the final end party.
+Lightning Network technology uses bidirectional payment channels as its central component. Much like the internet routes data packets from one network point to another network point, the Lightning Network routes payments across multiple interconnected payment channels. This eliminates the need to construct a new payment channel for every party that you want to transact with. Instead, you may have a channel set up with a party you have an established relationship with, such as a payment provider like Coinbase, who (possibly through multiple degrees of separation) has a payment channel connection to the final end party.
 
 Because the individual participants’ transactions utilize Bitcoin cryptography and are eventually committed back to the Bitcoin blockchain, transactions on the Lightning Network are essentially as secure as if they were transacted directly on Bitcoin, but without the same cost, speed and scalability limitations.
 
 The [Lightning Network site](https://lightning.network/) includes more information.
 
-### Why is Counterparty supporting payment channels a Big Deal?
+### How do payment channels help Counterparty users?
 
-Previously, individual Counterparty transactions were committed directly to the Bitcoin blockchain. This is very secure, but is impacted by Bitcoin’s 10 minute block times and per-transaction fees. With payment channels, Counterparty users gain the ability perform certain common actions, such as incrementally swapping XCP for BTC or paying TOKENABC for increased use of a service, without having to wait between iterations. The benefits of this are especially apparent when the amounts transacted are small.
+Previously, individual Counterparty transactions were committed directly to the Bitcoin blockchain. This is very secure, but is impacted by Bitcoin’s 10 minute block times and per-transaction fees. With payment channels, Counterparty users gain the ability perform certain common actions, such as incrementally swapping XCP for BTC or paying TOKENABC for increased use of a service. The benefits of this are especially apparent when the amounts transacted are small.
 
 ### What are some potential uses for payment channels/micropayments?
 
