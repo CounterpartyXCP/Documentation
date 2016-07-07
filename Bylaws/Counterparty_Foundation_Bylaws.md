@@ -462,6 +462,6 @@ The Corporation, Board of Directors, and/or Counterparty Development Team is her
 
 Where the fault is due to a bug in the underlying EVM or platform as a whole — and not any specific smart contract that runs on it — the Counterparty Development Team may respond as they see fit.
 
-##Schedule A - Board Membership Dues
+#Schedule A - Board Membership Dues
 
 No membership dues or fees are currently in effect, nor is any program currently creating and/or granting special status and privileges to subclasses of Community or Industry Members currently in effect.
