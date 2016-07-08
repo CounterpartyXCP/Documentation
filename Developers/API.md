@@ -258,7 +258,9 @@ The following examples don't use authentication as with default settings.
 
 **Note:** Before v9.49.4, the counterpartyd API provided an interface to Bitcoin Core's signing functionality through the `do_*`, `sign_tx` and `broadcast_tx` methods, which have all since been removed.
 
-The process of making a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast an unsigned Counterparty transaction *created* with this API.
+All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns with its raw transaction API calls). This raw transaction's inputs must then be signed (i.e. via Bitcoin core, a 3rd party Bitcoin library like Bitcore, etc), and then can be broadcast on the Bitcoin network.
+
+The process of signing and broadcasting a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast an unsigned Counterparty transaction *created* with this API.
 
 **Bitcoin Core with Python**
 
@@ -383,8 +385,6 @@ compares, letter to letter, based on the ASCII ordering for individual character
 the specific comparison logic used, please see [this page](http://www.sqlite.org/lang_expr.html).
 
 ###Transaction Encodings
-
-All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns with its raw transaction API calls). This raw transaction's inputs must then be signed (i.e. via Bitcoin core, a 3rd party Bitcoin library like Bitcore, etc), and then can be broadcast on the Bitcoin network.
 
 The exact form and format of this unsigned raw transaction string is specified via the ``encoding`` and ``pubkey`` parameters on each ``create_`` API call.
 
