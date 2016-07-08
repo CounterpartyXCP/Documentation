@@ -291,11 +291,12 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 	    return tx_hash
 
 **Bitcoin Core with Javascript**
+(Utilizing the [Counterwallet Bitcore wrapper code](https://raw.githubusercontent.com/CounterpartyXCP/counterwallet/master/src/js/util.bitcore.js) for brevity.)
 
     <html>
-        <script src="https://raw.githubusercontent.com/bitpay/bitcore/82ce08b8932c3c9d86105982109101bab1a47827/browser/bundle.js"></script>
-        <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwebdeps/master/js/util.bitcore.js"></script>
-        <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwebdeps/master/js/external/mnemonic.js"></script>
+        <script src="https://wallet.counterwallet.io/src/js/util.bitcore.js"></script>
+        <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwallet/master/src/js/util.bitcore.js"></script>
+        <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwallet/master/src/js/external/mnemonic.js"></script>
         <script>
         counterparty_api = function(method, params) {
             // calls Counterparty API method with you prefered method
