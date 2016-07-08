@@ -5,7 +5,7 @@ Payment channels, Lightning FAQ
 
 ### What are Payment channels?
 
-**Payment channels** allow two users of Bitcoin to transact commitments to pay back and forth between each other much faster and more fluidly than Bitcoin’s 10 minute block times would normally allow. These commitments are exchanged between the users outside of the Bitcoin blockchain. Once the users are done, they can close the payment channel by committing the last commitment to the blockchain, which will finalize the amount actually transacted.
+**Payment channels** allow two users of Bitcoin to transact commitments to pay back and forth between each other much faster and more fluidly than Bitcoin’s 10 minute block times would normally allow. These commitments are exchanged between the users outside of the Bitcoin blockchain. Once the users are done, they can close the payment channel by publishing the last commitment(s) to the blockchain, which will finalize the amount actually transacted.
 
 An ideal use case for the technology is **micropayments**: Imagine a user making numerous very small payments (e.g. .0001 BTC) to Big Music Company as she listens to songs over a certain period. Without payment channels, the Bitcoin transaction fees from these small payments would be as much or more than the payments themselves, and each payment would take on average 10 minutes to clear.
 
@@ -61,8 +61,8 @@ The use of atomic swaps can be useful to enable the use of things like **over th
 
 The concept of an OTC market may sound antiquated but in reality they are a major boon to markets, especially for large holders who can then enter or exit a market or accumulate an asset without much price “slippage”, as would oftentimes occur on an exchange. In mainstream finance, OTC markets comprise over 40% of stock trading, as well as the vast majority of bond and derivative trading ([source 1](https://en.wikipedia.org/wiki/Over-the-counter_(finance)), [source 2](https://en.wikipedia.org/wiki/Derivatives_market)).
 
-### How do I start using all of this technology?
+### How do I start using all of this technology with Counterparty?
 
-This technology is all in various stages of development, with some of it being complete (P2SH, for instance) and some in very early states (such as Lightning Network support).
+This technology is all in various stages of development, with some of it being complete (P2SH, for instance) and some in very early states on Counterparty (such as bidirectional payment channels and Lightning Network support).
 
 We will be publishing guides for users and developers as the respective technology becomes available and matures. Until that point, feel free to check out [the newest source code](https://github.com/CounterpartyXCP/counterparty-lib/tree/develop) and ask questions on #dev on [our official Slack chat](http://slack.counterparty.io/).
