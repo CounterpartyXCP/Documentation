@@ -23,7 +23,7 @@ The [Lightning Network site](https://lightning.network/) includes more informati
 
 ### How do payment channels help Counterparty users?
 
-Previously, individual Counterparty transactions were committed directly to the Bitcoin blockchain. This is very secure, but is impacted by Bitcoin’s 10 minute block times and per-transaction fees. With payment channels, Counterparty users gain the ability perform certain common actions, such as incrementally swapping XCP for BTC or paying TOKENABC for increased use of a service. The benefits of this are especially apparent when the amounts transacted are small.
+Previously, individual Counterparty transactions were committed directly to the Bitcoin blockchain. This is very secure, but is impacted by Bitcoin’s 10 minute block times and per-transaction fees. With payment channels, Counterparty users gain the ability perform certain actions very rapidly and cheaply, such as incrementally swapping XCP for BTC or paying TOKENABC for increased use of a service. The benefits of this are especially apparent when the amounts transacted are small, and/or performed frequently or on an on-going basis.
 
 ### What are some potential uses for payment channels/micropayments?
 
@@ -55,7 +55,7 @@ You can tell if a Bitcoin address is for a P2SH destination because it will star
 
 P2SH support, the same technology implemented in Counterparty that makes payment channels possible, also makes on-chain “atomic swaps” possible.
 
-With an **atomic swap**, two parties perform a specific process that culminates with the broadcasting of a transaction on the blockchain that both parties have signed. As the word “atomic” would imply, the single transaction exchanges (or, “swaps”) some quantity of one asset from the first party, for some quantity of another asset from the other party, at all once. Thus, in a trade, for instance, neither party has to “go first” and trust the other party.
+With an **atomic swap**, two parties perform a specific process that culminates with the broadcasting of a several transactions on the blockchain that both parties have signed. The set of transactions collectively exchange (or, “swap”) some quantity of one asset from the first party for some quantity of another asset from the other party, in a way where it is impossible for one party to cheat the other.
 
 The use of atomic swaps can be useful to enable the use of things like **over the counter (OTC) markets** and **dark pools**. With either structure, a third party (often known as a bookrunner) would maintain a list of bids and offers between buyers and sellers of one asset for another, such as XCP and BTC. That list may be publically published, or not. Interested parties would contact the bookrunner and place buy and sell offers. The bookrunner would match buyers to sellers, who would then perform the trade themselves utilizing an atomic swap. Using this model, risk is greatly minimized, as the bookrunner does not have to hold any assets (and thus cannot run away with them).
 
