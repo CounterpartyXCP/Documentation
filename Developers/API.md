@@ -763,41 +763,6 @@ Parse the data_hex of a message into its parameters. Currently only works with `
 
 ##Action/Write API Function Reference
 
-###Common `create_` parameters
-
-Each `create_` call detailed below can take the following common keyword parameters:
-
-  * **encoding** (*string*): The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.  
-  * **pubkey** (*string/list*): The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``encoding`` parameter values of ``multisig`` or ``pubkeyhash``. See [transactions encoding](#transaction-encodings) for more info
-  * **allow_unconfirmed_inputs** (*boolean*): Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs. Defaults to `false`.
-  * **fee** (*integer*): If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose. 
-  * **fee_per_kb** (*integer*): The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi).
-  * **fee_provided** (*integer*): If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from `fee` in that this is an upper bound value, which `fee` is an exact value.
-  * **custom_inputs** (*list*): Use only these specific UTXOs as inputs for the transaction being created. If specified, this parameter is a list of (JSON-encoded) UTXO objects, whose properties match those as retrieved by `listunspent` function from bitcoind (e.g. see [here](https://chainquery.com/bitcoin-api/listunspent)). Note that the actual UTXOs used may be a subset of this list.
-  * **unspent_tx_hash** (*string*): When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to `null` to consider all UTXOs for the address. Do not use this parameter if you are specifying `custom_inputs`.
-  * **regular_dust_size** (*integer*): Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output. Defaults to `5430` satoshi.
-  * **multisig_dust_size** (*integer*): Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output. Defaults to `7800` satoshi.
-  * **dust_return_pubkey** (*string*): The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is _required_ to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this valis is set to `false`, this instructs `counterparty-server` to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception.
-  * **disable_utxo_locks** (*boolean*): By default, UTXO's utilized when creating a transaction are "locked" for a few seconds, to prevent a case where rapidly generating `create_` calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify `true` for this parameter to disable this behavior, and not temporarily lock UTXOs.
-  * **op_return_value** (*integer*): The value (in satoshis) to use with any `OP_RETURN` outputs in the generated transaction. Defaults to `0`. Don't use this, unless you like [throwing your money away].(https://m.reddit.com/r/Bitcoin/comments/2plfsv/what_happens_to_the_value_of_a_coin_locked_with/cmxrnhu).
-
-
-**With the exception of `pubkey` and `allow_unconfirmed_inputs`, these values should be left at their defaults, unless you know what you are doing.** 
-
-
-####Transaction Encodings
-
-By default the default value of the ``encoding`` parameter detailed above is ``auto``, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protol data into a new tranaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify ``opreturn`` for the ``encoding`` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify ``multisig`` for the ``encoding`` parameter.
-    - ``pubkey`` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-lib/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify ``pubkeyhash`` for the ``encoding`` parameter.
-    - ``pubkey`` should be set to the hex-encoded public key of the source address.
-
-
 ###create_bet
 
 **create_bet(source, feed_address, bet_type, deadline, wager, counterwager, expiration, target_value=0.0, leverage=5040)**
@@ -815,7 +780,7 @@ Issue a bet against a feed.
   * **expiration** (*integer*): The number of blocks after which the bet expires if it's still unmatched.
   * **target_value** (*float, default=null*): Target value for Equal/NotEqual bet
   * **leverage** (*integer, default=5040*): Leverage, as a fraction of 5040
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -835,7 +800,7 @@ Broadcast textual and numerical information to the network.
   * **text** (*string*): The textual part of the broadcast.
   * **timestamp** (*integer*): The timestamp of the broadcast, in Unix time.
   * **value** (*float*): Numerical value of the broadcast.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -851,7 +816,7 @@ Create and (optionally) broadcast a BTCpay message, to settle an Order Match for
 **Parameters:**
 
   * **order_match_id** (*string*): The concatenation of the hashes of the two transactions which compose the order match.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -868,7 +833,7 @@ Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 
 
   * **source** (*string*): The address with the BTC to burn.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of BTC to burn (1 BTC maximum burn per address).
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -884,7 +849,7 @@ Cancel an open order or bet you created.
 **Parameters:**
 
   * **offer_hash** (*string*): The transaction hash of the order or bet.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -903,7 +868,7 @@ Issue a dividend on a specific user defined asset.
   * **quantity_per_unit** (*integer*): The amount of **dividend_asset** rewarded.
   * **asset** (*string*): The [assets](#assets) that the dividends are being rewarded on.
   * **dividend_asset** (*string*): The [assets](#assets) that the dividends are paid in.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -924,7 +889,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description** (*string, default=''*): A textual description for the asset. 52 bytes max.
   * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -951,7 +916,7 @@ Issue an order request.
   * **get_asset** (*string*): The [assets](#assets) requested in return.
   * **get_quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset requested in return.
   * **expiration** (*integer*): The number of blocks for which the order should be valid.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
@@ -970,11 +935,46 @@ Send XCP or a user defined asset.
   * **destination** (*string*): The address to receive the asset.
   * **asset** (*string*): The [assets](#assets) to send.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#common-create_-parameters).
+  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
 
 **Return:** 
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
+
+
+###Advanced `create_` parameters
+
+Each `create_` call detailed below can take the following common keyword parameters:
+
+  * **encoding** (*string*): The encoding method to use, see [transaction encodings](#transaction-encodings) for more info.
+  * **pubkey** (*string/list*): The hexadecimal public key of the source address (or a list of the keys, if multi‐sig). Required when using ``encoding`` parameter values of ``multisig`` or ``pubkeyhash``. See [transactions encoding](#transaction-encodings) for more info
+  * **allow_unconfirmed_inputs** (*boolean*): Set to ``true`` to allow this transaction to utilize unconfirmed UTXOs as inputs. Defaults to `false`.
+  * **fee** (*integer*): If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose.
+  * **fee_per_kb** (*integer*): The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi).
+  * **fee_provided** (*integer*): If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from `fee` in that this is an upper bound value, which `fee` is an exact value.
+  * **custom_inputs** (*list*): Use only these specific UTXOs as inputs for the transaction being created. If specified, this parameter is a list of (JSON-encoded) UTXO objects, whose properties match those as retrieved by `listunspent` function from bitcoind (e.g. see [here](https://chainquery.com/bitcoin-api/listunspent)). Note that the actual UTXOs used may be a subset of this list.
+  * **unspent_tx_hash** (*string*): When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to `null` to consider all UTXOs for the address. Do not use this parameter if you are specifying `custom_inputs`.
+  * **regular_dust_size** (*integer*): Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output. Defaults to `5430` satoshi.
+  * **multisig_dust_size** (*integer*): Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output. Defaults to `7800` satoshi.
+  * **dust_return_pubkey** (*string*): The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is _required_ to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this valis is set to `false`, this instructs `counterparty-server` to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception.
+  * **disable_utxo_locks** (*boolean*): By default, UTXO's utilized when creating a transaction are "locked" for a few seconds, to prevent a case where rapidly generating `create_` calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify `true` for this parameter to disable this behavior, and not temporarily lock UTXOs.
+  * **op_return_value** (*integer*): The value (in satoshis) to use with any `OP_RETURN` outputs in the generated transaction. Defaults to `0`. Don't use this, unless you like [throwing your money away].(https://m.reddit.com/r/Bitcoin/comments/2plfsv/what_happens_to_the_value_of_a_coin_locked_with/cmxrnhu).
+
+
+**With the exception of `pubkey` and `allow_unconfirmed_inputs`, these values should be left at their defaults, unless you know what you are doing.**
+
+####Transaction Encodings
+
+By default the default value of the ``encoding`` parameter detailed above is ``auto``, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protol data into a new tranaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify ``opreturn`` for the ``encoding`` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify ``multisig`` for the ``encoding`` parameter.
+    - ``pubkey`` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-lib/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify ``pubkeyhash`` for the ``encoding`` parameter.
+    - ``pubkey`` should be set to the hex-encoded public key of the source address.
+
 
 
 ##REST API Function Reference
