@@ -780,7 +780,7 @@ Issue a bet against a feed.
   * **expiration** (*integer*): The number of blocks after which the bet expires if it's still unmatched.
   * **target_value** (*float, default=null*): Target value for Equal/NotEqual bet
   * **leverage** (*integer, default=5040*): Leverage, as a fraction of 5040
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -800,7 +800,7 @@ Broadcast textual and numerical information to the network.
   * **text** (*string*): The textual part of the broadcast.
   * **timestamp** (*integer*): The timestamp of the broadcast, in Unix time.
   * **value** (*float*): Numerical value of the broadcast.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -816,7 +816,7 @@ Create and (optionally) broadcast a BTCpay message, to settle an Order Match for
 **Parameters:**
 
   * **order_match_id** (*string*): The concatenation of the hashes of the two transactions which compose the order match.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -833,7 +833,7 @@ Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 
 
   * **source** (*string*): The address with the BTC to burn.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of BTC to burn (1 BTC maximum burn per address).
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -849,7 +849,7 @@ Cancel an open order or bet you created.
 **Parameters:**
 
   * **offer_hash** (*string*): The transaction hash of the order or bet.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -868,7 +868,7 @@ Issue a dividend on a specific user defined asset.
   * **quantity_per_unit** (*integer*): The amount of **dividend_asset** rewarded.
   * **asset** (*string*): The [assets](#assets) that the dividends are being rewarded on.
   * **dividend_asset** (*string*): The [assets](#assets) that the dividends are paid in.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -889,7 +889,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description** (*string, default=''*): A textual description for the asset. 52 bytes max.
   * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -916,7 +916,7 @@ Issue an order request.
   * **get_asset** (*string*): The [assets](#assets) requested in return.
   * **get_quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset requested in return.
   * **expiration** (*integer*): The number of blocks for which the order should be valid.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
@@ -935,7 +935,7 @@ Send XCP or a user defined asset.
   * **destination** (*string*): The address to receive the asset.
   * **asset** (*string*): The [assets](#assets) to send.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
-  * NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
 
