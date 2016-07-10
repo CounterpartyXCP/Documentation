@@ -14,12 +14,13 @@ with the [`counterparty-lib`](counterparty_lib.md) Python library. It listens on
 4000 by default (14000 for ``testnet``) and requires HTTP Basic Authentication to connect.
 
 The API includes numerous information retrieval methods, most of which begin with `get_`, as well as several
-`create_` methods which create new Counterparty transactions. Instead, these `create_` methods return unsigned raw transactions
-which must then be signed and broadcast on the Bitcoin network. In other words,
-while `counterparty-server` requires Bitcoin Core and uses it for retieval and parsing of blockchain data,
-it and this API do not require its wallet (private key storage/management) functionality for transaction signing,
-and transaction signing and broadcast can be accomplished, using whatever means the developer sees fit
-(including using Bitcoin core's APIs if desired).
+`create_` methods which create new Counterparty transactions. While the `get_` type methods simply return the
+requested information, the `create_` methods return unsigned raw transactions which must then be signed and
+broadcast on the Bitcoin network. This means that while `counterparty-server` requires Bitcoin Core and
+uses it for retieval and parsing of blockchain data, it and this API do not require Bitcoin Core's wallet functionality
+for private key storage and transaction signing. Transaction signing and broadcast can thus
+be accomplished using whatever means the developer sees fit (including using Bitcoin core's APIs if desired, or
+a library like Bitcore, or a service like blockchain.info, and so on).
 
 In addition to the JSON RPC API, ``counterparty-lib`` provides a complementary RESTful API also based off of that
 of Bitcoin Core's design. This REST API is still under development and will include more functionality
