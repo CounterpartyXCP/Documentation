@@ -55,7 +55,7 @@ You can tell if a Bitcoin address is for a P2SH destination because it will star
 
 P2SH support, the same technology implemented in Counterparty that makes payment channels possible, also makes on-chain “atomic swaps” possible.
 
-With an **atomic swap**, two parties perform a specific process that culminates with the broadcasting of a several transactions on the blockchain that both parties have signed. The set of transactions collectively exchange (or, “swap”) some quantity of one asset from the first party for some quantity of another asset from the other party, in a way where it is impossible for one party to cheat the other.
+With an **atomic swap**, two parties perform a special process of exchanging information that completes by the parties broadcasting several transactions that they both have signed. These transactions end up exchanging (i.e. “swapping”) some quantity of one asset from one party in exchange for another. This is done in a way where one party can’t cheat the other.
 
 The use of atomic swaps can be useful to enable the use of things like **over the counter (OTC) markets** and **dark pools**. With either structure, a third party (often known as a bookrunner) would maintain a list of bids and offers between buyers and sellers of one asset for another, such as XCP and BTC. That list may be publically published, or not. Interested parties would contact the bookrunner and place buy and sell offers. The bookrunner would match buyers to sellers, who would then perform the trade themselves utilizing an atomic swap. Using this model, risk is greatly minimized, as the bookrunner does not have to hold any assets (and thus cannot run away with them).
 
