@@ -9,19 +9,21 @@
 that of Bitcoin Core. It is the primary means by which other applications
 should interact with the Counterparty network.
 
-For maximum modularity, flexibility and robustness, the API server doesn’t
-interact with any Bitcoin wallets itself, even Bitcoin Core's built-in one.
-(See the section [Wallet Integration](#Wallet-Integration).)
+The API server is started either through the [`CLI interface`](counterparty-cli.md) or
+with the [`counterparty-lib`](counterparty_lib.md) Python library. It listens on port
+4000 by default (14000 for ``testnet``) and requires HTTP Basic Authentication to connect.
 
-The API server is started either through the [`CLI interface`](counterparty-cli.md) or with the
-[`counterparty-lib`](counterparty_lib.md) Python library.
+The API includes numerous information retrieval methods, most of which begin with `get_`, as well as several
+`create_` methods which create new Counterparty transactions. Instead, these `create_` methods return unsigned raw transactions
+which must then be signed and broadcast on the Bitcoin network. In other words,
+while `counterparty-server` requires Bitcoin Core and uses it for retieval and parsing of blockchain data,
+it and this API do not require its wallet (private key storage/management) functionality for transaction signing,
+and transaction signing and broadcast can be accomplished, using whatever means the developer sees fit
+(including using Bitcoin core's APIs if desired).
 
-The API listens on port 4000 by default (14000 for ``testnet``) and requires
-HTTP Basic Authentication to connect. It uses JSON RPC 2.0.
-
-Additionally, ``counterparty-lib`` provides a complementary RESTful API also based off of that
-of Bitcoin Core. This REST API is still under development and will include more functionality
-in the future. The REST API listens on the same port as JSON RPC one.
+In addition to the JSON RPC API, ``counterparty-lib`` provides a complementary RESTful API also based off of that
+of Bitcoin Core's design. This REST API is still under development and will include more functionality
+in the future, and listens on the same port as JSON RPC one.
 
 
 ##Getting Started
@@ -958,7 +960,7 @@ Each `create_` call detailed below can take the following common keyword paramet
   * **multisig_dust_size** (*integer*): Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output. Defaults to `7800` satoshi.
   * **dust_return_pubkey** (*string*): The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is _required_ to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this valis is set to `false`, this instructs `counterparty-server` to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception.
   * **disable_utxo_locks** (*boolean*): By default, UTXO's utilized when creating a transaction are "locked" for a few seconds, to prevent a case where rapidly generating `create_` calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify `true` for this parameter to disable this behavior, and not temporarily lock UTXOs.
-  * **op_return_value** (*integer*): The value (in satoshis) to use with any `OP_RETURN` outputs in the generated transaction. Defaults to `0`. Don't use this, unless you like [throwing your money away].(https://m.reddit.com/r/Bitcoin/comments/2plfsv/what_happens_to_the_value_of_a_coin_locked_with/cmxrnhu).
+  * **op_return_value** (*integer*): The value (in satoshis) to use with any `OP_RETURN` outputs in the generated transaction. Defaults to `0`. Don't use this, unless you like [throwing your money away](https://m.reddit.com/r/Bitcoin/comments/2plfsv/what_happens_to_the_value_of_a_coin_locked_with/cmxrnhu).
 
 
 **With the exception of `pubkey` and `allow_unconfirmed_inputs`, these values should be left at their defaults, unless you know what you are doing.**
