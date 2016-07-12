@@ -266,7 +266,7 @@ Where `<service>` is one of the service names listed [above](#servicenames), and
 For example:
 ```
 fednode exec counterparty counterparty-server send --source=12u4Vymr3bGTywjMQDgBkwAnazwQuDqzJG --destination=1AanCo9CJSomhUEy2YrhfXrU1PboBhFaBq --quantity=1.5 --asset=XCP
-fednode cmd bitcoin-testnet bitcoin-cli getpeerinfo
+fednode exec bitcoin-testnet bitcoin-cli getpeerinfo
 fednode exec counterblock ls /root
 ```
 
