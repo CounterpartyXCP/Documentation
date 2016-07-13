@@ -1,3 +1,3 @@
 # Official Documentation of the Counterparty Project
 
-All documentation at http://counterparty.io/docs/ is rendered from the markdown sources in this repository.
+The markdown documentation in this repository is rerendered hourly and made available at the [Counterparty documentation site](http://counterparty.io/docs/).
