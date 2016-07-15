@@ -327,18 +327,23 @@ fednode uninstall
 
 ## Component development
 
-The system allows for easy development and modification of the Counterparty software components. To do so, simply update code in the directories under `federatednode/src/` as you see fit. (Note that HTTPS repository URLs are used by default for all of the repositories checked out under `src` by `fednode.py`. To use SSH URIs instead, specify the `--use-ssh-uris` to the `fednode install` command.)
+The system allows for easy development and modification of the Counterparty software components. To do so, simply update code in the directories under `federatednode/src/` as you see fit. These directories are mapped into the appropriate containers, overlaying (overriding) the source code that the container ships with. This, along with symlinked (develop) Python package installations makes it possible to work on code in-place, with just a service restart necessary to have the changes take effect.
 
-Once done updating the source code, issue the following command(s) to restart the container with the new code:
+Once done updating the source code for a particular service, issue the following command(s) to restart the container with the new code:
 ```
 fednode restart <service>
 ```
 Where `<service>` is one of the services mentioned [here](#servicenames_code).
 
-To run the `counterparty-lib` test suite, execute:
+**Other Developer Notes**
+
+* To run the `counterparty-lib` test suite, execute:
 ```
 fednode exec counterparty "cd /counterparty-lib/counterpartylib; py.test --verbose --skiptestbook=all --cov-config=../.coveragerc --cov-report=term-missing --cov=./"
 ```
+* If you are working on `counterwallet`, you should browse the system using the `/src/` subdirectory (e.g. `https://mycounterwallet.bla/src/`). This avoids using precompiled sources. Once you are happy with your changes and ready to make them available to everyone that hits the server, run `fednode update counterwallet`, which will pull the newest repo code and repackage the web assets so that the code updates are then active from `https://mycounterwallet.bla/`.
+
+* Note that when you install the federated node system, HTTPS repository URLs are used by default for all of the repositories checked out under `src` by `fednode.py`. To use SSH URIs instead, specify the `--use-ssh-uris` to the `fednode install` command.
 
 ## Counterwallet-Specific
 
