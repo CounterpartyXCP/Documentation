@@ -58,6 +58,26 @@ XCP is “burned” (destroyed) when smart contracts are executed, to essentiall
 
 Yes, as unlike ETH, the supply of XCP is fixed. However, this should not endanger the network itself: for a given smart contract execution, the amount of XCP consumed will slowly decrease as the supply in existence shrinks. This will ensure that the amount of XCP never goes to zero.
 
+### How does Bitcoin’s 10 minute block time affect the EVM?
+
+After a contract is written, it is "published" to the blockchain, which embeds its data in the blockchain, ensuring that all Counterparty nodes have the same contract code to execute. Once published, a method/function on a contract may then be executed.
+
+Both the publishing operation, as well as any execution operations, are published as a Counterparty transaction (inside a Bitcoin transaction) and thus subject to the block time. However, once a contract executes, it will move from line of code to line of code as quickly as the host computer allows, and individual "steps" within a contract are not subject to block times. Nor is a contract executing another contract (via `CALL`) subject to the block times, and the called contract method (as well as any methods that it calls, and so on) execute immediately.
+
+Thus, the block time limit is overall rather minor, and only affects the initial publishing and the initial execution of a contract method.
+
+### Can payment channels be used with the EVM?
+
+Not currently. With the EVM, when a contract’s "state" (i.e. storage data) is modified via an execution operation, all nodes on the Counterparty network must perform the operation at the same time. This is because all contract state must be identical and shared across all nodes.
+
+Payment channels, on the other hand, are essentially a private negotiation between two parties, who, once they agree, will finalize their agreement on the blockchain. This is done via utilizing Bitcoin’s internal scripting language in a certain clever way (i.e. intentional non-broadcast double-spends). The EVM, on the other hand, relies on all nodes updating their state as a contract runs (i.e. no "private negotiations") and does not utilize Bitcoin script directly. Instead, all EVM operations are embedded inside Counterparty protocol data. 
+
+So while, technically, the parties could "negotiate" an EVM publish or execute operation, it would not yet be broadcast, and thus, not have any impact on the EVM’s global contract state.
+
+This all being said, there are certain use cases where payment channels could possibly be used for EVM interactions: Two parties may be able to negotiate an execution statement for a contract that only they interact with, and has no interactions or "side effects" to or from other contracts. In this case, they would essentially "pre-run" the contract execution, independently verifying the resulting state changes, and trading modifications of the original execution statement via payment channel mechanics. Once they were both happy with the results, they would commit the finial execution statement to the blockchain, where it would be actually executed, by the network as a whole.
+
+The last bit is rather interesting and is a possible direction for future research and development.
+
 ### How is this different than Rootstock?
 
 * The Counterparty EVM will operate on Bitcoin mainnet, while Rootstock runs on a sidechain.
