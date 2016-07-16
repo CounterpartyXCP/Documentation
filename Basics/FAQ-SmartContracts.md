@@ -90,15 +90,6 @@ In comparison to the [Proof-of-Concept EVM port](http://counterparty.io/news/cou
 * Adds the ability for smart contracts to interact with Counterparty assets
 * Includes the EVM Safeguard feature (see below)
 
-### What is this "EVM Safeguard" feature?
-
-The EVM Safeguard is a “kill switch” for the EVM that is controlled by the community of XCP holders.
-
-* With [XCP-based stake voting](https://github.com/CounterpartyXCP/cips/blob/master/cip-0005.md) being added to the protocol, we have solidified a plan for a community-driven “EVM SafeGuard” feature.
-* Using this system, a significant to-be-determined percentage of XCP holders may at any time vote to deactivate the EVM. Such a vote will cause the Counterparty protocol itself to initiate a rapid shutdown of the EVM subsystem while the rest of the Counterparty network continues to function perfectly.
-* At any time after that, a similar stake vote can re-enable the EVM system.
-* This feature will soon be implemented into our EVM work.
-
 ### How will the Counterparty team deal with bugs in specific smart contracts?
 
 On Counterparty, authors of smart contracts will be responsible for bugs in their contracts. In contrast to Ethereum, the Counterparty Foundation Board, with development team guidance, has passed a “non-rollback” amendment to the Bylaws. This policy forbids the Counterparty development team from publishing code to fork and/or roll-back the network as a response to bugs in specific smart contracts. (Where the fault is due to a bug in the underlying EVM -- and not any specific smart contract that runs on it -- the development team will of course write and publish bug fixes.) This action reiterates how Counterparty has been run for over two and a half years, and is in the same spirit of Bitcoin itself: completely decentralized, community-driven, and non-profit.
