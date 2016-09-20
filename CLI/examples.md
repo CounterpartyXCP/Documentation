@@ -47,10 +47,10 @@ Order
 *Create and broadcast an `order` message*
 
 * --source = the source address
-* --get-quantity = the quantity of GET_ASSET that the seller would like to receive
+* --get-quantity = the quantity of GET_ASSET that the source would like to receive
 * --get-asset = the asset that you would like to buy
-* --give-quantity = the quantity of GIVE_ASSET that the seller is willing to give
-* --give-asset = the asset that the seller would like to sell
+* --give-quantity = the quantity of GIVE_ASSET that the source is willing to give
+* --give-asset = the asset that the source would like to sell
 * --expiration = the number of blocks for which the order should be valid
 * --fee-fraction-required = the miners’ fee required for an order to match 
 * --fee = the exact BTC fee to be paid to miners
