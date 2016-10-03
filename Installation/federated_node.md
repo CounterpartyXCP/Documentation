@@ -80,7 +80,7 @@ If using **Docker Toolbox**, launch the "Docker Quickstart Terminal" once instal
 Make sure you have Python 3.5. (Ubuntu 14.04 for instance uses Python 3.4 by default), but 16.04 uses 3.5. If you have an Ubuntu version older than 3.4, you can update your Python with [these instructions](http://askubuntu.com/a/682875).
 
 ```
-sudo apt-get update && apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade
 sudo apt-get -y install git curl
 ```
 
