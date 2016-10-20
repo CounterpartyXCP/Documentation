@@ -11,7 +11,7 @@ For an overview of `counterblock`, see [here](http://counterparty.io/docs/platfo
 
 ###Connecting to the API
 
-By default, ``counterblock`` will listen on port ``4001`` for API
+By default, ``counterblock`` will listen on port ``4100`` for API
 requests. API requests are made via a HTTP POST request to ``/api/``, with JSON-encoded
 data passed as the POST body. For more information on JSON RPC, please see the [JSON RPC specification](http://json-rpc.org/wiki/specification).
 
