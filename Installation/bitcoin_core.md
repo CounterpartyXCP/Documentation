@@ -68,10 +68,22 @@ To interact with a testnet instance of Bitcoin Core, use `bitcoin-cli` with the 
 
 ## Reindex
 
-If this is the first time you are running Bitcoin Core (with `addrindex` or `txindex`) on this computer, you'll need to launch ``bitcoind`` (once only) as follows:
+If this is the first time you are running Bitcoin Core with `addrindex` on this computer and you have a full (non-pruned) copy of existing blockchain of the same or lower version as Bitcoin Core addrindex that you plan to use, after you've enabled addrindex and txindex in your new bitcoin.conf, you'll need to launch `bitcoind` (once only) as follows:
 
     bitcoind -reindex
 
-Add `-testnet` to reindex testnet blockchain. This will have `bitcoind` complete a one-time reindexing of the local blockchain. Windows users can do the same, or simply run Bitcoin-Core (`Start > Programs > Bitcoin Core > Bitcoin Core`) which will prompt them to reindex their blockchain if necessary.
+Add `-testnet` to reindex testnet blockchain. This will have `bitcoind` complete a one-time reindexing of the local blockchain. Windows users can do the same, or simply run Bitcoin-Core (`Start > Programs > Bitcoin Core > Bitcoin Core`) which will prompt them to reindex their blockchain if necessary. 
 
 Even on a fast machine, reindexing of the entire mainnet blockchain takes hours. 
+
+If the existing instance has a wallet, make a backup copy to be on the safe side.
+
+### Leveraging existing blockchain data from a higher Bitcoin Core version
+
+Existing Bitcoin Core users with blockchain data created by a *newer* version of official Bitcoin Core may not be able to reuse their blockchain data from a lower version of Bitcoin Core addrindex. This changes from one Bitcoin Core version to another, so please check for blockchain (and wallet, if you use it) format changes in respective Bitcoin Core versions to confirm. 
+
+In cases where in-place change is not possible or desired, you can setup a separate Bitcoin Core addrindex instance and add `adddnode=<IP-address-of-newer-version-on-LAN>` to the new bitcoin.conf so that Bitcoin Core addrindex can quickly sync from the existing instance.
+
+### Removing addrindex
+
+Bitcoin Core addrindex users who want to "go back" to the same or a newer version of Bitcoin Core can simply uninstall the former and install the later. `addrindex` and `txindex` can be changed to 0 or removed. Prior to making changes make a backup of your wallet if you have one.
