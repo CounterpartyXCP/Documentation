@@ -30,9 +30,9 @@ Examples
 Here's an example for a token called <b>MYTOKEN</b>:
 
       { "asset": "MYTOKEN", "description": "This is a description of
-      MYTOKEN", "image": "<http://www.mysite.com/mytoken.png>", "website":
-      "<http://www.mysite.com>", "pgpsig":
-      "<http://www.mysite.com/MYTOKEN.pgp>" }
+      MYTOKEN", "image": "http://www.mysite.com/mytoken.png", "website":
+      "http://www.mysite.com", "pgpsig":
+      "http://www.mysite.com/MYTOKEN.pgp" }
 
 Other Topics
 ------------
