@@ -51,7 +51,7 @@ All requests must have POST data that is JSON encoded. Here's an example of the 
                  "start_block": 280537,
                  "end_block": 280539},
       "jsonrpc": "2.0",
-      "id": 0,
+      "id": 0
     }
 
 The ``jsonrpc`` and ``id`` properties are requirements under the JSON-RPC 2.0 spec.
@@ -93,7 +93,7 @@ default value of `'rpc'`. (Submissions for additional languages are welcome!)
       "method": "get_running_info",
       "params": {},
       "jsonrpc": "2.0",
-      "id": 0,
+      "id": 0
     }
     response = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
     print("Response: ", response.text)
@@ -164,7 +164,7 @@ The following examples don't use authentication as with default settings.
                               "filterop": "or"
                              },
                    "jsonrpc": "2.0",
-                   "id": 0,
+                   "id": 0
                   }
 
 * Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by `tx_hash` (ascending order)
@@ -180,7 +180,7 @@ The following examples don't use authentication as with default settings.
                               "end_block": 280539
                              },
                    "jsonrpc": "2.0",
-                   "id": 0,
+                   "id": 0
                   }
     
 * Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
@@ -195,7 +195,7 @@ The following examples don't use authentication as with default settings.
                               "order_dir": "desc"
                              },
                    "jsonrpc": "2.0",
-                   "id": 0,
+                   "id": 0
                   }
 
     
@@ -210,7 +210,7 @@ The following examples don't use authentication as with default settings.
                               "quantity": 100000000
                              },
                    "jsonrpc": "2.0",
-                   "id": 0,
+                   "id": 0
                   }
     
 * Issuance (indivisible)
@@ -225,7 +225,7 @@ The following examples don't use authentication as with default settings.
                               "divisible": False
                              },
                    "jsonrpc": "2.0",
-                   "id": 0,
+                   "id": 0
                   }
 
 * Transfer asset ownership
@@ -239,7 +239,7 @@ The following examples don't use authentication as with default settings.
                               "quantity": 0
                              },
                    "jsonrpc": "2.0",
-                   "id": 0,
+                   "id": 0
                   }
 
 * Lock asset
@@ -253,7 +253,7 @@ The following examples don't use authentication as with default settings.
                               "description": "LOCK"
                              },
                    "jsonrpc": "2.0",
-                   "id": 0,
+                   "id": 0
                   }
 
 
@@ -331,7 +331,7 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 
 ##Terms & Conventions
 
-###assets
+###Assets
 
 Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](/Developers/protocol_specification.md#assets) for what constitutes a valid asset name.
 Examples:
@@ -353,7 +353,7 @@ Examples:
 
 **NOTE:** XCP and BTC themselves are divisible assets.
 
-###floats
+###Floats
 
 Floats are ratios or floating point values with six decimal places of precision, used in bets and dividends.
 
@@ -404,7 +404,7 @@ Where **{table}** must be one of the following values:
 ``cancels``, ``dividends``, ``issuances``, ``orders``, ``order_matches``, ``sends``,
 ``bet_expirations``, ``order_expirations``, ``bet_match_expirations``, or ``order_match_expirations``.
 
-For example: ``get_balances``, ``get_credits``, ``get_debits``, etc are all valid API methods.
+For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods.
 
 **Parameters:**
 
