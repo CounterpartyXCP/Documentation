@@ -77,7 +77,11 @@ if a password is set. **The default user is ``'rpc'``.**
 ##Example Implementations for JSON RPC API
 
 The following examples have authentication enabled and the `user` set to its
-default value of `'rpc'`. (Submissions for additional languages are welcome!)
+default value of `'rpc'`. The password is not set (default: `'1234'`). Ensure
+these values correspond to values in your counterparty-server's configuration 
+file `'server.conf'`.
+
+Submissions of examples in additional languages are welcome!
 
 ###Python
 
@@ -121,11 +125,85 @@ library.
 
 ###curl
 
+Remember to surround non-numeric parameter values with the double quotes, as per [JSON-RPC 2.0 examples](http://www.jsonrpc.org/specification#examples). For example, `"order_by": "tx_hash"` is correct and will work, `"order_by": 'tx_hash'` won't. 
+
+####Linux
+
     curl -X POST http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{ "jsonrpc": "2.0", "id": 0, "method": "get_running_info" }'
 
-**NOTE:** 
-* Remember to surround non-numeric parameter values with the double quotes, as per [JSON-RPC 2.0 examples](http://www.jsonrpc.org/specification#examples). For example, `"order_by": "tx_hash"` is correct and will work, `"order_by": 'tx_hash'` won't.
-* On Windows, curl commands may need to be formatted differently due to problems that Windows has with escapes. Try escapes before double quotes and reference curl help resources for additional details.
+####Windows
+
+On Windows, depending on implementation the above curl command may need to be formatted differently due to problems that Windows has with escapes. For example this particular format was found to work with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10 (x64).
+
+    curl -X POST http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json, text/javascript" --data-binary "{ \"jsonrpc\": \"2.0\", \"id\": 0, \"method\": \"get_running_info\" }"
+
+###c# (RestSharp)
+
+Authorization string in the example below is based on the default username/password.
+
+    var client = new RestClient("http://127.0.0.1:4000/api/");
+    var request = new RestRequest(Method.POST);
+    request.AddHeader("cache-control", "no-cache");
+    request.AddHeader("authorization", "Basic cnBjOjEyMzQ=");
+    request.AddHeader("content-type", "application/json");
+    request.AddParameter("application/json", "{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}", ParameterType.RequestBody);
+    IRestResponse response = client.Execute(request);
+
+###Go
+
+Authorization string in the example below is based on the default username/password.
+
+    package main
+    
+    import (
+    	"fmt"
+    	"strings"
+    	"net/http"
+    	"io/ioutil"
+    )
+    
+    func main() {
+    
+    	url := "http://127.0.0.1:4000/api/"
+    
+    	payload := strings.NewReader("{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}")
+    
+    	req, _ := http.NewRequest("POST", url, payload)
+    
+    	req.Header.Add("content-type", "application/json")
+    	req.Header.Add("authorization", "Basic cnBjOjEyMzQ=")
+    	req.Header.Add("cache-control", "no-cache")
+    
+    	res, _ := http.DefaultClient.Do(req)
+    
+    	defer res.Body.Close()
+    	body, _ := ioutil.ReadAll(res.Body)
+    
+    	fmt.Println(res)
+    	fmt.Println(string(body))
+    
+    }
+
+###Ruby (Net::HTTP)
+
+Authorization string in the example below is based on the default username/password.
+
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("http://127.0.0.1:4000/api/")
+    
+    http = Net::HTTP.new(url.host, url.port)
+    
+    request = Net::HTTP::Post.new(url)
+    request["content-type"] = 'application/json'
+    request["authorization"] = 'Basic cnBjOjEyMzQ='
+    request["cache-control"] = 'no-cache'
+    request.body = "{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}"
+    
+    response = http.request(request)
+    puts response.read_body
+
 
 ##Example Implementations for REST API
 
@@ -146,11 +224,17 @@ The following examples don't use authentication as with default settings.
 
 ###curl
 
-    curl http://127.0.0.1:4000/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' 
+These examples use the default username/password combination in URL.
 
-###curl with POST encryption
+####Linux
 
-    curl -X POST http://127.0.0.1:4000/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' 
+    curl "http://rpc:1234@127.0.0.1:4000/rest/sends/get?source=1B6ahDHnKtZ5GXqytHSxfcXgNoxm1q1RsP&destination=14fAoS9FPD9jx36hjCNoAqFVLNHD1NQVN5&op=AND" -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json" 
+
+####Windows
+
+This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. For POST encryption add `'-X POST'`.
+
+    curl "http://rpc:1234@127.0.0.1:4000/rest/sends/get?source=1B6ahDHnKtZ5GXqytHSxfcXgNoxm1q1RsP&destination=14fAoS9FPD9jx36hjCNoAqFVLNHD1NQVN5&op=AND" -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json"
 
 ##Example Parameters
 
@@ -259,9 +343,9 @@ The following examples don't use authentication as with default settings.
 
 ##Signing Transactions Before Broadcasting
 
-**Note:** Before v9.49.4, the counterpartyd API provided an interface to Bitcoin Core's signing functionality through the `do_*`, `sign_tx` and `broadcast_tx` methods, which have all since been removed.
+**Note:** Before v9.49.4, the counterparty server API provided an interface to Bitcoin Core's signing functionality through the `do_*`, `sign_tx` and `broadcast_tx` methods, which have all since been removed.
 
-All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns with its raw transaction API calls). This raw transaction's inputs must then be signed (i.e. via Bitcoin core, a 3rd party Bitcoin library like Bitcore, etc), and then can be broadcast on the Bitcoin network.
+All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns with its raw transaction API calls). This raw transaction's inputs may be validated and then must be signed (i.e. via Bitcoin Core, a 3rd party Bitcoin library like Bitcore, etc) and broadcast on the Bitcoin network. 
 
 The process of signing and broadcasting a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast an unsigned Counterparty transaction *created* with this API.
 
@@ -331,7 +415,7 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 
 ##Terms & Conventions
 
-###Assets
+###assets
 
 Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](/Developers/protocol_specification.md#assets) for what constitutes a valid asset name.
 Examples:
@@ -353,7 +437,7 @@ Examples:
 
 **NOTE:** XCP and BTC themselves are divisible assets.
 
-###Floats
+###floats
 
 Floats are ratios or floating point values with six decimal places of precision, used in bets and dividends.
 
@@ -830,7 +914,7 @@ Create and (optionally) broadcast a BTCpay message, to settle an Order Match for
 
 **create_burn(source, quantity)**
 
-Burn a given quantity of BTC for XCP (**only possible between blocks 278310 and 283810**).
+Burn a given quantity of BTC for XCP (**on mainnet, possible between blocks 278310 and 283810**; on testnet it is still available).
 
 **Parameters:**
 
