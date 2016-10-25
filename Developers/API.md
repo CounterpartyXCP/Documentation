@@ -762,7 +762,7 @@ Gets raw data for a single transaction.
 
 ###getrawtransaction_batch
 
-**getrawtransaction_batch(txhash_ist, verbose=false, skip_missing=false)**
+**getrawtransaction_batch(txhash_list, verbose=false, skip_missing=false)**
 
 Gets raw data for a list of transactions.
 
