@@ -328,8 +328,8 @@ Return block-by-block aggregated market history data for the specified asset pai
 
 - **param asset1:** An asset
 - **param asset2:** An asset                            .
-- **param start_ts:** Unix timestamp
-- **param end_ts:** Unix timestamp
+- **param start_ts:**  Unix timestamp (defaults to 30 days before the end timestamp) 
+- **param end_ts:** Unix timestamp (defaults to current timestamp)
 - **param as_dict:** Return as list of list or list of dicts
 - **return:** List of lists or dicts
 - **rtype:** [{'block_time', 'block_index', 'open', 'high', 'low', 'close', 'vol', 'count'}]
@@ -368,7 +368,7 @@ Gets last N of trades within a specific date range (normally, for a specified as
 **get_order_book_simple(asset1, asset2, min_pct_fee_provided=None, max_pct_fee_required=None)**
 
 *deprecated: 1.5*
-  Use counterpartyd's `get_orders`
+  Use counterparty-server's `get_orders`
 
 Easier to call version when you want all orders involving the two assets.
 
@@ -412,7 +412,7 @@ Easier to call version when you want all orders involving the two assets.
 **get_order_book_buysell(buy_asset, sell_asset, pct_fee_provided=None, pct_fee_required=None)**
 
 *deprecated: 1.5*
-  Use counterpartyd's `get_orders`
+  Use counterparty-server's `get_orders` 
 
 
 - **param buy_asset:** Asset
@@ -665,6 +665,8 @@ create an email with the information received
 - **return:** The current number of users attached to the server's chat feed
         :rtype: Int
 
+*deprecated: 1.5*
+
 ####is_chat_handle_in_use
 **is_chat_handle_in_use(handle)**
 
@@ -677,8 +679,12 @@ create an email with the information received
 
 - **rtype:** {'handle', 'is_op', 'last_updated', 'banned_until'}
 
+*deprecated: 1.5*
+
 ####store_chat_handle
 **store_chat_handle(wallet_id, handle)**
+
+*deprecated: 1.5*
 
 ####get_chat_history
 **get_chat_history(start_ts=None, end_ts=None, handle=None, limit=1000)**
