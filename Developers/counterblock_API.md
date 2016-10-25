@@ -153,9 +153,9 @@ This call augments counterparty's get_balances with a normalized_quantity field.
   - quantity: The quantity in satoshi
   - normalized_quantity: The quantity, as a human readable number 
 
-####get_escrowed_balance
+####get_escrowed_balances
 
-**get_escrowed_balance(addresses)**
+**get_escrowed_balances(addresses)**
 
 Gets a list of address balances that are escrowed away by the protocol (either due to an open trade or bet).
 
