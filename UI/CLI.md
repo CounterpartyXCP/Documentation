@@ -3,7 +3,7 @@ Command-line Usage
 
 The following examples are abridged for parsimony (meaning: actions are
 normally preceded by `counterparty-client`, i.e. the `burn` command would be
-called with `counterparty-client burn`).
+called with `counterparty-client --testnet burn`).
 
 `counterparty-server` should always be running in the background (or
 another console). All other commands will fail if the index of the last
@@ -320,26 +320,15 @@ GetInfo
 *The `getinfo` action gets the current state of the server.*
 
 
-Market
----------------------
-*Fill the screen with an always up-to-date summary of the market*
+Get_TX_Info
+----
+*Display information about a raw transaction*
 
-The market action prints out tables of open orders, open bets, feeds, and order matches currently awaiting Bitcoin payments from one of the user's addresses. It is capable of filtering orders by assets to be bought and sold.
+The `get_tx_info` command displays information about a raw transaction. Some destinations (e.g. P2SH addresses) are not supported by this command.
 
-To filter the market to only show offers to sell (give) BTC:
+<!-- _)(*&_)#$ markdown bull -->
 
-
-    market --give-asset=BTC
-
-To filter the market to only show offers to buy (get) BTC:
-
-
-    market --get-asset=BTC
-
-To filter the market to only show offers to sell BTC for XCP:
-
-
-    market --give-asset=BTC --get-asset=XCP
+    get_tx_info=[tx_hex]
 
 
 Input and Output
@@ -350,3 +339,15 @@ Input and Output
 -   All other quantities, i.e. prices, odds, leverages, feed values and
     target values, fee multipliers, are represented internally as
     fractions, but printed to four decimal places.
+
+Optional arguments
+----------------------------------------
+This list contains some optional arguments for counterparty-client. A complete list for client and server is available in online help.
+
+* -h, --help = show help message and exit
+* -V, --version = show version
+* --config-file = the location of the configuration file
+* --testnet = use Bitcoin testnet
+* --json-output = display result in JSON format
+* --unconfirmed = allow the spending of unconfirmed transaction outputs
+* --unsigned = print out unsigned hex of transaction; do not sign or broadcast
