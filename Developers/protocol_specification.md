@@ -109,11 +109,12 @@ uppercase Latin characters (inclusive) not beginning with ‘A’, or
 integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’.
 Alphabetic asset names will carry a one‐time issuance fee (by burn) of
 0.5 XCP and numeric asset names will be freely available. ‘BTC’ and
-‘XCP’ are the only three‐character asset names. Example asset names:
+‘XCP’ are the only three‐character asset names. Example asset names: 
+BBBB, A100000000000000000.
 
 Assets may be either divisible or indivisible, and divisible assets are
 divisible to eight decimal places. Assets also come with descriptions,
-which may be changed at any time.
+which may be up to 52 single-byte characters long and updated at any time.
 
 
 <!--
