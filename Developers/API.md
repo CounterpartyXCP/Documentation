@@ -859,7 +859,7 @@ Issue a bet against a feed.
 **Parameters:**
 
   * **source** (*string*): The address that will make the bet.
-  * **feed_address** (*string*): The address that host the feed to be bet on.
+  * **feed_address** (*string*): The address that hosts the feed to be bet on.
   * **bet_type** (*integer*): 0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for NotEqual.
   * **deadline** (*integer*): The time at which the bet should be decided/settled, in Unix time.
   * **wager** (*integer*): The [quantities](#quantities-and-balances) of XCP to wager.
