@@ -282,8 +282,8 @@ Use `get_market_price_history`
 ####get_market_cap_history
 **get_market_cap_history(start_ts=None, end_ts=None)**
 
-- **param start_ts:** Unix timestamp
-- **param end_ts:** Unix timestamp
+- **param start_ts:** Unix timestamp (defaults to 30 days before the end timestamp)
+- **param end_ts:** Unix timestamp (defaults to current timestamp)
 - **return:** Array
 - **rtype:** `{'base_currency':[{'data':[ts,market_cap], 'name'}]}`
 
