@@ -665,12 +665,12 @@ create an email with the information received
 - **return:** The current number of users attached to the server's chat feed
         :rtype: Int
 
-*deprecated: 1.5*
+*deprecated: 1.6.3*
 
 ####is_chat_handle_in_use
 **is_chat_handle_in_use(handle)**
 
-*deprecated: 1.5*
+*deprecated: 1.6.3*
 
 - **rtype:** Boolean
 
@@ -679,17 +679,17 @@ create an email with the information received
 
 - **rtype:** {'handle', 'is_op', 'last_updated', 'banned_until'}
 
-*deprecated: 1.5*
+*deprecated: 1.6.3*
 
 ####store_chat_handle
 **store_chat_handle(wallet_id, handle)**
 
-*deprecated: 1.5*
+*deprecated: 1.6.3*
 
 ####get_chat_history
 **get_chat_history(start_ts=None, end_ts=None, handle=None, limit=1000)**
 
-*deprecated: 1.5*
+*deprecated: 1.6.3*
 
 ####is_wallet_online
 **is_wallet_online(wallet_id)**
