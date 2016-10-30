@@ -132,7 +132,7 @@ Where `<CONFIG>` is one of the following:
 And where `<BRANCH>` is one of the following:
 
 * **`master`** (stable and recommended)
-* **`develop`** (cutting edge, likely with bugs
+* **`develop`** (cutting edge, likely with bugs)
 
 For example:
 ```
