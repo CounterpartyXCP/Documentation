@@ -76,7 +76,7 @@ Add `-testnet` to reindex testnet blockchain. This will have `bitcoind` complete
 
 Even on a fast machine, reindexing of the entire mainnet blockchain takes hours. 
 
-If the existing instance has a wallet, make a backup copy to be on the safe side.
+If the existing instance of Bitcoin has a wallet file, make a backup copy to be on the safe side.
 
 ### Leveraging existing blockchain data from a higher Bitcoin Core version
 
@@ -84,6 +84,10 @@ Existing Bitcoin Core users with blockchain data created by a *newer* version of
 
 In cases where in-place change is not possible or desired, you can setup a separate Bitcoin Core addrindex instance and add `adddnode=<IP-address-of-newer-version-on-LAN>` to the new bitcoin.conf so that Bitcoin Core addrindex can quickly sync from the existing instance.
 
+### Leveraging existing blockchain data from the same version of Bitcoin Core
+
+Assuming you have another compatible but non-addrindex'ed copy of the blockchain on LAN, you may save time by copying the blockchain (normally `.dat` and `*.rev` files from the blocks subdirectory as well as the entire chainstate subdirectory) over to the same directory on your Counterparty Server or Federated Node (default: `$HOME/federatednode/data/bitcoin/`). Then you would have to build addrinex from scratch by starting bitcoind once with `-reindex` (or `fednode exec bitcoin-testnet bitcoind -reindex`) and after it's done you could stop it and start it normally again.
+
 ### Removing addrindex
 
-Bitcoin Core addrindex users who want to "go back" to the same or a newer version of Bitcoin Core can simply uninstall the former and install the later. `addrindex` and `txindex` can be changed to 0 or removed. Prior to making changes make a backup of your wallet if you have one.
+Bitcoin Core addrindex users who want to "go back" to the same or a newer version of Bitcoin Core can simply uninstall the former and install the later. `addrindex` and `txindex` can be changed to 0 or removed from the configuration file. Prior to making changes make a backup of your wallet if you have one.
