@@ -25,7 +25,7 @@ Services run on a Federated Node include some or all of the following:
 
 - **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
 - **Disk space:** The exact disk space required will be dependent on what services are run on the node:
-    - For ``bitcoin`` databases: **~70GB** (mainnet), **~4GB** (testnet)
+    - For ``bitcoin`` databases: **~120GB** (mainnet), **~10GB** (testnet)
     - For ``counterparty`` and ``counterblock`` databases: **~1.5GB** each
     - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
 - **OS:** *Please note that Ubuntu Linux is the recommended OS at this time, as most of our testing is performed on it. Windows and OS X support is considered in BETA.*
