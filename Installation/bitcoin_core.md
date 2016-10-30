@@ -86,7 +86,7 @@ In cases where in-place change is not possible or desired, you can setup a separ
 
 ### Leveraging existing blockchain data from the same version of Bitcoin Core
 
-Assuming you have another compatible but non-addrindex'ed copy of the blockchain on LAN, you may save time by copying the blockchain (normally `.dat` and `*.rev` files from the blocks subdirectory as well as the entire chainstate subdirectory) over to the same directory on your Counterparty Server or Federated Node (default: `$HOME/federatednode/data/bitcoin/`). Then you would have to build addrinex from scratch by starting bitcoind once with `-reindex` (or `fednode exec bitcoin-testnet bitcoind -reindex`) and after it's done you could stop it and start it normally again.
+Assuming you have another compatible but non-addrindex'ed copy of the blockchain on LAN, you may save time by copying the blockchain (normally `.dat` and `*.rev` files from the blocks subdirectory as well as the entire chainstate subdirectory) over to the same directory on your Counterparty Server or Federated Node (default: `$HOME/federatednode/data/bitcoin/`). Then you would have to build addrinex from scratch by starting bitcoind once. An easy way to reindex the blockchain on Federated Node is to add `reindex=1` to the bitcoin (or bitcoin testnet) Docker configuration file, start the container, and then remove the line you just added. 
 
 ### Removing addrindex
 
