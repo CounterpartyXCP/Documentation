@@ -74,9 +74,16 @@ If this is the first time you are running Bitcoin Core with `addrindex` on this 
 
 Add `-testnet` to reindex testnet blockchain. This will have `bitcoind` complete a one-time reindexing of the local blockchain. Windows users can do the same, or simply run Bitcoin-Core (`Start > Programs > Bitcoin Core > Bitcoin Core`) which will prompt them to reindex their blockchain if necessary. 
 
-Even on a fast machine, reindexing of the entire mainnet blockchain takes hours. 
+Even on a fast machine, reindexing of the entire mainnet blockchain takes hours. If the existing instance of Bitcoin has a wallet file, make a backup copy to be on the safe side. Once reindexing is done and you restart Bitcoin Core, you should see it load the two indexes.
 
-If the existing instance of Bitcoin has a wallet file, make a backup copy to be on the safe side.
+```
+$ cat /blockchain/bitcoin/debug*log | grep index
+2016-10-21 13:00:15 init message: Loading block index...
+2016-10-21 13:00:15 Opening LevelDB in /home/user/.bitcoin/blocks/index
+2016-10-21 13:00:17 Using obfuscation key for /blockchain/bitcoin/blocks/index: 0000000000000000
+2016-10-21 13:00:52 LoadBlockIndexDB: transaction index enabled
+2016-10-21 13:00:52 LoadBlockIndexDB(): address index enabled
+```
 
 ### Leveraging existing blockchain data from a higher Bitcoin Core version
 
