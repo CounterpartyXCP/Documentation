@@ -1,0 +1,72 @@
+
+
+     Payer
+       |
+       |
+       |
+       V
++-------------+                               /------------=-----------------\
+| Deposit TX  |----=--------------------------+ Lock funds so Payer cant     |
+| cGRE        |                               | spend while channel in use.  |
++------+------+                               \------------------------------/
+       |
+       |
+       |
+      /+-\    PAYER_SIG & EXPIRED                  +-------------+
+      |OR+---------------------------------------->| Expire TX   +---->Payer
+      \+-/                                         | cGRE        |
+       |                                           +-------------+
+       |                                                 :
+       |                                                 |
+       |                                      /----------+-------------------\
+       |                                      | Recover funds if channel     |
+       |                                      | expired.                     |
+       |                                      \----------=-------------------/
+       |                                   
+       |                                   
+       |                                   
+      /+-\    PAYER_SIG & SPEND_SECRET             +-------------+
+      |OR+---------------------------------------->| Change TX   +---->Payer
+      \+-/                                         | cGRE        |
+       |                                           +-------------+
+       |                                                  :
+       |                                                  |
+       |                                      /-----------+------------------\
+       |                                      | Recover remaining funds      |
+       |                                      | after spend secret revealed. |
+       |                                      \---------=--------------------/
+       |                                   
+       |                                   
+       |                                   
+       V                                      /------------------------------\
++-------------+                               | Close channel and force      |
+| Commit TX   |----=--------------------------+ spend secret to be revealed  |
+| cGRE        |                               | after payout delay plus at   |
++------+------+                               | least one block.             |
+       |                                      \-----------=------------------/
+       |
+       |
+       |
+      /+-\    PAYEE_SIG & SPEND_SECRET & DELAY     +-------------+
+      |OR+---------------------------------------->| Payout TX   +---->Payee
+      \+-/                                         | cGRE        |
+       |                                           +-------------+
+       |                                                  :
+       |                                                  |
+       |                                      /-----------+------------------\
+       |                                      | Funds sent to payee. Reveals |
+       |                                      | spend secret AFTER funds     |
+       |                                      | committed.                   |
+       |                                      \-----------=------------------/
+       |
+       |
+       |    PAYER_SIG & REVOKE_SECRET              +-------------+
+       +------------------------------------------>| Revoke TX   +---->Payer
+                                                   | cGRE        |
+                                                   +-------------+
+                                                          :
+                                                          |
+                                              /-----------+------------------\
+                                              | Prevents spending of a       |
+                                              | revoked commit transaction.  |
+                                              \-----------=------------------/
