@@ -1249,6 +1249,7 @@ Find and make recoverable change, timeout and revoke transactions.
 **Parameters:**
 
   * **state (dict):** Current payee channel state.
+  * **spend_secret (str):** Optional spend secret provided off blockchain.
 
 **Return:**
 
