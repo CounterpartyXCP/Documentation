@@ -36,9 +36,9 @@ pay to script:
 
 ### Expire Transaction
 
-The expire transaction is used by the payee to recover the and funds after
+The expire transaction is used by the payer to recover the and funds after
 the channel expires. This is to prevent funds being lost should the payee
-be hit by a bus.
+no longer be reachable.
 
 script sig:
 
@@ -67,7 +67,8 @@ The commit transaction is used to transfer funds and prevent a race condition
 between the payee recovering the payout and the payer recovering the change.
 
 Every time the payer wishes to transfer funds to the payee, the output amount
-of the transaction is increased. The payee then signs and shares it.
+of the transaction is increased and a new revoke secret hash (provided by
+the payee) is used. The payer then signs and shares it with the payee.
 
 To ensure the payer can recover the change without having to wait for the
 channel to expire, the payee must reveal the spend secret when spending the

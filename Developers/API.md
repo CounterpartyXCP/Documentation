@@ -1082,7 +1082,7 @@ Create deposit and setup initial payer state.
 
 **Return:**
 
-  A [make deposit result object](#micropayment-make-deposit-result-object) containing the updated payer state, the deposit rawtx to sign and publish and the deposit p2sh script needed to spend the doposit funds.
+  A [make deposit result object](#micropayment-make-deposit-result-object) containing the updated payer state, the deposit rawtx to sign and publish and the deposit p2sh script needed to spend the deposit funds.
 
 
 
