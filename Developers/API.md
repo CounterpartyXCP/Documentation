@@ -522,7 +522,8 @@ For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API
 
   * To get a listing of bets, call ``get_bets``. This method will return a list of one or more [bet object](#bet-object) .
   * To get a listing all open orders for a given address like 1Ayw5aXXTnqYfS3LbguMCf9dxRqzbTVbjf, you could call
-    ``get_orders`` with the appropriate parameters. This method will return a list of one or more order object](#order-object).
+    ``get_orders`` with the appropriate parameters. This method will return a list of one or more order [object](#order-object).
+  * To get all open "buy BTC" orders from the DEx, call ``get_orders`` and use the following filter: ``[{"field": "get_asset", "op": "==", "value": "BTC"}, {"field": "status", "op": "==", "value": "open"}]``.
 
 **Notes:**
 
@@ -762,7 +763,7 @@ Gets raw data for a single transaction.
 
 ###getrawtransaction_batch
 
-**getrawtransaction_batch(txhash_ist, verbose=false, skip_missing=false)**
+**getrawtransaction_batch(txhash_list, verbose=false, skip_missing=false)**
 
 Gets raw data for a list of transactions.
 
@@ -852,19 +853,19 @@ Parse the data_hex of a message into its parameters. Currently only works with `
 
 ###create_bet
 
-**create_bet(source, feed_address, bet_type, deadline, wager, counterwager, expiration, target_value=0.0, leverage=5040)**
+**create_bet(source, feed_address, bet_type, deadline, wager_quantity, counterwager_quantity, expiration, target_value=0.0, leverage=5040)**
 
 Issue a bet against a feed.
 
 **Parameters:**
 
   * **source** (*string*): The address that will make the bet.
-  * **feed_address** (*string*): The address that host the feed to be bet on.
+  * **feed_address** (*string*): The address that hosts the feed to be bet on. 
   * **bet_type** (*integer*): 0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for NotEqual.
-  * **deadline** (*integer*): The time at which the bet should be decided/settled, in Unix time.
-  * **wager** (*integer*): The [quantities](#quantities-and-balances) of XCP to wager.
-  * **counterwager** (*integer*): The minimum [quantities](#quantities-and-balances) of XCP to be wagered against, for the bets to match.
-  * **expiration** (*integer*): The number of blocks after which the bet expires if it's still unmatched.
+  * **deadline** (*integer*): The time at which the bet should be decided/settled, in Unix time (seconds since epoch).
+  * **wager_quantity** (*integer*): The [quantities](#quantities-and-balances) of XCP to wager (*in satoshis*, hence integer).
+  * **counterwager_quantity** (*integer*): The minimum [quantities](#quantities-and-balances) of XCP to be wagered against, for the bets to match.
+  * **expiration** (*integer*): The number of blocks after which the bet expires if it remains unmatched.
   * **target_value** (*float, default=null*): Target value for Equal/NotEqual bet
   * **leverage** (*integer, default=5040*): Leverage, as a fraction of 5040
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
@@ -883,7 +884,7 @@ Broadcast textual and numerical information to the network.
 **Parameters:**
 
   * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
-  * **fee_fraction** (*float*): How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. .05 is five percent).
+  * **fee_fraction** (*float*): How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. 0.05 is five percent).
   * **text** (*string*): The textual part of the broadcast.
   * **timestamp** (*integer*): The timestamp of the broadcast, in Unix time.
   * **value** (*float*): Numerical value of the broadcast.
@@ -987,6 +988,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * To lock the issuance of the asset, specify "LOCK" for the ``description`` field. It's a special keyword that will
     not change the actual description, but will simply lock the asset quantity and not allow additional quantity to be
     issued for the asset.
+  * Depending on the type of asset to be issued, a certain amount of both BTC and XCP (for non-free Counterparty assets) may be required at the source address. 
 
 
 ###create_order
@@ -1014,7 +1016,7 @@ Issue an order request.
 
 **create_send(source, destination, asset, quantity)**
 
-Send XCP or a user defined asset.
+Send XCP or a user defined asset. 
 
 **Parameters:**
 
@@ -1159,7 +1161,7 @@ An object that describes a specific bet:
 * **target_value** (*float*): Target value for Equal/NotEqual bet
 * **leverage** (*integer*): Leverage, as a fraction of 5040
 * **expiration** (*integer*): The number of blocks for which the bet should be valid
-* **fee_multiplier** (*integer*): 
+* **fee_multiplier** (*integer*): How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. 0.05 is five percent)
 * **validity** (*string*): Set to "valid" if a valid bet. Any other setting signifies an invalid/improper bet
 
 
@@ -1200,7 +1202,7 @@ An object that describes a specific occurance of a broadcast event (i.e. creatin
 * **source** (*string*): The address that made the broadcast
 * **timestamp** (*string*): The time the broadcast was made, in Unix time. 
 * **value** (*float*): The numerical value of the broadcast
-* **fee_multiplier** (*float*): How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. .05 is five percent)
+* **fee_multiplier** (*float*): How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. 0.05 is five percent)
 * **text** (*string*): The textual component of the broadcast
 * **validity** (*string*): Set to "valid" if a valid broadcast. Any other setting signifies an invalid/improper broadcast
 
@@ -1212,7 +1214,7 @@ An object that matches a request to settle an Order Match for which BTC is owed:
 * **tx_index** (*integer*): The transaction index
 * **tx_hash** (*string*): The transaction hash
 * **block_index** (*integer*): The block index (block number in the block chain)
-* **source** (*string*):
+* **source** (*string*): 
 * **order_match_id** (*string*):
 * **validity** (*string*): Set to "valid" if valid
 
@@ -1424,6 +1426,13 @@ There will be no incompatible API pushes that do not either have:
 
 * A well known set cut over date in the future 
 * Or, a deprecation process where the old API is supported for an amount of time
+
+##9.53.0
+* Add min_message_index to get_blocks API call
+
+##9.52.0
+* Added getrawtransaction and getrawtransaction_batch methods to the API
+* Added optional custom_inputs parameter to API calls, which allows for controlling the exact UTXOs to use in transactions (contributed by Tokenly)
 
 ##9.51.0
 * Deprecated `get_asset_info(assets)` API method. Use `get_issuances()` and `get_supply()` instead.
