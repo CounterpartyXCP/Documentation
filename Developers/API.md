@@ -522,7 +522,8 @@ For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API
 
   * To get a listing of bets, call ``get_bets``. This method will return a list of one or more [bet object](#bet-object) .
   * To get a listing all open orders for a given address like 1Ayw5aXXTnqYfS3LbguMCf9dxRqzbTVbjf, you could call
-    ``get_orders`` with the appropriate parameters. This method will return a list of one or more order object](#order-object).
+    ``get_orders`` with the appropriate parameters. This method will return a list of one or more order [object](#order-object).
+  * To get all open "buy BTC" orders from the DEx, call ``get_orders`` and use the following filter: ``[{"field": "get_asset", "op": "==", "value": "BTC"}, {"field": "status", "op": "==", "value": "open"}]``.
 
 **Notes:**
 
