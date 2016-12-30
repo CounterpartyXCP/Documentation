@@ -250,7 +250,8 @@ Issuances of any non‐zero quantity, that is, issuances which do not
 merely change, e.g., the description of the asset, involve a debit (and
 destruction) of now 0.5 XCP.
 
-Asset descriptions may be of arbitrary length.
+Asset descriptions in enhanced asset information schema may be of 
+arbitrary length.
 
 ###Broadcast
 
