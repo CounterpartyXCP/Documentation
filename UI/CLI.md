@@ -136,10 +136,11 @@ CLI (and API).
     btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
     --order-match-id=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
 
-Order Match ID can be obtained with the `pending` command. The source of BTC sell 
-has 6 blocks (of time after his offer has been matched) to send BTC to fund his 
-side of transaction. Use the `pending` command to display own DEx order matches that
-require BTCpay.
+Order Match ID can be obtained with the `pending` command. The source address of BTC sell 
+has 20 blocks (or approximately 200 minutes) after his offer has been matched) to send 
+BTC to fund his side of transaction. Use the `pending` command to display own DEx order 
+matches that require BTCpay and make sure you use the correct `source` address to fund 
+each pending BTCpay.
 
 Issuance
 ------------------------
@@ -150,10 +151,11 @@ Issuance
 * --quantity = the quantity of ASSET to be issued
 * --asset = the name of the asset to be issued (if it’s available)
 * --divisible = whether or not the asset is divisible (must agree with previous issuances)
-* --description = a description of the asset (set to ‘LOCK’ to lock against further issuances with non‐zero quantitys)
+* --description = a description of the asset (set to ‘LOCK’ to lock against further issuances with non‐zero quantities)
 * --fee = the exact fee to be paid to miners
 
-Assets can be divisible or indivisible (the smallest unit is 1).
+Assets can be divisible or indivisible (the smallest unit is 1). Issuance and transfer
+cannot happen in the same transaction.
 
 
     issuance --source=[source] --quantity=[quantity] --asset=[asset]
@@ -173,6 +175,7 @@ Destroy
 * --tag = tag
 * --fee = the exact BTC fee to be paid to miners
 
+This command is not yet implemented (enabled).
 
 Broadcast
 ----------------------------------------
@@ -321,7 +324,7 @@ GetInfo
 
 
 Get_TX_Info
-----
+---------
 *Display information about a raw transaction*
 
 The `get_tx_info` command displays information about a raw transaction. Some destinations (e.g. P2SH addresses) are not supported by this command.
