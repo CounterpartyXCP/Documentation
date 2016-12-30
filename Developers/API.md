@@ -484,11 +484,9 @@ the specific comparison logic used, please see [this page](http://www.sqlite.org
 **get_{table}(filters=[], filterop='AND', order_by=null, order_dir=null, start_block=null, end_block=null, status=null, limit=1000, offset=0, show_expired=true)**
 
 Where **{table}** must be one of the following values:
-``balances``, ``credits``, ``debits``, ``bets``, ``bet_matches``, ``broadcasts``, ``btcpays``, ``burns``, 
-``cancels``, ``dividends``, ``issuances``, ``orders``, ``order_matches``, ``sends``,
-``bet_expirations``, ``order_expirations``, ``bet_match_expirations``, or ``order_match_expirations``.
+``assets``, ``balances``, ``bets``, ``bet_expirations``, ``bet_matches``, ``bet_match_expirations``, ``bet_match_resolutions``, ``broadcasts``, ``btcpays``, ``burns``, ``cancels``, ``credits``, ``debits``,  ``dividends``, ``issuances``, ``mempool``, ``orders``, ``order_expirations``, ``order_matches``, ``order_match_expirations``, or ``sends``.
 
-For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods.
+For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods. A complete list of tables can be found in the api.py file in the counterparty-lib repository.
 
 **Parameters:**
 
