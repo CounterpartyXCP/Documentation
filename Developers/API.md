@@ -988,7 +988,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * To lock the issuance of the asset, specify "LOCK" for the ``description`` field. It's a special keyword that will
     not change the actual description, but will simply lock the asset quantity and not allow additional quantity to be
     issued for the asset.
-  * Depending on type of assets to be issued, both BTC and XCP balance may be required at the source address. 
+  * Depending on the type of asset to be issued, a certain amount of both BTC and XCP (for non-free Counterparty assets) may be required at the source address. 
 
 
 ###create_order
