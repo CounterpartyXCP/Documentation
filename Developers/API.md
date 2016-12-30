@@ -1427,6 +1427,13 @@ There will be no incompatible API pushes that do not either have:
 * A well known set cut over date in the future 
 * Or, a deprecation process where the old API is supported for an amount of time
 
+##9.53.0
+* Add min_message_index to get_blocks API call
+
+##9.52.0
+* Added getrawtransaction and getrawtransaction_batch methods to the API
+* Added optional custom_inputs parameter to API calls, which allows for controlling the exact UTXOs to use in transactions (contributed by Tokenly)
+
 ##9.51.0
 * Deprecated `get_asset_info(assets)` API method. Use `get_issuances()` and `get_supply()` instead.
 * Deprecated `get_xcp_supply()` API method in favor of `get_supply(asset)`.
