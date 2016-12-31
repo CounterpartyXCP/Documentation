@@ -89,7 +89,7 @@ $ cat /blockchain/bitcoin/debug*log | grep index
 
 Existing Bitcoin Core users with blockchain data created by a *newer* version of the official Bitcoin Core may not be able to reuse their blockchain data from a lower version of Bitcoin Core because newer Bitcoin Core releases may have a database (or wallet, if used) format that older Bitcoin Core versions cannot recognize. 
 
-This changes from one Bitcoin Core version to another, so please check Bitcoin Core Release Notes for blockchain (and wallet, if applicable) format changes. The reason this (going from a newer release to an older release) is common is Bitcoin Core addrindex releases are usually slightly behind the official release, so new Counterparty developers with existing full Bitcoin nodes may need to downgrade their Bitcoin Core if the addrindex version isn't out yet.
+This changes from one Bitcoin Core version to another, so please check Bitcoin Core Release Notes for database (and wallet, if applicable) format changes. The reason this (going from a newer release to an older release) is common is Bitcoin Core addrindex releases are usually slightly behind the official release, so new Counterparty developers with existing full Bitcoin nodes may need to downgrade their Bitcoin Core if the addrindex version isn't out yet.
 
 In cases where an in-place change is not possible or desired, you can setup a separate Bitcoin Core (with addrindex) instance and add `adddnode=<IP-address-of-newer-version-on-LAN>` to the new instance's bitcoin.conf, so that Bitcoin Core addrindex can quickly sync from your non-addrindex instance.
 
