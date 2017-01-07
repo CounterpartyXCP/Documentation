@@ -13,8 +13,9 @@ both 32-bit and 64-bit versions of Windows, and is the recommended approach.
 
 In order to install on Windows 10 x64:
 
-- First install [Visual C++ Build Tools 2015](http://landinghub.visualstudio.com/visual-cpp-build-tools) (stick with the default option, Windows 8.1 SDK)
-- Next install an APSW binary for your architecture (although you can probably build APSW from source - see the bottom of [this page](https://rogerbinns.github.io/apsw/download.html) for build instructions)
+- Install Python 3.5
+- Install [Visual C++ Build Tools 2015](http://landinghub.visualstudio.com/visual-cpp-build-tools) (stick with the default option, Windows 8.1 SDK)
+- Next install an APSW binary for your architecture (although you can probably build APSW from source - see the bottom of [this page](https://rogerbinns.github.io/apsw/download.html) for build instructions). Use the same architecture as Python 3.5 that you have installed. 
 - Use pip to install counterparty-lib and counterparty-cli.
 
 ## Usage and notes for Windows
