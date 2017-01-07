@@ -31,7 +31,7 @@ Alternatively, a different set of custom configuration files that contain `testn
 Both Python and Counterparty code can be installed by non-admin users:
 
 * Python 3.5 will be installed to C:\Users\USER\AppData\Roaming\Python\Python35\
-* Counterparty scripts will be installed in the Scripts subdirectory (example: `pip3 install --user counterparty-lib`). 
+* Counterparty executables will be installed to the Scripts subdirectory (example: `pip3 install --user counterparty-lib`). 
 
 # Counterparty “Federated Node” on Windows
 
