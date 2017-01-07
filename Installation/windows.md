@@ -11,9 +11,15 @@ both 32-bit and 64-bit versions of Windows, and is the recommended approach.
 - [OpenSSL 1.1.0](https://slproweb.com/download/Win32OpenSSL_Light-1_1_0.exe)
 - [Git](http://git-scm.com/download/win) (Optional) (Select "**Use Git from the Windows Command Prompt**".) 
 
+In order to install on Windows 10 x64:
+
+- First install [Visual C++ Build Tools 2015](http://landinghub.visualstudio.com/visual-cpp-build-tools) (stick with the default option, Windows 8.1 SDK)
+- Next install an APSW binary for your architecture (although you can probably build APSW from source - see the bottom of [this page](https://rogerbinns.github.io/apsw/download.html) for build instructions)
+- Use pip to install counterparty-lib and counterparty-cli.
+
 ## Usage and notes for Windows
 
-Counterparty binaries `counterparty-server.exe` and `counterparty-client.exe` are installed to `C:\Python35\Scripts`. This path can be manually added to the system `PATH` variable for ease of use.
+If you install as system administrator, Counterparty binaries `counterparty-server.exe` and `counterparty-client.exe` are installed to `C:\Python35\Scripts`. This path can be manually added to the system `PATH` variable for ease of use.
 
 The default configuration files (for mainnet) can be used with testnet provided the `--testnet` option is employed when starting service and running the CLI. 
 
@@ -21,6 +27,11 @@ Alternatively, a different set of custom configuration files that contain `testn
 
         counterparty-server --config-file E:\testing\server.testnet.conf start
         counterparty-client --config-file E:\testing\client.testnet.conf wallet
+
+Both Python and Counterparty code can be installed by non-admin users:
+
+* Python 3.5 will be installed to C:\Users\USER\AppData\Roaming\Python\Python35\
+* Counterparty scripts will be installed in the Scripts subdirectory (example: `pip3 install --user counterparty-lib`). 
 
 # Counterparty “Federated Node” on Windows
 
