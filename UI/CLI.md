@@ -316,7 +316,9 @@ Getrows
 
     getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ' \
     --filter 'asset' '=' 'BBBQ'
-    
+
+Windows users may need to make changes to handle console quirks. On Windows 10 double quotes work fine:
+` --filter "address" "=" "muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ"`.
 
 GetInfo
 ---------
