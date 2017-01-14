@@ -320,6 +320,9 @@ Getrows
 Windows users may need to make changes to handle console quirks. On Windows 10 double quotes work fine:
 ` --filter "address" "=" "muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ"`.
 
+Note that balances (quantities) for divisible assets such as XCP are stored and retrieved in "satoshi"-like units.
+Hence, an address with 4 XCP and 4 INDIVISIBLE may show their respective balances as 400,000,000 and 4.
+
 GetInfo
 ---------
 *The `getinfo` action gets the current state of the server.*
