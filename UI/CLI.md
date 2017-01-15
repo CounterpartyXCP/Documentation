@@ -147,11 +147,11 @@ Issuance
 *Issue a new asset, issue more of an existing asset or transfer the ownership of an asset.*
 
 * --source = the source address
-* --transfer-destination = for transfer of ownership of asset issuance rights
+* --transfer-destination = for transfer of ownership of asset issuance rights.
 * --quantity = the quantity of ASSET to be issued
 * --asset = the name of the asset to be issued (if it’s available)
 * --divisible = whether or not the asset is divisible (must agree with previous issuances)
-* --description = a description of the asset (set to ‘LOCK’ to lock against further issuances with non‐zero quantities)
+* --description = a description of the asset (set to ‘LOCK’ to lock against further issuances with non‐zero quantities). It can be up to 41 bytes with opreturn and up to 52 with pubkeyhash (see Optional Arguments further below).
 * --fee = the exact fee to be paid to miners
 
 Assets can be divisible or indivisible (the smallest unit is 1). Issuance and transfer
@@ -359,3 +359,4 @@ This list contains some optional arguments for counterparty-client. A complete l
 * --json-output = display result in JSON format
 * --unconfirmed = allow the spending of unconfirmed transaction outputs
 * --unsigned = print out unsigned hex of transaction; do not sign or broadcast
+* --encoding = the default is auto, which lets counterparty-lib determine optimal encoding (opreturn, pubkeyhash, or multisig)
