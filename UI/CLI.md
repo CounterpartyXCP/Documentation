@@ -128,19 +128,21 @@ BTC Pay has been disabled in Counterwallet, but remains available in the
 CLI (and API).
 
 * --source = the source address
-* --order-match-id = the concatenation of the hashes of the two transactions which compose the order match
+* --order-match-id = the underscore-separated concatenation of the hashes of the two transactions which compose the order match
 * --fee = the exact BTC fee to be paid to miners
 
 <!-- _)(*&_)#$ markdown bull -->
 
     btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
-    --order-match-id=092f15d36786136c4d868c33356ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
+    --order-match-id=092f15d36786136c4d868c3335_6ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
 
 Order Match ID can be obtained with the `pending` command. The source address of BTC sell 
 has 20 blocks (or approximately 200 minutes) after his offer has been matched) to send 
-BTC to fund his side of transaction. Use the `pending` command to display own DEx order 
-matches that require BTCpay and make sure you use the correct `source` address to fund 
-each pending BTCpay.
+BTC to fund his side of transaction, but should wait for the order-matching transaction to
+receive several confirmations because BTC cannot be escrowed by the Counterparty protocol.
+
+Use the `pending` command to display own DEx order matches that require BTCpay and 
+make sure you use the correct `source` address to fund each pending BTCpay.
 
 Issuance
 ------------------------
@@ -150,7 +152,7 @@ Issuance
 * --transfer-destination = for transfer of ownership of asset issuance rights.
 * --quantity = the quantity of ASSET to be issued
 * --asset = the name of the asset to be issued (if it’s available)
-* --divisible = whether or not the asset is divisible (must agree with previous issuances)
+* --divisible = the asset is divisible (must agree with previous issuances; omitted means indivisible)
 * --description = a description of the asset (set to ‘LOCK’ to lock against further issuances with non‐zero quantities). It can be up to 41 bytes with opreturn and up to 52 with pubkeyhash (see Optional Arguments further below).
 * --fee = the exact fee to be paid to miners
 
@@ -176,6 +178,7 @@ Destroy
 * --fee = the exact BTC fee to be paid to miners
 
 This command is not yet implemented (enabled).
+
 
 Broadcast
 ----------------------------------------
@@ -315,13 +318,15 @@ Getrows
     getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ'
 
     getrows --table balances --filter 'address' '=' 'muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ' \
-    --filter 'asset' '=' 'BBBQ'
+    --filter 'asset' '=' 'BBBQ' --filter-op OR
 
-Windows users may need to make changes to handle console quirks. On Windows 10 double quotes work fine:
+Windows users may need to make changes to handle console quirks. On Windows 10, the double quotes work fine:
 ` --filter "address" "=" "muQjaj46wghHprjSjpgU7D55JxKyK5dJtZ"`.
 
 Note that balances (quantities) for divisible assets such as XCP are stored and retrieved in "satoshi"-like units.
-Hence, an address with 4 XCP and 4 INDIVISIBLE may show their respective balances as 400,000,000 and 4.
+Hence, an address with 4 XCP and 4 INDIVISIBLE may show their respective balances as 400,000,000 and 4 (which would
+be the case if INDIVISIBLE wasn't a divisible asset).
+
 
 GetInfo
 ---------
@@ -330,9 +335,9 @@ GetInfo
 
 Get_TX_Info
 ---------
-*Display information about a raw transaction*
+*Display information about an unsigned raw transaction*
 
-The `get_tx_info` command displays information about a raw transaction. Some destinations (e.g. P2SH addresses) are not supported by this command.
+The `get_tx_info` command displays information about an unsigned raw transaction. Some destinations (e.g. P2SH addresses) are not supported by this command. 
 
 <!-- _)(*&_)#$ markdown bull -->
 
@@ -347,6 +352,9 @@ Input and Output
 -   All other quantities, i.e. prices, odds, leverages, feed values and
     target values, fee multipliers, are represented internally as
     fractions, but printed to four decimal places.
+-   As note above, "direct" access to tables via the getrows action outputs
+    "raw" values (amounts) using internal representation
+
 
 Optional arguments
 ----------------------------------------
@@ -359,4 +367,4 @@ This list contains some optional arguments for counterparty-client. A complete l
 * --json-output = display result in JSON format
 * --unconfirmed = allow the spending of unconfirmed transaction outputs
 * --unsigned = print out unsigned hex of transaction; do not sign or broadcast
-* --encoding = the default is auto, which lets counterparty-lib determine optimal encoding (opreturn, pubkeyhash, or multisig)
+* --encoding = the default is auto, which lets counterparty-lib determine the encoding (opreturn, pubkeyhash, or multisig); certain transactions may require this argument with a non-default value
