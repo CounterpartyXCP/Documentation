@@ -20,7 +20,6 @@ Built-in Modules
 * `dex`: Implements API methods, order book and market info parsing, and more for Counterparty's distributed exchange. (Requires that the `assets` module be loaded for use.)
 * `transaction_stats`: Handles the compliation of transaction statistics.
 * `counterwallet`: Implements Counterwallet-specific API calls, tasks, and more. (Requires that the `assets` module be loaded for use.)
-* `counterwallet_iofeeds`: Adds socket.io feed support, as well as a chat feed and a message feed, used by Counterwallet.
 
 Any of these above modules may be enabled or disabled, allowing you to tune `counterblock` to your exact needs out of the box.
 
