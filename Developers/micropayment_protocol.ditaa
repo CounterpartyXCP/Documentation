@@ -1,5 +1,4 @@
 
-
      Payer
        |
        |
@@ -36,7 +35,7 @@
        |                                      | after spend secret revealed. |
        |                                      \---------=--------------------/
        |                                   
-       |                                   
+       |  PAYER_SIG & PAYEE_SIG                                  
        |                                   
        V                                      /------------------------------\
 +-------------+                               | Close channel and force      |
