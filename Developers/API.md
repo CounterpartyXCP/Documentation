@@ -1457,6 +1457,9 @@ There will be no incompatible API pushes that do not either have:
 * A well known set cut over date in the future 
 * Or, a deprecation process where the old API is supported for an amount of time
 
+##9.55.2
+* create_issuance: subassets longname are supported in the `asset` parameter
+
 ##9.53.0
 * Add min_message_index to get_blocks API call
 
