@@ -554,6 +554,7 @@ Gets information on an issued asset.
   ``null`` if the asset was not found. Otherwise, a list of one or more objects, each one with the following properties:
 
   - **asset** (*string*): The [assets](#assets) of the asset itself 
+  - **asset_longname** (*string*): The [subasset](#subasset) longname, if any
   - **owner** (*string*): The address that currently owns the asset (i.e. has issuance rights to it) 
   - **divisible** (*boolean*): Whether the asset is divisible or not
   - **locked** (*boolean*): Whether the asset is locked (future issuances prohibited)
