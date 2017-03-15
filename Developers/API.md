@@ -547,7 +547,7 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -569,7 +569,7 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -595,7 +595,7 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -608,7 +608,7 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -961,8 +961,8 @@ Issue a dividend on a specific user defined asset.
 
   * **source** (*string*): The address that will be issuing the dividend (must have the ownership of the asset which the dividend is being issued on).
   * **quantity_per_unit** (*integer*): The amount of **dividend_asset** rewarded.
-  * **asset** (*string*): The [assets](#assets) that the dividends are being rewarded on.
-  * **dividend_asset** (*string*): The [assets](#assets) that the dividends are paid in.
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) that the dividends are being rewarded on.
+  * **dividend_asset** (*string*): The [asset](#assets) or [subasset](#subassets) that the dividends are paid in.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
@@ -1052,7 +1052,7 @@ Send XCP or a user defined asset.
 
   * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
   * **destination** (*string*): The address to receive the asset.
-  * **asset** (*string*): The [assets](#assets) to send.
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to send.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
@@ -1307,6 +1307,7 @@ An object that describes a specific occurance of a user defined asset being issu
 * **tx_hash** (*string*): The transaction hash
 * **block_index** (*integer*): The block index (block number in the block chain)
 * **asset** (*string*): The [assets](#assets) being issued, or re-issued
+* **asset_longname** (*string*): The [subasset](#subasset) longname, if any
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset being issued
 * **divisible** (*boolean*): Whether or not the asset is divisible (must agree with previous issuances of the asset, if there are any)
 * **issuer** (*string*): 
