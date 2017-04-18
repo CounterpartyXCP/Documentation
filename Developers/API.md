@@ -425,6 +425,14 @@ Examples:
 - "FOOBAR"
 - "A7736697071037023001"
 
+###subassets
+
+See the [Counterparty protocol specification](/Developers/protocol_specification.md#subassets) for what constitutes a valid subasset name.
+Examples:
+
+- "PIZZA.X"
+- "PIZZA.REALLY-long-VALID-Subasset-NAME"
+
 ###Quantities and balances
 
 Anywhere where an quantity is specified, it is specified in **satoshis** (if a divisible asset), or as whole numbers
@@ -539,13 +547,14 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
   ``null`` if the asset was not found. Otherwise, a list of one or more objects, each one with the following properties:
 
   - **asset** (*string*): The [assets](#assets) of the asset itself 
+  - **asset_longname** (*string*): The [subasset](#subassets) longname, if any
   - **owner** (*string*): The address that currently owns the asset (i.e. has issuance rights to it) 
   - **divisible** (*boolean*): Whether the asset is divisible or not
   - **locked** (*boolean*): Whether the asset is locked (future issuances prohibited)
@@ -560,7 +569,7 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -586,7 +595,7 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -599,7 +608,7 @@ Gets information on an issued asset.
 
 **Parameters:**
 
-  * **asset** (*string*): The name of the [asset](#assets) for which to retrieve the information.
+  * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -952,8 +961,8 @@ Issue a dividend on a specific user defined asset.
 
   * **source** (*string*): The address that will be issuing the dividend (must have the ownership of the asset which the dividend is being issued on).
   * **quantity_per_unit** (*integer*): The amount of **dividend_asset** rewarded.
-  * **asset** (*string*): The [assets](#assets) that the dividends are being rewarded on.
-  * **dividend_asset** (*string*): The [assets](#assets) that the dividends are paid in.
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) that the dividends are being rewarded on.
+  * **dividend_asset** (*string*): The [asset](#assets) or [subasset](#subassets) that the dividends are paid in.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
@@ -970,8 +979,8 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 **Parameters:**
 
   * **source** (*string*): The address that will be issuing or transfering the asset.
-  * **asset** (*string*): The [assets](#assets) to issue or transfer.
-  * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
+  * **asset** (*string*): The [assets](#assets) to issue or transfer.  This can also be a [subasset longname](#subassets) for new subasset issuances.
+  * **quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description** (*string, default=''*): A textual description for the asset. 52 bytes max.
   * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
@@ -986,7 +995,10 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * To lock the issuance of the asset, specify "LOCK" for the ``description`` field. It's a special keyword that will
     not change the actual description, but will simply lock the asset quantity and not allow additional quantity to be
     issued for the asset.
-  * Depending on the type of asset to be issued, a certain amount of both BTC and XCP (for non-free Counterparty assets) may be required at the source address. 
+  * A named asset has an issuance cost of 0.5 XCP.
+  * A subasset has an issuance cost of 0.25 XCP.
+  * In order to issue an asset, BTC and XCP (for first time, non-free Counterparty assets) are required at the source address to pay fees.
+
 
 
 ###create_order
@@ -1020,7 +1032,7 @@ Send XCP or a user defined asset.
 
   * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
   * **destination** (*string*): The address to receive the asset.
-  * **asset** (*string*): The [assets](#assets) to send.
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to send.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
@@ -1275,6 +1287,7 @@ An object that describes a specific occurance of a user defined asset being issu
 * **tx_hash** (*string*): The transaction hash
 * **block_index** (*integer*): The block index (block number in the block chain)
 * **asset** (*string*): The [assets](#assets) being issued, or re-issued
+* **asset_longname** (*string*): The [subasset](#subassets) longname, if any
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset being issued
 * **divisible** (*boolean*): Whether or not the asset is divisible (must agree with previous issuances of the asset, if there are any)
 * **issuer** (*string*): 
@@ -1424,6 +1437,9 @@ There will be no incompatible API pushes that do not either have:
 
 * A well known set cut over date in the future 
 * Or, a deprecation process where the old API is supported for an amount of time
+
+##9.55.2
+* create_issuance: subassets longname are supported in the `asset` parameter
 
 ##9.53.0
 * Add min_message_index to get_blocks API call
