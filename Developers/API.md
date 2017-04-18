@@ -554,7 +554,7 @@ Gets information on an issued asset.
   ``null`` if the asset was not found. Otherwise, a list of one or more objects, each one with the following properties:
 
   - **asset** (*string*): The [assets](#assets) of the asset itself 
-  - **asset_longname** (*string*): The [subasset](#subasset) longname, if any
+  - **asset_longname** (*string*): The [subasset](#subassets) longname, if any
   - **owner** (*string*): The address that currently owns the asset (i.e. has issuance rights to it) 
   - **divisible** (*boolean*): Whether the asset is divisible or not
   - **locked** (*boolean*): Whether the asset is locked (future issuances prohibited)
@@ -979,8 +979,8 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 **Parameters:**
 
   * **source** (*string*): The address that will be issuing or transfering the asset.
-  * **asset** (*string*): The [assets](#assets) to issue or transfer.
-  * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
+  * **asset** (*string*): The [assets](#assets) to issue or transfer.  This can also be a [subasset longname](#subassets) for new subasset issuances.
+  * **quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description** (*string, default=''*): A textual description for the asset. 52 bytes max.
   * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
@@ -1287,7 +1287,7 @@ An object that describes a specific occurance of a user defined asset being issu
 * **tx_hash** (*string*): The transaction hash
 * **block_index** (*integer*): The block index (block number in the block chain)
 * **asset** (*string*): The [assets](#assets) being issued, or re-issued
-* **asset_longname** (*string*): The [subasset](#subasset) longname, if any
+* **asset_longname** (*string*): The [subasset](#subassets) longname, if any
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset being issued
 * **divisible** (*boolean*): Whether or not the asset is divisible (must agree with previous issuances of the asset, if there are any)
 * **issuer** (*string*): 
