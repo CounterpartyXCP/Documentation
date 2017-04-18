@@ -995,30 +995,10 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * To lock the issuance of the asset, specify "LOCK" for the ``description`` field. It's a special keyword that will
     not change the actual description, but will simply lock the asset quantity and not allow additional quantity to be
     issued for the asset.
-  * Depending on the type of asset to be issued, a certain amount of both BTC and XCP (for non-free Counterparty assets) may be required at the source address. 
+  * A named asset has an issuance cost of 0.5 XCP.
+  * A subasset has an issuance cost of 0.25 XCP.
+  * In order to issue an asset, BTC and XCP (for first time, non-free Counterparty assets) are required at the source address to pay fees.
 
-###create_issuance (for subassets)
-
-**create_issuance(source, asset, quantity, divisible, description)**
-
-Issue a new asset, issue a subasset asset as a child of an existing named asset 
-
-**Parameters:**
-
-  * **source** (*string*): The address that will be issuing or transfering the asset.
-  * **asset** (*string*): The new [subasset longname](#subassets) to issue.
-  * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to issue (can be 0).
-  * **divisible** (*boolean, default=true*): Whether this asset is divisible or not
-  * **description** (*string, default=''*): A textual description for the asset.
-  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
-
-**Return:** 
-
-  The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
-
-**Notes:**
-
-  * A subasset has issuance cost of 0.25 XCP. 0.25 XCP is required at the source address. 
 
 
 ###create_order
