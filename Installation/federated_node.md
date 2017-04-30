@@ -20,6 +20,8 @@ Services run on a Federated Node include some or all of the following:
 * **nginx**: Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only or `counterblock`-only nodes.
 * **mongodb and redis**: Used by `counterblock`.
 
+Please note that Federated Node should not be installed on a system which already has one or more of conflicting services running on the ports used by Federated Node. The Federated Node install script checks that required ports are unused and exits to avoid conflict. If you have a non-essential Web, mongodb or other service running on the target system you can disable them or bind them to a different port to be able to pass the built-in check and avoid application conflicts.
+
 ### Hardware / OS requirements
 <a name="requirements"></a>
 
@@ -143,6 +145,14 @@ fednode install base master
 fednode install full develop
 ```
 
+As mentioned earlier, the install script may stop if ports used by Federated Node services are used by other applications. While it is not recommended to run Federated Node alongside production services, small changes can make the evaluation of Federated Node easier. For example you may change ports used by existing applications (or disable said applications) or run Federated Node inside of a virtual machine. 
+
+For example, the original mongodb can be reconfigured to listen on port 28018 and Counterblock's mongodb can use the default port 27017. The Federated Node install script makes it possible to specify the interface used by its mongodb container (example below), but it currently does not have the ability to do this for other services or get around port conflicts.
+
+```
+fednode install --mongodb-interface 127.0.0.2 counterblock master`
+```
+
 **Wait for initial sync**
 
 After installation, the services will be automatically started. To check the status, issue:
@@ -207,6 +217,8 @@ Configuration files for the `bitcoin`, `counterparty` and `counterblock` service
 * `counterparty-testnet`: See `federatednode/config/counterparty/server.testnet.conf`
 * `counterblock`: See `federatednode/config/counterblock/server.conf`
 * `counterblock-testnet`: See `federatednode/config/counterblock/server.testnet.conf`
+* `redis`: shared service used for both mainnet and testnet 
+* `mongodb`: shared service used for both mainnet and testnet
 
 Remember: once done editing a configuration file, you must `restart` the cooresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
 
@@ -254,6 +266,8 @@ fednode restart <service>
 ```
 
 Where `<service>` is one of the service names listed [above](#servicenames), or blank for all services.
+
+Note that redis and mongodb are shared services and need to run if either (mainnet or testnet) counterblock container is running and shut down only if both counterblock containers are stopped.
 
 **Issuing a single shell command**
 
