@@ -147,10 +147,10 @@ fednode install full develop
 
 As mentioned earlier, the install script may stop if ports used by Federated Node services are used by other applications. While it is not recommended to run Federated Node alongside production services, small changes can make the evaluation of Federated Node easier. For example you may change ports used by existing applications (or disable said applications) or run Federated Node inside of a virtual machine. 
 
-For example, the original mongodb can be reconfigured to listen on port 28018 and Counterblock's mongodb can use the default port 27017. The Federated Node install script makes it possible to specify the interface used by its mongodb container (example below), but it currently does not have the ability to do this for other services or get around port conflicts.
+For example, the original mongodb can be reconfigured to listen on port 28018 and counterblock's mongodb can use the default port 27017. The Federated Node install script makes it possible to specify the interface used by its mongodb container (example below), but it currently does not have the ability to do this for other services or get around port conflicts.
 
 ```
-fednode install --mongodb-interface 127.0.0.2 counterblock master`
+fednode install --mongodb-interface 127.0.0.2 counterblock master
 ```
 
 **Wait for initial sync**
@@ -220,7 +220,7 @@ Configuration files for the `bitcoin`, `counterparty` and `counterblock` service
 * `redis`: shared service used for both mainnet and testnet 
 * `mongodb`: shared service used for both mainnet and testnet
 
-Remember: once done editing a configuration file, you must `restart` the cooresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
+Remember: once done editing a configuration file, you must `restart` the corresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
 
 **Viewing/working with stored data**
 
@@ -267,7 +267,7 @@ fednode restart <service>
 
 Where `<service>` is one of the service names listed [above](#servicenames), or blank for all services.
 
-Note that redis and mongodb are shared services and need to run if either (mainnet or testnet) counterblock container is running and shut down only if both counterblock containers are stopped.
+Note that redis and mongodb are shared services and need to run if either (mainnet or testnet) counterblock container is running and shut down only if both counterblock containers are not running.
 
 **Issuing a single shell command**
 
