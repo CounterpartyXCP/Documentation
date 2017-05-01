@@ -77,7 +77,7 @@ if a password is set. **The default user is ``'rpc'``.**
 ##Example Implementations for JSON RPC API
 
 The following examples have authentication enabled and the `user` set to its
-default value of `'rpc'`. The password is not set (default: `'1234'`). Ensure
+default value of `'rpc'`. The password is not set (default: `'rpc'`). Ensure
 these values correspond to values in your counterparty-server's configuration 
 file `'server.conf'`.
 
