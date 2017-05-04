@@ -11,6 +11,7 @@ Depending on the type of bug and when it is reported, different bounties will be
 ## Things that do not qualify under the bug bounty
 
 -   **counterpartytalk.org website** (unless the issue is a serious misconfiguration where user security details are being leaked in a way that they can be proven to be exploited)
+-   **Counterwallet or counterblock** (unless the issue allows for theft of funds, in that case the $1,500 bounty defined below would apply)
 -   **Please do not try XSS attacks in the Counterwallet chat box. It is annoying, and it has already been tested extensively**
 -   Vulnerabilities which are too broad or not documented properly (i.e. do not include a specific example relevant to a Counterparty-controlled site)
 -   Bugs or issues with a third-party site, software, or service that we use, such as support.counterparty.io (freshdesk.com), which is not due to an improper configuration issue specific to us. Please submit any potential issues **to the maintainers of that site or providers of that service**
@@ -27,7 +28,7 @@ Depending on the type of bug and when it is reported, different bounties will be
 -   SSL certificate issues (such as lack of Perfect Forward Secrecy on our SSL certificates)
 -   Bugs that have received mainstream tech media attention before the date of your disclosure (e.g. Heartbleed, Poodlebleed, etc)
 
-## Bounties for counterpartyd, counterwalletd, and Counterwallet (counterwallet.io)
+## Bounties for counterparty-lib
 
 | Total USD amount (BTC/XCP mix) | Type of bug |
 | ----------------------------------------|------------------------------------|
