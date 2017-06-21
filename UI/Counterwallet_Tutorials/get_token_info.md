@@ -14,7 +14,7 @@ You will then be able to see basic information about the token such as the descr
 
 ### Showing information about any token
 
-If you want to see the information of any token at all even if you are logged out, then you can use a [block explorer](http://blockscan.com) to search for the token. 
+If you want to see the information of any token at all even if you are logged out, then you can use a [block explorer](https://xchain.io) to search for the token. 
 
 ![](/_images/get_token_info3.png)
 

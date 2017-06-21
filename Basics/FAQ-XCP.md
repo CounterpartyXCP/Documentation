@@ -9,7 +9,7 @@ _Note: It is a common misconception that XCP is a competitor to Bitcoin, when in
 
 The supply of XCP was created in a process called 'proof-of-burn' that lasted from January 2nd to February 3rd 2014 (5000 Bitcoin blocks). During this period, anyone was able to exchange bitcoins for XCP automatically on a protocol level under the following conditions:
 
-* Users sent their BTC to a verifiably unspendable Bitcoin address with no known private key. ([1CounterpartyXXXXXXXXXXXXXXXUWLpVr](http://blockscan.com/burn))
+* Users sent their BTC to a verifiably unspendable Bitcoin address with no known private key. ([1CounterpartyXXXXXXXXXXXXXXXUWLpVr](https://xchain.io/burns))
 
 * Each BTC was automatically exchanged for a number of XCP between 1000 and 1500, with more being rewarded the earlier the burn took place.
 

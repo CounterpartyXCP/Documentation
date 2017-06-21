@@ -83,7 +83,7 @@ In rare circumstances an address can disappear from the view. You can add anothe
 
 ## I sent BTC to Counterwallet, why doesn't it show up?
 
-It either was not sent, or it has not arrived. To check for BTC transactions, use a Bitcoin blockchain explorer (e.g. blockchain.info) and to check for XCP and other Counterparty-based tokens, use blockscan.com or coindaddy.io.
+It either was not sent, or it has not arrived. To check for BTC transactions, use a Bitcoin blockchain explorer (e.g. blockchain.info) and to check for XCP and other Counterparty-based tokens, use xchain.io or coindaddy.io.
     
 ## Why do I need small amounts of Bitcoin to do things in Counterwallet?
 

@@ -47,7 +47,7 @@ Now your order will remain valid until it's matched, cancelled or expired (which
 
 Orders can be cancelled in two places - in **Exchange &gt; Open Orders **and on the trading page for each asset pair where you have placed orders. The first location gives you a quicker way to see all your pending orders and cancel several on the same page. Orders can be partially matched and filled.
 
-You can monitor your order status using [http://blockscan.com/](http://blockscan.com/).
+You can monitor your order status using [https://xchain.io/](https://xchain.io/).
 
 ### Sell
 
