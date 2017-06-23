@@ -18,7 +18,7 @@ It is possible to trade on the Counterparty decentralized exchange directly insi
 **Disclaimer:** 
 All Counterwallet (and therefore Counterparty) actions are Bitcoin transactions. And because anyone can make a Bitcoin transaction, anyone can create a decentralized token. If this concept seems confusing, consider that Bitcoin functions entirely without a central bank. This is an identical 'free-for-all' scenario. It is _fundamentally_ impossible to have an 'owner' and or 'admins' at such an exchange. Escrowed funds are provably inaccessible until peer-to-peer orders are successfully matched, and all completed orders are irreversible.
 
-Counterparty (the open-source Bitcoin toolkit for financial instruments and markets) itself cannot distinguish whether tokens are legitimate, so please ensure due diligence before trading. Always research the official website of the token you are trading, its page on [Blockscan](http://blockscan.com) and (if applicable) its thread on [Bitcointalk](http://bitcointalk.org). 
+Counterparty (the open-source Bitcoin toolkit for financial instruments and markets) itself cannot distinguish whether tokens are legitimate, so please ensure due diligence before trading. Always research the official website of the token you are trading, its page on [XChain](https://xchain.io) and (if applicable) its thread on [Bitcointalk](http://bitcointalk.org). 
 
 ### Trading Basics
 

@@ -37,6 +37,6 @@ Choose the address which owns the token you want to make a distribution payment 
 **Specify the amount of the token to be distributed per unit ("_share_") and the costs will be displayed. Click "Pay Distribution" and after a while it will be confirmed by the Bitcoin network.**
 ![](/_images/distribution4.png)
 
-**Once the distribution has been confirmed, you will be able to see it on a [block explorer](http://blockscan.com). Note that you can only see XCP and asset distributions, while BTC distributions will be visible as BTC transactions.**
+**Once the distribution has been confirmed, you will be able to see it on a [block explorer](https://xchain.io). Note that you can only see XCP and asset distributions, while BTC distributions will be visible as BTC transactions.**
 
 
