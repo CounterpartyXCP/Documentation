@@ -116,6 +116,20 @@ Assets may be either divisible or indivisible, and divisible assets are
 divisible to eight decimal places. Assets also come with descriptions,
 which may be up to 52 single-byte characters long and updated at any time.
 
+Subassets
+------
+
+1. Subasset names must meet following requirements :
+    *   Begin with the parent asset name followed by a period (.)
+    *   Contain at least 1 character following the parent asset name and a period (.) (e.g. PIZZA.x)
+    *   Contain up to 250 characters in length including the parent asset name (e.g. PIZZA.REALLY-long-VALID-Subasset-NAME)
+    *   Contain only characters `a-zA-Z0-9.-_@!`
+    *   Cannot end with a period (.)
+    *   Cannot contain multiple consecutive periods (..)
+
+2. A subasset may only be issued from the same address that owns the parent asset at the time of the issuance
+3. A subasset may be transferred to a new owner address after initial issuance
+4. A subasset has an anti-spam issuance cost of 0.25 XCP
 
 <!--
 Quantities, Prices, Fractions
