@@ -136,7 +136,7 @@ Within one week before voting period begins:
 - At the start of the two week voting period: 
     - Current Executive Director (or other Executive Committee member of the Executive Director’s choosing) will generate a Bitcoin address for each Director candidate.
 - During this two week voting period:
-    - Owners of addresses with XCP balance may give their votes to one or more candidates by broadcasting a message with the following parameters: 1. text = XCPELECTION + Candidate Number, 2. value = votes. The sum total of the values must be less than the XCP balance of the source address at the close of the voting period. A different text other than "XCPELECTION" may be used, to avoid naming conflicts, and alternatively, the voting procedure detailed in CIP 005 may be used once implemented.
+    - Owners of addresses with XCP balance may give their votes to one or more candidates by broadcasting a message with the following parameters: 1. text = XCPELECTION + YEAR + Candidate Number, 2. value = votes. The sum total of the values must be less than the XCP balance of the source address at the close of the voting period. A different text other than this may be used to avoid naming conflicts, and alternatively, the voting procedure detailed in CIP 005 may be used once implemented.
 - Immediately after this two week voting period:
     - Current Executive Director will tally and report on the results of the voting. The top five (5) candidate address with the highest number of votes will be announced as the winners of the election, and will receive the Director positions for the term of one (1) year from the date of the end of the voting period.
 
