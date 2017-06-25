@@ -151,7 +151,7 @@ Board of Directors vacancies shall be handled in the following ways:
 
 (a) Vacancies resulting from the expiration of a director's term shall be filled by an election by the majority of a quorum of members.
 
-(b) Vacancies of a Director resulting from resignation of the director or removal of the director shall be filled by the XCP stake voting procedure outlined in section 5.3(a).
+(b) Vacancies of a Director resulting from resignation of the director or removal of the director shall be filled within 30 days by the runner-up with the highest voted XCP stake during the last held XCP stake voting procedure (as outlined in section 5.3(a)). If the selected runner-up is not interested in the seat, the runner-up with the next highest voted XCP stake shall be offered the seat, and so on, until an interested runner-up is identified. If there is no such interested runner-up or this process is otherwise inapplicable, a new XCP stake voting procedure shall be held to fill the vacant seat.
 
 Notwithstanding the foregoing, if these Bylaws are amended to expand the number of directors representing a membership class, the Board of Directors may appoint an interim director representing such class until the members of such class elect a director. Each director shall hold office until his or her successor is elected. A vacancy shall be deemed to exist in the following situations:
 
