@@ -21,22 +21,9 @@ The Corporation shall promote and protect both the decentralized, distributed an
 
 #ARTICLE III - MEMBERSHIP
 
-##Section 3.1 Membership Classes:
+##Section 3.1 Membership Qualifications:
 
-The Corporation will have three classes of membership: (a) Founding Members; (b) Industry Members; and (c) Community Members. The term "member" may be used to refer generically to a member in any class.
-
-##Section 3.2 Membership Qualifications:
-
-The requirements for membership in each membership class shall be as follows:
-
-(a) Founding Members. The Founding Members of the Corporation shall be as follows:
-- Robert Dermody III
-- Adam Krellenstein
-- Evan Wagner
-
-(b) Industry Members. The Industry Members of the Corporation shall be corporate entities doing business in, servicing or supporting the Counterparty system or in a similar distributed-digital currency system. The Board of Directors, in its sole discretion, may create categories of Industry Members with special rights, privileges, or duties; however, no such categories shall have any rights, privileges, or duties inconsistent with these Bylaws.
-
-(c) Community Members. The Community Members are collectively defined as any entity (natural person or otherwise) owning some positive quantity of XCP.
+Members are collectively defined as any entity (natural person or otherwise) owning some positive quantity of XCP.
 
 ##Section 3.3 Affiliates, Additional Rights & Limitations on Voting Rights of Members:
 
@@ -60,7 +47,7 @@ Any member's membership shall terminate upon the occurrence of any one or more o
 
 (a) Resignation. A member may resign from the Corporation by submitting a writing delivered to the Corporation's Secretary. However, resignation from the Corporation shall not relieve the member from any pre-resignation obligations incurred or commitments made, including without limitation, membership dues, fees, or assessments that are due and owing prior to the member's resignation. Any member that resigns is not entitled to and shall not receive any refund, pro rata or otherwise, of any membership dues, fees, or assessments for the balance of the calendar year in which the resignation is effective.
 
-(b) Expulsion, Termination or Suspension. Except for the Founding Members who shall only be removed for cause (per the requirements detailed in Section 5.01(c)(6), a majority of the Directors then in office may terminate any other membership after giving the member at least 30 days' written notice (for which email shall suffice) of the termination and the reasons for the termination, provided that (except in the case of termination for non-payment of membership dues, fees, or assessments in a timely fashion) the member has an opportunity to be heard by the Board, either orally or in writing, no less than five (5) days before the effective date of the termination. The Board's decision shall be final and not reviewable by any court.
+(b) Expulsion, Termination or Suspension. A majority of the Directors then in office may terminate any other membership after giving the member at least 30 days' written notice (for which email shall suffice) of the termination and the reasons for the termination, provided that (except in the case of termination for non-payment of membership dues, fees, or assessments in a timely fashion) the member has an opportunity to be heard by the Board, either orally or in writing, no less than five (5) days before the effective date of the termination. The Board's decision shall be final and not reviewable by any court.
 
 ##Section 3.7 Reinstatement: 
 
@@ -95,11 +82,11 @@ All meetings of members shall be held at the Corporation's principal office, or 
 
 ##Section 4.2 Annual Meetings:
 
-The annual meeting of each class of members shall be held in each calendar year, on such date and at such time and place as determined by the Board of Directors. Annual meetings may be held in any manner permitted by law.
+An annual meeting of members may be held in each calendar year, on such date and at such time and place as determined by the Board of Directors. Annual meetings may be held in any manner permitted by law.
 
 ##Section 4.3 Special Meetings:
 
-Special meetings of members shall be held upon call of any of the following: (a) The Board of Directors; (b) The Chairman of the Board or Founding Member; or (c) Members holding fifteen percent (15%) or more of the Corporation's voting power by a written demand signed, dated, and delivered to the Secretary. Notice of a special meeting shall be given within thirty (30) days following the date written demand is delivered to the Secretary, in accordance with Section 4.4 below. Special meetings may be held in any manner permitted by law.
+Special meetings of members shall be held upon call of any of the following: (a) The Board of Directors; (b) The Chairman of the Board; or (c) Members holding fifteen percent (15%) or more of the Corporation's voting power by a written demand signed, dated, and delivered to the Secretary. Notice of a special meeting shall be given within thirty (30) days following the date written demand is delivered to the Secretary, in accordance with Section 4.4 below. Special meetings may be held in any manner permitted by law.
 
 ##Section 4.4 Notice of Meetings
 
@@ -143,34 +130,28 @@ The minimum authorized number of directors is five (5). The number of directors 
 
 All directors serving on the Board of Directors shall be selected in the manner set forth in this Section 5.3.
 
-(a) Founding Director: The Founding Members shall elect one (1) director, known as the “Founding Director”. The Founding Director shall be deemed to have been duly elected upon receipt by the Chairman of the Board of a written ballot from the Founding Members. The Founding Director elected by the Foundating Members is Robert Dermody.
-
-(b) Community Directors: Community Members of the Corporation, voting as a class, shall elect four (4) directors known as "Community Directors", during a once yearly two (2) week voting period. The following procedure shall be undertaken:
+(a) Directors: Members of the Corporation, voting as a class, shall elect five (5) Directors, during a once yearly two (2) week voting period. The following procedure shall be undertaken:
 Within one week before voting period begins:
-- Community Director candidate nominated. May self nominate, or be nominated by another individual. Each candidate must hold at least 50 XCP, which they will prove by signing a specific message (chosen by the Executive Director) with their private key. The sitting board of directors, by a super-majority vote, may disqualify non-viable candidates from election.
+- Director candidate nominated. May self nominate, or be nominated by another individual. Each candidate must hold at least 50 XCP, which they will prove by signing a specific message (chosen by the Executive Director) with their private key. The sitting board of directors, by a super-majority vote, may disqualify non-viable candidates from election.
 - At the start of the two week voting period: 
-    - Current Executive Director (or other Executive Committee member of the Executive Director’s choosing) will generate a Bitcoin address for each Community Director candidate.
+    - Current Executive Director (or other Executive Committee member of the Executive Director’s choosing) will generate a Bitcoin address for each Director candidate.
 - During this two week voting period:
-    - Owners of addresses with XCP balance may give their votes to one or more candidates by broadcasting a message with the following parameters: 1. text = XCPELECTION + Candidate Number, 2. value = votes. The sum total of the values must be less than the XCP balance of the source address at the close of the voting period
+    - Owners of addresses with XCP balance may give their votes to one or more candidates by broadcasting a message with the following parameters: 1. text = XCPELECTION + YEAR + Candidate Number, 2. value = votes. The sum total of the values must be less than the XCP balance of the source address at the close of the voting period. A different text other than this may be used to avoid naming conflicts, and alternatively, the voting procedure detailed in CIP 005 may be used once implemented.
 - Immediately after this two week voting period:
-    - Current Executive Director will tally and report on the results of the voting. The top four (4)candidate address with the highest number of votes will be announced as the winners of the election, and will receive the Community Director positions for the term of one (1) year from the date of the end of the voting period.
+    - Current Executive Director will tally and report on the results of the voting. The top five (5) candidate address with the highest number of votes will be announced as the winners of the election, and will receive the Director positions for the term of one (1) year from the date of the end of the voting period.
 
-(c) Observers: Each director shall have the right to designate a single observer to attend Board of Directors meetings when such director is unable to be present. However, the director shall provide prior notice to the Chairman of the Board and the Chairman approves the request. Such a request shall not be unreasonably denied. An observer attending in place of a director shall have the right to fully participate in the general session, but may not vote on or put forth any motion. Notwithstanding the foregoing, an Observer may vote by proxy if approved by the Board in advance.
+(b) Observers: Each director shall have the right to designate a single observer to attend Board of Directors meetings when such director is unable to be present. However, the director shall provide prior notice to the Chairman of the Board and the Chairman approves the request. Such a request shall not be unreasonably denied. An observer attending in place of a director shall have the right to fully participate in the general session, but may not vote on or put forth any motion. Notwithstanding the foregoing, an Observer may vote by proxy if approved by the Board in advance.
 
-(d) Terms and Election Dates: All directors shall hold office until their successor is elected. Except for adjustments that may be made by the Board from time-to-time to maintain or create staggered terms upon any increase or decrease in the authorized number of directors, the term of office for the Founding Director, and all Community Directors and At-Large Directors shall be one (1) year and shall run every May first (May 1) of the calendar year, with elections preceeding at least two (2) weeks before. Unless elected by written ballot pursuant to Section 4.9, the positions of directors then expiring shall be filled and elections held at the annual meeting of members called for such purpose. The Board of Directors may issue resolutions establishing procedures governing elections of directors, provided that those resolutions are consistent with these Bylaws and the Articles.
+(c) Terms and Election Dates: All directors shall hold office until their successor is elected. Except for adjustments that may be made by the Board from time-to-time to maintain or create staggered terms upon any increase or decrease in the authorized number of directors, the term of office for all Directors and At-Large Directors shall be one (1) year and shall run every May first (May 1) of the calendar year, with elections preceeding at least two (2) weeks before. Unless elected by written ballot pursuant to Section 4.9, the positions of directors then expiring shall be filled and elections held at the annual meeting of members called for such purpose. The Board of Directors may issue resolutions establishing procedures governing elections of directors, provided that those resolutions are consistent with these Bylaws and the Articles.
 
 
 ##Section 5.4 Vacancies:
 
 Board of Directors vacancies shall be handled in the following ways:
 
-(a) Vacancies resulting from the expiration of a director's term shall be filled by an election by the majority of a quorum of members in the class that elected that director.
+(a) Vacancies resulting from the expiration of a director's term shall be filled by an election by the majority of a quorum of members.
 
-(b) Vacancies of a Founding Director resulting from resignation of the director or removal of the director shall be filled by election of a majority of the Founding Members.
-
-(c) Vacancies of a Industry Director resulting from resignation of the director or removal of the director shall be filled by an election of a majority of a quorum of Industry Members.
-
-(d) Vacancies of an Community Director resulting from resignation of the director or removal of the director shall be filled by the XCP stake voting procedure outlined in section 5.3(c).
+(b) Vacancies of a Director resulting from resignation of the director or removal of the director shall be filled within 30 days by the runner-up with the highest voted XCP stake during the last held XCP stake voting procedure (as outlined in section 5.3(a)). If the selected runner-up is not interested in the seat, the runner-up with the next highest voted XCP stake shall be offered the seat, and so on, until an interested runner-up is identified. If there is no such interested runner-up or this process is otherwise inapplicable, a new XCP stake voting procedure shall be held to fill the vacant seat.
 
 Notwithstanding the foregoing, if these Bylaws are amended to expand the number of directors representing a membership class, the Board of Directors may appoint an interim director representing such class until the members of such class elect a director. Each director shall hold office until his or her successor is elected. A vacancy shall be deemed to exist in the following situations:
 
@@ -264,11 +245,9 @@ The Board of Directors may, by resolution, establish a board of advisors (the "A
 
 ##Section 6.1 Officers: The officers of the Corporation shall be:
 
-(a) Chairman of the Board (who shall initially be Robert Dermody) (b) Vice Chairman (who shall initially be Adam Krellenstein) 
-(c) Executive Director (who shall initially be Ivana Zuber) (d) General Counsel (who shall initially be Robert Dermody) (e) Treasurer (who shall initially be Ivana Zuber) (f) Secretary (who shall initially be Ivana Zuber) (g) any other officers as the Board of Directors may appoint.
-Adam Krellenstein shall serve as the initial Chief Scientist.
-The roles enumerated in this section 6.1 shall collectively be referred to as the Executive Committee.
-One person may hold multiple offices.
+(a) Chairman of the Board (b) Vice Chairman (c) Executive Director (d) General Counsel (e) Treasurer (f) Secretary (g) any other officers as the Board of Directors may appoint.
+
+The roles enumerated in this section 6.1 shall collectively be referred to as the Executive Committee. One person may hold multiple offices.
 
 ##Section 6.2 Nomination and Election:
 
@@ -287,6 +266,7 @@ Office vacancies arising out of death, resignation, removal, disqualification, o
 ##Section 6.5 Chairman of the Board:
 
 The Chairman of the Board shall be the Corporation's chief officer. The Chairman of the Board shall serve as an ex-officio voting member of all committees, and shall have such other powers and duties as may be designated by the Board from time to time. The then-serving Chairman of the Board shall have the authority to cast a tie-breaking vote in the election of any directors or officers, other than for Chairman of the Board.
+
 Any candidate for Chairman of the Board must be a director of the Corporation in order to run for election.
 
 ##Section 6.6 Vice Chairman:
@@ -343,7 +323,8 @@ Any candidate for Secretary must be a member of the Corporation in order to run 
 
 ##Section 6.11 Chief Scientist:
 
-The Chief Scientist shall be the lead technical officer of the Corporation. The Chief Scientist shall have lead responsibility for maintaining and enhancing the protocol specifications, as well as providing executive level oversight of the maintenance and enhancement of all official software and standards, including (but not limited to) .
+The Chief Scientist shall be the lead technical officer of the Corporation. The Chief Scientist shall have lead responsibility for maintaining and enhancing the protocol specifications, as well as providing executive level oversight of the maintenance and enhancement of all official software and standards.
+
 Beyond the Board’s ability to elect and/or remove the Chief Scientist, any technical design and protocol-level decisions occur from a separate process, outside of the scope of Board control. Working with the technical team as a whole, the Chief Scientist shall have executive control over the definition and execution of technical proposal and review processes.
 
 Any candidate for Chief Scientist must be a member of the Corporation in order to run for election.
@@ -385,7 +366,8 @@ The Board of Directors may delegate to any committee having the Board's authorit
 (c) Elect, appoint, or remove directors, or fill vacancies on the Board or on any of its committees; or
 
 (d) Adopt, amend, or repeal the Articles, Bylaws, or any Board of Directors resolution; or
-Increase of the total supply of XCP
+
+(e) Increase of the total supply of XCP
 
 #ARTICLE VIII - MISCELLANEOUS
 
@@ -436,8 +418,11 @@ Ballots submitted in facsimile or electronic form (such as email) shall be consi
 ##Section 8.10 Fiscal Year Budget:
 
 All disbursement of funds from the Foundation shall be in accord with a budget, which has been created by the Treasurer and approved by the Board of Directors (by simple majority vote).
+
 A draft budget shall be assembled by the Treasurer and proposed to the board at least two months before the start of the next fiscal year. This will provide time for debate and modifications to the draft budget, so that the final fiscal year budget may be approved by the Board before the start of the next fiscal year.
+
 Any proposed budget shall include a categorized cost breakdown, with total yearly financial requirements, as well as month to month breakdowns if and when possible.
+
 A Board-approved budget for the current fiscal year may be modified by the Treasurer, with majority approval of the Board of Directors. 
 
 #ARTICLE IX - EFFECTIVE DATE, AMENDMENTS, AND DISSOLUTION
@@ -464,4 +449,4 @@ Where the fault is due to a bug in the underlying EVM or platform as a whole —
 
 #Schedule A - Board Membership Dues
 
-No membership dues or fees are currently in effect, nor is any program currently creating and/or granting special status and privileges to subclasses of Community or Industry Members currently in effect.
+No membership dues or fees are currently in effect, nor is any program currently creating and/or granting special status and privileges to Members currently in effect.
