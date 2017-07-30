@@ -144,6 +144,14 @@ Expirations
 -  at beginning of block (before txes are parsed)
 -->
 
+Memos
+------
+
+A Memo can be attached to a send transactions. When a shared public address is used for incoming transactions, a memo may be used to link an incoming payments with a specific user account identifier or invoice.  Memos do not need to be unique.  Multiple sends may have the same memo.
+
+The Memo is a numeric value expressed in hexadecimal or a UTF-8 encoded text string. Valid memos are no more than 34 bytes long.
+
+
 Transaction Statuses
 --------------------
 
