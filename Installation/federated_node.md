@@ -75,7 +75,7 @@ If using **Docker Toolbox**, launch the "Docker Quickstart Terminal" once instal
 
 ### Linux
 
-(Instructions are provided for Ubuntu Linux. Other Linuxes will be similar.)
+(Instructions are provided for Ubuntu Linux. Other Linuxes will be similar. Use a sudo-er account, but not root)
 
 **Update system & install dependencies**
 
@@ -86,16 +86,22 @@ sudo apt-get update && sudo apt-get upgrade
 sudo apt-get -y install git curl
 ```
 
-Install docker and docker-compose (see [here](https://docs.docker.com/compose/install/) for more info):
+Install docker-ce and docker-compose (see [here](https://docs.docker.com/compose/install/) for more info, here we use v1.16.1):
 ```
+sudo -i # become root
 curl -fsSL https://get.docker.com/ | sh
-sudo /bin/sh -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
-sudo chmod +x /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+exit # leave root shell
 ```
 
 ## Installation
 
+On Linux and OS X, install as a non-root sudo-er from home directory. 
+
 **Clone and check out the code**
+
+On all OS, clone federatednode repo and enter cloned directory:
 ```
 git clone https://github.com/CounterpartyXCP/federatednode.git
 cd federatednode
@@ -160,9 +166,11 @@ After installation, the services will be automatically started. To check the sta
 fednode ps
 ```
 
-Once the containers are installed and running, keep in mind that it will take some time for `bitcoind` to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usuable.
+If you have existing instances of Bitcoin Core (either mainnet or testnet), at this point you could stop all services listed in `fednode ps` output, change configuration files (of counterparty and counterblock, for example) and point them to your existing Bitcoin Core. Configuration files can be found in various service directories located under federatednode/config. 
 
-You may check the sync status by tailing the appropriate service logs, e.g. for `bitcoind` and `counterparty-server` mainnet:
+Once the containers are installed and running, keep in mind that it will take some time for `bitcoind` to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usable. 
+
+You may check the sync status by tailing the appropriate service logs, e.g. for Bitcoin Core and Counterparty server on mainnet:
 ```
 fednode tail bitcoin
 fednode tail counterparty
@@ -186,6 +194,8 @@ If `counterwallet` is installed, access to the following URLs will be possible:
 ## Post-installation tasks
 
 Ensure that your firewall software is enabled. If you want to provide access from external systems, you can allow through some or all of the [appropriate ports](#accessing). In addition, if you are running a node in a production scenario, it is recommended that you properly secure it.
+
+You may also want to tighten ownership and permissions on all conf files in federatednode/config subdirectories, but keep in mind that you should be the only user with access to the operating system that runs Federated Node containers: Federated Node is not designed for shared OS environments.
 
 **Ubuntu Linux**
 
@@ -226,6 +236,8 @@ Configuration files for the `bitcoin`, `counterparty` and `counterblock` service
 
 Remember: once done editing a configuration file, you must `restart` the corresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
 
+For example, a user with base setup (Bitcoin Core & Counterparty Server) could make Counterparty use existing Bitcoin Core by changing configuration files found under federatednode/config/counterparty/ (`backend-connect` in Counterparty server configuration files and `wallet-connect` in client configuration files.) At this point Bitcoin Core (mainnet and/or testnet) container(s) could be stopped and counterparty server container restarted. If your existing Bitcoin Server allows RPC connections, with proper settings and correct RPC credentials in their configuration files, counterparty (server), counterblock and counterwallet can all use it so that you don't have to run bitcoin or bitcoin-testnet container.
+
 **Viewing/working with stored data**
 
 The various services use [Docker named volumes](https://docs.docker.com/engine/tutorials/dockervolumes/) to store data that is meant to be persistent:
@@ -235,7 +247,7 @@ The various services use [Docker named volumes](https://docs.docker.com/engine/t
 * `counterblock` and `counterblock-testnet`: Stores Counterblock asset info (images), etc in the `federatednode_counterblock-data` volume
 * `mongodb`: Stores the databases for `counterblock` and `counterblock-testnet` in the `federatednode_mongodb-data` volume
 
-See `docker volume --help` for help on how to interact with Docker volumes.
+Use `docker volume inspect <volume-name>` to display volume location. See `docker volume --help` for help on how to interact with Docker volumes.
 
 **Viewing logs**
 
