@@ -40,7 +40,6 @@ Your Bitcoin Core configuration file should match this:
     rpcpassword=<password>
     server=1
     daemon=1
-    rpcthreads=1000
     rpctimeout=300
     txindex=1
     addrindex=1
