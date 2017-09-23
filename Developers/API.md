@@ -417,7 +417,7 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 
 ###assets
 
-Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../docs/protocol_specification#assets) for what constitutes a valid asset name.
+Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../protocol_specification#assets) for what constitutes a valid asset name.
 Examples:
 
 - "BTC"
@@ -427,7 +427,7 @@ Examples:
 
 ###subassets
 
-See the [Counterparty protocol specification](../docs/protocol_specification#subassets) for what constitutes a valid subasset name.
+See the [Counterparty protocol specification](../protocol_specification#subassets) for what constitutes a valid subasset name.
 Examples:
 
 - "PIZZA.X"
