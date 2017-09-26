@@ -182,8 +182,15 @@ Message Types
 A **send** message sends a quantity of any Counterparty asset from the
 source address to the destination address. If the sender does not hold a
 sufficient quantity of that asset at the time that the send message is
-parsed (in the sequence of transactions), then the send is filled
-as much as it can be.
+parsed (in the sequence of transactions), then the send is considered an
+oversend. 
+
+Oversends are handled as follows:
+
+1) Oversends using the legacy send transaction type are valid and filled 
+as much as they can be
+2) Oversends using the new default enhanced send transaction type after 
+block 489956 are invalid and none of the asset is set
 
 counterparty-lib supports sending bitcoins, for which no data output is
 used.
