@@ -190,7 +190,7 @@ Oversends are handled as follows:
 1) Oversends using the legacy send transaction type are valid and filled 
 as much as they can be
 2) Oversends using the new default enhanced send transaction type after 
-block 489956 are invalid and none of the asset is set
+block 489956 are invalid and none of the asset is sent
 
 counterparty-lib supports sending bitcoins, for which no data output is
 used.
