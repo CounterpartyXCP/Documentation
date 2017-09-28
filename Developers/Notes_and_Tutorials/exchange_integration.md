@@ -1,6 +1,6 @@
 # Counterparty Exchange Integration
 
-By adding support for Counterparty, your exchange not only gets [XCP market](http://coinmarketcap.com/currencies/counterparty/) support, but support for any other Counterparty asset (such as [Storjcoin X](http://coinmarketcap.com/assets/storjcoin-x/) and [Bitcrystals](http://coinmarketcap.com/assets/bitcrystals/)).
+By adding support for Counterparty, your exchange not only gets [XCP market](http://coinmarketcap.com/currencies/counterparty/) support, but support for any other Counterparty asset such as [Bitcrystals](http://coinmarketcap.com/assets/bitcrystals/)) or [FoldingCoin](https://coinmarketcap.com/currencies/foldingcoin/).
 
 Technically, the process is rather straightforward. However, as Counterparty is not a fork of Bitcoin Core, adding Counterparty support to your exchange is slightly different from adding support for a cryptocurrency that is, like Litecoin or Dogecoin.  We outline the general process below (for XCP, but the process is identical for all Counterparty assets):
 
