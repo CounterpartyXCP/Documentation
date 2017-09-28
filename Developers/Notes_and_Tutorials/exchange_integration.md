@@ -1,6 +1,6 @@
 # Counterparty Exchange Integration
 
-By adding support for Counterparty, your exchange not only gets [XCP market](http://coinmarketcap.com/currencies/counterparty/) support, but support for any other Counterparty asset (such as [Storjcoin X](http://coinmarketcap.com/assets/storjcoin-x/) and [Bitcrystals](http://coinmarketcap.com/assets/bitcrystals/)).
+By adding support for Counterparty, your exchange not only gets [XCP market](http://coinmarketcap.com/currencies/counterparty/) support, but support for any other Counterparty asset such as [Bitcrystals](http://coinmarketcap.com/assets/bitcrystals/)) or [FoldingCoin](https://coinmarketcap.com/currencies/foldingcoin/).
 
 Technically, the process is rather straightforward. However, as Counterparty is not a fork of Bitcoin Core, adding Counterparty support to your exchange is slightly different from adding support for a cryptocurrency that is, like Litecoin or Dogecoin.  We outline the general process below (for XCP, but the process is identical for all Counterparty assets):
 
@@ -13,7 +13,7 @@ Technically, the process is rather straightforward. However, as Counterparty is 
 - Once the system is set up, get started working with `counterparty-server`'s [API](/API.md).
 
 
-## Handling Deposits
+## Handling Deposits using Separate Addresses
 
 - Create a XCP holding address (or several primary XCP holding addresses). The address will hold deposited XCP funds for all users using the exchange.
 
@@ -27,6 +27,22 @@ Technically, the process is rather straightforward. However, as Counterparty is 
 
 - When the second send is confirmed (poll `get_sends` again), credit the user’s account balance.
 
+
+## Handling Deposits using Memo Transactions
+
+- Create a XCP deposit address. The address will hold deposited XCP funds for all users using the exchange.
+
+- 'Prime' the deposit address by sending it 0.001 BTC.
+
+- Make the deposit address require a memo by [broadcasting](/API.md#create_broadcast) `OPTIONS 1` from that address.  The value and fee_fraction can be 0.
+
+- When a user wishes to deposit to your exchange, generate a unique hexadecimal invoice ID for the deposit and convey that to the user.  The user must send counterparty assets into the address along with the matching invoice ID in the memo field.  If the user fails to include a memo, the send will be rejected by the network and the user's address will retain the assets they sent.
+
+- Poll for deposits using `get_sends` [API method](/API.md), filtering for `asset==XCP`, `destination==deposit_address` and `block_index<={current_block_index-number_of_desired_confirmations}` and `memo_hex=={invoice_id}`. Record the quantity of the send transaction and the transaction's `txid`.
+
+- When the send is confirmed with 2 confirmations (poll `get_sends` again), credit the user’s account balance.
+
+- Memo transactions are available as of block 489956
 
 ## Handling Withdrawals
 
