@@ -449,6 +449,14 @@ Examples:
 
 Floats are ratios or floating point values with six decimal places of precision, used in bets and dividends.
 
+###Memos
+
+See the [Counterparty protocol specification](../protocol_specification/#memos) for what constitutes a valid memo.
+Examples:
+
+- "for pizza"
+- "1ca6"
+
 
 ##Miscellaneous
 
@@ -519,6 +527,12 @@ For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API
 **Special Parameters:**
 
   * **show_expired** (*boolean*): used only for ``get_orders``. When false, `get_orders` doesn't return orders which expire next block.
+  * **memo_hex** (*string*): used only for ``get_sends``. When specified, filter the table for a hexadecimal value instead of searching by a text string.
+
+**Special Results:**
+
+  * **memo** (*string*): used only for ``get_sends``. The utf-8 encoded string of the memo (like ``for pizza``).  This value will be an empty string for hexadecimal-encoded memo IDs that are not valud UTF-8 strings.
+  * **memo_hex** (*string*): used only for ``get_sends``. Returns the memo field expressed as a hexadecimal value (like ``666f722070697a7a61``).
 
 **Return:**
 
@@ -1034,6 +1048,9 @@ Send XCP or a user defined asset.
   * **destination** (*string*): The address to receive the asset.
   * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to send.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
+  * **memo** (*string, optional*): The [Memo](../protocol_specification#memos) associated with this transaction.
+  * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../protocol_specification#memos) as a hexadecimal value.  Defaults to false.
+  * **use_enhanced_send** (*boolean, optional*): If this is false, the construct a legacy transaction sending bitcoin dust.  Defaults to true.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
@@ -1348,6 +1365,7 @@ An object that describes a specific send (e.g. "simple send", of XCP, or a user 
 * **asset** (*string*): The [assets](#assets) being sent
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset sent
 * **validity** (*string*): Set to "valid" if a valid send. Any other setting signifies an invalid/improper send
+* **memo** (*string*): The [memo](../protocol_specification#memos) associated with this transaction
 
 
 ###Message Object
@@ -1437,6 +1455,11 @@ There will be no incompatible API pushes that do not either have:
 
 * A well known set cut over date in the future 
 * Or, a deprecation process where the old API is supported for an amount of time
+
+##9.55.3
+* create_send: Added `memo`, `memo_is_hex` and `use_enhanced_send` parameters
+* get_sends: Added support for `memo` and `memo_hex` filters
+* get_sends: Returns `memo` and `memo_hex` in the search results
 
 ##9.55.2
 * create_issuance: subassets longname are supported in the `asset` parameter
