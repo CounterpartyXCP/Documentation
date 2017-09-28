@@ -1456,7 +1456,7 @@ There will be no incompatible API pushes that do not either have:
 * A well known set cut over date in the future 
 * Or, a deprecation process where the old API is supported for an amount of time
 
-##9.55.4
+##9.55.3
 * create_send: Added `memo`, `memo_is_hex` and `use_enhanced_send` parameters
 * get_sends: Added support for `memo` and `memo_hex` filters
 * get_sends: Returns `memo` and `memo_hex` in the search results
