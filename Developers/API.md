@@ -1075,7 +1075,7 @@ Each `create_` call detailed below can take the following common keyword paramet
   * **dust_return_pubkey** (*string*): The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is _required_ to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to `false`, this instructs `counterparty-server` to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception.
   * **disable_utxo_locks** (*boolean*): By default, UTXO's utilized when creating a transaction are "locked" for a few seconds, to prevent a case where rapidly generating `create_` calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify `true` for this parameter to disable this behavior, and not temporarily lock UTXOs.
   * **op_return_value** (*integer*): The value (in satoshis) to use with any `OP_RETURN` outputs in the generated transaction. Defaults to `0`. Don't use this, unless you like [throwing your money away](https://m.reddit.com/r/Bitcoin/comments/2plfsv/what_happens_to_the_value_of_a_coin_locked_with/cmxrnhu).
-
+  * **extended_tx_info** (*boolean*): When this is not specified or false, the `create_` calls return only a hex-encoded string.  If this is true, the `create_` calls return a data object with the following keys: `tx_hex`, `btc_in`, `btc_out`, `btc_change`, and `btc_fee`.
 
 **With the exception of `pubkey` and `allow_unconfirmed_inputs`, these values should be left at their defaults, unless you know what you are doing.**
 
@@ -1455,6 +1455,9 @@ There will be no incompatible API pushes that do not either have:
 
 * A well known set cut over date in the future 
 * Or, a deprecation process where the old API is supported for an amount of time
+
+##development (unreleased)
+* create_*: adds `extended_tx_info` parameter to create methods
 
 ##9.55.3
 * create_send: Added `memo`, `memo_is_hex` and `use_enhanced_send` parameters
