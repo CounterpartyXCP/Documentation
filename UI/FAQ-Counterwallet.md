@@ -52,7 +52,7 @@ Assets/tokens are issued on the Bitcoin blockchain directly. This means that any
 
 ## Is Counterwallet down?
 
-Counterparty health status monitor is available [here](http://platform.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of servers listed at [counterwallet.io](http://counterwallet.io/). It is also possible that Counterwallet is being updated or dealing with a blockchain reorganization.
+Counterparty health status monitor is available [here](http://platform.counterparty.io/). Should the server you're connecting to be unresponsive or time out, you can try to directly access another of servers listed at [counterwallet.io](https://counterwallet.io/). It is also possible that Counterwallet is being updated or dealing with a blockchain reorganization.
 
 ## Counterwallet is offline. Can I still access my funds?
 
