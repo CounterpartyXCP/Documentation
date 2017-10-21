@@ -363,7 +363,7 @@ larger and more expensive (in fees) than all other dividend payments.
 
 -  TODO: dividends on escrowed funds
 
-There is a small fee per recipient with dividends, to prevent SPAM.
+There is a small anti-spam fee of 0.0002 XCP per recipient with dividends.
 
 ###Burn
 
