@@ -83,7 +83,7 @@ Make sure you have Python 3.5. (Ubuntu 14.04 for instance uses Python 3.4 by def
 
 ```
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get -y install git curl
+sudo apt-get -y install git curl coreutils
 ```
 
 Install docker-ce and docker-compose (see [here](https://docs.docker.com/compose/install/) for more info, here we use v1.16.1):
