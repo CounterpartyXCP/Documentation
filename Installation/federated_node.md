@@ -150,6 +150,7 @@ fednode install base master
 # install a full configuration for the develop branch
 fednode install full develop
 ```
+In some cases (slow host, limited bandwidth), you may experience download timeouts due to too many parallel download jobs given the limited resources. Consider setting Docker's `max-concurrent-downloads` to a low integer value such as 1 (requires Docker restart).
 
 As mentioned earlier, the install script may stop if ports used by Federated Node services are used by other applications. While it is not recommended to run Federated Node alongside production services, small changes can make the evaluation of Federated Node easier. For example you may change ports used by existing applications (or disable said applications) or run Federated Node inside of a virtual machine. 
 
