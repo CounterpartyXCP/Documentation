@@ -544,12 +544,12 @@ For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API
   * To get a listing all open orders for a given address like 1Ayw5aXXTnqYfS3LbguMCf9dxRqzbTVbjf, you could call
     ``get_orders`` with the appropriate parameters. This method will return a list of one or more order [object](#order-object).
   * To get all open "buy BTC" orders from the DEx, call ``get_orders`` and use the following filter: ``[{"field": "get_asset", "op": "==", "value": "BTC"}, {"field": "status", "op": "==", "value": "open"}]``.
+  * To get all BTC pays (for DEx order matches) between the source 1Ayw5aXXTnqYfS3LbguMCf9dxRqzbTVbjf and destination (BTC buyer) 193SB3xgYjmfesdRqXq4g3eG9rD9DmWBSD, use `get_btcpays` method with these parameters: ``{ "filters": [{"field": "source", "op": "==", "value": "1Ayw5aXXTnqYfS3LbguMCf9dxRqzbTVbjf"}, {"field": "destination", "op": "==", "value": "193SB3xgYjmfesdRqXq4g3eG9rD9DmWBSD"}],"filterop": "and"}``
 
 **Notes:**
 
   * Please note that the ``get_balances`` API call will not return balances for BTC itself. It only returns balances
-    for XCP and other Counterparty assets. To get BTC-based balances, use an existing system such as Insight, blockr.io,
-    or blockchain.info.
+    for XCP and other Counterparty assets. To get BTC-based balances, use an existing system such as Bitcoin Core, blockchain.info, etc.
 
 
 ###get_asset_info
@@ -1458,6 +1458,9 @@ There will be no incompatible API pushes that do not either have:
 
 ##development (unreleased)
 * create_*: adds `extended_tx_info` parameter to create methods
+
+##9.55.4
+* No changes
 
 ##9.55.3
 * create_send: Added `memo`, `memo_is_hex` and `use_enhanced_send` parameters
