@@ -951,13 +951,14 @@ Burn a given quantity of BTC for XCP (**on mainnet, possible between blocks 2783
 
 ###create_cancel
 
-**create_cancel(offer_hash)**
+**create_cancel(offer_hash, source)**
 
 Cancel an open order or bet you created.
 
 **Parameters:**
 
   * **offer_hash** (*string*): The transaction hash of the order or bet.
+  * **source** (*string*): The source address of the order or bet.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:** 
