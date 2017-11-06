@@ -48,7 +48,7 @@ Technically, the process is rather straightforward. However, as Counterparty is 
 
 - Prime the holding address if its current balance is below 0.0005 BTC.
 
-- Send the funds to the user-provided address with `do_send`.
+- Send the funds to the user-provided address with `create_send` (Counterparty API).
 
 
 ## Best practices
