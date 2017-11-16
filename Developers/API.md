@@ -857,7 +857,7 @@ For the specified pubkeyhash (i.e. address), return the public key. Note that th
 
 **unpack(data_hex)**
 
-Parse the data_hex of a message into its parameters. Currently only works with `send` messages, but support will be added for all other message types in the future.
+Parse the data_hex of a message into its parameters. Currently only works with `send` messages.
 
 **Parameters:**
 
@@ -865,9 +865,8 @@ Parse the data_hex of a message into its parameters. Currently only works with `
 
 **Return:**
 
-  - **message_type_id** (*int*): the ID of the message type (e.g. send's is `0`)
-  - **unpacked** (*list*): a list of message parameters (e.g. for sends it is `asset`, `quantity` -- get the source and destination from the bitcoin transaction itself)
-
+  - **message_type_id** (*int*): the ID of the message type.  Legacy sends are `0` and enhanced sends are `2`.
+  - **unpacked** (*object*): A map of message parameters. For legacy sends this object includes `asset` and `quantity`.  For enhanced sends, this object includes `address`, `asset`, `quantity` and `memo`.  For legacy sends, the source and destination are found using `get_tx_info`.  For enhanced sends, the destination address is in the message parameters and the source may be found using `get_tx_info`.
 
 
 ##Action/Write API Function Reference
