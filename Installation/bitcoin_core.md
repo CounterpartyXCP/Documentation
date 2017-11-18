@@ -104,7 +104,7 @@ Prior to making changes make a backup of your wallet if you have one. Addrindex 
 
 #### How to remove Bitcoin Core with addrindex patch and switch to Bitcoin Core 0.15 while leaving txindex in place 
 
-Please note that that counterparty-lib v9.55.4 and older cannot use Bitcoin Core without addrindex and that the reversing this upgrade may require significantly more time because reindexing would likely need to rebuild chainstate databases as well.
+Please note that that counterparty-lib v9.55.4 and older cannot use Bitcoin Core without addrindex and that the reversing this upgrade may require significantly more time because reindexing would likely need to rebuild chainstate databases as well. Configuration of ZMQ related options may be reqired for external indexing based on ZMQ.
 
 In order to change from existing Bitcoin Core with addrindex and txidnex to vanilla Bitcoin Core with txindex, uninstall Bitcoin Core with addrindex, make a backup of any wallets you may have, and install vanilla Bitcoin Core. Remove `addrindex=1` from your configuration file(s) or startup script(s) and run vanilla Bitcoin Core once with `-reindex` enabled. Once this deletes addrindex entries from your local data, only txindex will remain. 
 
