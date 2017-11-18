@@ -101,3 +101,11 @@ Assuming you have another compatible but non-addrindex'ed copy of the blockchain
 Bitcoin Core addrindex users who want to "go back" to the same or a higher version of Bitcoin Core without addrindex can simply uninstall the former and install the later. `addrindex` and `txindex` can be changed to 0 or removed from the configuration file. If the both are removed, then blockchain index data (see Bitcoin documentation for the details) can be deleted to save disk space, and potentially blockchain pruning (``prune``) can be (re)enabled as well.
 
 Prior to making changes make a backup of your wallet if you have one. Addrindex does not impact the wallet, but a migration to a different Bitcoin Core version may.
+
+#### How to remove Bitcoin Core with addrindex patch and switch to Bitcoin Core 0.15 while leaving txindex in place 
+
+Please note that that counterparty-lib v9.55.4 and older cannot use Bitcoin Core without addrindex and that the reversing this upgrade may require significantly more time because reindexing would likely need to rebuild chainstate databases as well.
+
+In order to change from existing Bitcoin Core with addrindex and txidnex to vanilla Bitcoin Core with txindex, uninstall Bitcoin Core with addrindex, make a backup of any wallets you may have, and install vanilla Bitcoin Core. Remove `addrindex=1` from your configuration file(s) or startup script(s) and run vanilla Bitcoin Core once with `-reindex` enabled. Once this deletes addrindex entries from your local data, only txindex will remain. 
+
+Reindexing will take a number of hours. In order to minimize downtime, you may want to setup a new instance of vanilla Bitcoin Core (with `txindex=1`) running on a different server (or on the same server, but on different ports) and let it sync with existing node. Note that doing this on the same server requires nearly twice as many resources (CPU, RAM, disk), so it is not recommended for full nodes with modest system resources.
