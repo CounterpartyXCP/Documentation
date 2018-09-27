@@ -184,7 +184,7 @@ Once running, the system listens on the following ports:
 * `counterparty-server`: 4000/tcp (mainnet), 14000/tcp (testnet)
 * `counterblock`: 4001/tcp (mainnet), 14001/tcp (testnet)
 
-For `counterparty-server`, use RPC username `rpc` and default password `1234`.
+For `counterparty-server`, use RPC username `rpc` and default password `rpc`.
 
 If `counterwallet` is installed, access to the following URLs will be possible:
 
