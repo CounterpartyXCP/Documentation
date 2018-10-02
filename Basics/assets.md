@@ -6,7 +6,7 @@ With Counterparty, users can create their own assets (also known as "tokens", "c
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions on* assets, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
 
-Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet. 
+Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet.
 
 
 # Creating assets
@@ -15,7 +15,7 @@ Counterparty allows users to *issue assets*. An asset that is created
 within the Counterparty protocol is often called a *user-created token*.
 User-created tokens are just as real as XCP or even BTC. With the asset
 issuance function, every user has the ability to create a new currency project inside
-the Bitcoin and Counterparty ecosystem. 
+the Bitcoin and Counterparty ecosystem.
 
 *You can create two different types of assets:*
 
@@ -49,7 +49,7 @@ callable) with every issuance thereafter. A divisible user-created asset
 is, like, Bitcoin and XCP, divisible up to 8 decimal places. A callable
 asset is an asset which the issuer can call back (i.e. repurchase) from
 its owners at a date (`call-date`) and for a price (`call-price`)
-specified at the initial issuance. 
+specified at the initial issuance.
 
 # Sending assets (`send`)
 
@@ -64,7 +64,7 @@ To send an asset in Counterparty, one must specify:
 
 It is possible to distribute funds proportionally among asset holders using the `distribution`
 function. This feature is also also known as `dividend payments`, depending on their desired purpose. Distributions are paid in in any `distribution_asset` to everyone who
-holds the asset in proportion to how many units he holds; specifically: 
+holds the asset in proportion to how many units he holds; specifically:
 Let `total` equal the total distribution paid out, and
 `quantity` be the total amount of asset, then:
 `quantity-per-unit = total/quantity`
@@ -167,12 +167,6 @@ address with `give_asset`. This feature is enabled on the CLI, and disabled on [
 
 Below are just a few of the many uses of assets, feel free to propose new uses if you find them.
 
-## Programmable Smart Contracts
-
-Turing-complete smart contracts scripting is one of the most powerful Counterparty features. Users can write their own custom financial instruments and decentralized applications (Dapp). Counterparty contracts are 100% compatible with Ethereum scripting, and pretty much all contracts can be run on both platforms without code changes.
-
-## Currency Peg
-
 ## Betting
 
 Counterparty turns the Bitcoin blockchain into a betting platform and prediction market. Oracles can create broadcasts of information, and users can then place bets on these broadcasts. Funds are escrowed automatically by the protocol, and benefit from being stored securely inside the Bitcoin blockchain. Funds placed on bets are be provably inaccessible until the bet is resolved or expires. Oracles can set a fee fraction to receive for their betting feeds, providing incentive to run their broadcasts.
@@ -191,7 +185,7 @@ Using broadcasts, users can publish timestamped information onto the Bitcoin blo
 
 ## Crowdfunding
 
-Counterparty assets can be used for crowdfunding. You can issue a certain amount of assets and sell these to start your project. Due to the high amount of trust involved, it is better to use a Counterparty-based crowdfunding platform which can perform due-diligence on your project. This will provide your users trust, and demonstrate the legitimacy of your project. There is nothing stopping you from doing this on your own, but users may rightfully be suspicious about your project. 
+Counterparty assets can be used for crowdfunding. You can issue a certain amount of assets and sell these to start your project. Due to the high amount of trust involved, it is better to use a Counterparty-based crowdfunding platform which can perform due-diligence on your project. This will provide your users trust, and demonstrate the legitimacy of your project. There is nothing stopping you from doing this on your own, but users may rightfully be suspicious about your project.
 
 ## Derivatives
 

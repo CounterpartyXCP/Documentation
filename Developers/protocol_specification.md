@@ -17,19 +17,19 @@ counterparty-lib [ChangeLog](https://github.com/CounterpartyXCP/counterpartyd/bl
 Transactions
 ------------
 
-Counterparty messages have the following components: 
+Counterparty messages have the following components:
 
 - Source addresses
-- Destination addresses (optional) 
-- A quantity of bitcoins sent from the sources to the destinations, if it exists. 
-- A fee, in bitcoins, paid to the Bitcoin miners who include the transaction in a block. 
+- Destination addresses (optional)
+- A quantity of bitcoins sent from the sources to the destinations, if it exists.
+- A fee, in bitcoins, paid to the Bitcoin miners who include the transaction in a block.
 - Some ‘data’, imbedded in specially constructed transaction outputs.
 
 Every Bitcoin transaction carrying a Counterparty transaction has the
-following possible outputs: 
+following possible outputs:
 
-- zero or more destination outputs, 
-- zero or more data outputs, and optional change outputs. 
+- zero or more destination outputs,
+- zero or more data outputs, and optional change outputs.
 
 All data outputs follow all destination outputs. Change outputs (outputs after the last data
 output) have no significance.
@@ -109,7 +109,7 @@ uppercase Latin characters (inclusive) not beginning with ‘A’, or
 integers between 26^12 + 1 and 256^8 (inclusive), prefixed with ‘A’.
 Alphabetic asset names will carry a one‐time issuance fee (by burn) of
 0.5 XCP and numeric asset names will be freely available. ‘BTC’ and
-‘XCP’ are the only three‐character asset names. Example asset names: 
+‘XCP’ are the only three‐character asset names. Example asset names:
 BBBB, A100000000000000000.
 
 Assets may be either divisible or indivisible, and divisible assets are
@@ -183,13 +183,13 @@ A **send** message sends a quantity of any Counterparty asset from the
 source address to the destination address. If the sender does not hold a
 sufficient quantity of that asset at the time that the send message is
 parsed (in the sequence of transactions), then the send is considered an
-oversend. 
+oversend.
 
 Oversends are handled as follows:
 
-1) Oversends using the legacy send transaction type are valid and filled 
+1) Oversends using the legacy send transaction type are valid and filled
 as much as they can be
-2) Oversends using the new default enhanced send transaction type after 
+2) Oversends using the new default enhanced send transaction type after
 block 489956 are invalid and none of the asset is sent
 
 counterparty-lib supports sending bitcoins, for which no data output is
@@ -279,7 +279,7 @@ Issuances of any non‐zero quantity, that is, issuances which do not
 merely change, e.g., the description of the asset, involve a debit (and
 destruction) of now 0.5 XCP.
 
-Asset descriptions in enhanced asset information schema may be of 
+Asset descriptions in enhanced asset information schema may be of
 arbitrary length.
 
 ###Broadcast
@@ -372,7 +372,7 @@ by ‘burning’ bitcoins in miners’ fees during a particular period of time
 using the a **burn** message type. The number of XCP earned per bitcoin
 is calculated thus:
 
-    XCP_EARNED = BTC_BURNED * (1000 * (1 + .5 * 
+    XCP_EARNED = BTC_BURNED * (1000 * (1 + .5 *
                  ((END_BLOCK - CURRENT_BLOCK) / (END_BLOCK - START_BLOCK))
                  ))
 
@@ -395,3 +395,11 @@ Open offers may be cancelled, which cancellation is irrevocable.
 A *cancel* message contains only the hash of the Bitcoin transaction
 that contains the order or bet to be cancelled. Only the address which
 made an offer may cancel it.
+
+###Destroy
+
+A **destroy** message sends a quantity of any Counterparty asset from the
+source address to the default burn address. If the sender does not hold a
+sufficient quantity of that asset at the time that the destroy message is
+parsed (in the sequence of transactions), then the destroy is considered
+invalid.
