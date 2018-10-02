@@ -30,7 +30,7 @@ in the future, and listens on the same port as JSON RPC one.
 ##Getting Started
 
 By default, the server will listen on port ``4000`` (if on mainnet) or port ``14000`` (on testnet) for API
-requests. 
+requests.
 
 Note that the main API is built on JSON-RPC 2.0, not 1.1. JSON-RPC itself is pretty lightweight, and API requests
 are made via a HTTP POST request to ``/api/`` (note the trailing slash), with JSON-encoded data passed as the POST body.
@@ -56,7 +56,7 @@ All requests must have POST data that is JSON encoded. Here's an example of the 
 
 The ``jsonrpc`` and ``id`` properties are requirements under the JSON-RPC 2.0 spec.
 
-You should note that the data in ``params`` is a JSON object (e.g. mapping), not an array. In other words, 
+You should note that the data in ``params`` is a JSON object (e.g. mapping), not an array. In other words,
 **the API only supports named arguments, not positional arguments** (e.g. use
 {"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"]). This is the case for safety and bug-minimization reasons.
 
@@ -78,7 +78,7 @@ if a password is set. **The default user is ``'rpc'``.**
 
 The following examples have authentication enabled and the `user` set to its
 default value of `'rpc'`. The password is not set (default: `'rpc'`). Ensure
-these values correspond to values in your counterparty-server's configuration 
+these values correspond to values in your counterparty-server's configuration
 file `'server.conf'`.
 
 Submissions of examples in additional languages are welcome!
@@ -88,11 +88,11 @@ Submissions of examples in additional languages are welcome!
     import json
     import requests
     from requests.auth import HTTPBasicAuth
-    
+
     url = "http://localhost:4000/api/"
     headers = {'content-type': 'application/json'}
     auth = HTTPBasicAuth('rpc', PASSWORD)
-    
+
     payload = {
       "method": "get_running_info",
       "params": {},
@@ -113,11 +113,11 @@ library.
     use JsonRPC\Client;
     $client = new Client('http://localhost:4000/api/');
     $client->authentication('rpc', PASSWORD);
-    
+
     $result = $client->execute('get_balances', array('filters' => array('field' => 'address', 'op' => '==', 'value' => '1NFeBp9s5aQ1iZ26uWyiK2AYUXHxs7bFmB')));
     print("get_balances result:\n");
     var_dump($result);
-    
+
     $result2 = $client->execute('get_running_info');
     print("get_running_info result:\n");
     var_dump($result2);
@@ -125,7 +125,7 @@ library.
 
 ###curl
 
-Remember to surround non-numeric parameter values with the double quotes, as per [JSON-RPC 2.0 examples](http://www.jsonrpc.org/specification#examples). For example, `"order_by": "tx_hash"` is correct and will work, `"order_by": 'tx_hash'` won't. 
+Remember to surround non-numeric parameter values with the double quotes, as per [JSON-RPC 2.0 examples](http://www.jsonrpc.org/specification#examples). For example, `"order_by": "tx_hash"` is correct and will work, `"order_by": 'tx_hash'` won't.
 
 ####Linux
 
@@ -154,34 +154,34 @@ Authorization string in the example below is based on the default username/passw
 Authorization string in the example below is based on the default username/password.
 
     package main
-    
+
     import (
     	"fmt"
     	"strings"
     	"net/http"
     	"io/ioutil"
     )
-    
+
     func main() {
-    
+
     	url := "http://127.0.0.1:4000/api/"
-    
+
     	payload := strings.NewReader("{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}")
-    
+
     	req, _ := http.NewRequest("POST", url, payload)
-    
+
     	req.Header.Add("content-type", "application/json")
     	req.Header.Add("authorization", "Basic cnBjOjEyMzQ=")
     	req.Header.Add("cache-control", "no-cache")
-    
+
     	res, _ := http.DefaultClient.Do(req)
-    
+
     	defer res.Body.Close()
     	body, _ := ioutil.ReadAll(res.Body)
-    
+
     	fmt.Println(res)
     	fmt.Println(string(body))
-    
+
     }
 
 ###Ruby (Net::HTTP)
@@ -190,17 +190,17 @@ Authorization string in the example below is based on the default username/passw
 
     require 'uri'
     require 'net/http'
-    
+
     url = URI("http://127.0.0.1:4000/api/")
-    
+
     http = Net::HTTP.new(url.host, url.port)
-    
+
     request = Net::HTTP::Post.new(url)
     request["content-type"] = 'application/json'
     request["authorization"] = 'Basic cnBjOjEyMzQ='
     request["cache-control"] = 'no-cache'
     request.body = "{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}"
-    
+
     response = http.request(request)
     puts response.read_body
 
@@ -212,12 +212,12 @@ The following examples don't use authentication as with default settings.
 ###Python
 
     import requests
-    
+
     url = "http://localhost:4000/rest/"
     headers = {'content-type': 'application/json'}
 
     query = 'sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND'
-    
+
     response = requests.get(url + query, headers=headers)
     print("Response: ", response.text)
 
@@ -228,7 +228,7 @@ These examples use the default username/password combination in URL.
 
 ####Linux
 
-    curl "http://rpc:rpc@127.0.0.1:4000/rest/sends/get?source=1B6ahDHnKtZ5GXqytHSxfcXgNoxm1q1RsP&destination=14fAoS9FPD9jx36hjCNoAqFVLNHD1NQVN5&op=AND" -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json" 
+    curl "http://rpc:rpc@127.0.0.1:4000/rest/sends/get?source=1B6ahDHnKtZ5GXqytHSxfcXgNoxm1q1RsP&destination=14fAoS9FPD9jx36hjCNoAqFVLNHD1NQVN5&op=AND" -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json"
 
 ####Windows
 
@@ -266,7 +266,7 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
-    
+
 * Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
 
         payload = {
@@ -282,7 +282,7 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "id": 0
                   }
 
-    
+
 * Send 1 XCP (specified in satoshis) from one address to another.
 
         payload = {
@@ -296,7 +296,7 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
-    
+
 * Issuance (indivisible)
 
         payload = {
@@ -345,7 +345,7 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
 
 **Note:** Before v9.49.4, the counterparty server API provided an interface to Bitcoin Core's signing functionality through the `do_*`, `sign_tx` and `broadcast_tx` methods, which have all since been removed.
 
-All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns with its raw transaction API calls). This raw transaction's inputs may be validated and then must be signed (i.e. via Bitcoin Core, a 3rd party Bitcoin library like Bitcore, etc) and broadcast on the Bitcoin network. 
+All ``create_`` API calls return an *unsigned raw transaction serialization* as a hex-encoded string (i.e. the same format that ``bitcoind`` returns with its raw transaction API calls). This raw transaction's inputs may be validated and then must be signed (i.e. via Bitcoin Core, a 3rd party Bitcoin library like Bitcore, etc) and broadcast on the Bitcoin network.
 
 The process of signing and broadcasting a transaction, from start to finish, depends somewhat on the wallet software used. Below are examples of how one might use a wallet to sign and broadcast an unsigned Counterparty transaction *created* with this API.
 
@@ -441,7 +441,7 @@ Anywhere where an quantity is specified, it is specified in **satoshis** (if a d
 Examples:
 
 - 4381030000 = 43.8103 (if divisible asset)
-- 4381030000 = 4381030000 (if indivisible asset) 
+- 4381030000 = 4381030000 (if indivisible asset)
 
 **NOTE:** XCP and BTC themselves are divisible assets.
 
@@ -511,17 +511,18 @@ For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API
     be specified as well. See [filtering](#filtering-read-api-results) for more information.
   * **order_by ** (*string*): If sorted results are desired, specify the name of an attribute of the appropriate table to
     order the results by (e.g. ``quantity`` for [balance object](#balance-object), if you called ``get_balances``).
-    If left blank, the list of results will be returned unordered. 
+    If left blank, the list of results will be returned unordered.
   * **order_dir** (*string*): The direction of the ordering. Either ``ASC`` for ascending order, or ``DESC`` for descending
     order. Must be set if ``order_by`` is specified. Leave blank if ``order_by`` is not specified.
-  * **start_block** (*integer*): If specified, only results from the specified block index on will be returned 
+  * **start_block** (*integer*): If specified, only results from the specified block index on will be returned
   * **end_block** (*integer*): If specified, only results up to and including the specified block index on will be returned
   * **status** (*string/list*): return only results with the specified status or statuses (if a list of status strings is supplied).
     See the [status list](#status). Note that if ``null`` is supplied (the default), then status is not filtered.
     Also note that status filtering can be done via the ``filters`` parameter, but doing it through this parameter is more
     flexible, as it essentially allows for situations where ``OR`` filter logic is desired, as well as status-based filtering.
-  * **limit** (*integer*): (maximum) number of elements to return. Can specify a value less than or equal to 1000. For more results, use
-    a combination of ``limit`` and ``offset`` parameters to paginate results.
+  * **limit** (*integer*): (maximum) number of elements to return. Can specify a value less than or equal to the instance's max limit (default 1000).
+    For more results, use a combination of ``limit`` and ``offset`` parameters to paginate results. If the instance has a limit of 0 you can specify
+    any limit for the row results, even 0 to get the full dataset.
   * **offset** (*integer*): return results starting from specified ``offset``
 
 **Special Parameters:**
@@ -567,9 +568,9 @@ Gets information on an issued asset.
 
   ``null`` if the asset was not found. Otherwise, a list of one or more objects, each one with the following properties:
 
-  - **asset** (*string*): The [assets](#assets) of the asset itself 
+  - **asset** (*string*): The [assets](#assets) of the asset itself
   - **asset_longname** (*string*): The [subasset](#subassets) longname, if any
-  - **owner** (*string*): The address that currently owns the asset (i.e. has issuance rights to it) 
+  - **owner** (*string*): The address that currently owns the asset (i.e. has issuance rights to it)
   - **divisible** (*boolean*): Whether the asset is divisible or not
   - **locked** (*boolean*): Whether the asset is locked (future issuances prohibited)
   - **total_issued** (*integer*): The [quantities](#quantities-and-balances) of the asset issued, in total
@@ -600,7 +601,7 @@ Gets information on an issued asset.
 
 **Return:**
 
-  A list of the names of all existing Counterparty assets, ordered alphabetically. 
+  A list of the names of all existing Counterparty assets, ordered alphabetically.
 
 
 ###get_holder_count
@@ -633,15 +634,15 @@ Gets information on an issued asset.
 
 **get_messages(block_index)**
 
-Return message feed activity for the specified block index. The message feed essentially tracks all 
+Return message feed activity for the specified block index. The message feed essentially tracks all
 database actions and allows for lower-level state tracking for applications that hook into it.
-   
+
 **Parameters:**
 
   * **block_index** (*integer*): The block index for which to retrieve activity.
 
-**Return:** 
-  
+**Return:**
+
   A list of one or more [message object](#message-object) if there was any activity in the block, otherwise ``[]`` (empty list).
 
 
@@ -650,12 +651,12 @@ database actions and allows for lower-level state tracking for applications that
 **get_messages_by_index(message_indexes)**
 
 Return the message feed messages whose ``message_index`` values are contained in the specified list of message indexes.
-   
+
 **Parameters:**
 
-  * **message_indexes** (*list*): An array of one or more ``message_index`` values for which the cooresponding message feed entries are desired. 
+  * **message_indexes** (*list*): An array of one or more ``message_index`` values for which the cooresponding message feed entries are desired.
 
-**Return:** 
+**Return:**
 
   A list containing a `message <#message-object>`_ for each message found in the specified ``message_indexes`` list. If none were found, ``[]`` (empty list) is returned.
 
@@ -670,13 +671,13 @@ Gets basic information for a specific block.
 
   * **block_index** (*integer*): The block index for which to retrieve information.
 
-**Return:** 
+**Return:**
 
   If the block was found, an object with the following properties:
-     
-  - **block_index** (*integer*): The block index (i.e. block height). Should match what was specified for the *block_index* input parameter). 
+
+  - **block_index** (*integer*): The block index (i.e. block height). Should match what was specified for the *block_index* input parameter).
   - **block_hash** (*string*): The block hash identifier
-  - **block_time** (*integer*): A UNIX timestamp of when the block was processed by the network 
+  - **block_time** (*integer*): A UNIX timestamp of when the block was processed by the network
 
 
 ###get_blocks
@@ -696,7 +697,7 @@ is much quicker than using multiple ``get_block_info()`` and ``get_messages()`` 
   A list of objects, one object for each valid block index specified, in order from first block index to last.
   Each object has the following properties:
 
-  - **block_index** (*integer*): The block index (i.e. block height). Should match what was specified for the *block_index* input parameter). 
+  - **block_index** (*integer*): The block index (i.e. block height). Should match what was specified for the *block_index* input parameter).
   - **block_hash** (*string*): The block hash identifier
   - **block_time** (*integer*): A UNIX timestamp of when the block was processed by the network
   - **_messages** (*list*): A list of one or more [message object](#message-object) if there was any activity in the block, otherwise ``[]`` (empty list).
@@ -712,7 +713,7 @@ Gets some operational parameters for the server.
 
   None
 
-**Return:** 
+**Return:**
 
   An object with the following properties:
 
@@ -725,6 +726,7 @@ Gets some operational parameters for the server.
   - **version_major** (*integer*): The major version of counterparty-server running
   - **version_minor** (*integer*): The minor version of counterparty-server running
   - **version_revision** (*integer*): The revision version of counterparty-server running
+  - **api_limit_rows** (*integer*): The max amount of rows any call will return. If ``0`` there's no limit to calls. Defaults to ``1000``.
 
 
 ###get_element_counts
@@ -737,7 +739,7 @@ Gets the number of records for each entity type
 
   None
 
-**Return:** 
+**Return:**
 
   An object with a property for each element type (e.g. `transactions`, `blocks`, `bets`, `order_matches`, etc.) with the value of each property being the record count of that respective entity in the database.
 
@@ -754,10 +756,10 @@ Get a listing of UTXOs for the specified address.
   * **unconfirmed** (*boolean*): Set to `true` to include unconfirmed UTXOs (e.g. those in the mempool)
   * **unspent_tx_hash** (*boolean*): Specify a specific transaction hash to only include UTXOs from that transaction
 
-**Return:** 
+**Return:**
 
   A list of objects, with each entry in the dict having the following properties:
-  
+
     - **amount**: The amount of the UTXO
     - **confirmations**: Number of confirmations since the UTXO was created
     - **scriptPubKey**: The UTXO's scriptPubKey, encoded in hex format
@@ -777,7 +779,7 @@ Gets raw data for a single transaction.
   * **verbose** (*boolean*): Include some additional information in the result data
   * **skip_missing** (*boolean*): If set to `false`, and the transaction hash cannot be found, return `null`, otherwise if `true`, throw an exception.
 
-**Return:** 
+**Return:**
 
   If found, a raw transaction objects having the same format as the [bitcoind getrawtransaction API call](https://chainquery.com/bitcoin-api/getrawtransaction). If not found, `null`.
 
@@ -794,7 +796,7 @@ Gets raw data for a list of transactions.
   * **verbose** (*boolean*): Include some additional information in the result data for each transaction
   * **skip_missing** (*boolean*): If set to `false`, and one or more transaction hash cannot be found, the missing txhash data will not be included in the result set, otherwise if `true`, throw an exception.
 
-**Return:** 
+**Return:**
 
   A list of raw transaction objects having the same format as the [bitcoind getrawtransaction API call](https://chainquery.com/bitcoin-api/getrawtransaction).
 
@@ -810,7 +812,7 @@ Gets raw transaction objects for the specified address.
   * **address** (*string*): The address for which to receive the raw transactions
   * **unconfirmed** (*boolean*): Set to `true` to include unconfirmed transactions (e.g. those in the mempool)
 
-**Return:** 
+**Return:**
 
   A list of raw transaction objects, with each object having the same format as the [bitcoind getrawtransaction API call](https://chainquery.com/bitcoin-api/getrawtransaction).
 
@@ -826,10 +828,10 @@ Get transaction info, as parsed by `counterparty-server`.
   * **tx_hex** (*string*): The canonical hexadecimal serialization of the transaction (not its hash)
   * **block_index** (*integer*)
 
-**Return:** 
+**Return:**
 
   A list with the following items (in order as listed below):
-  
+
     - `source`
     - `destination`
     - `btc_amount`
@@ -848,7 +850,7 @@ For the specified pubkeyhash (i.e. address), return the public key. Note that th
   * **pubkeyhash** (*string*): The pubkeyhash/address
   * **provided_pubkeys** (*list*): A list of supplied pubkeys. If one of these pubkeys matches the pubkeyhash, used if one of the supplied pubkey hashes to the pubkeyhash. (Can be useful if the pubkeyhash has not sent out at least one transaction and you have a list of pubkeys that may match it.)
 
-**Return:** 
+**Return:**
 
   A string with the specified pubkey. If the pubkey cannot be found, an exception will be generated and returned.
 
@@ -880,7 +882,7 @@ Issue a bet against a feed.
 **Parameters:**
 
   * **source** (*string*): The address that will make the bet.
-  * **feed_address** (*string*): The address that hosts the feed to be bet on. 
+  * **feed_address** (*string*): The address that hosts the feed to be bet on.
   * **bet_type** (*integer*): 0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for NotEqual.
   * **deadline** (*integer*): The time at which the bet should be decided/settled, in Unix time (seconds since epoch).
   * **wager_quantity** (*integer*): The [quantities](#quantities-and-balances) of XCP to wager (*in satoshis*, hence integer).
@@ -890,7 +892,7 @@ Issue a bet against a feed.
   * **leverage** (*integer, default=5040*): Leverage, as a fraction of 5040
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -910,7 +912,7 @@ Broadcast textual and numerical information to the network.
   * **value** (*float*): Numerical value of the broadcast.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -919,14 +921,14 @@ Broadcast textual and numerical information to the network.
 
 **create_btcpay(order_match_id)**
 
-Create and (optionally) broadcast a BTCpay message, to settle an Order Match for which you owe BTC. 
+Create and (optionally) broadcast a BTCpay message, to settle an Order Match for which you owe BTC.
 
 **Parameters:**
 
   * **order_match_id** (*string*): The concatenation of the hashes of the two transactions which compose the order match.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -943,7 +945,7 @@ Burn a given quantity of BTC for XCP (**on mainnet, possible between blocks 2783
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of BTC to burn (1 BTC maximum burn per address).
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -960,10 +962,27 @@ Cancel an open order or bet you created.
   * **source** (*string*): The source address of the order or bet.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
+###create_destroy
+
+**create_destroy(source, asset, quantity, tag)**
+
+Destroy XCP or a user defined asset.
+
+**Parameters:**
+
+  * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to destroy.
+  * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to destroy.
+  * **tag** (*string, optional*): The tag (which works like a [Memo](../protocol_specification#memos) ) associated with this transaction.
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
+
+**Return:**
+
+  The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
 ###create_dividend
 
@@ -979,7 +998,7 @@ Issue a dividend on a specific user defined asset.
   * **dividend_asset** (*string*): The [asset](#assets) or [subasset](#subassets) that the dividends are paid in.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -1000,7 +1019,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -1031,7 +1050,7 @@ Issue an order request.
   * **expiration** (*integer*): The number of blocks for which the order should be valid.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -1040,7 +1059,7 @@ Issue an order request.
 
 **create_send(source, destination, asset, quantity)**
 
-Send XCP or a user defined asset. 
+Send XCP or a user defined asset.
 
 **Parameters:**
 
@@ -1053,7 +1072,7 @@ Send XCP or a user defined asset.
   * **use_enhanced_send** (*boolean, optional*): If this is false, the construct a legacy transaction sending bitcoin dust.  Defaults to true.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-**Return:** 
+**Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
@@ -1103,11 +1122,11 @@ The REST API documentation is hosted both on our webiste and on a new API docume
 
 Query table_name in the database using filters concatenated using filterop.
 
-URL format: 
+URL format:
 
 `/rest/<table_name>/get?<table_filters>&op=<filter_op>`
 
-Example query: 
+Example query:
 
 `/rest/sends/get?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&op=AND`
 
@@ -1123,7 +1142,7 @@ Example query:
 **Headers:**
   * **Accept** (*string, optional*): The format of return data. Can be either `application/json` or `application/xml`. Defaults to JSON.
 
-**Return:** 
+**Return:**
 
   Desired database rows from table_name sieved using filters.
 
@@ -1134,11 +1153,11 @@ Example query:
 
 Compose a `message_type` transaction with `transaction_params` as data.
 
-URL format: 
+URL format:
 
 `/rest/<tx_type>/compose?<tx_data>`
 
-Example query: 
+Example query:
 
 `/rest/send/compose?source=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc&destination=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns&asset=BTC&quantity=1`
 
@@ -1151,7 +1170,7 @@ Example query:
 **Headers:**
   * **Accept** (*string, optional*): The format of return data. Can be either `application/json` or `application/xml`. Defaults to JSON.
 
-**Return:** 
+**Return:**
 
   The hex data of composed transaction.
 
@@ -1184,7 +1203,7 @@ An object that describes a specific bet:
 * **wager_quantity** (*integer*): The [quantities](#quantities-and-balances) of XCP to wager
 * **counterwager_quantity** (*integer*): The minimum [quantities](#quantities-and-balances) of XCP to be wagered by the user to bet against the bet issuer, if the other party were to accept the whole thing
 * **wager_remaining** (*integer*): The quantity of XCP wagered that is remaining to bet on
-* **odds** (*float*): 
+* **odds** (*float*):
 * **target_value** (*float*): Target value for Equal/NotEqual bet
 * **leverage** (*integer*): Leverage, as a fraction of 5040
 * **expiration** (*integer*): The number of blocks for which the bet should be valid
@@ -1209,13 +1228,13 @@ An object that describes a specific occurance of two bets being matched (either 
 * **tx1_expiration** (*integer*): The number of blocks over which the matching bet was valid
 * **tx1_bet_type** (*string*): The type of the counter bet (0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for Not Equal)
 * **feed_address** (*string*): The address of the feed that the bets refer to
-* **initial_value** (*integer*): 
+* **initial_value** (*integer*):
 * **deadline** (*integer*): The timestamp at which the bet match was made, in Unix time.
 * **target_value** (*float*): Target value for Equal/NotEqual bet  
 * **leverage** (*integer*): Leverage, as a fraction of 5040
 * **forward_quantity** (*integer*): The [quantities](#quantities-and-balances) of XCP bet in the initial bet
 * **backward_quantity** (*integer*): The [quantities](#quantities-and-balances) of XCP bet in the matching bet
-* **fee_multiplier** (*integer*): 
+* **fee_multiplier** (*integer*):
 * **validity** (*string*): Set to "valid" if a valid order match. Any other setting signifies an invalid/improper order match
 
 
@@ -1227,7 +1246,7 @@ An object that describes a specific occurance of a broadcast event (i.e. creatin
 * **tx_hash** (*string*): The transaction hash
 * **block_index** (*integer*): The block index (block number in the block chain)
 * **source** (*string*): The address that made the broadcast
-* **timestamp** (*string*): The time the broadcast was made, in Unix time. 
+* **timestamp** (*string*): The time the broadcast was made, in Unix time.
 * **value** (*float*): The numerical value of the broadcast
 * **fee_multiplier** (*float*): How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. 0.05 is five percent)
 * **text** (*string*): The textual component of the broadcast
@@ -1241,7 +1260,7 @@ An object that matches a request to settle an Order Match for which BTC is owed:
 * **tx_index** (*integer*): The transaction index
 * **tx_hash** (*string*): The transaction hash
 * **block_index** (*integer*): The block index (block number in the block chain)
-* **source** (*string*): 
+* **source** (*string*):
 * **order_match_id** (*string*):
 * **validity** (*string*): Set to "valid" if valid
 
@@ -1291,7 +1310,7 @@ An object that describes an issuance of dividends on a specific user defined ass
 * **tx_hash** (*string*): The transaction hash
 * **block_index** (*integer*): The block index (block number in the block chain)
 * **source** (*string*): The address that issued the dividend
-* **asset** (*string*): The [assets](#assets) that the dividends are being rewarded on 
+* **asset** (*string*): The [assets](#assets) that the dividends are being rewarded on
 * **quantity_per_unit** (*integer*): The [quantities](#quantities-and-balances) of XCP rewarded per whole unit of the asset
 * **validity** (*string*): Set to "valid" if a valid burn. Any other setting signifies an invalid/improper burn
 
@@ -1307,7 +1326,7 @@ An object that describes a specific occurance of a user defined asset being issu
 * **asset_longname** (*string*): The [subasset](#subassets) longname, if any
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset being issued
 * **divisible** (*boolean*): Whether or not the asset is divisible (must agree with previous issuances of the asset, if there are any)
-* **issuer** (*string*): 
+* **issuer** (*string*):
 * **transfer** (*boolean*): Whether or not this objects marks the transfer of ownership rights for the specified quantity of this asset
 * **validity** (*string*): Set to "valid" if a valid issuance. Any other setting signifies an invalid/improper issuance
 
@@ -1377,11 +1396,11 @@ to track state changes to the counterpartyd database on a block-by-block basis).
 * **block_index** (*integer*): The block index (block number in the block chain) this event occurred on
 * **category** (*string*): A string denoting the entity that the message relates to, e.g. "credits", "burns", "debits".
   The category matches the relevant table name in counterpartyd (see blocks.py for more info).
-* **command** (*string*): The operation done to the table noted in **category**. This is either "insert", or "update". 
+* **command** (*string*): The operation done to the table noted in **category**. This is either "insert", or "update".
 * **bindings** (*string*): A JSON-encoded object containing the message data. The properties in this object match the
   columns in the table referred to by **category**.
 
-  
+
 ###Bet Expiration Object
 
 An object that describes the expiration of a bet created by the source address.
@@ -1451,9 +1470,9 @@ Here the list of all possible status for each table:
 
 This section documents any changes to the API, for version numbers where there were API-level modifications.
 
-There will be no incompatible API pushes that do not either have: 
+There will be no incompatible API pushes that do not either have:
 
-* A well known set cut over date in the future 
+* A well known set cut over date in the future
 * Or, a deprecation process where the old API is supported for an amount of time
 
 ##development (unreleased)
@@ -1499,11 +1518,11 @@ There will be no incompatible API pushes that do not either have:
 ##9.43.0
 
 * create_issuance: ``callable`` is also accepted
-* create_*: ``null`` is used as default value for missing parameters 
+* create_*: ``null`` is used as default value for missing parameters
 
 ##9.32.0
 
-**Summary:** API framework overhaul for performance and simplicity 
+**Summary:** API framework overhaul for performance and simplicity
 
 * "/api" with no trailing slash no longer supported as an API endpoint (use "/" or "/api/" instead)
 * We now consistently reject positional arguments with all API methods. Make sure your API calls do not use positional
@@ -1524,7 +1543,7 @@ There will be no incompatible API pushes that do not either have:
 
 ##9.24.1
 
-**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``: 
+**Summary:** New API parsing engine added, as well as dynamic get method composition in ``api.py``:
 
 * Added ``sql`` API method
 * Filter params: Added ``LIKE``, ``NOT LIKE`` and ``IN``

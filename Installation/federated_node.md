@@ -6,7 +6,7 @@ This document describes how one can set up their own Counterparty "Federated Nod
 
 A Federated Node is a self-contained system that runs the some or all of the Counterparty software stack, via Docker. Each system operates as a Bitcoin and Counterparty "full node". Using this toolset, one can generally get started running the Counterparty software much quicker and more easily than a manual installation of the various components.
 
-The document is primarily intended for power users and developers. 
+The document is primarily intended for power users and developers.
 
 ### Node Services
 <a name="services"></a>
@@ -15,7 +15,8 @@ Services run on a Federated Node include some or all of the following:
 * **counterparty-server**: `counterparty-lib` + `counterparty-cli`. Implements support for the core Counterparty protocol, via a provided REST API and command line interface.
 * **counterblock**: Provides additional services (required by `counterwallet` and potentially other services) beyond those offered in the API provided by `counterparty-server`. It features a full-fledged JSON RPC-based API, and has an extensible architecture to support custom plugins.
 * **counterwallet**: The reference Web wallet for Counterparty. This is a collection of HTML, CSS and javascript resources, served by `nginx`.
-* **bitcoind**: Reference Bitcoin implementation, used by `counterparty-server` to sync to the Bitcoin blockchain. We use the [`addrindex`](https://github.com/btcdrak/bitcoin/tree/addrindex-0.12) branch, as it has additional functionality Counterparty requires.
+* **bitcoind**: Reference Bitcoin implementation, used by `counterparty-server` to sync to the Bitcoin blockchain.
+* **indexd-server**: Bitcoin addres index service. Maintains an updated database of UTXOs for usage in the counterparty services.
 * **armory_utxsvr**: A service used by ``counterblock`` with Counterwallet to support [Offline Armory transactions](http://counterparty.io/docs/create_armory_address/). This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
 * **nginx**: Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only or `counterblock`-only nodes.
 * **mongodb and redis**: Used by `counterblock`.
@@ -27,8 +28,8 @@ Please note that Federated Node should not be installed on a system which alread
 
 - **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
 - **Disk space:** The exact disk space required will be dependent on what services are run on the node:
-    - For ``bitcoin`` databases: **~120GB** (mainnet), **~10GB** (testnet)
-    - For ``counterparty`` and ``counterblock`` databases: **~1.5GB** each
+    - For ``bitcoin`` databases: **~250GB** (mainnet), **~29GB** (testnet)
+    - For ``counterparty`` and ``counterblock`` databases: **~4.2GB** each
     - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
 - **OS:** *Please note that Ubuntu Linux is the recommended OS at this time, as most of our testing is performed on it. Windows and OS X support is considered in BETA.*
     - **Linux**: We recommend Ubuntu 16.04 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
@@ -42,10 +43,10 @@ Please note that Federated Node should not be installed on a system which alread
 **NOTE**: Installation on Windows is still in *BETA* state, and we cannot promise a fully-working environment. [Please report](https://github.com/CounterpartyXCP/federatednode/issues) any bugs you find.
 
 * **Python 3.5.x**: [Download and install](https://www.python.org/downloads/) the latest Python 3.5.x release. Make sure you check the box "Add Python 3.5 to PATH" on the first page. (If you get an error during installation, make sure your windows system is fully updated via Windows Update.)
-* **Docker**: If using Windows 10, we recommend to [install Docker for Windows](https://docs.docker.com/engine/installation/windows/). For all other versions of Windows, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/). 
+* **Docker**: If using Windows 10, we recommend to [install Docker for Windows](https://docs.docker.com/engine/installation/windows/). For all other versions of Windows, [install Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
 * **Git**: Make sure `git` is installed. If not, install it from [here](https://git-scm.com/download/win) (note that if using Docker Toolbox, it will install it by default).
 
-**If using Docker for Windows**: 
+**If using Docker for Windows**:
 
 * After installing Docker for Windows, launch the "Docker" application and allow it to set itself up (a reboot may be required).
 * Next, you will need to enable access to your host hard drive so that some of the shared volumes work properly. To do this, right click on the Docker Whale icon in your system tray. Then go to "Docker Settings" and then "Shared Drives". Turn on access to the drive on which the `federatednode` folder will reside (most likely your "C" drive).
@@ -97,7 +98,7 @@ exit # leave root shell
 
 ## Installation
 
-On Linux and OS X, install as a non-root sudo-er from home directory. 
+On Linux and OS X, install as a non-root sudo-er from home directory.
 
 **Clone and check out the code**
 
@@ -150,9 +151,9 @@ fednode install base master
 # install a full configuration for the develop branch
 fednode install full develop
 ```
-In some cases (slow host, limited bandwidth), you may experience a failure to install due to download timeouts which happen because of . In that case consider changing Docker's `max-concurrent-downloads` value to 1 or 2 from default 3. To do that create a custom `/etc/docker/daemon.json` daemon options file and restart Docker service.
+In some cases (slow host, limited bandwidth), you may experience a failure to install due to download timeouts which happen because of network unstability. In that case consider changing Docker's `max-concurrent-downloads` value to 1 or 2 from default 3. To do that create a custom `/etc/docker/daemon.json` daemon options file and restart Docker service.
 
-As mentioned earlier, the install script may stop if ports used by Federated Node services are used by other applications. While it is not recommended to run Federated Node alongside production services, small changes can make the evaluation of Federated Node easier. For example you may change ports used by existing applications (or disable said applications) or run Federated Node inside of a virtual machine. 
+As mentioned earlier, the install script may stop if ports used by Federated Node services are used by other applications. While it is not recommended to run Federated Node alongside production services, small changes can make the evaluation of Federated Node easier. For example you may change ports used by existing applications (or disable said applications) or run Federated Node inside of a virtual machine.
 
 For example, the original mongodb can be reconfigured to listen on port 28018 and counterblock's mongodb can use the default port 27017. The Federated Node install script makes it possible to specify the interface used by its mongodb container (example below), but it currently does not have the ability to do this for other services or get around port conflicts.
 
@@ -167,9 +168,9 @@ After installation, the services will be automatically started. To check the sta
 fednode ps
 ```
 
-If you have existing instances of Bitcoin Core (either mainnet or testnet), at this point you could stop all services listed in `fednode ps` output, change configuration files (of counterparty and counterblock, for example) and point them to your existing Bitcoin Core. Configuration files can be found in various service directories located under federatednode/config. 
+If you have existing instances of Bitcoin Core (either mainnet or testnet), at this point you could stop all services listed in `fednode ps` output, change configuration files (of counterparty and counterblock, for example) and point them to your existing Bitcoin Core. Configuration files can be found in various service directories located under federatednode/config.
 
-Once the containers are installed and running, keep in mind that it will take some time for `bitcoind` to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usable. 
+Once the containers are installed and running, keep in mind that it will take some time for `bitcoind` to download the blockchain data. Once this is done, `counterparty-server` will fully start and sync, followed by `counterblock` (if in use). At that point, the server will be usable.
 
 You may check the sync status by tailing the appropriate service logs, e.g. for Bitcoin Core and Counterparty server on mainnet:
 ```
@@ -228,11 +229,13 @@ Configuration files for the `bitcoin`, `counterparty` and `counterblock` service
 
 * `bitcoin`: See `federatednode/config/bitcoin/bitcoin.conf`
 * `bitcoin-testnet`: See `federatednode/config/bitcoin/bitcoin.testnet.conf`
+* `indexd`: See `federatednode/config/indexd/indexd.env.default`
+* `indexd-testnet`: See `federatednode/config/indexd/indexd.testnet.env.default`
 * `counterparty`: See `federatednode/config/counterparty/server.conf`
 * `counterparty-testnet`: See `federatednode/config/counterparty/server.testnet.conf`
 * `counterblock`: See `federatednode/config/counterblock/server.conf`
 * `counterblock-testnet`: See `federatednode/config/counterblock/server.testnet.conf`
-* `redis`: shared service used for both mainnet and testnet 
+* `redis`: shared service used for both mainnet and testnet
 * `mongodb`: shared service used for both mainnet and testnet
 
 Remember: once done editing a configuration file, you must `restart` the corresponding service. Also, please don't change port or usernames/passwords if the configuration files unless you know what you are doing (as the services are coded to work together smoothly with specific values).
@@ -244,6 +247,7 @@ For example, a user with base setup (Bitcoin Core & Counterparty Server) could m
 The various services use [Docker named volumes](https://docs.docker.com/engine/tutorials/dockervolumes/) to store data that is meant to be persistent:
 
 * `bitcoin` and `bitcoin-testnet`: Stores blockchain data in the `federatednode_bitcoin-data` volume
+* `indexd` and `indexd-testnet`: Stores index data in the `federatednode_indexd-data` volume
 * `counterparty` and `counterparty-testnet`: Stores Counterparty databases in the `federatednode_counterparty-data` volume
 * `counterblock` and `counterblock-testnet`: Stores Counterblock asset info (images), etc in the `federatednode_counterblock-data` volume
 * `mongodb`: Stores the databases for `counterblock` and `counterblock-testnet` in the `federatednode_mongodb-data` volume
@@ -267,10 +271,12 @@ fednode logs <service>
 * `counterparty` (`counterparty-server` mainnet)
 * `counterblock` (`counterblock` mainnet)
 * `bitcoin` (`bitcoin` mainnet)
+* `indexd` (`indexd` mainnet)
 * `armory_utxsvr` (`armory_utxsvr` mainnet)
 * `counterparty-testnet`
 * `counterblock-testnet`
 * `bitcoin-testnet`
+* `indexd-testnet`
 * `armory_utxsvr-testnet`
 * `counterwallet`
 
@@ -383,7 +389,7 @@ Instructions for doing that are detailed in the *Counterwallet Configuration Fil
 
 ### Getting a SSL Certificate
 
-By default, the system is set up to use a self-signed SSL certificate. If you are hosting your services for others, 
+By default, the system is set up to use a self-signed SSL certificate. If you are hosting your services for others,
 you should get your own SSL certificate from your DNS registrar so that your users don't see a certificate warning when
 they visit your site.
 
@@ -395,7 +401,7 @@ Once you have that certificate, create a nginx-compatible ``.pem`` file. Copy th
 To monitor the server, you can use a 3rd-party service such as [Pingdom](http://www.pingdom.com) or [StatusCake](http://statuscake.com).
 The federated node allows these (and any other monitoring service) to query the basic status of the Federated Node via making a HTTP GET call to one of the following URLs:
 
-* ``/_api/`` (for mainnet) 
+* ``/_api/`` (for mainnet)
 * ``/_t_api/`` (for testnet)
 
 If all services are up, a HTTP 200 response with the following data will be returned:
@@ -403,9 +409,9 @@ If all services are up, a HTTP 200 response with the following data will be retu
     {"counterparty-server": "OK", "counterblock_ver": "1.3.0", "counterparty-server_ver": "9.31.0", "counterblock": "OK",
     "counterblock_check_elapsed": 0.0039348602294921875, "counterparty-server_last_block": {
     "block_hash": "0000000000000000313c4708da5b676f453b41d566832f80809bc4cb141ab2cd", "block_index": 311234,
-    "block_time": 1405638212}, "local_online_users": 7, "counterparty-server_check_elapsed": 0.003687143325805664, 
+    "block_time": 1405638212}, "local_online_users": 7, "counterparty-server_check_elapsed": 0.003687143325805664,
     "counterblock_error": null, "counterparty-server_last_message_index": 91865}
-    
+
 Note the ``"counterparty-server": "OK"`` and ``"counterblock": "OK"`` items.
 
 If all services but ``counterparty-server`` are up, a HTTP 500 response with ``"counterparty-server": "NOT OK"``, for instance.
@@ -424,7 +430,7 @@ sudo docker exec -it federatednode_counterwallet_1 vim /counterwallet/counterwal
 
 This file will contain a valid JSON-formatted object, containing an a number of possible configuration properties. For example::
 
-    { 
+    {
       "servers": [ "counterblock1.mydomain.com", "counterblock2.mydomain.com", "counterblock3.mydomain.com" ],
       "forceTestnet": true,
       "googleAnalyticsUA": "UA-48454783-2",

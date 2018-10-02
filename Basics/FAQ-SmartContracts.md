@@ -1,6 +1,8 @@
 Smart Contracts/EVM FAQ
 ====================
 
+**WARNING: this page is kept for historical purposes and does not represent the current state of coutnerparty. A new proposal is being built for a specific Counterparty VM.**
+
 [TOC]
 
 ### What is a smart contract?
@@ -70,7 +72,7 @@ Thus, the block time limit is overall rather minor, and only affects the initial
 
 Not currently. With the EVM, when a contract’s "state" (i.e. storage data) is modified via an execution operation, all nodes on the Counterparty network must perform the operation at the same time. This is because all contract state must be identical and shared across all nodes.
 
-Payment channels, on the other hand, are essentially a private negotiation between two parties, who, once they agree, will finalize their agreement on the blockchain. This is done via utilizing Bitcoin’s internal scripting language in a certain clever way (i.e. intentional non-broadcast double-spends). The EVM, on the other hand, relies on all nodes updating their state as a contract runs (i.e. no "private negotiations") and does not utilize Bitcoin script directly. Instead, all EVM operations are embedded inside Counterparty protocol data. 
+Payment channels, on the other hand, are essentially a private negotiation between two parties, who, once they agree, will finalize their agreement on the blockchain. This is done via utilizing Bitcoin’s internal scripting language in a certain clever way (i.e. intentional non-broadcast double-spends). The EVM, on the other hand, relies on all nodes updating their state as a contract runs (i.e. no "private negotiations") and does not utilize Bitcoin script directly. Instead, all EVM operations are embedded inside Counterparty protocol data.
 
 So while, technically, the parties could "negotiate" an EVM publish or execute operation, it would not yet be broadcast, and thus, not have any impact on the EVM’s global contract state.
 
@@ -100,7 +102,7 @@ So to reiterate, the vulnerability that occurred is due to these bugs in the DAO
 
 Not if you don’t send those funds to the smart contract (which allows it to control the funds via its code).
 
-Unlike with Ethereum, where smart contracts are a fundamental and required component of most any action beyond sending Ether, our system is designed so that our core feature-set is completely independent of any smart contract functionality. This means that anyone can use Counterparty’s well-tested asset creation, transfer and decentralized trading features without having to interact with or otherwise touch smart contracts. 
+Unlike with Ethereum, where smart contracts are a fundamental and required component of most any action beyond sending Ether, our system is designed so that our core feature-set is completely independent of any smart contract functionality. This means that anyone can use Counterparty’s well-tested asset creation, transfer and decentralized trading features without having to interact with or otherwise touch smart contracts.
 
 ### What are the differences between the current EVM and the one announced in 2014?
 
