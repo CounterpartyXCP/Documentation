@@ -1100,7 +1100,7 @@ Each `create_` call detailed below can take the following common keyword paramet
 
 ####Transaction Encodings
 
-By default the default value of the ``encoding`` parameter detailed above is ``auto``, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protol data into a new tranaction. If you know what you are doing and would like to explicitly specify an encoding:
+By default the default value of the ``encoding`` parameter detailed above is ``auto``, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
 
 - To return the transaction as an **OP_RETURN** transaction, specify ``opreturn`` for the ``encoding`` parameter.
    - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.

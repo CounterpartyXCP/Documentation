@@ -1,7 +1,7 @@
 Smart Contracts/EVM FAQ
 ====================
 
-**WARNING: this page is kept for historical purposes and does not represent the current state of coutnerparty. A new proposal is being built for a specific Counterparty VM.**
+**WARNING: this page is kept for historical purposes and does not represent the current state of counterparty. A new proposal is being built for a specific Counterparty VM.**
 
 [TOC]
 
