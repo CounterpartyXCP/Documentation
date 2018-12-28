@@ -31,6 +31,7 @@ Please note that Federated Node should not be installed on a system which alread
     - For ``bitcoin`` databases: **~250GB** (mainnet), **~29GB** (testnet)
     - For ``counterparty`` and ``counterblock`` databases: **~4.2GB** each
     - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
+    - For ``indexd-server`` database: **~188GB** (mainnet), **~23GB** (testnet)
 - **OS:** *Please note that Ubuntu Linux is the recommended OS at this time, as most of our testing is performed on it. Windows and OS X support is considered in BETA.*
     - **Linux**: We recommend Ubuntu 16.04 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
     - **Windows**: Windows 7 or higher, or Server 2008 or higher. 64-bit required
