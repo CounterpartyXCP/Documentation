@@ -42,6 +42,22 @@ Send
     --asset=BBBC --destination=n3BrDB6zDiEPWEE6wLxywFb4Yp9ZY5fHM7
 
 
+Dispenser
+----------------------------------------
+*Create and broadcast a `dispenser` message*
+
+* --source = the source address
+* --give_quantity = the quantity of ASSET to send on each dispense
+* --escrow_quantity = the quantity of ASSET to escrow for the dispenser
+* --mainchainrate = the quantity of BTC to receive for each give_quantity sent
+* --asset = the ASSET of which you would like to dispense
+* --status = the status of the dispenser (0 open, 10 close)
+
+<!-- _)(*&_)#$ markdown bull -->
+
+    dispenser --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --give_quantity=3 \
+    --escrow_quantity=3000 --asset=BBBC --mainchainrate=0.01 --status=10
+
 Order
 ----------------------------------------
 *Create and broadcast an `order` message*
@@ -52,7 +68,7 @@ Order
 * --give-quantity = the quantity of GIVE_ASSET that the source is willing to give
 * --give-asset = the asset that the source would like to sell
 * --expiration = the number of blocks for which the order should be valid
-* --fee-fraction-required = the miners’ fee required for an order to match 
+* --fee-fraction-required = the miners’ fee required for an order to match
 * --fee = the exact BTC fee to be paid to miners
 
 To make a trade that involves BTC, the `order` function requires an
@@ -72,11 +88,11 @@ If [address_2] is trading [give_quantity_2] of [asset] for [get_quantity_2] of B
     --expiration=[expiration_2]
 
 
-[asset] is debited immediately from [address_2] and is held in the Counterparty 
+[asset] is debited immediately from [address_2] and is held in the Counterparty
 protocol's escrow. [address_1] then must complete the trade using `btcpay` before 10
-blocks have passed (or the lesser of the two `expiration` periods has passed, 
-if the latter is less than 10 blocks from the time of match). After the payment 
-transaction has received enough confirmations, the asset will be automatically 
+blocks have passed (or the lesser of the two `expiration` periods has passed,
+if the latter is less than 10 blocks from the time of match). After the payment
+transaction has received enough confirmations, the asset will be automatically
 released to the BTC seller by the Counterparty protocol.
 
 The command for a `btcpay` is:
@@ -94,8 +110,8 @@ The command for a `btcpay` is:
     --get-asset=BBBC --give-quantity=20 --give-asset=BTC --expiration=10 \
     --fee_provided=0.0002
 
-For orders that do not involve BTC buy or sell, `BTCpay` is not required. 
-For Sally to receive [get_quantity_1] of [get_asset_1] in exchange for 
+For orders that do not involve BTC buy or sell, `BTCpay` is not required.
+For Sally to receive [get_quantity_1] of [get_asset_1] in exchange for
 [give_quantity_1] of [give_asset_1], the command is the following:
 
 
@@ -103,7 +119,7 @@ For Sally to receive [get_quantity_1] of [get_asset_1] in exchange for
     --give-quantity=[give_quantity_1] --get-asset=[get_asset_1] \
     --get-quantity=[get_quantity_1] --expiration=expiration_1
 
-In order for Alice to receive [get_quantity_2] of Sally's [give_asset_1] 
+In order for Alice to receive [get_quantity_2] of Sally's [give_asset_1]
 in exchange for [give_quantity_2] of [get_asset_2], the command is:
 
 
@@ -111,7 +127,7 @@ in exchange for [give_quantity_2] of [get_asset_2], the command is:
     --give-quantity=[give_quantity_2] --get-asset=[get_asset_2] \
     --get-quantity=[get_quantity_2] --expiration=expiration_2
 
-For example, Alice wants to sell 20 BBBC for 10 XCP within (expiration) 
+For example, Alice wants to sell 20 BBBC for 10 XCP within (expiration)
 144 bitcoin blocks (approximately 144 * 10 min = 24 hours):
 
 
@@ -119,7 +135,7 @@ For example, Alice wants to sell 20 BBBC for 10 XCP within (expiration)
     --get-asset=XCP --give-quantity=20 --give-asset=BBBC --expiration=144
 
 Note that orders can be partially matched.    
-    
+
 BTCPay
 ----------------------------------------
 *Create and broadcast a `BTCpay` message, to settle an Order Match for which you owe*
@@ -136,12 +152,12 @@ CLI (and API).
     btcpay --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns \
     --order-match-id=092f15d36786136c4d868c3335_6ec3c9b5a0c77de54ed0e96a8dbdd8af160c23
 
-Order Match ID can be obtained with the `pending` command. The source address of BTC sell 
-has 20 blocks (or approximately 200 minutes) after his offer has been matched) to send 
+Order Match ID can be obtained with the `pending` command. The source address of BTC sell
+has 20 blocks (or approximately 200 minutes) after his offer has been matched) to send
 BTC to fund his side of transaction, but should wait for the order-matching transaction to
 receive several confirmations because BTC cannot be escrowed by the Counterparty protocol.
 
-Use the `pending` command to display own DEx order matches that require BTCpay and 
+Use the `pending` command to display own DEx order matches that require BTCpay and
 make sure you use the correct `source` address to fund each pending BTCpay.
 
 Issuance
@@ -165,7 +181,7 @@ cannot happen in the same transaction.
 
     issuance --source=mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns --quantity=100 \
     --asset='BBBQ' --divisible
-    
+
 
 Destroy
 ------------
@@ -200,7 +216,7 @@ Broadcast
 **Note:** for some users counterparty-cli has trouble parsing spaces in the
 `--text` argument. One workaround is to add an additional set of quotes.
 For example, `--text='"Bitcoin price feed"'`. This may not work on
-Windows due to Python/Windows issues unrelated to Counterparty. Another 
+Windows due to Python/Windows issues unrelated to Counterparty. Another
 situation where double quotes may be required on Windows is filtering
 (e.g. `--filter "source" "=" "mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns"`).
 
@@ -337,7 +353,7 @@ Get_TX_Info
 ---------
 *Display information about an unsigned raw transaction*
 
-The `get_tx_info` command displays information about an unsigned raw transaction. Some destinations (e.g. P2SH addresses) are not supported by this command. 
+The `get_tx_info` command displays information about an unsigned raw transaction. Some destinations (e.g. P2SH addresses) are not supported by this command.
 
 <!-- _)(*&_)#$ markdown bull -->
 

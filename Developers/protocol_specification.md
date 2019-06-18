@@ -176,6 +176,8 @@ Message Types
 -  Dividend
 -  Burn
 -  Cancel
+-  Destroy
+-  Dispenser
 
 ###Send
 
@@ -403,3 +405,15 @@ source address to the default burn address. If the sender does not hold a
 sufficient quantity of that asset at the time that the destroy message is
 parsed (in the sequence of transactions), then the destroy is considered
 invalid.
+
+###Dispenser
+
+A dispenser message creates a special type of artifact on the counterparty db
+that watches an address for incoming main chain asset (BTC). When any BTC reaches
+a dispenser enabled address, the amount received gets divided by the dispenser
+mainchainrate (or satoshirate in the db). The quantity rounded down is the
+multiplier to *give_quantity* that is sent to the first address on the sending
+transaction. All dispensers that can match on an address are triggered by each
+BTC send that has a dispense multiplier of at least 1.
+
+A dispenser can be in either of two status: 0 (open) or 10 (closed).

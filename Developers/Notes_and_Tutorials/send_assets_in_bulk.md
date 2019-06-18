@@ -8,6 +8,9 @@ instance of counterpartyd is connected.
 This script takes a single command-line argument of the CSV file from
 which to pull the sources, destinations, quantities, assets and fees.
 
+**Warning**: This example is outdated as it used the previous addrindex bitcoin
+branch, however, same principles apply to current mainline repo.
+
 ##Script
 
 ```

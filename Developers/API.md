@@ -500,7 +500,7 @@ the specific comparison logic used, please see [this page](http://www.sqlite.org
 **get_{table}(filters=[], filterop='AND', order_by=null, order_dir=null, start_block=null, end_block=null, status=null, limit=1000, offset=0, show_expired=true)**
 
 Where **{table}** must be one of the following values:
-``assets``, ``balances``, ``bets``, ``bet_expirations``, ``bet_matches``, ``bet_match_expirations``, ``bet_match_resolutions``, ``broadcasts``, ``btcpays``, ``burns``, ``cancels``, ``credits``, ``debits``,  ``dividends``, ``issuances``, ``mempool``, ``orders``, ``order_expirations``, ``order_matches``, ``order_match_expirations``, or ``sends``.
+``assets``, ``balances``, ``bets``, ``bet_expirations``, ``bet_matches``, ``bet_match_expirations``, ``bet_match_resolutions``, ``broadcasts``, ``btcpays``, ``burns``, ``cancels``, ``credits``, ``debits``,  ``dividends``, ``issuances``, ``mempool``, ``orders``, ``order_expirations``, ``order_matches``, ``order_match_expirations``, or ``sends``, ``dispensers``.
 
 For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods. A complete list of tables can be found in the api.py file in the counterparty-lib repository.
 
@@ -1076,6 +1076,28 @@ Send XCP or a user defined asset.
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
+
+###create_dispenser
+
+**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status)**
+
+Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
+quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
+of give_quantity to ease dispenser operation.
+
+**Parameters:**
+
+  * **source** (*string*): The address that will be dispensing (must have the necessary escrow_quantity of the specified asset).
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to dispense.
+  * **give_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to dispense.
+  * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
+  * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
+  * **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
+
+**Return:**
+
+  The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
 ###Advanced `create_` parameters
 
