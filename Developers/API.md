@@ -984,6 +984,28 @@ Destroy XCP or a user defined asset.
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
+  ###create_dispenser
+
+  **create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status)**
+
+  Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
+  quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
+  of give_quantity to ease dispenser operation.
+
+  **Parameters:**
+
+    * **source** (*string*): The address that will be dispensing (must have the necessary escrow_quantity of the specified asset).
+    * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to dispense.
+    * **give_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to dispense.
+    * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
+    * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
+    * **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+    * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
+
+  **Return:**
+
+    The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
+
 ###create_dividend
 
 **create_dividend(source, quantity_per_unit, asset, dividend_asset)**
@@ -1055,49 +1077,27 @@ Issue an order request.
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
 
-###create_send
+###create_sweep
 
-**create_send(source, destination, asset, quantity)**
+**create_sweep(source, destination, flags, memo)**
 
-Send XCP or a user defined asset.
+Sends all assets and/or transfer ownerships to a destination address.
 
 **Parameters:**
 
-  * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
-  * **destination** (*string*): The address to receive the asset.
-  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to send.
-  * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
+  * **source** (*string*): The address that will be sending.
+  * **destination** (*string*): The address to receive the assets and/or ownerships.
+  * **flags** (*integer*): An OR mask of flags indicating how the sweep should be processed. Possible flags are:
+    * FLAG_BALANCES: (*integer*) 1, specifies that all balances should be transferred.
+    * FLAG_OWNERSHIP: (*integer*) 2, specifies that all ownerships should be transferred.
+    * FLAG_BINARY_MEMO: (*integer*) 4, specifies that the memo is in binary/hex form.
   * **memo** (*string, optional*): The [Memo](../protocol_specification#memos) associated with this transaction.
-  * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../protocol_specification#memos) as a hexadecimal value.  Defaults to false.
-  * **use_enhanced_send** (*boolean, optional*): If this is false, the construct a legacy transaction sending bitcoin dust.  Defaults to true.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
-
-###create_dispenser
-
-**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status)**
-
-Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
-quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
-of give_quantity to ease dispenser operation.
-
-**Parameters:**
-
-  * **source** (*string*): The address that will be dispensing (must have the necessary escrow_quantity of the specified asset).
-  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to dispense.
-  * **give_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to dispense.
-  * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
-  * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
-  * **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
-  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
-
-**Return:**
-
-  The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
 ###Advanced `create_` parameters
 
