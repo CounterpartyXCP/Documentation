@@ -984,27 +984,27 @@ Destroy XCP or a user defined asset.
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
-  ###create_dispenser
+###create_dispenser
 
-  **create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status)**
+**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status)**
 
-  Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
-  quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
-  of give_quantity to ease dispenser operation.
+Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
+quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
+of give_quantity to ease dispenser operation.
 
-  **Parameters:**
+**Parameters:**
 
-    * **source** (*string*): The address that will be dispensing (must have the necessary escrow_quantity of the specified asset).
-    * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to dispense.
-    * **give_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to dispense.
-    * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
-    * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
-    * **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
-    * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
+  * **source** (*string*): The address that will be dispensing (must have the necessary escrow_quantity of the specified asset).
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to dispense.
+  * **give_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to dispense.
+  * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
+  * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
+  * **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
-  **Return:**
+**Return:**
 
-    The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
+  The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
 
 ###create_dividend
 
@@ -1071,6 +1071,29 @@ Issue an order request.
   * **get_quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset requested in return.
   * **expiration** (*integer*): The number of blocks for which the order should be valid.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
+
+**Return:**
+
+  The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
+
+###create_send
+
+
+**create_send(source, destination, asset, quantity)**
+
+Send XCP or a user defined asset.
+
+**Parameters:**
+
+  * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
+  * **destination** (*string*): The address to receive the asset.
+  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to send.
+  * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
+  * **memo** (*string, optional*): The [Memo](../protocol_specification#memos) associated with this transaction.
+  * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../protocol_specification#memos) as a hexadecimal value.  Defaults to false.
+  * **use_enhanced_send** (*boolean, optional*): If this is false, the construct a legacy transaction sending bitcoin dust.  Defaults to true.
+  * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
+
 
 **Return:**
 
