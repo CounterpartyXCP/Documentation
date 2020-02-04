@@ -413,6 +413,29 @@ The process of signing and broadcasting a transaction, from start to finish, dep
         </script>
     </html>
 
+**Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction**
+
+```javascript
+// Assumes NodeJS runtime. Several libraries exist to replace the Buffer class on web browsers
+const bitcoin = require('bitcoinjs-lib')
+
+async function signP2SHDataTX(wif, txHex, prevUtxo) {
+  const network = bitcoin.networks.testnet // Change appropiately to your used network
+  const keyPair = bitcoin.ECPair.fromWIF(wif, network)
+  const dataTx = bitcoin.Transaction.fromHex(txHex)   // The unsigned second part of the 2 part P2SH transactions
+  const preTx = bitcoin.Transaction.fromHex(prevUtxo) // The previous transaction in raw hex in its entirety
+
+  const sigType = bitcoin.Transaction.SIGHASH_ALL // This shouldn't be changed unless you REALLY know what you're doing
+  const sigHash = dataTx.hashForSignature(0, bitcoin.script.decompile(dataTx.ins[0].script)[0], sigType)
+  const sig = keyPair.sign(sigHash)
+  const encodedSig = bitcoin.script.signature.encode(sig, sigType)
+  const compiled = bitcoin.script.compile([encodedSig])
+
+  dataTx.ins[0].script = Buffer.concat([compiled, dataTx.ins[0].script])
+  return dataTx.toHex() // The resulting signed transaction in raw hex, ready to be broadcasted
+}
+```
+
 ##Terms & Conventions
 
 ###assets
@@ -1083,12 +1106,14 @@ Issue an order request.
 
 Send XCP or a user defined asset.
 
+To send multiple assets/destinations simultaneously you can pass an array of parameters to the destination, asset and quantity parameters. If one of these parameters is an array then the other must be an array of equal length. Each entry corresponds to the same entry index on the other arrays.
+
 **Parameters:**
 
   * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
-  * **destination** (*string*): The address to receive the asset.
-  * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to send.
-  * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to send.
+  * **destination** (*string, array[string]*): The address to receive the asset.
+  * **asset** (*string, array[string]*): The [asset](#assets) or [subasset](#subassets) to send.
+  * **quantity** (*integer, array[integer]*): The [quantities](#quantities-and-balances) of the asset to send.
   * **memo** (*string, optional*): The [Memo](../protocol_specification#memos) associated with this transaction.
   * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../protocol_specification#memos) as a hexadecimal value.  Defaults to false.
   * **use_enhanced_send** (*boolean, optional*): If this is false, the construct a legacy transaction sending bitcoin dust.  Defaults to true.
@@ -1140,6 +1165,7 @@ Each `create_` call detailed below can take the following common keyword paramet
   * **disable_utxo_locks** (*boolean*): By default, UTXO's utilized when creating a transaction are "locked" for a few seconds, to prevent a case where rapidly generating `create_` calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify `true` for this parameter to disable this behavior, and not temporarily lock UTXOs.
   * **op_return_value** (*integer*): The value (in satoshis) to use with any `OP_RETURN` outputs in the generated transaction. Defaults to `0`. Don't use this, unless you like [throwing your money away](https://m.reddit.com/r/Bitcoin/comments/2plfsv/what_happens_to_the_value_of_a_coin_locked_with/cmxrnhu).
   * **extended_tx_info** (*boolean*): When this is not specified or false, the `create_` calls return only a hex-encoded string.  If this is true, the `create_` calls return a data object with the following keys: `tx_hex`, `btc_in`, `btc_out`, `btc_change`, and `btc_fee`.
+  * **p2sh_pretx_txid** (*string*): The previous transaction `txid` for a two part ``P2SH`` message. This `txid` must be taken from the signed transaction.
 
 **With the exception of `pubkey` and `allow_unconfirmed_inputs`, these values should be left at their defaults, unless you know what you are doing.**
 
@@ -1154,6 +1180,13 @@ By default the default value of the ``encoding`` parameter detailed above is ``a
     - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-lib/pull/9).
 - To return the transaction as a **pubkeyhash** transaction, specify ``pubkeyhash`` for the ``encoding`` parameter.
     - ``pubkey`` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify ``P2SH`` for the encoding parameter.
+    - First call the ``create_`` method with the ``encoding`` set to ``P2SH``.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting ``txid`` must be passed again on an identic call to the ``create_`` method, but now passing an additional parameter ``p2sh_pretx_txid`` with the value of the previous transaction's id.
+    - The resulting transaction is a ``P2SH`` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the ``Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction`` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
 
 
 
@@ -1520,7 +1553,13 @@ There will be no incompatible API pushes that do not either have:
 * A well known set cut over date in the future
 * Or, a deprecation process where the old API is supported for an amount of time
 
-##development (unreleased)
+##9.58.0
+ * Added `P2SH` support and `MPMA` support:
+   * Explanation of the new array parameters for `create_send`
+   * Explanation of the new `p2sh_pretx_txid` parameter
+   * Example to sign the new kind of `P2SH transaction`
+
+##9.55.5
 * create_*: adds `extended_tx_info` parameter to create methods
 
 ##9.55.4
