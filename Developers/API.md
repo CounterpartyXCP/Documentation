@@ -426,10 +426,15 @@ async function signP2SHDataTX(wif, txHex, prevUtxo) {
   const preTx = bitcoin.Transaction.fromHex(prevUtxo) // The previous transaction in raw hex in its entirety
 
   const sigType = bitcoin.Transaction.SIGHASH_ALL // This shouldn't be changed unless you REALLY know what you're doing
-  const sigHash = dataTx.hashForSignature(0, bitcoin.script.decompile(dataTx.ins[0].script)[0], sigType)
-  const sig = keyPair.sign(sigHash)
-  const encodedSig = bitcoin.script.signature.encode(sig, sigType)
-  const compiled = bitcoin.script.compile([encodedSig])
+  
+  for (let i=0; i < dataTx.ins.length; i++) {
+    const sigHash = dataTx.hashForSignature(i, bitcoin.script.decompile(dataTx.ins[i].script)[0], sigType)
+    const sig = keyPair.sign(sigHash)
+    const encodedSig = bitcoin.script.signature.encode(sig, sigType)
+    const compiled = bitcoin.script.compile([encodedSig])
+
+    dataTx.ins[i].script = Buffer.concat([compiled, dataTx.ins[i].script])
+  }
 
   dataTx.ins[0].script = Buffer.concat([compiled, dataTx.ins[0].script])
   return dataTx.toHex() // The resulting signed transaction in raw hex, ready to be broadcasted
