@@ -1098,6 +1098,7 @@ Issue an order request.
   * **get_asset** (*string*): The [assets](#assets) requested in return.
   * **get_quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset requested in return.
   * **expiration** (*integer*): The number of blocks for which the order should be valid.
+  * **fee_required** (*integer*): The miners’ fee required to be paid by orders for them to match this one; in BTC; required only if buying BTC (may be zero, though)
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
