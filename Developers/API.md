@@ -952,7 +952,7 @@ Broadcast textual and numerical information to the network.
 Create and (optionally) broadcast a BTCpay message, to settle an Order Match for which you owe BTC.
 
 **Parameters:**
-
+  * **source** (*string*): The source address of the btcpay transaction.
   * **order_match_id** (*string*): The concatenation of the hashes of the two transactions which compose the order match.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
