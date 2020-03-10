@@ -419,11 +419,10 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 // Assumes NodeJS runtime. Several libraries exist to replace the Buffer class on web browsers
 const bitcoin = require('bitcoinjs-lib')
 
-async function signP2SHDataTX(wif, txHex, prevUtxo) {
+async function signP2SHDataTX(wif, txHex) {
   const network = bitcoin.networks.testnet // Change appropiately to your used network
   const keyPair = bitcoin.ECPair.fromWIF(wif, network)
   const dataTx = bitcoin.Transaction.fromHex(txHex)   // The unsigned second part of the 2 part P2SH transactions
-  const preTx = bitcoin.Transaction.fromHex(prevUtxo) // The previous transaction in raw hex in its entirety
 
   const sigType = bitcoin.Transaction.SIGHASH_ALL // This shouldn't be changed unless you REALLY know what you're doing
   
