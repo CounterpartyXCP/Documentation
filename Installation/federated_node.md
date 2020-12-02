@@ -16,7 +16,7 @@ Services run on a Federated Node include some or all of the following:
 * **counterblock**: Provides additional services (required by `counterwallet` and potentially other services) beyond those offered in the API provided by `counterparty-server`. It features a full-fledged JSON RPC-based API, and has an extensible architecture to support custom plugins.
 * **counterwallet**: The reference Web wallet for Counterparty. This is a collection of HTML, CSS and javascript resources, served by `nginx`.
 * **bitcoind**: Reference Bitcoin implementation, used by `counterparty-server` to sync to the Bitcoin blockchain.
-* **indexd-server**: Bitcoin addres index service. Maintains an updated database of UTXOs for usage in the counterparty services.
+* **addrindexrs**: Bitcoin address index service. Maintains an updated database of UTXOs for usage in the counterparty services.
 * **armory_utxsvr**: A service used by ``counterblock`` with Counterwallet to support [Offline Armory transactions](http://counterparty.io/docs/create_armory_address/). This service requires Armory itself, which is automatically installed as part of the Federated Node setup procedure.
 * **nginx**: Reverse proxies `counterwallet` access. Not used with `counterparty-server`-only or `counterblock`-only nodes.
 * **mongodb and redis**: Used by `counterblock`.
@@ -28,12 +28,12 @@ Please note that Federated Node should not be installed on a system which alread
 
 - **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
 - **Disk space:** The exact disk space required will be dependent on what services are run on the node:
-    - For ``bitcoin`` databases: **~250GB** (mainnet), **~29GB** (testnet)
-    - For ``counterparty`` and ``counterblock`` databases: **~4.2GB** each
-    - For ``armory_utxsvr``: **~30GB** (mainnet), **~3GB** (testnet)
-    - For ``indexd-server`` database: **~188GB** (mainnet), **~23GB** (testnet)
+    - For ``bitcoin`` databases: **~361GB** (mainnet), **~32GB** (testnet)
+    - For ``addrindexrs`` database: **~63GB** (mainnet), **~6GB** (testnet)
+    - For ``counterparty`` databases: **~5GB** (mainnet), **~1GB** (testnet)
+    - For ``armory_utxsvr``: **~291GB** (mainnet), **~26GB** (testnet)
 - **OS:** *Please note that Ubuntu Linux is the recommended OS at this time, as most of our testing is performed on it. Windows and OS X support is considered in BETA.*
-    - **Linux**: We recommend Ubuntu 16.04 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
+    - **Linux**: We recommend Ubuntu 20.10 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
     - **Windows**: Windows 7 or higher, or Server 2008 or higher. 64-bit required
     - **OS X**: 10.8 "Mountain Lion" or higher
 
@@ -230,8 +230,6 @@ Configuration files for the `bitcoin`, `counterparty` and `counterblock` service
 
 * `bitcoin`: See `federatednode/config/bitcoin/bitcoin.conf`
 * `bitcoin-testnet`: See `federatednode/config/bitcoin/bitcoin.testnet.conf`
-* `indexd`: See `federatednode/config/indexd/indexd.env.default`
-* `indexd-testnet`: See `federatednode/config/indexd/indexd.testnet.env.default`
 * `counterparty`: See `federatednode/config/counterparty/server.conf`
 * `counterparty-testnet`: See `federatednode/config/counterparty/server.testnet.conf`
 * `counterblock`: See `federatednode/config/counterblock/server.conf`
@@ -248,7 +246,7 @@ For example, a user with base setup (Bitcoin Core & Counterparty Server) could m
 The various services use [Docker named volumes](https://docs.docker.com/engine/tutorials/dockervolumes/) to store data that is meant to be persistent:
 
 * `bitcoin` and `bitcoin-testnet`: Stores blockchain data in the `federatednode_bitcoin-data` volume
-* `indexd` and `indexd-testnet`: Stores index data in the `federatednode_indexd-data` volume
+* `addrindexrs` and `addrindexrs-testnet`: Stores index data in the `federatednode_addrindexrs-data` volume
 * `counterparty` and `counterparty-testnet`: Stores Counterparty databases in the `federatednode_counterparty-data` volume
 * `counterblock` and `counterblock-testnet`: Stores Counterblock asset info (images), etc in the `federatednode_counterblock-data` volume
 * `mongodb`: Stores the databases for `counterblock` and `counterblock-testnet` in the `federatednode_mongodb-data` volume
@@ -272,12 +270,12 @@ fednode logs <service>
 * `counterparty` (`counterparty-server` mainnet)
 * `counterblock` (`counterblock` mainnet)
 * `bitcoin` (`bitcoin` mainnet)
-* `indexd` (`indexd` mainnet)
+* `addrindexrs` (`addrindexrs` mainnet)
 * `armory_utxsvr` (`armory_utxsvr` mainnet)
 * `counterparty-testnet`
 * `counterblock-testnet`
 * `bitcoin-testnet`
-* `indexd-testnet`
+* `addrindexrs-testnet`
 * `armory_utxsvr-testnet`
 * `counterwallet`
 

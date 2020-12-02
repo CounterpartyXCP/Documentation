@@ -419,11 +419,10 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 // Assumes NodeJS runtime. Several libraries exist to replace the Buffer class on web browsers
 const bitcoin = require('bitcoinjs-lib')
 
-async function signP2SHDataTX(wif, txHex, prevUtxo) {
+async function signP2SHDataTX(wif, txHex) {
   const network = bitcoin.networks.testnet // Change appropiately to your used network
   const keyPair = bitcoin.ECPair.fromWIF(wif, network)
   const dataTx = bitcoin.Transaction.fromHex(txHex)   // The unsigned second part of the 2 part P2SH transactions
-  const preTx = bitcoin.Transaction.fromHex(prevUtxo) // The previous transaction in raw hex in its entirety
 
   const sigType = bitcoin.Transaction.SIGHASH_ALL // This shouldn't be changed unless you REALLY know what you're doing
   
@@ -952,7 +951,7 @@ Broadcast textual and numerical information to the network.
 Create and (optionally) broadcast a BTCpay message, to settle an Order Match for which you owe BTC.
 
 **Parameters:**
-
+  * **source** (*string*): The source address of the btcpay transaction.
   * **order_match_id** (*string*): The concatenation of the hashes of the two transactions which compose the order match.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
@@ -1098,6 +1097,7 @@ Issue an order request.
   * **get_asset** (*string*): The [assets](#assets) requested in return.
   * **get_quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset requested in return.
   * **expiration** (*integer*): The number of blocks for which the order should be valid.
+  * **fee_required** (*integer*): The miners’ fee required to be paid by orders for them to match this one; in BTC; required only if buying BTC (may be zero, though)
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
