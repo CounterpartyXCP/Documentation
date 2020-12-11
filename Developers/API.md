@@ -1013,7 +1013,7 @@ Destroy XCP or a user defined asset.
 
 ###create_dispenser
 
-**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status)**
+**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address)**
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
 quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
@@ -1026,7 +1026,8 @@ of give_quantity to ease dispenser operation.
   * **give_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to dispense.
   * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
   * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
-  * **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+  * **open_address** (*string*): The address that you would like to open the dispenser on.
+  * **status** (*integer*): The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
