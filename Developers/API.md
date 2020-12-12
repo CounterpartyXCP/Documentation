@@ -1065,7 +1065,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **asset** (*string*): The [assets](#assets) to issue or transfer.  This can also be a [subasset longname](#subassets) for new subasset issuances.
   * **quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
-  * **description** (*string, default=''*): A textual description for the asset. 42 bytes max.
+  * **description** (*string, default=''*): A textual description for the asset.
   * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
