@@ -60,12 +60,6 @@ Use `get_chain_address_info`
 
 - **return:** The height of the block chain
 
-####get_insight_block_info
-
-**get_insight_block_info(block_hash)**
-
-Get block info for a specific block hash from the backend (insight, bitcoind, etc).
-
 ####get_chain_address_info
 
 **get_chain_address_info(addresses, with_uxtos=True, with_last_txn_hashes=4)**
