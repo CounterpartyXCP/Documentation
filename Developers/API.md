@@ -782,18 +782,18 @@ Get a listing of UTXOs for the specified address.
   * **address** (*string*): The address for which to receive the UTXO listing
   * **unconfirmed** (*boolean*): Set to `true` to include unconfirmed UTXOs (e.g. those in the mempool)
   * **unspent_tx_hash** (*boolean*): Specify a specific transaction hash to only include UTXOs from that transaction
-  * **order_by**( *string*): Sort results by specified field (e.g. height, -height)
+  * **order_by** (*string*): Sort results by specified field (e.g. height, -height)
 
 **Return:**
 
   A list of objects, with each entry in the dict having the following properties:
 
-    - **amount**: The amount of the UTXO
+    - **amount**: The amount of the UTXO (e.g. 0.12345678)
+    - **value**: The value of the UTXO in satoshis (e.g. 12345678)
+    - **height**: The block height of the UTXO
     - **confirmations**: Number of confirmations since the UTXO was created
-    - **scriptPubKey**: The UTXO's scriptPubKey, encoded in hex format
     - **txid**: The txid (hash) that the UTXO was included in
     - **vout**: The vout number in the specified txid for the UTXO
-
 
 ###getrawtransaction
 
