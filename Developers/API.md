@@ -782,6 +782,7 @@ Get a listing of UTXOs for the specified address.
   * **address** (*string*): The address for which to receive the UTXO listing
   * **unconfirmed** (*boolean*): Set to `true` to include unconfirmed UTXOs (e.g. those in the mempool)
   * **unspent_tx_hash** (*boolean*): Specify a specific transaction hash to only include UTXOs from that transaction
+  * **order_by**( *string*): Sort results by specified field (e.g. height, -height)
 
 **Return:**
 
@@ -1013,7 +1014,7 @@ Destroy XCP or a user defined asset.
 
 ###create_dispenser
 
-**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status)**
+**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address)**
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
 quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
@@ -1026,7 +1027,8 @@ of give_quantity to ease dispenser operation.
   * **give_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to dispense.
   * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
   * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
-  * **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+  * **open_address** (*string*): The address that you would like to open the dispenser on.
+  * **status** (*integer*): The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -1064,7 +1066,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **asset** (*string*): The [assets](#assets) to issue or transfer.  This can also be a [subasset longname](#subassets) for new subasset issuances.
   * **quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
-  * **description** (*string, default=''*): A textual description for the asset. 52 bytes max.
+  * **description** (*string, default=''*): A textual description for the asset.
   * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
