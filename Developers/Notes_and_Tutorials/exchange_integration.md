@@ -44,12 +44,23 @@ Technically, the process is rather straightforward. However, as Counterparty is 
 
 - Memo transactions are available as of block 489956
 
-## Handling Withdrawals
+## Handling Withdrawals (Single Send)
 
 - Prime the holding address if its current balance is below 0.0005 BTC.
 
 - Send the funds to the user-provided address with `create_send` (Counterparty API).
 
+## Batching Withdrawals (Multi-Peer-Multi-Asset Send)
+
+- Prime the holding address if its current balance is below 0.0005 BTC.
+
+- Generate first MPMA transaction by making a `create_send` (Counterparty API) call and specify as many assets and recipient addresses as you would like.
+
+- Sign and Broadcast first MPMA transaction and note `txid`
+
+- Generate second MPMA transaction by making identical `create_send` (Counterparty API) call as before, except also specify `p2sh_pretx_txid` param and give `txid` of first MPMA transaction
+
+- Sign and Broadcast second MPMA transaction
 
 ## Best practices
 
@@ -61,3 +72,4 @@ Technically, the process is rather straightforward. However, as Counterparty is 
 
 - Set a maximum XCP and BTC withdrawal amount, both per day and per event.
 
+- Use a segwit address for memo deposits and MPMA/Batched withdrawals to keep transaction costs minimal.
