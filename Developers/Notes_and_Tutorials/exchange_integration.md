@@ -72,3 +72,4 @@ Technically, the process is rather straightforward. However, as Counterparty is 
 
 - Set a maximum XCP and BTC withdrawal amount, both per day and per event.
 
+- Use a segwit address for memo deposits and MPMA/Batched withdrawals to keep transaction costs minimal.
