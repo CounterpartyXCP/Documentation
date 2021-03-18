@@ -488,7 +488,7 @@ Destroy XCP or a user defined asset.
   * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
   * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to destroy.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to destroy.
-  * **tag** (*string, optional*): The tag (which works like a [Memo](../protocol_specification#memos) ) associated with this transaction.
+  * **tag** (*string, optional*): The tag (which works like a [Memo](../../advanced/protocol#memos) ) associated with this transaction.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -604,8 +604,8 @@ To send multiple assets/destinations simultaneously you can pass an array of par
   * **destination** (*string, array[string]*): The address to receive the asset.
   * **asset** (*string, array[string]*): The [asset](#assets) or [subasset](#subassets) to send.
   * **quantity** (*integer, array[integer]*): The [quantities](#quantities-and-balances) of the asset to send.
-  * **memo** (*string, optional*): The [Memo](../protocol_specification#memos) associated with this transaction.
-  * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../protocol_specification#memos) as a hexadecimal value.  Defaults to false.
+  * **memo** (*string, optional*): The [Memo](../../advanced/protocol#memos) associated with this transaction.
+  * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../../advanced/protocol#memos) as a hexadecimal value.  Defaults to false.
   * **use_enhanced_send** (*boolean, optional*): If this is false, the construct a legacy transaction sending bitcoin dust.  Defaults to true.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
@@ -629,7 +629,7 @@ Sends all assets and/or transfer ownerships to a destination address.
     * FLAG_BALANCES: (*integer*) 1, specifies that all balances should be transferred.
     * FLAG_OWNERSHIP: (*integer*) 2, specifies that all ownerships should be transferred.
     * FLAG_BINARY_MEMO: (*integer*) 4, specifies that the memo is in binary/hex form.
-  * **memo** (*string, optional*): The [Memo](../protocol_specification#memos) associated with this transaction.
+  * **memo** (*string, optional*): The [Memo](../../advanced/protocol#memos) associated with this transaction.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -952,7 +952,7 @@ An object that describes a specific send (e.g. "simple send", of XCP, or a user 
 * **asset** (*string*): The [assets](#assets) being sent
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset sent
 * **validity** (*string*): Set to "valid" if a valid send. Any other setting signifies an invalid/improper send
-* **memo** (*string*): The [memo](../protocol_specification#memos) associated with this transaction
+* **memo** (*string*): The [memo](../../advanced/protocol#memos) associated with this transaction
 
 
 ### Message Object

@@ -8,7 +8,7 @@ Counterwallet uses regular Bitcoin addresses, and you can create up to 20 in eac
 **Counterwallet supports the creation of several different kinds of addresses:**
 
 - Regular Address 
-- [Armory Offline Address](/create_armory_address.md) - compatible with the [Armory Wallet](https://bitcoinarmory.com/)
+- [Armory Offline Address](create-armory-addresses.md) - compatible with the [Armory Wallet](https://bitcoinarmory.com/)
 - Watch Only Address 
 - Multi-signature address
 

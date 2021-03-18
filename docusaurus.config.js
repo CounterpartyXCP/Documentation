@@ -59,7 +59,7 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: 'docs/basics/a-bitcoin-protocol',
+              to: 'docs/basics/what-is-counterparty/a-bitcoin-protocol',
             },
           ],
         },
@@ -67,26 +67,30 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Discord',
+              href: 'https://discord.gg/wsjKtPGrMF',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Forum',
+              href: 'https://counterpartytalk.org/',
+            },
+            {
+              label: 'Reddit',
+              href: 'https://www.reddit.com/r/counterparty_xcp/',
+            },
+            {
+              label: 'Telegram',
+              href: 'https://t.me/Counterparty_XCP',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+              href: 'https://twitter.com/CounterpartyXCP',
+            }
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: 'blog',
-            },
             {
               label: 'GitHub',
               href: 'https://github.com/CounterpartyXCP/Documentation',

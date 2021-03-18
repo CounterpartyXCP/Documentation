@@ -6,8 +6,8 @@ title: Overview
 that of Bitcoin Core. It is the primary means by which other applications
 should interact with the Counterparty network.
 
-The API server is started either through the [`CLI interface`](counterparty-cli.md) or
-with the [`counterparty-lib`](counterparty_lib.md) Python library. It listens on port
+The API server is started either through the [`CLI interface`](../../advanced/cli.md) or
+with the [`counterparty-lib`](../../advanced/architecture.md) Python library. It listens on port
 4000 by default (14000 for ``testnet``) and requires HTTP Basic Authentication to connect.
 
 The API includes numerous information retrieval methods, most of which begin with `get_`, as well as several
@@ -441,7 +441,7 @@ async function signP2SHDataTX(wif, txHex) {
 
 ### assets
 
-Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../protocol_specification#assets) for what constitutes a valid asset name.
+Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../../advanced/protocol#assets) for what constitutes a valid asset name.
 Examples:
 
 - "BTC"
@@ -451,7 +451,7 @@ Examples:
 
 ### subassets
 
-See the [Counterparty protocol specification](../protocol_specification#subassets) for what constitutes a valid subasset name.
+See the [Counterparty protocol specification](../../advanced/protocol#subassets) for what constitutes a valid subasset name.
 Examples:
 
 - "PIZZA.X"
@@ -475,7 +475,7 @@ Floats are ratios or floating point values with six decimal places of precision,
 
 ### Memos
 
-See the [Counterparty protocol specification](../protocol_specification/#memos) for what constitutes a valid memo.
+See the [Counterparty protocol specification](../../advanced/protocol#memos) for what constitutes a valid memo.
 Examples:
 
 - "for pizza"
@@ -487,7 +487,7 @@ Examples:
 ### Filtering Read API results
 
 The Counterparty API aims to be as simple and flexible as possible. To this end, it includes a straightforward
-way to filter the results of most [Read API](#read-api-function-reference) to get the data you want, and only that.
+way to filter the results of most [Read API](api.md#read-api-function-reference) to get the data you want, and only that.
 
 For each Read API function that supports it, a ``filters`` parameter exists. To apply a filter to a specific data field,
 specify an object (e.g. dict in Python) as this parameter, with the following members:

@@ -38,7 +38,7 @@ more of `asset`, but, at any one time, there can only be one address
 which issues `asset`. With that said, the Counterparty protocol allows
 `source` to transfer issuance rights of `asset`. Moreover, an asset can
 also be locked, so that there can be no further issuances of it. (See
-the [examples](examples.md) for instructions on how to do this with `counterparty-cli`).
+the instructions on how to do this with `counterparty-cli`).
 A description must always be included, even if `description` is just an
 empty string; the syntax of an asset *with no description* is
 `description=""`.

@@ -9,7 +9,7 @@ title: Counterwallet FAQ
 
 * Counterwallet handles transaction signing locally, which means your passphrase and private keys never leave your browser. 
 
-* Additional security features such as m-of-n (max 3) multi-signature addresses, watch-only, and [Armory](/Tutorials/User_Tutorials/create_armory_address.md) addresses are also natively supported.
+* Additional security features such as m-of-n (max 3) multi-signature addresses, watch-only, and [Armory](counterwallet-tutorials/create-armory-addresses.md) addresses are also natively supported.
 
 * All trades and actions made with Counterwallet use a secure automatic escrow system within the Bitcoin blockchain, which means that unlike centralized exchanges, _no middleman is ever required_.
 
@@ -107,7 +107,7 @@ Currently, no. But you can create multi-signature addresses to better protect yo
 
 ## Can I run my own Counterwallet server?
 
-Yes, although that requires a full bitcoin node and some technical knowledge. Please refer to (this page)[http://counterparty.io/docs/federated_node/] for details on how to setup a Counterparty Federated Node. If you are starting from scratch, it may take several days to download and index the bitcoin blockchain.
+Yes, although that requires a full bitcoin node and some technical knowledge. Please refer to [this page](../advanced/federated-node/getting-started.md) for details on how to setup a Counterparty Federated Node. If you are starting from scratch, it may take several days to download and index the bitcoin blockchain.
 
 ## I want to translate Counterwallet to my language
 

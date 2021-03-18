@@ -23,7 +23,7 @@ If you would like to create a verifiably finite token, you will have to lock you
 ![](../../../static/img/change_token_settings3.png)
 
 ### Change description
-You can change the description of your token as often as you like. This will be publicly viewble in the blockchain. If you would like to add images, and additional information in your description, click [here](../../Counterwallet/enhanced_asset_info.md)
+You can change the description of your token as often as you like. This will be publicly viewble in the blockchain. If you would like to add images, and additional information in your description, click [here](../../basics/assets/enhanced-asset.md)
 
 ![](../../../static/img/change_token_settings4.png)
 

@@ -4,7 +4,7 @@ title: Voting with Tokens
 
 Counterparty supports voting through user-created tokens, as well as broadcasting information onto the Bitcoin blockchain. This means that you can post the terms and options of your vote as a broadcast, and let users vote on its outcome with full transparency by using tokens. 
 
-If you create an token (‘EXAMPLE’), you can create any other tokens (such as EXAMPLEVOTE) and [pay distributions](distribution.md) of EXAMPLEVOTE to all holders of EXAMPLE in one single action.
+If you create an token (‘EXAMPLE’), you can create any other tokens (such as EXAMPLEVOTE) and [pay distributions](pay-distribution.md) of EXAMPLEVOTE to all holders of EXAMPLE in one single action.
 
 To send available votes to the holders of your asset, go to Counterwallet and click on your asset EXAMPLE, and then click pay distribution. Choose EXAMPLEVOTE as the currency to distribute. This way, all holders of EXAMPLE will receive EXAMPLEVOTE in the amount you specify.
 

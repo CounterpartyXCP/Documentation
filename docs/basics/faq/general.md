@@ -6,13 +6,13 @@ title: Frequently Asked Questions
 
 XCP is the native token of Counterparty. It is a technical necessity for adding advanced features to Counterparty, which by nature require a protocol aware currency. Bitcoin can only be aware of BTC, while Counterparty can be aware of both BTC and XCP itself. This makes it possible to escrow funds, trade in a decentralized manner, and harness the full potential of programmable money.
 
-*To learn more about XCP, see [about XCP](FAQ-XCP.md).*
+*To learn more about XCP, see [about XCP](../what-is-counterparty/an-incentivization-token.md).*
 
 ### Can I secure my XCP and tokens in cold storage?
 
 Yes. You can make a regular Bitcoin paper wallet and store them there. Later, you can sweep the funds into a Counterparty wallet, like Counterwallet.
 
-Counterwallet also supports the use of Offline Armory. More info on that is [here](/UI/Counterwallet_Tutorials/create_armory_address.md).
+Counterwallet also supports the use of Offline Armory. More info on that is [here](../../wallets/counterwallet-tutorials/create-armory-addresses.md).
 
 ### Is a 51% attack against Counterparty possible?
 

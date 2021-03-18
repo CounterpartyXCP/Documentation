@@ -71,7 +71,7 @@ export default function Home() {
                 'button button--outline button--secondary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/')}>
+              to={useBaseUrl('docs/basics/what-is-counterparty/a-bitcoin-protocol')}>
               Get Started
             </Link>
           </div>

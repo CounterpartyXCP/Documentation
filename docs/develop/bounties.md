@@ -74,7 +74,7 @@ Please contact [support](mailto:support@counterparty.io) with the error, along w
 -   The issue must be described in necessary detail to address it.
 -   Only the discoverer of a bug is eligible for the associated bounty.
 -   Bounties will be confirmed and awarded within 10 days of their
-    reporting. Inquiries on bounty status may be sent to [bounties@counterparty.io]("mailto:bounties@counterparty.io)
+    reporting. Inquiries on bounty status may be sent to [bounties@counterparty.io](mailto:bounties@counterparty.io)
 -   Bounties will not be awarded if it is illegal to do so.
 -   The classification of bugs, values of bounties, and conditions under which bounties are paid are subject to change without notice.
 -   The core Counterparty team has sole discretion to determine whether a bug report qualifies for a bounty and for which bounty it qualifies.

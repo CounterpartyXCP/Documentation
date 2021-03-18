@@ -41,7 +41,7 @@ One important thing to know before getting started is that when you perform an a
 
 ![](../../../static/img/getting_started_cw7.png)
 
-**One Bitcoin address will be automatically visible once you have created your wallet.** You can learn how to create more [here](create_addresses.md) and if you would like create an Armory address, you can read more about that [here](create_armory_address.md).
+**One Bitcoin address will be automatically visible once you have created your wallet.** You can learn how to create more [here](create-addresses.md) and if you would like create an Armory address, you can read more about that [here](create-armory-addresses.md).
 
 ![](../../../static/img/getting_started_cw8.png)
 
