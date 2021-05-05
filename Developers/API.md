@@ -306,7 +306,7 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                               "asset": "MYASSET",
                               "quantity": 1000,
                               "description": "my asset is cool",
-                              "divisible": False
+                              "divisible": false
                              },
                    "jsonrpc": "2.0",
                    "id": 0
