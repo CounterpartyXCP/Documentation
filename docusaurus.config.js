@@ -1,13 +1,13 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Counterparty',
-  tagline: 'NFTs and token over Bitcoin',
-  url: 'https://xcpdoc.bitra.re',
-  baseUrl: '/',
+  tagline: 'NFTs and tokens over Bitcoin',
+  url: 'https://ffmad.github.io',
+  baseUrl: '/Documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'CounterpartyXCP', // Usually your GitHub org/user name.
+  organizationName: 'ffmad', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
   themeConfig: {
     prism: {
