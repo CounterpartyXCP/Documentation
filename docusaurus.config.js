@@ -3,7 +3,7 @@ module.exports = {
   title: 'Counterparty',
   tagline: 'NFTs and tokens over Bitcoin',
   url: 'https://ffmad.github.io',
-  baseUrl: '/Documentation/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
