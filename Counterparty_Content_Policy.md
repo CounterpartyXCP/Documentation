@@ -1,4 +1,4 @@
-Content Policy for Counterpartytalk and the Counterparty Slack chat
+Content Policy for Counterparty forums and chat rooms
 ========================
 _(collectively referred to as the **Counterparty properties**)_
 
@@ -32,7 +32,7 @@ As the old saying goes, “we know it when we see it.”
 ## SANCTIONS AND CONFLICT RESOLUTION
 
 ### 1. Contact A Mod
-If you are uncertain about a moderation action, or if you you have questions, comments, or concerns regarding the Counterparty properties, you can feel free to contact moderators on the slack chat, via direct message, or email moderators@counterparty.io. 
+If you are uncertain about a moderation action, or if you you have questions, comments, or concerns regarding the Counterparty properties, you can feel free to contact moderators on the Telegram or Slack chats, via direct message, or email moderators@counterparty.io. 
 
 ### 2. Warnings
 Generally, a polite warning will be given before any further moderation takes place. You will not receive a warning in cases of spam, scams or in cases where it is blatantly obvious that you are posting on the Counterparty properties for the sole purpose of trolling and causing problems.
@@ -48,11 +48,9 @@ If you have an issue with a moderation practice on this channel, please do not p
 
 ## CURRENT MODERATION TEAM
 
-* Robby Dermody (robby.dermody@counterparty.io)
-* Trevor Altpeter (trevor.altpeter@counterparty.io)
-* Matt Young (matt.young@counterparty.io)
-* Shawn Leary (shawn.leary@gmail.com)
-* Sean (sean@counterparty.io)
+* Jeremy Johnson (https://t.me/jdogresorg)
+* Joe Looney (https://t.me/hodlencoinfield)
+* Shawn Leary (https://t.me/ShawnLeary)
 
 Moderators can collectively be reached via emailing moderators@counterparty.io
 
