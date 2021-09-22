@@ -94,8 +94,8 @@ When Sally is constructing her order, she must specify:
 -   her address (`source`1)
 -   the asset she will give (`give_asset1`)
 -   the quantity of `give_asset1` she will give (`give_quantity1`)
--   the asset she will get (`get_asset`)
--   the quantity of `get_asset1` she will get (`get_quantity`)
+-   the asset she will get (`get_asset2`)
+-   the quantity of `get_asset12` she will get (`get_quantity`)
 -   how long before her order expires (`expiration1`)
 
 ## Protocol-based trustless escrow
