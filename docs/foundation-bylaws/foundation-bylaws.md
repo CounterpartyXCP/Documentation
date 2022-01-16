@@ -2,33 +2,48 @@
 title: Counterparty Foundation Bylaws
 ---
 
-#ARTICLE I - OFFICES
+These are the official Bylaws of The Counterparty Foundation (http://counterpartyfoundation.org), an independent non-profit organization dedicated to fostering the growth and open development of the Counterparty platform.
 
-##Section 1.1 Principal Office:
+### License
+
+These bylaws are distributed under the MIT License and may be forked for use in creating any new member-driven nonprofit corporation or for any other use.
+
+### Modifications to the Bylaws of The Counterparty Foundation
+
+If you would like to see a modification or change made to The Counterparty Foundation's bylaws please submit a pull request to this repo. The pull requests will be collected and presented to the Board of Directors at the next meeting of the Board. Upon an affirmative vote of the Board of Directors a pull request will be incorporated into the official bylaws.
+
+### Disclaimer
+
+No documents or materials presented here should be considered or construed as legal advice or creating any sort of attorney-client relationship. You should consult with an attorney before using any documents or materials posted here.
+
+
+# ARTICLE I - OFFICES
+
+## Section 1.1 Principal Office:
 
 The Corporation's principal office shall be located in the state of Delaware. The Board of Directors shall have full power and authority to change the location of the Corporation's principal office.
 
-##Section 1.2 Other Offices:
+## Section 1.2 Other Offices:
 
 The Board of Directors shall have full power and authority to establish branch, subordinate, or other offices at any place or places where the Corporation may legally conduct business.
 
-#ARTICLE II - PURPOSES
+# ARTICLE II - PURPOSES
 
-##Section 2.1
+## Section 2.1
 
 The Corporation is an association of persons having a common business interest, the purpose of which is to promote that common business interest and to engage in any lawful activity permitted under section 501(c)(6) of the Internal Revenue Code, or the corresponding section of any future federal tax code. More specifically, the purposes of the Corporation include, but are not limited to, promotion, protection, and standardization of distributed-digital currency and transactions systems including the Counterparty system as well as similar and related technologies.
 
-##Section 2.2:
+## Section 2.2:
 
 The Corporation shall promote and protect both the decentralized, distributed and private nature of the Counterparty distributed-digital currency and transaction system as well as individual choice, participation and financial privacy when using such systems. 
 
-#ARTICLE III - MEMBERSHIP
+# ARTICLE III - MEMBERSHIP
 
-##Section 3.1 Membership Qualifications:
+## Section 3.1 Membership Qualifications:
 
 Members are collectively defined as any entity (natural person or otherwise) owning some positive quantity of XCP.
 
-##Section 3.3 Affiliates, Additional Rights & Limitations on Voting Rights of Members:
+## Section 3.3 Affiliates, Additional Rights & Limitations on Voting Rights of Members:
 
 (a) Affiliates. The Board of Directors may establish one or more classes of individuals or entities associated with the Corporation. Such individuals or entities shall be referred to as "Advisors," "Affiliates," "Associates," "Contributors," “Supporters”, or any other title that the Board of Directors may deem appropriate (collectively, the "Affiliates"). No class or classes of Affiliates shall have the right or be entitled to vote: (i) in the election of any directors; (ii) on a sale, lease, exchange, or other disposition of all or substantially all of the assets of the Corporation; (iii) on a merger of the Corporation; (iv) on a dissolution or reorganization of the Corporation; (v) on amendments to the Corporation's Articles of Incorporation (the "Articles") or Bylaws; or (vi) on any other action otherwise requiring the vote of members. Further, Affiliates shall not be or have any of the rights and privileges of voting members as contemplated by section 29-404.10 of the State of Delaware Official Code, or any corresponding section of any future official State of Delaware code.
 
@@ -36,15 +51,15 @@ Members are collectively defined as any entity (natural person or otherwise) own
 
 (c) Limitations on Voting Rights of Members. Except as otherwise provided for by any Board of Directors resolution, no member shall have the right or be entitled to vote: (i) on a sale, lease, exchange, or other disposition of all or substantially all of the Corporation's assets; (ii) on a merger of the Corporation; (iii) on a dissolution or reorganization of the Corporation; (iv) on amendments to the Corporation's Articles or Bylaws; (v) on the increase of the total supply of XCP.
 
-##Section 3.4 Admission:
+## Section 3.4 Admission:
 
 Except as otherwise provided for by any Board of Directors resolution, admission of members shall be made by a majority of Board members, that the member seeking admission meets the qualifications established for membership set forth in these Bylaws. The Executive Director, however, may veto the admission of said member.
 
-##Section 3.5 Dues, Fees & Assessments:
+## Section 3.5 Dues, Fees & Assessments:
 
 Any amendment or revision to the Membership Dues Schedule (attached hereto as Schedule A) requires a majority vote of the Board of Directors. However, any such revision shall not have retroactive applicability, nor shall any increase be effective until a then-current member becomes obligated to pay its next annual membership dues. The Board of Directors may establish a policy for acceptance of in-kind contributions.
 
-##Section 3.6 Termination of Membership: 
+## Section 3.6 Termination of Membership: 
 
 Any member's membership shall terminate upon the occurrence of any one or more of the following:
 
@@ -52,19 +67,19 @@ Any member's membership shall terminate upon the occurrence of any one or more o
 
 (b) Expulsion, Termination or Suspension. A majority of the Directors then in office may terminate any other membership after giving the member at least 30 days' written notice (for which email shall suffice) of the termination and the reasons for the termination, provided that (except in the case of termination for non-payment of membership dues, fees, or assessments in a timely fashion) the member has an opportunity to be heard by the Board, either orally or in writing, no less than five (5) days before the effective date of the termination. The Board's decision shall be final and not reviewable by any court.
 
-##Section 3.7 Reinstatement: 
+## Section 3.7 Reinstatement: 
 
 Members that are suspended, terminated, or expelled under Section 3.6(b) may be reinstated only upon an affirmative, majority vote of the Directors then in office. The Executive Director, may, however veto any such vote.
 
-##Section 3.8 Property Rights:
+## Section 3.8 Property Rights:
  
 No member shall have any right or interest in any of the Corporation's property or assets, except for intellectual property rights retained in any work contributed to the Corporation by the member, but even then, only to the extent permitted by any intellectual property rights policy approved by the Board of Directors and then in force.
 
-##Section 3.9 Nonliability:
+## Section 3.9 Nonliability:
 
 No member shall be liable for the Corporation's debts, liabilities, or obligations merely by reason of being a member.
 
-##Section 3.10 Nontransferability:
+## Section 3.10 Nontransferability:
 
 No member may transfer, for value or otherwise, his or her membership in the Corporation, or any right arising therefrom. All rights of membership shall cease upon a member's death, resignation, expulsion, termination, or dissolution. Notwithstanding the foregoing:
 
@@ -74,62 +89,62 @@ No member may transfer, for value or otherwise, his or her membership in the Cor
 
 (c) The Board of Directors, in its discretion, may allow a member to transfer its membership to another entity within its same Control Group (as defined in Section 5.3(g) below) if the transferee qualifies for membership in the transferring member's class, as set forth in these Bylaws. However, the transferor and transferee shall be and remain jointly and severally liable for any unpaid membership dues, fees, or assessments of the transferring member. The Board of Directors, in its discretion, may grant a waiver of any provision of this Section 3.10.
 
-##Section 3.11 Distribution of Assets Upon Dissolution:
+## Section 3.11 Distribution of Assets Upon Dissolution:
 Upon dissolution of the Corporation, and after all known Corporation debts and liabilities have been paid or adequately provided for, any remaining net assets of the Corporation shall be distributed by the Board of Directors to any one or more organizations selected by the Board of Directors that will help to further the purposes of the Corporation.
 
-#ARTICLE IV - MEMBERSHIP MEETINGS
+# ARTICLE IV - MEMBERSHIP MEETINGS
 
-##Section 4.1 Place of Meetings:
+## Section 4.1 Place of Meetings:
 
 All meetings of members shall be held at the Corporation's principal office, or at any other place within or without the State of Delaware, as determined by the Board of Directors pursuant to the authority herein granted to it. Meetings may also be held remotely, via an electronic or telephonic medium.
 
-##Section 4.2 Annual Meetings:
+## Section 4.2 Annual Meetings:
 
 An annual meeting of members may be held in each calendar year, on such date and at such time and place as determined by the Board of Directors. Annual meetings may be held in any manner permitted by law.
 
-##Section 4.3 Special Meetings:
+## Section 4.3 Special Meetings:
 
 Special meetings of members shall be held upon call of any of the following: (a) The Board of Directors; (b) The Chairman of the Board; or (c) Members holding fifteen percent (15%) or more of the Corporation's voting power by a written demand signed, dated, and delivered to the Secretary. Notice of a special meeting shall be given within thirty (30) days following the date written demand is delivered to the Secretary, in accordance with Section 4.4 below. Special meetings may be held in any manner permitted by law.
 
-##Section 4.4 Notice of Meetings
+## Section 4.4 Notice of Meetings
 
 Notice of each annual and special meeting, and ballot for election of Directors or otherwise, if any, shall be given to each member of the Corporation who, on the record date for notice of the meeting, is entitled to vote thereat. Written notice (for which email shall suffice) shall be sent to the last address of record for each member at least seven days before the meeting. The notice shall contain the date, time, and place of the meeting, or the date on which the ballot must be returned by or submitted, as applicable. Notice of each annual and special meeting shall also include a description of any matter or matters that these Bylaws or applicable law require approval by members. If directors are to be elected at an annual meeting, the notice shall also specify the names of all candidates.
 
-##Section 4.5 Adjourned Meetings
+## Section 4.5 Adjourned Meetings
 
 Any annual or special members' meeting, whether or not a quorum is present, may be adjourned by the vote of a majority of the members either present in person or represented by proxy. No additional notice of the time and place of an adjourned meeting, or the business to be transacted thereat, is required other than by an announcement at the meeting at which such adjournment is taken. If a new record date is fixed for notice or voting after the adjournment, notice of the adjourned meeting shall be given to each member who, on the record date for notice of the meeting, is entitled to vote at the meeting.
 
-##Section 4.6 Proxies:
+## Section 4.6 Proxies:
 
 Every member entitled to vote shall have the right to do so in person, or by one or more agents authorized by a written proxy executed by such person or their duly authorized agent and filed with the Corporation's Secretary. However, no such proxy shall be valid after eleven (11) months from the date of its execution, unless the person executing it specifies therein a length of time for which the proxy shall continue in force. A proxy is effective upon receipt by the Secretary or other officer or agent authorized to tabulate votes. A proxy must be received prior to the closing of a vote in order to be effective.
 
-##Section 4.7 Quorum:
+## Section 4.7 Quorum:
 
 The votes represented in person or by proxy at a meeting of members shall constitute a quorum for the transaction of business if the total is equal to or greater than two-thirds of all possible member votes. Unless provided herein, if a quorum is present in person or by proxy, then any action approved by a majority of the members so present shall be the act of the members.
 
-##Section 4.8 Voting:
+## Section 4.8 Voting:
 
 Each member is entitled to one vote on each matter submitted to a vote of the members of the member's membership class. Voting may be by voice vote, written vote or through electronic means as directed by the Executive Director. Cumulative voting for the election of directors or otherwise shall not be authorized.
 
-##Section 4.9 Action by Written Ballot:
+## Section 4.9 Action by Written Ballot:
 
 Any action that may be taken at an annual, regular, or special meeting may be taken without a meeting if the Corporation delivers a written ballot (for which email or other electronic means of delivery shall suffice) to every member entitled to vote on the matter. Such written ballot shall: (a) Set forth the proposed action; (b) Provide an opportunity to specify approval or disapproval of each proposed action; and (c) Specify a reasonable time within and means by which the member must return the ballot to the Corporation. Approval by written ballot shall only be valid when the number of votes cast by ballot within the specified time frame equals or exceeds the quorum required to be present at a meeting authorizing such action and the number of approvals equals or exceeds the amount of votes that would be required to approve the matter at a meeting where the number attendees entitled to vote matches the number of votes cast by ballot. Ballots shall be sent by first class mail, email or other electronic means to the member's last address of record. In any election of directors by written ballot, the ballot shall name the candidates and provide a space entitled "withhold" where a member may indicate that the authority to vote for the election of directors is withheld. Any ballot distributed under this section shall indicate the number of responses necessary to reach all quorum requirements and, with respect to all matters except for the election of directors, indicate the approval percentage necessary for the matter to pass. All written ballots distributed under this section shall specify a reasonable time by which the ballot must be received by the Corporation in order to be counted.
 
-##Section 4.10 Conduct of Meetings:
+## Section 4.10 Conduct of Meetings:
 
 The Chairman of the Board of the Corporation shall preside over member meetings. In his or her absence, the Vice Chairman shall preside over the member meeting. In the Vice Chairman's absence, the Executive Director shall preside over the member meeting. In the absence of the above three, a chair chosen by the majority of members present shall preside over the member meeting. The Corporation's Secretary shall act as the secretary of all member meetings. In the Secretary's absence, the presiding officer shall appoint another member to act as Acting Secretary of the meeting.
 
-#ARTICLE V - BOARD OF DIRECTORS
+# ARTICLE V - BOARD OF DIRECTORS
 
-##Section 5.1 Powers:
+## Section 5.1 Powers:
 
 Subject to the limitations of the Articles, the Bylaws, and applicable law, and subject to the duties of directors as prescribed by the Bylaws, all corporate powers shall be exercised by or under the authority of, and the business and affairs of this corporation shall be controlled by, the Board of Directors. The Board of Directors shall have the power to: (a) Select and remove all officers, agents, employees and contractors, and to fix reasonable compensation therefor; (b) To authorize and empower officers or agents to enter into contracts and other commitments on behalf of the Corporation; (c) To appoint and delegate responsibilities and authority to committees, officers, and agents; and (d) To approve a fiscal year budget proposed by the Treasurer and Executive Committee.
 
-##Section 5.2 Number of Directors:
+## Section 5.2 Number of Directors:
 
 The minimum authorized number of directors is five (5). The number of directors may be increased beyond this by resolution of two-thirds of the directors then in office.
 
-##Section 5.3 Composition of Board of Directors Terms:
+## Section 5.3 Composition of Board of Directors Terms:
 
 All directors serving on the Board of Directors shall be selected in the manner set forth in this Section 5.3.
 
@@ -148,7 +163,7 @@ Within one week before voting period begins:
 (c) Terms and Election Dates: All directors shall hold office until their successor is elected. Except for adjustments that may be made by the Board from time-to-time to maintain or create staggered terms upon any increase or decrease in the authorized number of directors, the term of office for all Directors and At-Large Directors shall be one (1) year and shall run every May first (May 1) of the calendar year, with elections preceeding at least two (2) weeks before. Unless elected by written ballot pursuant to Section 4.9, the positions of directors then expiring shall be filled and elections held at the annual meeting of members called for such purpose. The Board of Directors may issue resolutions establishing procedures governing elections of directors, provided that those resolutions are consistent with these Bylaws and the Articles.
 
 
-##Section 5.4 Vacancies:
+## Section 5.4 Vacancies:
 
 Board of Directors vacancies shall be handled in the following ways:
 
@@ -166,7 +181,7 @@ Notwithstanding the foregoing, if these Bylaws are amended to expand the number 
 
 (d) As provided in the last sentence of this Section 5.4. If the Board authorizes a reduction in the amount of directors, such a reduction shall not remove any director prior to the expiration or other termination of his or her term.
 
-##Section 5.5 Place of Meeting:
+## Section 5.5 Place of Meeting:
 
 All Board of Directors meetings may be held within or without the State of Delaware at any place designated from time to time by resolution of the Board of by written notice of the Chairman of the Board.
 
@@ -174,15 +189,15 @@ All Board of Directors meetings may be held within or without the State of Delaw
 
 Regular meetings of the Board of Directors shall be held at regular intervals that may from time to time be approved by the Board of Directors.
 
-##Section 5.7 Special Meetings:
+## Section 5.7 Special Meetings:
 
 Special meetings of the Board of Directors may be called for any purpose(s) at any time by the Chairman of the Board or by twenty-five percent (25%) or more of the directors then in office.
 
-##Section 5.8 Notice of Meetings & Attendance:
+## Section 5.8 Notice of Meetings & Attendance:
 
 Regular Board of Directors meetings may be held without notice of the date, time, or purpose. At least two (2) days notice of the time and place of each meeting of the Board of Directors not fixed by an express provision of the Bylaws or by a standing Board of Directors resolution shall be given to each director by personal delivery, telephone, telegraph, facsimile, electronic mail, or first class mail.
 
-##Section 5.9 Action Without Meeting:
+## Section 5.9 Action Without Meeting:
 
 Any Board of Directors action required or permitted to be taken by applicable law may be taken without a meeting if all members of the Board individually or collectively consent in writing to such action. The action shall be evidenced by one or more written consents that:
 
@@ -194,23 +209,23 @@ Any Board of Directors action required or permitted to be taken by applicable la
 
 Action taken in accordance with this section is effective when the last director signs the consent, unless the consent specifies an earlier or later effective date. Any consent signed hereunder has the effect of a meeting vote and may be described as such in any document.
 
-##Section 5.10 Meetings Held via Electronic Communications Technology:
+## Section 5.10 Meetings Held via Electronic Communications Technology:
 
 The Board of Directors may permit any or all directors to participate in a regular or special meeting by, or conduct the meeting through, use of any means of communication by which all participating directors may simultaneously read or hear each substantially concurrently with their occurrence, vote on matters submitted to the members, pose questions, and make comments. A director participating in a meeting by this means is deemed to be present in person at the meeting.
 
-##Section 5.11 Quorum:
+## Section 5.11 Quorum:
 
 Unless otherwise provided herein, fifty-percent (50%) of the directors then in office (but in no case fewer than one-third (1/3) of the fixed or prescribed number of directors provided for in these Bylaws) shall be necessary to constitute a quorum for the transaction of business, except to adjourn. Every act or decision done or made by a majority of the directors present at a meeting duly held at which a quorum is present shall be regarded as the act of the Board of Directors, unless a greater number is required by law, the Articles, or these Bylaws.
 
-##Section 5.12 Fees and Compensation:
+## Section 5.12 Fees and Compensation:
 
 The Board of Directors, by resolution, may provide for compensation and reimbursement to directors and members of committees for their services and expenses. However, such compensation must be reasonable and comparable to compensation paid by unaffiliated entities for a similar position. Nothing herein shall preclude any director from serving the Corporation in any other capacity, including as an officer, agent, employee, consultant, or otherwise, and receiving reasonable compensation for such service.
 
-##Section 5.13 Indemnity:
+## Section 5.13 Indemnity:
 
 The Corporation shall indemnify its directors to the fullest extent allowed by sections 29-406.51 and 29-406.52 of the State of Delaware Official Code, or any corresponding section(s) of any future official State of Delaware code.
 
-##Section 5.14 Standard of Conduct:
+## Section 5.14 Standard of Conduct:
 
 In accordance with section 29-406.30 of the State of Delaware Official Code, or any corresponding section(s) of any future official State of Delaware code, a director shall discharge the duties of a director, including duties as a member of any committee on which the director may serve, in good faith, in a manner the director reasonably believes to be in the best interests of the Corporation, and with the care a person in a like position would reasonably believe appropriate under similar circumstances. In discharging the duties of a director, a director shall be entitled to rely on information, opinions, reports or statements, including financial statements and other financial data, in each case if prepared or presented by:
 
@@ -222,7 +237,7 @@ In accordance with section 29-406.30 of the State of Delaware Official Code, or 
 
 A director is not acting in good faith if he or she has knowledge concerning the matter in question that makes reliance otherwise permitted in this Section 5.14 unwarranted. A director is not liable to the Corporation, any member, or any other person for any action taken or not taken as a director, if the director acted in compliance with this Section 5.14. The liability of a director for monetary damages to the Corporation and its members shall be eliminated to the fullest extent provided by sections 29-406.51 and 29-406.52 of the State of Delaware Official Code, or any corresponding section(s) of any future official State of Delaware code.
 
-##Section 5.15 Conflict of Interest Transactions:
+## Section 5.15 Conflict of Interest Transactions:
 
 (a) Conflict of Interest. As used herein this Section 5.15, a "conflict of interest transaction" is a transaction with the Corporation in which a director of the Corporation has a direct or indirect interest. An indirect interest exists where: 
 - (i) another entity in which the director has a material interest, or in which the director is a general partner, is a party to the transaction; or 
@@ -232,7 +247,7 @@ A director is not acting in good faith if he or she has knowledge concerning the
 - (i) By Directors. By the Board of Directors, if the conflict of interest transaction receives the affirmative vote of a majority of the directors on the Board or committee who have no direct or indirect interest in the transaction. However, a conflict of interest transaction may not be so authorized, approved, or ratified by a single director. If a majority of the directors with no direct or indirect interest in the transaction votes to authorize, approve, or ratify the transaction, a quorum is present for the purpose of taking such action. The presence of, or a vote cast by, a director with a direct or indirect interest in the transaction does not affect the validity of the authorization, approval, or ratification, if the transaction is otherwise approved as permitted by law.
 - (ii) By Members. By the members of the Corporation if the conflict of interest transaction receives a majority of the votes entitled to be counted. Votes cast by or voted under the control of a director who has a direct or indirect interest in the transaction may be counted in such a vote to authorize, approve, or ratify a conflict of interest transaction. A majority of the members, whether or not present, that are entitled to be counted in a vote on the transaction constitutes a quorum for the purpose of taking such action.
 
-##Section 5.16 Resignation and Removal:
+## Section 5.16 Resignation and Removal:
 
 (a) Resignation. A director may resign at any time by giving written notice to: (i) the Board of Directors; (ii) the Chairman of the Board; or (iii) the Secretary of the Corporation. Such resignation is effective when notice is effective. Notice of resignation is irrevocable once delivered, unless the Board of Directors permits withdrawal prior to its effectiveness.
 
@@ -240,57 +255,57 @@ A director is not acting in good faith if he or she has knowledge concerning the
 
 (c) Removal Without Cause. Any director may be removed without cause at a meeting called for that purpose by the Board of Directors. The director may be removed without cause by the affirmative vote of two-thirds of the directors then in office.
 
-##Section 5.17 Advisory Board:
+## Section 5.17 Advisory Board:
 
 The Board of Directors may, by resolution, establish a board of advisors (the "Advisory Board") to be comprised of one or more individuals chosen by the Board of Directors at its sole discretion. The Board shall not be bound by any of the Advisory Board's advice or decision. Advisory Board members shall not have the rights or privileges of directors or members as set forth in the State of Delaware Official Code, nor the power or authority over operations of the Corporation. An Advisory Board member may be removed at any time by the Board of Directors with or without cause.
 
-#ARTICLE VI - OFFICERS
+# ARTICLE VI - OFFICERS
 
-##Section 6.1 Officers: The officers of the Corporation shall be:
+## Section 6.1 Officers: The officers of the Corporation shall be:
 
 (a) Chairman of the Board (b) Vice Chairman (c) Executive Director (d) General Counsel (e) Treasurer (f) Secretary (g) any other officers as the Board of Directors may appoint.
 
 The roles enumerated in this section 6.1 shall collectively be referred to as the Executive Committee. One person may hold multiple offices.
 
-##Section 6.2 Nomination and Election:
+## Section 6.2 Nomination and Election:
 
 The Corporation's officers shall be elected by the Board of Directors in accordance with this Article VI. Each officer shall hold office until he or she resigns or is removed or replaced. All officers must be members of the Corporation. Any director may nominate a member to be a candidate for any officer position in the Corporation. All directors then in office may vote on candidates for such offices. Officer positions shall be filled in an election upon the vote of a majority of directors then in office. Each officer's term of office shall be one (1) year and there shall be no prohibition on re-election of an officer for subsequent terms following the completion of that term. The Board of Directors may issue resolutions establishing procedures governing the nomination and election of officers, provided that those resolutions are consistent with these Bylaws and the Articles.
 
-##Section 6.3 Removal and Resignation:
+## Section 6.3 Removal and Resignation:
 
 (a) Removal. The Board of Directors may remove any officer with or without cause at any regular or special meeting upon a vote of a majority of the directors.
 
 (b) Resignation. Any officer may resign at any time by giving written notice to the Board of Directors or any officer of the Corporation. Any such resignation is effective the date notice is received, or later if so specified therein. Unless otherwise specified, acceptance of the resignation is not necessary for such resignation to be effective. Resignation of an officer shall not prejudice the Corporation's rights under any contract to which the officer is a party. Notice of resignation is irrevocable once delivered, unless the Board of Directors permits withdrawal prior to its effectiveness.
 
-##Section 6.4 Vacancies:
+## Section 6.4 Vacancies:
 
 Office vacancies arising out of death, resignation, removal, disqualification, or any other cause shall be filled in the manner prescribed herein these Bylaws for regular appointments to such office.
 
-##Section 6.5 Chairman of the Board:
+## Section 6.5 Chairman of the Board:
 
 The Chairman of the Board shall be the Corporation's chief officer. The Chairman of the Board shall serve as an ex-officio voting member of all committees, and shall have such other powers and duties as may be designated by the Board from time to time. The then-serving Chairman of the Board shall have the authority to cast a tie-breaking vote in the election of any directors or officers, other than for Chairman of the Board.
 
 Any candidate for Chairman of the Board must be a director of the Corporation in order to run for election.
 
-##Section 6.6 Vice Chairman:
+## Section 6.6 Vice Chairman:
 
 The Vice Chairman shall perform all the duties of the Chairman of the Board and, in so acting, shall have all of the powers of the Chairman of the Board in the event of the Chairman of the Board's absence, death, removal, resignation, or incapacity. The then-serving Vice Chairman shall have the authority to cast a tie-breaking vote in the election of the Chairman of the Board.
 
 Any candidate for Vice Chairman must be a director of the Corporation in order to run for election. The Vice Chairman shall have such other powers and duties as may be designated by the Board from time to time.
 
-##Section 6.7 Executive Director:
+## Section 6.7 Executive Director:
 
 Subject to the supervision and control of, and reporting to, the Board of Directors, the Executive Director shall have general supervision, direction, and control of the business and affairs of the Corporation. The Executive Director shall, from time to time, report to the Board of Directors and the Chairman of the Board all matters within his or her knowledge affecting the Corporation that should be brought to the Board of Directors' attention.
 
 Any candidate for Executive Director must be a member of the Corporation in order to run for election. The Executive Director shall have such other powers and duties as may be designated by the Board from time to time.
 
-##Section 6.8 General Counsel:
+## Section 6.8 General Counsel:
 
 The General Counsel shall have overall responsibility for directing and managing the legal affairs of the Corporation and working with the Board of Directors to establish a public policy strategy. It shall be the responsibility of the General Counsel to communicate and advocate for such the Corporation’s public policy strategy in such a manner as to further the goals of the Corporation.
 
 Any candidate for General Counsel must be a member of the Corporation in order to run for election. The General Counsel shall have such other powers and duties as may be designated by the Board from time to time.
 
-##Section 6.9 Treasurer:
+## Section 6.9 Treasurer:
 
 The Treasurer shall have overall responsibility for all corporate funds, and shall perform, or cause to be performed, the following:
 
@@ -324,7 +339,7 @@ The Secretary shall have overall responsibility for all recordkeeping and perfor
 
 Any candidate for Secretary must be a member of the Corporation in order to run for election.
 
-##Section 6.11 Chief Scientist:
+## Section 6.11 Chief Scientist:
 
 The Chief Scientist shall be the lead technical officer of the Corporation. The Chief Scientist shall have lead responsibility for maintaining and enhancing the protocol specifications, as well as providing executive level oversight of the maintenance and enhancement of all official software and standards.
 
@@ -332,7 +347,7 @@ Beyond the Board’s ability to elect and/or remove the Chief Scientist, any tec
 
 Any candidate for Chief Scientist must be a member of the Corporation in order to run for election.
 
-##Section 6.12 Standards of Conduct for Officers:
+## Section 6.12 Standards of Conduct for Officers:
 
 In accordance with section 29-406.42 of the State of Delaware Official Code, or any corresponding section(s) of any future official State of Delaware code, an officer shall discharge the duties of an officer in good faith, with the care an ordinarily prudent person in a like position would exercise under similar circumstances, and in a manner the officer reasonably believes to be in the best interests of the Corporation. An officer also shall inform a superior officer, the Board of Directors, relevant committee thereof, or other appropriate person of:
 
@@ -348,17 +363,17 @@ In accordance with section 29-406.42 of the State of Delaware Official Code, or 
 
 An officer is not acting in good faith if he or she has knowledge concerning the matter in question that makes reliance otherwise permitted in this Section 6.10 unwarranted. An officer is not liable to the Corporation, any member, or any other person for any action taken or not taken as an officer, if the officer acted in compliance with this Section 6.10. The liability of an officer for monetary damages to the Corporation and its members shall be eliminated to the fullest extent provided by section 29-406.56 of the State of Delaware Official Code, or any corresponding section(s) of any future official State of Delaware code.
 
-##Section 6.13 Indemnification:
+## Section 6.13 Indemnification:
 
 The Corporation shall indemnify its officers to the fullest extent allowed by section 29-406.56 of the State of Delaware Official Code, or any corresponding section(s) of any future official State of Delaware code.
 
-#ARTICLE VII - COMMITTEES
+# ARTICLE VII - COMMITTEES
 
-##Section 7.1 Appointment of Committees:
+## Section 7.1 Appointment of Committees:
 
 The Board of Directors may, from time to time, appoint committees that it deems necessary or appropriate to conduct the business and further the objectives of the Corporation. The Board's appointment of any committee having the authority of the Board shall be by resolution adopted by a majority of directors then in office. Any committee having authority of the Board shall consist of two (2) or more directors who serve at the pleasure of the Board. The Board of Directors shall retain in its sole discretion both the right to limit the powers and duties of any committee that it creates, and to disband any such committee.
 
-##Section 7.2 Powers and Authority of Committees:
+## Section 7.2 Powers and Authority of Committees:
 
 The Board of Directors may delegate to any committee having the Board's authority, any of the Board's powers and authority in the management of the business and affairs of the Corporation. However, notwithstanding the foregoing, no committee may:
 
@@ -372,25 +387,25 @@ The Board of Directors may delegate to any committee having the Board's authorit
 
 (e) Increase of the total supply of XCP
 
-#ARTICLE VIII - MISCELLANEOUS
+# ARTICLE VIII - MISCELLANEOUS
 
-##Section 8.1 Fiscal Year:
+## Section 8.1 Fiscal Year:
 
 The Corporation's fiscal year shall end on the last day of December of each year.
 
-##Section 8.2 Inspection of Corporate Records:
+## Section 8.2 Inspection of Corporate Records:
 
 Members' rights to inspect and copy records of the Corporation shall be as provided in and subject to the terms and conditions of sections 29-413.02, 29-413.03, 29-413.04, 29-413.06, and 29-413.07 of the State of Delaware Official Code, or any corresponding section(s) of any future official State of Delaware code.
 
-##Section 8.3 Representation of Shares of Other Corporations:
+## Section 8.3 Representation of Shares of Other Corporations:
 
 The Board of Directors may vote, represent, and exercise on behalf of the Corporation all rights incident to any and all shares or other membership interests of any other corporation or organizations standing in the name of the Corporation. The Board of Directors may issue resolutions delegating this authority to one or more officers of the Corporation and such officer, or other persons authorized to do so by proxy duly executed by such officer, may exercise those powers in person.
 
-##Section 8.4 Checks, Drafts & Payments:
+## Section 8.4 Checks, Drafts & Payments:
 
 The Board of Directors shall determine, from time to time, a person or persons to sign or endorse all checks, drafts, or other orders for payment of money, notes, or other evidence of indebtedness issued in the name of or payable to the Corporation, and any and all securities owned by, or held by, the Corporation requiring signature for transfer.
 
-##Section 8.5 Execution of Contracts:
+## Section 8.5 Execution of Contracts:
 
 The Board of Directors may authorize any officer, employee, or agent to enter into any contract, or execute any contract or instrument, in the name of and on behalf of the Corporation. Such authority may be general or confirmed to specific instances. Unless so authorized by the Board of Directors, no officer, agent, employee, or other person shall have any power or authority to:
 
@@ -402,23 +417,23 @@ The Board of Directors may authorize any officer, employee, or agent to enter in
 
 However, any such contract or instrument between the Corporation and any third person, when signed by either the Chairman of the Board or Vice Chairman, and either the Secretary or Treasurer, shall be valid and binding upon the Corporation in the absence of actual knowledge on the part of said third person that the signing officers had no authority to execute the same, except when both offices are held by the same person.
 
-##Section 8.6 Corporate Loans, Guarantees, and Advances:
+## Section 8.6 Corporate Loans, Guarantees, and Advances:
 
 The Corporation shall not make any advances or loan of money or property to any director or officer, nor shall the Corporation guarantee the obligation of any director or officer.
 
-##Section 8.7 Maintenance of Records:
+## Section 8.7 Maintenance of Records:
 
 The Corporation shall maintain corporate records as required by section 29-413.01 of the State of Delaware Official Code, or any corresponding section of any future official State of Delaware code.
 
-##Section 8.8 Political Activities:
+## Section 8.8 Political Activities:
 
 The Corporation shall not make any political expenditure or lobbying expenditure that will result in the loss of, or otherwise adversely affect, its status as a tax-exempt organization under the Internal Revenue Code.
 
-##Section 8.9 Form of Written Ballots:
+## Section 8.9 Form of Written Ballots:
 
 Ballots submitted in facsimile or electronic form (such as email) shall be considered acceptable substitutes for printed ballots for all purposes.
 
-##Section 8.10 Fiscal Year Budget:
+## Section 8.10 Fiscal Year Budget:
 
 All disbursement of funds from the Foundation shall be in accord with a budget, which has been created by the Treasurer and approved by the Board of Directors (by simple majority vote).
 
@@ -428,28 +443,28 @@ Any proposed budget shall include a categorized cost breakdown, with total yearl
 
 A Board-approved budget for the current fiscal year may be modified by the Treasurer, with majority approval of the Board of Directors. 
 
-#ARTICLE IX - EFFECTIVE DATE, AMENDMENTS, AND DISSOLUTION
+# ARTICLE IX - EFFECTIVE DATE, AMENDMENTS, AND DISSOLUTION
 
-##Section 9.1 Effective Date:
+## Section 9.1 Effective Date:
 
 These Bylaws shall become effective immediately upon their adoption. Unless the adopting Board of Directors provide for a later date, any amendments to these Bylaws shall become effective immediately upon their adoption,
 
-##Section 9.2 Bylaw Amendments:
+## Section 9.2 Bylaw Amendments:
 
 To the fullest extent permitted by law, the authority to make, alter, amend, or repeal these Bylaws is vested exclusively in the Board of Directors, and may be exercised upon approval of a two-thirds of directors then in office without the vote or consent of any member(s) or third parties except for Section 9.3.
 
-##Section 9.3 Dissolution:
+## Section 9.3 Dissolution:
 
 The Corporation may be dissolved upon the approval of all of the directors then in office without the vote or consent of any member(s) or third parties. Any distribution of the assets of this corporation shall be made in a manner consistent with the tax status of the Corporation at the time of such dissolution.
 
-#ARTICLE X - PROJECT AND NETWORK POLICY
+# ARTICLE X - PROJECT AND NETWORK POLICY
 
-##Section 10.1 Smart Contract Anti-Fork, Anti-Rollback Provision:
+## Section 10.1 Smart Contract Anti-Fork, Anti-Rollback Provision:
 
 The Corporation, Board of Directors, and/or Counterparty Development Team is hereby forbidden from publishing code to fork and/or roll-back the Counterparty network as a response to a bug or bugs in any published Ethereum Virtual Machine (EVM) smart contract code, and/or otherwise encouraging or advocating for such an action in any kind of capacity.
 
 Where the fault is due to a bug in the underlying EVM or platform as a whole — and not any specific smart contract that runs on it — the Counterparty Development Team may respond as they see fit.
 
-#Schedule A - Board Membership Dues
+# Schedule A - Board Membership Dues
 
 No membership dues or fees are currently in effect, nor is any program currently creating and/or granting special status and privileges to Members currently in effect.

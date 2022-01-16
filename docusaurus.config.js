@@ -95,10 +95,14 @@ module.exports = {
               label: 'GitHub',
               href: 'https://github.com/CounterpartyXCP/Documentation',
             },
+            {
+              label: 'Bylaws',
+              href: 'docs/foundation-bylaws/foundation-bylaws',
+            }
           ],
         },
       ],
-      copyright: `Copyright © 2014 - ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `CC © 2014 - ${new Date().getFullYear()} Counterparty, Inc. Built with Docusaurus.`,
     },
   },
   presets: [
