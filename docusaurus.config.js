@@ -97,7 +97,7 @@ module.exports = {
             },
             {
               label: 'Bylaws',
-              href: 'docs/foundation-bylaws/foundation-bylaws',
+              href: 'docs/foundation-bylaws/bylaws',
             }
           ],
         },
