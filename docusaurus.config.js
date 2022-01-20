@@ -2,12 +2,12 @@
 module.exports = {
   title: 'Counterparty',
   tagline: 'NFTs and tokens over Bitcoin',
-  url: 'https://ffmad.github.io',
+  url: 'https://counterpartyxcp.github.io',
   baseUrl: '/Documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'ffmad', // Usually your GitHub org/user name.
+  organizationName: 'CounterpartyXCP', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
   themeConfig: {
     prism: {
