@@ -2,8 +2,8 @@
 module.exports = {
   title: 'Counterparty',
   tagline: 'NFTs and tokens over Bitcoin',
-  url: 'http://docs.counterparty.io',
-  baseUrl: '/',
+  url: 'https://counterpartyxcp.github.io',
+  baseUrl: '/Documentation/',
   trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
