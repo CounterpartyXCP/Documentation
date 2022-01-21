@@ -18,7 +18,7 @@ data passed as the POST body. For more information on JSON RPC, please see the [
 
 ## Terms & Conventions
 
-The API calls documented are categorized based on the `counterblock` module/plug-in they appear in. For a list of the various modules with a description of each one, see [the counterblock modules document](modules).
+The API calls documented are categorized based on the `counterblock` module/plug-in they appear in. For a list of the various modules with a description of each one, see [the counterblock modules document](modules.md).
 
 **Return Types**
 
