@@ -582,14 +582,14 @@ For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API
 
 ###get_asset_info
 
-**get_asset_info(asset)**
+**get_asset_info(asset, assets)**
 
 Gets information on an issued asset.
-**NOTE:** This method is depreaciated and may be removed in a future release.
 
 **Parameters:**
 
   * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
+  * **assets** (*array*): An array of names of the [assets](#assets) or [subassets](#subassets) for which to retrieve the information.
 
 **Return:**
 
