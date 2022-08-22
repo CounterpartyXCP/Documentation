@@ -605,6 +605,40 @@ Gets information on an issued asset.
   - **issuer** (*string*): The asset's original owner (i.e. issuer)
 
 
+###get_dispenser_info
+
+**get_dispenser_info()**
+
+Gets information on a dispenser.
+
+**Parameters:**
+
+  * **tx_hash** (*string*): The transaction hash identifier
+  * **tx_index** (*integer*): The transaction index
+
+**Return:**
+
+  ``null`` if the asset was not found. Otherwise, an object with the following properties:
+
+  - **asset** (*string*): The [assets](#assets) of the asset itself
+  - **asset_longname** (*string*): The [subasset](#subassets) longname, if any
+  - **tx_index** (*integer*): The transaction index
+  - **tx_hash** (*string*): The transaction hash
+  - **block_index** (*integer*): The block index (block number in the block chain)
+  - **source** (*string*): The address that made the bet
+  - **give_quantity** (*integer*): The [quantities](#quantities-and-balances) given per dispense
+  - **escrow_quantity** (*integer*): The [quantities](#quantities-and-balances) escrowed in the dispenser
+  - **give_remaining** (*integer*): The [quantities](#quantities-and-balances) remaining in the dispenser
+  - **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+  - **satoshirate** (*integer*): The satoshirate for the dispenser
+  - **fiat_price** (*float*): The FIAT price per dispense
+  - **fiat_unit** (*string*): The FIAT unit being used
+  - **satoshi_price** (*integer*): The sats required for a dispense
+  - **oracle_price** (*float*): The BTC price broadcast by the oracle
+  - **oracle_address** (*string*): The address that is being used as the oracle
+  - **oracle_price_last_updated** (*integer*): The block_index of the last update from the oracle
+
+
 ###get_supply
 
 **get_supply(asset)**
