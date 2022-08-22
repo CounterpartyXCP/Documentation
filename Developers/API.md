@@ -1048,7 +1048,7 @@ Destroy XCP or a user defined asset.
 
 ###create_dispenser
 
-**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address)**
+**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address, oracle_address)**
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
 quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
@@ -1062,7 +1062,9 @@ of give_quantity to ease dispenser operation.
   * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
   * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
   * **open_address** (*string*): The address that you would like to open the dispenser on.
+  * **oracle_address** (*string*): The address that you would like to use as a price oracle for this dispenser.
   * **status** (*integer*): The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed.
+  * *NOTE: When specifying an **oracle_address**, **mainchainrate** format becomes X.XX (fiat) (ex. 1500 = 15.00).*
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
