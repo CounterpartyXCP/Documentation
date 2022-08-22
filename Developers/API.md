@@ -1094,7 +1094,7 @@ Issue a dividend on a specific user defined asset.
 
 **create_issuance(source, asset, quantity, divisible, description, transfer_destination=null, lock, reset)**
 
-Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset (note that you can only do one of these operations in a given create_issuance call).
+Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset.
 
 **Parameters:**
 
@@ -1114,9 +1114,6 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 
 **Notes:**
 
-  * To lock the issuance of the asset, specify "LOCK" for the ``description`` field. It's a special keyword that will
-    not change the actual description, but will simply lock the asset quantity and not allow additional quantity to be
-    issued for the asset.
   * A named asset has an issuance cost of 0.5 XCP.
   * A subasset has an issuance cost of 0.25 XCP.
   * In order to issue an asset, BTC and XCP (for first time, non-free Counterparty assets) are required at the source address to pay fees.
