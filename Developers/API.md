@@ -1092,7 +1092,7 @@ Issue a dividend on a specific user defined asset.
 
 ###create_issuance
 
-**create_issuance(source, asset, quantity, divisible, description, transfer_destination=null)**
+**create_issuance(source, asset, quantity, divisible, description, transfer_destination=null, lock, reset)**
 
 Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset (note that you can only do one of these operations in a given create_issuance call).
 
@@ -1103,7 +1103,9 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description** (*string, default=''*): A textual description for the asset.
-  * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
+  * **transfer_destination** (*string, default=null*): The address to receive the asset.
+  * **lock** (*boolean, default=false*): Whether this issuance should lock supply of this asset forever.
+  * **reset** (*boolean, default=false*): Wether this issuance should reset any existing supply.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
