@@ -592,6 +592,7 @@ Issue a new asset, issue more of an existing asset, lock an asset, reset existin
   * *NOTE: **reset** is only possible when no supply is issued, or when the asset owner has control of 100% of the supply.*
   * *NOTE: When resetting an assets supply, **transfer_destination** will not work in the same issuance as **reset** .*
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
+  * *NOTE: When resetting an assets supply, **lock** and **transfer_destination** will not work in the same issuance as **reset** .*
 
 **Return:**
 
