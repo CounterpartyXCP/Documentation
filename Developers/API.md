@@ -605,6 +605,41 @@ Gets information on an issued asset.
   - **issuer** (*string*): The asset's original owner (i.e. issuer)
 
 
+###get_dispenser_info
+
+**get_dispenser_info()**
+
+Gets information on a dispenser.
+
+**Parameters:**
+
+  * **tx_hash** (*string*): The transaction hash identifier
+  * **tx_index** (*integer*): The transaction index
+
+**Return:**
+
+  ``null`` if the asset was not found. Otherwise, an object with the following properties:
+
+  - **asset** (*string*): The [assets](#assets) of the asset itself
+  - **asset_longname** (*string*): The [subasset](#subassets) longname, if any
+  - **tx_index** (*integer*): The transaction index
+  - **tx_hash** (*string*): The transaction hash
+  - **block_index** (*integer*): The block index (block number in the block chain)
+  - **source** (*string*): The address that made the bet
+  - **give_quantity** (*integer*): The [quantity](#quantities-and-balances) given per dispense
+  - **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) escrowed in the dispenser
+  - **give_remaining** (*integer*): The [quantity](#quantities-and-balances) remaining in the dispenser
+  - **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+  - **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
+  - **fiat_price** (*float*): The FIAT price per dispense
+  - **fiat_unit** (*string*): The FIAT unit being used
+  - **satoshi_price** (*integer*): The sats required for a dispense
+  - **oracle_price** (*float*): The BTC price broadcast by the oracle
+  - **oracle_address** (*string*): The address that is being used as the oracle
+  - **oracle_price_last_updated** (*integer*): The block_index of the last update from the oracle
+  * *NOTE: If an **oracle_address** is given, **mainchainrate** format is X.XX (fiat) (ex. 1500 = 15.00).*
+
+
 ###get_supply
 
 **get_supply(asset)**
@@ -1014,7 +1049,7 @@ Destroy XCP or a user defined asset.
 
 ###create_dispenser
 
-**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address)**
+**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address, oracle_address)**
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
 quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
@@ -1028,7 +1063,9 @@ of give_quantity to ease dispenser operation.
   * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
   * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
   * **open_address** (*string*): The address that you would like to open the dispenser on.
+  * **oracle_address** (*string*): The address that you would like to use as a price oracle for this dispenser.
   * **status** (*integer*): The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed.
+  * *NOTE: When specifying an **oracle_address**, **mainchainrate** format becomes X.XX (fiat) (ex. 1500 = 15.00).*
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -1056,9 +1093,9 @@ Issue a dividend on a specific user defined asset.
 
 ###create_issuance
 
-**create_issuance(source, asset, quantity, divisible, description, transfer_destination=null)**
+**create_issuance(source, asset, quantity, divisible, description, transfer_destination=null, lock, reset)**
 
-Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset (note that you can only do one of these operations in a given create_issuance call).
+Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset.
 
 **Parameters:**
 
@@ -1067,7 +1104,9 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description** (*string, default=''*): A textual description for the asset.
-  * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
+  * **transfer_destination** (*string, default=null*): The address to receive the asset.
+  * **lock** (*boolean, default=false*): Whether this issuance should lock supply of this asset forever.
+  * **reset** (*boolean, default=false*): Wether this issuance should reset any existing supply.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -1076,9 +1115,6 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 
 **Notes:**
 
-  * To lock the issuance of the asset, specify "LOCK" for the ``description`` field. It's a special keyword that will
-    not change the actual description, but will simply lock the asset quantity and not allow additional quantity to be
-    issued for the asset.
   * A named asset has an issuance cost of 0.5 XCP.
   * A subasset has an issuance cost of 0.25 XCP.
   * In order to issue an asset, BTC and XCP (for first time, non-free Counterparty assets) are required at the source address to pay fees.
