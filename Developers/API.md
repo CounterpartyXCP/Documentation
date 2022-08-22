@@ -626,17 +626,18 @@ Gets information on a dispenser.
   - **tx_hash** (*string*): The transaction hash
   - **block_index** (*integer*): The block index (block number in the block chain)
   - **source** (*string*): The address that made the bet
-  - **give_quantity** (*integer*): The [quantities](#quantities-and-balances) given per dispense
-  - **escrow_quantity** (*integer*): The [quantities](#quantities-and-balances) escrowed in the dispenser
-  - **give_remaining** (*integer*): The [quantities](#quantities-and-balances) remaining in the dispenser
+  - **give_quantity** (*integer*): The [quantity](#quantities-and-balances) given per dispense
+  - **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) escrowed in the dispenser
+  - **give_remaining** (*integer*): The [quantity](#quantities-and-balances) remaining in the dispenser
   - **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
-  - **satoshirate** (*integer*): The satoshirate for the dispenser
+  - **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
   - **fiat_price** (*float*): The FIAT price per dispense
   - **fiat_unit** (*string*): The FIAT unit being used
   - **satoshi_price** (*integer*): The sats required for a dispense
   - **oracle_price** (*float*): The BTC price broadcast by the oracle
   - **oracle_address** (*string*): The address that is being used as the oracle
   - **oracle_price_last_updated** (*integer*): The block_index of the last update from the oracle
+  * *NOTE: If an **oracle_address** is given, **mainchainrate** format is X.XX (fiat) (ex. 1500 = 15.00).*
 
 
 ###get_supply
