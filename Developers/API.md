@@ -1095,7 +1095,7 @@ Issue a dividend on a specific user defined asset.
 
 **create_issuance(source, asset, quantity, divisible, description, transfer_destination=null, lock, reset)**
 
-Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset.
+Issue a new asset, issue more of an existing asset, lock an asset, reset existing supply, or transfer the ownership of an asset.
 
 **Parameters:**
 
