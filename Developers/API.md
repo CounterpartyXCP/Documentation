@@ -1107,7 +1107,8 @@ Issue a new asset, issue more of an existing asset, lock an asset, reset existin
   * **transfer_destination** (*string, default=null*): The address to receive the asset.
   * **lock** (*boolean, default=false*): Whether this issuance should lock supply of this asset forever.
   * **reset** (*boolean, default=false*): Wether this issuance should reset any existing supply.
-  * *NOTE: When resetting an assets supply, **lock** and **transfer_destination** will not work in the same issuance as **reset** .*
+  * *NOTE: **reset** is only possible when no supply is issued, or when the asset owner has control of 100% of the supply.*
+  * *NOTE: When resetting an assets supply, **transfer_destination** will not work in the same issuance as **reset** .*
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
