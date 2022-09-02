@@ -153,31 +153,31 @@ Authorization string in the example below is based on the default username/passw
     package main
 
     import (
-    	"fmt"
-    	"strings"
-    	"net/http"
-    	"io/ioutil"
+        "fmt"
+        "strings"
+        "net/http"
+        "io/ioutil"
     )
 
     func main() {
 
-    	url := "http://127.0.0.1:4000/api/"
+        url := "http://127.0.0.1:4000/api/"
 
-    	payload := strings.NewReader("{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}")
+        payload := strings.NewReader("{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}")
 
-    	req, _ := http.NewRequest("POST", url, payload)
+        req, _ := http.NewRequest("POST", url, payload)
 
-    	req.Header.Add("content-type", "application/json")
-    	req.Header.Add("authorization", "Basic cnBjOjEyMzQ=")
-    	req.Header.Add("cache-control", "no-cache")
+        req.Header.Add("content-type", "application/json")
+        req.Header.Add("authorization", "Basic cnBjOjEyMzQ=")
+        req.Header.Add("cache-control", "no-cache")
 
-    	res, _ := http.DefaultClient.Do(req)
+        res, _ := http.DefaultClient.Do(req)
 
-    	defer res.Body.Close()
-    	body, _ := ioutil.ReadAll(res.Body)
+        defer res.Body.Close()
+        body, _ := ioutil.ReadAll(res.Body)
 
-    	fmt.Println(res)
-    	fmt.Println(string(body))
+        fmt.Println(res)
+        fmt.Println(string(body))
 
     }
 
@@ -303,7 +303,7 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                               "asset": "MYASSET",
                               "quantity": 1000,
                               "description": "my asset is cool",
-                              "divisible": False
+                              "divisible": false
                              },
                    "jsonrpc": "2.0",
                    "id": 0
@@ -348,31 +348,31 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 
 **Bitcoin Core with Python**
 
-	#! /usr/bin/env python3
+    #! /usr/bin/env python3
 
-	from counterpartylib.lib import util
-	from counterpartylib.lib import config
-	from counterpartylib.lib.backend import addrindex
+    from counterpartylib.lib import util
+    from counterpartylib.lib import config
+    from counterpartylib.lib.backend import addrindex
 
-	config.TESTNET =
-	config.RPC =
-	config.BACKEND_URL =
-	config.BACKEND_SSL_NO_VERIFY =
+    config.TESTNET =
+    config.RPC =
+    config.BACKEND_URL =
+    config.BACKEND_SSL_NO_VERIFY =
 
-	def counterparty_api(method, params):
-	    return util.api(method, params)
+    def counterparty_api(method, params):
+        return util.api(method, params)
 
-	def bitcoin_api(method, params):
-	    return addrindex.rpc(method, params)
+    def bitcoin_api(method, params):
+        return addrindex.rpc(method, params)
 
-	def do_send(source, destination, asset, quantity, fee, encoding):
-	    validateaddress = bitcoin_api('validateaddress', [source])
-	    assert validateaddress['ismine']
-	    pubkey = validateaddress['pubkey']
-	    unsigned_tx = counterparty_api('create_send', {'source': source, 'destination': destination, 'asset': asset, 'quantity': quantity, 'pubkey': pubkey, 'allow_unconfirmed_inputs': True})
-	    signed_tx = bitcoin_api('signrawtransaction', [unsigned_tx])['hex']
-	    tx_hash = bitcoin_api('sendrawtransaction', [signed_tx])
-	    return tx_hash
+    def do_send(source, destination, asset, quantity, fee, encoding):
+        validateaddress = bitcoin_api('validateaddress', [source])
+        assert validateaddress['ismine']
+        pubkey = validateaddress['pubkey']
+        unsigned_tx = counterparty_api('create_send', {'source': source, 'destination': destination, 'asset': asset, 'quantity': quantity, 'pubkey': pubkey, 'allow_unconfirmed_inputs': True})
+        signed_tx = bitcoin_api('signrawtransaction', [unsigned_tx])['hex']
+        tx_hash = bitcoin_api('sendrawtransaction', [signed_tx])
+        return tx_hash
 
 **Bitcoin Core with Javascript**
 (Utilizing the [Counterwallet Bitcore wrapper code](https://raw.githubusercontent.com/CounterpartyXCP/counterwallet/master/src/js/util.bitcore.js) for brevity.)
@@ -441,7 +441,7 @@ async function signP2SHDataTX(wif, txHex) {
 
 ### assets
 
-Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../../advanced/protocol.md#assets) for what constitutes a valid asset name.
+Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../../advanced/protocol#assets) for what constitutes a valid asset name.
 Examples:
 
 - "BTC"
@@ -451,7 +451,7 @@ Examples:
 
 ### subassets
 
-See the [Counterparty protocol specification](../../advanced/protocol.md#subassets) for what constitutes a valid subasset name.
+See the [Counterparty protocol specification](../../advanced/protocol#subassets) for what constitutes a valid subasset name.
 Examples:
 
 - "PIZZA.X"
@@ -475,7 +475,7 @@ Floats are ratios or floating point values with six decimal places of precision,
 
 ### Memos
 
-See the [Counterparty protocol specification](../../advanced/protocol.md#memos) for what constitutes a valid memo.
+See the [Counterparty protocol specification](../../advanced/protocol#memos) for what constitutes a valid memo.
 Examples:
 
 - "for pizza"

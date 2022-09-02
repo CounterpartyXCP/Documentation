@@ -10,7 +10,7 @@ title: Technical Specification
 **get_{table}(filters=[], filterop='AND', order_by=null, order_dir=null, start_block=null, end_block=null, status=null, limit=1000, offset=0, show_expired=true)**
 
 Where **{table}** must be one of the following values:
-``assets``, ``balances``, ``bets``, ``bet_expirations``, ``bet_matches``, ``bet_match_expirations``, ``bet_match_resolutions``, ``broadcasts``, ``btcpays``, ``burns``, ``cancels``, ``credits``, ``debits``,  ``dividends``, ``issuances``, ``mempool``, ``orders``, ``order_expirations``, ``order_matches``, ``order_match_expirations``, or ``sends``, ``dispensers``.
+``assets``, ``balances``, ``bets``, ``bet_expirations``, ``bet_matches``, ``bet_match_expirations``, ``bet_match_resolutions``, ``broadcasts``, ``btcpays``, ``burns``, ``cancels``, ``credits``, ``debits``, ``destructions``, ``dispensers``, ``dispenses``, ``dividends``, ``issuances``, ``mempool``, ``orders``, ``order_expirations``, ``order_matches``, ``order_match_expirations``, ``sends``, or ``transactions`` .
 
 For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods. A complete list of tables can be found in the api.py file in the counterparty-lib repository.
 
@@ -65,14 +65,14 @@ For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API
 
 ### get_asset_info
 
-**get_asset_info(asset)**
+**get_asset_info(asset, assets)**
 
 Gets information on an issued asset.
-**NOTE:** This method is depreaciated and may be removed in a future release.
 
 **Parameters:**
 
   * **asset** (*string*): The name of the [asset](#assets) or [subasset](#subassets) for which to retrieve the information.
+  * **assets** (*array*): An array of names of the [assets](#assets) or [subassets](#subassets) for which to retrieve the information.
 
 **Return:**
 
@@ -87,6 +87,40 @@ Gets information on an issued asset.
   - **description** (*string*): The asset's current description
   - **issuer** (*string*): The asset's original owner (i.e. issuer)
 
+
+### get_dispenser_info
+
+**get_dispenser_info()**
+
+Gets information on a dispenser.
+
+**Parameters:**
+
+  * **tx_hash** (*string*): The transaction hash identifier
+  * **tx_index** (*integer*): The transaction index
+
+**Return:**
+
+  ``null`` if the asset was not found. Otherwise, an object with the following properties:
+
+  - **asset** (*string*): The [assets](#assets) of the asset itself
+  - **asset_longname** (*string*): The [subasset](#subassets) longname, if any
+  - **tx_index** (*integer*): The transaction index
+  - **tx_hash** (*string*): The transaction hash
+  - **block_index** (*integer*): The block index (block number in the block chain)
+  - **source** (*string*): The address that made the bet
+  - **give_quantity** (*integer*): The [quantity](#quantities-and-balances) given per dispense
+  - **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) escrowed in the dispenser
+  - **give_remaining** (*integer*): The [quantity](#quantities-and-balances) remaining in the dispenser
+  - **status** (*integer*): The state of the dispenser. 0 for open, 10 for closed.
+  - **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
+  - **fiat_price** (*float*): The FIAT price per dispense
+  - **fiat_unit** (*string*): The FIAT unit being used
+  - **satoshi_price** (*integer*): The sats required for a dispense
+  - **oracle_price** (*float*): The BTC price broadcast by the oracle
+  - **oracle_address** (*string*): The address that is being used as the oracle
+  - **oracle_price_last_updated** (*integer*): The block_index of the last update from the oracle
+  * *NOTE: If an **oracle_address** is given, **mainchainrate** format is X.XX (fiat) (ex. 1500 = 15.00).*
 
 ### get_supply
 
@@ -488,7 +522,7 @@ Destroy XCP or a user defined asset.
   * **source** (*string*): The address that will be sending (must have the necessary quantity of the specified asset).
   * **asset** (*string*): The [asset](#assets) or [subasset](#subassets) to destroy.
   * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the asset to destroy.
-  * **tag** (*string, optional*): The tag (which works like a [Memo](../../advanced/protocol.md#memos) ) associated with this transaction.
+  * **tag** (*string, optional*): The tag (which works like a [Memo](../../advanced/protocol#memos) ) associated with this transaction.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -497,7 +531,7 @@ Destroy XCP or a user defined asset.
 
 ### create_dispenser
 
-**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address)**
+**create_dispenser(source, asset, give_quantity, escrow_quantity, mainchainrate, status, open_address, oracle_address)**
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed
 quantity on open must be equal or greater than *give_quantity*. It is suggested that you escrow multiples
@@ -511,7 +545,9 @@ of give_quantity to ease dispenser operation.
   * **escrow_quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to reserve for this dispenser.
   * **mainchainrate** (*integer*): The [quantity](#quantities-and-balances) of the main chain asset (BTC) per dispensed portion.
   * **open_address** (*string*): The address that you would like to open the dispenser on.
+  * **oracle_address** (*string*): The address that you would like to use as a price oracle for this dispenser.
   * **status** (*integer*): The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed.
+  * *NOTE: When specifying an **oracle_address**, **mainchainrate** format becomes X.XX (fiat) (ex. 1500 = 15.00).*
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -539,9 +575,9 @@ Issue a dividend on a specific user defined asset.
 
 ### create_issuance
 
-**create_issuance(source, asset, quantity, divisible, description, transfer_destination=null)**
+**create_issuance(source, asset, quantity, divisible, description, transfer_destination=null, lock, reset)**
 
-Issue a new asset, issue more of an existing asset, lock an asset, or transfer the ownership of an asset (note that you can only do one of these operations in a given create_issuance call).
+Issue a new asset, issue more of an existing asset, lock an asset, reset existing supply, or transfer the ownership of an asset.
 
 **Parameters:**
 
@@ -550,7 +586,11 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
   * **quantity** (*integer*): The [quantity](#quantities-and-balances) of the asset to issue (set to 0 if *transferring* an asset).
   * **divisible** (*boolean, default=true*): Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued).
   * **description** (*string, default=''*): A textual description for the asset.
-  * **transfer_destination** (*string, default=null*): The address to receive the asset (only used when *transferring* assets -- leave set to ``null`` if issuing an asset).
+  * **transfer_destination** (*string, default=null*): The address to receive the asset.
+  * **lock** (*boolean, default=false*): Whether this issuance should lock supply of this asset forever.
+  * **reset** (*boolean, default=false*): Wether this issuance should reset any existing supply.
+  * *NOTE: **reset** is only possible when no supply is issued, or when the asset owner has control of 100% of the supply.*
+  * *NOTE: When resetting an assets supply, **transfer_destination** will not work in the same issuance as **reset** .*
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -559,9 +599,6 @@ Issue a new asset, issue more of an existing asset, lock an asset, or transfer t
 
 **Notes:**
 
-  * To lock the issuance of the asset, specify "LOCK" for the ``description`` field. It's a special keyword that will
-    not change the actual description, but will simply lock the asset quantity and not allow additional quantity to be
-    issued for the asset.
   * A named asset has an issuance cost of 0.5 XCP.
   * A subasset has an issuance cost of 0.25 XCP.
   * In order to issue an asset, BTC and XCP (for first time, non-free Counterparty assets) are required at the source address to pay fees.
@@ -604,8 +641,8 @@ To send multiple assets/destinations simultaneously you can pass an array of par
   * **destination** (*string, array[string]*): The address to receive the asset.
   * **asset** (*string, array[string]*): The [asset](#assets) or [subasset](#subassets) to send.
   * **quantity** (*integer, array[integer]*): The [quantities](#quantities-and-balances) of the asset to send.
-  * **memo** (*string, optional*): The [Memo](../../advanced/protocol.md#memos) associated with this transaction.
-  * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../../advanced/protocol.md#memos) as a hexadecimal value.  Defaults to false.
+  * **memo** (*string, optional*): The [Memo](../../advanced/protocol#memos) associated with this transaction.
+  * **memo_is_hex** (*boolean, optional*): If this is true, interpret the [memo](../../advanced/protocol#memos) as a hexadecimal value.  Defaults to false.
   * **use_enhanced_send** (*boolean, optional*): If this is false, the construct a legacy transaction sending bitcoin dust.  Defaults to true.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
@@ -629,7 +666,7 @@ Sends all assets and/or transfer ownerships to a destination address.
     * FLAG_BALANCES: (*integer*) 1, specifies that all balances should be transferred.
     * FLAG_OWNERSHIP: (*integer*) 2, specifies that all ownerships should be transferred.
     * FLAG_BINARY_MEMO: (*integer*) 4, specifies that the memo is in binary/hex form.
-  * **memo** (*string, optional*): The [Memo](../../advanced/protocol.md#memos) associated with this transaction.
+  * **memo** (*string, optional*): The [Memo](../../advanced/protocol#memos) associated with this transaction.
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
@@ -952,7 +989,7 @@ An object that describes a specific send (e.g. "simple send", of XCP, or a user 
 * **asset** (*string*): The [assets](#assets) being sent
 * **quantity** (*integer*): The [quantities](#quantities-and-balances) of the specified asset sent
 * **validity** (*string*): Set to "valid" if a valid send. Any other setting signifies an invalid/improper send
-* **memo** (*string*): The [memo](../../advanced/protocol.md#memos) associated with this transaction
+* **memo** (*string*): The [memo](../../advanced/protocol#memos) associated with this transaction
 
 
 ### Message Object
