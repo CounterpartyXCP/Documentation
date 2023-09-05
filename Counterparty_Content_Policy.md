@@ -56,7 +56,7 @@ Moderators can collectively be reached via emailing moderators@counterparty.io
 
 ### How to become a moderator
 
-Community members may apply for moderator status. We generally look for intelligent, well-behaved, and reliable members of the community. If you are interested and think you have what it takes, please reach out to us at moderators@counterparty.io, or on Slack.
+Community members may apply for moderator status. We generally look for intelligent, well-behaved, and reliable members of the community. If you are interested and think you have what it takes, please reach out to us at moderators@counterparty.io, or on the [Counterparty Telegram](https://t.me/Counterparty_XCP).
 
 ## Additional information
 
