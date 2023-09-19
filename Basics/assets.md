@@ -6,7 +6,7 @@ With Counterparty, users can create their own assets (also known as "tokens", "c
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions on* assets, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
 
-Many of the features described below can be accessed using the Web-based Counterwallet, rpw.wtf, or the desktop or mobile versions of Freewallet. Casual users and those without a `counterparty-cli` setup can benefit from the convenience of these GUI wallet options.
+Many of the features described below can be accessed using the Web-based Counterwallet, rpw.wtf, or Freewallet.io, which has both mobile and desktop versions. Casual users and those without a `counterparty-cli` setup can benefit from the convenience of these GUI wallet options.
 
 
 # Creating assets
