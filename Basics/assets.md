@@ -6,7 +6,7 @@ With Counterparty, users can create their own assets (also known as "tokens", "c
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions on* assets, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
 
-Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-cli` setup can benefit from the convenience of Counterwallet.
+Many of the features described below can be accessed using the Web-based Counterwallet, rpw.wtf, or the desktop or mobile versions of Freewallet. Casual users and those without a `counterparty-cli` setup can benefit from the convenience of these GUI wallet options.
 
 
 # Creating assets
@@ -43,13 +43,14 @@ empty string; the syntax of an asset *with no description* is
 `description=""`.
 
 Beyond creating the most basic asset, it is also possible to make assets
-either *divisible* or *callable*. If an asset is made divisible (or
-callable) upon its initial issuance, it must always be divisible (or
-callable) with every issuance thereafter. A divisible user-created asset
-is, like, Bitcoin and XCP, divisible up to 8 decimal places. A callable
-asset is an asset which the issuer can call back (i.e. repurchase) from
-its owners at a date (`call-date`) and for a price (`call-price`)
-specified at the initial issuance.
+either *divisible* or *callable*. If an asset is made callable upon its 
+initial issuance, it must always be callable with every issuance thereafter. 
+Once an asset is made divisible, it can only be changed by the owner if they 
+hold the entire supply and the asset is not locked, otherwise it will remain 
+divisible. A divisible user-created asset is, like, Bitcoin and XCP, divisible
+up to 8 decimal places. A callable asset is an asset which the issuer can call
+back (i.e. repurchase) from its owners at a date (`call-date`) and for a price
+(`call-price`)specified at the initial issuance.
 
 # Sending assets (`send`)
 
