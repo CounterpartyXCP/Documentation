@@ -441,7 +441,7 @@ async function signP2SHDataTX(wif, txHex) {
 
 ### assets
 
-Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../../advanced/protocol#assets) for what constitutes a valid asset name.
+Everywhere in the API an asset is referenced by its name, not its ID. See the [Counterparty protocol specification](../../../../docs/advanced/protocol/#assets) for what constitutes a valid asset name.
 Examples:
 
 - "BTC"
@@ -451,7 +451,7 @@ Examples:
 
 ### subassets
 
-See the [Counterparty protocol specification](../../advanced/protocol#subassets) for what constitutes a valid subasset name.
+See the [Counterparty protocol specification](../../../../docs/advanced/protocol/#subassets) for what constitutes a valid subasset name.
 Examples:
 
 - "PIZZA.X"
@@ -475,7 +475,7 @@ Floats are ratios or floating point values with six decimal places of precision,
 
 ### Memos
 
-See the [Counterparty protocol specification](../../advanced/protocol#memos) for what constitutes a valid memo.
+See the [Counterparty protocol specification](../../../advanced/protocol/#memos) for what constitutes a valid memo.
 Examples:
 
 - "for pizza"
