@@ -48,15 +48,5 @@ Make sure you have Python 3.5. (Ubuntu 14.04 for instance uses Python 3.4 by def
 
 ```
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get -y install git curl coreutils
-```
-
-Install docker-ce and docker-compose (see [here](https://docs.docker.com/compose/install/) for more info, here we use v1.16.1):
-
-```
-sudo -i # become root
-curl -fsSL https://get.docker.com/ | sh
-curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-exit # leave root shell
+sudo apt-get -y install git curl coreutils docker.io docker-compose
 ```
