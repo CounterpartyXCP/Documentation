@@ -28,11 +28,11 @@ Please note that Federated Node should not be installed on a system which alread
 
 - **Memory**: 4GB RAM (`bitcoind`, `counterparty-server` only), 8GB+ RAM (full stack)
 - **Disk space:** The exact disk space required will be dependent on what services are run on the node:
-    - For ``bitcoin`` databases: **~361GB** (mainnet), **~32GB** (testnet)
-    - For ``addrindexrs`` database: **~63GB** (mainnet), **~6GB** (testnet)
-    - For ``counterparty`` databases: **~5GB** (mainnet), **~1GB** (testnet)
-    - For ``armory_utxsvr``: **~291GB** (mainnet), **~26GB** (testnet)
+    - For ``bitcoin`` databases: **~610GB** (mainnet), **~37GB** (testnet)
+    - For ``addrindexrs`` database: **~130GB** (mainnet), **~9GB** (testnet)
+    - For ``counterparty`` databases: **~9GB** (mainnet), **~2GB** (testnet)
+    - For ``armory_utxsvr``: **~650GB** (mainnet), **~40GB** (testnet)
 - **OS:** *Please note that Ubuntu Linux is the recommended OS at this time, as most of our testing is performed on it. Windows and OS X support is considered in BETA.*
-    - **Linux**: We recommend Ubuntu 20.10 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
+    - **Linux**: We recommend Ubuntu 22.04 LTS 64-bit, but other, modern versions of Linux should work, as long as they support the newest released version of Docker
     - **Windows**: Windows 7 or higher, or Server 2008 or higher. 64-bit required
     - **OS X**: 10.8 "Mountain Lion" or higher
