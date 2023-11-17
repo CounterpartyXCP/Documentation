@@ -1065,12 +1065,23 @@ of give_quantity to ease dispenser operation.
   * **open_address** (*string*): The address that you would like to open the dispenser on.
   * **oracle_address** (*string*): The address that you would like to use as a price oracle for this dispenser.
   * **status** (*integer*): The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed.
-  * *NOTE: When specifying an **oracle_address**, **mainchainrate** format becomes X.XX (fiat) (ex. 1500 = 15.00).*
   * *NOTE: Additional (advanced) parameters for this call are documented [here](#advanced-create_-parameters).*
 
 **Return:**
 
   The unsigned transaction, as an hex-encoded string. Must be signed before being broadcast: see [here](#signing-transactions-before-broadcasting) for more information.
+
+**Notes:**
+  * When specifying an **oracle_address**, **mainchainrate** format becomes X.XX (fiat) (ex. 1500 = 15.00).
+  * Dispensers can be opened on **`EMPTY`** addresses (address with no BTC or XCP history)
+  * **`origin`** address is the **`source`** address that opens a dispenser on an **`EMPTY`** address
+  * Dispensers can be opened, closed, and refilled via **`source`** or **`origin`** addresses
+  * When closing a dispenser from **`origin`**, escrowed dispenser funds are credited to **`origin`** address
+  * Use **`open_address`** param to operate on a dispenser from **`origin`** address  
+  * Dispensers have a `MAX_DISPENSE` limit of 1,000
+  * Dispensers `MAX_DISPENSE` can be reset via a dispenser refill
+  * Dispensers have a `MAX_REFILL` limit of 5
+  * Dispensers have a `CLOSE` delay of 5 blocks
 
 ###create_dividend
 
