@@ -65,4 +65,6 @@ The concept of an OTC market may sound antiquated but in reality they are a majo
 
 This technology is all in various stages of development, with some of it being complete (P2SH, for instance) and some in very early states on Counterparty (such as bidirectional payment channels and Lightning Network support).
 
-We will be publishing guides for users and developers as the respective technology becomes available and matures. Until that point, feel free to check out [the newest source code](https://github.com/CounterpartyXCP/counterparty-lib/tree/develop) and ask questions on #dev on [our official Slack chat](http://slack.counterparty.io/).
+We will be publishing guides for users and developers as the respective technology becomes available and matures. Until that point, feel free to check out [the newest source code](https://github.com/CounterpartyXCP/counterparty-lib/tree/develop) and direct your code related questions to the [Discussions section](https://github.com/CounterpartyXCP/cips/discussions) of the CIP github. 
+
+You are also invited to ask and discuss all Counterparty related questions at the [Counterparty Forums](https://forums.counterparty.io/), as well as in the [Counterparty Developer Telegram](https://t.me/Counterparty_Dev) and the [Counterparty Telgram](https://t.me/Counterparty_XCP).
