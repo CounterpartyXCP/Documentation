@@ -5,11 +5,11 @@ title: Technical Specification
 ## Read API Function Reference
 
 
-### get_{table}
+### `get_{table}`
 
-**get_{table}(filters=[], filterop='AND', order_by=null, order_dir=null, start_block=null, end_block=null, status=null, limit=1000, offset=0, show_expired=true)**
+**`get_{table}(filters=[], filterop='AND', order_by=null, order_dir=null, start_block=null, end_block=null, status=null, limit=1000, offset=0, show_expired=true)`**
 
-Where **{table}** must be one of the following values:
+Where **`{table}`** must be one of the following values:
 ``assets``, ``balances``, ``bets``, ``bet_expirations``, ``bet_matches``, ``bet_match_expirations``, ``bet_match_resolutions``, ``broadcasts``, ``btcpays``, ``burns``, ``cancels``, ``credits``, ``debits``, ``destructions``, ``dispensers``, ``dispenses``, ``dividends``, ``issuances``, ``mempool``, ``orders``, ``order_expirations``, ``order_matches``, ``order_match_expirations``, ``sends``, or ``transactions`` .
 
 For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods. A complete list of tables can be found in the api.py file in the counterparty-lib repository.
@@ -1066,17 +1066,17 @@ Here the list of all possible status for each table:
 * **bet_expirations**: No status field
 * **bet_match_expirations**: No status field
 * **bet_matches**: pending, settled: liquidated for bear (deprecated), settled, settled: liquidated for bull (deprecated), settled: for equal, settled: for notequal, dropped, expired
-* **bets**: open, filled, cancelled, expired, dropped, invalid: {problem(s)}
-* **broadcasts**: valid, invalid: {problem(s)}
-* **btcpays**: valid, invalid: {problem(s)}
-* **burns**: valid, invalid: {problem(s)}
-* **cancels**: valid, invalid: {problem(s)}
+* **bets**: open, filled, cancelled, expired, dropped, invalid: `{problem(s)}`
+* **broadcasts**: valid, invalid: `{problem(s)}`
+* **btcpays**: valid, invalid: `{problem(s)}`
+* **burns**: valid, invalid: `{problem(s)}`
+* **cancels**: valid, invalid: `{problem(s)}`
 * **credits**: No status field
 * **debits**: No status field
-* **dividends**: valid, invalid: {problem(s)}
-* **issuances**: valid, invalid: {problem(s)}
+* **dividends**: valid, invalid: `{problem(s)}`
+* **issuances**: valid, invalid: `{problem(s)}`
 * **order_expirations**: No status field
 * **order_match_expirations**: No status field
 * **order_matches**: pending, completed, expired
-* **orders**: open, filled, canceled, expired, invalid: {problem(s)}
-* **sends**: valid, invalid: {problem(s)}
+* **orders**: open, filled, canceled, expired, invalid: `{problem(s)}`
+* **sends**: valid, invalid: `{problem(s)}`
