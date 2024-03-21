@@ -23,7 +23,7 @@ On top of this, every Counterparty transaction pays a fair fee to the network fo
 
 ### Are Counterparty transactions less secure than Bitcoin transactions?
 
-As Counterparty transactions _are_ Bitcoin transactions, their data is proably just as secure as any other Bitcoin transaction.
+As Counterparty transactions _are_ Bitcoin transactions, their data are just as secure as any other Bitcoin transaction.
 
 ### How do the Counterparty nodes stay in sync? What's to stop one node from disagreeing with another?
 
@@ -83,7 +83,7 @@ Counterparty only needs some Bitcoin full nodes somewhere to have an unpruned co
 
 ### How are blockchain reorganizations ("reorgs") handled by Counterparty?
 
-Blockchain reorganizations are essentially handled by Counterparty the same way they are handled by Bitcoin. If the Counterparty software detects that a reorganization has occurred, it will utilize an internal "undolog" to quickly undo (roll back) transactions up to the point of the chain branching, and then process new transactions on the now-longest chain.
+Blockchain reorganizations are essentially handled by Counterparty the same way they are handled by Bitcoin. The Counterparty database is log-structured. This means that Counterparty simply deletes all the database rows written after a certain block to execute a rollback, and then process new transactions on the now-longest chain.
 
 ### How can a thin client trustlessly lookup the Bitcoin public address associated with the OSTOCK asset name?
 
