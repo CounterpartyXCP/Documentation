@@ -67,7 +67,7 @@ There will be no incompatible API pushes that do not either have:
 
 * "/api" with no trailing slash no longer supported as an API endpoint (use "/" or "/api/" instead)
 * We now consistently reject positional arguments with all API methods. Make sure your API calls do not use positional
-  arguments (e.g. use {"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"])
+  arguments (e.g. use `{"argument1": "value1", "argument2": "value2"}` instead of `["value1", "value2"]`)
 
 ### 9.25.0
 

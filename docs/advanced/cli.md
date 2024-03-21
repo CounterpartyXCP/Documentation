@@ -223,17 +223,17 @@ situation where double quotes may be required on Windows is filtering
 (e.g. `--filter "source" "=" "mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns"`).
 
 
-Bet (Equal/Not Equal)
+Bet (Equal or Not Equal)
 ----------------------------------------
 *Offer to make a bet on the value of a feed*
 
 * --source = the source address
 * --feed-address = the address which publishes the feed to bet on
-* --bet-type = choices: {Equal,NotEqual}
+* --bet-type = choices: `{Equal,NotEqual}`
 * --deadline = the date and time at which the bet should be decided/settled
 * --wager = the quantity of XCP to wager
 * --counterwager = the minimum quantity of XCP to be wagered by the user to bet against you, if he were to accept the whole thing
-* --target-value = target value for Equal/NotEqual bet
+* --target-value = target value for Equal or NotEqual bet
 * --leverage = leverage, as a fraction of 5040
 * --expiration = the number of blocks for which the bet should be valid
 * --fee = the exact BTC fee to be paid to miners

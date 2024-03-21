@@ -41,6 +41,7 @@ The requests to the secondary REST API are made via HTTP GET to ``/rest/``, with
 
 All requests must have POST data that is JSON encoded. Here's an example of the POST data for a valid API request:
 
+    ```
     {
       "method": "get_sends",
       "params": {"order_by": "tx_hash",
@@ -50,12 +51,13 @@ All requests must have POST data that is JSON encoded. Here's an example of the 
       "jsonrpc": "2.0",
       "id": 0
     }
+    ```
 
 The ``jsonrpc`` and ``id`` properties are requirements under the JSON-RPC 2.0 spec.
 
 You should note that the data in ``params`` is a JSON object (e.g. mapping), not an array. In other words,
 **the API only supports named arguments, not positional arguments** (e.g. use
-{"argument1": "value1", "argument2": "value2"} instead of ["value1", "value2"]). This is the case for safety and bug-minimization reasons.
+`{"argument1": "value1", "argument2": "value2"}` instead of `["value1", "value2"]`). This is the case for safety and bug-minimization reasons.
 
 For more information on JSON RPC, please see the [JSON RPC 2.0 specification](http://www.jsonrpc.org/specification).
 
@@ -82,6 +84,7 @@ Submissions of examples in additional languages are welcome!
 
 ### Python
 
+    ```
     import json
     import requests
     from requests.auth import HTTPBasicAuth
@@ -98,13 +101,14 @@ Submissions of examples in additional languages are welcome!
     }
     response = requests.post(url, data=json.dumps(payload), headers=headers, auth=auth)
     print("Response: ", response.text)
-
+    ```
 
 ### PHP
 
 With PHP, you use the [JsonRPC](https://github.com/fguillot/JsonRPC)
 library.
 
+    ```
     <?php
     require 'JsonRPC/src/JsonRPC/Client.php';
     use JsonRPC\Client;
@@ -119,6 +123,7 @@ library.
     print("get_running_info result:\n");
     var_dump($result2);
     ?>
+    ```
 
 ### curl
 
@@ -126,18 +131,23 @@ Remember to surround non-numeric parameter values with the double quotes, as per
 
 #### Linux
 
+    ```
     curl -X POST http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json, text/javascript' --data-binary '{ "jsonrpc": "2.0", "id": 0, "method": "get_running_info" }'
+    ```
 
 #### Windows
 
 On Windows, depending on implementation the above curl command may need to be formatted differently due to problems that Windows has with escapes. For example this particular format was found to work with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10 (x64).
 
+    ```
     curl -X POST http://127.0.0.1:4000/api/ --user rpc:$PASSWORD -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json, text/javascript" --data-binary "{ \"jsonrpc\": \"2.0\", \"id\": 0, \"method\": \"get_running_info\" }"
+    ```
 
 ### c# (RestSharp)
 
 Authorization string in the example below is based on the default username/password.
 
+    ```
     var client = new RestClient("http://127.0.0.1:4000/api/");
     var request = new RestRequest(Method.POST);
     request.AddHeader("cache-control", "no-cache");
@@ -145,11 +155,13 @@ Authorization string in the example below is based on the default username/passw
     request.AddHeader("content-type", "application/json");
     request.AddParameter("application/json", "{\r\n  \"method\": \"get_running_info\",\r\n  \"params\": {},\r\n  \"jsonrpc\": \"2.0\",\r\n  \"id\": 1\r\n}", ParameterType.RequestBody);
     IRestResponse response = client.Execute(request);
+    ```
 
 ### Go
 
 Authorization string in the example below is based on the default username/password.
 
+    ```
     package main
 
     import (
@@ -180,11 +192,13 @@ Authorization string in the example below is based on the default username/passw
         fmt.Println(string(body))
 
     }
+    ```
 
 ### Ruby (Net::HTTP)
 
 Authorization string in the example below is based on the default username/password.
 
+    ```
     require 'uri'
     require 'net/http'
 
@@ -200,6 +214,7 @@ Authorization string in the example below is based on the default username/passw
 
     response = http.request(request)
     puts response.read_body
+    ```
 
 
 ## Example Implementations for REST API
@@ -208,6 +223,7 @@ The following examples don't use authentication as with default settings.
 
 ### Python
 
+    ```
     import requests
 
     url = "http://localhost:4000/rest/"
@@ -217,6 +233,7 @@ The following examples don't use authentication as with default settings.
 
     response = requests.get(url + query, headers=headers)
     print("Response: ", response.text)
+    ```
 
 
 ### curl
@@ -225,18 +242,23 @@ These examples use the default username/password combination in URL.
 
 #### Linux
 
+    ```
     curl "http://rpc:rpc@127.0.0.1:4000/rest/sends/get?source=1B6ahDHnKtZ5GXqytHSxfcXgNoxm1q1RsP&destination=14fAoS9FPD9jx36hjCNoAqFVLNHD1NQVN5&op=AND" -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json"
+    ```
 
 #### Windows
 
 This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. For POST encryption add `'-X POST'`.
 
+    ```
     curl "http://rpc:rpc@127.0.0.1:4000/rest/sends/get?source=1B6ahDHnKtZ5GXqytHSxfcXgNoxm1q1RsP&destination=14fAoS9FPD9jx36hjCNoAqFVLNHD1NQVN5&op=AND" -H "Content-Type: application/json; charset=UTF-8" -H "Accept: application/json"
+    ```
 
 ## Example Parameters
 
 * Fetch all balances for all assets for both of two addresses, using keyword-based arguments
 
+    ```
         payload = {
                    "method": "get_balances",
                    "params": {
@@ -247,9 +269,11 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
+    ```
 
 * Get all burns between blocks 280537 and 280539 where greater than .2 BTC was burned, sorting by `tx_hash` (ascending order)
 
+    ```
         payload = {
                    "method": "get_burns",
                    "params": {
@@ -263,9 +287,11 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
+    ```
 
 * Fetch all debits for > 2 XCP between blocks 280537 and 280539, sorting the results by quantity (descending order)
 
+    ```
         payload = {
                    "method": "get_debits",
                    "params": {
@@ -278,10 +304,12 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
+    ```
 
 
 * Send 1 XCP (specified in satoshis) from one address to another.
 
+    ```
         payload = {
                    "method": "create_send",
                    "params": {
@@ -293,9 +321,11 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
+    ```
 
 * Issuance (indivisible)
 
+    ```
         payload = {
                    "method": "create_issuance",
                    "params": {
@@ -308,9 +338,11 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
+    ```
 
 * Transfer asset ownership
 
+    ```
         payload = {
                    "method": "create_issuance",
                    "params": {
@@ -322,9 +354,11 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
+    ```
 
 * Lock asset
 
+    ```
         payload = {
                    "method": "create_issuance",
                    "params": {
@@ -336,6 +370,7 @@ This example was created with curl 7.50.1 (x86_64-w64-mingw32) on Windows 10. Fo
                    "jsonrpc": "2.0",
                    "id": 0
                   }
+    ```
 
 
 ## Signing Transactions Before Broadcasting
@@ -348,6 +383,7 @@ The process of signing and broadcasting a transaction, from start to finish, dep
 
 **Bitcoin Core with Python**
 
+    ```
     #! /usr/bin/env python3
 
     from counterpartylib.lib import util
@@ -373,10 +409,12 @@ The process of signing and broadcasting a transaction, from start to finish, dep
         signed_tx = bitcoin_api('signrawtransaction', [unsigned_tx])['hex']
         tx_hash = bitcoin_api('sendrawtransaction', [signed_tx])
         return tx_hash
+    ```
 
 **Bitcoin Core with Javascript**
 (Utilizing the [Counterwallet Bitcore wrapper code](https://raw.githubusercontent.com/CounterpartyXCP/counterwallet/master/src/js/util.bitcore.js) for brevity.)
 
+    ```
     <html>
         <script src="https://raw.githubusercontent.com/bitpay/bitcore-lib/f031e1ddfbf0064ef503a28aada86c4fbf9a414c/bitcore-lib.min.js"></script>
         <script src="https://raw.githubusercontent.com/CounterpartyXCP/counterwallet/master/src/js/util.bitcore.js"></script>
@@ -409,6 +447,7 @@ The process of signing and broadcasting a transaction, from start to finish, dep
         })
         </script>
     </html>
+    ```
 
 **Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction**
 

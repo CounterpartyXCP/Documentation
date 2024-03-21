@@ -1,4 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
+import {themes as prismThemes} from 'prism-react-renderer';
+
 module.exports = {
   title: 'Counterparty',
   tagline: 'NFTs and tokens over Bitcoin',
@@ -12,7 +14,7 @@ module.exports = {
   projectName: 'Documentation', // Usually your repo name.
   themeConfig: {
     prism: {
-      theme: require('prism-react-renderer/themes/dracula'),
+      theme: prismThemes.dracula,
     },
     navbar: {
       title: 'Counterparty',
@@ -28,21 +30,9 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/wallets/counterwallet',
-          activeBasePath: 'docs/wallets',
-          label: 'Wallets',
-          position: 'left',
-        },
-        {
           to: 'docs/advanced/architecture',
           activeBasePath: 'docs/advanced',
           label: 'Advanced',
-          position: 'left',
-        },
-        {
-          to: 'docs/develop/api/overview',
-          activeBasePath: 'docs/develop',
-          label: 'Develop',
           position: 'left',
         },
         {
@@ -112,15 +102,12 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+          editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+          editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
