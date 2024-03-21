@@ -46,7 +46,7 @@ Counterparty only needs some Bitcoin full nodes somewhere to have an unpruned co
 
 ### How are blockchain reorganizations ("reorgs") handled by Counterparty?
 
-Blockchain reorganizations are essentially handled by Counterparty the same way they are handled by Bitcoin. If the Counterparty software detects that a reorganization has occurred, it will utilize an internal "undolog" to quickly undo (roll back) transactions up to the point of the chain branching, and then process new transactions on the now-longest chain.
+Blockchain reorganizations are essentially handled by Counterparty the same way they are handled by Bitcoin. The Counterparty database is log-structured. This means that Counterparty simply deletes all the database rows written after a certain block to execute a rollback, and then process new transactions on the now-longest chain.
 
 ### How can a thin client trustlessly lookup the Bitcoin public address associated with the OSTOCK asset name?
 
