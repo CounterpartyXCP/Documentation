@@ -1,4 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
+import {themes as prismThemes} from 'prism-react-renderer';
+
 module.exports = {
   title: 'Counterparty',
   tagline: 'NFTs and tokens over Bitcoin',
@@ -12,7 +14,7 @@ module.exports = {
   projectName: 'Documentation', // Usually your repo name.
   themeConfig: {
     prism: {
-      theme: require('prism-react-renderer/themes/dracula'),
+      theme: prismThemes.dracula,
     },
     navbar: {
       title: 'Counterparty',
@@ -127,5 +129,18 @@ module.exports = {
         },
       },
     ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/docs/oldDoc',
+            to: '/docs/newDoc',
+          },
+        ],
+      }
+    ]
   ],
 };

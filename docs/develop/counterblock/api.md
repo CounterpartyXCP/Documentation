@@ -94,7 +94,7 @@ Return latest messaages
 
 - **param int count:** Number of messages to return. Must be < 1000 if specified.
 - **return:** A list of messages
-- **rtype:** [{'raw_tx_type', ... other fields vary per tx type}]
+- **rtype:** `[{'raw_tx_type', ... other fields vary per tx type}]`
 
 ### get_pubkey_for_address
 
@@ -122,7 +122,7 @@ Gets raw transactions for a particular address
 - **param end_ts:** The ending date & time. Should be a unix epoch object. If passed as None, defaults to the current date & time
 - **param limit:** the maximum number of transactions to return; defaults to ten thousand
 - **return:** Returns the data, ordered from newest txn to oldest. If any limit is applied, it will cut back from the oldest results
-- **rtype:** {id: {status, tx_hash, _divisible, _tx_index, block_index, _category, destination, tx_index, _block_time, source, asset, _command, quantity}}
+- **rtype:** `{id: {status, tx_hash, _divisible, _tx_index, block_index, _category, destination, tx_index, _block_time, source, asset, _command, quantity}}`
 
 ####proxy_to_counterpartyd
 
@@ -201,7 +201,7 @@ Returns the assets owned by the addresses
 
 - **param addresses:** An array of addresses.
 - **return:** Information on owned assets
-- **rtype:** [{'_change_type', 'locked', 'description', '_at_block', 'divisible', 'total_issued_normalized', '_at_block_time', 'asset', 'total_issued', 'owner', history:[]]
+- **rtype:** `[{'_change_type', 'locked', 'description', '_at_block', 'divisible', 'total_issued_normalized', '_at_block_time', 'asset', 'total_issued', 'owner', history:[]]`
 
 
 ### get_asset_pair_market_info
@@ -293,34 +293,35 @@ Use `get_market_price_history`
 
 - **param list assets:** Assets to check
 - **return:** Array
-- **rtype:** {'24h_hlc_in_btc', 'extended_description', 'extended_pgpsig', 'aggregated_price_as_btc', 'price_in_btc', '24h_summary':{'vol', 'count'}, 'market_cap_in_btc', 'asset', 'price_as_xcp', '7d_history_in_btc':[[ts, price]], '24h_vol_price_change_in_xcp', 'price_in_xcp', 'extended_website', '24h_vol_price_change_in_btc', 'aggregated_price_as_xcp', 'market_cap_in_xcp', '7d_history_in_xcp':[[ts, price]], 'aggregated_price_in_btc', 'aggregated_price_in_xcp', 'price_as_btc', 'total_supply', '24h_ohlc_xcp', 'extended_image'}
+- **rtype:** `{'24h_hlc_in_btc', 'extended_description', 'extended_pgpsig', 'aggregated_price_as_btc', 'price_in_btc', '24h_summary':{'vol', 'count'}, 'market_cap_in_btc', 'asset', 'price_as_xcp', '7d_history_in_btc':[[ts, price]], '24h_vol_price_change_in_xcp', 'price_in_xcp', 'extended_website', '24h_vol_price_change_in_btc', 'aggregated_price_as_xcp', 'market_cap_in_xcp', '7d_history_in_xcp':[[ts, price]], 'aggregated_price_in_btc', 'aggregated_price_in_xcp', 'price_as_btc', 'total_supply', '24h_ohlc_xcp', 'extended_image'}`
 
 ### get_market_info_leaderboard
 **get_market_info_leaderboard(limit=100)**
 
 - **param limit:** Number of results to return
 - **return:** Array
-- **rtype:** {base_currency:[{
-             '24h_ohlc_in_btc',
-             'total_supply',
-             'aggregated_price_in_btc',
-             'price_in_btc',
-             '24h_vol_price_change_in_xcp',
-             'aggregated_price_in_xcp',
-             '24h_summary: {'vol', 'count'},
-             'price_in_xcp',
-             'price_as_btc',
-             'market_cap_in_btc',
-             '24h_ohlc_in_xcp',
-             '24h_vol_price_change_in_btc',
-             'aggregated_price_as_xcp',
-             'market_cap_in_xcp',
-             'asset',
-             'price_as_xcp',
-             '7d_history_in_xcp',
-             '7d_history_in_btc',
-             'aggregated_price_as_btc'}]}
-
+- **rtype:** 
+```
+    {base_currency:[{
+      '24h_ohlc_in_btc',
+      'total_supply',
+      'aggregated_price_in_btc',
+      'price_in_btc',
+      '24h_vol_price_change_in_xcp',
+      'aggregated_price_in_xcp',
+      '24h_summary: {'vol', 'count'},
+      'price_in_xcp',
+      'price_as_btc',
+      'market_cap_in_btc',
+      '24h_ohlc_in_xcp',
+      '24h_vol_price_change_in_btc',
+      'aggregated_price_as_xcp',
+      'market_cap_in_xcp',
+      'asset',
+      'price_as_xcp',
+      '7d_history_in_xcp',
+      '7d_history_in_btc',}]}
+```
 
 ### get_market_price_history
 **get_market_price_history(asset1, asset2, start_ts=None, end_ts=None, as_dict=False)**
@@ -333,7 +334,7 @@ Return block-by-block aggregated market history data for the specified asset pai
 - **param end_ts:** Unix timestamp (defaults to current timestamp)
 - **param as_dict:** Return as list of list or list of dicts
 - **return:** List of lists or dicts
-- **rtype:** [{'block_time', 'block_index', 'open', 'high', 'low', 'close', 'vol', 'count'}]
+- **rtype:** `[{'block_time', 'block_index', 'open', 'high', 'low', 'close', 'vol', 'count'}]`
 
 
 ### get_trade_history
@@ -347,7 +348,7 @@ Gets last N of trades within a specific date range (normally, for a specified as
 - **param end_ts:** Unix timestamp
 - **param limit:** Number of trades to return
 - **return:** Array of length `n`
-- **rtype:** [{'base_quantity',
+- **rtype:** ```[{'base_quantity',
           'message_index',
           'order_match_tx1_index',
           'base_asset',
@@ -363,6 +364,7 @@ Gets last N of trades within a specific date range (normally, for a specified as
           'order_match_id',
           'order_match_tx1_address',
           'quote_asset'}]
+          ```
 
 
 ### get_order_book_simple
@@ -378,7 +380,9 @@ Easier to call version when you want all orders involving the two assets.
 - **param pct_fee_provided:** A minimum fee level in satoshis
 - **param pct_fee_required:** A minimum fee level in satoshis
 - **return:** Object
-- **rtype:** {'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
+- **rtype:** 
+```
+{'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
   'bid_depth',
   'raw_orders:[{
   'status',
@@ -407,6 +411,7 @@ Easier to call version when you want all orders involving the two assets.
   'bid_ask_spread',
   'base_ask_book':[{'count', 'depth', 'unit_price', 'quantity'}],
   'id'}
+```
 
 
 ### get_order_book_buysell
@@ -421,7 +426,9 @@ Easier to call version when you want all orders involving the two assets.
 - **param pct_fee_provided:** A minimum fee level in satoshis
 - **param pct_fee_required:** A minimum fee level in satoshis
 - **return:** Object
-- **rtype:** {'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
+- **rtype:** 
+```
+  {'base_bid_book':[{'count', 'depth', 'unit_price', 'quantity'}],
         'bid_depth',
         'raw_orders:[{
         'status',
@@ -450,6 +457,7 @@ Easier to call version when you want all orders involving the two assets.
         'bid_ask_spread',
         'base_ask_book':[{'count', 'depth', 'unit_price', 'quantity'}],
         'id'}
+```
 
 
 ### get_users_pairs
@@ -488,7 +496,7 @@ Returns available markets
 
 Return detailed information on a market.
 
-- **rtype:** {'base_asset','progression','supply', 'trend','price_24h', 'price','sell_orders': [{'fee_required', 'amount', 'total', 'type', 'price'}],'quote_asset_divisible','buy_orders': [{'amount', 'total', 'type', 'price', 'fee_provided'}], 'last_trades': [{'status', 'match_id', 'countersource', 'source', 'price', 'block_index', 'amount', 'block_time', 'total', 'type'}],'base_asset_infos','base_asset_divisible','quote_asset'}
+- **rtype:** `{'base_asset','progression','supply', 'trend','price_24h', 'price','sell_orders': [{'fee_required', 'amount', 'total', 'type', 'price'}],'quote_asset_divisible','buy_orders': [{'amount', 'total', 'type', 'price', 'fee_provided'}], 'last_trades': [{'status', 'match_id', 'countersource', 'source', 'price', 'block_index', 'amount', 'block_time', 'total', 'type'}],'base_asset_infos','base_asset_divisible','quote_asset'}`
 
 
 ## betting Module
@@ -501,7 +509,9 @@ Returns bets with non-zero remaining counterwager for the specified search terms
 - **param bet_type:** 0, 1, 2 or 3
 - **param feed_address:** An address
 - **param deadline:** Unix timestamp
-- **rtype:** [{'tx_hash'
+- **rtype:** 
+```
+[{'tx_hash'
 'feed_address',
 'wager_quantity',
 'leverage',
@@ -519,13 +529,16 @@ Returns bets with non-zero remaining counterwager for the specified search terms
 'wager_remaining',
 'target_value'
 }]
+```
 
 ### get_user_bets
 **get_user_bets(addresses=[], status="open")**
 
 - **param addresses:** List of addresses
 - **param status:** "open", "filled","expired","cancelled","dropped", or "invalid"
-- **rtype:** [{'tx_hash'
+- **rtype:** 
+```
+[{'tx_hash'
     'feed_address',
     'wager_quantity',
     'leverage',
@@ -543,12 +556,13 @@ Returns bets with non-zero remaining counterwager for the specified search terms
     'wager_remaining',
     'target_value'
     }]
+```
 
 ### get_feed
 **get_feed(address_or_url='')**
 
 - **param address_or_url:** Feed URL or Bitcoin Address
-- **rtype:** {'broadcasts':[{'status', 'tx_hash', 'locked', 'timestamp', 'source', 'text', 'tx_index', 'value', 'block_index', 'fee_fraction_int'}], 'counters':{'bets':[]}
+- **rtype:** `{'broadcasts':[{'status', 'tx_hash', 'locked', 'timestamp', 'source', 'text', 'tx_index', 'value', 'block_index', 'fee_fraction_int'}], 'counters':{'bets':[]}`
 
 ### get_feeds_by_source
 **get_feeds_by_source(addresses=[])**
@@ -561,7 +575,9 @@ Returns bets with non-zero remaining counterwager for the specified search terms
 
 Takes a base64-encoded feed and decodes it.
 
-- **rtype:** [{'tx_hash'
+- **rtype:** 
+```
+[{'tx_hash'
   'feed_address',
   'wager_quantity',
   'leverage',
@@ -579,7 +595,7 @@ Takes a base64-encoded feed and decodes it.
   'wager_remaining',
   'target_value'
   }]
-
+```
 
 ## counterwallet Module
 
@@ -598,7 +614,7 @@ if we actually return data from this function, it should always be true. (may ch
 Allows the requesting host to get some info about itself, such as its IP. Used for troubleshooting.
 
 - **return:** Client host info
-- **rtype:** {'ip', 'cookie', 'country'}
+- **rtype:** `{'ip', 'cookie', 'country'}`
 
 ### get_wallet_stats
 **get_wallet_stats(start_ts=None, end_ts=None):**
@@ -608,7 +624,7 @@ If timestamps omitted, queries the last 360 days.
 - **param start_ts:** Unix timestamp
 - **param end_ts:** Unix timestamp
 - **return:** Wallet information
-- **rtype:** {'wallet_stats':[id: {'data': [{}], 'name'}], 'num_wallets_testnet', 'num_wallets_mainnet', 'num_wallets_unknown'}
+- **rtype:** `{'wallet_stats':[id: {'data': [{}], 'name'}], 'num_wallets_testnet', 'num_wallets_mainnet', 'num_wallets_unknown'}`
 
 ### get_preferences
 **get_preferences(wallet_id, for_login=False, network=None)**

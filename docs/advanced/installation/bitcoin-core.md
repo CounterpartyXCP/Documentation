@@ -39,6 +39,7 @@ You may want to do one or more of the following optional steps:
 
 Your Bitcoin Core configuration file should match this:
 
+    ```
     rpcuser=bitcoinrpc
     rpcpassword=<password>
     server=1
@@ -46,6 +47,7 @@ Your Bitcoin Core configuration file should match this:
     rpctimeout=300
     txindex=1
     addrindex=1
+    ```
 
 * Choose a **secure password**.
 * By default, on Windows, this file is located at `%APPDATA%\Bitcoin\bitcoin.conf`.

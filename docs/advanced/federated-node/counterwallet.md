@@ -24,11 +24,13 @@ The federated node allows these (and any other monitoring service) to query the 
 
 If all services are up, a HTTP 200 response with the following data will be returned:
 
+    ```
     {"counterparty-server": "OK", "counterblock_ver": "1.3.0", "counterparty-server_ver": "9.31.0", "counterblock": "OK",
     "counterblock_check_elapsed": 0.0039348602294921875, "counterparty-server_last_block": {
     "block_hash": "0000000000000000313c4708da5b676f453b41d566832f80809bc4cb141ab2cd", "block_index": 311234,
     "block_time": 1405638212}, "local_online_users": 7, "counterparty-server_check_elapsed": 0.003687143325805664,
     "counterblock_error": null, "counterparty-server_last_message_index": 91865}
+    ```
 
 Note the ``"counterparty-server": "OK"`` and ``"counterblock": "OK"`` items.
 
@@ -48,6 +50,7 @@ sudo docker exec -it federatednode_counterwallet_1 vim /counterwallet/counterwal
 
 This file will contain a valid JSON-formatted object, containing an a number of possible configuration properties. For example::
 
+    ```
     {
       "servers": [ "counterblock1.mydomain.com", "counterblock2.mydomain.com", "counterblock3.mydomain.com" ],
       "forceTestnet": true,
@@ -62,6 +65,7 @@ This file will contain a valid JSON-formatted object, containing an a number of 
         "dividend": ["US"]
       },
     }
+    ```
 
 Here's a description of the possible fields:
 
