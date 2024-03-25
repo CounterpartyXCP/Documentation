@@ -16,7 +16,7 @@ The JSON RPC API is being migrated to a full REST API. Currently the following r
 | GET | `/orders/<tx_hash>/matches` | `status` (default: `pending`) | Returns order matches for a given order |
 
 
-## Exemples
+## Examples
 
 ### GET `/assets/mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc/balances`
 
