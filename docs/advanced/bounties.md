@@ -5,7 +5,7 @@ title: Bug Bounties
 
 According to [Linus’ Law](http://en.wikipedia.org/wiki/Linus), “given enough eyeballs, all bugs are shallow”. That’s one of the reasons why Counterparty’s source code is publicly available; but merely making the source code available doesn't accomplish anything if people don’t read it!
 
-For this reason, Counterparty has a series of bug bounties. Similar to the bounties offered by [Mozilla](http://www.mozilla.org/security/bug-bounty.html) and [Google](http://blog.chromium.org/2010/01/encouraging-more-chromium-security.html), Counterparty bug bounties provide an opportunity for people who find bugs to be compensated. Unlike those programs, however, Counterparty’s bug bounties are not limited to security vulnerabilities.
+For this reason, Counterparty has a series of bug bounties. Counterparty bug bounties provide an opportunity for people who find bugs to be compensated.
 
 Depending on the type of bug and when it is reported, different bounties will be awarded. Bounties are paid out in a mix of XCP and BTC (the ratio is negotiable), at the 3-day average of each to a fixed US Dollar value. 
 
@@ -29,7 +29,7 @@ Depending on the type of bug and when it is reported, different bounties will be
 -   SSL certificate issues (such as lack of Perfect Forward Secrecy on our SSL certificates)
 -   Bugs that have received mainstream tech media attention before the date of your disclosure (e.g. Heartbleed, Poodlebleed, etc)
 
-## Bounties for counterparty-lib
+## Bounties for counterparty-core
 
 | Total USD amount (BTC/XCP mix) | Type of bug |
 | ----------------------------------------|------------------------------------|
@@ -43,24 +43,16 @@ Depending on the type of bug and when it is reported, different bounties will be
 
 Bounties will be paid out for bugs found in the `master` branch of the official GitHub repositories.
 
-## Bounties for the Counterparty forums (counterpartytalk.org)
-
-| Total USD amount (BTC/XCP mix) | Type of bug |
-| ----------------------------------------|------------------------------------|
-| $20-100  |  Security issue on the website that is not present in the forums software used and that is not a known issue to the author(s) |
-
-Beyond this, bounties do not apply to the Counterparty forums; **in particular, please do not run automated vulnerability scanners against the website — they are annoying and do not produce useful bug reports.**
-
 ## How to report a bug
 
 ### For security-related issues 
 
-Email [the developers](mailto:dev@counterparty.io) **privately with the details of the issue. Do not post the issue on github or anywhere else until the issue has been resolved.**
+Email [the developers](mailto:dev@counterparty.io) **privately with the details of the issue.**
 
 
 ### For code issues
 
-We would strongly prefer if you create a pull-request on Github in the proper repository with the necessary fix (along with your Bitcoin address to claim the bounty). For more information, see [this link](https://help.github.com/categories/63/articles). 
+We would strongly prefer if you create a pull request on GitHub in the proper repository with the necessary fix (along with your Bitcoin address to claim the bounty). For more information, see [this link](https://help.github.com/categories/63/articles). 
 
 ### For website issues
 

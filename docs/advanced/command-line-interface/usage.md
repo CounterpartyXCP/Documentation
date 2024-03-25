@@ -385,4 +385,4 @@ This list contains some optional arguments for counterparty-client. A complete l
 * --json-output = display result in JSON format
 * --unconfirmed = allow the spending of unconfirmed transaction outputs
 * --unsigned = print out unsigned hex of transaction; do not sign or broadcast
-* --encoding = the default is auto, which lets counterparty-lib determine the encoding (opreturn, pubkeyhash, or multisig); certain transactions may require this argument with a non-default value
+* --encoding = the default is auto, which lets counterparty-core determine the encoding (opreturn, pubkeyhash, or multisig); certain transactions may require this argument with a non-default value

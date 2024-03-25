@@ -2,12 +2,12 @@
 title: Overview
 ---
 
-``counterparty-lib`` provides a JSON RPC 2.0-based API based off of
+Counterparty Core provides a JSON RPC 2.0-based API based off of
 that of Bitcoin Core. It is the primary means by which other applications
 should interact with the Counterparty network.
 
 The API server is started either through the [`CLI interface`](../../advanced/cli.md) or
-with the [`counterparty-lib`](../../advanced/architecture.md) Python library. It listens on port
+with the [`counterparty-core`](../../advanced/architecture.md) Python library. It listens on port
 4000 by default (14000 for ``testnet``) and requires HTTP Basic Authentication to connect.
 
 The API includes numerous information retrieval methods, most of which begin with `get_`, as well as several
@@ -19,7 +19,7 @@ for private key storage and transaction signing. Transaction signing and broadca
 be accomplished using whatever means the developer sees fit (including using Bitcoin core's APIs if desired, or
 a library like Bitcore, or a service like blockchain.info, and so on).
 
-In addition to the JSON RPC API, ``counterparty-lib`` provides a complementary RESTful API also based off of that
+In addition to the JSON RPC API, ``counterparty-core`` provides a complementary RESTful API also based off of that
 of Bitcoin Core's design. This REST API is still under development and will include more functionality
 in the future, and listens on the same port as JSON RPC one.
 

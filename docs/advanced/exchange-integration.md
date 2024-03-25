@@ -2,19 +2,6 @@
 title: Exchange Integration
 ---
 
-By adding support for Counterparty, your exchange not only gets [XCP market](http://coinmarketcap.com/currencies/counterparty/) support, but support for any other Counterparty asset such as [Bitcrystals](http://coinmarketcap.com/assets/bitcrystals/)) or [FoldingCoin](https://coinmarketcap.com/currencies/foldingcoin/).
-
-Technically, the process is rather straightforward. However, as Counterparty is not a fork of Bitcoin Core, adding Counterparty support to your exchange is slightly different from adding support for a cryptocurrency that is, like Litecoin or Dogecoin.  We outline the general process below (for XCP, but the process is identical for all Counterparty assets):
-
-## Basic Setup
-
-- Follow the instructions [here](http://counterparty.io/docs/federated_node/) to set up a full node. You can install the `base` configuration (e.g. `fednode install base master`)
-
-- Alternatively, you can install and configure manually. Those instructions are [here](https://github.com/CounterpartyXCP/counterparty-lib/blob/develop/README.md#manual-installation).
-
-- Once the system is set up, get started working with `counterparty-server`'s [API](../develop/api/api.md).
-
-
 ## Handling Deposits using Separate Addresses
 
 - Create a XCP holding address (or several primary XCP holding addresses). The address will hold deposited XCP funds for all users using the exchange.
@@ -34,7 +21,7 @@ Technically, the process is rather straightforward. However, as Counterparty is 
 
 - Create a XCP deposit address. The address will hold deposited XCP funds for all users using the exchange.
 
-- 'Prime' the deposit address by sending it 0.001 BTC.
+- 'Prime' the deposit address by sending it small amount of BTC.
 
 - Make the deposit address require a memo by [broadcasting](../develop/api/api.md#create_broadcast) `OPTIONS 1` from that address.  The value and fee_fraction can be 0.
 

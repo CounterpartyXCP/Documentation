@@ -73,7 +73,7 @@ All quantities are specified in satoshis. The format of the CSV file is as follo
 
 ## Instructions
 
-Use this script on a system with `counterparty-lib` installed and in the `PYTHONPATH`. (If using a Federated Node, this is possible by issuing the command `fednode shell counterparty` or `fednode shell counterparty-testnet` as appropriate, and using the script in that shell.)
+Use this script on a system with `counterparty-core` installed and in the `PYTHONPATH`. (If using a Federated Node, this is possible by issuing the command `fednode shell counterparty` or `fednode shell counterparty-testnet` as appropriate, and using the script in that shell.)
 
 If the CSV file with the data is called input.csv, and the script is
 called sendmany.py, then call this script with

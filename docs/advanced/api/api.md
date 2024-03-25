@@ -12,7 +12,7 @@ title: Technical Specification
 Where **`{table}`** must be one of the following values:
 ``assets``, ``balances``, ``bets``, ``bet_expirations``, ``bet_matches``, ``bet_match_expirations``, ``bet_match_resolutions``, ``broadcasts``, ``btcpays``, ``burns``, ``cancels``, ``credits``, ``debits``, ``destructions``, ``dispensers``, ``dispenses``, ``dividends``, ``issuances``, ``mempool``, ``orders``, ``order_expirations``, ``order_matches``, ``order_match_expirations``, ``sends``, or ``transactions`` .
 
-For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods. A complete list of tables can be found in the api.py file in the counterparty-lib repository.
+For example: ``get_balances``, ``get_credits``, ``get_debits`` are all valid API methods. A complete list of tables can be found in the api.py file in the `counterparty-core` repository.
 
 **Parameters:**
 
@@ -716,7 +716,7 @@ By default the default value of the ``encoding`` parameter detailed above is ``a
    - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
 - To return the transaction as a **multisig** transaction, specify ``multisig`` for the ``encoding`` parameter.
     - ``pubkey`` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-lib/pull/9).
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
 - To return the transaction as a **pubkeyhash** transaction, specify ``pubkeyhash`` for the ``encoding`` parameter.
     - ``pubkey`` should be set to the hex-encoded public key of the source address.
 - To return the transaction as a 2 part **P2SH** transaction, specify ``P2SH`` for the encoding parameter.

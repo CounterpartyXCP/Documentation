@@ -14,7 +14,6 @@ module.exports = {
     'basics/general',
   ],
   advanced: [
-    'advanced/architecture',
     'advanced/protocol',
     {
       type: 'category',
