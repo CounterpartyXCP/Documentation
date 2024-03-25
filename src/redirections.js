@@ -1,4 +1,5 @@
 import React from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 const HOME_PAGE = '/docs/basics/what-is-counterparty/a-bitcoin-protocol/';
 const WALLETS_URL = 'https://www.counterparty.io/wallets';
@@ -36,19 +37,18 @@ const REDIRECTIONS = {
     '/docs/develop/counterblock/modules/': README_URL,
 } 
 
-export function RedirectedURL() {
+export function RedirectedURL(props) {
 
-    const url = window.location.pathname;
-    if (url in REDIRECTIONS) {
-        const content = "0;url=" + REDIRECTIONS[url];
-        return (
-            <meta http-equiv="refresh" content={content} />
-        )
-    }
-    return <></>;
-}
-
-export function is_redirected() {
-    const url = window.location.pathname;
-    return url in REDIRECTIONS;
+    return (
+        <BrowserOnly>
+        {() => {
+            const url = window.location.pathname;
+            if (url in REDIRECTIONS) {
+                const content = "0;url=" + REDIRECTIONS[url];
+                return <meta http-equiv="refresh" content={content} />;
+            }
+            return props.children;
+        }}
+        </BrowserOnly>
+    );
 }
