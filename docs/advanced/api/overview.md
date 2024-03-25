@@ -6,8 +6,7 @@ Counterparty Core provides a JSON RPC 2.0-based API based off of
 that of Bitcoin Core. It is the primary means by which other applications
 should interact with the Counterparty network.
 
-The API server is started either through the [`CLI interface`](../../advanced/cli.md) or
-with the [`counterparty-core`](../../advanced/architecture.md) Python library. It listens on port
+The API server is started with the command `counterparty-server`. It listens on port
 4000 by default (14000 for ``testnet``) and requires HTTP Basic Authentication to connect.
 
 The API includes numerous information retrieval methods, most of which begin with `get_`, as well as several

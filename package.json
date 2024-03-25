@@ -17,6 +17,7 @@
     "@docusaurus/core": "3.1.0",
     "@docusaurus/preset-classic": "3.1.0",
     "@mdx-js/react": "^3.0.1",
+    "docusaurus": "^1.14.7",
     "prism-react-renderer": "^2.3.1"
   },
   "browserslist": {

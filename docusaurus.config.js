@@ -24,14 +24,14 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/basics/what-is-counterparty/a-bitcoin-protocol',
+          to: 'docs/basics/what-is-counterparty',
           activeBasePath: 'docs/basics',
           label: 'Basics',
           position: 'left',
         },
         {
-          to: 'docs/advanced/architecture',
-          activeBasePath: 'docs/advanced',
+          to: 'docs/advanced/protocol',
+          activeBasePath: 'docs/protocol',
           label: 'Advanced',
           position: 'left',
         },
@@ -50,7 +50,7 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: 'docs/basics/what-is-counterparty/a-bitcoin-protocol',
+              to: 'docs/basics/what-is-counterparty',
             },
           ],
         },

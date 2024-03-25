@@ -1,7 +1,7 @@
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
-const HOME_PAGE = '/docs/basics/what-is-counterparty/a-bitcoin-protocol/';
+const HOME_PAGE = '/docs/basics/what-is-counterparty';
 const WALLETS_URL = 'https://www.counterparty.io/wallets';
 const SUPPORT_URL = 'https://www.counterparty.io/support';
 const README_URL = 'https://github.com/CounterpartyXCP/counterparty-core/blob/master/README.md'

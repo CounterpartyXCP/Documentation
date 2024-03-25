@@ -8,11 +8,11 @@ title: Exchange Integration
 
 - Create a regular Bitcoin address for each user wanting to deposit XCP using the API of the Bitcoin Core instance that `counterparty-server` is connecting to.
 
-- Poll for deposits using `get_sends` [API method](../develop/api/api.md), filtering for `asset==XCP`, `destination==deposit_address` and `block_index<=current_block_index-number_of_desired_confirmations`. Record the quantity of the send transaction and the transaction's `txid`.
+- Poll for deposits using `get_sends`, filtering for `asset==XCP`, `destination==deposit_address` and `block_index<=current_block_index-number_of_desired_confirmations`. Record the quantity of the send transaction and the transaction's `txid`.
 
 - 'Prime' the deposit address by sending it 0.0005 BTC.
 
-- For deposit, send the quantity deposited to the holding address using the `do_send` [API method](../develop/api/api.md) with the flag `unconfirmed=True` (so you don't have to wait for the priming to confirm). Record the `txid` of this transaction.
+- For deposit, send the quantity deposited to the holding address using the `do_send` with the flag `unconfirmed=True` (so you don't have to wait for the priming to confirm). Record the `txid` of this transaction.
 
 - When the second send is confirmed (poll `get_sends` again), credit the user’s account balance.
 
@@ -23,11 +23,11 @@ title: Exchange Integration
 
 - 'Prime' the deposit address by sending it small amount of BTC.
 
-- Make the deposit address require a memo by [broadcasting](../develop/api/api.md#create_broadcast) `OPTIONS 1` from that address.  The value and fee_fraction can be 0.
+- Make the deposit address require a memo by broadcasting `OPTIONS 1` from that address.  The value and fee_fraction can be 0.
 
 - When a user wishes to deposit to your exchange, generate a unique hexadecimal invoice ID for the deposit and convey that to the user.  The user must send counterparty assets into the address along with the matching invoice ID in the memo field.  If the user fails to include a memo, the send will be rejected by the network and the user's address will retain the assets they sent.
 
-- Poll for deposits using `get_sends` [API method](../develop/api/api.md), filtering for `asset==XCP`, `destination==deposit_address` and `block_index<={current_block_index-number_of_desired_confirmations}` and `memo_hex=={invoice_id}`. Record the quantity of the send transaction and the transaction's `txid`.
+- Poll for deposits using `get_sends`, filtering for `asset==XCP`, `destination==deposit_address` and `block_index<={current_block_index-number_of_desired_confirmations}` and `memo_hex=={invoice_id}`. Record the quantity of the send transaction and the transaction's `txid`.
 
 - When the send is confirmed with 2 confirmations (poll `get_sends` again), credit the user’s account balance.
 
