@@ -85,10 +85,6 @@ module.exports = {
             {
               label: 'GitHub',
               href: 'https://github.com/CounterpartyXCP/Documentation',
-            },
-            {
-              label: 'Bylaws',
-              href: 'docs/foundation-bylaws/bylaws',
             }
           ],
         },
