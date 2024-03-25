@@ -1,13 +1,7 @@
 module.exports = {
   basics: [
-    {
-      type: 'category',
-      label: 'What is Counterparty?',
-      items: [
-        'basics/what-is-counterparty/a-bitcoin-protocol',
-        'basics/what-is-counterparty/an-incentivization-token'
-      ],
-    },
+    'basics/what-is-counterparty/what-is-counterparty',
+    'basics/what-is-counterparty/what-is-xcp',
     {
       type: 'category',
       label: 'Assets (tokens/NFTs)',
@@ -15,7 +9,6 @@ module.exports = {
         'basics/assets/counterparty-assets',
         'basics/assets/enhanced-asset',
         'basics/assets/enhanced-feed',
-        'basics/assets/use-cases',
       ],
     },
     'basics/general',
