@@ -38,6 +38,7 @@ module.exports = {
       items: [
         'advanced/api/overview',
         'advanced/api/api',
+        'advanced/api/rest',
         'advanced/api/api-changes'
       ],
     },
