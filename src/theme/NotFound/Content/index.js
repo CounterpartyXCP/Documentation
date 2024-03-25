@@ -3,13 +3,15 @@ import clsx from 'clsx';
 import Translate from '@docusaurus/Translate';
 import Heading from '@theme/Heading';
 
-import { RedirectedURL } from '../../../redirections';
+import { RedirectedURL, is_redirected } from '../../../redirections';
 
 export default function NotFoundContent({className}) {
-  return (
+  if (is_redirected()) {
+    return <RedirectedURL />;
+  }
 
+  return (
     <main className={clsx('container margin-vert--xl', className)}>
-      <RedirectedURL />
       <div className="row">
         <div className="col col--6 col--offset-3">
           <Heading as="h1" className="hero__title">

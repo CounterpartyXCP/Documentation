@@ -47,3 +47,8 @@ export function RedirectedURL() {
     }
     return <></>;
 }
+
+export function is_redirected() {
+    const url = window.location.pathname;
+    return url in REDIRECTIONS;
+}
