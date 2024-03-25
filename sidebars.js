@@ -23,26 +23,26 @@ module.exports = {
   advanced: [
     'advanced/architecture',
     'advanced/protocol',
-    'advanced/cli',
     {
       type: 'category',
-      label: 'Advanced Usage',
+      label: 'Command Line Interface (CLI)',
       items: [
-        'advanced/advanced-usage/sending-bulk',
-        'advanced/advanced-usage/multisig'
+        'advanced/command-line-interface/usage',
+        'advanced/command-line-interface/sending-bulk',
+        'advanced/command-line-interface/multisig'
       ],
     },
     {
       type: 'category',
       label: 'Counterparty API',
       items: [
-        'develop/api/overview',
-        'develop/api/api',
-        'develop/api/api-changes'
+        'advanced/api/overview',
+        'advanced/api/api',
+        'advanced/api/api-changes'
       ],
     },
-    'develop/contributing',
-    'develop/bounties',
+    'advanced/contributing',
+    'advanced/bounties',
     'advanced/exchange-integration'
   ],
 };
