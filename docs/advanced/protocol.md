@@ -417,3 +417,19 @@ transaction. All dispensers that can match on an address are triggered by each
 BTC send that has a dispense multiplier of at least 1.
 
 A dispenser can be in either of two status: 0 (open) or 10 (closed).
+
+## Note about the database.
+
+Counterparty Core uses an `sqlite3` database. This database is designed to :
+
+- Strengthen the immutability and verifiability of data.
+- Being able to easily manage a reorganization of the Blockchain.
+- Optimize block parsing speed
+
+The database is “log structured”, this means that no ‘UPDATE’ is ever done on the tables but only ‘INSERT’s.
+
+However each time a Counterparty “object” is inserted or updated in the database, for example opening an order, updating balance, closing bet, etc. This triggers an event accompanied by a payload.
+By monitoring these events using the API (for the moment `/get_messages`) it is possible, using payloads, to reconstruct a Counterparty database with all balances, orders etc..
+
+Events are systematically logged at the INFO log level. By default, events are displayed in English but it is possible to display them in JSON format using the `--json-logs` flag.
+
