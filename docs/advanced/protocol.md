@@ -420,18 +420,11 @@ A dispenser can be in either of two status: 0 (open) or 10 (closed).
 
 ## Note about the database.
 
-Counterparty Core uses an `sqlite3` database. This database is designed to :
+Counterparty Core is backed by a SQLite3 database. All data stored in SQLite3 is “log-structured”, meaning that `UPDATE` is ever used.
 
-- Strengthen the immutability and verifiability of data.
-- Being able to easily manage a reorganization of the Blockchain.
-- Optimize block parsing speed
+Each time that a Counterparty “object” is created, for example when opening an order, updating a balance, closing a bet, etc. this marks an `event` with a corresponding `payload`. By monitoring these events using the API (for the moment `/get_messages`) it is possible to reconstruct a the complete Counterparty state database with all balances, orders etc.
 
-The database is “log structured”, this means that no ‘UPDATE’ is ever done on the tables but only ‘INSERT’s.
+Events are systematically logged at the `INFO` log level. By default, events are displayed in prose, but it is possible to display them in JSON format using the `--json-logs` CLI flag.
 
-However each time a Counterparty “object” is inserted or updated in the database, for example opening an order, updating balance, closing bet, etc. This triggers an event accompanied by a payload.
-By monitoring these events using the API (for the moment `/get_messages`) it is possible, using payloads, to reconstruct a Counterparty database with all balances, orders etc..
-
-Events are systematically logged at the INFO log level. By default, events are displayed in English but it is possible to display them in JSON format using the `--json-logs` flag.
-
-It is important to note that there is no guarantee of backwards compatibility regarding the internal structure of the database. However, maximum effort will be made to guarantee backwards compatibility for the API including endpoints to retrieve events.
+It is important to note that there is no guarantee of backwards-compatibility regarding the internal structure of the database. However, maximum effort will be made to guarantee backwards compatibility for the API, including the endpoint used to retrieve events.
 
