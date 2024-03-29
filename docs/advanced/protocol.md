@@ -433,3 +433,5 @@ By monitoring these events using the API (for the moment `/get_messages`) it is 
 
 Events are systematically logged at the INFO log level. By default, events are displayed in English but it is possible to display them in JSON format using the `--json-logs` flag.
 
+It is important to note that there is no guarantee of backwards compatibility regarding the internal structure of the database. However, maximum effort will be made to guarantee backwards compatibility for the API including endpoints to retrieve events.
+
