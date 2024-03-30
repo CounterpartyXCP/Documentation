@@ -41,5 +41,8 @@ Follow on screen prompt and kill `bitcoind`when `addrindexrs` is done syncing.
 
 Press `y` to continue kickstart 
 
+Note: Due to resource limitations, this process can sometimes stall.  If you `ctrl-c` and then restart, `kickstart` will pick up where it left off.
+
+
 
 
