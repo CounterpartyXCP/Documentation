@@ -33,6 +33,13 @@ module.exports = {
         'advanced/api/api-changes'
       ],
     },
+    {
+      type: 'category',
+      label: 'How-to',
+      items: [
+        'advanced/how-to/docker-kickstart',
+      ],
+    },
     'advanced/contributing',
     'advanced/bounties',
     'advanced/exchange-integration'
