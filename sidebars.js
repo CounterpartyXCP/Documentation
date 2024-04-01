@@ -4,6 +4,15 @@ module.exports = {
     'basics/what-is-xcp',
     {
       type: 'category',
+      label: 'Running a Counterparty Node',
+      items: [
+        'basics/getting-started',
+        'basics/manual-installation',
+        'basics/usage',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Assets (Tokens/NFTs)',
       items: [
         'basics/assets/counterparty-assets',
