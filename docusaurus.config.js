@@ -3,7 +3,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 module.exports = {
   title: 'Counterparty',
-  tagline: 'NFTs and tokens over Bitcoin',
   url: 'https://counterpartyxcp.github.io',
   baseUrl: '/',
   trailingSlash: true,
@@ -36,6 +35,11 @@ module.exports = {
           position: 'left',
         },
         {
+	  href: 'http://docs.counterparty.io/counterparty-whitepaper.pdf',
+          label: 'Whitepaper',
+          position: 'right',
+	},
+        {
           href: 'https://github.com/CounterpartyXCP/Documentation',
           label: 'GitHub',
           position: 'right',
@@ -58,20 +62,16 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Discord',
-              href: 'https://discord.gg/wsjKtPGrMF',
+              label: 'Telegram',
+              href: 'https://t.me/Counterparty_XCP',
             },
             {
               label: 'Forum',
-              href: 'https://counterpartytalk.org/',
+              href: 'https://forums.counterparty.io/',
             },
             {
               label: 'Reddit',
               href: 'https://www.reddit.com/r/counterparty_xcp/',
-            },
-            {
-              label: 'Telegram',
-              href: 'https://t.me/Counterparty_XCP',
             },
             {
               label: 'Twitter',
@@ -89,7 +89,6 @@ module.exports = {
           ],
         },
       ],
-      copyright: `CC © 2014 - ${new Date().getFullYear()} Counterparty, Inc. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -97,11 +96,12 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          sidebarCollapsible: false,
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/',
         },
         blog: {
-          showReadingTime: true,
+          showReadingTime: false,
           // Please change this to your repo.
           editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/',
         },
