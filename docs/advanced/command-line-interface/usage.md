@@ -4,10 +4,10 @@ title: Command-line (CLI) Guide
 
 
 The following examples are abridged for parsimony (meaning: actions are
-normally preceded by `counterparty-client`, i.e. the `burn` command would be
-called with `counterparty-client --testnet burn`).
+normally preceded by `counterparty-wallet`, i.e. the `burn` command would be
+called with `counterparty-wallet --testnet burn`).
 
-`counterparty-server` should always be running in the background (or
+`counterparty-core` should always be running in the background (or
 another console). All other commands will fail if the index of the last
 block in the database is less than that of the last block seen by
 Bitcoin Core.
@@ -376,7 +376,7 @@ Input and Output
 
 Optional arguments
 ----------------------------------------
-This list contains some optional arguments for counterparty-client. A complete list for client and server is available in online help.
+This list contains some optional arguments for `counterparty-wallet`. A complete list for client and server is available in online help.
 
 * -h, --help = show help message and exit
 * -V, --version = show version

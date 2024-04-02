@@ -11,7 +11,7 @@ An example testnet multi‐sig source transaction is tx hash _e06d22276699de6ed1
 Here's how you can make a multisig transaction:
 
 ```
-counterparty-client --unconfirmed --testnet --database-file=test.db send --source=1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mfzSPkV7kAYma5oxZ37pHkw9qtwAEQx8Wy_2
+counterparty-wallet --unconfirmed --testnet --database-file=test.db send --source=1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mfzSPkV7kAYma5oxZ37pHkw9qtwAEQx8Wy_2
 --destination=mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc --quantity=.1337 --asset=XCP
 ```
 
