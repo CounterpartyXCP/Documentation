@@ -38,6 +38,7 @@ module.exports = {
       label: 'How-to',
       items: [
         'advanced/how-to/docker-kickstart',
+        'advanced/how-to/enabling-sentry',
       ],
     },
     'advanced/contributing',
