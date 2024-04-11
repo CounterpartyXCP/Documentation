@@ -32,6 +32,8 @@ export ADDRINDEXRS_HOST=$(docker inspect -f '{{range .NetworkSettings.Networks}}
 docker run -it -v data:/root/.bitcoin -v data:/data -p 4000:4000 -e XDG_DATA_HOME=/data/ -e XDG_LOG_HOME=/data/ counterparty/counterparty:latest kickstart --mainnet --backend-connect=$DAEMON_RPC_HOST --indexd-connect=$ADDRINDEXRS_HOST --rpc-host=0.0.0.0 -v
 ```
 
+If the kickstart stops after a few blocks, try adding the `--ipc=host` flag to `docker run`.
+
 Follow on screen prompt and kill `bitcoind` when `addrindexrs` is done syncing.
 
 bash
