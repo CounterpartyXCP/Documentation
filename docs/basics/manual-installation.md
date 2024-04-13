@@ -130,10 +130,10 @@ cd counterparty-core/counterparty-lib
 pip3 install .
 ```
 
-Install the `counterparty-cli` library:
+Install the `counterparty-wallet` library:
 
 ```bash
-cd counterparty-core/counterparty-cli
+cd counterparty-core/counterparty-wallet
 pip3 install .
 ```
 

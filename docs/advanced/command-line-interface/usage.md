@@ -215,7 +215,7 @@ Broadcast
     --value=825.22
 
 
-**Note:** for some users counterparty-cli has trouble parsing spaces in the
+**Note:** for some users counterparty-wallet has trouble parsing spaces in the
 `--text` argument. One workaround is to add an additional set of quotes.
 For example, `--text='"Bitcoin price feed"'`. This may not work on
 Windows due to Python/Windows issues unrelated to Counterparty. Another
@@ -277,7 +277,7 @@ Dividend
 * --fee = the exact BTC fee to be paid to miners
 
 To pay dividends in BTC, you should, for now, just use a regular Bitcoin
-client, coupled with the output from `counterparty-cli asset ASSET`, which
+client, coupled with the output from `counterparty-wallet asset ASSET`, which
 will list all of the shareholders (and their holdings) of ASSET.
 
 
