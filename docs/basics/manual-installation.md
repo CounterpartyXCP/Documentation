@@ -130,17 +130,26 @@ cd counterparty-core/counterparty-lib
 pip3 install .
 ```
 
-Install the `counterparty-wallet` library:
+Install the `counterparty-core` library:
 
 ```bash
 cd counterparty-core/counterparty-core
 pip3 install .
 ```
 
+Install the `counterparty-wallet` library:
+
 ```bash
 cd counterparty-core/counterparty-wallet
 pip3 install .
 ```
+
+On most platforms you need to update your $PATH variable so that `counterparty-server` and `counterparty-wallet` are accessible. For example:
+
+```
+export PATH=$PATH:/home/username/.local/bin/
+```
+Look at the `counterparty-core` and `counterparty-wallet` installation logs to find out the path of the binaries on your system.
 
 *Note for MacOS users*
 
@@ -150,3 +159,17 @@ Use this command if you get an error while installing one of the packages:
 CFLAGS="-I/opt/homebrew/include -L/opt/homebrew/lib"
 ```
 
+## Upgrade Counterparty Core
+
+To update, simply follow the same procedure as for installation.
+
+### Notes
+
+#### Update from 10.0.0 to 10.1.0
+
+given the change of names of certain packages you must start by uninstalling the previous version:
+
+```
+pip uninstall counterparty-cli
+pip uninstall counterparty-lib
+```
