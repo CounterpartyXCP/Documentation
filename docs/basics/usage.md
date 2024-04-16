@@ -56,3 +56,5 @@ Once the Counterparty server has caught up with the network, you may start the s
 ```bash
 counterparty-server start
 ```
+
+Note: During database initialization, `counterparty-server` performs a database integrity check. Depending on your configuration, this operation may take more or less time. You can disable this check with the `--skip-db-check` flag.
