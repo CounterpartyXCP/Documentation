@@ -123,13 +123,6 @@ cd counterparty-core/counterparty-rs
 pip3 install .
 ```
 
-Install the `counterparty-lib` library:
-
-```bash
-cd counterparty-core/counterparty-lib
-pip3 install .
-```
-
 Install the `counterparty-core` library:
 
 ```bash
@@ -165,11 +158,10 @@ To update, simply follow the same procedure as for installation.
 
 ### Notes
 
-#### Update from 10.0.0 to 10.1.0
+#### Update from 10.0.0 to 10.1.0 or from 10.1.0 to 10.1.1
 
 given the change of names of certain packages you must start by uninstalling the previous version:
 
 ```
-pip uninstall counterparty-cli
-pip uninstall counterparty-lib
+pip uninstall counterparty-lib counterparty-cli counterparty-core
 ```
