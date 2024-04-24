@@ -34,11 +34,18 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Counterparty API',
+      label: 'API v2',
+      items: [
+        'advanced/api/rest',
+        'advanced/api/v1-to-v2',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'API v1',
       items: [
         'advanced/api/overview',
         'advanced/api/api',
-        'advanced/api/rest',
         'advanced/api/api-changes'
       ],
     },
