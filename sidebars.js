@@ -36,17 +36,17 @@ module.exports = {
       type: 'category',
       label: 'API v2',
       items: [
-        'advanced/api/rest',
-        'advanced/api/v1-to-v2',
+        'advanced/api-v1/rest',
+        'advanced/api-v1/v1-to-v2',
       ],
     },
     {
       type: 'category',
       label: 'API v1',
       items: [
-        'advanced/api/overview',
-        'advanced/api/api',
-        'advanced/api/api-changes'
+        'advanced/api-v2/overview',
+        'advanced/api-v2/api',
+        'advanced/api-v2/api-changes'
       ],
     },
     {
