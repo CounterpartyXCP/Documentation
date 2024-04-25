@@ -34,12 +34,12 @@ Notes:
 
 - All API responses follow the following format:
 
-```
-{
-     "error": <error_messsage_if_success_is_false>,
-     "result": <result_of_the_query_if_success_is_true>
-}
-```
+    ```
+    {
+        "error": <error_messsage_if_success_is_false>,
+        "result": <result_of_the_query_if_success_is_true>
+    }
+    ```
 
 - Routes in the `/backend` group serve as a proxy to make requests to AddrindexRS.
 
@@ -51,18 +51,18 @@ Returns server information and the list of documented routes in JSON format.
 
 + Response 200 (application/json)
 
-        ```
-        {
-            "server_ready": true,
-            "network": "mainnet",
-            "version": "10.1.1",
-            "backend_height": 840796,
-            "counterparty_height": 840796,
-            "routes": [
-                <API Documentation in JSON>
-            ]
-        }
-        ```
+    ```
+    {
+        "server_ready": true,
+        "network": "mainnet",
+        "version": "10.1.1",
+        "backend_height": 840796,
+        "counterparty_height": 840796,
+        "routes": [
+            <API Documentation in JSON>
+        ]
+    }
+    ```
 
 
 ## Group Blocks
@@ -79,7 +79,7 @@ Returns the list of the last ten blocks
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -104,7 +104,7 @@ Returns the list of the last ten blocks
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Block [`/blocks/{block_index}`]
 
@@ -115,7 +115,7 @@ Return the information of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "block_index": 840464,
@@ -128,7 +128,7 @@ Return the information of a block
                 "messages_hash": "801d961c45a257f85ef0f10a6a8fdf048a520ae4861c0903f26365b3eaaaf540"
             }
         }
-        ```
+    ```
 
 ### Get Transactions By Block [`/blocks/{block_index}/transactions`]
 
@@ -139,7 +139,7 @@ Returns the transactions of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -157,7 +157,7 @@ Returns the transactions of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Events By Block [`/blocks/{block_index}/events`]
 
@@ -168,7 +168,7 @@ Returns the events of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -295,7 +295,7 @@ Returns the events of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Events Counts By Block [`/blocks/{block_index}/events/counts`]
 
@@ -306,7 +306,7 @@ Returns the event counts of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -343,7 +343,7 @@ Returns the event counts of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Events By Block And Event [`/blocks/{block_index}/events/{event}`]
 
@@ -355,7 +355,7 @@ Returns the events of a block filtered by event
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -375,7 +375,7 @@ Returns the events of a block filtered by event
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Credits By Block [`/blocks/{block_index}/credits`]
 
@@ -386,7 +386,7 @@ Returns the credits of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -400,7 +400,7 @@ Returns the credits of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Debits By Block [`/blocks/{block_index}/debits`]
 
@@ -411,7 +411,7 @@ Returns the debits of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -425,7 +425,7 @@ Returns the debits of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Expirations [`/blocks/{block_index}/expirations`]
 
@@ -436,7 +436,7 @@ Returns the expirations of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -449,7 +449,7 @@ Returns the expirations of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Cancels [`/blocks/{block_index}/cancels`]
 
@@ -460,7 +460,7 @@ Returns the cancels of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -481,7 +481,7 @@ Returns the cancels of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Destructions [`/blocks/{block_index}/destructions`]
 
@@ -492,7 +492,7 @@ Returns the destructions of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -507,7 +507,7 @@ Returns the destructions of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Issuances By Block [`/blocks/{block_index}/issuances`]
 
@@ -518,7 +518,7 @@ Returns the issuances of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -544,7 +544,7 @@ Returns the issuances of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Sends Or Receives By Block [`/blocks/{block_index}/sends`]
 
@@ -559,7 +559,7 @@ Returns the sends of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -576,7 +576,7 @@ Returns the sends of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Dispenses By Block [`/blocks/{block_index}/dispenses`]
 
@@ -587,7 +587,7 @@ Returns the dispenses of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -603,7 +603,7 @@ Returns the dispenses of a block
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Sweeps By Block [`/blocks/{block_index}/sweeps`]
 
@@ -614,7 +614,7 @@ Returns the sweeps of a block
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -641,7 +641,7 @@ Returns the sweeps of a block
                 }
             ]
         }
-        ```
+    ```
 
 ## Group Transactions
 
@@ -656,7 +656,7 @@ Returns Counterparty information from a raw transaction in hex format.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "source": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -684,7 +684,7 @@ Returns Counterparty information from a raw transaction in hex format.
                 }
             }
         }
-        ```
+    ```
 
 ### Unpack [`/transactions/unpack`]
 
@@ -697,7 +697,7 @@ Unpacks Counterparty data in hex format and returns the message type and data.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "message_type": "issuance",
@@ -718,7 +718,7 @@ Unpacks Counterparty data in hex format and returns the message type and data.
                 }
             }
         }
-        ```
+    ```
 
 ### Get Transaction [`/transactions/{tx_hash}`]
 
@@ -729,7 +729,7 @@ Returns the information of a transaction
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "tx_index": 2726605,
@@ -745,7 +745,7 @@ Returns the information of a transaction
                 "supported": 1
             }
         }
-        ```
+    ```
 
 ## Group Addresses
 
@@ -758,7 +758,7 @@ Returns the balances of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -768,7 +768,7 @@ Returns the balances of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Balance Object [`/addresses/{address}/balances/{asset}`]
 
@@ -780,7 +780,7 @@ Returns the balance of an address and asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
@@ -788,7 +788,7 @@ Returns the balance of an address and asset
                 "quantity": 104200000000
             }
         }
-        ```
+    ```
 
 ### Get Credits By Address [`/addresses/{address}/credits`]
 
@@ -803,7 +803,7 @@ Returns the credits of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -817,7 +817,7 @@ Returns the credits of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Debits By Address [`/addresses/{address}/debits`]
 
@@ -832,7 +832,7 @@ Returns the debits of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -855,7 +855,7 @@ Returns the debits of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Bet By Feed [`/addresses/{address}/bets`]
 
@@ -868,7 +868,7 @@ Returns the bets of a feed
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -911,7 +911,7 @@ Returns the bets of a feed
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Broadcasts By Source [`/addresses/{address}/broadcasts`]
 
@@ -926,7 +926,7 @@ Returns the broadcasts of a source
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -955,7 +955,7 @@ Returns the broadcasts of a source
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Burns By Address [`/addresses/{address}/burns`]
 
@@ -966,7 +966,7 @@ Returns the burns of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -980,7 +980,7 @@ Returns the burns of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Send By Address [`/addresses/{address}/sends`]
 
@@ -995,7 +995,7 @@ Returns the sends of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -1012,7 +1012,7 @@ Returns the sends of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Receive By Address [`/addresses/{address}/receives`]
 
@@ -1027,7 +1027,7 @@ Returns the receives of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -1044,7 +1044,7 @@ Returns the receives of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Send By Address And Asset [`/addresses/{address}/sends/{asset}`]
 
@@ -1056,7 +1056,7 @@ Returns the sends of an address and asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -1073,7 +1073,7 @@ Returns the sends of an address and asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Receive By Address And Asset [`/addresses/{address}/receives/{asset}`]
 
@@ -1089,7 +1089,7 @@ Returns the receives of an address and asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -1106,7 +1106,7 @@ Returns the receives of an address and asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Dispensers By Address [`/addresses/{address}/dispensers`]
 
@@ -1119,7 +1119,7 @@ Returns the dispensers of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -1140,7 +1140,7 @@ Returns the dispensers of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Dispensers By Address And Asset [`/addresses/{address}/dispensers/{asset}`]
 
@@ -1154,7 +1154,7 @@ Returns the dispensers of an address and an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -1175,7 +1175,7 @@ Returns the dispensers of an address and an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Sweeps By Address [`/addresses/{address}/sweeps`]
 
@@ -1186,7 +1186,7 @@ Returns the sweeps of an address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -1202,7 +1202,7 @@ Returns the sweeps of an address
                 }
             ]
         }
-        ```
+    ```
 
 ### Compose Bet [`/addresses/{address}/compose/bet`]
 
@@ -1255,7 +1255,7 @@ Composes a transaction to issue a bet against a feed.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0322020000000000001976a914bce6191bf2fd5981313cae869e9fafe164f7dbaf88ac0000000000000000316a2f0d1e454cefefcbe14dffa4c01ecd608ec45d2594e5d27c699f4ef2725648c509bf828ec195ee18f83e052061236deff2db0306000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1273,7 +1273,7 @@ Composes a transaction to issue a bet against a feed.
                 "name": "bet"
             }
         }
-        ```
+    ```
 
 ### Compose Broadcast [`/addresses/{address}/compose/broadcast`]
 
@@ -1320,7 +1320,7 @@ Composes a transaction to broadcast textual and numerical information to the net
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0200000000000000002b6a290d1e454cefefcbe17b1100cb21d3398ec45d2594e5d1d822df41d03a332741261ce2f9aee7827cd91c340c0406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1334,7 +1334,7 @@ Composes a transaction to broadcast textual and numerical information to the net
                 "name": "broadcast"
             }
         }
-        ```
+    ```
 
 ### Compose Btcpay [`/addresses/{address}/compose/btcpay`]
 
@@ -1378,7 +1378,7 @@ Composes a transaction to pay for a BTC order match.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "0200000000010161101e1990879ee64168cce92c9caf338bb571e9cb246b1c2ab87124b95091900200000016001482f2ccc569325050e36c13b55a4065113d985066ffffffff0383c3040000000000160014a9943f67bcd30331d5a4ec6d902cbe03789a1b9700000000000000004b6a49aae396d448ed266a7785be1f6fcfa38dbe3e6e043e3d67691f678d6aa3b30e423f66ffad71eaf3231ef8f05dd5cc2f5b1ea14d33274b9cddacca5bd816a1ce6d5b4d498eb66a981db7add758000000000016001482f2ccc569325050e36c13b55a4065113d98506602000000000000",
@@ -1389,7 +1389,7 @@ Composes a transaction to pay for a BTC order match.
                 "name": "btcpay"
             }
         }
-        ```
+    ```
 
 ### Compose Burn [`/addresses/{address}/compose/burn`]
 
@@ -1435,7 +1435,7 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff02e8030000000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ace61b0406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1447,7 +1447,7 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
                 "name": "burn"
             }
         }
-        ```
+    ```
 
 ### Compose Cancel [`/addresses/{address}/compose/cancel`]
 
@@ -1491,7 +1491,7 @@ Composes a transaction to cancel an open order or bet.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000014709bd6af5d4d7f518f80539d4fe9acd5220a520a7b4287416a7379af9e66154020000001976a91432dff6deb7ca3bbc14f7037fa6ef8a8cf8e39fb988acffffffff0200000000000000002b6a292f3720d2b8ae7343c6d0456802c531e1216f466ceb12b96c6fbe417a97291a0660e51fc47fcc1ee1a878667900000000001976a91432dff6deb7ca3bbc14f7037fa6ef8a8cf8e39fb988ac00000000",
@@ -1502,7 +1502,7 @@ Composes a transaction to cancel an open order or bet.
                 "name": "cancel"
             }
         }
-        ```
+    ```
 
 ### Compose Destroy [`/addresses/{address}/compose/destroy`]
 
@@ -1548,7 +1548,7 @@ Composes a transaction to destroy a quantity of an asset.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000226a200d1e454cefefcbe10bffa672ce93608ec55d2594e5d1946a776c900731380c6b94160406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1561,7 +1561,7 @@ Composes a transaction to destroy a quantity of an asset.
                 "name": "destroy"
             }
         }
-        ```
+    ```
 
 ### Compose Dispenser [`/addresses/{address}/compose/dispenser`]
 
@@ -1613,7 +1613,7 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0200000000000000002c6a2a0d1e454cefefcbe169ffa672ce93608ec55d2594e5d1946a774ef272564b2d4ad8c28ec195ee18f85a160c0b0406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1630,7 +1630,7 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
                 "name": "dispenser"
             }
         }
-        ```
+    ```
 
 ### Compose Dividend [`/addresses/{address}/compose/dividend`]
 
@@ -1676,7 +1676,7 @@ Composes a transaction to issue a dividend to holders of a given asset.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000010af94458ae5aa794c49cd27f7b800a7c68c8dd4f59ff66c99db4e9e353c06d93010000001976a914a9055398b92818794b38b15794096f752167e25f88acffffffff020000000000000000236a21068a00268d252c3a8ed0bddb5ef79f823894aa7de1e196c005510f4d787c936a979b230000000000001976a914a9055398b92818794b38b15794096f752167e25f88ac00000000",
@@ -1689,7 +1689,7 @@ Composes a transaction to issue a dividend to holders of a given asset.
                 "name": "dividend"
             }
         }
-        ```
+    ```
 
 ### Compose Issuance [`/addresses/{address}/compose/issuance`]
 
@@ -1744,7 +1744,7 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0322020000000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac0000000000000000236a210d1e454cefefcbe173ffa672cf3a36751b5d2594e5d1946a774ff272960578057c17ec0306000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1761,7 +1761,7 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
                 "name": "issuance"
             }
         }
-        ```
+    ```
 
 ### Compose Mpma [`/addresses/{address}/compose/mpma`]
 
@@ -1809,7 +1809,7 @@ Composes a transaction to send multiple payments to multiple addresses.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "0100000001fc9b7b3a0552bdfc3c62096e9d7669fb72d5482c7b4f9618138fdffdc831d60b000000001976a914a39dbfab6f1da182af53a4d14799ee545a6176be88acffffffff04e80300000000000069512103ce014780415d0eafbdadfacfa0cf2604a005a87157042f277627c952eedcbb1f2103abf2b72459ee70e6240a7b2ade1a6fa41c7f38cc1db5e63c6f92c01b859017ee2102e849a65234e77627daab722dd75aee7a8f35981ec1dbd5ec5ee7220075b2cd2d53aee80300000000000069512102ce014780415d0eafbd2fcbf00e308d420b59df89ebba83369fea96a9a06fcf562102373ec5e1389ccadf0a972ec451f8aea015104ded7a57b936d374d0ecfe8067412102e849a65234e77627daab722dd75aee7a8f35981ec1dbd5ec5ee7220075b2cd2d53aee80300000000000069512103d0014780415d0eafbd76dacca0b613dda4b8f37e3015031f11220ac5cf43ef4e21034051b78cdcbde85f0c120261e6ab383015104ded7a57b93cd374d900776d4e132102e849a65234e77627daab722dd75aee7a8f35981ec1dbd5ec5ee7220075b2cd2d53ae22fd0200000000001976a914a39dbfab6f1da182af53a4d14799ee545a6176be88ac00000000",
@@ -1838,7 +1838,7 @@ Composes a transaction to send multiple payments to multiple addresses.
                 "name": "mpma"
             }
         }
-        ```
+    ```
 
 ### Compose Order [`/addresses/{address}/compose/order`]
 
@@ -1887,7 +1887,7 @@ Composes a transaction to place an order on the distributed exchange.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000356a330d1e454cefefcbe16fffa672ce93608ec55d2594e5d1946a774ef2724a2a4f457bc28ec195ee18fbd616f461236d8be718616dac000406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1903,7 +1903,7 @@ Composes a transaction to place an order on the distributed exchange.
                 "name": "order"
             }
         }
-        ```
+    ```
 
 ### Compose Send [`/addresses/{address}/compose/send`]
 
@@ -1955,7 +1955,7 @@ Composes a transaction to send a quantity of an asset to another address.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000306a2e0d1e454cefefcbe167ffa672ce93608ec55d2594e5d1946a774e4e944f50dfb46943bffd3b68866791f7f496f8c270060406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -1971,7 +1971,7 @@ Composes a transaction to send a quantity of an asset to another address.
                 "name": "send"
             }
         }
-        ```
+    ```
 
 ### Compose Sweep [`/addresses/{address}/compose/sweep`]
 
@@ -2021,7 +2021,7 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000236a210d1e454cefefcbe161ff1a94d78892739ddc14a84b570af630af96858de42ab6cf6e150406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
@@ -2034,7 +2034,7 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
                 "name": "sweep"
             }
         }
-        ```
+    ```
 
 ## Group Assets
 
@@ -2050,7 +2050,7 @@ Returns the valid assets
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2075,7 +2075,7 @@ Returns the valid assets
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Asset Info [`/assets/{asset}`]
 
@@ -2086,7 +2086,7 @@ Returns the asset information
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "asset": "UNNEGOTIABLE",
@@ -2100,7 +2100,7 @@ Returns the asset information
                 "holder_count": 1
             }
         }
-        ```
+    ```
 
 ### Get Asset Balances [`/assets/{asset}/balances`]
 
@@ -2113,7 +2113,7 @@ Returns the asset balances
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2123,7 +2123,7 @@ Returns the asset balances
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Balance Object [`/assets/{asset}/balances/{address}`]
 
@@ -2135,7 +2135,7 @@ Returns the balance of an address and asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
@@ -2143,7 +2143,7 @@ Returns the balance of an address and asset
                 "quantity": 104200000000
             }
         }
-        ```
+    ```
 
 ### Get Orders By Asset [`/assets/{asset}/orders`]
 
@@ -2156,7 +2156,7 @@ Returns the orders of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2370,7 +2370,7 @@ Returns the orders of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Credits By Asset [`/assets/{asset}/credits`]
 
@@ -2385,7 +2385,7 @@ Returns the credits of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2399,7 +2399,7 @@ Returns the credits of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Debits By Asset [`/assets/{asset}/debits`]
 
@@ -2414,7 +2414,7 @@ Returns the debits of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2464,7 +2464,7 @@ Returns the debits of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Dividends [`/assets/{asset}/dividends`]
 
@@ -2475,7 +2475,7 @@ Returns the dividends of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2612,7 +2612,7 @@ Returns the dividends of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Issuances By Asset [`/assets/{asset}/issuances`]
 
@@ -2623,7 +2623,7 @@ Returns the issuances of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2649,7 +2649,7 @@ Returns the issuances of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Sends Or Receives By Asset [`/assets/{asset}/sends`]
 
@@ -2664,7 +2664,7 @@ Returns the sends of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2729,7 +2729,7 @@ Returns the sends of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Dispensers By Asset [`/assets/{asset}/dispensers`]
 
@@ -2742,7 +2742,7 @@ Returns the dispensers of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2763,7 +2763,7 @@ Returns the dispensers of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Dispensers By Address And Asset [`/assets/{asset}/dispensers/{address}`]
 
@@ -2777,7 +2777,7 @@ Returns the dispensers of an address and an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2798,7 +2798,7 @@ Returns the dispensers of an address and an asset
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Asset Holders [`/assets/{asset}/holders`]
 
@@ -2809,7 +2809,7 @@ Returns the holders of an asset
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2854,7 +2854,7 @@ Returns the holders of an asset
                 }
             ]
         }
-        ```
+    ```
 
 ## Group Orders
 
@@ -2867,7 +2867,7 @@ Returns the information of an order
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2891,7 +2891,7 @@ Returns the information of an order
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Order Matches By Order [`/orders/{tx_hash}/matches`]
 
@@ -2904,7 +2904,7 @@ Returns the order matches of an order
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2930,7 +2930,7 @@ Returns the order matches of an order
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Btcpays By Order [`/orders/{tx_hash}/btcpays`]
 
@@ -2941,7 +2941,7 @@ Returns the BTC pays of an order
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2956,7 +2956,7 @@ Returns the BTC pays of an order
                 }
             ]
         }
-        ```
+    ```
 
 ## Group Bets
 
@@ -2969,7 +2969,7 @@ Returns the information of a bet
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -2993,7 +2993,7 @@ Returns the information of a bet
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Bet Matches By Bet [`/bets/{tx_hash}/matches`]
 
@@ -3006,7 +3006,7 @@ Returns the bet matches of a bet
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3037,7 +3037,7 @@ Returns the bet matches of a bet
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Resolutions By Bet [`/bets/{tx_hash}/resolutions`]
 
@@ -3048,7 +3048,7 @@ Returns the resolutions of a bet
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3064,7 +3064,7 @@ Returns the resolutions of a bet
                 }
             ]
         }
-        ```
+    ```
 
 ## Group Burns
 
@@ -3082,7 +3082,7 @@ Returns the burns
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3132,7 +3132,7 @@ Returns the burns
                 }
             ]
         }
-        ```
+    ```
 
 ## Group Dispensers
 
@@ -3145,7 +3145,7 @@ Returns the dispenser information by tx_hash
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3167,7 +3167,7 @@ Returns the dispenser information by tx_hash
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Dispenses By Dispenser [`/dispensers/{tx_hash}/dispenses`]
 
@@ -3178,7 +3178,7 @@ Returns the dispenses of a dispenser
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3205,7 +3205,7 @@ Returns the dispenses of a dispenser
                 }
             ]
         }
-        ```
+    ```
 
 ## Group Events
 
@@ -3221,7 +3221,7 @@ Returns all events
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3295,7 +3295,7 @@ Returns all events
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Event By Index [`/events/{event_index}`]
 
@@ -3306,7 +3306,7 @@ Returns the event of an index
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3322,7 +3322,7 @@ Returns the event of an index
                 }
             ]
         }
-        ```
+    ```
 
 ### Get All Events Counts [`/events/counts`]
 
@@ -3332,7 +3332,7 @@ Returns the event counts of all blocks
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3525,7 +3525,7 @@ Returns the event counts of all blocks
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Events By Name [`/events/{event}`]
 
@@ -3540,7 +3540,7 @@ Returns the events filtered by event name
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3620,7 +3620,7 @@ Returns the events filtered by event name
                 }
             ]
         }
-        ```
+    ```
 
 ## Group Healthz
 
@@ -3634,13 +3634,13 @@ Health check route.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "status": "Healthy"
             }
         }
-        ```
+    ```
 
 ## Group Backend
 
@@ -3657,7 +3657,7 @@ Returns all transactions involving a given address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3698,7 +3698,7 @@ Returns all transactions involving a given address
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Oldest Tx [`/backend/addresses/{address}/transactions/oldest`]
 
@@ -3711,14 +3711,14 @@ Get the oldest transaction for an address.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "block_index": 833187,
                 "tx_hash": "2c8bc3eede9ec60d26c6fd7f44829adc64da593552044a28c673022220f560c3"
             }
         }
-        ```
+    ```
 
 ### Get Unspent Txouts [`/backend/addresses/{address}/utxos`]
 
@@ -3733,7 +3733,7 @@ Returns a list of unspent outputs for a specific address
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3818,7 +3818,7 @@ Returns a list of unspent outputs for a specific address
                 }
             ]
         }
-        ```
+    ```
 
 ### Pubkeyhash To Pubkey [`/backend/addresses/{address}/pubkey`]
 
@@ -3831,11 +3831,11 @@ Get pubkey for an address.
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": "0388ef0905568d425f1ffd4031d93dda4ef0e220c9b5fc4a6cbaf11544c4a5ca49"
         }
-        ```
+    ```
 
 ### Get Raw Transaction [`/backend/transactions/{tx_hash}`]
 
@@ -3848,7 +3848,7 @@ Get a raw transaction from the blockchain
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": {
                 "txid": "3190047bf2320bdcd0fade655ae49be309519d151330aa478573815229cc0018",
@@ -3893,7 +3893,7 @@ Get a raw transaction from the blockchain
                 "blocktime": 1713951767
             }
         }
-        ```
+    ```
 
 ### Fee Per Kb [`/backend/estimatesmartfee`]
 
@@ -3907,11 +3907,11 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": 295443
         }
-        ```
+    ```
 
 ## Group Mempool
 
@@ -3923,7 +3923,7 @@ Returns all mempool events
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -3968,7 +3968,7 @@ Returns all mempool events
                 }
             ]
         }
-        ```
+    ```
 
 ### Get Mempool Events By Name [`/mempool/events/{event}`]
 
@@ -3979,7 +3979,7 @@ Returns the mempool events filtered by event name
 
 + Response 200 (application/json)
 
-        ```
+    ```
         {
             "result": [
                 {
@@ -4026,4 +4026,4 @@ Returns the mempool events filtered by event name
                 }
             ]
         }
-        ```
+    ```
