@@ -2858,12 +2858,12 @@ Returns the holders of an asset
 
 ## Group Orders
 
-### Get Order [`/orders/{tx_hash}`]
+### Get Order [`/orders/{order_hash}`]
 
 Returns the information of an order
 
 + Parameters
-    + tx_hash: `23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776` (str, required) - The hash of the order to return 
+    + order_hash: `23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776` (str, required) - The hash of the transaction that created the order 
 
 + Response 200 (application/json)
 
@@ -2893,12 +2893,12 @@ Returns the information of an order
         }
     ```
 
-### Get Order Matches By Order [`/orders/{tx_hash}/matches`]
+### Get Order Matches By Order [`/orders/{order_hash}/matches`]
 
 Returns the order matches of an order
 
 + Parameters
-    + tx_hash: `5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947` (str, required) - The hash of the order 
+    + order_hash: `5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947` (str, required) - The hash of the transaction that created the order 
     + status: `completed` (str, optional) - The status of the order matches to return 
         + Default: `pending`
 
@@ -2932,12 +2932,12 @@ Returns the order matches of an order
         }
     ```
 
-### Get Btcpays By Order [`/orders/{tx_hash}/btcpays`]
+### Get Btcpays By Order [`/orders/{order_hash}/btcpays`]
 
 Returns the BTC pays of an order
 
 + Parameters
-    + tx_hash: `299b5b648f54eacb839f3487232d49aea373cdd681b706d4cc0b5e0b03688db4` (str, required) - The hash of the order 
+    + order_hash: `299b5b648f54eacb839f3487232d49aea373cdd681b706d4cc0b5e0b03688db4` (str, required) - The hash of the transaction that created the order 
 
 + Response 200 (application/json)
 
@@ -2960,12 +2960,12 @@ Returns the BTC pays of an order
 
 ## Group Bets
 
-### Get Bet [`/bets/{tx_hash}`]
+### Get Bet [`/bets/{bet_hash}`]
 
 Returns the information of a bet
 
 + Parameters
-    + tx_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the bet to return 
+    + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet 
 
 + Response 200 (application/json)
 
@@ -2995,12 +2995,12 @@ Returns the information of a bet
         }
     ```
 
-### Get Bet Matches By Bet [`/bets/{tx_hash}/matches`]
+### Get Bet Matches By Bet [`/bets/{bet_hash}/matches`]
 
 Returns the bet matches of a bet
 
 + Parameters
-    + tx_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the bet 
+    + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet 
     + status: `expired` (str, optional) - The status of the bet matches 
         + Default: `pending`
 
@@ -3039,12 +3039,12 @@ Returns the bet matches of a bet
         }
     ```
 
-### Get Resolutions By Bet [`/bets/{tx_hash}/resolutions`]
+### Get Resolutions By Bet [`/bets/{bet_hash}/resolutions`]
 
 Returns the resolutions of a bet
 
 + Parameters
-    + tx_hash: `36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace` (str, required) - The hash of the bet 
+    + bet_hash: `36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace` (str, required) - The hash of the transaction that created the bet 
 
 + Response 200 (application/json)
 
@@ -3136,12 +3136,12 @@ Returns the burns
 
 ## Group Dispensers
 
-### Get Dispenser Info By Tx Hash [`/dispensers/{tx_hash}`]
+### Get Dispenser Info By Hash [`/dispensers/{dispenser_hash}`]
 
 Returns the dispenser information by tx_hash
 
 + Parameters
-    + tx_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return 
+    + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return 
 
 + Response 200 (application/json)
 
@@ -3169,12 +3169,12 @@ Returns the dispenser information by tx_hash
         }
     ```
 
-### Get Dispenses By Dispenser [`/dispensers/{tx_hash}/dispenses`]
+### Get Dispenses By Dispenser [`/dispensers/{dispenser_hash}/dispenses`]
 
 Returns the dispenses of a dispenser
 
 + Parameters
-    + tx_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return 
+    + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return 
 
 + Response 200 (application/json)
 
