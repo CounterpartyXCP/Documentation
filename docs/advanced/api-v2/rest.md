@@ -3,13 +3,13 @@ title: REST API V2
 ---
 
 FORMAT: 1A
+HOST: https://api.counterparty.io
 
 # Counterparty Core API
 
 The Counterparty Core API is the recommended (and only supported) way to query the state of a Counterparty node. 
 
 API routes are divided into 11 groups:
-
 - [`/blocks`](#group-blocks)
 - [`/transactions`](#group-transactions)
 - [`/addresses`](#group-addresses)
@@ -43,9 +43,9 @@ Notes:
 
 - Routes in the `/backend` group serve as a proxy to make requests to AddrindexRS.
 
-## Root Path
+# Counterparty API Root [`/`]
 
-### Get Server Info [`/`]
+### Get Server Info [GET]
 
 Returns server information and the list of documented routes in JSON format.
 
@@ -67,7 +67,7 @@ Returns server information and the list of documented routes in JSON format.
 
 ## Group Blocks
 
-### Get Blocks [`/blocks`]
+### Get Blocks [GET `/blocks`]
 
 Returns the list of the last ten blocks
 
@@ -106,7 +106,7 @@ Returns the list of the last ten blocks
         }
     ```
 
-### Get Block [`/blocks/{block_index}`]
+### Get Block [GET `/blocks/{block_index}`]
 
 Return the information of a block
 
@@ -130,7 +130,7 @@ Return the information of a block
         }
     ```
 
-### Get Transactions By Block [`/blocks/{block_index}/transactions`]
+### Get Transactions By Block [GET `/blocks/{block_index}/transactions`]
 
 Returns the transactions of a block
 
@@ -159,7 +159,7 @@ Returns the transactions of a block
         }
     ```
 
-### Get Events By Block [`/blocks/{block_index}/events`]
+### Get Events By Block [GET `/blocks/{block_index}/events`]
 
 Returns the events of a block
 
@@ -297,7 +297,7 @@ Returns the events of a block
         }
     ```
 
-### Get Events Counts By Block [`/blocks/{block_index}/events/counts`]
+### Get Events Counts By Block [GET `/blocks/{block_index}/events/counts`]
 
 Returns the event counts of a block
 
@@ -345,7 +345,7 @@ Returns the event counts of a block
         }
     ```
 
-### Get Events By Block And Event [`/blocks/{block_index}/events/{event}`]
+### Get Events By Block And Event [GET `/blocks/{block_index}/events/{event}`]
 
 Returns the events of a block filtered by event
 
@@ -377,7 +377,7 @@ Returns the events of a block filtered by event
         }
     ```
 
-### Get Credits By Block [`/blocks/{block_index}/credits`]
+### Get Credits By Block [GET `/blocks/{block_index}/credits`]
 
 Returns the credits of a block
 
@@ -402,7 +402,7 @@ Returns the credits of a block
         }
     ```
 
-### Get Debits By Block [`/blocks/{block_index}/debits`]
+### Get Debits By Block [GET `/blocks/{block_index}/debits`]
 
 Returns the debits of a block
 
@@ -427,7 +427,7 @@ Returns the debits of a block
         }
     ```
 
-### Get Expirations [`/blocks/{block_index}/expirations`]
+### Get Expirations [GET `/blocks/{block_index}/expirations`]
 
 Returns the expirations of a block
 
@@ -451,7 +451,7 @@ Returns the expirations of a block
         }
     ```
 
-### Get Cancels [`/blocks/{block_index}/cancels`]
+### Get Cancels [GET `/blocks/{block_index}/cancels`]
 
 Returns the cancels of a block
 
@@ -483,7 +483,7 @@ Returns the cancels of a block
         }
     ```
 
-### Get Destructions [`/blocks/{block_index}/destructions`]
+### Get Destructions [GET `/blocks/{block_index}/destructions`]
 
 Returns the destructions of a block
 
@@ -509,7 +509,7 @@ Returns the destructions of a block
         }
     ```
 
-### Get Issuances By Block [`/blocks/{block_index}/issuances`]
+### Get Issuances By Block [GET `/blocks/{block_index}/issuances`]
 
 Returns the issuances of a block
 
@@ -546,7 +546,7 @@ Returns the issuances of a block
         }
     ```
 
-### Get Sends Or Receives By Block [`/blocks/{block_index}/sends`]
+### Get Sends Or Receives By Block [GET `/blocks/{block_index}/sends`]
 
 Returns the sends of a block
 
@@ -578,7 +578,7 @@ Returns the sends of a block
         }
     ```
 
-### Get Dispenses By Block [`/blocks/{block_index}/dispenses`]
+### Get Dispenses By Block [GET `/blocks/{block_index}/dispenses`]
 
 Returns the dispenses of a block
 
@@ -605,7 +605,7 @@ Returns the dispenses of a block
         }
     ```
 
-### Get Sweeps By Block [`/blocks/{block_index}/sweeps`]
+### Get Sweeps By Block [GET `/blocks/{block_index}/sweeps`]
 
 Returns the sweeps of a block
 
@@ -645,7 +645,7 @@ Returns the sweeps of a block
 
 ## Group Transactions
 
-### Info [`/transactions/info`]
+### Info [GET `/transactions/info`]
 
 Returns Counterparty information from a raw transaction in hex format.
 
@@ -686,7 +686,7 @@ Returns Counterparty information from a raw transaction in hex format.
         }
     ```
 
-### Unpack [`/transactions/unpack`]
+### Unpack [GET `/transactions/unpack`]
 
 Unpacks Counterparty data in hex format and returns the message type and data.
 
@@ -720,7 +720,7 @@ Unpacks Counterparty data in hex format and returns the message type and data.
         }
     ```
 
-### Get Transaction [`/transactions/{tx_hash}`]
+### Get Transaction [GET `/transactions/{tx_hash}`]
 
 Returns the information of a transaction
 
@@ -749,7 +749,7 @@ Returns the information of a transaction
 
 ## Group Addresses
 
-### Get Address Balances [`/addresses/{address}/balances`]
+### Get Address Balances [GET `/addresses/{address}/balances`]
 
 Returns the balances of an address
 
@@ -770,7 +770,7 @@ Returns the balances of an address
         }
     ```
 
-### Get Balance By Address And Asset [`/addresses/{address}/balances/{asset}`]
+### Get Balance By Address And Asset [GET `/addresses/{address}/balances/{asset}`]
 
 Returns the balance of an address and asset
 
@@ -790,7 +790,7 @@ Returns the balance of an address and asset
         }
     ```
 
-### Get Credits By Address [`/addresses/{address}/credits`]
+### Get Credits By Address [GET `/addresses/{address}/credits`]
 
 Returns the credits of an address
 
@@ -819,7 +819,7 @@ Returns the credits of an address
         }
     ```
 
-### Get Debits By Address [`/addresses/{address}/debits`]
+### Get Debits By Address [GET `/addresses/{address}/debits`]
 
 Returns the debits of an address
 
@@ -857,7 +857,7 @@ Returns the debits of an address
         }
     ```
 
-### Get Bet By Feed [`/addresses/{address}/bets`]
+### Get Bet By Feed [GET `/addresses/{address}/bets`]
 
 Returns the bets of a feed
 
@@ -913,7 +913,7 @@ Returns the bets of a feed
         }
     ```
 
-### Get Broadcasts By Source [`/addresses/{address}/broadcasts`]
+### Get Broadcasts By Source [GET `/addresses/{address}/broadcasts`]
 
 Returns the broadcasts of a source
 
@@ -957,7 +957,7 @@ Returns the broadcasts of a source
         }
     ```
 
-### Get Burns By Address [`/addresses/{address}/burns`]
+### Get Burns By Address [GET `/addresses/{address}/burns`]
 
 Returns the burns of an address
 
@@ -982,7 +982,7 @@ Returns the burns of an address
         }
     ```
 
-### Get Send By Address [`/addresses/{address}/sends`]
+### Get Send By Address [GET `/addresses/{address}/sends`]
 
 Returns the sends of an address
 
@@ -1014,7 +1014,7 @@ Returns the sends of an address
         }
     ```
 
-### Get Receive By Address [`/addresses/{address}/receives`]
+### Get Receive By Address [GET `/addresses/{address}/receives`]
 
 Returns the receives of an address
 
@@ -1046,7 +1046,7 @@ Returns the receives of an address
         }
     ```
 
-### Get Send By Address And Asset [`/addresses/{address}/sends/{asset}`]
+### Get Send By Address And Asset [GET `/addresses/{address}/sends/{asset}`]
 
 Returns the sends of an address and asset
 
@@ -1075,7 +1075,7 @@ Returns the sends of an address and asset
         }
     ```
 
-### Get Receive By Address And Asset [`/addresses/{address}/receives/{asset}`]
+### Get Receive By Address And Asset [GET `/addresses/{address}/receives/{asset}`]
 
 Returns the receives of an address and asset
 
@@ -1108,7 +1108,7 @@ Returns the receives of an address and asset
         }
     ```
 
-### Get Dispensers By Address [`/addresses/{address}/dispensers`]
+### Get Dispensers By Address [GET `/addresses/{address}/dispensers`]
 
 Returns the dispensers of an address
 
@@ -1142,7 +1142,7 @@ Returns the dispensers of an address
         }
     ```
 
-### Get Dispensers By Address And Asset [`/addresses/{address}/dispensers/{asset}`]
+### Get Dispensers By Address And Asset [GET `/addresses/{address}/dispensers/{asset}`]
 
 Returns the dispensers of an address and an asset
 
@@ -1177,7 +1177,7 @@ Returns the dispensers of an address and an asset
         }
     ```
 
-### Get Sweeps By Address [`/addresses/{address}/sweeps`]
+### Get Sweeps By Address [GET `/addresses/{address}/sweeps`]
 
 Returns the sweeps of an address
 
@@ -1204,7 +1204,7 @@ Returns the sweeps of an address
         }
     ```
 
-### Compose Bet [`/addresses/{address}/compose/bet`]
+### Compose Bet [GET `/addresses/{address}/compose/bet`]
 
 Composes a transaction to issue a bet against a feed.
 
@@ -1275,7 +1275,7 @@ Composes a transaction to issue a bet against a feed.
         }
     ```
 
-### Compose Broadcast [`/addresses/{address}/compose/broadcast`]
+### Compose Broadcast [GET `/addresses/{address}/compose/broadcast`]
 
 Composes a transaction to broadcast textual and numerical information to the network.
 
@@ -1336,7 +1336,7 @@ Composes a transaction to broadcast textual and numerical information to the net
         }
     ```
 
-### Compose Btcpay [`/addresses/{address}/compose/btcpay`]
+### Compose Btcpay [GET `/addresses/{address}/compose/btcpay`]
 
 Composes a transaction to pay for a BTC order match.
 
@@ -1391,7 +1391,7 @@ Composes a transaction to pay for a BTC order match.
         }
     ```
 
-### Compose Burn [`/addresses/{address}/compose/burn`]
+### Compose Burn [GET `/addresses/{address}/compose/burn`]
 
 Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, possible between blocks 278310 and 283810; on testnet it is still available).
 
@@ -1449,7 +1449,7 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
         }
     ```
 
-### Compose Cancel [`/addresses/{address}/compose/cancel`]
+### Compose Cancel [GET `/addresses/{address}/compose/cancel`]
 
 Composes a transaction to cancel an open order or bet.
 
@@ -1504,7 +1504,7 @@ Composes a transaction to cancel an open order or bet.
         }
     ```
 
-### Compose Destroy [`/addresses/{address}/compose/destroy`]
+### Compose Destroy [GET `/addresses/{address}/compose/destroy`]
 
 Composes a transaction to destroy a quantity of an asset.
 
@@ -1563,7 +1563,7 @@ Composes a transaction to destroy a quantity of an asset.
         }
     ```
 
-### Compose Dispenser [`/addresses/{address}/compose/dispenser`]
+### Compose Dispenser [GET `/addresses/{address}/compose/dispenser`]
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed quantity on open must be equal or greater than give_quantity. It is suggested that you escrow multiples of give_quantity to ease dispenser operation.
 
@@ -1632,7 +1632,7 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
         }
     ```
 
-### Compose Dividend [`/addresses/{address}/compose/dividend`]
+### Compose Dividend [GET `/addresses/{address}/compose/dividend`]
 
 Composes a transaction to issue a dividend to holders of a given asset.
 
@@ -1691,7 +1691,7 @@ Composes a transaction to issue a dividend to holders of a given asset.
         }
     ```
 
-### Compose Issuance [`/addresses/{address}/compose/issuance`]
+### Compose Issuance [GET `/addresses/{address}/compose/issuance`]
 
 Composes a transaction to Issue a new asset, issue more of an existing asset, lock an asset, reset existing supply, or transfer the ownership of an asset.
 
@@ -1763,7 +1763,7 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
         }
     ```
 
-### Compose Mpma [`/addresses/{address}/compose/mpma`]
+### Compose Mpma [GET `/addresses/{address}/compose/mpma`]
 
 Composes a transaction to send multiple payments to multiple addresses.
 
@@ -1840,7 +1840,7 @@ Composes a transaction to send multiple payments to multiple addresses.
         }
     ```
 
-### Compose Order [`/addresses/{address}/compose/order`]
+### Compose Order [GET `/addresses/{address}/compose/order`]
 
 Composes a transaction to place an order on the distributed exchange.
 
@@ -1905,7 +1905,7 @@ Composes a transaction to place an order on the distributed exchange.
         }
     ```
 
-### Compose Send [`/addresses/{address}/compose/send`]
+### Compose Send [GET `/addresses/{address}/compose/send`]
 
 Composes a transaction to send a quantity of an asset to another address.
 
@@ -1973,18 +1973,14 @@ Composes a transaction to send a quantity of an asset to another address.
         }
     ```
 
-### Compose Sweep [`/addresses/{address}/compose/sweep`]
+### Compose Sweep [GET `/addresses/{address}/compose/sweep`]
 
 Composes a transaction to Sends all assets and/or transfer ownerships to a destination address.
 
 + Parameters
     + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending 
     + destination: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev` (str, required) - The address to receive the assets and/or ownerships 
-    + flags: `7` (int, required) - An OR mask of flags indicating how the sweep should be processed. Possible flags are:
-- FLAG_BALANCES: (integer) 1, specifies that all balances should be transferred.
-- FLAG_OWNERSHIP: (integer) 2, specifies that all ownerships should be transferred.
-- FLAG_BINARY_MEMO: (integer) 4, specifies that the memo is in binary/hex form.
-
+    + flags: `7` (int, required) - An OR mask of flags indicating how the sweep should be processed. Possible flags are: - FLAG_BALANCES: (integer) 1, specifies that all balances should be transferred. - FLAG_OWNERSHIP: (integer) 2, specifies that all ownerships should be transferred. - FLAG_BINARY_MEMO: (integer) 4, specifies that the memo is in binary/hex form. 
     + memo: `FFFF` (str, required) - The Memo associated with this transaction in hex format 
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
@@ -2038,7 +2034,7 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
 
 ## Group Assets
 
-### Get Valid Assets [`/assets`]
+### Get Valid Assets [GET `/assets`]
 
 Returns the valid assets
 
@@ -2077,7 +2073,7 @@ Returns the valid assets
         }
     ```
 
-### Get Asset Info [`/assets/{asset}`]
+### Get Asset Info [GET `/assets/{asset}`]
 
 Returns the asset information
 
@@ -2102,7 +2098,7 @@ Returns the asset information
         }
     ```
 
-### Get Asset Balances [`/assets/{asset}/balances`]
+### Get Asset Balances [GET `/assets/{asset}/balances`]
 
 Returns the asset balances
 
@@ -2125,7 +2121,7 @@ Returns the asset balances
         }
     ```
 
-### Get Balance By Address And Asset [`/assets/{asset}/balances/{address}`]
+### Get Balance By Address And Asset [GET `/assets/{asset}/balances/{address}`]
 
 Returns the balance of an address and asset
 
@@ -2145,7 +2141,7 @@ Returns the balance of an address and asset
         }
     ```
 
-### Get Orders By Asset [`/assets/{asset}/orders`]
+### Get Orders By Asset [GET `/assets/{asset}/orders`]
 
 Returns the orders of an asset
 
@@ -2372,7 +2368,7 @@ Returns the orders of an asset
         }
     ```
 
-### Get Credits By Asset [`/assets/{asset}/credits`]
+### Get Credits By Asset [GET `/assets/{asset}/credits`]
 
 Returns the credits of an asset
 
@@ -2401,7 +2397,7 @@ Returns the credits of an asset
         }
     ```
 
-### Get Debits By Asset [`/assets/{asset}/debits`]
+### Get Debits By Asset [GET `/assets/{asset}/debits`]
 
 Returns the debits of an asset
 
@@ -2466,7 +2462,7 @@ Returns the debits of an asset
         }
     ```
 
-### Get Dividends [`/assets/{asset}/dividends`]
+### Get Dividends [GET `/assets/{asset}/dividends`]
 
 Returns the dividends of an asset
 
@@ -2614,7 +2610,7 @@ Returns the dividends of an asset
         }
     ```
 
-### Get Issuances By Asset [`/assets/{asset}/issuances`]
+### Get Issuances By Asset [GET `/assets/{asset}/issuances`]
 
 Returns the issuances of an asset
 
@@ -2651,7 +2647,7 @@ Returns the issuances of an asset
         }
     ```
 
-### Get Sends Or Receives By Asset [`/assets/{asset}/sends`]
+### Get Sends Or Receives By Asset [GET `/assets/{asset}/sends`]
 
 Returns the sends of an asset
 
@@ -2731,7 +2727,7 @@ Returns the sends of an asset
         }
     ```
 
-### Get Dispensers By Asset [`/assets/{asset}/dispensers`]
+### Get Dispensers By Asset [GET `/assets/{asset}/dispensers`]
 
 Returns the dispensers of an asset
 
@@ -2765,7 +2761,7 @@ Returns the dispensers of an asset
         }
     ```
 
-### Get Dispensers By Address And Asset [`/assets/{asset}/dispensers/{address}`]
+### Get Dispensers By Address And Asset [GET `/assets/{asset}/dispensers/{address}`]
 
 Returns the dispensers of an address and an asset
 
@@ -2800,7 +2796,7 @@ Returns the dispensers of an address and an asset
         }
     ```
 
-### Get Asset Holders [`/assets/{asset}/holders`]
+### Get Asset Holders [GET `/assets/{asset}/holders`]
 
 Returns the holders of an asset
 
@@ -2858,7 +2854,7 @@ Returns the holders of an asset
 
 ## Group Orders
 
-### Get Order [`/orders/{order_hash}`]
+### Get Order [GET `/orders/{order_hash}`]
 
 Returns the information of an order
 
@@ -2893,7 +2889,7 @@ Returns the information of an order
         }
     ```
 
-### Get Order Matches By Order [`/orders/{order_hash}/matches`]
+### Get Order Matches By Order [GET `/orders/{order_hash}/matches`]
 
 Returns the order matches of an order
 
@@ -2932,7 +2928,7 @@ Returns the order matches of an order
         }
     ```
 
-### Get Btcpays By Order [`/orders/{order_hash}/btcpays`]
+### Get Btcpays By Order [GET `/orders/{order_hash}/btcpays`]
 
 Returns the BTC pays of an order
 
@@ -2960,7 +2956,7 @@ Returns the BTC pays of an order
 
 ## Group Bets
 
-### Get Bet [`/bets/{bet_hash}`]
+### Get Bet [GET `/bets/{bet_hash}`]
 
 Returns the information of a bet
 
@@ -2995,7 +2991,7 @@ Returns the information of a bet
         }
     ```
 
-### Get Bet Matches By Bet [`/bets/{bet_hash}/matches`]
+### Get Bet Matches By Bet [GET `/bets/{bet_hash}/matches`]
 
 Returns the bet matches of a bet
 
@@ -3039,7 +3035,7 @@ Returns the bet matches of a bet
         }
     ```
 
-### Get Resolutions By Bet [`/bets/{bet_hash}/resolutions`]
+### Get Resolutions By Bet [GET `/bets/{bet_hash}/resolutions`]
 
 Returns the resolutions of a bet
 
@@ -3068,7 +3064,7 @@ Returns the resolutions of a bet
 
 ## Group Burns
 
-### Get All Burns [`/burns`]
+### Get All Burns [GET `/burns`]
 
 Returns the burns
 
@@ -3136,7 +3132,7 @@ Returns the burns
 
 ## Group Dispensers
 
-### Get Dispenser Info By Hash [`/dispensers/{dispenser_hash}`]
+### Get Dispenser Info By Hash [GET `/dispensers/{dispenser_hash}`]
 
 Returns the dispenser information by tx_hash
 
@@ -3169,7 +3165,7 @@ Returns the dispenser information by tx_hash
         }
     ```
 
-### Get Dispenses By Dispenser [`/dispensers/{dispenser_hash}/dispenses`]
+### Get Dispenses By Dispenser [GET `/dispensers/{dispenser_hash}/dispenses`]
 
 Returns the dispenses of a dispenser
 
@@ -3209,7 +3205,7 @@ Returns the dispenses of a dispenser
 
 ## Group Events
 
-### Get All Events [`/events`]
+### Get All Events [GET `/events`]
 
 Returns all events
 
@@ -3297,7 +3293,7 @@ Returns all events
         }
     ```
 
-### Get Event By Index [`/events/{event_index}`]
+### Get Event By Index [GET `/events/{event_index}`]
 
 Returns the event of an index
 
@@ -3324,12 +3320,9 @@ Returns the event of an index
         }
     ```
 
-### Get All Events Counts [`/events/counts`]
+### Get All Events Counts [GET `/events/counts`]
 
 Returns the event counts of all blocks
-
-+ Parameters
-
 + Response 200 (application/json)
 
     ```
@@ -3527,7 +3520,7 @@ Returns the event counts of all blocks
         }
     ```
 
-### Get Events By Name [`/events/{event}`]
+### Get Events By Name [GET `/events/{event}`]
 
 Returns the events filtered by event name
 
@@ -3624,7 +3617,7 @@ Returns the events filtered by event name
 
 ## Group Healthz
 
-### Check Server Status [`/healthz`]
+### Check Server Status [GET `/healthz`]
 
 Health check route.
 
@@ -3644,7 +3637,7 @@ Health check route.
 
 ## Group Backend
 
-### Search Raw Transactions [`/backend/addresses/{address}/transactions`]
+### Search Raw Transactions [GET `/backend/addresses/{address}/transactions`]
 
 Returns all transactions involving a given address
 
@@ -3700,7 +3693,7 @@ Returns all transactions involving a given address
         }
     ```
 
-### Get Oldest Tx [`/backend/addresses/{address}/transactions/oldest`]
+### Get Oldest Tx [GET `/backend/addresses/{address}/transactions/oldest`]
 
 Get the oldest transaction for an address.
 
@@ -3720,7 +3713,7 @@ Get the oldest transaction for an address.
         }
     ```
 
-### Get Unspent Txouts [`/backend/addresses/{address}/utxos`]
+### Get Unspent Txouts [GET `/backend/addresses/{address}/utxos`]
 
 Returns a list of unspent outputs for a specific address
 
@@ -3820,7 +3813,7 @@ Returns a list of unspent outputs for a specific address
         }
     ```
 
-### Pubkeyhash To Pubkey [`/backend/addresses/{address}/pubkey`]
+### Pubkeyhash To Pubkey [GET `/backend/addresses/{address}/pubkey`]
 
 Get pubkey for an address.
 
@@ -3837,7 +3830,7 @@ Get pubkey for an address.
         }
     ```
 
-### Get Raw Transaction [`/backend/transactions/{tx_hash}`]
+### Get Raw Transaction [GET `/backend/transactions/{tx_hash}`]
 
 Get a raw transaction from the blockchain
 
@@ -3895,7 +3888,7 @@ Get a raw transaction from the blockchain
         }
     ```
 
-### Fee Per Kb [`/backend/estimatesmartfee`]
+### Fee Per Kb [GET `/backend/estimatesmartfee`]
 
 Get the fee per kilobyte for a transaction to be confirmed in `conf_target` blocks.
 
@@ -3915,12 +3908,9 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
 
 ## Group Mempool
 
-### Get All Mempool Events [`/mempool/events`]
+### Get All Mempool Events [GET `/mempool/events`]
 
 Returns all mempool events
-
-+ Parameters
-
 + Response 200 (application/json)
 
     ```
@@ -3970,7 +3960,7 @@ Returns all mempool events
         }
     ```
 
-### Get Mempool Events By Name [`/mempool/events/{event}`]
+### Get Mempool Events By Name [GET `/mempool/events/{event}`]
 
 Returns the mempool events filtered by event name
 
