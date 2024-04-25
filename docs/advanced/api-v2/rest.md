@@ -770,7 +770,7 @@ Returns the balances of an address
         }
     ```
 
-### Get Balance Object [`/addresses/{address}/balances/{asset}`]
+### Get Balance By Address And Asset [`/addresses/{address}/balances/{asset}`]
 
 Returns the balance of an address and asset
 
@@ -2125,7 +2125,7 @@ Returns the asset balances
         }
     ```
 
-### Get Balance Object [`/assets/{asset}/balances/{address}`]
+### Get Balance By Address And Asset [`/assets/{asset}/balances/{address}`]
 
 Returns the balance of an address and asset
 
