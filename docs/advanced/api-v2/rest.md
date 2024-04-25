@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: REST API V2
 ---
 
 FORMAT: 1A
@@ -36,13 +36,33 @@ Notes:
 
 ```
 {
-     "success": <True|False>,
      "error": <error_messsage_if_success_is_false>,
      "result": <result_of_the_query_if_success_is_true>
 }
 ```
 
 - Routes in the `/backend` group serve as a proxy to make requests to AddrindexRS.
+
+## Root Path
+
+### Get Server Info [`/`]
+
+Returns server information and the list of documented routes in JSON format.
+
++ Response 200 (application/json)
+
+        ```
+        {
+            "server_ready": true,
+            "network": "mainnet",
+            "version": "10.1.1",
+            "backend_height": 840796,
+            "counterparty_height": 840796,
+            "routes": [
+                <API Documentation in JSON>
+            ]
+        }
+        ```
 
 
 ## Group Blocks
@@ -61,7 +81,6 @@ Returns the list of the last ten blocks
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "block_index": 840000,
@@ -98,7 +117,6 @@ Return the information of a block
 
         ```
         {
-            "success": true,
             "result": {
                 "block_index": 840464,
                 "block_hash": "00000000000000000001093d4d6b21b80800fff6e5ea15cce6d65066f482cce9",
@@ -123,7 +141,6 @@ Returns the transactions of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726605,
@@ -153,7 +170,6 @@ Returns the events of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "event_index": 14194760,
@@ -292,7 +308,6 @@ Returns the event counts of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "event": "ASSET_CREATION",
@@ -342,7 +357,6 @@ Returns the events of a block filtered by event
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "event_index": 14194758,
@@ -374,7 +388,6 @@ Returns the credits of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "block_index": 840464,
@@ -400,7 +413,6 @@ Returns the debits of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "block_index": 840464,
@@ -426,7 +438,6 @@ Returns the expirations of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "type": "order",
@@ -451,7 +462,6 @@ Returns the cancels of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2725738,
@@ -484,7 +494,6 @@ Returns the destructions of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726496,
@@ -511,7 +520,6 @@ Returns the issuances of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726605,
@@ -553,7 +561,6 @@ Returns the sends of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726604,
@@ -582,7 +589,6 @@ Returns the dispenses of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726580,
@@ -610,7 +616,6 @@ Returns the sweeps of a block
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2720536,
@@ -653,7 +658,6 @@ Returns Counterparty information from a raw transaction in hex format.
 
         ```
         {
-            "success": true,
             "result": {
                 "source": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                 "destination": "",
@@ -695,7 +699,6 @@ Unpacks Counterparty data in hex format and returns the message type and data.
 
         ```
         {
-            "success": true,
             "result": {
                 "message_type": "issuance",
                 "message_type_id": 22,
@@ -728,7 +731,6 @@ Returns the information of a transaction
 
         ```
         {
-            "success": true,
             "result": {
                 "tx_index": 2726605,
                 "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
@@ -758,7 +760,6 @@ Returns the balances of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
@@ -781,7 +782,6 @@ Returns the balance of an address and asset
 
         ```
         {
-            "success": true,
             "result": {
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                 "asset": "XCP",
@@ -805,7 +805,6 @@ Returns the credits of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "block_index": 830981,
@@ -835,7 +834,6 @@ Returns the debits of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "block_index": 836949,
@@ -872,7 +870,6 @@ Returns the bets of a feed
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 15106,
@@ -931,7 +928,6 @@ Returns the broadcasts of a source
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 15055,
@@ -972,7 +968,6 @@ Returns the burns of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 3070,
@@ -1002,7 +997,6 @@ Returns the sends of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 163106,
@@ -1035,7 +1029,6 @@ Returns the receives of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2677412,
@@ -1065,7 +1058,6 @@ Returns the sends of an address and asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 163106,
@@ -1099,7 +1091,6 @@ Returns the receives of an address and asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2677412,
@@ -1130,7 +1121,6 @@ Returns the dispensers of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726460,
@@ -1166,7 +1156,6 @@ Returns the dispensers of an address and an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726460,
@@ -1199,7 +1188,6 @@ Returns the sweeps of an address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2720537,
@@ -1269,7 +1257,6 @@ Composes a transaction to issue a bet against a feed.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0322020000000000001976a914bce6191bf2fd5981313cae869e9fafe164f7dbaf88ac0000000000000000316a2f0d1e454cefefcbe14dffa4c01ecd608ec45d2594e5d27c699f4ef2725648c509bf828ec195ee18f83e052061236deff2db0306000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -1335,7 +1322,6 @@ Composes a transaction to broadcast textual and numerical information to the net
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0200000000000000002b6a290d1e454cefefcbe17b1100cb21d3398ec45d2594e5d1d822df41d03a332741261ce2f9aee7827cd91c340c0406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -1394,7 +1380,6 @@ Composes a transaction to pay for a BTC order match.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "0200000000010161101e1990879ee64168cce92c9caf338bb571e9cb246b1c2ab87124b95091900200000016001482f2ccc569325050e36c13b55a4065113d985066ffffffff0383c3040000000000160014a9943f67bcd30331d5a4ec6d902cbe03789a1b9700000000000000004b6a49aae396d448ed266a7785be1f6fcfa38dbe3e6e043e3d67691f678d6aa3b30e423f66ffad71eaf3231ef8f05dd5cc2f5b1ea14d33274b9cddacca5bd816a1ce6d5b4d498eb66a981db7add758000000000016001482f2ccc569325050e36c13b55a4065113d98506602000000000000",
                 "params": {
@@ -1452,7 +1437,6 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff02e8030000000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ace61b0406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -1509,7 +1493,6 @@ Composes a transaction to cancel an open order or bet.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000014709bd6af5d4d7f518f80539d4fe9acd5220a520a7b4287416a7379af9e66154020000001976a91432dff6deb7ca3bbc14f7037fa6ef8a8cf8e39fb988acffffffff0200000000000000002b6a292f3720d2b8ae7343c6d0456802c531e1216f466ceb12b96c6fbe417a97291a0660e51fc47fcc1ee1a878667900000000001976a91432dff6deb7ca3bbc14f7037fa6ef8a8cf8e39fb988ac00000000",
                 "params": {
@@ -1567,7 +1550,6 @@ Composes a transaction to destroy a quantity of an asset.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000226a200d1e454cefefcbe10bffa672ce93608ec55d2594e5d1946a776c900731380c6b94160406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -1633,7 +1615,6 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0200000000000000002c6a2a0d1e454cefefcbe169ffa672ce93608ec55d2594e5d1946a774ef272564b2d4ad8c28ec195ee18f85a160c0b0406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -1697,7 +1678,6 @@ Composes a transaction to issue a dividend to holders of a given asset.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000010af94458ae5aa794c49cd27f7b800a7c68c8dd4f59ff66c99db4e9e353c06d93010000001976a914a9055398b92818794b38b15794096f752167e25f88acffffffff020000000000000000236a21068a00268d252c3a8ed0bddb5ef79f823894aa7de1e196c005510f4d787c936a979b230000000000001976a914a9055398b92818794b38b15794096f752167e25f88ac00000000",
                 "params": {
@@ -1766,7 +1746,6 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff0322020000000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac0000000000000000236a210d1e454cefefcbe173ffa672cf3a36751b5d2594e5d1946a774ff272960578057c17ec0306000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -1832,7 +1811,6 @@ Composes a transaction to send multiple payments to multiple addresses.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "0100000001fc9b7b3a0552bdfc3c62096e9d7669fb72d5482c7b4f9618138fdffdc831d60b000000001976a914a39dbfab6f1da182af53a4d14799ee545a6176be88acffffffff04e80300000000000069512103ce014780415d0eafbdadfacfa0cf2604a005a87157042f277627c952eedcbb1f2103abf2b72459ee70e6240a7b2ade1a6fa41c7f38cc1db5e63c6f92c01b859017ee2102e849a65234e77627daab722dd75aee7a8f35981ec1dbd5ec5ee7220075b2cd2d53aee80300000000000069512102ce014780415d0eafbd2fcbf00e308d420b59df89ebba83369fea96a9a06fcf562102373ec5e1389ccadf0a972ec451f8aea015104ded7a57b936d374d0ecfe8067412102e849a65234e77627daab722dd75aee7a8f35981ec1dbd5ec5ee7220075b2cd2d53aee80300000000000069512103d0014780415d0eafbd76dacca0b613dda4b8f37e3015031f11220ac5cf43ef4e21034051b78cdcbde85f0c120261e6ab383015104ded7a57b93cd374d900776d4e132102e849a65234e77627daab722dd75aee7a8f35981ec1dbd5ec5ee7220075b2cd2d53ae22fd0200000000001976a914a39dbfab6f1da182af53a4d14799ee545a6176be88ac00000000",
                 "params": {
@@ -1911,7 +1889,6 @@ Composes a transaction to place an order on the distributed exchange.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000356a330d1e454cefefcbe16fffa672ce93608ec55d2594e5d1946a774ef2724a2a4f457bc28ec195ee18fbd616f461236d8be718616dac000406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -1980,7 +1957,6 @@ Composes a transaction to send a quantity of an asset to another address.
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000306a2e0d1e454cefefcbe167ffa672ce93608ec55d2594e5d1946a774e4e944f50dfb46943bffd3b68866791f7f496f8c270060406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -2047,7 +2023,6 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
 
         ```
         {
-            "success": true,
             "result": {
                 "rawtransaction": "01000000017004c1186a4a6a11708e1739839488180dbb6dbf4a9bf52228faa5b3173cdb05000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188acffffffff020000000000000000236a210d1e454cefefcbe161ff1a94d78892739ddc14a84b570af630af96858de42ab6cf6e150406000000001976a914818895f3dc2c178629d3d2d8fa3ec4a3f817982188ac00000000",
                 "params": {
@@ -2077,7 +2052,6 @@ Returns the valid assets
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "asset": "A100000000000000000",
@@ -2114,7 +2088,6 @@ Returns the asset information
 
         ```
         {
-            "success": true,
             "result": {
                 "asset": "UNNEGOTIABLE",
                 "asset_longname": null,
@@ -2142,7 +2115,6 @@ Returns the asset balances
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "address": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -2165,7 +2137,6 @@ Returns the balance of an address and asset
 
         ```
         {
-            "success": true,
             "result": {
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                 "asset": "XCP",
@@ -2187,7 +2158,6 @@ Returns the orders of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 825373,
@@ -2417,7 +2387,6 @@ Returns the credits of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "block_index": 840464,
@@ -2447,7 +2416,6 @@ Returns the debits of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "block_index": 280091,
@@ -2509,7 +2477,6 @@ Returns the dividends of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 1914456,
@@ -2658,7 +2625,6 @@ Returns the issuances of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726605,
@@ -2700,7 +2666,6 @@ Returns the sends of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 729,
@@ -2779,7 +2744,6 @@ Returns the dispensers of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726460,
@@ -2815,7 +2779,6 @@ Returns the dispensers of an address and an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2726460,
@@ -2848,7 +2811,6 @@ Returns the holders of an asset
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "address": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
@@ -2907,7 +2869,6 @@ Returns the information of an order
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2724132,
@@ -2945,7 +2906,6 @@ Returns the order matches of an order
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "id": "23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776_5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947",
@@ -2983,7 +2943,6 @@ Returns the BTC pays of an order
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2719343,
@@ -3012,7 +2971,6 @@ Returns the information of a bet
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 15106,
@@ -3050,7 +3008,6 @@ Returns the bet matches of a bet
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "id": "5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed_cb5f888c299a50967d523513daed71636d927e6ef3dbda85feb11ff112ae4330",
@@ -3093,7 +3050,6 @@ Returns the resolutions of a bet
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "bet_match_id": "36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace_d70ee4e44f02fe6258ee0c267f33f304a0fc61d4ce424852f58c28967dc1924f",
@@ -3128,7 +3084,6 @@ Returns the burns
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 10,
@@ -3192,7 +3147,6 @@ Returns the dispenser information by tx_hash
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2536311,
@@ -3226,7 +3180,6 @@ Returns the dispenses of a dispenser
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_index": 2610745,
@@ -3270,7 +3223,6 @@ Returns all events
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "event_index": 10665092,
@@ -3356,7 +3308,6 @@ Returns the event of an index
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "event_index": 10665092,
@@ -3383,7 +3334,6 @@ Returns the event counts of all blocks
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "event": "ASSET_CREATION",
@@ -3577,7 +3527,7 @@ Returns the event counts of all blocks
         }
         ```
 
-### Get Events By Event [`/events/{event}`]
+### Get Events By Name [`/events/{event}`]
 
 Returns the events filtered by event name
 
@@ -3592,7 +3542,6 @@ Returns the events filtered by event name
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "event_index": 10665090,
@@ -3687,7 +3636,6 @@ Health check route.
 
         ```
         {
-            "success": true,
             "result": {
                 "status": "Healthy"
             }
@@ -3711,7 +3659,6 @@ Returns all transactions involving a given address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_hash": "eae4f1dba4d75bda9dd0de12f69a980be267bbc16b7a280a2a4b40c4b3bbb70a"
@@ -3766,7 +3713,6 @@ Get the oldest transaction for an address.
 
         ```
         {
-            "success": true,
             "result": {
                 "block_index": 833187,
                 "tx_hash": "2c8bc3eede9ec60d26c6fd7f44829adc64da593552044a28c673022220f560c3"
@@ -3789,7 +3735,6 @@ Returns a list of unspent outputs for a specific address
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "vout": 6,
@@ -3888,7 +3833,6 @@ Get pubkey for an address.
 
         ```
         {
-            "success": true,
             "result": "0388ef0905568d425f1ffd4031d93dda4ef0e220c9b5fc4a6cbaf11544c4a5ca49"
         }
         ```
@@ -3906,7 +3850,6 @@ Get a raw transaction from the blockchain
 
         ```
         {
-            "success": true,
             "result": {
                 "txid": "3190047bf2320bdcd0fade655ae49be309519d151330aa478573815229cc0018",
                 "hash": "417c24d7a5539bc5b8496e26528382ac297a85a1c6b891b220f72712405ec300",
@@ -3966,7 +3909,6 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
 
         ```
         {
-            "success": true,
             "result": 295443
         }
         ```
@@ -3983,7 +3925,6 @@ Returns all mempool events
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_hash": "8a154886671713cae6d72d2996f07fac61529c0d8d1ebc476f448212ff3d535e",
@@ -4029,7 +3970,7 @@ Returns all mempool events
         }
         ```
 
-### Get Mempool Events By Event [`/mempool/events/{event}`]
+### Get Mempool Events By Name [`/mempool/events/{event}`]
 
 Returns the mempool events filtered by event name
 
@@ -4040,7 +3981,6 @@ Returns the mempool events filtered by event name
 
         ```
         {
-            "success": true,
             "result": [
                 {
                     "tx_hash": "90ba95c4578b9ab7866515d66736c5b4132e88a0bd9b0fca7b2f1be830a1bb81",
