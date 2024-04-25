@@ -3624,7 +3624,7 @@ Returns the events filtered by event name
 
 ## Group Healthz
 
-### Handle Healthz Route V2 [`/healthz`]
+### Check Server Status [`/healthz`]
 
 Health check route.
 
