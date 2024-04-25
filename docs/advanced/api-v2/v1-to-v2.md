@@ -1,16 +1,16 @@
 ---
-title: Migrate from API v1
+title: Migrate from API v1 to API v2
 ---
 
 The main differences between the old and new API are:
 
-- The new API is REST instead of RPC.
-- All requests are in GET and can be called easily from a browser.
-- The new API has fewer filters but is optimized for the new database structure without UPDATE.
+- The new API is ReSTful instead of RPC-based.
+- All requests use the `GET` method and so may be made easily from any browser.
+- The new API has fewer filters, but is optimized for the new log-structure database architecture.
 
-Here is an equivalence table to help you easily migrate to the new API:
+Here is an equivalence table to help you easily migrate to the new version:
 
-## Equivalence table between API v1 and v2
+## Table of Equivalences between API v1 and v2
 
 ### Get Ledger State
 
