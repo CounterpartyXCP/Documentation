@@ -1,5 +1,5 @@
 ---
-title: REST API V2
+title: ReST API V2
 ---
 
 FORMAT: 1A
@@ -13,6 +13,7 @@ API routes are divided into 11 groups:
 - [`/blocks`](#group-blocks)
 - [`/transactions`](#group-transactions)
 - [`/addresses`](#group-addresses)
+- [`/compose`](#group-compose)
 - [`/assets`](#group-assets)
 - [`/orders`](#group-orders)
 - [`/bets`](#group-bets)
@@ -20,7 +21,7 @@ API routes are divided into 11 groups:
 - [`/burns`](#group-burns)
 - [`/events`](#group-events)
 - [`/mempool`](#group-mempool)
-- [`/backend`](#group-backend)
+- [`/bitcoin`](#group-bitcoin)
 
 Notes:
 
@@ -29,8 +30,8 @@ Notes:
 - All API responses contain the following 3 headers:
 
     * `X-COUNTERPARTY-HEIGHT` contains the last block parsed by Counterparty
-    * `X-BACKEND-HEIGHT` contains the last block known to Bitcoin Core
-    * `X-COUNTERPARTY-READY` contains true if `X-COUNTERPARTY-HEIGHT` >= `X-BACKEND-HEIGHT` - 1
+    * `X-BITCOIN-HEIGHT` contains the last block known to Bitcoin Core
+    * `X-COUNTERPARTY-READY` contains true if `X-COUNTERPARTY-HEIGHT` >= `X-BITCOIN-HEIGHT` - 1
 
 - All API responses follow the following format:
 
@@ -41,7 +42,7 @@ Notes:
     }
     ```
 
-- Routes in the `/backend` group serve as a proxy to make requests to AddrindexRS.
+- Routes in the `/bitcoin` group serve as a proxy to make requests to Bitcoin Core.
 
 # Counterparty API Root [`/`]
 
@@ -72,9 +73,9 @@ Returns server information and the list of documented routes in JSON format.
 Returns the list of the last ten blocks
 
 + Parameters
-    + last: `840000` (int, optional) - The index of the most recent block to return 
+    + last: `840000` (int, optional) - The index of the most recent block to return
         + Default: `None`
-    + limit: `2` (int, optional) - The number of blocks to return 
+    + limit: `2` (int, optional) - The number of blocks to return
         + Default: `10`
 
 + Response 200 (application/json)
@@ -111,7 +112,7 @@ Returns the list of the last ten blocks
 Return the information of a block
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
+    + block_index: `840464` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -135,7 +136,7 @@ Return the information of a block
 Returns the transactions of a block
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
+    + block_index: `840464` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -164,7 +165,7 @@ Returns the transactions of a block
 Returns the events of a block
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
+    + block_index: `840464` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -174,30 +175,26 @@ Returns the events of a block
                 {
                     "event_index": 14194760,
                     "event": "BLOCK_PARSED",
-                    "bindings": {
+                    "params": {
                         "block_index": 840464,
                         "ledger_hash": "b3f8cbb50b0705a5c4a8495f8b5128de13a32daebd8ac5e8316a010f0d203584",
                         "messages_hash": "801d961c45a257f85ef0f10a6a8fdf048a520ae4861c0903f26365b3eaaaf540",
                         "txlist_hash": "84bdc5b9073f775a2b65de7da2b10b89a2235f3501883b0a836e41e68cd00d46"
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852780
+                    }
                 },
                 {
                     "event_index": 14194759,
                     "event": "TRANSACTION_PARSED",
-                    "bindings": {
+                    "params": {
                         "supported": true,
                         "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "tx_index": 2726605
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852780
+                    }
                 },
                 {
                     "event_index": 14194758,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                         "asset": "UNNEGOTIABLE",
                         "block_index": 840464,
@@ -205,14 +202,12 @@ Returns the events of a block
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 1,
                         "tx_index": 2726605
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852780
+                    }
                 },
                 {
                     "event_index": 14194757,
                     "event": "ASSET_ISSUANCE",
-                    "bindings": {
+                    "params": {
                         "asset": "UNNEGOTIABLE",
                         "asset_longname": null,
                         "block_index": 840464,
@@ -231,26 +226,22 @@ Returns the events of a block
                         "transfer": false,
                         "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "tx_index": 2726605
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852780
+                    }
                 },
                 {
                     "event_index": 14194756,
                     "event": "ASSET_CREATION",
-                    "bindings": {
+                    "params": {
                         "asset_id": "75313533584419238",
                         "asset_longname": null,
                         "asset_name": "UNNEGOTIABLE",
                         "block_index": 840464
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852780
+                    }
                 },
                 {
                     "event_index": 14194755,
                     "event": "DEBIT",
-                    "bindings": {
+                    "params": {
                         "action": "issuance fee",
                         "address": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                         "asset": "XCP",
@@ -258,14 +249,12 @@ Returns the events of a block
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 50000000,
                         "tx_index": 2726605
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852780
+                    }
                 },
                 {
                     "event_index": 14194754,
                     "event": "NEW_TRANSACTION",
-                    "bindings": {
+                    "params": {
                         "block_hash": "00000000000000000001093d4d6b21b80800fff6e5ea15cce6d65066f482cce9",
                         "block_index": 840464,
                         "block_time": 1713852783,
@@ -276,33 +265,29 @@ Returns the events of a block
                         "source": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                         "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "tx_index": 2726605
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852779
+                    }
                 },
                 {
                     "event_index": 14194753,
                     "event": "NEW_BLOCK",
-                    "bindings": {
+                    "params": {
                         "block_hash": "00000000000000000001093d4d6b21b80800fff6e5ea15cce6d65066f482cce9",
                         "block_index": 840464,
                         "block_time": 1713852783,
                         "difficulty": 86388558925171.02,
                         "previous_block_hash": "00000000000000000002db1e5aa19784eec3de949f98ec757e7a7f2fc392079d"
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852779
+                    }
                 }
             ]
         }
     ```
 
-### Get Events Counts By Block [GET `/blocks/{block_index}/events/counts`]
+### Get Event Counts By Block [GET `/blocks/{block_index}/events/counts`]
 
 Returns the event counts of a block
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
+    + block_index: `840464` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -350,8 +335,8 @@ Returns the event counts of a block
 Returns the events of a block filtered by event
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
-    + event: `CREDIT` (str, required) - The event to filter by 
+    + block_index: `840464` (int, required) - The index of the block to return
+    + event: `CREDIT` (str, required) - The event to filter by
 
 + Response 200 (application/json)
 
@@ -361,7 +346,7 @@ Returns the events of a block filtered by event
                 {
                     "event_index": 14194758,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                         "asset": "UNNEGOTIABLE",
                         "block_index": 840464,
@@ -369,9 +354,7 @@ Returns the events of a block filtered by event
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 1,
                         "tx_index": 2726605
-                    },
-                    "block_index": 840464,
-                    "timestamp": 1713852780
+                    }
                 }
             ]
         }
@@ -382,7 +365,7 @@ Returns the events of a block filtered by event
 Returns the credits of a block
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
+    + block_index: `840464` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -407,7 +390,7 @@ Returns the credits of a block
 Returns the debits of a block
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
+    + block_index: `840464` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -432,7 +415,7 @@ Returns the debits of a block
 Returns the expirations of a block
 
 + Parameters
-    + block_index: `840356` (int, required) - The index of the block to return 
+    + block_index: `840356` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -456,7 +439,7 @@ Returns the expirations of a block
 Returns the cancels of a block
 
 + Parameters
-    + block_index: `839746` (int, required) - The index of the block to return 
+    + block_index: `839746` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -488,7 +471,7 @@ Returns the cancels of a block
 Returns the destructions of a block
 
 + Parameters
-    + block_index: `839988` (int, required) - The index of the block to return 
+    + block_index: `839988` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -514,7 +497,7 @@ Returns the destructions of a block
 Returns the issuances of a block
 
 + Parameters
-    + block_index: `840464` (int, required) - The index of the block to return 
+    + block_index: `840464` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -546,15 +529,15 @@ Returns the issuances of a block
         }
     ```
 
-### Get Sends Or Receives By Block [GET `/blocks/{block_index}/sends`]
+### Get Sends By Block [GET `/blocks/{block_index}/sends`]
 
 Returns the sends of a block
 
 + Parameters
-    + block_index: `840459` (int, required) - The index of the block to return 
-    + limit (int, optional) - 
+    + block_index: `840459` (int, required) - The index of the block to return
+    + limit: `5` (int, optional) - The maximum number of sends to return
         + Default: `100`
-    + offset (int, optional) - 
+    + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -583,7 +566,7 @@ Returns the sends of a block
 Returns the dispenses of a block
 
 + Parameters
-    + block_index: `840322` (int, required) - The index of the block to return 
+    + block_index: `840322` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -610,7 +593,7 @@ Returns the dispenses of a block
 Returns the sweeps of a block
 
 + Parameters
-    + block_index: `836519` (int, required) - The index of the block to return 
+    + block_index: `836519` (int, required) - The index of the block to return
 
 + Response 200 (application/json)
 
@@ -650,7 +633,7 @@ Returns the sweeps of a block
 Returns Counterparty information from a raw transaction in hex format.
 
 + Parameters
-    + rawtransaction: `01000000017828697743c03aef6a3a8ba54b22bf579ffcab8161faf20e7b20c4ecd75cc986010000006b483045022100d1bd0531bb1ed2dd2cbf77d6933273e792a3dbfa84327d419169850ddd5976f502205d1ab0f7bcbf1a0cc183f0520c9aa8f711d41cb790c0c4ac39da6da4a093d798012103d3b1f711e907acb556e239f6cafb6a4f7fe40d8dd809b0e06e739c2afd73f202ffffffff0200000000000000004d6a4bf29880b93b0711524c7ef9c76835752088db8bd4113a3daf41fc45ffdc8867ebdbf26817fae377696f36790e52f51005806e9399a427172fedf348cf798ed86e548002ee96909eef0775ec3c2b0100000000001976a91443434cf159cc585fbd74daa9c4b833235b19761b88ac00000000` (str, required) - Raw transaction in hex format 
+    + rawtransaction: `01000000017828697743c03aef6a3a8ba54b22bf579ffcab8161faf20e7b20c4ecd75cc986010000006b483045022100d1bd0531bb1ed2dd2cbf77d6933273e792a3dbfa84327d419169850ddd5976f502205d1ab0f7bcbf1a0cc183f0520c9aa8f711d41cb790c0c4ac39da6da4a093d798012103d3b1f711e907acb556e239f6cafb6a4f7fe40d8dd809b0e06e739c2afd73f202ffffffff0200000000000000004d6a4bf29880b93b0711524c7ef9c76835752088db8bd4113a3daf41fc45ffdc8867ebdbf26817fae377696f36790e52f51005806e9399a427172fedf348cf798ed86e548002ee96909eef0775ec3c2b0100000000001976a91443434cf159cc585fbd74daa9c4b833235b19761b88ac00000000` (str, required) - Raw transaction in hex format
     + block_index (int, optional) - Block index mandatory for transactions before block 335000
         + Default: `None`
 
@@ -691,7 +674,7 @@ Returns Counterparty information from a raw transaction in hex format.
 Unpacks Counterparty data in hex format and returns the message type and data.
 
 + Parameters
-    + datahex: `16010b9142801429a60000000000000001000000554e4e45474f544941424c45205745204d555354204245434f4d4520554e4e45474f544941424c4520574520415245` (str, required) - Data in hex format 
+    + datahex: `16010b9142801429a60000000000000001000000554e4e45474f544941424c45205745204d555354204245434f4d4520554e4e45474f544941424c4520574520415245` (str, required) - Data in hex format
     + block_index (int, optional) - Block index of the transaction containing this data
         + Default: `None`
 
@@ -725,7 +708,7 @@ Unpacks Counterparty data in hex format and returns the message type and data.
 Returns a transaction by its hash.
 
 + Parameters
-    + tx_hash: `876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5` (str, required) - The hash of the transaction 
+    + tx_hash: `876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5` (str, required) - The hash of the transaction
 
 + Response 200 (application/json)
 
@@ -772,7 +755,7 @@ Returns a transaction by its hash.
 Returns the balances of an address
 
 + Parameters
-    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return 
+    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
 
 + Response 200 (application/json)
 
@@ -793,8 +776,8 @@ Returns the balances of an address
 Returns the balance of an address and asset
 
 + Parameters
-    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return 
-    + asset: `XCP` (str, required) - The asset to return 
+    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
+    + asset: `XCP` (str, required) - The asset to return
 
 + Response 200 (application/json)
 
@@ -813,10 +796,10 @@ Returns the balance of an address and asset
 Returns the credits of an address
 
 + Parameters
-    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return 
-    + limit: `5` (int, optional) - The maximum number of credits to return 
+    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
+    + limit: `5` (int, optional) - The maximum number of credits to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the credits to return 
+    + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -842,10 +825,10 @@ Returns the credits of an address
 Returns the debits of an address
 
 + Parameters
-    + address: `bc1q7787j6msqczs58asdtetchl3zwe8ruj57p9r9y` (str, required) - The address to return 
-    + limit: `5` (int, optional) - The maximum number of debits to return 
+    + address: `bc1q7787j6msqczs58asdtetchl3zwe8ruj57p9r9y` (str, required) - The address to return
+    + limit: `5` (int, optional) - The maximum number of debits to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the debits to return 
+    + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -880,8 +863,8 @@ Returns the debits of an address
 Returns the bets of a feed
 
 + Parameters
-    + address: `1QKEpuxEmdp428KEBSDZAKL46noSXWJBkk` (str, required) - The address of the feed 
-    + status: `filled` (str, optional) - The status of the bet 
+    + address: `1QKEpuxEmdp428KEBSDZAKL46noSXWJBkk` (str, required) - The address of the feed
+    + status: `filled` (str, optional) - The status of the bet
         + Default: `open`
 
 + Response 200 (application/json)
@@ -936,10 +919,10 @@ Returns the bets of a feed
 Returns the broadcasts of a source
 
 + Parameters
-    + address: `1QKEpuxEmdp428KEBSDZAKL46noSXWJBkk` (str, required) - The address to return 
-    + status: `valid` (str, optional) - The status of the broadcasts to return 
+    + address: `1QKEpuxEmdp428KEBSDZAKL46noSXWJBkk` (str, required) - The address to return
+    + status: `valid` (str, optional) - The status of the broadcasts to return
         + Default: `valid`
-    + order_by: `ASC` (str, optional) - The order of the broadcasts to return 
+    + order_by: `ASC` (str, optional) - The order of the broadcasts to return
         + Default: `DESC`
 
 + Response 200 (application/json)
@@ -980,7 +963,7 @@ Returns the broadcasts of a source
 Returns the burns of an address
 
 + Parameters
-    + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return 
+    + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
 
 + Response 200 (application/json)
 
@@ -1005,10 +988,10 @@ Returns the burns of an address
 Returns the sends of an address
 
 + Parameters
-    + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return 
-    + limit: `5` (int, optional) - The maximum number of sends to return 
+    + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
+    + limit: `5` (int, optional) - The maximum number of sends to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the sends to return 
+    + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -1037,10 +1020,10 @@ Returns the sends of an address
 Returns the receives of an address
 
 + Parameters
-    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return 
-    + limit: `5` (int, optional) - The maximum number of receives to return 
+    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
+    + limit: `5` (int, optional) - The maximum number of receives to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the receives to return 
+    + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -1069,8 +1052,8 @@ Returns the receives of an address
 Returns the sends of an address and asset
 
 + Parameters
-    + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return 
-    + asset: `XCP` (str, required) - The asset to return 
+    + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
+    + asset: `XCP` (str, required) - The asset to return
 
 + Response 200 (application/json)
 
@@ -1098,11 +1081,11 @@ Returns the sends of an address and asset
 Returns the receives of an address and asset
 
 + Parameters
-    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return 
-    + asset: `XCP` (str, required) - The asset to return 
-    + limit: `5` (int, optional) - The maximum number of receives to return 
+    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
+    + asset: `XCP` (str, required) - The asset to return
+    + limit: `5` (int, optional) - The maximum number of receives to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the receives to return 
+    + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -1131,7 +1114,7 @@ Returns the receives of an address and asset
 Returns the dispensers of an address
 
 + Parameters
-    + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return 
+    + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return
     + status (int, optional) - 
         + Default: `0`
 
@@ -1165,8 +1148,8 @@ Returns the dispensers of an address
 Returns the dispensers of an address and an asset
 
 + Parameters
-    + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return 
-    + asset: `ERYKAHPEPU` (str, required) - The asset to return 
+    + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return
+    + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
 
@@ -1200,7 +1183,7 @@ Returns the dispensers of an address and an asset
 Returns the sweeps of an address
 
 + Parameters
-    + address: `18szqTVJUWwYrtRHq98Wn4DhCGGiy3jZ87` (str, required) - The address to return 
+    + address: `18szqTVJUWwYrtRHq98Wn4DhCGGiy3jZ87` (str, required) - The address to return
 
 + Response 200 (application/json)
 
@@ -1222,52 +1205,71 @@ Returns the sweeps of an address
         }
     ```
 
+## Group Compose
+
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Bet [GET `/addresses/{address}/compose/bet`]
 
 Composes a transaction to issue a bet against a feed.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will make the bet 
-    + feed_address: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev` (str, required) - The address that hosts the feed to be bet on 
-    + bet_type: `2` (int, required) - Bet 0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for NotEqual 
-    + deadline: `3000000000` (int, required) - The time at which the bet should be decided/settled, in Unix time (seconds since epoch) 
-    + wager_quantity: `1000` (int, required) - The quantities of XCP to wager (in satoshis, hence integer) 
-    + counterwager_quantity: `1000` (int, required) - The minimum quantities of XCP to be wagered against, for the bets to match 
-    + expiration: `100` (int, required) - The number of blocks after which the bet expires if it remains unmatched 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will make the bet
+    + feed_address: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev` (str, required) - The address that hosts the feed to be bet on
+    + bet_type: `2` (int, required) - Bet 0 for Bullish CFD (deprecated), 1 for Bearish CFD (deprecated), 2 for Equal, 3 for NotEqual
+    + deadline: `3000000000` (int, required) - The time at which the bet should be decided/settled, in Unix time (seconds since epoch)
+    + wager_quantity: `1000` (int, required) - The quantities of XCP to wager (in satoshis, hence integer)
+    + counterwager_quantity: `1000` (int, required) - The minimum quantities of XCP to be wagered against, for the bets to match
+    + expiration: `100` (int, required) - The number of blocks after which the bet expires if it remains unmatched
     + leverage (int, optional) - Leverage, as a fraction of 5040
         + Default: `5040`
-    + target_value: `1000` (int, optional) - Target value for Equal/NotEqual bet 
+    + target_value: `1000` (int, optional) - Target value for Equal/NotEqual bet
         + Default: `None`
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1293,46 +1295,63 @@ Composes a transaction to issue a bet against a feed.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Broadcast [GET `/addresses/{address}/compose/broadcast`]
 
 Composes a transaction to broadcast textual and numerical information to the network.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending (must have the necessary quantity of the specified asset) 
-    + timestamp: `4003903983` (int, required) - The timestamp of the broadcast, in Unix time 
-    + value: `100` (float, required) - Numerical value of the broadcast 
-    + fee_fraction: `0.05` (float, required) - How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. 0.05 is five percent) 
-    + text: `"Hello, world!"` (str, required) - The textual part of the broadcast 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending (must have the necessary quantity of the specified asset)
+    + timestamp: `4003903983` (int, required) - The timestamp of the broadcast, in Unix time
+    + value: `100` (float, required) - Numerical value of the broadcast
+    + fee_fraction: `0.05` (float, required) - How much of every bet on this feed should go to its operator; a fraction of 1, (i.e. 0.05 is five percent)
+    + text: `"Hello, world!"` (str, required) - The textual part of the broadcast
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1354,43 +1373,60 @@ Composes a transaction to broadcast textual and numerical information to the net
         }
     ```
 
-### Compose Btcpay [GET `/addresses/{address}/compose/btcpay`]
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
+### Compose BTCPay [GET `/addresses/{address}/compose/btcpay`]
 
 Composes a transaction to pay for a BTC order match.
 
 + Parameters
-    + address: `bc1qsteve3tfxfg9pcmvzw645sr9zy7es5rx645p6l` (str, required) - The address that will be sending the payment 
-    + order_match_id: `e470416a9500fb046835192da013f48e6468a07dba1bede4a0b68e666ed23c8d_4953bde3d9417b103615c2d3d4b284d4fcf7cbd820e5dd19ac0084e9ebd090b2` (str, required) - The ID of the order match to pay for 
+    + address: `bc1qsteve3tfxfg9pcmvzw645sr9zy7es5rx645p6l` (str, required) - The address that will be sending the payment
+    + order_match_id: `e470416a9500fb046835192da013f48e6468a07dba1bede4a0b68e666ed23c8d_4953bde3d9417b103615c2d3d4b284d4fcf7cbd820e5dd19ac0084e9ebd090b2` (str, required) - The ID of the order match to pay for
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1409,45 +1445,62 @@ Composes a transaction to pay for a BTC order match.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Burn [GET `/addresses/{address}/compose/burn`]
 
 Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, possible between blocks 278310 and 283810; on testnet it is still available).
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address with the BTC to burn 
-    + quantity: `1000` (int, required) - The quantities of BTC to burn (1 BTC maximum burn per address) 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address with the BTC to burn
+    + quantity: `1000` (int, required) - The quantities of BTC to burn (1 BTC maximum burn per address)
     + overburn (bool, optional) - Whether to allow the burn to exceed 1 BTC for the address
         + Default: `False`
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1467,43 +1520,60 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Cancel [GET `/addresses/{address}/compose/cancel`]
 
 Composes a transaction to cancel an open order or bet.
 
 + Parameters
-    + address: `15e15ua6A3FJqjMevtrWcFSzKn9k6bMQeA` (str, required) - The address that placed the order/bet to be cancelled 
-    + offer_hash: `8ce3335391bf71f8f12c0573b4f85b9adc4882a9955d9f8e5ababfdd0060279a` (str, required) - The hash of the order/bet to be cancelled 
+    + address: `15e15ua6A3FJqjMevtrWcFSzKn9k6bMQeA` (str, required) - The address that placed the order/bet to be cancelled
+    + offer_hash: `8ce3335391bf71f8f12c0573b4f85b9adc4882a9955d9f8e5ababfdd0060279a` (str, required) - The hash of the order/bet to be cancelled
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1522,45 +1592,62 @@ Composes a transaction to cancel an open order or bet.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Destroy [GET `/addresses/{address}/compose/destroy`]
 
 Composes a transaction to destroy a quantity of an asset.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending the asset to be destroyed 
-    + asset: `XCP` (str, required) - The asset to be destroyed 
-    + quantity: `1000` (int, required) - The quantity of the asset to be destroyed 
-    + tag: `"bugs!"` (str, required) - A tag for the destruction 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending the asset to be destroyed
+    + asset: `XCP` (str, required) - The asset to be destroyed
+    + quantity: `1000` (int, required) - The quantity of the asset to be destroyed
+    + tag: `"bugs!"` (str, required) - A tag for the destruction
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1581,51 +1668,68 @@ Composes a transaction to destroy a quantity of an asset.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Dispenser [GET `/addresses/{address}/compose/dispenser`]
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed quantity on open must be equal or greater than give_quantity. It is suggested that you escrow multiples of give_quantity to ease dispenser operation.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be dispensing (must have the necessary escrow_quantity of the specified asset) 
-    + asset: `XCP` (str, required) - The asset or subasset to dispense 
-    + give_quantity: `1000` (int, required) - The quantity of the asset to dispense 
-    + escrow_quantity: `1000` (int, required) - The quantity of the asset to reserve for this dispenser 
-    + mainchainrate: `100` (int, required) - The quantity of the main chain asset (BTC) per dispensed portion 
-    + status: `0` (int, required) - The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be dispensing (must have the necessary escrow_quantity of the specified asset)
+    + asset: `XCP` (str, required) - The asset or subasset to dispense
+    + give_quantity: `1000` (int, required) - The quantity of the asset to dispense
+    + escrow_quantity: `1000` (int, required) - The quantity of the asset to reserve for this dispenser
+    + mainchainrate: `100` (int, required) - The quantity of the main chain asset (BTC) per dispensed portion
+    + status: `0` (int, required) - The state of the dispenser. 0 for open, 1 for open using open_address, 10 for closed
     + open_address (str, optional) - The address that you would like to open the dispenser on
         + Default: `None`
     + oracle_address (str, optional) - The address that you would like to use as a price oracle for this dispenser
         + Default: `None`
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1650,45 +1754,62 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Dividend [GET `/addresses/{address}/compose/dividend`]
 
 Composes a transaction to issue a dividend to holders of a given asset.
 
 + Parameters
-    + address: `1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD` (str, required) - The address that will be issuing the dividend (must have the ownership of the asset which the dividend is being issued on) 
-    + quantity_per_unit: `1` (int, required) - The amount of dividend_asset rewarded 
-    + asset: `PEPECASH` (str, required) - The asset or subasset that the dividends are being rewarded on 
-    + dividend_asset: `XCP` (str, required) - The asset or subasset that the dividends are paid in 
+    + address: `1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD` (str, required) - The address that will be issuing the dividend (must have the ownership of the asset which the dividend is being issued on)
+    + quantity_per_unit: `1` (int, required) - The amount of dividend_asset rewarded
+    + asset: `PEPECASH` (str, required) - The asset or subasset that the dividends are being rewarded on
+    + dividend_asset: `XCP` (str, required) - The asset or subasset that the dividends are paid in
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1709,15 +1830,36 @@ Composes a transaction to issue a dividend to holders of a given asset.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Issuance [GET `/addresses/{address}/compose/issuance`]
 
 Composes a transaction to Issue a new asset, issue more of an existing asset, lock an asset, reset existing supply, or transfer the ownership of an asset.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be issuing or transfering the asset 
-    + asset: `XCPTEST` (str, required) - The assets to issue or transfer. This can also be a subasset longname for new subasset issuances 
-    + quantity: `1000` (int, required) - The quantity of the asset to issue (set to 0 if transferring an asset) 
-    + transfer_destination: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, optional) - The address to receive the asset 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be issuing or transfering the asset
+    + asset: `XCPTEST` (str, required) - The assets to issue or transfer. This can also be a subasset longname for new subasset issuances
+    + quantity: `1000` (int, required) - The quantity of the asset to issue (set to 0 if transferring an asset)
+    + transfer_destination: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, optional) - The address to receive the asset
         + Default: `None`
     + divisible (bool, optional) - Whether this asset is divisible or not (if a transfer, this value must match the value specified when the asset was originally issued)
         + Default: `True`
@@ -1729,34 +1871,30 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
         + Default: `None`
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1781,47 +1919,64 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
         }
     ```
 
-### Compose Mpma [GET `/addresses/{address}/compose/mpma`]
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
+### Compose MPMA [GET `/addresses/{address}/compose/mpma`]
 
 Composes a transaction to send multiple payments to multiple addresses.
 
 + Parameters
-    + address: `1Fv87qmdtjQDP9d4p9E5ncBQvYB4a3Rhy6` (str, required) - The address that will be sending (must have the necessary quantity of the specified asset) 
-    + assets: `BAABAABLKSHP,BADHAIRDAY,BADWOJAK` (str, required) - comma-separated list of assets to send 
-    + destinations: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev,1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD,1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - comma-separated list of addresses to send to 
-    + quantities: `1,2,3` (str, required) - comma-separated list of quantities to send 
-    + memo: `"Hello, world!"` (str, required) - The Memo associated with this transaction 
-    + memo_is_hex: `False` (bool, required) - Whether the memo field is a hexadecimal string 
+    + address: `1Fv87qmdtjQDP9d4p9E5ncBQvYB4a3Rhy6` (str, required) - The address that will be sending (must have the necessary quantity of the specified asset)
+    + assets: `BAABAABLKSHP,BADHAIRDAY,BADWOJAK` (str, required) - comma-separated list of assets to send
+    + destinations: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev,1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD,1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - comma-separated list of addresses to send to
+    + quantities: `1,2,3` (str, required) - comma-separated list of quantities to send
+    + memo: `"Hello, world!"` (str, required) - The Memo associated with this transaction
+    + memo_is_hex: `False` (bool, required) - Whether the memo field is a hexadecimal string
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1858,48 +2013,65 @@ Composes a transaction to send multiple payments to multiple addresses.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Order [GET `/addresses/{address}/compose/order`]
 
 Composes a transaction to place an order on the distributed exchange.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be issuing the order request (must have the necessary quantity of the specified asset to give) 
-    + give_asset: `XCP` (str, required) - The asset that will be given in the trade 
-    + give_quantity: `1000` (int, required) - The quantity of the asset that will be given 
-    + get_asset: `PEPECASH` (str, required) - The asset that will be received in the trade 
-    + get_quantity: `1000` (int, required) - The quantity of the asset that will be received 
-    + expiration: `100` (int, required) - The number of blocks for which the order should be valid 
-    + fee_required: `100` (int, required) - The miners’ fee required to be paid by orders for them to match this one; in BTC; required only if buying BTC (may be zero, though) 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be issuing the order request (must have the necessary quantity of the specified asset to give)
+    + give_asset: `XCP` (str, required) - The asset that will be given in the trade
+    + give_quantity: `1000` (int, required) - The quantity of the asset that will be given
+    + get_asset: `PEPECASH` (str, required) - The asset that will be received in the trade
+    + get_quantity: `1000` (int, required) - The quantity of the asset that will be received
+    + expiration: `100` (int, required) - The number of blocks for which the order should be valid
+    + fee_required: `100` (int, required) - The miners’ fee required to be paid by orders for them to match this one; in BTC; required only if buying BTC (may be zero, though)
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1923,15 +2095,36 @@ Composes a transaction to place an order on the distributed exchange.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Send [GET `/addresses/{address}/compose/send`]
 
 Composes a transaction to send a quantity of an asset to another address.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending (must have the necessary quantity of the specified asset) 
-    + destination: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev` (str, required) - The address that will be receiving the asset 
-    + asset: `XCP` (str, required) - The asset or subasset to send 
-    + quantity: `1000` (int, required) - The quantity of the asset to send 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending (must have the necessary quantity of the specified asset)
+    + destination: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev` (str, required) - The address that will be receiving the asset
+    + asset: `XCP` (str, required) - The asset or subasset to send
+    + quantity: `1000` (int, required) - The quantity of the asset to send
     + memo (str, optional) - The Memo associated with this transaction
         + Default: `None`
     + memo_is_hex (bool, optional) - Whether the memo field is a hexadecimal string
@@ -1940,34 +2133,30 @@ Composes a transaction to send a quantity of an asset to another address.
         + Default: `True`
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -1991,45 +2180,62 @@ Composes a transaction to send a quantity of an asset to another address.
         }
     ```
 
+
+**Notes about optional parameter `encoding`.**
+
+By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
+
+- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
+   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
+- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
+- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
+    - `pubkey` should be set to the hex-encoded public key of the source address.
+- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
+    - First call the `create_` method with the `encoding` set to `P2SH`.
+    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
+    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
+    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
+    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
+    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
+
+
 ### Compose Sweep [GET `/addresses/{address}/compose/sweep`]
 
 Composes a transaction to Sends all assets and/or transfer ownerships to a destination address.
 
 + Parameters
-    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending 
-    + destination: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev` (str, required) - The address to receive the assets and/or ownerships 
-    + flags: `7` (int, required) - An OR mask of flags indicating how the sweep should be processed. Possible flags are: - FLAG_BALANCES: (integer) 1, specifies that all balances should be transferred. - FLAG_OWNERSHIP: (integer) 2, specifies that all ownerships should be transferred. - FLAG_BINARY_MEMO: (integer) 4, specifies that the memo is in binary/hex form. 
-    + memo: `FFFF` (str, required) - The Memo associated with this transaction in hex format 
+    + address: `1CounterpartyXXXXXXXXXXXXXXXUWLpVr` (str, required) - The address that will be sending
+    + destination: `1JDogZS6tQcSxwfxhv6XKKjcyicYA4Feev` (str, required) - The address to receive the assets and/or ownerships
+    + flags: `7` (int, required) - An OR mask of flags indicating how the sweep should be processed. Possible flags are: - FLAG_BALANCES: (integer) 1, specifies that all balances should be transferred. - FLAG_OWNERSHIP: (integer) 2, specifies that all ownerships should be transferred. - FLAG_BINARY_MEMO: (integer) 4, specifies that the memo is in binary/hex form.
+    + memo: `FFFF` (str, required) - The Memo associated with this transaction in hex format
     + encoding (str, optional) - The encoding method to use
         + Default: `auto`
-    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshi)
+    + fee_per_kb (int, optional) - The fee per kilobyte of transaction data constant that the server uses when deciding on the dynamic fee to use (in satoshis)
         + Default: `None`
-    + regular_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each non-(bare) multisig output.
+    + regular_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each non-(bare) multisig output.
         + Default: `546`
-    + multisig_dust_size (int, optional) - Specify (in satoshi) to override the (dust) amount of BTC used for each (bare) multisig output
+    + multisig_dust_size (int, optional) - Specify (in satoshis) to override the (dust) amount of BTC used for each (bare) multisig output
         + Default: `1000`
-    + op_return_value (int, optional) - The value (in satoshis) to use with any OP_RETURN outputs in the generated transaction. Defaults to 0. Don't use this, unless you like throwing your money away
-        + Default: `0`
     + pubkey (str, optional) - The hexadecimal public key of the source address (or a list of the keys, if multi-sig). Required when using encoding parameter values of multisig or pubkeyhash.
         + Default: `None`
     + allow_unconfirmed_inputs (bool, optional) - Set to true to allow this transaction to utilize unconfirmed UTXOs as inputs
         + Default: `False`
-    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshi). Leave as default for the server to automatically choose
+    + fee (int, optional) - If you'd like to specify a custom miners' fee, specify it here (in satoshis). Leave as default for the server to automatically choose
         + Default: `None`
-    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshi). This differs from fee in that this is an upper bound value, which fee is an exact value
+    + fee_provided (int, optional) - If you would like to specify a maximum fee (up to and including which may be used as the transaction fee), specify it here (in satoshis). This differs from fee in that this is an upper bound value, which fee is an exact value
         + Default: `0`
     + unspent_tx_hash (str, optional) - When compiling the UTXOs to use as inputs for the transaction being created, only consider unspent outputs from this specific transaction hash. Defaults to null to consider all UTXOs for the address. Do not use this parameter if you are specifying custom_inputs
         + Default: `None`
     + dust_return_pubkey (str, optional) - The dust return pubkey is used in multi-sig data outputs (as the only real pubkey) to make those the outputs spendable. By default, this pubkey is taken from the pubkey used in the first transaction input. However, it can be overridden here (and is required to be specified if a P2SH input is used and multisig is used as the data output encoding.) If specified, specify the public key (in hex format) where dust will be returned to so that it can be reclaimed. Only valid/useful when used with transactions that utilize multisig data encoding. Note that if this value is set to false, this instructs counterparty-server to use the default dust return pubkey configured at the node level. If this default is not set at the node level, the call will generate an exception
         + Default: `None`
-    + disable_utxo_locks (bool, optional) - By default, UTXO's utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
+    + disable_utxo_locks (bool, optional) - By default, UTXOs utilized when creating a transaction are 'locked' for a few seconds, to prevent a case where rapidly generating create_ calls reuse UTXOs due to their spent status not being updated in bitcoind yet. Specify true for this parameter to disable this behavior, and not temporarily lock UTXOs
         + Default: `False`
     + extended_tx_info (bool, optional) - When this is not specified or false, the create_ calls return only a hex-encoded string. If this is true, the create_ calls return a data object with the following keys: tx_hex, btc_in, btc_out, btc_change, and btc_fee
         + Default: `False`
     + p2sh_pretx_txid (str, optional) - The previous transaction txid for a two part P2SH message. This txid must be taken from the signed transaction
         + Default: `None`
-    + old_style_api (bool, optional) - Use the old style API
-        + Default: `True`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
 
@@ -2057,9 +2263,9 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
 Returns the valid assets
 
 + Parameters
-    + offset: `0` (int, optional) - The offset of the assets to return 
+    + offset: `0` (int, optional) - The offset of the assets to return
         + Default: `0`
-    + limit: `5` (int, optional) - The limit of the assets to return 
+    + limit: `5` (int, optional) - The limit of the assets to return
         + Default: `100`
 
 + Response 200 (application/json)
@@ -2096,7 +2302,7 @@ Returns the valid assets
 Returns the asset information
 
 + Parameters
-    + asset: `UNNEGOTIABLE` (str, required) - The asset to return 
+    + asset: `UNNEGOTIABLE` (str, required) - The asset to return
 
 + Response 200 (application/json)
 
@@ -2121,8 +2327,8 @@ Returns the asset information
 Returns the asset balances
 
 + Parameters
-    + asset: `UNNEGOTIABLE` (str, required) - The asset to return 
-    + exclude_zero_balances: `True` (bool, optional) - Whether to exclude zero balances 
+    + asset: `UNNEGOTIABLE` (str, required) - The asset to return
+    + exclude_zero_balances: `True` (bool, optional) - Whether to exclude zero balances
         + Default: `True`
 
 + Response 200 (application/json)
@@ -2144,8 +2350,8 @@ Returns the asset balances
 Returns the balance of an address and asset
 
 + Parameters
-    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return 
-    + asset: `XCP` (str, required) - The asset to return 
+    + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
+    + asset: `XCP` (str, required) - The asset to return
 
 + Response 200 (application/json)
 
@@ -2164,8 +2370,8 @@ Returns the balance of an address and asset
 Returns the orders of an asset
 
 + Parameters
-    + asset: `NEEDPEPE` (str, required) - The asset to return 
-    + status: `filled` (str, optional) - The status of the orders to return 
+    + asset: `NEEDPEPE` (str, required) - The asset to return
+    + status: `filled` (str, optional) - The status of the orders to return
         + Default: `open`
 
 + Response 200 (application/json)
@@ -2391,10 +2597,10 @@ Returns the orders of an asset
 Returns the credits of an asset
 
 + Parameters
-    + asset: `UNNEGOTIABLE` (str, required) - The asset to return 
-    + limit: `5` (int, optional) - The maximum number of credits to return 
+    + asset: `UNNEGOTIABLE` (str, required) - The asset to return
+    + limit: `5` (int, optional) - The maximum number of credits to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the credits to return 
+    + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -2420,10 +2626,10 @@ Returns the credits of an asset
 Returns the debits of an asset
 
 + Parameters
-    + asset: `XCP` (str, required) - The asset to return 
-    + limit: `5` (int, optional) - The maximum number of debits to return 
+    + asset: `XCP` (str, required) - The asset to return
+    + limit: `5` (int, optional) - The maximum number of debits to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the debits to return 
+    + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -2485,7 +2691,7 @@ Returns the debits of an asset
 Returns the dividends of an asset
 
 + Parameters
-    + asset: `GMONEYPEPE` (str, required) - The asset to return 
+    + asset: `GMONEYPEPE` (str, required) - The asset to return
 
 + Response 200 (application/json)
 
@@ -2633,7 +2839,7 @@ Returns the dividends of an asset
 Returns the issuances of an asset
 
 + Parameters
-    + asset: `UNNEGOTIABLE` (str, required) - The asset to return 
+    + asset: `UNNEGOTIABLE` (str, required) - The asset to return
 
 + Response 200 (application/json)
 
@@ -2665,15 +2871,15 @@ Returns the issuances of an asset
         }
     ```
 
-### Get Sends Or Receives By Asset [GET `/assets/{asset}/sends`]
+### Get Sends By Asset [GET `/assets/{asset}/sends`]
 
 Returns the sends of an asset
 
 + Parameters
-    + asset: `XCP` (str, required) - The asset to return 
-    + limit: `5` (int, optional) - The maximum number of sends to return 
+    + asset: `XCP` (str, required) - The asset to return
+    + limit: `5` (int, optional) - The maximum number of sends to return
         + Default: `100`
-    + offset: `0` (int, optional) - The offset of the sends to return 
+    + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
 
 + Response 200 (application/json)
@@ -2750,7 +2956,7 @@ Returns the sends of an asset
 Returns the dispensers of an asset
 
 + Parameters
-    + asset: `ERYKAHPEPU` (str, required) - The asset to return 
+    + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
 
@@ -2784,8 +2990,8 @@ Returns the dispensers of an asset
 Returns the dispensers of an address and an asset
 
 + Parameters
-    + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return 
-    + asset: `ERYKAHPEPU` (str, required) - The asset to return 
+    + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return
+    + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
 
@@ -2819,7 +3025,7 @@ Returns the dispensers of an address and an asset
 Returns the holders of an asset
 
 + Parameters
-    + asset: `ERYKAHPEPU` (str, required) - The asset to return 
+    + asset: `ERYKAHPEPU` (str, required) - The asset to return
 
 + Response 200 (application/json)
 
@@ -2877,7 +3083,7 @@ Returns the holders of an asset
 Returns the information of an order
 
 + Parameters
-    + order_hash: `23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776` (str, required) - The hash of the transaction that created the order 
+    + order_hash: `23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776` (str, required) - The hash of the transaction that created the order
 
 + Response 200 (application/json)
 
@@ -2912,8 +3118,8 @@ Returns the information of an order
 Returns the order matches of an order
 
 + Parameters
-    + order_hash: `5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947` (str, required) - The hash of the transaction that created the order 
-    + status: `completed` (str, optional) - The status of the order matches to return 
+    + order_hash: `5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947` (str, required) - The hash of the transaction that created the order
+    + status: `completed` (str, optional) - The status of the order matches to return
         + Default: `pending`
 
 + Response 200 (application/json)
@@ -2946,12 +3152,12 @@ Returns the order matches of an order
         }
     ```
 
-### Get Btcpays By Order [GET `/orders/{order_hash}/btcpays`]
+### Get BTCPays By Order [GET `/orders/{order_hash}/btcpays`]
 
 Returns the BTC pays of an order
 
 + Parameters
-    + order_hash: `299b5b648f54eacb839f3487232d49aea373cdd681b706d4cc0b5e0b03688db4` (str, required) - The hash of the transaction that created the order 
+    + order_hash: `299b5b648f54eacb839f3487232d49aea373cdd681b706d4cc0b5e0b03688db4` (str, required) - The hash of the transaction that created the order
 
 + Response 200 (application/json)
 
@@ -2979,7 +3185,7 @@ Returns the BTC pays of an order
 Returns the information of a bet
 
 + Parameters
-    + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet 
+    + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
 
 + Response 200 (application/json)
 
@@ -3014,8 +3220,8 @@ Returns the information of a bet
 Returns the bet matches of a bet
 
 + Parameters
-    + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet 
-    + status: `expired` (str, optional) - The status of the bet matches 
+    + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
+    + status: `expired` (str, optional) - The status of the bet matches
         + Default: `pending`
 
 + Response 200 (application/json)
@@ -3058,7 +3264,7 @@ Returns the bet matches of a bet
 Returns the resolutions of a bet
 
 + Parameters
-    + bet_hash: `36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace` (str, required) - The hash of the transaction that created the bet 
+    + bet_hash: `36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace` (str, required) - The hash of the transaction that created the bet
 
 + Response 200 (application/json)
 
@@ -3087,11 +3293,11 @@ Returns the resolutions of a bet
 Returns the burns
 
 + Parameters
-    + status: `valid` (str, optional) - The status of the burns to return 
+    + status: `valid` (str, optional) - The status of the burns to return
         + Default: `valid`
-    + offset: `10` (int, optional) - The offset of the burns to return 
+    + offset: `10` (int, optional) - The offset of the burns to return
         + Default: `0`
-    + limit: `5` (int, optional) - The limit of the burns to return 
+    + limit: `5` (int, optional) - The limit of the burns to return
         + Default: `100`
 
 + Response 200 (application/json)
@@ -3155,7 +3361,7 @@ Returns the burns
 Returns the dispenser information by tx_hash
 
 + Parameters
-    + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return 
+    + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
 
 + Response 200 (application/json)
 
@@ -3188,7 +3394,7 @@ Returns the dispenser information by tx_hash
 Returns the dispenses of a dispenser
 
 + Parameters
-    + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return 
+    + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
 
 + Response 200 (application/json)
 
@@ -3228,9 +3434,9 @@ Returns the dispenses of a dispenser
 Returns all events
 
 + Parameters
-    + last: `10665092` (int, optional) - The last event index to return 
+    + last: `10665092` (int, optional) - The last event index to return
         + Default: `None`
-    + limit: `5` (int, optional) - The maximum number of events to return 
+    + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
 
 + Response 200 (application/json)
@@ -3241,7 +3447,7 @@ Returns all events
                 {
                     "event_index": 10665092,
                     "event": "TRANSACTION_PARSED",
-                    "bindings": {
+                    "params": {
                         "supported": true,
                         "tx_hash": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "tx_index": 2056160
@@ -3252,7 +3458,7 @@ Returns all events
                 {
                     "event_index": 10665091,
                     "event": "ENHANCED_SEND",
-                    "bindings": {
+                    "params": {
                         "asset": "THOTHPEPE",
                         "block_index": 744232,
                         "destination": "13re7J5Y5a8nZZSp8o1a3sEUqGik4NMXhS",
@@ -3269,7 +3475,7 @@ Returns all events
                 {
                     "event_index": 10665090,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "13re7J5Y5a8nZZSp8o1a3sEUqGik4NMXhS",
                         "asset": "THOTHPEPE",
                         "block_index": 744232,
@@ -3284,7 +3490,7 @@ Returns all events
                 {
                     "event_index": 10665089,
                     "event": "DEBIT",
-                    "bindings": {
+                    "params": {
                         "action": "send",
                         "address": "173cE6ScUFCmBLCqZeG18ij6r9KHRPbAjC",
                         "asset": "THOTHPEPE",
@@ -3299,7 +3505,7 @@ Returns all events
                 {
                     "event_index": 10665088,
                     "event": "TRANSACTION_PARSED",
-                    "bindings": {
+                    "params": {
                         "supported": true,
                         "tx_hash": "bbb2dfa7e7a32288a702ef0091ece8b2a929f94fd967a18e6071cd9c2b085eaf",
                         "tx_index": 2056159
@@ -3316,7 +3522,7 @@ Returns all events
 Returns the event of an index
 
 + Parameters
-    + event_index: `10665092` (int, required) - The index of the event to return 
+    + event_index: `10665092` (int, required) - The index of the event to return
 
 + Response 200 (application/json)
 
@@ -3326,7 +3532,7 @@ Returns the event of an index
                 {
                     "event_index": 10665092,
                     "event": "TRANSACTION_PARSED",
-                    "bindings": {
+                    "params": {
                         "supported": true,
                         "tx_hash": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "tx_index": 2056160
@@ -3543,10 +3749,10 @@ Returns the event counts of all blocks
 Returns the events filtered by event name
 
 + Parameters
-    + event: `CREDIT` (str, required) - The event to return 
-    + last: `10665092` (int, optional) - The last event index to return 
+    + event: `CREDIT` (str, required) - The event to return
+    + last: `10665092` (int, optional) - The last event index to return
         + Default: `None`
-    + limit: `5` (int, optional) - The maximum number of events to return 
+    + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
 
 + Response 200 (application/json)
@@ -3557,7 +3763,7 @@ Returns the events filtered by event name
                 {
                     "event_index": 10665090,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "13re7J5Y5a8nZZSp8o1a3sEUqGik4NMXhS",
                         "asset": "THOTHPEPE",
                         "block_index": 744232,
@@ -3572,7 +3778,7 @@ Returns the events filtered by event name
                 {
                     "event_index": 10665085,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "1LfDk3Ex9KPYS6L1WGwNdt1TvEg6Le8uq",
                         "asset": "XCP",
                         "block_index": 744232,
@@ -3587,7 +3793,7 @@ Returns the events filtered by event name
                 {
                     "event_index": 10665082,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "173cE6ScUFCmBLCqZeG18ij6r9KHRPbAjC",
                         "asset": "FREEDOMKEK",
                         "block_index": 744232,
@@ -3602,7 +3808,7 @@ Returns the events filtered by event name
                 {
                     "event_index": 10665078,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "1P8nYZwLmecAkQUHsx2H9Nkxd51UJ2Asau",
                         "asset": "PEPEFRIDAY",
                         "block_index": 744232,
@@ -3617,7 +3823,7 @@ Returns the events filtered by event name
                 {
                     "event_index": 10665074,
                     "event": "CREDIT",
-                    "bindings": {
+                    "params": {
                         "address": "1NzDQ7HLm6PqJ2Wy6jEKMT7Zw1UbtjUV5a",
                         "asset": "PEPEFRIDAY",
                         "block_index": 744232,
@@ -3633,14 +3839,14 @@ Returns the events filtered by event name
         }
     ```
 
-## Group Healthz
+## Group Z-pages
 
-### Check Server Status [GET `/healthz`]
+### Check Server Health [GET `/healthz`]
 
 Health check route.
 
 + Parameters
-    + check_type: `light` (str, optional) - Type of health check to perform. Options are 'light' and 'heavy' 
+    + check_type: `light` (str, optional) - Type of health check to perform. Options are 'light' and 'heavy'
         + Default: `heavy`
 
 + Response 200 (application/json)
@@ -3653,17 +3859,17 @@ Health check route.
         }
     ```
 
-## Group Backend
+## Group Bitcoin
 
-### Search Raw Transactions [GET `/backend/addresses/{address}/transactions`]
+### Get Transactions By Address [GET `/bitcoin/addresses/{address}/transactions`]
 
 Returns all transactions involving a given address
 
 + Parameters
-    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for 
-    + unconfirmed: `True` (bool, optional) - Include unconfirmed transactions 
+    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for
+    + unconfirmed: `True` (bool, optional) - Include unconfirmed transactions
         + Default: `True`
-    + only_tx_hashes: `True` (bool, optional) - Return only the tx hashes 
+    + only_tx_hashes: `True` (bool, optional) - Return only the tx hashes
         + Default: `False`
 
 + Response 200 (application/json)
@@ -3711,12 +3917,12 @@ Returns all transactions involving a given address
         }
     ```
 
-### Get Oldest Tx [GET `/backend/addresses/{address}/transactions/oldest`]
+### Get Oldest Transaction By Address [GET `/bitcoin/addresses/{address}/transactions/oldest`]
 
 Get the oldest transaction for an address.
 
 + Parameters
-    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for. 
+    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for.
     + block_index (int, optional) - The block index to search from.
         + Default: `None`
 
@@ -3731,12 +3937,12 @@ Get the oldest transaction for an address.
         }
     ```
 
-### Get Unspent Txouts [GET `/backend/addresses/{address}/utxos`]
+### Get Unspent Txouts [GET `/bitcoin/addresses/{address}/utxos`]
 
 Returns a list of unspent outputs for a specific address
 
 + Parameters
-    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for 
+    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for
     + unconfirmed (bool, optional) - Include unconfirmed transactions
         + Default: `False`
     + unspent_tx_hash (str, optional) - Filter by unspent_tx_hash
@@ -3831,12 +4037,12 @@ Returns a list of unspent outputs for a specific address
         }
     ```
 
-### Pubkeyhash To Pubkey [GET `/backend/addresses/{address}/pubkey`]
+### PubKeyHash To Pubkey [GET `/bitcoin/addresses/{address}/pubkey`]
 
 Get pubkey for an address.
 
 + Parameters
-    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - Address to get pubkey for. 
+    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - Address to get pubkey for.
     + provided_pubkeys (str, optional) - Comma separated list of provided pubkeys.
         + Default: `None`
 
@@ -3848,13 +4054,13 @@ Get pubkey for an address.
         }
     ```
 
-### Get Raw Transaction [GET `/backend/transactions/{tx_hash}`]
+### Get Transaction [GET `/bitcoin/transactions/{tx_hash}`]
 
-Get a raw transaction from the blockchain
+Get a transaction from the blockchain
 
 + Parameters
-    + tx_hash: `3190047bf2320bdcd0fade655ae49be309519d151330aa478573815229cc0018` (str, required) - The transaction hash 
-    + verbose: `True` (bool, optional) - Whether to return JSON output or raw hex 
+    + tx_hash: `3190047bf2320bdcd0fade655ae49be309519d151330aa478573815229cc0018` (str, required) - The transaction hash
+    + verbose: `True` (bool, optional) - Whether to return JSON output or raw hex
         + Default: `False`
 
 + Response 200 (application/json)
@@ -3906,14 +4112,14 @@ Get a raw transaction from the blockchain
         }
     ```
 
-### Fee Per Kb [GET `/backend/estimatesmartfee`]
+### Fee Per Kb [GET `/bitcoin/estimatesmartfee`]
 
 Get the fee per kilobyte for a transaction to be confirmed in `conf_target` blocks.
 
 + Parameters
-    + conf_target: `2` (int, optional) - Confirmation target in blocks (1 - 1008) 
+    + conf_target: `2` (int, optional) - Confirmation target in blocks (1 - 1008)
         + Default: `3`
-    + mode: `CONSERVATIVE` (str, optional) - The fee estimate mode. 
+    + mode: `CONSERVATIVE` (str, optional) - The fee estimate mode.
         + Default: `CONSERVATIVE`
 
 + Response 200 (application/json)
@@ -3933,48 +4139,7 @@ Returns all mempool events
 
     ```
         {
-            "result": [
-                {
-                    "tx_hash": "8a154886671713cae6d72d2996f07fac61529c0d8d1ebc476f448212ff3d535e",
-                    "event": "NEW_TRANSACTION",
-                    "bindings": {
-                        "block_hash": "mempool",
-                        "block_index": 9999999,
-                        "block_time": 1713952590,
-                        "btc_amount": 0,
-                        "data": "0200454ceacf416ccf0000000000000001005461639d06ebc42d541b54b1c5525543ae4d6db3",
-                        "destination": "",
-                        "fee": 9900,
-                        "source": "14PxDTVUMCjLoAcGPZGQf6cEtn7yLzdHp1",
-                        "tx_hash": "8a154886671713cae6d72d2996f07fac61529c0d8d1ebc476f448212ff3d535e",
-                        "tx_index": 2726767
-                    },
-                    "timestamp": 1713952691
-                },
-                {
-                    "tx_hash": "8a154886671713cae6d72d2996f07fac61529c0d8d1ebc476f448212ff3d535e",
-                    "event": "ENHANCED_SEND",
-                    "bindings": {
-                        "asset": "FIERCERABBIT",
-                        "destination": "18hARq2fFJxiypHSnZ8yLcbPNpUfaozD8U",
-                        "memo": null,
-                        "quantity": 1,
-                        "source": "14PxDTVUMCjLoAcGPZGQf6cEtn7yLzdHp1",
-                        "tx_hash": "8a154886671713cae6d72d2996f07fac61529c0d8d1ebc476f448212ff3d535e"
-                    },
-                    "timestamp": 1713952691
-                },
-                {
-                    "tx_hash": "8a154886671713cae6d72d2996f07fac61529c0d8d1ebc476f448212ff3d535e",
-                    "event": "TRANSACTION_PARSED",
-                    "bindings": {
-                        "supported": true,
-                        "tx_hash": "8a154886671713cae6d72d2996f07fac61529c0d8d1ebc476f448212ff3d535e",
-                        "tx_index": 2726767
-                    },
-                    "timestamp": 1713952691
-                }
-            ]
+            "result": []
         }
     ```
 
@@ -3983,55 +4148,12 @@ Returns all mempool events
 Returns the mempool events filtered by event name
 
 + Parameters
-    + event: `OPEN_ORDER` (str, required) - The event to return 
+    + event: `OPEN_ORDER` (str, required) - The event to return
 
 + Response 200 (application/json)
 
     ```
         {
-            "result": [
-                {
-                    "tx_hash": "90ba95c4578b9ab7866515d66736c5b4132e88a0bd9b0fca7b2f1be830a1bb81",
-                    "event": "OPEN_ORDER",
-                    "bindings": {
-                        "expiration": 5000,
-                        "expire_index": 10004999,
-                        "fee_provided": 5016,
-                        "fee_provided_remaining": 5016,
-                        "fee_required": 0,
-                        "fee_required_remaining": 0,
-                        "get_asset": "XCP",
-                        "get_quantity": 3300000000,
-                        "get_remaining": 3300000000,
-                        "give_asset": "PEPEPASSPORT",
-                        "give_quantity": 100000000,
-                        "give_remaining": 100000000,
-                        "source": "1A36UrLHxeg9ABoS4zPsRUegyCWTWER2kF",
-                        "tx_hash": "90ba95c4578b9ab7866515d66736c5b4132e88a0bd9b0fca7b2f1be830a1bb81"
-                    },
-                    "timestamp": 1713952690
-                },
-                {
-                    "tx_hash": "bc553f3d4349a266b70e7ed98e2198a18d634a5b247997f59817f69e19de2ad6",
-                    "event": "OPEN_ORDER",
-                    "bindings": {
-                        "expiration": 5000,
-                        "expire_index": 10004999,
-                        "fee_provided": 5016,
-                        "fee_provided_remaining": 5016,
-                        "fee_required": 0,
-                        "fee_required_remaining": 0,
-                        "get_asset": "XCP",
-                        "get_quantity": 1185000000,
-                        "get_remaining": 1185000000,
-                        "give_asset": "FRATPEPE",
-                        "give_quantity": 3,
-                        "give_remaining": 3,
-                        "source": "1A36UrLHxeg9ABoS4zPsRUegyCWTWER2kF",
-                        "tx_hash": "bc553f3d4349a266b70e7ed98e2198a18d634a5b247997f59817f69e19de2ad6"
-                    },
-                    "timestamp": 1713952690
-                }
-            ]
+            "result": []
         }
     ```
