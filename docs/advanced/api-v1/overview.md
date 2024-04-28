@@ -1,5 +1,5 @@
 ---
-title: API v1 - Overview
+title: API v1 Overview
 ---
 
 **NOTE: This API has been deprecated and will eventually be removed entirely. The v1 API is now available only when the CLI flag `--enable-api-v1` has been set, after which all v1 routes will be prefixed with `/v1/`.**

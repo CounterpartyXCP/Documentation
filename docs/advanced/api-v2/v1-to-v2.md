@@ -1,5 +1,5 @@
 ---
-title: Migration Guide for API v2
+title: API v2 Migration Guide
 ---
 
 The main differences between the new v2 API and the deprecated v1 API are:
