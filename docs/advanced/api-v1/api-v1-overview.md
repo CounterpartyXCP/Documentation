@@ -527,7 +527,7 @@ Examples:
 ### Filtering Read API results
 
 The Counterparty API aims to be as simple and flexible as possible. To this end, it includes a straightforward
-way to filter the results of most [Read API](api.md#read-api-function-reference) to get the data you want, and only that.
+way to filter the results of most [Read API](api-v1-spec.md#read-api-function-reference) to get the data you want, and only that.
 
 For each Read API function that supports it, a ``filters`` parameter exists. To apply a filter to a specific data field,
 specify an object (e.g. dict in Python) as this parameter, with the following members:

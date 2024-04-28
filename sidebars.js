@@ -44,9 +44,9 @@ module.exports = {
 	      collapsed: true,
 	      label: 'API v1 (Deprecated)',
 	      items: [
-		'advanced/api-v1/overview',
-		'advanced/api-v1/api',
-		'advanced/api-v1/api-changes'
+		'advanced/api-v1/api-v1-overview',
+		'advanced/api-v1/api-v1-spec',
+		'advanced/api-v1/api-v1-changelog'
 	      ],
 	},
       ],
