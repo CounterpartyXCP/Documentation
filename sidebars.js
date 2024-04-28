@@ -34,7 +34,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'API v1 (Deprecated)',
+      label: 'API v2',
       items: [
         'advanced/api-v2/node-api',
         'advanced/api-v2/v1-to-v2',
@@ -42,7 +42,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'API v1',
+      label: 'API v1 (Deprecated)',
       items: [
         'advanced/api-v1/overview',
         'advanced/api-v1/api',
