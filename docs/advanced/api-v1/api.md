@@ -1,5 +1,5 @@
 ---
-title: Technical Specification
+title: API v1 - Technical Specification
 ---
  
 ## Read API Function Reference
