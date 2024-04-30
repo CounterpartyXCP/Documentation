@@ -35,7 +35,7 @@ module.exports = {
           position: 'left',
         },
         {
-	  href: 'https://krellenstein.com/adam/get/counterparty-whitepaper_2024-03-29.pdf',
+	  href: 'https://krellenstein.com/adam/get/counterparty-whitepaper_2024-04-25.pdf',
           label: 'Whitepaper',
           position: 'right',
 	},

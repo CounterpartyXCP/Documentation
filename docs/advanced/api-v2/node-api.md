@@ -1,5 +1,5 @@
 ---
-title: ReST API V2
+title: API v2
 ---
 
 FORMAT: 1A

@@ -1,8 +1,8 @@
 ---
-title: Migrate from API v1 to API v2
+title: API v2 Migration Guide
 ---
 
-The main differences between the old and new API are:
+The main differences between the new v2 API and the deprecated v1 API are:
 
 - The new API is ReSTful instead of RPC-based.
 - All requests use the `GET` method and so may be made easily from any browser.

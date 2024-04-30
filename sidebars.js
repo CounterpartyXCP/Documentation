@@ -34,24 +34,26 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'API v2',
+      label: 'Node API',
       items: [
-        'advanced/api-v1/rest',
-        'advanced/api-v1/v1-to-v2',
+        'advanced/api-v2/node-api',
+        'advanced/api-v2/v1-to-v2',
+	{
+	      type: 'category',
+	      collapsible: true,
+	      collapsed: true,
+	      label: 'API v1 (Deprecated)',
+	      items: [
+		'advanced/api-v1/api-v1-overview',
+		'advanced/api-v1/api-v1-spec',
+		'advanced/api-v1/api-v1-changelog'
+	      ],
+	},
       ],
     },
     {
       type: 'category',
-      label: 'API v1',
-      items: [
-        'advanced/api-v2/overview',
-        'advanced/api-v2/api',
-        'advanced/api-v2/api-changes'
-      ],
-    },
-    {
-      type: 'category',
-      label: 'How-to',
+      label: 'How-To',
       items: [
         'advanced/how-to/docker-kickstart',
         'advanced/how-to/sentry-integration',

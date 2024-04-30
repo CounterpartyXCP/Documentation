@@ -1,9 +1,9 @@
 ---
-title: API Changes
+title: API v1 ChangeLog
 ---
 
 
-This section documents any changes to the API, for version numbers where there were API-level modifications.
+This section documents any changes to the v1 API, for version numbers where there were API-level modifications.
 
 There will be no incompatible API pushes that do not either have:
 

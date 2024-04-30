@@ -1,6 +1,8 @@
 ---
-title: Overview
+title: API v1 Overview
 ---
+
+**NOTE: This API has been deprecated and will eventually be removed entirely. The v1 API is now available only when the CLI flag `--enable-api-v1` has been set, and then all v1 routes will be prefixed with `/v1/`.**
 
 Counterparty Core provides a JSON RPC 2.0-based API based off of
 that of Bitcoin Core. It is the primary means by which other applications
@@ -525,7 +527,7 @@ Examples:
 ### Filtering Read API results
 
 The Counterparty API aims to be as simple and flexible as possible. To this end, it includes a straightforward
-way to filter the results of most [Read API](api.md#read-api-function-reference) to get the data you want, and only that.
+way to filter the results of most [Read API](api-v1-spec.md#read-api-function-reference) to get the data you want, and only that.
 
 For each Read API function that supports it, a ``filters`` parameter exists. To apply a filter to a specific data field,
 specify an object (e.g. dict in Python) as this parameter, with the following members:
