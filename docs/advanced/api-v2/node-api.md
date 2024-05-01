@@ -1,5 +1,5 @@
 ---
-title: API v2
+title: ReST API V2
 ---
 
 FORMAT: 1A
@@ -77,6 +77,8 @@ Returns the list of the last ten blocks
         + Default: `None`
     + limit: `2` (int, optional) - The number of blocks to return
         + Default: `10`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -113,6 +115,8 @@ Return the information of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -137,6 +141,8 @@ Returns the transactions of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -166,6 +172,8 @@ Returns the events of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -201,7 +209,15 @@ Returns the events of a block
                         "calling_function": "issuance",
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 1,
-                        "tx_index": 2726605
+                        "tx_index": 2726605,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                            "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
                     }
                 },
                 {
@@ -225,7 +241,15 @@ Returns the events of a block
                         "status": "valid",
                         "transfer": false,
                         "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
-                        "tx_index": 2726605
+                        "tx_index": 2726605,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                            "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
                     }
                 },
                 {
@@ -248,7 +272,14 @@ Returns the events of a block
                         "block_index": 840464,
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 50000000,
-                        "tx_index": 2726605
+                        "tx_index": 2726605,
+                        "asset_issuance": {
+                            "divisible": true,
+                            "asset_longname": "Counterparty",
+                            "description": "The Counterparty protocol native currency",
+                            "locked": true
+                        },
+                        "quantity_normalized": "0.5"
                     }
                 },
                 {
@@ -288,6 +319,8 @@ Returns the event counts of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -337,6 +370,8 @@ Returns the events of a block filtered by event
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
     + event: `CREDIT` (str, required) - The event to filter by
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -353,7 +388,15 @@ Returns the events of a block filtered by event
                         "calling_function": "issuance",
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 1,
-                        "tx_index": 2726605
+                        "tx_index": 2726605,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                            "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
                     }
                 }
             ]
@@ -366,6 +409,8 @@ Returns the credits of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -379,7 +424,15 @@ Returns the credits of a block
                     "quantity": 1,
                     "calling_function": "issuance",
                     "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
-                    "tx_index": 2726605
+                    "tx_index": 2726605,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1"
                 }
             ]
         }
@@ -391,6 +444,8 @@ Returns the debits of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -404,7 +459,14 @@ Returns the debits of a block
                     "quantity": 50000000,
                     "action": "issuance fee",
                     "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
-                    "tx_index": 2726605
+                    "tx_index": 2726605,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "0.5"
                 }
             ]
         }
@@ -416,6 +478,8 @@ Returns the expirations of a block
 
 + Parameters
     + block_index: `840356` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -440,6 +504,8 @@ Returns the cancels of a block
 
 + Parameters
     + block_index: `839746` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -472,6 +538,8 @@ Returns the destructions of a block
 
 + Parameters
     + block_index: `839988` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -486,7 +554,15 @@ Returns the destructions of a block
                     "asset": "COBBEE",
                     "quantity": 50000,
                     "tag": "",
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://easyasset.art/j/m4dl0x/COBBE.json",
+                        "issuer": "1P3KQWLsTPXVWimiF2Q6WSES5vbJE8be5i",
+                        "divisible": 0,
+                        "locked": 0
+                    },
+                    "quantity_normalized": "50000"
                 }
             ]
         }
@@ -498,6 +574,8 @@ Returns the issuances of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -539,6 +617,8 @@ Returns the sends of a block
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -555,7 +635,15 @@ Returns the sends of a block
                     "quantity": 1,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 0
+                    },
+                    "quantity_normalized": "1"
                 }
             ]
         }
@@ -567,6 +655,8 @@ Returns the dispenses of a block
 
 + Parameters
     + block_index: `840322` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -582,7 +672,31 @@ Returns the dispenses of a block
                     "destination": "bc1qzcdkhnexpjc8wvkyrpyrsn0f5xzcpu877mjmgj",
                     "asset": "FLOCK",
                     "dispense_quantity": 90000000000,
-                    "dispenser_tx_hash": "753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a"
+                    "dispenser_tx_hash": "753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a",
+                    "dispenser": {
+                        "tx_index": 2536311,
+                        "block_index": 840322,
+                        "source": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
+                        "give_quantity": 10000000000,
+                        "escrow_quantity": 250000000000,
+                        "satoshirate": 330000,
+                        "status": 0,
+                        "give_remaining": 140000000000,
+                        "oracle_address": null,
+                        "last_status_tx_hash": null,
+                        "origin": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
+                        "dispense_count": 2,
+                        "give_quantity_normalized": "100",
+                        "give_remaining_normalized": "1400",
+                        "escrow_quantity_normalized": "2500"
+                    },
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
+                        "divisible": 1,
+                        "locked": 1
+                    }
                 }
             ]
         }
@@ -594,6 +708,8 @@ Returns the sweeps of a block
 
 + Parameters
     + block_index: `836519` (int, required) - The index of the block to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -636,6 +752,8 @@ Returns Counterparty information from a raw transaction in hex format.
     + rawtransaction: `01000000017828697743c03aef6a3a8ba54b22bf579ffcab8161faf20e7b20c4ecd75cc986010000006b483045022100d1bd0531bb1ed2dd2cbf77d6933273e792a3dbfa84327d419169850ddd5976f502205d1ab0f7bcbf1a0cc183f0520c9aa8f711d41cb790c0c4ac39da6da4a093d798012103d3b1f711e907acb556e239f6cafb6a4f7fe40d8dd809b0e06e739c2afd73f202ffffffff0200000000000000004d6a4bf29880b93b0711524c7ef9c76835752088db8bd4113a3daf41fc45ffdc8867ebdbf26817fae377696f36790e52f51005806e9399a427172fedf348cf798ed86e548002ee96909eef0775ec3c2b0100000000001976a91443434cf159cc585fbd74daa9c4b833235b19761b88ac00000000` (str, required) - Raw transaction in hex format
     + block_index (int, optional) - Block index mandatory for transactions before block 335000
         + Default: `None`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -677,6 +795,8 @@ Unpacks Counterparty data in hex format and returns the message type and data.
     + datahex: `16010b9142801429a60000000000000001000000554e4e45474f544941424c45205745204d555354204245434f4d4520554e4e45474f544941424c4520574520415245` (str, required) - Data in hex format
     + block_index (int, optional) - Block index of the transaction containing this data
         + Default: `None`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -709,6 +829,8 @@ Returns a transaction by its hash.
 
 + Parameters
     + tx_hash: `876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5` (str, required) - The hash of the transaction
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -756,6 +878,8 @@ Returns the balances of an address
 
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -765,7 +889,14 @@ Returns the balances of an address
                 {
                     "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                     "asset": "XCP",
-                    "quantity": 104200000000
+                    "quantity": 104200000000,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "1042"
                 }
             ]
         }
@@ -778,6 +909,8 @@ Returns the balance of an address and asset
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -786,7 +919,14 @@ Returns the balance of an address and asset
             "result": {
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                 "asset": "XCP",
-                "quantity": 104200000000
+                "quantity": 104200000000,
+                "asset_issuance": {
+                    "divisible": true,
+                    "asset_longname": "Counterparty",
+                    "description": "The Counterparty protocol native currency",
+                    "locked": true
+                },
+                "quantity_normalized": "1042"
             }
         }
     ```
@@ -801,6 +941,8 @@ Returns the credits of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -814,7 +956,14 @@ Returns the credits of an address
                     "quantity": 104200000000,
                     "calling_function": "send",
                     "event": "7e4fbb0a1eeeee34bf499955f1027fb78c514d63a3c8ff2e28c6dad005e4d850",
-                    "tx_index": 2677412
+                    "tx_index": 2677412,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "1042"
                 }
             ]
         }
@@ -830,6 +979,8 @@ Returns the debits of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -843,7 +994,14 @@ Returns the debits of an address
                     "quantity": 40000000000,
                     "action": "open dispenser",
                     "event": "53ed08176d3479f49986e9282293da85cebc03835b128d8e790ee587f9f1c750",
-                    "tx_index": 2721524
+                    "tx_index": 2721524,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "400"
                 },
                 {
                     "block_index": 840388,
@@ -852,7 +1010,14 @@ Returns the debits of an address
                     "quantity": 250000000000,
                     "action": "send",
                     "event": "bc54968ba7d0a59a47b276602e2dbdcf01b14009742e0d7b50272cbae529a9a4",
-                    "tx_index": 2726594
+                    "tx_index": 2726594,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "2500"
                 }
             ]
         }
@@ -866,6 +1031,8 @@ Returns the bets of a feed
     + address: `1QKEpuxEmdp428KEBSDZAKL46noSXWJBkk` (str, required) - The address of the feed
     + status: `filled` (str, optional) - The status of the bet
         + Default: `open`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -924,6 +1091,8 @@ Returns the broadcasts of a source
         + Default: `valid`
     + order_by: `ASC` (str, optional) - The order of the broadcasts to return
         + Default: `DESC`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -964,6 +1133,8 @@ Returns the burns of an address
 
 + Parameters
     + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -993,6 +1164,8 @@ Returns the sends of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1009,7 +1182,14 @@ Returns the sends of an address
                     "quantity": 10000000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "100"
                 }
             ]
         }
@@ -1025,6 +1205,8 @@ Returns the receives of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1041,7 +1223,14 @@ Returns the receives of an address
                     "quantity": 104200000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "1042"
                 }
             ]
         }
@@ -1054,6 +1243,8 @@ Returns the sends of an address and asset
 + Parameters
     + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1070,7 +1261,14 @@ Returns the sends of an address and asset
                     "quantity": 10000000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "100"
                 }
             ]
         }
@@ -1087,6 +1285,8 @@ Returns the receives of an address and asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1103,7 +1303,14 @@ Returns the receives of an address and asset
                     "quantity": 104200000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "1042"
                 }
             ]
         }
@@ -1117,6 +1324,8 @@ Returns the dispensers of an address
     + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return
     + status (int, optional) - 
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1137,7 +1346,17 @@ Returns the dispensers of an address
                     "oracle_address": null,
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
-                    "dispense_count": 0
+                    "dispense_count": 0,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
+                        "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "give_remaining_normalized": "25",
+                    "escrow_quantity_normalized": "25"
                 }
             ]
         }
@@ -1152,6 +1371,8 @@ Returns the dispensers of an address and an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1172,7 +1393,17 @@ Returns the dispensers of an address and an asset
                     "oracle_address": null,
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
-                    "dispense_count": 0
+                    "dispense_count": 0,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
+                        "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "give_remaining_normalized": "25",
+                    "escrow_quantity_normalized": "25"
                 }
             ]
         }
@@ -1184,6 +1415,8 @@ Returns the sweeps of an address
 
 + Parameters
     + address: `18szqTVJUWwYrtRHq98Wn4DhCGGiy3jZ87` (str, required) - The address to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1272,6 +1505,8 @@ Composes a transaction to issue a bet against a feed.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1354,6 +1589,8 @@ Composes a transaction to broadcast textual and numerical information to the net
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1429,6 +1666,8 @@ Composes a transaction to pay for a BTC order match.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1503,6 +1742,8 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1576,6 +1817,8 @@ Composes a transaction to cancel an open order or bet.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1650,6 +1893,8 @@ Composes a transaction to destroy a quantity of an asset.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1732,6 +1977,8 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1812,6 +2059,8 @@ Composes a transaction to issue a dividend to holders of a given asset.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1897,6 +2146,8 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -1979,6 +2230,8 @@ Composes a transaction to send multiple payments to multiple addresses.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2074,6 +2327,8 @@ Composes a transaction to place an order on the distributed exchange.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2159,6 +2414,8 @@ Composes a transaction to send a quantity of an asset to another address.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2238,6 +2495,8 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2267,6 +2526,8 @@ Returns the valid assets
         + Default: `0`
     + limit: `5` (int, optional) - The limit of the assets to return
         + Default: `100`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2303,6 +2564,8 @@ Returns the asset information
 
 + Parameters
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2313,11 +2576,11 @@ Returns the asset information
                 "asset_longname": null,
                 "owner": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                 "divisible": false,
-                "locked": false,
-                "supply": 1,
-                "description": "UNNEGOTIABLE WE MUST BECOME UNNEGOTIABLE WE ARE",
+                "locked": true,
+                "supply": 1776,
+                "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                 "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
-                "holder_count": 1
+                "holder_count": 6
             }
         }
     ```
@@ -2330,6 +2593,8 @@ Returns the asset balances
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
     + exclude_zero_balances: `True` (bool, optional) - Whether to exclude zero balances
         + Default: `True`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2339,7 +2604,67 @@ Returns the asset balances
                 {
                     "address": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                     "asset": "UNNEGOTIABLE",
-                    "quantity": 1
+                    "quantity": 1700,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1700"
+                },
+                {
+                    "address": "17LV3y5KhExPdVcqS81zXuVUfNV9pmaGA",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 1,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1"
+                },
+                {
+                    "address": "1ADca8k8XRY278QfQ3f9ynWaNYFzUDhkrk",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 2,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "2"
+                },
+                {
+                    "address": "1FmEBHzkZGqQZ7kprf53xU8XijUiv2SDYW",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 1,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1"
+                },
+                {
+                    "address": "1kEXrh8MQqotJq2qgcVLeZqdmeuDG8HXX",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 1,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1"
                 }
             ]
         }
@@ -2352,6 +2677,8 @@ Returns the balance of an address and asset
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2360,7 +2687,14 @@ Returns the balance of an address and asset
             "result": {
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                 "asset": "XCP",
-                "quantity": 104200000000
+                "quantity": 104200000000,
+                "asset_issuance": {
+                    "divisible": true,
+                    "asset_longname": "Counterparty",
+                    "description": "The Counterparty protocol native currency",
+                    "locked": true
+                },
+                "quantity_normalized": "1042"
             }
         }
     ```
@@ -2373,6 +2707,8 @@ Returns the orders of an asset
     + asset: `NEEDPEPE` (str, required) - The asset to return
     + status: `filled` (str, optional) - The status of the orders to return
         + Default: `open`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2396,7 +2732,25 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 46098,
                     "fee_provided_remaining": 46098,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "4000",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 2225134,
@@ -2415,7 +2769,24 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 5544,
                     "fee_provided_remaining": 5544,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "808",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 1946026,
@@ -2434,7 +2805,24 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 264,
                     "fee_provided_remaining": 264,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "700",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 2202451,
@@ -2453,7 +2841,24 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 264,
                     "fee_provided_remaining": 264,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "808",
+                    "get_quantity_normalized": "1",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 825411,
@@ -2472,7 +2877,25 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 40000,
                     "fee_provided_remaining": 40000,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "3000",
+                    "get_quantity_normalized": "1",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 825403,
@@ -2491,7 +2914,25 @@ Returns the orders of an asset
                     "fee_required_remaining": 20000,
                     "fee_provided": 50766,
                     "fee_provided_remaining": 50766,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "2000",
+                    "get_quantity_normalized": "1",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 825370,
@@ -2510,7 +2951,25 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 75791,
                     "fee_provided_remaining": 75791,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "1000",
+                    "get_remaining_normalized": "-11",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 825413,
@@ -2529,7 +2988,25 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 40000,
                     "fee_provided_remaining": 40000,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "4000",
+                    "get_quantity_normalized": "1",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 1946587,
@@ -2548,7 +3025,24 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 792,
                     "fee_provided_remaining": 792,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "700",
+                    "get_quantity_normalized": "1",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 825371,
@@ -2567,7 +3061,25 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 46098,
                     "fee_provided_remaining": 46098,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "2000",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 },
                 {
                     "tx_index": 825372,
@@ -2586,7 +3098,25 @@ Returns the orders of an asset
                     "fee_required_remaining": 0,
                     "fee_provided": 46098,
                     "fee_provided_remaining": 46098,
-                    "status": "filled"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "3000",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 }
             ]
         }
@@ -2602,6 +3132,8 @@ Returns the credits of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2615,7 +3147,83 @@ Returns the credits of an asset
                     "quantity": 1,
                     "calling_function": "issuance",
                     "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
-                    "tx_index": 2726605
+                    "tx_index": 2726605,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1"
+                },
+                {
+                    "block_index": 840744,
+                    "address": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 1775,
+                    "calling_function": "issuance",
+                    "event": "92f6d2e3b07ff6aa558357d6c2c324a763f54bbcc4b887c725d61e60a57b4a7e",
+                    "tx_index": 2726753,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1775"
+                },
+                {
+                    "block_index": 840759,
+                    "address": "1AFmKo6v7tNBm45bo6eDhB6gACZhFD8oby",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 76,
+                    "calling_function": "open dispenser empty addr",
+                    "event": "382fcc65fddc7ac39ab37fe66b2bb24d3e431b7bf0d99e509d7e761c49e28cb8",
+                    "tx_index": 2726781,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "76"
+                },
+                {
+                    "block_index": 840870,
+                    "address": "17LV3y5KhExPdVcqS81zXuVUfNV9pmaGA",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 1,
+                    "calling_function": "dispense",
+                    "event": "f3775d4cc481b17c860c32d175a02535fef3d5d4642d9a4e947768a6bc406207",
+                    "tx_index": 2726916,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1"
+                },
+                {
+                    "block_index": 840895,
+                    "address": "1FmEBHzkZGqQZ7kprf53xU8XijUiv2SDYW",
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 1,
+                    "calling_function": "dispense",
+                    "event": "ce3c2d55978a5b7700ef543926af84bb3f8f94ae1f3312880ee32cd0ce1743fd",
+                    "tx_index": 2726969,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                        "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "quantity_normalized": "1"
                 }
             ]
         }
@@ -2631,6 +3239,8 @@ Returns the debits of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2644,7 +3254,14 @@ Returns the debits of an asset
                     "quantity": 1000000000,
                     "action": "send",
                     "event": "1c20d6596f6be031c94def5ad93a52217d76371885adcc53c91c3b1eaf76ccce",
-                    "tx_index": 729
+                    "tx_index": 729,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "10"
                 },
                 {
                     "block_index": 280112,
@@ -2653,7 +3270,14 @@ Returns the debits of an asset
                     "quantity": 1100000000,
                     "action": "send",
                     "event": "4dacd03d73cb497229dbfe2e7209adc4221540efe0e4c57f408b09b2fd36ece6",
-                    "tx_index": 749
+                    "tx_index": 749,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "11"
                 },
                 {
                     "block_index": 280112,
@@ -2662,7 +3286,14 @@ Returns the debits of an asset
                     "quantity": 100000000,
                     "action": "send",
                     "event": "057d10cc33455f4f7af44d2f030b3866e3a16416ecf984e304c76abe98393c1d",
-                    "tx_index": 752
+                    "tx_index": 752,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "1"
                 },
                 {
                     "block_index": 280114,
@@ -2671,7 +3302,14 @@ Returns the debits of an asset
                     "quantity": 1100000000,
                     "action": "send",
                     "event": "3ac6ea5b329832e2dc31ead6c5277beccb7d95f0d9f20f256f97067223c81e00",
-                    "tx_index": 755
+                    "tx_index": 755,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "11"
                 },
                 {
                     "block_index": 280156,
@@ -2680,7 +3318,14 @@ Returns the debits of an asset
                     "quantity": 1100000000,
                     "action": "send",
                     "event": "66fc1409ac6646bd8c267de89c57d2204e31bb6dfce9ee2a3ab18416fadf9e9c",
-                    "tx_index": 766
+                    "tx_index": 766,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "11"
                 }
             ]
         }
@@ -2692,6 +3337,8 @@ Returns the dividends of an asset
 
 + Parameters
     + asset: `GMONEYPEPE` (str, required) - The asset to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2707,7 +3354,14 @@ Returns the dividends of an asset
                     "dividend_asset": "ENDTHEFED",
                     "quantity_per_unit": 1,
                     "fee_paid": 2520000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 1915246,
@@ -2718,7 +3372,14 @@ Returns the dividends of an asset
                     "dividend_asset": "TRUMPDANCING",
                     "quantity_per_unit": 100,
                     "fee_paid": 2520000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 1920208,
@@ -2729,7 +3390,14 @@ Returns the dividends of an asset
                     "dividend_asset": "CTRWOJACK",
                     "quantity_per_unit": 1111,
                     "fee_paid": 2700000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 1927909,
@@ -2740,7 +3408,14 @@ Returns the dividends of an asset
                     "dividend_asset": "WHITERUSSIAN",
                     "quantity_per_unit": 1,
                     "fee_paid": 3220000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 1983693,
@@ -2751,7 +3426,14 @@ Returns the dividends of an asset
                     "dividend_asset": "A4520591452211866149",
                     "quantity_per_unit": 1,
                     "fee_paid": 4040000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 1983842,
@@ -2762,7 +3444,14 @@ Returns the dividends of an asset
                     "dividend_asset": "NCSWIC",
                     "quantity_per_unit": 1,
                     "fee_paid": 4040000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 1996395,
@@ -2773,7 +3462,14 @@ Returns the dividends of an asset
                     "dividend_asset": "FUCKTHEFED",
                     "quantity_per_unit": 1,
                     "fee_paid": 4380000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 2035947,
@@ -2784,7 +3480,14 @@ Returns the dividends of an asset
                     "dividend_asset": "HOLDTHELINE",
                     "quantity_per_unit": 1,
                     "fee_paid": 4940000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 2174481,
@@ -2795,7 +3498,14 @@ Returns the dividends of an asset
                     "dividend_asset": "EOXIXIZERO",
                     "quantity_per_unit": 1,
                     "fee_paid": 6500000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 2198534,
@@ -2806,7 +3516,14 @@ Returns the dividends of an asset
                     "dividend_asset": "TRUMPCARDS",
                     "quantity_per_unit": 1,
                     "fee_paid": 6660000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 2704948,
@@ -2817,7 +3534,14 @@ Returns the dividends of an asset
                     "dividend_asset": "FUCKYOUWAR",
                     "quantity_per_unit": 1,
                     "fee_paid": 6840000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 2704949,
@@ -2828,7 +3552,14 @@ Returns the dividends of an asset
                     "dividend_asset": "MEDICINEPEPE",
                     "quantity_per_unit": 1,
                     "fee_paid": 6840000,
-                    "status": "valid"
+                    "status": "valid",
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "xcp.coindaddy.io/GMONEYPEPE.json",
+                        "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
+                        "divisible": 0,
+                        "locked": 1
+                    }
                 }
             ]
         }
@@ -2840,6 +3571,8 @@ Returns the issuances of an asset
 
 + Parameters
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2866,6 +3599,69 @@ Returns the issuances of an asset
                     "status": "valid",
                     "asset_longname": null,
                     "reset": 0
+                },
+                {
+                    "tx_index": 2726737,
+                    "tx_hash": "d15580fa7ba62d7e7928db41836521af9e7cbc8cce2efa06cc2cc57d22bf4f0f",
+                    "msg_index": 0,
+                    "block_index": 840738,
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 0,
+                    "divisible": 0,
+                    "source": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                    "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                    "transfer": 0,
+                    "callable": 0,
+                    "call_date": 0,
+                    "call_price": 0.0,
+                    "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                    "fee_paid": 0,
+                    "locked": 0,
+                    "status": "valid",
+                    "asset_longname": null,
+                    "reset": 0
+                },
+                {
+                    "tx_index": 2726753,
+                    "tx_hash": "92f6d2e3b07ff6aa558357d6c2c324a763f54bbcc4b887c725d61e60a57b4a7e",
+                    "msg_index": 0,
+                    "block_index": 840744,
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 1775,
+                    "divisible": 0,
+                    "source": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                    "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                    "transfer": 0,
+                    "callable": 0,
+                    "call_date": 0,
+                    "call_price": 0.0,
+                    "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                    "fee_paid": 0,
+                    "locked": 0,
+                    "status": "valid",
+                    "asset_longname": null,
+                    "reset": 0
+                },
+                {
+                    "tx_index": 2726769,
+                    "tx_hash": "935fc9682e0aa630df4e640e3cbf730b5a722a41002cb425a69eb33a66556501",
+                    "msg_index": 0,
+                    "block_index": 840756,
+                    "asset": "UNNEGOTIABLE",
+                    "quantity": 0,
+                    "divisible": 0,
+                    "source": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                    "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
+                    "transfer": 0,
+                    "callable": 0,
+                    "call_date": 0,
+                    "call_price": 0.0,
+                    "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
+                    "fee_paid": 0,
+                    "locked": 1,
+                    "status": "valid",
+                    "asset_longname": null,
+                    "reset": 0
                 }
             ]
         }
@@ -2881,6 +3677,8 @@ Returns the sends of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2897,7 +3695,14 @@ Returns the sends of an asset
                     "quantity": 1000000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "10"
                 },
                 {
                     "tx_index": 749,
@@ -2909,7 +3714,14 @@ Returns the sends of an asset
                     "quantity": 1100000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "11"
                 },
                 {
                     "tx_index": 752,
@@ -2921,7 +3733,14 @@ Returns the sends of an asset
                     "quantity": 100000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "1"
                 },
                 {
                     "tx_index": 755,
@@ -2933,7 +3752,14 @@ Returns the sends of an asset
                     "quantity": 1100000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "11"
                 },
                 {
                     "tx_index": 766,
@@ -2945,7 +3771,14 @@ Returns the sends of an asset
                     "quantity": 1100000000,
                     "status": "valid",
                     "msg_index": 0,
-                    "memo": null
+                    "memo": null,
+                    "asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "11"
                 }
             ]
         }
@@ -2959,6 +3792,8 @@ Returns the dispensers of an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -2979,7 +3814,17 @@ Returns the dispensers of an asset
                     "oracle_address": null,
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
-                    "dispense_count": 0
+                    "dispense_count": 0,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
+                        "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "give_remaining_normalized": "25",
+                    "escrow_quantity_normalized": "25"
                 }
             ]
         }
@@ -2994,6 +3839,8 @@ Returns the dispensers of an address and an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3014,7 +3861,17 @@ Returns the dispensers of an address and an asset
                     "oracle_address": null,
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
-                    "dispense_count": 0
+                    "dispense_count": 0,
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
+                        "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "1",
+                    "give_remaining_normalized": "25",
+                    "escrow_quantity_normalized": "25"
                 }
             ]
         }
@@ -3026,6 +3883,8 @@ Returns the holders of an asset
 
 + Parameters
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3084,6 +3943,8 @@ Returns the information of an order
 
 + Parameters
     + order_hash: `23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776` (str, required) - The hash of the transaction that created the order
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3093,21 +3954,38 @@ Returns the information of an order
                 {
                     "tx_index": 2724132,
                     "tx_hash": "23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776",
-                    "block_index": 840381,
+                    "block_index": 840918,
                     "source": "15L7U55PAsHLEpQkZqz62e3eqWd9AHb2DH",
                     "give_asset": "PEPECASH",
                     "give_quantity": 6966600000000,
-                    "give_remaining": 900000000000,
+                    "give_remaining": 0,
                     "get_asset": "XCP",
                     "get_quantity": 11076894000,
-                    "get_remaining": 1431000000,
+                    "get_remaining": 0,
                     "expiration": 5000,
                     "expire_index": 843055,
                     "fee_required": 0,
                     "fee_required_remaining": 0,
                     "fee_provided": 4488,
                     "fee_provided_remaining": 4488,
-                    "status": "open"
+                    "status": "filled",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "http://rarepepedirectory.com/json/pc.json",
+                        "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "give_quantity_normalized": "69666",
+                    "get_quantity_normalized": "110.76894",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0"
                 }
             ]
         }
@@ -3121,6 +3999,8 @@ Returns the order matches of an order
     + order_hash: `5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947` (str, required) - The hash of the transaction that created the order
     + status: `completed` (str, optional) - The status of the order matches to return
         + Default: `pending`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3158,6 +4038,8 @@ Returns the BTC pays of an order
 
 + Parameters
     + order_hash: `299b5b648f54eacb839f3487232d49aea373cdd681b706d4cc0b5e0b03688db4` (str, required) - The hash of the transaction that created the order
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3187,6 +4069,8 @@ Returns the orders to exchange two assets
     + asset2: `XCP` (str, required) - The second asset to return
     + status: `filled` (str, optional) - The status of the orders to return
         + Default: `open`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3210,7 +4094,27 @@ Returns the orders to exchange two assets
                     "fee_required_remaining": 0,
                     "fee_provided": 5544,
                     "fee_provided_remaining": 5544,
-                    "status": "filled"
+                    "status": "filled",
+                    "market_pair": "NEEDPEPE/XCP",
+                    "market_dir": "SELL",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "808",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0",
+                    "market_price": "808"
                 },
                 {
                     "tx_index": 1946026,
@@ -3229,7 +4133,27 @@ Returns the orders to exchange two assets
                     "fee_required_remaining": 0,
                     "fee_provided": 264,
                     "fee_provided_remaining": 264,
-                    "status": "filled"
+                    "status": "filled",
+                    "market_pair": "NEEDPEPE/XCP",
+                    "market_dir": "SELL",
+                    "give_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "get_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "give_quantity_normalized": "1",
+                    "get_quantity_normalized": "700",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0",
+                    "market_price": "700"
                 },
                 {
                     "tx_index": 2202451,
@@ -3248,7 +4172,27 @@ Returns the orders to exchange two assets
                     "fee_required_remaining": 0,
                     "fee_provided": 264,
                     "fee_provided_remaining": 264,
-                    "status": "filled"
+                    "status": "filled",
+                    "market_pair": "NEEDPEPE/XCP",
+                    "market_dir": "BUY",
+                    "give_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "808",
+                    "get_quantity_normalized": "1",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0",
+                    "market_price": "808"
                 },
                 {
                     "tx_index": 1946587,
@@ -3267,7 +4211,27 @@ Returns the orders to exchange two assets
                     "fee_required_remaining": 0,
                     "fee_provided": 792,
                     "fee_provided_remaining": 792,
-                    "status": "filled"
+                    "status": "filled",
+                    "market_pair": "NEEDPEPE/XCP",
+                    "market_dir": "BUY",
+                    "give_asset_issuance": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "get_asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
+                        "divisible": 0,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "700",
+                    "get_quantity_normalized": "1",
+                    "get_remaining_normalized": "0",
+                    "give_remaining_normalized": "0",
+                    "market_price": "700"
                 }
             ]
         }
@@ -3281,6 +4245,8 @@ Returns the information of a bet
 
 + Parameters
     + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3318,6 +4284,8 @@ Returns the bet matches of a bet
     + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
     + status: `expired` (str, optional) - The status of the bet matches
         + Default: `pending`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3360,6 +4328,8 @@ Returns the resolutions of a bet
 
 + Parameters
     + bet_hash: `36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace` (str, required) - The hash of the transaction that created the bet
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3394,6 +4364,8 @@ Returns the burns
         + Default: `0`
     + limit: `5` (int, optional) - The limit of the burns to return
         + Default: `100`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3457,6 +4429,8 @@ Returns the dispenser information by tx_hash
 
 + Parameters
     + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3478,7 +4452,16 @@ Returns the dispenser information by tx_hash
                     "last_status_tx_hash": null,
                     "origin": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
                     "dispense_count": 2,
-                    "asset_longname": null
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
+                        "divisible": 1,
+                        "locked": 1
+                    },
+                    "give_quantity_normalized": "100",
+                    "give_remaining_normalized": "1400",
+                    "escrow_quantity_normalized": "2500"
                 }
             ]
         }
@@ -3490,6 +4473,8 @@ Returns the dispenses of a dispenser
 
 + Parameters
     + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3505,7 +4490,31 @@ Returns the dispenses of a dispenser
                     "destination": "1FKYM1CP9RfttJhNG8HTNQdE2uV3YvwbRB",
                     "asset": "FLOCK",
                     "dispense_quantity": 20000000000,
-                    "dispenser_tx_hash": "753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a"
+                    "dispenser_tx_hash": "753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a",
+                    "dispenser": {
+                        "tx_index": 2536311,
+                        "block_index": 840322,
+                        "source": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
+                        "give_quantity": 10000000000,
+                        "escrow_quantity": 250000000000,
+                        "satoshirate": 330000,
+                        "status": 0,
+                        "give_remaining": 140000000000,
+                        "oracle_address": null,
+                        "last_status_tx_hash": null,
+                        "origin": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
+                        "dispense_count": 2,
+                        "give_quantity_normalized": "100",
+                        "give_remaining_normalized": "1400",
+                        "escrow_quantity_normalized": "2500"
+                    },
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
+                        "divisible": 1,
+                        "locked": 1
+                    }
                 },
                 {
                     "tx_index": 2726580,
@@ -3516,7 +4525,31 @@ Returns the dispenses of a dispenser
                     "destination": "bc1qzcdkhnexpjc8wvkyrpyrsn0f5xzcpu877mjmgj",
                     "asset": "FLOCK",
                     "dispense_quantity": 90000000000,
-                    "dispenser_tx_hash": "753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a"
+                    "dispenser_tx_hash": "753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a",
+                    "dispenser": {
+                        "tx_index": 2536311,
+                        "block_index": 840322,
+                        "source": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
+                        "give_quantity": 10000000000,
+                        "escrow_quantity": 250000000000,
+                        "satoshirate": 330000,
+                        "status": 0,
+                        "give_remaining": 140000000000,
+                        "oracle_address": null,
+                        "last_status_tx_hash": null,
+                        "origin": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
+                        "dispense_count": 2,
+                        "give_quantity_normalized": "100",
+                        "give_remaining_normalized": "1400",
+                        "escrow_quantity_normalized": "2500"
+                    },
+                    "asset_issuance": {
+                        "asset_longname": null,
+                        "description": "",
+                        "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
+                        "divisible": 1,
+                        "locked": 1
+                    }
                 }
             ]
         }
@@ -3533,6 +4566,8 @@ Returns all events
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3562,7 +4597,15 @@ Returns all events
                         "source": "173cE6ScUFCmBLCqZeG18ij6r9KHRPbAjC",
                         "status": "valid",
                         "tx_hash": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
-                        "tx_index": 2056160
+                        "tx_index": 2056160,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "",
+                            "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3577,7 +4620,15 @@ Returns all events
                         "calling_function": "send",
                         "event": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "quantity": 1,
-                        "tx_index": 2056160
+                        "tx_index": 2056160,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "",
+                            "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3592,7 +4643,15 @@ Returns all events
                         "block_index": 744232,
                         "event": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "quantity": 1,
-                        "tx_index": 2056160
+                        "tx_index": 2056160,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "",
+                            "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3618,6 +4677,8 @@ Returns the event of an index
 
 + Parameters
     + event_index: `10665092` (int, required) - The index of the event to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3642,202 +4703,10 @@ Returns the event of an index
 ### Get All Events Counts [GET `/events/counts`]
 
 Returns the event counts of all blocks
-+ Response 200 (application/json)
 
-    ```
-        {
-            "result": [
-                {
-                    "event": "ASSET_CREATION",
-                    "event_count": 235860
-                },
-                {
-                    "event": "ASSET_DESTRUCTION",
-                    "event_count": 11141
-                },
-                {
-                    "event": "ASSET_DIVIDEND",
-                    "event_count": 4092
-                },
-                {
-                    "event": "ASSET_ISSUANCE",
-                    "event_count": 322678
-                },
-                {
-                    "event": "ASSET_TRANSFER",
-                    "event_count": 10639
-                },
-                {
-                    "event": "BET_EXPIRATION",
-                    "event_count": 588
-                },
-                {
-                    "event": "BET_MATCH",
-                    "event_count": 397
-                },
-                {
-                    "event": "BET_MATCH_EXPIRATION",
-                    "event_count": 9
-                },
-                {
-                    "event": "BET_MATCH_RESOLUTON",
-                    "event_count": 387
-                },
-                {
-                    "event": "BET_MATCH_UPDATE",
-                    "event_count": 397
-                },
-                {
-                    "event": "BET_UPDATE",
-                    "event_count": 1474
-                },
-                {
-                    "event": "BLOCK_PARSED",
-                    "event_count": 562364
-                },
-                {
-                    "event": "BROADCAST",
-                    "event_count": 106518
-                },
-                {
-                    "event": "BTC_PAY",
-                    "event_count": 2921
-                },
-                {
-                    "event": "BURN",
-                    "event_count": 2576
-                },
-                {
-                    "event": "CANCEL_BET",
-                    "event_count": 101
-                },
-                {
-                    "event": "CANCEL_ORDER",
-                    "event_count": 80168
-                },
-                {
-                    "event": "CREDIT",
-                    "event_count": 3659293
-                },
-                {
-                    "event": "DEBIT",
-                    "event_count": 2617404
-                },
-                {
-                    "event": "DISPENSE",
-                    "event_count": 190873
-                },
-                {
-                    "event": "DISPENSER_UPDATE",
-                    "event_count": 228954
-                },
-                {
-                    "event": "ENHANCED_SEND",
-                    "event_count": 538426
-                },
-                {
-                    "event": "MPMA_SEND",
-                    "event_count": 279142
-                },
-                {
-                    "event": "NEW_BLOCK",
-                    "event_count": 1992
-                },
-                {
-                    "event": "NEW_TRANSACTION",
-                    "event_count": 4498
-                },
-                {
-                    "event": "NEW_TRANSACTION_OUTPUT",
-                    "event_count": 596
-                },
-                {
-                    "event": "OPEN_BET",
-                    "event_count": 1149
-                },
-                {
-                    "event": "OPEN_DISPENSER",
-                    "event_count": 88229
-                },
-                {
-                    "event": "OPEN_ORDER",
-                    "event_count": 530117
-                },
-                {
-                    "event": "OPEN_RPS",
-                    "event_count": 266
-                },
-                {
-                    "event": "ORDER_EXPIRATION",
-                    "event_count": 195968
-                },
-                {
-                    "event": "ORDER_FILLED",
-                    "event_count": 805
-                },
-                {
-                    "event": "ORDER_MATCH",
-                    "event_count": 209415
-                },
-                {
-                    "event": "ORDER_MATCH_EXPIRATION",
-                    "event_count": 20860
-                },
-                {
-                    "event": "ORDER_MATCH_UPDATE",
-                    "event_count": 23689
-                },
-                {
-                    "event": "ORDER_UPDATE",
-                    "event_count": 732646
-                },
-                {
-                    "event": "REFILL_DISPENSER",
-                    "event_count": 187
-                },
-                {
-                    "event": "RESET_ISSUANCE",
-                    "event_count": 454
-                },
-                {
-                    "event": "RPS_EXPIRATION",
-                    "event_count": 59
-                },
-                {
-                    "event": "RPS_MATCH",
-                    "event_count": 171
-                },
-                {
-                    "event": "RPS_MATCH_EXPIRATION",
-                    "event_count": 145
-                },
-                {
-                    "event": "RPS_MATCH_UPDATE",
-                    "event_count": 271
-                },
-                {
-                    "event": "RPS_RESOLVE",
-                    "event_count": 129
-                },
-                {
-                    "event": "RPS_UPDATE",
-                    "event_count": 540
-                },
-                {
-                    "event": "SEND",
-                    "event_count": 805983
-                },
-                {
-                    "event": "SWEEP",
-                    "event_count": 1020
-                },
-                {
-                    "event": "TRANSACTION_PARSED",
-                    "event_count": 2723802
-                }
-            ]
-        }
-    ```
++ Parameters
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 ### Get Events By Name [GET `/events/{event}`]
 
@@ -3849,6 +4718,8 @@ Returns the events filtered by event name
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3865,7 +4736,15 @@ Returns the events filtered by event name
                         "calling_function": "send",
                         "event": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "quantity": 1,
-                        "tx_index": 2056160
+                        "tx_index": 2056160,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "",
+                            "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3880,7 +4759,14 @@ Returns the events filtered by event name
                         "calling_function": "dispense",
                         "event": "bbb2dfa7e7a32288a702ef0091ece8b2a929f94fd967a18e6071cd9c2b085eaf",
                         "quantity": 10000000000,
-                        "tx_index": 2056159
+                        "tx_index": 2056159,
+                        "asset_issuance": {
+                            "divisible": true,
+                            "asset_longname": "Counterparty",
+                            "description": "The Counterparty protocol native currency",
+                            "locked": true
+                        },
+                        "quantity_normalized": "100"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3895,7 +4781,15 @@ Returns the events filtered by event name
                         "calling_function": "send",
                         "event": "b419d19729c2be813405c548431f4840d5c909b875f94b7c56aeca134e328ef6",
                         "quantity": 1,
-                        "tx_index": 2056158
+                        "tx_index": 2056158,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "xcp.coindaddy.io/FREEDOMKEK.json",
+                            "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
+                            "divisible": 0,
+                            "locked": 0
+                        },
+                        "quantity_normalized": "1"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3910,7 +4804,15 @@ Returns the events filtered by event name
                         "calling_function": "send",
                         "event": "145ebf6c563c4e91a2bc488954ef701dad730fc065697979c80d6d85cbba63e1",
                         "quantity": 1,
-                        "tx_index": 2056157
+                        "tx_index": 2056157,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "https://easyasset.art/j/gnyrdg/PEPEFRIDAY.json",
+                            "issuer": "1CCPbFbST8ruJrTGjm2Ss5aTAaqng4naBN",
+                            "divisible": 0,
+                            "locked": 0
+                        },
+                        "quantity_normalized": "1"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3925,7 +4827,15 @@ Returns the events filtered by event name
                         "calling_function": "send",
                         "event": "388c7208d52bf617c1a3eef238a668f694a4f72dc97b3be92562fe636ca646fa",
                         "quantity": 2,
-                        "tx_index": 2056156
+                        "tx_index": 2056156,
+                        "asset_issuance": {
+                            "asset_longname": null,
+                            "description": "https://easyasset.art/j/gnyrdg/PEPEFRIDAY.json",
+                            "issuer": "1CCPbFbST8ruJrTGjm2Ss5aTAaqng4naBN",
+                            "divisible": 0,
+                            "locked": 0
+                        },
+                        "quantity_normalized": "2"
                     },
                     "block_index": 744232,
                     "timestamp": 1712256340
@@ -3943,6 +4853,8 @@ Health check route.
 + Parameters
     + check_type: `light` (str, optional) - Type of health check to perform. Options are 'light' and 'heavy'
         + Default: `heavy`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -3966,6 +4878,8 @@ Returns all transactions involving a given address
         + Default: `True`
     + only_tx_hashes: `True` (bool, optional) - Return only the tx hashes
         + Default: `False`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -4020,6 +4934,8 @@ Get the oldest transaction for an address.
     + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for.
     + block_index (int, optional) - The block index to search from.
         + Default: `None`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -4042,6 +4958,8 @@ Returns a list of unspent outputs for a specific address
         + Default: `False`
     + unspent_tx_hash (str, optional) - Filter by unspent_tx_hash
         + Default: `None`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -4140,6 +5058,8 @@ Get pubkey for an address.
     + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - Address to get pubkey for.
     + provided_pubkeys (str, optional) - Comma separated list of provided pubkeys.
         + Default: `None`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -4155,8 +5075,10 @@ Get a transaction from the blockchain
 
 + Parameters
     + tx_hash: `3190047bf2320bdcd0fade655ae49be309519d151330aa478573815229cc0018` (str, required) - The transaction hash
-    + verbose: `True` (bool, optional) - Whether to return JSON output or raw hex
-        + Default: `False`
+    + format: `hex` (str, optional) - Whether to return JSON output or raw hex
+        + Default: `json`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -4216,6 +5138,8 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
         + Default: `3`
     + mode: `CONSERVATIVE` (str, optional) - The fee estimate mode.
         + Default: `CONSERVATIVE`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
@@ -4230,13 +5154,10 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
 ### Get All Mempool Events [GET `/mempool/events`]
 
 Returns all mempool events
-+ Response 200 (application/json)
 
-    ```
-        {
-            "result": []
-        }
-    ```
++ Parameters
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 ### Get Mempool Events By Name [GET `/mempool/events/{event}`]
 
@@ -4244,6 +5165,8 @@ Returns the mempool events filtered by event name
 
 + Parameters
     + event: `OPEN_ORDER` (str, required) - The event to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
 
 + Response 200 (application/json)
 
