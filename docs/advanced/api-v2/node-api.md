@@ -77,7 +77,7 @@ Returns the list of the last ten blocks
         + Default: `None`
     + limit: `2` (int, optional) - The number of blocks to return
         + Default: `10`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -115,7 +115,7 @@ Return the information of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -141,7 +141,7 @@ Returns the transactions of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -172,7 +172,7 @@ Returns the events of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -319,7 +319,7 @@ Returns the event counts of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -370,7 +370,7 @@ Returns the events of a block filtered by event
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
     + event: `CREDIT` (str, required) - The event to filter by
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -409,7 +409,7 @@ Returns the credits of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -444,7 +444,7 @@ Returns the debits of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -478,7 +478,7 @@ Returns the expirations of a block
 
 + Parameters
     + block_index: `840356` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -504,7 +504,7 @@ Returns the cancels of a block
 
 + Parameters
     + block_index: `839746` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -538,7 +538,7 @@ Returns the destructions of a block
 
 + Parameters
     + block_index: `839988` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -574,7 +574,7 @@ Returns the issuances of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -617,7 +617,7 @@ Returns the sends of a block
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -655,7 +655,7 @@ Returns the dispenses of a block
 
 + Parameters
     + block_index: `840322` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -708,7 +708,7 @@ Returns the sweeps of a block
 
 + Parameters
     + block_index: `836519` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -752,7 +752,7 @@ Returns Counterparty information from a raw transaction in hex format.
     + rawtransaction: `01000000017828697743c03aef6a3a8ba54b22bf579ffcab8161faf20e7b20c4ecd75cc986010000006b483045022100d1bd0531bb1ed2dd2cbf77d6933273e792a3dbfa84327d419169850ddd5976f502205d1ab0f7bcbf1a0cc183f0520c9aa8f711d41cb790c0c4ac39da6da4a093d798012103d3b1f711e907acb556e239f6cafb6a4f7fe40d8dd809b0e06e739c2afd73f202ffffffff0200000000000000004d6a4bf29880b93b0711524c7ef9c76835752088db8bd4113a3daf41fc45ffdc8867ebdbf26817fae377696f36790e52f51005806e9399a427172fedf348cf798ed86e548002ee96909eef0775ec3c2b0100000000001976a91443434cf159cc585fbd74daa9c4b833235b19761b88ac00000000` (str, required) - Raw transaction in hex format
     + block_index (int, optional) - Block index mandatory for transactions before block 335000
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -795,7 +795,7 @@ Unpacks Counterparty data in hex format and returns the message type and data.
     + datahex: `16010b9142801429a60000000000000001000000554e4e45474f544941424c45205745204d555354204245434f4d4520554e4e45474f544941424c4520574520415245` (str, required) - Data in hex format
     + block_index (int, optional) - Block index of the transaction containing this data
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -829,7 +829,7 @@ Returns a transaction by its hash.
 
 + Parameters
     + tx_hash: `876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5` (str, required) - The hash of the transaction
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -878,7 +878,7 @@ Returns the balances of an address
 
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -909,7 +909,7 @@ Returns the balance of an address and asset
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -941,7 +941,7 @@ Returns the credits of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -979,7 +979,7 @@ Returns the debits of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1031,7 +1031,7 @@ Returns the bets of a feed
     + address: `1QKEpuxEmdp428KEBSDZAKL46noSXWJBkk` (str, required) - The address of the feed
     + status: `filled` (str, optional) - The status of the bet
         + Default: `open`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1091,7 +1091,7 @@ Returns the broadcasts of a source
         + Default: `valid`
     + order_by: `ASC` (str, optional) - The order of the broadcasts to return
         + Default: `DESC`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1133,7 +1133,7 @@ Returns the burns of an address
 
 + Parameters
     + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1164,7 +1164,7 @@ Returns the sends of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1205,7 +1205,7 @@ Returns the receives of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1243,7 +1243,7 @@ Returns the sends of an address and asset
 + Parameters
     + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1285,7 +1285,7 @@ Returns the receives of an address and asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1324,7 +1324,7 @@ Returns the dispensers of an address
     + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1371,7 +1371,7 @@ Returns the dispensers of an address and an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1415,7 +1415,7 @@ Returns the sweeps of an address
 
 + Parameters
     + address: `18szqTVJUWwYrtRHq98Wn4DhCGGiy3jZ87` (str, required) - The address to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1505,7 +1505,7 @@ Composes a transaction to issue a bet against a feed.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1589,7 +1589,7 @@ Composes a transaction to broadcast textual and numerical information to the net
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1666,7 +1666,7 @@ Composes a transaction to pay for a BTC order match.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1742,7 +1742,7 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1817,7 +1817,7 @@ Composes a transaction to cancel an open order or bet.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1893,7 +1893,7 @@ Composes a transaction to destroy a quantity of an asset.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1977,7 +1977,7 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2059,7 +2059,7 @@ Composes a transaction to issue a dividend to holders of a given asset.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2146,7 +2146,7 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2230,7 +2230,7 @@ Composes a transaction to send multiple payments to multiple addresses.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2327,7 +2327,7 @@ Composes a transaction to place an order on the distributed exchange.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2414,7 +2414,7 @@ Composes a transaction to send a quantity of an asset to another address.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2495,7 +2495,7 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2526,7 +2526,7 @@ Returns the valid assets
         + Default: `0`
     + limit: `5` (int, optional) - The limit of the assets to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2564,7 +2564,7 @@ Returns the asset information
 
 + Parameters
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2593,7 +2593,7 @@ Returns the asset balances
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
     + exclude_zero_balances: `True` (bool, optional) - Whether to exclude zero balances
         + Default: `True`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2677,7 +2677,7 @@ Returns the balance of an address and asset
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2707,7 +2707,7 @@ Returns the orders of an asset
     + asset: `NEEDPEPE` (str, required) - The asset to return
     + status: `filled` (str, optional) - The status of the orders to return
         + Default: `open`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3132,7 +3132,7 @@ Returns the credits of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3239,7 +3239,7 @@ Returns the debits of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3337,7 +3337,7 @@ Returns the dividends of an asset
 
 + Parameters
     + asset: `GMONEYPEPE` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3571,7 +3571,7 @@ Returns the issuances of an asset
 
 + Parameters
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3677,7 +3677,7 @@ Returns the sends of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3792,7 +3792,7 @@ Returns the dispensers of an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3839,7 +3839,7 @@ Returns the dispensers of an address and an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3883,7 +3883,7 @@ Returns the holders of an asset
 
 + Parameters
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3943,7 +3943,7 @@ Returns the information of an order
 
 + Parameters
     + order_hash: `23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776` (str, required) - The hash of the transaction that created the order
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3999,7 +3999,7 @@ Returns the order matches of an order
     + order_hash: `5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947` (str, required) - The hash of the transaction that created the order
     + status: `completed` (str, optional) - The status of the order matches to return
         + Default: `pending`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4038,7 +4038,7 @@ Returns the BTC pays of an order
 
 + Parameters
     + order_hash: `299b5b648f54eacb839f3487232d49aea373cdd681b706d4cc0b5e0b03688db4` (str, required) - The hash of the transaction that created the order
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4069,7 +4069,7 @@ Returns the orders to exchange two assets
     + asset2: `XCP` (str, required) - The second asset to return
     + status: `filled` (str, optional) - The status of the orders to return
         + Default: `open`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4245,7 +4245,7 @@ Returns the information of a bet
 
 + Parameters
     + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4284,7 +4284,7 @@ Returns the bet matches of a bet
     + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
     + status: `expired` (str, optional) - The status of the bet matches
         + Default: `pending`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4328,7 +4328,7 @@ Returns the resolutions of a bet
 
 + Parameters
     + bet_hash: `36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace` (str, required) - The hash of the transaction that created the bet
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4364,7 +4364,7 @@ Returns the burns
         + Default: `0`
     + limit: `5` (int, optional) - The limit of the burns to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4429,7 +4429,7 @@ Returns the dispenser information by tx_hash
 
 + Parameters
     + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4473,7 +4473,7 @@ Returns the dispenses of a dispenser
 
 + Parameters
     + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4566,7 +4566,7 @@ Returns all events
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4677,7 +4677,7 @@ Returns the event of an index
 
 + Parameters
     + event_index: `10665092` (int, required) - The index of the event to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4705,7 +4705,7 @@ Returns the event of an index
 Returns the event counts of all blocks
 
 + Parameters
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 ### Get Events By Name [GET `/events/{event}`]
@@ -4718,7 +4718,7 @@ Returns the events filtered by event name
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4853,7 +4853,7 @@ Health check route.
 + Parameters
     + check_type: `light` (str, optional) - Type of health check to perform. Options are 'light' and 'heavy'
         + Default: `heavy`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4878,7 +4878,7 @@ Returns all transactions involving a given address
         + Default: `True`
     + only_tx_hashes: `True` (bool, optional) - Return only the tx hashes
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4934,7 +4934,7 @@ Get the oldest transaction for an address.
     + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for.
     + block_index (int, optional) - The block index to search from.
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4958,7 +4958,7 @@ Returns a list of unspent outputs for a specific address
         + Default: `False`
     + unspent_tx_hash (str, optional) - Filter by unspent_tx_hash
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5055,10 +5055,10 @@ Returns a list of unspent outputs for a specific address
 Get pubkey for an address.
 
 + Parameters
-    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - Address to get pubkey for.
+    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to get the pubkey for
     + provided_pubkeys (str, optional) - Comma separated list of provided pubkeys.
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5077,7 +5077,7 @@ Get a transaction from the blockchain
     + tx_hash: `3190047bf2320bdcd0fade655ae49be309519d151330aa478573815229cc0018` (str, required) - The transaction hash
     + format: `hex` (str, optional) - Whether to return JSON output or raw hex
         + Default: `json`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5136,9 +5136,9 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
 + Parameters
     + conf_target: `2` (int, optional) - Confirmation target in blocks (1 - 1008)
         + Default: `3`
-    + mode: `CONSERVATIVE` (str, optional) - The fee estimate mode.
+    + mode: `CONSERVATIVE` (str, optional) - The fee estimate mode
         + Default: `CONSERVATIVE`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5156,7 +5156,7 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
 Returns all mempool events
 
 + Parameters
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 ### Get Mempool Events By Name [GET `/mempool/events/{event}`]
@@ -5165,7 +5165,7 @@ Returns the mempool events filtered by event name
 
 + Parameters
     + event: `OPEN_ORDER` (str, required) - The event to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
         + Default: `false`
 
 + Response 200 (application/json)
