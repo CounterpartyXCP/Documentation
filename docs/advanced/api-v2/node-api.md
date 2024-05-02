@@ -210,7 +210,7 @@ Returns the events of a block
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 1,
                         "tx_index": 2726605,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                             "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -242,7 +242,7 @@ Returns the events of a block
                         "transfer": false,
                         "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "tx_index": 2726605,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                             "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -273,7 +273,7 @@ Returns the events of a block
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 50000000,
                         "tx_index": 2726605,
-                        "asset_issuance": {
+                        "asset_info": {
                             "divisible": true,
                             "asset_longname": "Counterparty",
                             "description": "The Counterparty protocol native currency",
@@ -389,7 +389,7 @@ Returns the events of a block filtered by event
                         "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "quantity": 1,
                         "tx_index": 2726605,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                             "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -425,7 +425,7 @@ Returns the credits of a block
                     "calling_function": "issuance",
                     "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                     "tx_index": 2726605,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -460,7 +460,7 @@ Returns the debits of a block
                     "action": "issuance fee",
                     "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                     "tx_index": 2726605,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -555,7 +555,7 @@ Returns the destructions of a block
                     "quantity": 50000,
                     "tag": "",
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://easyasset.art/j/m4dl0x/COBBE.json",
                         "issuer": "1P3KQWLsTPXVWimiF2Q6WSES5vbJE8be5i",
@@ -636,7 +636,7 @@ Returns the sends of a block
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -690,7 +690,7 @@ Returns the dispenses of a block
                         "give_remaining_normalized": "1400",
                         "escrow_quantity_normalized": "2500"
                     },
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
@@ -890,7 +890,7 @@ Returns the balances of an address
                     "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                     "asset": "XCP",
                     "quantity": 104200000000,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -920,7 +920,7 @@ Returns the balance of an address and asset
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                 "asset": "XCP",
                 "quantity": 104200000000,
-                "asset_issuance": {
+                "asset_info": {
                     "divisible": true,
                     "asset_longname": "Counterparty",
                     "description": "The Counterparty protocol native currency",
@@ -957,7 +957,7 @@ Returns the credits of an address
                     "calling_function": "send",
                     "event": "7e4fbb0a1eeeee34bf499955f1027fb78c514d63a3c8ff2e28c6dad005e4d850",
                     "tx_index": 2677412,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -995,7 +995,7 @@ Returns the debits of an address
                     "action": "open dispenser",
                     "event": "53ed08176d3479f49986e9282293da85cebc03835b128d8e790ee587f9f1c750",
                     "tx_index": 2721524,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -1011,7 +1011,7 @@ Returns the debits of an address
                     "action": "send",
                     "event": "bc54968ba7d0a59a47b276602e2dbdcf01b14009742e0d7b50272cbae529a9a4",
                     "tx_index": 2726594,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -1183,7 +1183,7 @@ Returns the sends of an address
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -1224,7 +1224,7 @@ Returns the receives of an address
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -1262,7 +1262,7 @@ Returns the sends of an address and asset
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -1304,7 +1304,7 @@ Returns the receives of an address and asset
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -1347,7 +1347,7 @@ Returns the dispensers of an address
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
                     "dispense_count": 0,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
                         "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
@@ -1394,7 +1394,7 @@ Returns the dispensers of an address and an asset
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
                     "dispense_count": 0,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
                         "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
@@ -2605,7 +2605,7 @@ Returns the asset balances
                     "address": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                     "asset": "UNNEGOTIABLE",
                     "quantity": 1700,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -2618,7 +2618,7 @@ Returns the asset balances
                     "address": "17LV3y5KhExPdVcqS81zXuVUfNV9pmaGA",
                     "asset": "UNNEGOTIABLE",
                     "quantity": 1,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -2631,7 +2631,7 @@ Returns the asset balances
                     "address": "1ADca8k8XRY278QfQ3f9ynWaNYFzUDhkrk",
                     "asset": "UNNEGOTIABLE",
                     "quantity": 2,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -2644,7 +2644,7 @@ Returns the asset balances
                     "address": "1FmEBHzkZGqQZ7kprf53xU8XijUiv2SDYW",
                     "asset": "UNNEGOTIABLE",
                     "quantity": 1,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -2657,7 +2657,7 @@ Returns the asset balances
                     "address": "1kEXrh8MQqotJq2qgcVLeZqdmeuDG8HXX",
                     "asset": "UNNEGOTIABLE",
                     "quantity": 1,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -2688,7 +2688,7 @@ Returns the balance of an address and asset
                 "address": "1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs",
                 "asset": "XCP",
                 "quantity": 104200000000,
-                "asset_issuance": {
+                "asset_info": {
                     "divisible": true,
                     "asset_longname": "Counterparty",
                     "description": "The Counterparty protocol native currency",
@@ -2733,14 +2733,14 @@ Returns the orders of an asset
                     "fee_provided": 46098,
                     "fee_provided_remaining": 46098,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
@@ -2770,14 +2770,14 @@ Returns the orders of an asset
                     "fee_provided": 5544,
                     "fee_provided_remaining": 5544,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -2806,14 +2806,14 @@ Returns the orders of an asset
                     "fee_provided": 264,
                     "fee_provided_remaining": 264,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -2842,13 +2842,13 @@ Returns the orders of an asset
                     "fee_provided": 264,
                     "fee_provided_remaining": 264,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
                         "locked": true
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
@@ -2878,14 +2878,14 @@ Returns the orders of an asset
                     "fee_provided": 40000,
                     "fee_provided_remaining": 40000,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
                         "divisible": 1,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
@@ -2915,14 +2915,14 @@ Returns the orders of an asset
                     "fee_provided": 50766,
                     "fee_provided_remaining": 50766,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
                         "divisible": 1,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
@@ -2952,14 +2952,14 @@ Returns the orders of an asset
                     "fee_provided": 75791,
                     "fee_provided_remaining": 75791,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
@@ -2989,14 +2989,14 @@ Returns the orders of an asset
                     "fee_provided": 40000,
                     "fee_provided_remaining": 40000,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
                         "divisible": 1,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
@@ -3026,13 +3026,13 @@ Returns the orders of an asset
                     "fee_provided": 792,
                     "fee_provided_remaining": 792,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
                         "locked": true
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
@@ -3062,14 +3062,14 @@ Returns the orders of an asset
                     "fee_provided": 46098,
                     "fee_provided_remaining": 46098,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
@@ -3099,14 +3099,14 @@ Returns the orders of an asset
                     "fee_provided": 46098,
                     "fee_provided_remaining": 46098,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
@@ -3148,7 +3148,7 @@ Returns the credits of an asset
                     "calling_function": "issuance",
                     "event": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                     "tx_index": 2726605,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -3165,7 +3165,7 @@ Returns the credits of an asset
                     "calling_function": "issuance",
                     "event": "92f6d2e3b07ff6aa558357d6c2c324a763f54bbcc4b887c725d61e60a57b4a7e",
                     "tx_index": 2726753,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -3182,7 +3182,7 @@ Returns the credits of an asset
                     "calling_function": "open dispenser empty addr",
                     "event": "382fcc65fddc7ac39ab37fe66b2bb24d3e431b7bf0d99e509d7e761c49e28cb8",
                     "tx_index": 2726781,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -3199,7 +3199,7 @@ Returns the credits of an asset
                     "calling_function": "dispense",
                     "event": "f3775d4cc481b17c860c32d175a02535fef3d5d4642d9a4e947768a6bc406207",
                     "tx_index": 2726916,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -3216,7 +3216,7 @@ Returns the credits of an asset
                     "calling_function": "dispense",
                     "event": "ce3c2d55978a5b7700ef543926af84bb3f8f94ae1f3312880ee32cd0ce1743fd",
                     "tx_index": 2726969,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://zawqddvy75sz6dwqllsrupumldqwi26kk3amlz4fqci7hrsuqcfq.arweave.net/yC0Bjrj_ZZ8O0FrlGj6MWOFka8pWwMXnhYCR88ZUgIs/UNNEG.json",
                         "issuer": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
@@ -3255,7 +3255,7 @@ Returns the debits of an asset
                     "action": "send",
                     "event": "1c20d6596f6be031c94def5ad93a52217d76371885adcc53c91c3b1eaf76ccce",
                     "tx_index": 729,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3271,7 +3271,7 @@ Returns the debits of an asset
                     "action": "send",
                     "event": "4dacd03d73cb497229dbfe2e7209adc4221540efe0e4c57f408b09b2fd36ece6",
                     "tx_index": 749,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3287,7 +3287,7 @@ Returns the debits of an asset
                     "action": "send",
                     "event": "057d10cc33455f4f7af44d2f030b3866e3a16416ecf984e304c76abe98393c1d",
                     "tx_index": 752,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3303,7 +3303,7 @@ Returns the debits of an asset
                     "action": "send",
                     "event": "3ac6ea5b329832e2dc31ead6c5277beccb7d95f0d9f20f256f97067223c81e00",
                     "tx_index": 755,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3319,7 +3319,7 @@ Returns the debits of an asset
                     "action": "send",
                     "event": "66fc1409ac6646bd8c267de89c57d2204e31bb6dfce9ee2a3ab18416fadf9e9c",
                     "tx_index": 766,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3355,7 +3355,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 2520000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3373,7 +3373,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 100,
                     "fee_paid": 2520000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3391,7 +3391,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1111,
                     "fee_paid": 2700000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3409,7 +3409,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 3220000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3427,7 +3427,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 4040000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3445,7 +3445,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 4040000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3463,7 +3463,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 4380000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3481,7 +3481,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 4940000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3499,7 +3499,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 6500000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3517,7 +3517,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 6660000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3535,7 +3535,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 6840000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3553,7 +3553,7 @@ Returns the dividends of an asset
                     "quantity_per_unit": 1,
                     "fee_paid": 6840000,
                     "status": "valid",
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "xcp.coindaddy.io/GMONEYPEPE.json",
                         "issuer": "1JJP986hdU9Qy9b49rafM9FoXdbz1Mgbjo",
@@ -3696,7 +3696,7 @@ Returns the sends of an asset
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3715,7 +3715,7 @@ Returns the sends of an asset
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3734,7 +3734,7 @@ Returns the sends of an asset
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3753,7 +3753,7 @@ Returns the sends of an asset
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3772,7 +3772,7 @@ Returns the sends of an asset
                     "status": "valid",
                     "msg_index": 0,
                     "memo": null,
-                    "asset_issuance": {
+                    "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -3815,7 +3815,7 @@ Returns the dispensers of an asset
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
                     "dispense_count": 0,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
                         "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
@@ -3862,7 +3862,7 @@ Returns the dispensers of an address and an asset
                     "last_status_tx_hash": null,
                     "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
                     "dispense_count": 0,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "https://ipfs.io/ipfs/QmPzRXMYVTQ3zoYhaxW5ZRkt4o9vUnnzdBW4kV5CXUyjT4/ERYKAHPEPU.json",
                         "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
@@ -3969,14 +3969,14 @@ Returns the information of an order
                     "fee_provided": 4488,
                     "fee_provided_remaining": 4488,
                     "status": "filled",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "http://rarepepedirectory.com/json/pc.json",
                         "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
                         "divisible": 1,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -4097,14 +4097,14 @@ Returns the orders to exchange two assets
                     "status": "filled",
                     "market_pair": "NEEDPEPE/XCP",
                     "market_dir": "SELL",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -4136,14 +4136,14 @@ Returns the orders to exchange two assets
                     "status": "filled",
                     "market_pair": "NEEDPEPE/XCP",
                     "market_dir": "SELL",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
                         "divisible": 0,
                         "locked": 1
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
@@ -4175,13 +4175,13 @@ Returns the orders to exchange two assets
                     "status": "filled",
                     "market_pair": "NEEDPEPE/XCP",
                     "market_dir": "BUY",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
                         "locked": true
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
@@ -4214,13 +4214,13 @@ Returns the orders to exchange two assets
                     "status": "filled",
                     "market_pair": "NEEDPEPE/XCP",
                     "market_dir": "BUY",
-                    "give_asset_issuance": {
+                    "give_asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
                         "locked": true
                     },
-                    "get_asset_issuance": {
+                    "get_asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "1Fpx9NPBJsRbx6RXkvfZ3n1iCYj7n7VaJR",
@@ -4452,7 +4452,7 @@ Returns the dispenser information by tx_hash
                     "last_status_tx_hash": null,
                     "origin": "bc1qq735dv8peps2ayr3qwwwdwylq4ddwcgrpyg9r2",
                     "dispense_count": 2,
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
@@ -4508,7 +4508,7 @@ Returns the dispenses of a dispenser
                         "give_remaining_normalized": "1400",
                         "escrow_quantity_normalized": "2500"
                     },
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
@@ -4543,7 +4543,7 @@ Returns the dispenses of a dispenser
                         "give_remaining_normalized": "1400",
                         "escrow_quantity_normalized": "2500"
                     },
-                    "asset_issuance": {
+                    "asset_info": {
                         "asset_longname": null,
                         "description": "",
                         "issuer": "18VNeRv8vL528HF7ruKwxycrfNEeoqmHpa",
@@ -4598,7 +4598,7 @@ Returns all events
                         "status": "valid",
                         "tx_hash": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "tx_index": 2056160,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "",
                             "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
@@ -4621,7 +4621,7 @@ Returns all events
                         "event": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "quantity": 1,
                         "tx_index": 2056160,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "",
                             "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
@@ -4644,7 +4644,7 @@ Returns all events
                         "event": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "quantity": 1,
                         "tx_index": 2056160,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "",
                             "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
@@ -4737,7 +4737,7 @@ Returns the events filtered by event name
                         "event": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "quantity": 1,
                         "tx_index": 2056160,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "",
                             "issuer": "14CepDzwxKDQritbC7oAq7FTJiiEPPauyu",
@@ -4760,7 +4760,7 @@ Returns the events filtered by event name
                         "event": "bbb2dfa7e7a32288a702ef0091ece8b2a929f94fd967a18e6071cd9c2b085eaf",
                         "quantity": 10000000000,
                         "tx_index": 2056159,
-                        "asset_issuance": {
+                        "asset_info": {
                             "divisible": true,
                             "asset_longname": "Counterparty",
                             "description": "The Counterparty protocol native currency",
@@ -4782,7 +4782,7 @@ Returns the events filtered by event name
                         "event": "b419d19729c2be813405c548431f4840d5c909b875f94b7c56aeca134e328ef6",
                         "quantity": 1,
                         "tx_index": 2056158,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "xcp.coindaddy.io/FREEDOMKEK.json",
                             "issuer": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
@@ -4805,7 +4805,7 @@ Returns the events filtered by event name
                         "event": "145ebf6c563c4e91a2bc488954ef701dad730fc065697979c80d6d85cbba63e1",
                         "quantity": 1,
                         "tx_index": 2056157,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "https://easyasset.art/j/gnyrdg/PEPEFRIDAY.json",
                             "issuer": "1CCPbFbST8ruJrTGjm2Ss5aTAaqng4naBN",
@@ -4828,7 +4828,7 @@ Returns the events filtered by event name
                         "event": "388c7208d52bf617c1a3eef238a668f694a4f72dc97b3be92562fe636ca646fa",
                         "quantity": 2,
                         "tx_index": 2056156,
-                        "asset_issuance": {
+                        "asset_info": {
                             "asset_longname": null,
                             "description": "https://easyasset.art/j/gnyrdg/PEPEFRIDAY.json",
                             "issuer": "1CCPbFbST8ruJrTGjm2Ss5aTAaqng4naBN",
