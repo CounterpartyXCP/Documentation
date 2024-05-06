@@ -1,5 +1,5 @@
 ---
-title: REST API V2
+title: API v2
 ---
 
 FORMAT: 1A
@@ -22,6 +22,7 @@ API routes are divided into 11 groups:
 - [`/events`](#group-events)
 - [`/mempool`](#group-mempool)
 - [`/bitcoin`](#group-bitcoin)
+- [`/v1`](#group-v1)
 
 Notes:
 
@@ -56,7 +57,7 @@ Returns server information and the list of documented routes in JSON format.
     {
         "server_ready": true,
         "network": "mainnet",
-        "version": "10.1.1",
+        "version": "10.1.2",
         "backend_height": 840796,
         "counterparty_height": 840796,
         "routes": [
@@ -68,7 +69,7 @@ Returns server information and the list of documented routes in JSON format.
 
 ## Group Blocks
 
-### Get Blocks [GET `/blocks`]
+### Get Blocks [GET `/v2/blocks`]
 
 Returns the list of the last ten blocks
 
@@ -77,7 +78,7 @@ Returns the list of the last ten blocks
         + Default: `None`
     + limit: `2` (int, optional) - The number of blocks to return
         + Default: `10`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -109,13 +110,13 @@ Returns the list of the last ten blocks
         }
     ```
 
-### Get Block [GET `/blocks/{block_index}`]
+### Get Block [GET `/v2/blocks/{block_index}`]
 
 Return the information of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -135,13 +136,13 @@ Return the information of a block
         }
     ```
 
-### Get Transactions By Block [GET `/blocks/{block_index}/transactions`]
+### Get Transactions By Block [GET `/v2/blocks/{block_index}/transactions`]
 
 Returns the transactions of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -166,13 +167,13 @@ Returns the transactions of a block
         }
     ```
 
-### Get Events By Block [GET `/blocks/{block_index}/events`]
+### Get Events By Block [GET `/v2/blocks/{block_index}/events`]
 
 Returns the events of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -313,13 +314,13 @@ Returns the events of a block
         }
     ```
 
-### Get Event Counts By Block [GET `/blocks/{block_index}/events/counts`]
+### Get Event Counts By Block [GET `/v2/blocks/{block_index}/events/counts`]
 
 Returns the event counts of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -363,14 +364,14 @@ Returns the event counts of a block
         }
     ```
 
-### Get Events By Block And Event [GET `/blocks/{block_index}/events/{event}`]
+### Get Events By Block And Event [GET `/v2/blocks/{block_index}/events/{event}`]
 
 Returns the events of a block filtered by event
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
     + event: `CREDIT` (str, required) - The event to filter by
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -403,13 +404,13 @@ Returns the events of a block filtered by event
         }
     ```
 
-### Get Credits By Block [GET `/blocks/{block_index}/credits`]
+### Get Credits By Block [GET `/v2/blocks/{block_index}/credits`]
 
 Returns the credits of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -438,13 +439,13 @@ Returns the credits of a block
         }
     ```
 
-### Get Debits By Block [GET `/blocks/{block_index}/debits`]
+### Get Debits By Block [GET `/v2/blocks/{block_index}/debits`]
 
 Returns the debits of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -472,13 +473,13 @@ Returns the debits of a block
         }
     ```
 
-### Get Expirations [GET `/blocks/{block_index}/expirations`]
+### Get Expirations [GET `/v2/blocks/{block_index}/expirations`]
 
 Returns the expirations of a block
 
 + Parameters
     + block_index: `840356` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -498,13 +499,13 @@ Returns the expirations of a block
         }
     ```
 
-### Get Cancels [GET `/blocks/{block_index}/cancels`]
+### Get Cancels [GET `/v2/blocks/{block_index}/cancels`]
 
 Returns the cancels of a block
 
 + Parameters
     + block_index: `839746` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -532,13 +533,13 @@ Returns the cancels of a block
         }
     ```
 
-### Get Destructions [GET `/blocks/{block_index}/destructions`]
+### Get Destructions [GET `/v2/blocks/{block_index}/destructions`]
 
 Returns the destructions of a block
 
 + Parameters
     + block_index: `839988` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -568,13 +569,13 @@ Returns the destructions of a block
         }
     ```
 
-### Get Issuances By Block [GET `/blocks/{block_index}/issuances`]
+### Get Issuances By Block [GET `/v2/blocks/{block_index}/issuances`]
 
 Returns the issuances of a block
 
 + Parameters
     + block_index: `840464` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -607,7 +608,7 @@ Returns the issuances of a block
         }
     ```
 
-### Get Sends By Block [GET `/blocks/{block_index}/sends`]
+### Get Sends By Block [GET `/v2/blocks/{block_index}/sends`]
 
 Returns the sends of a block
 
@@ -617,7 +618,7 @@ Returns the sends of a block
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -649,13 +650,13 @@ Returns the sends of a block
         }
     ```
 
-### Get Dispenses By Block [GET `/blocks/{block_index}/dispenses`]
+### Get Dispenses By Block [GET `/v2/blocks/{block_index}/dispenses`]
 
 Returns the dispenses of a block
 
 + Parameters
     + block_index: `840322` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -702,13 +703,13 @@ Returns the dispenses of a block
         }
     ```
 
-### Get Sweeps By Block [GET `/blocks/{block_index}/sweeps`]
+### Get Sweeps By Block [GET `/v2/blocks/{block_index}/sweeps`]
 
 Returns the sweeps of a block
 
 + Parameters
     + block_index: `836519` (int, required) - The index of the block to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -744,7 +745,7 @@ Returns the sweeps of a block
 
 ## Group Transactions
 
-### Info [GET `/transactions/info`]
+### Info [GET `/v2/transactions/info`]
 
 Returns Counterparty information from a raw transaction in hex format.
 
@@ -752,7 +753,7 @@ Returns Counterparty information from a raw transaction in hex format.
     + rawtransaction: `01000000017828697743c03aef6a3a8ba54b22bf579ffcab8161faf20e7b20c4ecd75cc986010000006b483045022100d1bd0531bb1ed2dd2cbf77d6933273e792a3dbfa84327d419169850ddd5976f502205d1ab0f7bcbf1a0cc183f0520c9aa8f711d41cb790c0c4ac39da6da4a093d798012103d3b1f711e907acb556e239f6cafb6a4f7fe40d8dd809b0e06e739c2afd73f202ffffffff0200000000000000004d6a4bf29880b93b0711524c7ef9c76835752088db8bd4113a3daf41fc45ffdc8867ebdbf26817fae377696f36790e52f51005806e9399a427172fedf348cf798ed86e548002ee96909eef0775ec3c2b0100000000001976a91443434cf159cc585fbd74daa9c4b833235b19761b88ac00000000` (str, required) - Raw transaction in hex format
     + block_index (int, optional) - Block index mandatory for transactions before block 335000
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -787,7 +788,7 @@ Returns Counterparty information from a raw transaction in hex format.
         }
     ```
 
-### Unpack [GET `/transactions/unpack`]
+### Unpack [GET `/v2/transactions/unpack`]
 
 Unpacks Counterparty data in hex format and returns the message type and data.
 
@@ -795,7 +796,7 @@ Unpacks Counterparty data in hex format and returns the message type and data.
     + datahex: `16010b9142801429a60000000000000001000000554e4e45474f544941424c45205745204d555354204245434f4d4520554e4e45474f544941424c4520574520415245` (str, required) - Data in hex format
     + block_index (int, optional) - Block index of the transaction containing this data
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -823,13 +824,13 @@ Unpacks Counterparty data in hex format and returns the message type and data.
         }
     ```
 
-### Get Transaction By Hash [GET `/transactions/{tx_hash}`]
+### Get Transaction By Hash [GET `/v2/transactions/{tx_hash}`]
 
 Returns a transaction by its hash.
 
 + Parameters
     + tx_hash: `876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5` (str, required) - The hash of the transaction
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -872,13 +873,13 @@ Returns a transaction by its hash.
 
 ## Group Addresses
 
-### Get Address Balances [GET `/addresses/{address}/balances`]
+### Get Address Balances [GET `/v2/addresses/{address}/balances`]
 
 Returns the balances of an address
 
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -902,14 +903,14 @@ Returns the balances of an address
         }
     ```
 
-### Get Balance By Address And Asset [GET `/addresses/{address}/balances/{asset}`]
+### Get Balance By Address And Asset [GET `/v2/addresses/{address}/balances/{asset}`]
 
 Returns the balance of an address and asset
 
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -931,7 +932,7 @@ Returns the balance of an address and asset
         }
     ```
 
-### Get Credits By Address [GET `/addresses/{address}/credits`]
+### Get Credits By Address [GET `/v2/addresses/{address}/credits`]
 
 Returns the credits of an address
 
@@ -941,7 +942,7 @@ Returns the credits of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -969,7 +970,7 @@ Returns the credits of an address
         }
     ```
 
-### Get Debits By Address [GET `/addresses/{address}/debits`]
+### Get Debits By Address [GET `/v2/addresses/{address}/debits`]
 
 Returns the debits of an address
 
@@ -979,7 +980,7 @@ Returns the debits of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1023,7 +1024,7 @@ Returns the debits of an address
         }
     ```
 
-### Get Bet By Feed [GET `/addresses/{address}/bets`]
+### Get Bet By Feed [GET `/v2/addresses/{address}/bets`]
 
 Returns the bets of a feed
 
@@ -1031,7 +1032,7 @@ Returns the bets of a feed
     + address: `1QKEpuxEmdp428KEBSDZAKL46noSXWJBkk` (str, required) - The address of the feed
     + status: `filled` (str, optional) - The status of the bet
         + Default: `open`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1081,7 +1082,7 @@ Returns the bets of a feed
         }
     ```
 
-### Get Broadcasts By Source [GET `/addresses/{address}/broadcasts`]
+### Get Broadcasts By Source [GET `/v2/addresses/{address}/broadcasts`]
 
 Returns the broadcasts of a source
 
@@ -1091,7 +1092,7 @@ Returns the broadcasts of a source
         + Default: `valid`
     + order_by: `ASC` (str, optional) - The order of the broadcasts to return
         + Default: `DESC`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1127,13 +1128,13 @@ Returns the broadcasts of a source
         }
     ```
 
-### Get Burns By Address [GET `/addresses/{address}/burns`]
+### Get Burns By Address [GET `/v2/addresses/{address}/burns`]
 
 Returns the burns of an address
 
 + Parameters
     + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1154,7 +1155,7 @@ Returns the burns of an address
         }
     ```
 
-### Get Send By Address [GET `/addresses/{address}/sends`]
+### Get Send By Address [GET `/v2/addresses/{address}/sends`]
 
 Returns the sends of an address
 
@@ -1164,7 +1165,7 @@ Returns the sends of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1195,7 +1196,7 @@ Returns the sends of an address
         }
     ```
 
-### Get Receive By Address [GET `/addresses/{address}/receives`]
+### Get Receive By Address [GET `/v2/addresses/{address}/receives`]
 
 Returns the receives of an address
 
@@ -1205,7 +1206,7 @@ Returns the receives of an address
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1236,14 +1237,14 @@ Returns the receives of an address
         }
     ```
 
-### Get Send By Address And Asset [GET `/addresses/{address}/sends/{asset}`]
+### Get Send By Address And Asset [GET `/v2/addresses/{address}/sends/{asset}`]
 
 Returns the sends of an address and asset
 
 + Parameters
     + address: `1HVgrYx3U258KwvBEvuG7R8ss1RN2Z9J1W` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1274,7 +1275,7 @@ Returns the sends of an address and asset
         }
     ```
 
-### Get Receive By Address And Asset [GET `/addresses/{address}/receives/{asset}`]
+### Get Receive By Address And Asset [GET `/v2/addresses/{address}/receives/{asset}`]
 
 Returns the receives of an address and asset
 
@@ -1285,7 +1286,7 @@ Returns the receives of an address and asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the receives to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1316,7 +1317,7 @@ Returns the receives of an address and asset
         }
     ```
 
-### Get Dispensers By Address [GET `/addresses/{address}/dispensers`]
+### Get Dispensers By Address [GET `/v2/addresses/{address}/dispensers`]
 
 Returns the dispensers of an address
 
@@ -1324,7 +1325,7 @@ Returns the dispensers of an address
     + address: `bc1qlzkcy8c5fa6y6xvd8zn4axnvmhndfhku3hmdpz` (str, required) - The address to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1362,7 +1363,7 @@ Returns the dispensers of an address
         }
     ```
 
-### Get Dispensers By Address And Asset [GET `/addresses/{address}/dispensers/{asset}`]
+### Get Dispensers By Address And Asset [GET `/v2/addresses/{address}/dispensers/{asset}`]
 
 Returns the dispensers of an address and an asset
 
@@ -1371,7 +1372,7 @@ Returns the dispensers of an address and an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1409,13 +1410,13 @@ Returns the dispensers of an address and an asset
         }
     ```
 
-### Get Sweeps By Address [GET `/addresses/{address}/sweeps`]
+### Get Sweeps By Address [GET `/v2/addresses/{address}/sweeps`]
 
 Returns the sweeps of an address
 
 + Parameters
     + address: `18szqTVJUWwYrtRHq98Wn4DhCGGiy3jZ87` (str, required) - The address to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1461,7 +1462,7 @@ By default the default value of the `encoding` parameter detailed above is `auto
     - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
 
 
-### Compose Bet [GET `/addresses/{address}/compose/bet`]
+### Compose Bet [GET `/v2/addresses/{address}/compose/bet`]
 
 Composes a transaction to issue a bet against a feed.
 
@@ -1505,7 +1506,7 @@ Composes a transaction to issue a bet against a feed.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1530,28 +1531,7 @@ Composes a transaction to issue a bet against a feed.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Broadcast [GET `/addresses/{address}/compose/broadcast`]
+### Compose Broadcast [GET `/v2/addresses/{address}/compose/broadcast`]
 
 Composes a transaction to broadcast textual and numerical information to the network.
 
@@ -1589,7 +1569,7 @@ Composes a transaction to broadcast textual and numerical information to the net
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1610,28 +1590,7 @@ Composes a transaction to broadcast textual and numerical information to the net
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose BTCPay [GET `/addresses/{address}/compose/btcpay`]
+### Compose BTCPay [GET `/v2/addresses/{address}/compose/btcpay`]
 
 Composes a transaction to pay for a BTC order match.
 
@@ -1666,7 +1625,7 @@ Composes a transaction to pay for a BTC order match.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1684,28 +1643,7 @@ Composes a transaction to pay for a BTC order match.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Burn [GET `/addresses/{address}/compose/burn`]
+### Compose Burn [GET `/v2/addresses/{address}/compose/burn`]
 
 Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, possible between blocks 278310 and 283810; on testnet it is still available).
 
@@ -1742,7 +1680,7 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1761,28 +1699,7 @@ Composes a transaction to burn a given quantity of BTC for XCP (on mainnet, poss
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Cancel [GET `/addresses/{address}/compose/cancel`]
+### Compose Cancel [GET `/v2/addresses/{address}/compose/cancel`]
 
 Composes a transaction to cancel an open order or bet.
 
@@ -1817,7 +1734,7 @@ Composes a transaction to cancel an open order or bet.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1835,28 +1752,7 @@ Composes a transaction to cancel an open order or bet.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Destroy [GET `/addresses/{address}/compose/destroy`]
+### Compose Destroy [GET `/v2/addresses/{address}/compose/destroy`]
 
 Composes a transaction to destroy a quantity of an asset.
 
@@ -1893,7 +1789,7 @@ Composes a transaction to destroy a quantity of an asset.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -1913,28 +1809,7 @@ Composes a transaction to destroy a quantity of an asset.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Dispenser [GET `/addresses/{address}/compose/dispenser`]
+### Compose Dispenser [GET `/v2/addresses/{address}/compose/dispenser`]
 
 Opens or closes a dispenser for a given asset at a given rate of main chain asset (BTC). Escrowed quantity on open must be equal or greater than give_quantity. It is suggested that you escrow multiples of give_quantity to ease dispenser operation.
 
@@ -1977,7 +1852,7 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2001,28 +1876,7 @@ Opens or closes a dispenser for a given asset at a given rate of main chain asse
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Dividend [GET `/addresses/{address}/compose/dividend`]
+### Compose Dividend [GET `/v2/addresses/{address}/compose/dividend`]
 
 Composes a transaction to issue a dividend to holders of a given asset.
 
@@ -2059,7 +1913,7 @@ Composes a transaction to issue a dividend to holders of a given asset.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2079,28 +1933,7 @@ Composes a transaction to issue a dividend to holders of a given asset.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Issuance [GET `/addresses/{address}/compose/issuance`]
+### Compose Issuance [GET `/v2/addresses/{address}/compose/issuance`]
 
 Composes a transaction to Issue a new asset, issue more of an existing asset, lock an asset, reset existing supply, or transfer the ownership of an asset.
 
@@ -2146,7 +1979,7 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2170,28 +2003,7 @@ Composes a transaction to Issue a new asset, issue more of an existing asset, lo
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose MPMA [GET `/addresses/{address}/compose/mpma`]
+### Compose MPMA [GET `/v2/addresses/{address}/compose/mpma`]
 
 Composes a transaction to send multiple payments to multiple addresses.
 
@@ -2230,7 +2042,7 @@ Composes a transaction to send multiple payments to multiple addresses.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2266,28 +2078,7 @@ Composes a transaction to send multiple payments to multiple addresses.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Order [GET `/addresses/{address}/compose/order`]
+### Compose Order [GET `/v2/addresses/{address}/compose/order`]
 
 Composes a transaction to place an order on the distributed exchange.
 
@@ -2327,7 +2118,7 @@ Composes a transaction to place an order on the distributed exchange.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2350,28 +2141,7 @@ Composes a transaction to place an order on the distributed exchange.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Send [GET `/addresses/{address}/compose/send`]
+### Compose Send [GET `/v2/addresses/{address}/compose/send`]
 
 Composes a transaction to send a quantity of an asset to another address.
 
@@ -2414,7 +2184,7 @@ Composes a transaction to send a quantity of an asset to another address.
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2437,28 +2207,7 @@ Composes a transaction to send a quantity of an asset to another address.
         }
     ```
 
-
-**Notes about optional parameter `encoding`.**
-
-By default the default value of the `encoding` parameter detailed above is `auto`, which means that `counterparty-server` automatically determines the best way to encode the Counterparty protocol data into a new transaction. If you know what you are doing and would like to explicitly specify an encoding:
-
-- To return the transaction as an **OP_RETURN** transaction, specify `opreturn` for the `encoding` parameter.
-   - **OP_RETURN** transactions cannot have more than 80 bytes of data. If you force OP_RETURN encoding and your transaction would have more than this amount, an exception will be generated.
-- To return the transaction as a **multisig** transaction, specify `multisig` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-    - Note that with the newest versions of Bitcoin (0.12.1 onward), bare multisig encoding does not reliably propagate. More information on this is documented [here](https://github.com/rubensayshi/counterparty-core/pull/9).
-- To return the transaction as a **pubkeyhash** transaction, specify `pubkeyhash` for the `encoding` parameter.
-    - `pubkey` should be set to the hex-encoded public key of the source address.
-- To return the transaction as a 2 part **P2SH** transaction, specify `P2SH` for the encoding parameter.
-    - First call the `create_` method with the `encoding` set to `P2SH`.
-    - Sign the transaction as usual and broadcast it. It's recommended but not required to wait the transaction to confirm as malleability is an issue here (P2SH isn't yet supported on segwit addresses).
-    - The resulting `txid` must be passed again on an identic call to the `create_` method, but now passing an additional parameter `p2sh_pretx_txid` with the value of the previous transaction's id.
-    - The resulting transaction is a `P2SH` encoded message, using the redeem script on the transaction inputs as data carrying mechanism.
-    - Sign the transaction following the `Bitcoinjs-lib on javascript, signing a P2SH redeeming transaction` section
-    - **NOTE**: Don't leave pretxs hanging without transmitting the second transaction as this pollutes the UTXO set and risks making bitcoin harder to run on low spec nodes.
-
-
-### Compose Sweep [GET `/addresses/{address}/compose/sweep`]
+### Compose Sweep [GET `/v2/addresses/{address}/compose/sweep`]
 
 Composes a transaction to Sends all assets and/or transfer ownerships to a destination address.
 
@@ -2495,7 +2244,7 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
         + Default: `None`
     + segwit (bool, optional) - Use segwit
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2517,7 +2266,7 @@ Composes a transaction to Sends all assets and/or transfer ownerships to a desti
 
 ## Group Assets
 
-### Get Valid Assets [GET `/assets`]
+### Get Valid Assets [GET `/v2/assets`]
 
 Returns the valid assets
 
@@ -2526,7 +2275,7 @@ Returns the valid assets
         + Default: `0`
     + limit: `5` (int, optional) - The limit of the assets to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2558,13 +2307,13 @@ Returns the valid assets
         }
     ```
 
-### Get Asset Info [GET `/assets/{asset}`]
+### Get Asset Info [GET `/v2/assets/{asset}`]
 
 Returns the asset information
 
 + Parameters
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2585,7 +2334,7 @@ Returns the asset information
         }
     ```
 
-### Get Asset Balances [GET `/assets/{asset}/balances`]
+### Get Asset Balances [GET `/v2/assets/{asset}/balances`]
 
 Returns the asset balances
 
@@ -2593,7 +2342,7 @@ Returns the asset balances
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
     + exclude_zero_balances: `True` (bool, optional) - Whether to exclude zero balances
         + Default: `True`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2670,14 +2419,14 @@ Returns the asset balances
         }
     ```
 
-### Get Balance By Address And Asset [GET `/assets/{asset}/balances/{address}`]
+### Get Balance By Address And Asset [GET `/v2/assets/{asset}/balances/{address}`]
 
 Returns the balance of an address and asset
 
 + Parameters
     + address: `1C3uGcoSGzKVgFqyZ3kM2DBq9CYttTMAVs` (str, required) - The address to return
     + asset: `XCP` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -2699,7 +2448,7 @@ Returns the balance of an address and asset
         }
     ```
 
-### Get Orders By Asset [GET `/assets/{asset}/orders`]
+### Get Orders By Asset [GET `/v2/assets/{asset}/orders`]
 
 Returns the orders of an asset
 
@@ -2707,7 +2456,7 @@ Returns the orders of an asset
     + asset: `NEEDPEPE` (str, required) - The asset to return
     + status: `filled` (str, optional) - The status of the orders to return
         + Default: `open`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3122,7 +2871,7 @@ Returns the orders of an asset
         }
     ```
 
-### Get Credits By Asset [GET `/assets/{asset}/credits`]
+### Get Credits By Asset [GET `/v2/assets/{asset}/credits`]
 
 Returns the credits of an asset
 
@@ -3132,7 +2881,7 @@ Returns the credits of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the credits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3229,7 +2978,7 @@ Returns the credits of an asset
         }
     ```
 
-### Get Debits By Asset [GET `/assets/{asset}/debits`]
+### Get Debits By Asset [GET `/v2/assets/{asset}/debits`]
 
 Returns the debits of an asset
 
@@ -3239,7 +2988,7 @@ Returns the debits of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the debits to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3331,13 +3080,13 @@ Returns the debits of an asset
         }
     ```
 
-### Get Dividends [GET `/assets/{asset}/dividends`]
+### Get Dividends [GET `/v2/assets/{asset}/dividends`]
 
 Returns the dividends of an asset
 
 + Parameters
     + asset: `GMONEYPEPE` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3565,13 +3314,13 @@ Returns the dividends of an asset
         }
     ```
 
-### Get Issuances By Asset [GET `/assets/{asset}/issuances`]
+### Get Issuances By Asset [GET `/v2/assets/{asset}/issuances`]
 
 Returns the issuances of an asset
 
 + Parameters
     + asset: `UNNEGOTIABLE` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3667,7 +3416,7 @@ Returns the issuances of an asset
         }
     ```
 
-### Get Sends By Asset [GET `/assets/{asset}/sends`]
+### Get Sends By Asset [GET `/v2/assets/{asset}/sends`]
 
 Returns the sends of an asset
 
@@ -3677,7 +3426,7 @@ Returns the sends of an asset
         + Default: `100`
     + offset: `0` (int, optional) - The offset of the sends to return
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3784,7 +3533,7 @@ Returns the sends of an asset
         }
     ```
 
-### Get Dispensers By Asset [GET `/assets/{asset}/dispensers`]
+### Get Dispensers By Asset [GET `/v2/assets/{asset}/dispensers`]
 
 Returns the dispensers of an asset
 
@@ -3792,7 +3541,7 @@ Returns the dispensers of an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3830,7 +3579,7 @@ Returns the dispensers of an asset
         }
     ```
 
-### Get Dispensers By Address And Asset [GET `/assets/{asset}/dispensers/{address}`]
+### Get Dispensers By Address And Asset [GET `/v2/assets/{asset}/dispensers/{address}`]
 
 Returns the dispensers of an address and an asset
 
@@ -3839,7 +3588,7 @@ Returns the dispensers of an address and an asset
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
     + status (int, optional) - 
         + Default: `0`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3877,13 +3626,13 @@ Returns the dispensers of an address and an asset
         }
     ```
 
-### Get Asset Holders [GET `/assets/{asset}/holders`]
+### Get Asset Holders [GET `/v2/assets/{asset}/holders`]
 
 Returns the holders of an asset
 
 + Parameters
     + asset: `ERYKAHPEPU` (str, required) - The asset to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3937,13 +3686,13 @@ Returns the holders of an asset
 
 ## Group Orders
 
-### Get Order [GET `/orders/{order_hash}`]
+### Get Order [GET `/v2/orders/{order_hash}`]
 
 Returns the information of an order
 
 + Parameters
     + order_hash: `23f68fdf934e81144cca31ce8ef69062d553c521321a039166e7ba99aede0776` (str, required) - The hash of the transaction that created the order
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -3991,7 +3740,7 @@ Returns the information of an order
         }
     ```
 
-### Get Order Matches By Order [GET `/orders/{order_hash}/matches`]
+### Get Order Matches By Order [GET `/v2/orders/{order_hash}/matches`]
 
 Returns the order matches of an order
 
@@ -3999,7 +3748,7 @@ Returns the order matches of an order
     + order_hash: `5461e6f99a37a7167428b4a720a52052cd9afed43905f818f5d7d4f56abd0947` (str, required) - The hash of the transaction that created the order
     + status: `completed` (str, optional) - The status of the order matches to return
         + Default: `pending`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4032,13 +3781,13 @@ Returns the order matches of an order
         }
     ```
 
-### Get BTCPays By Order [GET `/orders/{order_hash}/btcpays`]
+### Get BTCPays By Order [GET `/v2/orders/{order_hash}/btcpays`]
 
 Returns the BTC pays of an order
 
 + Parameters
     + order_hash: `299b5b648f54eacb839f3487232d49aea373cdd681b706d4cc0b5e0b03688db4` (str, required) - The hash of the transaction that created the order
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4060,7 +3809,7 @@ Returns the BTC pays of an order
         }
     ```
 
-### Get Orders By Two Assets [GET `/orders/{asset1}/{asset2}`]
+### Get Orders By Two Assets [GET `/v2/orders/{asset1}/{asset2}`]
 
 Returns the orders to exchange two assets
 
@@ -4069,7 +3818,7 @@ Returns the orders to exchange two assets
     + asset2: `XCP` (str, required) - The second asset to return
     + status: `filled` (str, optional) - The status of the orders to return
         + Default: `open`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4239,13 +3988,13 @@ Returns the orders to exchange two assets
 
 ## Group Bets
 
-### Get Bet [GET `/bets/{bet_hash}`]
+### Get Bet [GET `/v2/bets/{bet_hash}`]
 
 Returns the information of a bet
 
 + Parameters
     + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4276,7 +4025,7 @@ Returns the information of a bet
         }
     ```
 
-### Get Bet Matches By Bet [GET `/bets/{bet_hash}/matches`]
+### Get Bet Matches By Bet [GET `/v2/bets/{bet_hash}/matches`]
 
 Returns the bet matches of a bet
 
@@ -4284,7 +4033,7 @@ Returns the bet matches of a bet
     + bet_hash: `5d097b4729cb74d927b4458d365beb811a26fcee7f8712f049ecbe780eb496ed` (str, required) - The hash of the transaction that created the bet
     + status: `expired` (str, optional) - The status of the bet matches
         + Default: `pending`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4322,13 +4071,13 @@ Returns the bet matches of a bet
         }
     ```
 
-### Get Resolutions By Bet [GET `/bets/{bet_hash}/resolutions`]
+### Get Resolutions By Bet [GET `/v2/bets/{bet_hash}/resolutions`]
 
 Returns the resolutions of a bet
 
 + Parameters
     + bet_hash: `36bbbb7dbd85054dac140a8ad8204eda2ee859545528bd2a9da69ad77c277ace` (str, required) - The hash of the transaction that created the bet
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4353,7 +4102,7 @@ Returns the resolutions of a bet
 
 ## Group Burns
 
-### Get All Burns [GET `/burns`]
+### Get All Burns [GET `/v2/burns`]
 
 Returns the burns
 
@@ -4364,7 +4113,7 @@ Returns the burns
         + Default: `0`
     + limit: `5` (int, optional) - The limit of the burns to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4423,13 +4172,13 @@ Returns the burns
 
 ## Group Dispensers
 
-### Get Dispenser Info By Hash [GET `/dispensers/{dispenser_hash}`]
+### Get Dispenser Info By Hash [GET `/v2/dispensers/{dispenser_hash}`]
 
 Returns the dispenser information by tx_hash
 
 + Parameters
     + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4467,13 +4216,13 @@ Returns the dispenser information by tx_hash
         }
     ```
 
-### Get Dispenses By Dispenser [GET `/dispensers/{dispenser_hash}/dispenses`]
+### Get Dispenses By Dispenser [GET `/v2/dispensers/{dispenser_hash}/dispenses`]
 
 Returns the dispenses of a dispenser
 
 + Parameters
     + dispenser_hash: `753787004d6e93e71f6e0aa1e0932cc74457d12276d53856424b2e4088cc542a` (str, required) - The hash of the dispenser to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4557,7 +4306,7 @@ Returns the dispenses of a dispenser
 
 ## Group Events
 
-### Get All Events [GET `/events`]
+### Get All Events [GET `/v2/events`]
 
 Returns all events
 
@@ -4566,7 +4315,7 @@ Returns all events
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4671,13 +4420,13 @@ Returns all events
         }
     ```
 
-### Get Event By Index [GET `/events/{event_index}`]
+### Get Event By Index [GET `/v2/events/{event_index}`]
 
 Returns the event of an index
 
 + Parameters
     + event_index: `10665092` (int, required) - The index of the event to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4700,15 +4449,212 @@ Returns the event of an index
         }
     ```
 
-### Get All Events Counts [GET `/events/counts`]
+### Get All Events Counts [GET `/v2/events/counts`]
 
 Returns the event counts of all blocks
 
 + Parameters
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
-### Get Events By Name [GET `/events/{event}`]
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": [
+                {
+                    "event": "ASSET_CREATION",
+                    "event_count": 235860
+                },
+                {
+                    "event": "ASSET_DESTRUCTION",
+                    "event_count": 11141
+                },
+                {
+                    "event": "ASSET_DIVIDEND",
+                    "event_count": 4092
+                },
+                {
+                    "event": "ASSET_ISSUANCE",
+                    "event_count": 322678
+                },
+                {
+                    "event": "ASSET_TRANSFER",
+                    "event_count": 10639
+                },
+                {
+                    "event": "BET_EXPIRATION",
+                    "event_count": 588
+                },
+                {
+                    "event": "BET_MATCH",
+                    "event_count": 397
+                },
+                {
+                    "event": "BET_MATCH_EXPIRATION",
+                    "event_count": 9
+                },
+                {
+                    "event": "BET_MATCH_RESOLUTON",
+                    "event_count": 387
+                },
+                {
+                    "event": "BET_MATCH_UPDATE",
+                    "event_count": 397
+                },
+                {
+                    "event": "BET_UPDATE",
+                    "event_count": 1474
+                },
+                {
+                    "event": "BLOCK_PARSED",
+                    "event_count": 562364
+                },
+                {
+                    "event": "BROADCAST",
+                    "event_count": 106518
+                },
+                {
+                    "event": "BTC_PAY",
+                    "event_count": 2921
+                },
+                {
+                    "event": "BURN",
+                    "event_count": 2576
+                },
+                {
+                    "event": "CANCEL_BET",
+                    "event_count": 101
+                },
+                {
+                    "event": "CANCEL_ORDER",
+                    "event_count": 80168
+                },
+                {
+                    "event": "CREDIT",
+                    "event_count": 3659293
+                },
+                {
+                    "event": "DEBIT",
+                    "event_count": 2617404
+                },
+                {
+                    "event": "DISPENSE",
+                    "event_count": 190873
+                },
+                {
+                    "event": "DISPENSER_UPDATE",
+                    "event_count": 228954
+                },
+                {
+                    "event": "ENHANCED_SEND",
+                    "event_count": 538426
+                },
+                {
+                    "event": "MPMA_SEND",
+                    "event_count": 279142
+                },
+                {
+                    "event": "NEW_BLOCK",
+                    "event_count": 1992
+                },
+                {
+                    "event": "NEW_TRANSACTION",
+                    "event_count": 4498
+                },
+                {
+                    "event": "NEW_TRANSACTION_OUTPUT",
+                    "event_count": 596
+                },
+                {
+                    "event": "OPEN_BET",
+                    "event_count": 1149
+                },
+                {
+                    "event": "OPEN_DISPENSER",
+                    "event_count": 88229
+                },
+                {
+                    "event": "OPEN_ORDER",
+                    "event_count": 530117
+                },
+                {
+                    "event": "OPEN_RPS",
+                    "event_count": 266
+                },
+                {
+                    "event": "ORDER_EXPIRATION",
+                    "event_count": 195968
+                },
+                {
+                    "event": "ORDER_FILLED",
+                    "event_count": 805
+                },
+                {
+                    "event": "ORDER_MATCH",
+                    "event_count": 209415
+                },
+                {
+                    "event": "ORDER_MATCH_EXPIRATION",
+                    "event_count": 20860
+                },
+                {
+                    "event": "ORDER_MATCH_UPDATE",
+                    "event_count": 23689
+                },
+                {
+                    "event": "ORDER_UPDATE",
+                    "event_count": 732646
+                },
+                {
+                    "event": "REFILL_DISPENSER",
+                    "event_count": 187
+                },
+                {
+                    "event": "RESET_ISSUANCE",
+                    "event_count": 454
+                },
+                {
+                    "event": "RPS_EXPIRATION",
+                    "event_count": 59
+                },
+                {
+                    "event": "RPS_MATCH",
+                    "event_count": 171
+                },
+                {
+                    "event": "RPS_MATCH_EXPIRATION",
+                    "event_count": 145
+                },
+                {
+                    "event": "RPS_MATCH_UPDATE",
+                    "event_count": 271
+                },
+                {
+                    "event": "RPS_RESOLVE",
+                    "event_count": 129
+                },
+                {
+                    "event": "RPS_UPDATE",
+                    "event_count": 540
+                },
+                {
+                    "event": "SEND",
+                    "event_count": 805983
+                },
+                {
+                    "event": "SWEEP",
+                    "event_count": 1020
+                },
+                {
+                    "event": "TRANSACTION_PARSED",
+                    "event_count": 2723802
+                }
+            ]
+        }
+    ```
+
+### Get Events By Name [GET `/v2/events/{event}`]
 
 Returns the events filtered by event name
 
@@ -4718,7 +4664,7 @@ Returns the events filtered by event name
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4846,14 +4792,14 @@ Returns the events filtered by event name
 
 ## Group Z-pages
 
-### Check Server Health [GET `/healthz`]
+### Check Server Health [GET `/v2/healthz`]
 
 Health check route.
 
 + Parameters
     + check_type: `light` (str, optional) - Type of health check to perform. Options are 'light' and 'heavy'
         + Default: `heavy`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4868,7 +4814,7 @@ Health check route.
 
 ## Group Bitcoin
 
-### Get Transactions By Address [GET `/bitcoin/addresses/{address}/transactions`]
+### Get Transactions By Address [GET `/v2/bitcoin/addresses/{address}/transactions`]
 
 Returns all transactions involving a given address
 
@@ -4878,7 +4824,7 @@ Returns all transactions involving a given address
         + Default: `True`
     + only_tx_hashes: `True` (bool, optional) - Return only the tx hashes
         + Default: `False`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4926,7 +4872,7 @@ Returns all transactions involving a given address
         }
     ```
 
-### Get Oldest Transaction By Address [GET `/bitcoin/addresses/{address}/transactions/oldest`]
+### Get Oldest Transaction By Address [GET `/v2/bitcoin/addresses/{address}/transactions/oldest`]
 
 Get the oldest transaction for an address.
 
@@ -4934,7 +4880,7 @@ Get the oldest transaction for an address.
     + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to search for.
     + block_index (int, optional) - The block index to search from.
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -4948,7 +4894,7 @@ Get the oldest transaction for an address.
         }
     ```
 
-### Get Unspent Txouts [GET `/bitcoin/addresses/{address}/utxos`]
+### Get Unspent Txouts [GET `/v2/bitcoin/addresses/{address}/utxos`]
 
 Returns a list of unspent outputs for a specific address
 
@@ -4958,7 +4904,7 @@ Returns a list of unspent outputs for a specific address
         + Default: `False`
     + unspent_tx_hash (str, optional) - Filter by unspent_tx_hash
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5050,15 +4996,15 @@ Returns a list of unspent outputs for a specific address
         }
     ```
 
-### PubKeyHash To Pubkey [GET `/bitcoin/addresses/{address}/pubkey`]
+### PubKeyHash To Pubkey [GET `/v2/bitcoin/addresses/{address}/pubkey`]
 
 Get pubkey for an address.
 
 + Parameters
-    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - The address to get the pubkey for
+    + address: `14TjwxgnuqgB4HcDcSZk2m7WKwcGVYxRjS` (str, required) - Address to get pubkey for.
     + provided_pubkeys (str, optional) - Comma separated list of provided pubkeys.
         + Default: `None`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5069,7 +5015,7 @@ Get pubkey for an address.
         }
     ```
 
-### Get Transaction [GET `/bitcoin/transactions/{tx_hash}`]
+### Get Transaction [GET `/v2/bitcoin/transactions/{tx_hash}`]
 
 Get a transaction from the blockchain
 
@@ -5077,7 +5023,7 @@ Get a transaction from the blockchain
     + tx_hash: `3190047bf2320bdcd0fade655ae49be309519d151330aa478573815229cc0018` (str, required) - The transaction hash
     + format: `hex` (str, optional) - Whether to return JSON output or raw hex
         + Default: `json`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5129,16 +5075,16 @@ Get a transaction from the blockchain
         }
     ```
 
-### Fee Per Kb [GET `/bitcoin/estimatesmartfee`]
+### Fee Per Kb [GET `/v2/bitcoin/estimatesmartfee`]
 
 Get the fee per kilobyte for a transaction to be confirmed in `conf_target` blocks.
 
 + Parameters
     + conf_target: `2` (int, optional) - Confirmation target in blocks (1 - 1008)
         + Default: `3`
-    + mode: `CONSERVATIVE` (str, optional) - The fee estimate mode
+    + mode: `CONSERVATIVE` (str, optional) - The fee estimate mode.
         + Default: `CONSERVATIVE`
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5151,21 +5097,12 @@ Get the fee per kilobyte for a transaction to be confirmed in `conf_target` bloc
 
 ## Group Mempool
 
-### Get All Mempool Events [GET `/mempool/events`]
+### Get All Mempool Events [GET `/v2/mempool/events`]
 
 Returns all mempool events
 
 + Parameters
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
-        + Default: `false`
-
-### Get Mempool Events By Name [GET `/mempool/events/{event}`]
-
-Returns the mempool events filtered by event name
-
-+ Parameters
-    + event: `OPEN_ORDER` (str, required) - The event to return
-    + verbose: `true` (bool, optional) - Include asset and dispenser info, and normalize quantities in response
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
 + Response 200 (application/json)
@@ -5173,5 +5110,119 @@ Returns the mempool events filtered by event name
     ```
         {
             "result": []
+        }
+    ```
+
+### Get Mempool Events By Name [GET `/v2/mempool/events/{event}`]
+
+Returns the mempool events filtered by event name
+
++ Parameters
+    + event: `OPEN_ORDER` (str, required) - The event to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": []
+        }
+    ```
+
+## Group V1
+
+### Redirect To Api V1 [GET `/`]
+
+Redirect to the API v1.
+
++ Parameters
+    + subpath: `healthz` (str, optional) - The path to redirect to
+        + Default: ``
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": {
+                "result": "Healthy",
+                "success": true
+            }
+        }
+    ```
+
+### Redirect To Api V1 [GET `/v1/{subpath}`]
+
+Redirect to the API v1.
+
++ Parameters
+    + subpath: `healthz` (str, optional) - The path to redirect to
+        + Default: ``
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": {
+                "result": "Healthy",
+                "success": true
+            }
+        }
+    ```
+
+### Redirect To Api V1 [GET `/api/{subpath}`]
+
+Redirect to the API v1.
+
++ Parameters
+    + subpath: `healthz` (str, optional) - The path to redirect to
+        + Default: ``
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": {
+                "result": "Healthy",
+                "success": true
+            }
+        }
+    ```
+
+### Redirect To Api V1 [GET `/rpc/{subpath}`]
+
+Redirect to the API v1.
+
++ Parameters
+    + subpath: `healthz` (str, optional) - The path to redirect to
+        + Default: ``
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": {
+                "result": "Healthy",
+                "success": true
+            }
+        }
+    ```
+
+### Redirect To Api V1 [GET `/{subpath}`]
+
+Redirect to the API v1.
+
++ Parameters
+    + subpath: `healthz` (str, optional) - The path to redirect to
+        + Default: ``
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": {
+                "result": "Healthy",
+                "success": true
+            }
         }
     ```
