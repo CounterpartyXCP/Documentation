@@ -8,7 +8,9 @@ The main differences between the new v2 API and the deprecated v1 API are:
 - All requests use the `GET` method and so may be made easily from any browser.
 - The new API has fewer filters, but is optimized for the new log-structure database architecture.
 
-Here is an equivalence table to help you easily migrate to the new version:
+The v2 API also has HTTP Basic Authentication disabled by default.
+
+The following is a table of equivalent endpoints to help you easily migrate to the new version:
 
 ## Table of Equivalences between API v1 and v2
 
