@@ -6,6 +6,8 @@ The simplest way to get your Counterparty node up and running is to use Docker C
 
 Install Docker Compose as described here https://docs.docker.com/compose/install/.
 
+*Note: it is required that you use `compose v2` and suggested that you install the `docker compose` plugin as opposed to the standalone `docker-compose` executable*
+
 Then run node services in background with:
 
 ```bash
