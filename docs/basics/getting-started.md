@@ -2,13 +2,11 @@
 title: Getting Started
 ---
 
-The simplest way to get your Counterparty node up and running is to use Docker Compose.
+The simplest way to get your Counterparty node up and running is to use **Docker Compose**, which may be installed as described here <https://docs.docker.com/compose/install/>.
 
-Install Docker Compose as described here https://docs.docker.com/compose/install/.
+*Note: It is required that you use Docker Compose V2, and it is suggested that you install the plugin as opposed to the standalone `docker-compose` executable*.
 
-*Note: it is required that you use `compose v2` and suggested that you install the `docker compose` plugin as opposed to the standalone `docker-compose` executable*
-
-Then run node services in background with:
+Then run the node services in background with:
 
 ```bash
 git clone git@github.com:CounterpartyXCP/counterparty-core.git
@@ -39,5 +37,5 @@ docker compose --profile testnet up -d
 
 NOTES:
 - By default, this Docker Compose script makes use of the `bootstrap` functionality, because Docker makes it hard to use `kickstart`. (See below.)
-- When working with a low-memory system, you can tell `addrindexrs` to use JSON-RPC to communicate with `bitcoind` using the environment variable `ADDRINDEXRS_JSONRPC_IMPORT`: `ADDRINDEXRS_JSONRPC_IMPORT=true docker compose up -d`
+- When working with a low-memory system, you can tell AddrIndexRs to use JSON-RPC to communicate with Bitcoin Core using the environment variable `ADDRINDEXRS_JSONRPC_IMPORT`: `ADDRINDEXRS_JSONRPC_IMPORT=true docker compose up -d`
 
