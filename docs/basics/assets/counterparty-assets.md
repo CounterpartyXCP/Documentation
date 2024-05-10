@@ -1,13 +1,11 @@
 ---
-title: Understanding assets on Counterparty
+title: Understanding Assets on Counterparty
 ---
 
 
 With Counterparty, users can create their own assets (also known as "tokens", "coins" or "currencies") _inside_ the Bitcoin blockchain. These are seperate from Bitcoin the currency itself, but exist entirely inside ordinary Bitcoin transactions. Tokens can be received, stored, and sent from any Bitcoin address to any other. They can also be placed in cold storage. Unlike Colored Coins, Counterparty tokens are _not_ tied to the BTC balance of any given address. This means that sending/receiving bitcoins has no effect on the balance of tokens.
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions on* assets, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
-
-Many of the features described below can be accessed using the Web-based Counterwallet. Especially casual users and those without a `counterparty-wallet` setup can benefit from the convenience of Counterwallet.
 
 
 ## Creating assets
@@ -87,6 +85,6 @@ For the following example, let `give_quantity1 = 10` and `get_quantity1 = 20`, a
 
 Since the `ratio1 == 10/20 == 1/2`, Alice must `ratio2 >= 2/1`, to match Sally’s order. In other words Alice must offer ‘’at least’‘16 of `asset_2` to get 8 of `asset_1` from Sally’s order. Let’s say Alice constructs order2 such that `give_quantity2 == 18` and hence `ratio2 = 18/8 > 2/1`. The order will be settled at `ratio1`: for every unit of `give_asset1` that Sally gives Alice, she will get two units of `get_asset1`. Moreover, since every trade is settled as much and `give_quantity2 == 18` Sally will receive’‘18’’ `get_asset1` in exchange for 9 `give_asset1`.
 
-#### Trading BTC on the decentralized exchange
+#### Trading BTC on the Decentralized Exchange
 
-Suppose Sally makes an order to trade `asset` in exchange for BTC, and Alice makes an order to trade BTC in exchange for `asset`. Upon placing order1, Sally’s account is immediately debited, as usual, and, once Alice has placed `order2`, it is matched with `order1`. However, her BTC is not debited from her account, and the protocol will not send her Sally’s XCP until Alice sends her BTC using Counterparty’s `btcpay` function. If Alice sends the BTC using `btcpay` in ‘’fewer than 10 blocks’’, the protocol will send her the XCP and thereby complete the transaction, otherwise, the trade expires, and the protocol will re-credit Sally’s address with `give_asset`. This feature is enabled on the CLI, and disabled on [Counterwallet](http://counterwallet.io), due to incompatibility with the browser-based security model.
+Suppose Sally makes an order to trade `asset` in exchange for BTC, and Alice makes an order to trade BTC in exchange for `asset`. Upon placing order1, Sally’s account is immediately debited, as usual, and, once Alice has placed `order2`, it is matched with `order1`. However, her BTC is not debited from her account, and the protocol will not send her Sally’s XCP until Alice sends her BTC using Counterparty’s `btcpay` function. If Alice sends the BTC using `btcpay` in ‘’fewer than 10 blocks’’, the protocol will send her the XCP and thereby complete the transaction, otherwise, the trade expires, and the protocol will re-credit Sally’s address with `give_asset`. 

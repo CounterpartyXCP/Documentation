@@ -2,7 +2,6 @@
 title: Bug Bounties
 ---
 
-
 According to [Linus’ Law](http://en.wikipedia.org/wiki/Linus), “given enough eyeballs, all bugs are shallow”. That’s one of the reasons why Counterparty’s source code is publicly available; but merely making the source code available doesn't accomplish anything if people don’t read it!
 
 For this reason, Counterparty has a series of bug bounties. Counterparty bug bounties provide an opportunity for people who find bugs to be compensated.

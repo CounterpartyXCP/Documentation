@@ -59,7 +59,6 @@ module.exports = {
         'advanced/how-to/sentry-integration',
       ],
     },
-    'advanced/contributing',
     'advanced/bounties',
     'advanced/exchange-integration'
   ],
