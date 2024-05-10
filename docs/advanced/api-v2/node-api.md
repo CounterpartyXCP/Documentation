@@ -3,13 +3,11 @@ title: API v2
 ---
 
 FORMAT: 1A
-HOST: https://api.counterparty.io
+HOST: https://api.counterparty.io:4000
 
 # Counterparty Core API
 
 The Counterparty Core API is the recommended (and only supported) way to query the state of a Counterparty node. 
-
-Please see [Apiary](https://counterpartycore.docs.apiary.io/) for interactive documentation.
 
 API routes are divided into 11 groups:
 - [`/blocks`](#group-blocks)
@@ -45,11 +43,11 @@ Notes:
     }
     ```
 
-- Routes in the `/bitcoin` group serve as a proxy to make requests to Bitcoin Core.
+- Routes in the `/v2/bitcoin` group serve as a proxy to make requests to Bitcoin Core.
 
-# Counterparty API Root [`/`]
+# Counterparty API Root [`/v2/`]
 
-### Get Server Info [GET]
+### Get Server Info [GET /v2/]
 
 Returns server information and the list of documented routes in JSON format.
 
@@ -191,7 +189,8 @@ Returns the events of a block
                         "ledger_hash": "b3f8cbb50b0705a5c4a8495f8b5128de13a32daebd8ac5e8316a010f0d203584",
                         "messages_hash": "801d961c45a257f85ef0f10a6a8fdf048a520ae4861c0903f26365b3eaaaf540",
                         "txlist_hash": "84bdc5b9073f775a2b65de7da2b10b89a2235f3501883b0a836e41e68cd00d46"
-                    }
+                    },
+                    "tx_hash": null
                 },
                 {
                     "event_index": 14194759,
@@ -200,7 +199,8 @@ Returns the events of a block
                         "supported": true,
                         "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "tx_index": 2726605
-                    }
+                    },
+                    "tx_hash": null
                 },
                 {
                     "event_index": 14194758,
@@ -221,7 +221,8 @@ Returns the events of a block
                             "locked": 1
                         },
                         "quantity_normalized": "1"
-                    }
+                    },
+                    "tx_hash": null
                 },
                 {
                     "event_index": 14194757,
@@ -253,7 +254,8 @@ Returns the events of a block
                             "locked": 1
                         },
                         "quantity_normalized": "1"
-                    }
+                    },
+                    "tx_hash": null
                 },
                 {
                     "event_index": 14194756,
@@ -263,7 +265,8 @@ Returns the events of a block
                         "asset_longname": null,
                         "asset_name": "UNNEGOTIABLE",
                         "block_index": 840464
-                    }
+                    },
+                    "tx_hash": null
                 },
                 {
                     "event_index": 14194755,
@@ -283,7 +286,8 @@ Returns the events of a block
                             "locked": true
                         },
                         "quantity_normalized": "0.5"
-                    }
+                    },
+                    "tx_hash": null
                 },
                 {
                     "event_index": 14194754,
@@ -299,7 +303,8 @@ Returns the events of a block
                         "source": "178etygrwEeeyQso9we85rUqYZbkiqzL4A",
                         "tx_hash": "876a6cfbd4aa22ba4fa85c2e1953a1c66649468a43a961ad16ea4d5329e3e4c5",
                         "tx_index": 2726605
-                    }
+                    },
+                    "tx_hash": null
                 },
                 {
                     "event_index": 14194753,
@@ -310,7 +315,8 @@ Returns the events of a block
                         "block_time": 1713852783,
                         "difficulty": 86388558925171.02,
                         "previous_block_hash": "00000000000000000002db1e5aa19784eec3de949f98ec757e7a7f2fc392079d"
-                    }
+                    },
+                    "tx_hash": null
                 }
             ]
         }
@@ -400,7 +406,8 @@ Returns the events of a block filtered by event
                             "locked": 1
                         },
                         "quantity_normalized": "1"
-                    }
+                    },
+                    "tx_hash": null
                 }
             ]
         }
@@ -870,6 +877,110 @@ Returns a transaction by its hash.
                     }
                 }
             }
+        }
+    ```
+
+### Get Events By Transaction [GET `/v2/transactions/{tx_hash}/events`]
+
+Returns the events of a transaction
+
++ Parameters
+    + tx_hash: `84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040` (str, required) - The hash of the transaction to return
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": [
+                {
+                    "event_index": 14226375,
+                    "event": "TRANSACTION_PARSED",
+                    "params": {
+                        "supported": true,
+                        "tx_hash": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                        "tx_index": 2729603
+                    },
+                    "tx_hash": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                    "block_index": 842680,
+                    "timestamp": 1715249118
+                },
+                {
+                    "event_index": 14226374,
+                    "event": "ENHANCED_SEND",
+                    "params": {
+                        "asset": "PEPEBERLUSCA",
+                        "block_index": 842680,
+                        "destination": "14KPsMQwqeV478CGYjSDCgYKyNfMMA1bW9",
+                        "memo": null,
+                        "quantity": 1,
+                        "source": "1HDMT9EV4RqRSfPwFYCRzq1dUgHmuHH2ui",
+                        "status": "valid",
+                        "tx_hash": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                        "tx_index": 2729603,
+                        "asset_info": {
+                            "asset_longname": null,
+                            "description": "",
+                            "issuer": "12C72gY3tw2CUqno3o8FaCk7vzk9Q4LUox",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
+                    },
+                    "tx_hash": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                    "block_index": 842680,
+                    "timestamp": 1715249118
+                },
+                {
+                    "event_index": 14226373,
+                    "event": "CREDIT",
+                    "params": {
+                        "address": "14KPsMQwqeV478CGYjSDCgYKyNfMMA1bW9",
+                        "asset": "PEPEBERLUSCA",
+                        "block_index": 842680,
+                        "calling_function": "send",
+                        "event": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                        "quantity": 1,
+                        "tx_index": 2729603,
+                        "asset_info": {
+                            "asset_longname": null,
+                            "description": "",
+                            "issuer": "12C72gY3tw2CUqno3o8FaCk7vzk9Q4LUox",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
+                    },
+                    "tx_hash": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                    "block_index": 842680,
+                    "timestamp": 1715249118
+                },
+                {
+                    "event_index": 14226372,
+                    "event": "DEBIT",
+                    "params": {
+                        "action": "send",
+                        "address": "1HDMT9EV4RqRSfPwFYCRzq1dUgHmuHH2ui",
+                        "asset": "PEPEBERLUSCA",
+                        "block_index": 842680,
+                        "event": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                        "quantity": 1,
+                        "tx_index": 2729603,
+                        "asset_info": {
+                            "asset_longname": null,
+                            "description": "",
+                            "issuer": "12C72gY3tw2CUqno3o8FaCk7vzk9Q4LUox",
+                            "divisible": 0,
+                            "locked": 1
+                        },
+                        "quantity_normalized": "1"
+                    },
+                    "tx_hash": "84b34b19d971adc2ad2dc6bfc5065ca976db1488f207df4887da976fbf2fd040",
+                    "block_index": 842680,
+                    "timestamp": 1715249118
+                }
+            ]
         }
     ```
 
@@ -4333,6 +4444,7 @@ Returns all events
                         "tx_hash": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "tx_index": 2056160
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4358,6 +4470,7 @@ Returns all events
                         },
                         "quantity_normalized": "1"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4381,6 +4494,7 @@ Returns all events
                         },
                         "quantity_normalized": "1"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4404,6 +4518,7 @@ Returns all events
                         },
                         "quantity_normalized": "1"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4415,6 +4530,7 @@ Returns all events
                         "tx_hash": "bbb2dfa7e7a32288a702ef0091ece8b2a929f94fd967a18e6071cd9c2b085eaf",
                         "tx_index": 2056159
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 }
@@ -4444,6 +4560,7 @@ Returns the event of an index
                         "tx_hash": "7b39d3ebd9fe8293004a1a8b8eb2d01f1664e5d8b05e8cb94f30b1da2c2f9650",
                         "tx_index": 2056160
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 }
@@ -4694,6 +4811,7 @@ Returns the events filtered by event name
                         },
                         "quantity_normalized": "1"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4716,6 +4834,7 @@ Returns the events filtered by event name
                         },
                         "quantity_normalized": "100"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4739,6 +4858,7 @@ Returns the events filtered by event name
                         },
                         "quantity_normalized": "1"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4762,6 +4882,7 @@ Returns the events filtered by event name
                         },
                         "quantity_normalized": "1"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 },
@@ -4785,6 +4906,7 @@ Returns the events filtered by event name
                         },
                         "quantity_normalized": "2"
                     },
+                    "tx_hash": null,
                     "block_index": 744232,
                     "timestamp": 1712256340
                 }
@@ -4795,6 +4917,28 @@ Returns the events filtered by event name
 ## Group Z-pages
 
 ### Check Server Health [GET `/v2/healthz`]
+
+Health check route.
+
++ Parameters
+    + check_type: `light` (str, optional) - Type of health check to perform. Options are 'light' and 'heavy'
+        + Default: `heavy`
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": {
+                "status": "Healthy"
+            }
+        }
+    ```
+
+## Group Z-pages
+
+### Check Server Health [GET `/healthz`]
 
 Health check route.
 
@@ -5134,97 +5278,15 @@ Returns the mempool events filtered by event name
 
 ## Group V1
 
-### Redirect To Api V1 [GET `/`]
+### Redirect To Rpc V1 [GET `/`]
 
-Redirect to the API v1.
+Redirect to the RPC API v1.
+### Redirect To Rpc V1 [GET `/v1/`]
 
-+ Parameters
-    + subpath: `healthz` (str, optional) - The path to redirect to
-        + Default: ``
+Redirect to the RPC API v1.
+### Redirect To Rpc V1 [GET `/api/`]
 
-+ Response 200 (application/json)
+Redirect to the RPC API v1.
+### Redirect To Rpc V1 [GET `/rpc/`]
 
-    ```
-        {
-            "result": {
-                "result": "Healthy",
-                "success": true
-            }
-        }
-    ```
-
-### Redirect To Api V1 [GET `/v1/{subpath}`]
-
-Redirect to the API v1.
-
-+ Parameters
-    + subpath: `healthz` (str, optional) - The path to redirect to
-        + Default: ``
-
-+ Response 200 (application/json)
-
-    ```
-        {
-            "result": {
-                "result": "Healthy",
-                "success": true
-            }
-        }
-    ```
-
-### Redirect To Api V1 [GET `/api/{subpath}`]
-
-Redirect to the API v1.
-
-+ Parameters
-    + subpath: `healthz` (str, optional) - The path to redirect to
-        + Default: ``
-
-+ Response 200 (application/json)
-
-    ```
-        {
-            "result": {
-                "result": "Healthy",
-                "success": true
-            }
-        }
-    ```
-
-### Redirect To Api V1 [GET `/rpc/{subpath}`]
-
-Redirect to the API v1.
-
-+ Parameters
-    + subpath: `healthz` (str, optional) - The path to redirect to
-        + Default: ``
-
-+ Response 200 (application/json)
-
-    ```
-        {
-            "result": {
-                "result": "Healthy",
-                "success": true
-            }
-        }
-    ```
-
-### Redirect To Api V1 [GET `/{subpath}`]
-
-Redirect to the API v1.
-
-+ Parameters
-    + subpath: `healthz` (str, optional) - The path to redirect to
-        + Default: ``
-
-+ Response 200 (application/json)
-
-    ```
-        {
-            "result": {
-                "result": "Healthy",
-                "success": true
-            }
-        }
-    ```
+Redirect to the RPC API v1.

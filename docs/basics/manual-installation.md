@@ -29,6 +29,19 @@ txindex=1
 prune=0
 mempoolfullrbf=1
 rpcworkqueue=100
+zmqpubrawtx=tcp://0.0.0.0:9332
+zmqpubhashtx=tcp://0.0.0.0:9332
+zmqpubsequence=tcp://0.0.0.0:9332
+zmqpubrawblock=tcp://0.0.0.0:9333
+```
+
+For testnet use the following ports:
+
+```
+zmqpubrawtx=tcp://0.0.0.0:19332
+zmqpubhashtx=tcp://0.0.0.0:19332
+zmqpubsequence=tcp://0.0.0.0:19332
+zmqpubrawblock=tcp://0.0.0.0:19333
 ```
 
 Adding the following lines, and opening up port `8333` to incoming traffic, may improve your sync speed:
