@@ -34,9 +34,9 @@ When the server is not ready, that is to say when all the blocks are not yet par
 
 All API responses contain the following 3 headers:
 
-    * `X-COUNTERPARTY-HEIGHT` contains the last block parsed by Counterparty
-    * `X-BITCOIN-HEIGHT` contains the last block known to Bitcoin Core
-    * `X-COUNTERPARTY-READY` contains true if `X-COUNTERPARTY-HEIGHT` >= `X-BITCOIN-HEIGHT` - 1
+* `X-COUNTERPARTY-HEIGHT` contains the last block parsed by Counterparty
+* `X-BITCOIN-HEIGHT` contains the last block known to Bitcoin Core
+* `X-COUNTERPARTY-READY` contains true if `X-COUNTERPARTY-HEIGHT` >= `X-BITCOIN-HEIGHT` - 1
 
 ## Responses Format
 
@@ -45,12 +45,27 @@ All API responses follow the following format:
 ```
 {
     "error": <error_messsage_if_success_is_false>,
-    "result": <result_of_the_query_if_success_is_true>
-    "next_cursor": <cursor_value_to_get_the_next_page>
+    "result": <result_of_the_query_if_success_is_true>,
+    "next_cursor": <cursor_value_to_get_the_next_page>,
+    "result_count": <number_of_results>
 }
 ```
 
-All queries that return lists from the database accept the `cursor` and `limit` arguments. To get the next page you must use `?cursor=<next_cursor>`.
+## Pagination
+
+For all routes that return a list of results from the database you can choose between two pagination modes:
+
+- With the `cursor` and `limit` parameters
+- With the `offset` and `limit` parameters
+
+The `cursor` parameter allows you to get results from a certain index. This index is generally retrieved from the `next_cursor` field of the previous result (see above).
+The `offset` parameter allows you to ignore a certain number of results before returning the rest.
+
+For example:
+`/v2/blocks?limit=5&cursor=844575` allows you to recover blocks 844575 to 844570.
+`/v2/blocks?limit=5&offset=5` allows you to retrieve the 5th to the tenth most recent blocks.
+
+All responses contain a `result_count` field allowing you to calculate the number of pages.
 
 ## Bitcoin Core Proxy
 
@@ -84,21 +99,22 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537270,
+            "event_index": 17538426,
             "event": "NEW_BLOCK",
             "params": {
-                "block_hash": "00000000000000000000219432bae26523d1c81da6d3aef444c86cf58966346c",
-                "block_index": 844433,
-                "block_time": 1716293986,
+                "block_hash": "000000000000000000027ad35f1914a1b67974a512f20d20fb752f6c4c82c4b0",
+                "block_index": 844577,
+                "block_time": 1716376015,
                 "difficulty": 386097818,
-                "previous_block_hash": "000000000000000000008427d63d5503d8f5716d2012e2c474cc4c262eaccc9b"
+                "previous_block_hash": "00000000000000000000e7aee62554c3087d45b3ef8e7d62382725763d34b6a6"
             },
             "tx_hash": null,
-            "block_index": 844433,
-            "timestamp": 1716294018
+            "block_index": 844577,
+            "timestamp": 1716376046
         }
     ],
-    "next_cursor": 17537265
+    "next_cursor": 17538424,
+    "result_count": 566308
 }
 ```
 
@@ -108,26 +124,27 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537272,
+            "event_index": 17538427,
             "event": "NEW_TRANSACTION",
             "params": {
-                "block_hash": "00000000000000000000219432bae26523d1c81da6d3aef444c86cf58966346c",
-                "block_index": 844433,
-                "block_time": 1716293986,
-                "btc_amount": 2123151,
-                "data": "021bc16d674ec7ffff0000000000000001808a29846fdc8ebfd332e5168fb148881efc88c3fe6f70656e7374616d702e696f",
-                "destination": "bc1qrmjpzj56fcpeglp5e29fwq85zg2zxgg5unpwmm",
-                "fee": 2786,
-                "source": "bc1qrmjpzj56fcpeglp5e29fwq85zg2zxgg5unpwmm",
-                "tx_hash": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
-                "tx_index": 2733886
+                "block_hash": "000000000000000000027ad35f1914a1b67974a512f20d20fb752f6c4c82c4b0",
+                "block_index": 844577,
+                "block_time": 1716376015,
+                "btc_amount": 0,
+                "data": "02000018c3c7e3e26400000000000000010025473f18d333589523b94e2c218e23dcb74092c8",
+                "destination": "",
+                "fee": 5000,
+                "source": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
+                "tx_hash": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
+                "tx_index": 2734017
             },
             "tx_hash": null,
-            "block_index": 844433,
-            "timestamp": 1716294018
+            "block_index": 844577,
+            "timestamp": 1716376046
         }
     ],
-    "next_cursor": 17537271
+    "next_cursor": 17538412,
+    "result_count": 2734018
 }
 ```
 
@@ -137,22 +154,23 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537249,
+            "event_index": 17537952,
             "event": "NEW_TRANSACTION_OUTPUT",
             "params": {
-                "block_index": 844429,
-                "btc_amount": 10000,
-                "destination": "bc1qu0yxpc6pm6xlgh9es3yl0kn4r0w9xgh49wz29w",
+                "block_index": 844518,
+                "btc_amount": 159091,
+                "destination": "13gfTRvHYWP4DyX46X6mhnfDS6WnUf9GBi",
                 "out_index": 0,
-                "tx_hash": "aa2e834ff5b997afab8f2a448859a625025befe0f88cd79e697dc699bedfe59f",
-                "tx_index": 2733883
+                "tx_hash": "ea153fee9e4948d595cd1b392ea6f51d4e38662d09802ec5ef528efdd498eb9f",
+                "tx_index": 2733967
             },
             "tx_hash": null,
-            "block_index": 844429,
-            "timestamp": 1716289022
+            "block_index": 844518,
+            "timestamp": 1716362386
         }
     ],
-    "next_cursor": 17537199
+    "next_cursor": 17537937,
+    "result_count": 459
 }
 ```
 
@@ -162,20 +180,21 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537281,
+            "event_index": 17538432,
             "event": "BLOCK_PARSED",
             "params": {
-                "block_index": 844433,
-                "ledger_hash": "515c7080f7523d4635384291ca687b86e63dea86e516bce68196469818e69003",
-                "messages_hash": "88f43bbc8795026149f715f35525728605570c431eaabeba4f64472486425e02",
-                "txlist_hash": "fca80679de5afcc244e070e4c5100f255d4b785fafc5e074f64875673e6bdf07"
+                "block_index": 844577,
+                "ledger_hash": "ca2cbebd948a05e2397f28476ad86f2e93ceb298dedaf4e43515e2548ab3c703",
+                "messages_hash": "f837215f83e95076993ea20f34d4ef6c511f33c00a3e1935e2d0d6deb6966b65",
+                "txlist_hash": "4242c7353e8d1cc3cbeb28d6de15cf503904ee335e2c1712572bfb11a7c7bfa7"
             },
             "tx_hash": null,
-            "block_index": 844433,
-            "timestamp": 1716294019
+            "block_index": 844577,
+            "timestamp": 1716376047
         }
     ],
-    "next_cursor": 17537269
+    "next_cursor": 17538425,
+    "result_count": 566308
 }
 ```
 
@@ -185,19 +204,20 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537280,
+            "event_index": 17538431,
             "event": "TRANSACTION_PARSED",
             "params": {
                 "supported": true,
-                "tx_hash": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
-                "tx_index": 2733886
+                "tx_hash": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
+                "tx_index": 2734017
             },
-            "tx_hash": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
-            "block_index": 844433,
-            "timestamp": 1716294019
+            "tx_hash": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
+            "block_index": 844577,
+            "timestamp": 1716376047
         }
     ],
-    "next_cursor": 17537276
+    "next_cursor": 17538416,
+    "result_count": 2731197
 }
 ```
 
@@ -209,31 +229,32 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537277,
+            "event_index": 17538428,
             "event": "DEBIT",
             "params": {
                 "action": "send",
-                "address": "bc1qrmjpzj56fcpeglp5e29fwq85zg2zxgg5unpwmm",
-                "asset": "A1999999999999999999",
-                "block_index": 844433,
-                "event": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
+                "address": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
+                "asset": "FAKEGREENS",
+                "block_index": 844577,
+                "event": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
                 "quantity": 1,
-                "tx_index": 2733886,
+                "tx_index": 2734017,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "stamp:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADSAW0DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDwCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA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9kc1OhNOPPK/Ltpby1/pGjompvo+sWt+nJhkDEeo7j8q7DxfHa+HtIawscf8TSb7VuXtAOY1/Mk1wC7dy7umeRWnr+rnWtTa4VPKiCrHFFu3eWigADP4URlaLQVaDnVjLot/O2xknk0UUVmdRo6LqLaTq9rfIMmGQPj1x2rpL/wdJqs7XvhySG7tZSXEfmKskQPZgx7etcXRmqi1s0YVKUnLnhKz9Lr9DtGtofCGj3i3FxBLq17EYFhicOIEJG4sRxnjGK4ujNFOTuXTpuF23ds9H1nw5ca7o+imwlie6isUDWrSBGK5JBGSAe+ayr2z/wCEa8KXthdzRNfX8kZNvG4bylQk5YjIBycYrD1fWf7UjsVWIxfZbZYMhs78EnPT3rKJyeSTVuS3tqctPD1LKMpaXva2u997/oXdHvF0/WLO8dN4gmWQr64Oa9MuJdevLg3OkW+jXli5LLOYoQVGc/OGwQfWvJaKmEuU0xGGVVqWl/NX/wAjpvGWoSXeowwyXNpP9mj2ZtYgkaknJUY68nrR4HfZrc7Zx/odx/6KauZoo5ve5i3h17H2XSx0fgg48a6cen7w/wAjXOyffP1pAeaKlvSxappTc+6S+6/+Z1Ol+GpdW0eC60WUSahG7C4gMiqyjPysuccY6+9O8dXKS3lhA9wlzeW9qsdzMhyGfJOM9yAQM+1cpRT5tLGaoy9pzyd0ttO/mdF4G/5HHTv95v8A0E1gSf6xvrTAaKXN7tjRU7VHU7pL7r/5nX6FHFrXhm40OOeOG8W4FxCsrbVlG3BXPQHuM1seFvDF5omqm41aSK2k8iVYoPMDPJ8jdgTgfWvOMkUu4+tVGai07bHPWw06ilGMrKXlr99/0A9TXR6kf+KG0Rd3/LW44/Fa5uioTtc6KlNTcX2d/wAGv1Oplb/i2tv83/MRfj/gAplu3/FvL9f+n6H/ANAeuZoqucn2Olr9bmt4Z/5GbTP+vmP/ANCFdNrvgu/1DXbu70ySG6tZJnZnMyqYzk8OGIINcfpd9/Z2p212U3iGVZNucZwc4pNQvmvr+4ucFBLIz7c5xk5xThJKNmiKtOq6nNTdtO1/8jc8VzW0cWm6RDcLctp8LJJMhypZmLEKe4GcZrl6cWNJUyd2a0qfs48olFFFSaBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH/2Q==",
-                    "issuer": "bc1qfxypechhk44knpqyh8f0365j7zj2r350z4uaqk",
+                    "description": "https://easyasset.art/j/kdobte/FANSK.json",
+                    "issuer": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
                     "divisible": false,
                     "locked": true
                 },
                 "quantity_normalized": "1"
             },
-            "tx_hash": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
-            "block_index": 844433,
-            "timestamp": 1716294019
+            "tx_hash": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
+            "block_index": 844577,
+            "timestamp": 1716376047
         }
     ],
-    "next_cursor": 17537273
+    "next_cursor": 17538413,
+    "result_count": 2626930
 }
 ```
 
@@ -243,31 +264,32 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537278,
+            "event_index": 17538429,
             "event": "CREDIT",
             "params": {
-                "address": "bc1q3g5cgm7u36laxvh9z68mzjygrm7g3sl7mx3s5c",
-                "asset": "A1999999999999999999",
-                "block_index": 844433,
+                "address": "14Q7MPb23WL8LjMks6mU8ELGW8WsEfYoLT",
+                "asset": "FAKEGREENS",
+                "block_index": 844577,
                 "calling_function": "send",
-                "event": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
+                "event": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
                 "quantity": 1,
-                "tx_index": 2733886,
+                "tx_index": 2734017,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "stamp:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADSAW0DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDwCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA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9kc1OhNOPPK/Ltpby1/pGjompvo+sWt+nJhkDEeo7j8q7DxfHa+HtIawscf8TSb7VuXtAOY1/Mk1wC7dy7umeRWnr+rnWtTa4VPKiCrHFFu3eWigADP4URlaLQVaDnVjLot/O2xknk0UUVmdRo6LqLaTq9rfIMmGQPj1x2rpL/wdJqs7XvhySG7tZSXEfmKskQPZgx7etcXRmqi1s0YVKUnLnhKz9Lr9DtGtofCGj3i3FxBLq17EYFhicOIEJG4sRxnjGK4ujNFOTuXTpuF23ds9H1nw5ca7o+imwlie6isUDWrSBGK5JBGSAe+ayr2z/wCEa8KXthdzRNfX8kZNvG4bylQk5YjIBycYrD1fWf7UjsVWIxfZbZYMhs78EnPT3rKJyeSTVuS3tqctPD1LKMpaXva2u997/oXdHvF0/WLO8dN4gmWQr64Oa9MuJdevLg3OkW+jXli5LLOYoQVGc/OGwQfWvJaKmEuU0xGGVVqWl/NX/wAjpvGWoSXeowwyXNpP9mj2ZtYgkaknJUY68nrR4HfZrc7Zx/odx/6KauZoo5ve5i3h17H2XSx0fgg48a6cen7w/wAjXOyffP1pAeaKlvSxappTc+6S+6/+Z1Ol+GpdW0eC60WUSahG7C4gMiqyjPysuccY6+9O8dXKS3lhA9wlzeW9qsdzMhyGfJOM9yAQM+1cpRT5tLGaoy9pzyd0ttO/mdF4G/5HHTv95v8A0E1gSf6xvrTAaKXN7tjRU7VHU7pL7r/5nX6FHFrXhm40OOeOG8W4FxCsrbVlG3BXPQHuM1seFvDF5omqm41aSK2k8iVYoPMDPJ8jdgTgfWvOMkUu4+tVGai07bHPWw06ilGMrKXlr99/0A9TXR6kf+KG0Rd3/LW44/Fa5uioTtc6KlNTcX2d/wAGv1Oplb/i2tv83/MRfj/gAplu3/FvL9f+n6H/ANAeuZoqucn2Olr9bmt4Z/5GbTP+vmP/ANCFdNrvgu/1DXbu70ySG6tZJnZnMyqYzk8OGIINcfpd9/Z2p212U3iGVZNucZwc4pNQvmvr+4ucFBLIz7c5xk5xThJKNmiKtOq6nNTdtO1/8jc8VzW0cWm6RDcLctp8LJJMhypZmLEKe4GcZrl6cWNJUyd2a0qfs48olFFFSaBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH/2Q==",
-                    "issuer": "bc1qfxypechhk44knpqyh8f0365j7zj2r350z4uaqk",
+                    "description": "https://easyasset.art/j/kdobte/FANSK.json",
+                    "issuer": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
                     "divisible": false,
                     "locked": true
                 },
                 "quantity_normalized": "1"
             },
-            "tx_hash": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
-            "block_index": 844433,
-            "timestamp": 1716294019
+            "tx_hash": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
+            "block_index": 844577,
+            "timestamp": 1716376047
         }
     ],
-    "next_cursor": 17537274
+    "next_cursor": 17538414,
+    "result_count": 3670341
 }
 ```
 
@@ -277,33 +299,34 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537279,
+            "event_index": 17538430,
             "event": "ENHANCED_SEND",
             "params": {
-                "asset": "A1999999999999999999",
-                "block_index": 844433,
-                "destination": "bc1q3g5cgm7u36laxvh9z68mzjygrm7g3sl7mx3s5c",
-                "memo": "6f70656e7374616d702e696f",
+                "asset": "FAKEGREENS",
+                "block_index": 844577,
+                "destination": "14Q7MPb23WL8LjMks6mU8ELGW8WsEfYoLT",
+                "memo": null,
                 "quantity": 1,
-                "source": "bc1qrmjpzj56fcpeglp5e29fwq85zg2zxgg5unpwmm",
+                "source": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
                 "status": "valid",
-                "tx_hash": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
-                "tx_index": 2733886,
+                "tx_hash": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
+                "tx_index": 2734017,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "stamp:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADSAW0DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDwCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACrtrpN/fn/RLOab/AHFzXpPhDwDaQ2ialrSF3xvSFuAg65b147Vj+IfiDdy3DW2jOtpZp8o8tQGcf0+grX2Vo80nY8uOYuvWdHDR5rbt6Jf5mA/g3xCkXmNpVzt/3Kx7izuLVyk8LxsOoYYrcs/Gev2UwkTUpnGfuyEMD+Br1DQ9Z07xrpUkd3aRNKnEsLDJH+0p6iiMIzdo7k4nG4nCLnqQUo9Wuh4ZRXY+NPB50CYXNsWeykPUjmM/3TXIBd1TKLi7M9DD16eIpqrTd0xtXbXSr6+bFraTTf7iE16j4S+H9tZ2qXmrRie6kG4QtyqD39TWd4l+ITW0z2OjBESP5TNtHP8AujtT9npdux5yzV1qzo4WPNbd7Jf5nEv4Z1qNctpd0B6+WcVmy28sDlJY2Rh1BGDW4PGniFZTJ/ak5Puc13vhLxdF4ikFnqMEJvFG5HKA78f1qVG7sa4jFYnDw9pKCklvZ/5o8ixSVveMBjxbqYAx+/bisKpO+nPngpd0JVy20u+vBm2tJph6ohNVK6Xw54p1TS57e1gnP2XzATEVBByRntQTWlOMG6aTfmZ48M60T/yC7v8AGIinf8Itrf8A0DLn/vg17rcttglb/YY/iAa8QXxf4ghn3rqlx17nI/I0NWPIy/Mq+OUuSKXL3b/yMy7067sW23VtJCfR1xVSvb/Dmrx+KtAZr2GN3Q7JEYZU+hrzzxr4dTQtUH2cH7NMCyZ/hwcEUjfCZn7Wu8NVjyzX3M5OrFrZz31ysFtE8srfdVRkmoD1ruPhxpwl1ObUpP8AV2qHaf8AaII/lmmd2KrqhRlUfRHN3HhvWbWBpp9OuI40+8zIQBWZX0M6walYMhIe3nj6+oPevBNTsZNO1Ge0l4eJyhH0oPPyrM3jeaMo2lHoU8UYpa734e6DBeSTaldKsiRMFjRuhb1I9qaV3Y78ViI4ak6s9kclb6HqV0u+GxuJEPRljJFQ3Ol31mM3NpNEOmXQgV2vjTxFq1lq8lnbytbQKo2+XxvGOtVvD3je8ju0g1SQT2rkKWcAlB6irSjezZzQxOJlQVdQTur2vr+RxTo0bFWUgj1GKZiuo8eW/k+KJ3I4lVJB+KitPwHokN0s2pXCLIsbBI1bpuwTkinGnzT5EazxkIYb6xJdE7epykOiajcIHis53U9CqEiorjTbu04uLeSI/wC2pFdd4w8Qata6xJa28r28EeNgT+IY61X0HxldJcrbalL51s55Zh8wrX2VNT5GyFXxEqSrRimrXtfX8jkSjJwwpuK6HxlHs8STH/noFf8AMCuePWsKkeWTj2OulP2kFPuhKKKKg0CiiigAooooAKKKKACiiigAooooAK6DwZpq6p4os4JBujDbnHsBnH6Yrn6674dXS2vi23Df8tVaMfUg1dNJySZy42Uo4apKG6TPUfGd01n4S1CRTgsgQH6sAf0rwFmJNfQPi+1N74T1GIDLCPeP+AkH+lfPx4JroxatNHicMNPCy7836ITNdX8Pb57PxZbRq2FucwtnuD0/UCuUrb8JRu/ivTQh+YTqf61yxb5ke7i4xlQnGWzTPaPE9iuoeGtQgdcnyi647Ffm/pXkngLTRqHiu2Rxujh3SuP90HH64r2DxDdrY+HtQuXOFWFh+J4H6mvKfhxdLB4vjU/8tkdB+Wf6V04j+Ij5bJpVI5dXcel7fceneLr5tP8ADF7OnDhNikdixx/WvAWJY5Ne8eN7RrzwhqEa/eUK/wCAYE14P3pYj4kdnC6j9Vlbe/6ISrFjeT6feR3Vs+yaNgyn0Nb2h6zoNnYiHUdDFzKGJM3msCR9K9JsvDHhjULKG7h0uLy5V3DLMD/OsYxuejjczhhVarTdtr6Wf4njN9eTajfTXdw26aVizHpzVauz8aSaHaXMumafpfkzQyANP5h7DoAa4yk1Y7sPUVWkpqNkxKt6f/yEIP8AroP51Uq3p/8AyEIP+ug/nUmk/hZ9A3X/AB5z/wDXNv5V87P98j3r6Ln/AOPeb5c/ISR6jHSvKU8QeFoX3/8ACODzMn5WnLLn6GqZ8lw9VlTVTlg5Xa2t59zpPhtp8lroM1zIpX7RICoPcLnn8zWT8UbqNrqxtA+6SJWd/bdtwP0qK9+J1w0JhsbGO3A4UltxH04rhbm5mvLh555C8rnLMe9Sehg8vrzxrxldJdlv5fkQnrXpbBvDPw02/cub388N/wDW/nXD6Bpx1bXLWz/hkcbj6AcmvS/FF34Vnuo7HVriZTajCxxhtvIHoPTFI6MxrfvqdGzavzOyvotvxE+HOq/bNDezkbMts3Gf7h6frmuf+JWk+Vew6lGvyzDbIf8AaHT9MflWpoF/4O07UV/s64uFkmHlkOp2nJ47V0nijSxqvh+7t1H71V3xn3Hb8aDxXWWFzNVVFxjPurf1qeF9q7z4d61HbzS6ZM4UTENEx/vDt+IzXB4xwetKrlGDKcEVS0dz6nFYeOJoypS6nuur6LZa1beTdx5YfddeGU15nrvgq/0otPAftNuOpUYKj3FSaP4/1LT0WK5C3UI/v8MPxr0fS9VttatBPaSA8fMh6r9RXSlGordT5hfXcp0fvU/6+48PlluJn3Su8jdMsxJrtfh/q0cEkmmzsE807oiehb0/GofH2hx6fdR31smyKfIZR0DCuMUkEEHB9ayTlRnc+gtSzDC6bS/BntGraNZaxB5d1H8y/cdTgr+Neda14PvdLVpY/wB/bjkuowVHuKn0rxxf2W2K6xdRDu5+YD69/wAa73TtUttXtBNbPn+8p6qfcV6K9lil2keLF4zLNH70P6+48bmlmnffNI7t6sSairrfG2jx2F3HdQYWOfOUHQMMVyVebUpunNxkfR4etGtTVSOzEooorM2CiiigAooooAKKKKACiiigAooooAKntZ5LW5jniYrJGwZSOxFQUtMGrqx794b8TWfiPTAy4FyFxNAe574Hda8t8X+ELrQ755oY2ksH5jkUfd9m965i2ubizmWa3leORejKcEV1ln8SddtY/Klkiuk6YmjB/UYzXRKrGpFRnuup4VDLa2CryqYVpxlvF/pucfXpfw58Myw3H9t3seyJUPlb+OeQW+grDPjxxJ5kWh6THJ/fFvk/qay9U8V6xqyGK6vXMJ/5ZL8q/kKyi4xlfc7cTSxGJpukrRT3d7v5HS/EHxZDqH/EqsZN8Eb5lkHRz2x7Vw9ndS2V3FcwttlicOp9CKr9eaKU5ucrs3wuEp4aiqMFoe/6Fr9j4k0xWTBkK7JoD1U9D/wE+teWeK/Bl7ol3LNFG8tkxykijIUeh9K5q0u7mznWa1meKRejIcGuqtPiPr9soSZobkD/AJ6oP6VfOpK0jy6GW18FWlPCtOMt4v8ARnHMpXg1714URl8LacHXDCL+przd/iPeFtw0nTFk/v8Ak5NZ9/421zUAVe8aKP8AuRAKB+VSmkVmOCxGPgqTSik73vf9CLxn/wAjdqX/AF2NYNOZixyetJUHsUqfJBQvshtXdLjeXU7ZUUsTIo4+tVK39I8W3+iWohtYrU4YtveFWf8AOkxVufkagrv1t/me33AJgmC8kxsB+Rr50mRklYOpVgeQa6//AIWXrZ7W/wD37FZ2p+ML7VbSS3uILXD4y6wgPwc9apyv0PEynAYjBOSmk1Lz2/A5zvS0pOatadfPp1/HdxojPGcgOuR+VI95tpaHe/DjSGgS61i4jYRqhWLjqe5H8q4TVLyTUNSuLmRfnkcsfaulX4k60owqWwHoIxWZq/iy91m38i4htlG7dujiCt+dI83D0cTHESrVYr3rddkvkYK7lIIBBHQivedBvTqWh2d04O9o8NkdSDgn9K8Y0nWp9GneaCKCQuu0iaMOMfjW+nxI1kKECWwUdAIhgUGObYKri4qMEtOrf/AKPjDQ5NI1uYiMi3mYtEe2PStrwvpia34Pv9PO3zhMHjc9mxxz6HFZd5491a+tZbaZbcxSKVI8ocZ9Ky9I8Qaho0M8dlN5fm7dxA5GM9PzoR0OlipYZQlZTVtfQpXdncWN09tcxNHIhwVYV23w2t7tby6nKsLXy9pJ7tnjH61mR+PtQIAu4LO729DNCCf0pbn4hatJF5VusFqvby4+n0zWsGotMnFU8VXoujypN9b6fka/xI1FCtvp6nLqTI/t6CqfhvTU1vwdfWXy+es2+Nj2OBgfoa4qaaSeVpJXZ3Y5ZmOSTWlpev3+kQTRWc3l+aQWOBnj/wDXVqrFzu1oOOCnRwio0X7ys7/Mp3dpPZXDQTxFJFOCDXY+AIrhJrmYgi2KAcjgtnj+tZieN78gC6trS6x0MsIJpbnxzqc0JigSG2XsYl5H0z0q6UoU586Y8TTxNek6Tik3u7/pY0fiBexu9vZocshLN7dMVw1SSSPLI0krl3Y5LHqajrGtU9pNyOnC4dYeiqS6CUUUVkdAUUUUAFFFFABRRRQAUUUUAFFFFABSqCzBQMk9KStTw3/yMumf9fMf/oQqkrsUnZNmaQVJBGCKSu81rw9pC63eHVdeSzuZZ3YQpA02wE5G4ggA47VzGu6JPod6sMrJJHIokhmjOVkQ9GFVKDV7mNLEwqWS39H+D6mTS1s6Fo6a011EJ/LnigaWJMZ8wqMlfrgGjRNFGrC8kkm8iC0gaaR9u72AxkdSQKhRb2LdaCvd7fqY1HelYbWKnsaQ0GgoOKlSOWU4jjdz32jOKt6HpravrNnp6tt8+VUJ9ATya6HUPGV1p8z2Ph9hYWMR2p5agM/uzYySacUnq2Y1KklLkgrv1sl+ZxxGCaSu2jvV8Y6RerfRRjVLKE3EVyiAGVARuVsYzxyDXFU5RtsXSqOV1JWaCjFdj/wh1ja6fZ6jqOtJbW08IkUeSXct3AAPQcc1m6x4bFlp6alY38d/p7v5fmohUo3oynkU3CS1ZnHFUpy5U/wdvv2MCinxRPNMkUalndgoA6kmurbwvo1mRBqfiBYLwffiit2lVD6FgcZ+lKMXJ2Q6taNO3N+Cb/I5GkrU1nSJtHvfs0rI4Kh45EOVdT0IPpUvhzQz4g1X7CswiYxs4ZhxlVJweeOnWlbXlKdWCh7Rv3dzGorrx4T0y7DwaZrsVzforN5HkMofaCSFYnk4B7VyPQ80OLW4Uq0Kvw9O6a/MckTythFLH2FJjBrvfDsuoL4RH/CNOv8AaZnb7UE2+eUwNu3PJX72cd65rxLfzX+piW6sxa3aoqTpjBZwOWIwME+lNxsrmUK7nUcLaLz1+623zMhVLsFUEk+gpvQ4rr/h3DZy+JoWuLoxTqf3EfllhISGyCc/L2rn9Xisob+RNPu2urcYxK0RjJPcYJNDjaKkVGspVnStsk/vv/kUKTvW5onh59VjmuZ7qKysYAPMuZeQCegAHJPtW3aeDtO1hm/svxAlwsaM8oe2KSKApOQpPIzgdeKIwlLYVXF0abtJ7eTaXzOHpaSuqsfC1nLoVvq+oawlnbyyPHjySzZXHQA89fwpRjcupVhTScupy1Fdm3guzFsNQGuwnSDwLryju3Z+7s65rN1nw9BYadFqGn6kt/YvIYi4iMbRuOcMD6jmhwa3IhiqU5cqf4P/AC38jnqOau6XYjUdUtrMybBNIse7GcZOM/rXTXfhDSdLuJLTU/EkdvdKSBElsZAvPG8g/KSO3NNQlLYurXhTfLLfyTf5HF0YNa2t6NPod4IZWSRHUPFLGcrIp6MKys1LTTsXGSklKOwlFFFIoKKKKACiiigAooooAKKKKACiiigArU8Of8jJpv8A18x/+hCsuimnYUldWO+13wZf6nr15eaZNBdWsszM0nnKpj55DBiCKyPFcttDBpukW9wly1hEyyzIcqXZixCnuBnGa5ne3rR9auU09kc1OhNOPPK/Ltpby1/pGjompvo+sWt+nJhkDEeo7j8q7DxfHa+HtIawscf8TSb7VuXtAOY1/Mk1wC7dy7umeRWnr+rnWtTa4VPKiCrHFFu3eWigADP4URlaLQVaDnVjLot/O2xknk0UUVmdRo6LqLaTq9rfIMmGQPj1x2rpL/wdJqs7XvhySG7tZSXEfmKskQPZgx7etcXRmqi1s0YVKUnLnhKz9Lr9DtGtofCGj3i3FxBLq17EYFhicOIEJG4sRxnjGK4ujNFOTuXTpuF23ds9H1nw5ca7o+imwlie6isUDWrSBGK5JBGSAe+ayr2z/wCEa8KXthdzRNfX8kZNvG4bylQk5YjIBycYrD1fWf7UjsVWIxfZbZYMhs78EnPT3rKJyeSTVuS3tqctPD1LKMpaXva2u997/oXdHvF0/WLO8dN4gmWQr64Oa9MuJdevLg3OkW+jXli5LLOYoQVGc/OGwQfWvJaKmEuU0xGGVVqWl/NX/wAjpvGWoSXeowwyXNpP9mj2ZtYgkaknJUY68nrR4HfZrc7Zx/odx/6KauZoo5ve5i3h17H2XSx0fgg48a6cen7w/wAjXOyffP1pAeaKlvSxappTc+6S+6/+Z1Ol+GpdW0eC60WUSahG7C4gMiqyjPysuccY6+9O8dXKS3lhA9wlzeW9qsdzMhyGfJOM9yAQM+1cpRT5tLGaoy9pzyd0ttO/mdF4G/5HHTv95v8A0E1gSf6xvrTAaKXN7tjRU7VHU7pL7r/5nX6FHFrXhm40OOeOG8W4FxCsrbVlG3BXPQHuM1seFvDF5omqm41aSK2k8iVYoPMDPJ8jdgTgfWvOMkUu4+tVGai07bHPWw06ilGMrKXlr99/0A9TXR6kf+KG0Rd3/LW44/Fa5uioTtc6KlNTcX2d/wAGv1Oplb/i2tv83/MRfj/gAplu3/FvL9f+n6H/ANAeuZoqucn2Olr9bmt4Z/5GbTP+vmP/ANCFdNrvgu/1DXbu70ySG6tZJnZnMyqYzk8OGIINcfpd9/Z2p212U3iGVZNucZwc4pNQvmvr+4ucFBLIz7c5xk5xThJKNmiKtOq6nNTdtO1/8jc8VzW0cWm6RDcLctp8LJJMhypZmLEKe4GcZrl6cWNJUyd2a0qfs48olFFFSaBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH/2Q==",
-                    "issuer": "bc1qfxypechhk44knpqyh8f0365j7zj2r350z4uaqk",
+                    "description": "https://easyasset.art/j/kdobte/FANSK.json",
+                    "issuer": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
                     "divisible": false,
                     "locked": true
                 },
                 "quantity_normalized": "1"
             },
-            "tx_hash": "f97bbf7f4b517e28eafbf1d8f3961b3b3d5a1c97d55b9a5bb8246ce9fa5d85ae",
-            "block_index": 844433,
-            "timestamp": 1716294019
+            "tx_hash": "6340bec466445da9a70e3204c7e062a46e0bd2b611ea014b0825832cff294645",
+            "block_index": 844577,
+            "timestamp": 1716376047
         }
     ],
-    "next_cursor": 17537275
+    "next_cursor": 17538415,
+    "result_count": 540260
 }
 ```
 
@@ -313,34 +336,35 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17536405,
+            "event_index": 17538048,
             "event": "MPMA_SEND",
             "params": {
-                "asset": "TIGERKING",
-                "block_index": 844356,
-                "destination": "1Mp47wKLV6qhG4ZED2UvHTYbVvnTswjge4",
-                "memo": "",
-                "msg_index": 4,
-                "quantity": 1,
-                "source": "192XrqMukvBkJxvWh82kvZbuC9Lj4kEfTb",
+                "asset": "A98998639560885377",
+                "block_index": 844524,
+                "destination": "bc1qpq6g0dhvl9229gqndxjy366m5aqwatd2xevjty",
+                "memo": null,
+                "msg_index": 18,
+                "quantity": 15,
+                "source": "bc1qwu6dtn6rjfecd0x4su3lcwsncs972zk0jr2ag8",
                 "status": "valid",
-                "tx_hash": "f88c43dc87692e1b7c919ce8060cef73cd4adfbccffd5dd2d5cdabaa42f3de46",
-                "tx_index": 2733737,
+                "tx_hash": "889f79f16c939db63afb8df7d733f17fb23be0a1f9289a1d7dd452ff5f508251",
+                "tx_index": 2733971,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "imgur/hWbOVom.png;TIGERKING",
-                    "issuer": "1HTztvan7HrPth3RGCrpybZsLfbt1Kqcwr",
+                    "description": "STAMP:",
+                    "issuer": "bc1qwu6dtn6rjfecd0x4su3lcwsncs972zk0jr2ag8",
                     "divisible": false,
                     "locked": true
                 },
-                "quantity_normalized": "1"
+                "quantity_normalized": "15"
             },
-            "tx_hash": "f88c43dc87692e1b7c919ce8060cef73cd4adfbccffd5dd2d5cdabaa42f3de46",
-            "block_index": 844356,
-            "timestamp": 1716241235
+            "tx_hash": "889f79f16c939db63afb8df7d733f17fb23be0a1f9289a1d7dd452ff5f508251",
+            "block_index": 844524,
+            "timestamp": 1716362395
         }
     ],
-    "next_cursor": 17536404
+    "next_cursor": 17538047,
+    "result_count": 280836
 }
 ```
 
@@ -375,7 +399,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1716280349
         }
     ],
-    "next_cursor": 17537124
+    "next_cursor": 17537124,
+    "result_count": 805987
 }
 ```
 
@@ -421,7 +446,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715941288
         }
     ],
-    "next_cursor": 17519767
+    "next_cursor": 17519767,
+    "result_count": 10793
 }
 ```
 
@@ -431,25 +457,26 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17536294,
+            "event_index": 17537591,
             "event": "SWEEP",
             "params": {
-                "block_index": 844352,
-                "destination": "1Nnzwemyj1AmWBhkz5GG4m43kTet14N94s",
-                "fee_paid": 48400000,
+                "block_index": 844472,
+                "destination": "1MKVARB58XMfhvGfKCcNrLhwjwUNVQZg9V",
+                "fee_paid": 1800000,
                 "flags": 3,
                 "memo": null,
-                "source": "1GAH8NCEMQpCtckPqCLzHprhRiRTJ6mvVG",
+                "source": "1NZgkbjdGcag8JR8aZhASMYBgnN9mGnNpr",
                 "status": "valid",
-                "tx_hash": "6ce8c8dd9e5cddcdad3af7ab4fd8776bb8290702392ff3f338c1e76eab60ad0d",
-                "tx_index": 2733715
+                "tx_hash": "45d91936a8dceff243ee8c4c9a708b0a62b030405dcea9a0a147590ad9f8e980",
+                "tx_index": 2733925
             },
-            "tx_hash": "6ce8c8dd9e5cddcdad3af7ab4fd8776bb8290702392ff3f338c1e76eab60ad0d",
-            "block_index": 844352,
-            "timestamp": 1716240333
+            "tx_hash": "45d91936a8dceff243ee8c4c9a708b0a62b030405dcea9a0a147590ad9f8e980",
+            "block_index": 844472,
+            "timestamp": 1716315791
         }
     ],
-    "next_cursor": 17519769
+    "next_cursor": 17536294,
+    "result_count": 1039
 }
 ```
 
@@ -484,7 +511,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1716203565
         }
     ],
-    "next_cursor": 17531902
+    "next_cursor": 17531902,
+    "result_count": 4105
 }
 ```
 
@@ -531,7 +559,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715690163
         }
     ],
-    "next_cursor": 17438757
+    "next_cursor": 17438757,
+    "result_count": 455
 }
 ```
 
@@ -541,20 +570,21 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537085,
+            "event_index": 17538140,
             "event": "ASSET_CREATION",
             "params": {
-                "asset_id": "5309660114",
+                "asset_id": "2691204070103030304",
                 "asset_longname": null,
-                "asset_name": "REXDEUS",
-                "block_index": 844408
+                "asset_name": "A2691204070103030304",
+                "block_index": 844536
             },
-            "tx_hash": "f07d7915bb23b8a5a155ab949c8fe3f046a8dd8e80cb174f5c626e2a3ebf7354",
-            "block_index": 844408,
-            "timestamp": 1716277021
+            "tx_hash": "c382f47b2d9c86df644b7ecd5f2b7517d35b2cbd9ec68056dc17e1e224f382f3",
+            "block_index": 844536,
+            "timestamp": 1716362407
         }
     ],
-    "next_cursor": 17537055
+    "next_cursor": 17538081,
+    "result_count": 236751
 }
 ```
 
@@ -564,42 +594,43 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537160,
+            "event_index": 17538368,
             "event": "ASSET_ISSUANCE",
             "params": {
-                "asset": "REXDEUS",
+                "asset": "LORDOFGOATS",
                 "asset_longname": null,
-                "block_index": 844420,
+                "block_index": 844569,
                 "call_date": 0,
                 "call_price": 0.0,
                 "callable": false,
-                "description": "REXDEUS is double LOCKED.",
+                "description": "",
                 "divisible": false,
                 "fee_paid": 0,
-                "issuer": "1F5ViAh8FJZXZXK1UXXeKMWC6qZsGNJ76m",
-                "locked": false,
+                "issuer": "18UXAw9MkAMKh9sRSCwNxfXNysvQvhwVg7",
+                "locked": true,
                 "quantity": 0,
                 "reset": false,
-                "source": "1F5ViAh8FJZXZXK1UXXeKMWC6qZsGNJ76m",
+                "source": "18UXAw9MkAMKh9sRSCwNxfXNysvQvhwVg7",
                 "status": "valid",
                 "transfer": false,
-                "tx_hash": "6a8a178b36b862d87d49d8409dea88ca29fc3681f7466bf7e58dd321975be14c",
-                "tx_index": 2733869,
+                "tx_hash": "2f6ad7f6eaef456564a846b2ca352e19ab9fa05b75664c4414a03629b2f08ae3",
+                "tx_index": 2734009,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "REXDEUS is double LOCKED.",
-                    "issuer": "1F5ViAh8FJZXZXK1UXXeKMWC6qZsGNJ76m",
+                    "description": "",
+                    "issuer": "18UXAw9MkAMKh9sRSCwNxfXNysvQvhwVg7",
                     "divisible": false,
-                    "locked": false
+                    "locked": true
                 },
                 "quantity_normalized": "0"
             },
-            "tx_hash": "6a8a178b36b862d87d49d8409dea88ca29fc3681f7466bf7e58dd321975be14c",
-            "block_index": 844420,
-            "timestamp": 1716283331
+            "tx_hash": "2f6ad7f6eaef456564a846b2ca352e19ab9fa05b75664c4414a03629b2f08ae3",
+            "block_index": 844569,
+            "timestamp": 1716372826
         }
     ],
-    "next_cursor": 17537154
+    "next_cursor": 17538141,
+    "result_count": 323766
 }
 ```
 
@@ -634,7 +665,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1716280996
         }
     ],
-    "next_cursor": 17536940
+    "next_cursor": 17536940,
+    "result_count": 11205
 }
 ```
 
@@ -646,49 +678,52 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537259,
+            "event_index": 17538321,
             "event": "OPEN_ORDER",
             "params": {
-                "block_index": 844431,
+                "block_index": 844560,
                 "expiration": 8064,
-                "expire_index": 852495,
-                "fee_provided": 4000,
-                "fee_provided_remaining": 4000,
+                "expire_index": 852624,
+                "fee_provided": 3348,
+                "fee_provided_remaining": 3348,
                 "fee_required": 0,
                 "fee_required_remaining": 0,
-                "get_asset": "XCP",
-                "get_quantity": 1000000000,
-                "get_remaining": 1000000000,
-                "give_asset": "BTC",
-                "give_quantity": 160140,
-                "give_remaining": 160140,
-                "source": "1NZgkbjdGcag8JR8aZhASMYBgnN9mGnNpr",
+                "get_asset": "PEPECASH",
+                "get_quantity": 6400000000000,
+                "get_remaining": 6400000000000,
+                "give_asset": "DRSTRNGEPEPE",
+                "give_quantity": 8,
+                "give_remaining": 8,
+                "source": "1BH9sBVQ645gx2D3pfkc95SSvvEXpFhw2N",
                 "status": "open",
-                "tx_hash": "7a75e4f79edf5a96498d6be7ed4ed6b0b19d6a93ea4200bd24147d251f911ce2",
-                "tx_index": 2733884,
+                "tx_hash": "6d9942205575dfc016e9fbcf2c15df8435034740cf33b076ce5ce2aafa4364d8",
+                "tx_index": 2734003,
                 "give_asset_info": {
-                    "divisible": true,
-                    "asset_longname": "Bitcoin",
-                    "description": "The Bitcoin cryptocurrency",
-                    "locked": false
-                },
-                "get_asset_info": {
-                    "divisible": true,
-                    "asset_longname": "Counterparty",
-                    "description": "The Counterparty protocol native currency",
+                    "asset_longname": null,
+                    "description": "",
+                    "issuer": "17hxupddtL5z3RusNNgUUmK1EQiCXUhe6z",
+                    "divisible": false,
                     "locked": true
                 },
-                "give_quantity_normalized": "0.0016014",
-                "get_quantity_normalized": "10",
-                "get_remaining_normalized": "10",
-                "give_remaining_normalized": "0.0016014"
+                "get_asset_info": {
+                    "asset_longname": null,
+                    "description": "http://rarepepedirectory.com/json/pc.json",
+                    "issuer": "1GQhaWqejcGJ4GhQar7SjcCfadxvf5DNBD",
+                    "divisible": true,
+                    "locked": true
+                },
+                "give_quantity_normalized": "8",
+                "get_quantity_normalized": "64000",
+                "get_remaining_normalized": "64000",
+                "give_remaining_normalized": "8"
             },
-            "tx_hash": "7a75e4f79edf5a96498d6be7ed4ed6b0b19d6a93ea4200bd24147d251f911ce2",
-            "block_index": 844431,
-            "timestamp": 1716292055
+            "tx_hash": "6d9942205575dfc016e9fbcf2c15df8435034740cf33b076ce5ce2aafa4364d8",
+            "block_index": 844560,
+            "timestamp": 1716367006
         }
     ],
-    "next_cursor": 17537237
+    "next_cursor": 17538216,
+    "result_count": 532549
 }
 ```
 
@@ -726,7 +761,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1716292056
         }
     ],
-    "next_cursor": 17536557
+    "next_cursor": 17536557,
+    "result_count": 209631
 }
 ```
 
@@ -736,18 +772,19 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537266,
+            "event_index": 17538313,
             "event": "ORDER_UPDATE",
             "params": {
                 "status": "expired",
-                "tx_hash": "ac0b0c096af73cbbad9031111c72a7881d32b8a0154a9b7f173e56c805821263"
+                "tx_hash": "4b4731684083fa9c4407552c3cc3662b26cd86c3b760a936292890fbc7b18ebf"
             },
             "tx_hash": null,
-            "block_index": 844432,
-            "timestamp": 1716292403
+            "block_index": 844560,
+            "timestamp": 1716367006
         }
     ],
-    "next_cursor": 17537261
+    "next_cursor": 17538304,
+    "result_count": 733776
 }
 ```
 
@@ -768,7 +805,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715478026
         }
     ],
-    "next_cursor": 17490548
+    "next_cursor": 17490548,
+    "result_count": 809
 }
 ```
 
@@ -778,19 +816,20 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17532900,
+            "event_index": 17537429,
             "event": "ORDER_MATCH_UPDATE",
             "params": {
-                "id": "fc6390ec3d7c9cd71bb041b64ec96ce811af8e511c1e293707d22a4b3d872d66_2ac850d24dccdc49740a5e60a94f2a097436c76c4b96d3a292007959a84d0061",
-                "order_match_id": "fc6390ec3d7c9cd71bb041b64ec96ce811af8e511c1e293707d22a4b3d872d66_2ac850d24dccdc49740a5e60a94f2a097436c76c4b96d3a292007959a84d0061",
+                "id": "49341db1c4f6f16f111562049b86b28df38146cacc2314575e6b638d79e2a10e_7a75e4f79edf5a96498d6be7ed4ed6b0b19d6a93ea4200bd24147d251f911ce2",
+                "order_match_id": "49341db1c4f6f16f111562049b86b28df38146cacc2314575e6b638d79e2a10e_7a75e4f79edf5a96498d6be7ed4ed6b0b19d6a93ea4200bd24147d251f911ce2",
                 "status": "expired"
             },
             "tx_hash": null,
-            "block_index": 844194,
-            "timestamp": 1716203607
+            "block_index": 844452,
+            "timestamp": 1716307648
         }
     ],
-    "next_cursor": 17532896
+    "next_cursor": 17532900,
+    "result_count": 23738
 }
 ```
 
@@ -817,7 +856,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715690211
         }
     ],
-    "next_cursor": 17505792
+    "next_cursor": 17505792,
+    "result_count": 2928
 }
 ```
 
@@ -827,22 +867,23 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17536418,
+            "event_index": 17538306,
             "event": "CANCEL_ORDER",
             "params": {
-                "block_index": 844358,
-                "offer_hash": "a35d01ea72c4463d4202c5ea3829d5fb7f7b68d32ae7cbe7a0348d77d94b3af0",
-                "source": "1H8wmvbEbkLk9TDo22MTZYgqtMDfoGjwvi",
+                "block_index": 844559,
+                "offer_hash": "a582052e2d44dc3242c7d7a95c6666b1eefef3b18cfd99292f43b6cf9bdf43b0",
+                "source": "bc1query8r32jhda5x9zrlstlvhdhlaqusxet2kgfk",
                 "status": "valid",
-                "tx_hash": "ffd1edc6df7feaed971de5593ee6c0027e62ac741a576a8c95bdde79a46da044",
-                "tx_index": 2733739
+                "tx_hash": "7761a560fd78ff2f2b5534eceb20cbc41d13e1d79ddc15d8837d6c079dfd66ca",
+                "tx_index": 2734001
             },
-            "tx_hash": "ffd1edc6df7feaed971de5593ee6c0027e62ac741a576a8c95bdde79a46da044",
-            "block_index": 844358,
-            "timestamp": 1716243801
+            "tx_hash": "7761a560fd78ff2f2b5534eceb20cbc41d13e1d79ddc15d8837d6c079dfd66ca",
+            "block_index": 844559,
+            "timestamp": 1716366769
         }
     ],
-    "next_cursor": 17534926
+    "next_cursor": 17537480,
+    "result_count": 80276
 }
 ```
 
@@ -852,19 +893,20 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537268,
+            "event_index": 17538315,
             "event": "ORDER_EXPIRATION",
             "params": {
-                "block_index": 844432,
-                "order_hash": "ac0b0c096af73cbbad9031111c72a7881d32b8a0154a9b7f173e56c805821263",
-                "source": "13NWfMM5g66aCHRDx9tryZfs5p4SZ8jY8Z"
+                "block_index": 844560,
+                "order_hash": "4b4731684083fa9c4407552c3cc3662b26cd86c3b760a936292890fbc7b18ebf",
+                "source": "1LnYFKsS575LqYKTqywaSgvVBe3NUxm673"
             },
             "tx_hash": null,
-            "block_index": 844432,
-            "timestamp": 1716292403
+            "block_index": 844560,
+            "timestamp": 1716367006
         }
     ],
-    "next_cursor": 17537173
+    "next_cursor": 17538300,
+    "result_count": 196483
 }
 ```
 
@@ -874,20 +916,21 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17532903,
+            "event_index": 17537431,
             "event": "ORDER_MATCH_EXPIRATION",
             "params": {
-                "block_index": 844194,
-                "order_match_id": "fc6390ec3d7c9cd71bb041b64ec96ce811af8e511c1e293707d22a4b3d872d66_2ac850d24dccdc49740a5e60a94f2a097436c76c4b96d3a292007959a84d0061",
-                "tx0_address": "bc1qsteve3tfxfg9pcmvzw645sr9zy7es5rx645p6l",
-                "tx1_address": "1JsPoV5USoFM7441KtGXtvMH5ezNwq9Uak"
+                "block_index": 844452,
+                "order_match_id": "49341db1c4f6f16f111562049b86b28df38146cacc2314575e6b638d79e2a10e_7a75e4f79edf5a96498d6be7ed4ed6b0b19d6a93ea4200bd24147d251f911ce2",
+                "tx0_address": "14dhSWLxYYSds1CBrvEUqBcfCVEPKXPZNg",
+                "tx1_address": "1NZgkbjdGcag8JR8aZhASMYBgnN9mGnNpr"
             },
             "tx_hash": null,
-            "block_index": 844194,
-            "timestamp": 1716203607
+            "block_index": 844452,
+            "timestamp": 1716307648
         }
     ],
-    "next_cursor": 17532899
+    "next_cursor": 17532903,
+    "result_count": 20902
 }
 ```
 
@@ -899,39 +942,40 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537177,
+            "event_index": 17538406,
             "event": "OPEN_DISPENSER",
             "params": {
-                "asset": "XOBLORTPEPE",
-                "block_index": 844423,
+                "asset": "SHART",
+                "block_index": 844570,
                 "dispense_count": 0,
                 "escrow_quantity": 1,
                 "give_quantity": 1,
                 "give_remaining": 1,
                 "oracle_address": null,
-                "origin": "1E6tyJ2zCyX74XgEK8t9iNMjxjNVLCGR1u",
-                "satoshirate": 850000,
-                "source": "bc1qndx4a7c3dxjtn5lq5m6qngh54y2yzk5hw03hxj",
+                "origin": "18Rsggx51jeBfTU6dARyqHJqRBjkctkyA5",
+                "satoshirate": 500000,
+                "source": "1NtBCRxVbQj67UEwMtH5DA6MJPKfA7SnAG",
                 "status": 0,
-                "tx_hash": "8fe331adf0f3616beb1b3e7588fb8b7a146de7ea6808a1dcc425f4c12d5be978",
-                "tx_index": 2733870,
+                "tx_hash": "d57921d195a944c0927fd42d903a960df945eefd65dc73b3cd2f75197969e2e9",
+                "tx_index": 2734015,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "",
-                    "issuer": "173cE6ScUFCmBLCqZeG18ij6r9KHRPbAjC",
+                    "description": "ruderelics.io/json/xcp/SHART.json",
+                    "issuer": "1RUDEjgtMCY8kSJUUvTv4KHMGFgg9LrgF",
                     "divisible": false,
-                    "locked": false
+                    "locked": true
                 },
                 "give_quantity_normalized": "1",
                 "give_remaining_normalized": "1",
                 "escrow_quantity_normalized": "1"
             },
-            "tx_hash": "8fe331adf0f3616beb1b3e7588fb8b7a146de7ea6808a1dcc425f4c12d5be978",
-            "block_index": 844423,
-            "timestamp": 1716284961
+            "tx_hash": "d57921d195a944c0927fd42d903a960df945eefd65dc73b3cd2f75197969e2e9",
+            "block_index": 844570,
+            "timestamp": 1716373363
         }
     ],
-    "next_cursor": 17537070
+    "next_cursor": 17538401,
+    "result_count": 88873
 }
 ```
 
@@ -941,29 +985,30 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537251,
+            "event_index": 17537959,
             "event": "DISPENSER_UPDATE",
             "params": {
-                "asset": "A497773418239920605",
-                "dispense_count": 9,
-                "give_remaining": 28,
-                "source": "bc1qu0yxpc6pm6xlgh9es3yl0kn4r0w9xgh49wz29w",
+                "asset": "FAKEGREENS",
+                "dispense_count": 6,
+                "give_remaining": 37,
+                "source": "13gfTRvHYWP4DyX46X6mhnfDS6WnUf9GBi",
                 "status": 0,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "STAMP:",
-                    "issuer": "1MjTPRdUpwH5e9yYLpiyE8zd1TvzwTvgUm",
+                    "description": "https://easyasset.art/j/kdobte/FANSK.json",
+                    "issuer": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
                     "divisible": false,
                     "locked": true
                 },
-                "give_remaining_normalized": "28"
+                "give_remaining_normalized": "37"
             },
-            "tx_hash": "aa2e834ff5b997afab8f2a448859a625025befe0f88cd79e697dc699bedfe59f",
-            "block_index": 844429,
-            "timestamp": 1716289023
+            "tx_hash": "ea153fee9e4948d595cd1b392ea6f51d4e38662d09802ec5ef528efdd498eb9f",
+            "block_index": 844518,
+            "timestamp": 1716362387
         }
     ],
-    "next_cursor": 17537225
+    "next_cursor": 17537939,
+    "result_count": 230414
 }
 ```
 
@@ -998,7 +1043,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715478046
         }
     ],
-    "next_cursor": 16803346
+    "next_cursor": 16803346,
+    "result_count": 188
 }
 ```
 
@@ -1008,33 +1054,34 @@ Here is a list of events classified by theme and for each an example response:
 {
     "result": [
         {
-            "event_index": 17537252,
+            "event_index": 17537960,
             "event": "DISPENSE",
             "params": {
-                "asset": "A497773418239920605",
-                "block_index": 844429,
-                "destination": "1dKmZtfvmHMAz7ibz4Y9uXVMVdR3Jhtwk",
+                "asset": "FAKEGREENS",
+                "block_index": 844518,
+                "destination": "1AosTY3K66rfQSbmUXDX8DHpy65pPVea84",
                 "dispense_index": 0,
                 "dispense_quantity": 1,
-                "dispenser_tx_hash": "7caa8f19ebf8e0f6d9ff994eb1b6fb8cd488db800e331e2ca054e5f258b23e96",
-                "source": "bc1qu0yxpc6pm6xlgh9es3yl0kn4r0w9xgh49wz29w",
-                "tx_hash": "aa2e834ff5b997afab8f2a448859a625025befe0f88cd79e697dc699bedfe59f",
-                "tx_index": 2733883,
+                "dispenser_tx_hash": "bb4b7b33c896b65379f16d5344342174d3ef26163d6e33c24326bc3807b48c4d",
+                "source": "13gfTRvHYWP4DyX46X6mhnfDS6WnUf9GBi",
+                "tx_hash": "ea153fee9e4948d595cd1b392ea6f51d4e38662d09802ec5ef528efdd498eb9f",
+                "tx_index": 2733967,
                 "asset_info": {
                     "asset_longname": null,
-                    "description": "STAMP:",
-                    "issuer": "1MjTPRdUpwH5e9yYLpiyE8zd1TvzwTvgUm",
+                    "description": "https://easyasset.art/j/kdobte/FANSK.json",
+                    "issuer": "13HHKVNFBrkfor66LPMbSfvDVNKvhPmSGH",
                     "divisible": false,
                     "locked": true
                 },
                 "dispense_quantity_normalized": "1"
             },
-            "tx_hash": "aa2e834ff5b997afab8f2a448859a625025befe0f88cd79e697dc699bedfe59f",
-            "block_index": 844429,
-            "timestamp": 1716289023
+            "tx_hash": "ea153fee9e4948d595cd1b392ea6f51d4e38662d09802ec5ef528efdd498eb9f",
+            "block_index": 844518,
+            "timestamp": 1716362387
         }
     ],
-    "next_cursor": 17537226
+    "next_cursor": 17537940,
+    "result_count": 191908
 }
 ```
 
@@ -1065,7 +1112,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1716203619
         }
     ],
-    "next_cursor": 17533162
+    "next_cursor": 17533162,
+    "result_count": 106541
 }
 ```
 
@@ -1103,7 +1151,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715457586
         }
     ],
-    "next_cursor": 5777249
+    "next_cursor": 5777249,
+    "result_count": 1149
 }
 ```
 
@@ -1124,7 +1173,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715457620
         }
     ],
-    "next_cursor": 5345982
+    "next_cursor": 5345982,
+    "result_count": 1474
 }
 ```
 
@@ -1167,7 +1217,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715456877
         }
     ],
-    "next_cursor": 5216626
+    "next_cursor": 5216626,
+    "result_count": 397
 }
 ```
 
@@ -1188,7 +1239,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715456885
         }
     ],
-    "next_cursor": 5242787
+    "next_cursor": 5242787,
+    "result_count": 397
 }
 ```
 
@@ -1211,7 +1263,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715457620
         }
     ],
-    "next_cursor": 5345984
+    "next_cursor": 5345984,
+    "result_count": 588
 }
 ```
 
@@ -1234,7 +1287,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715453950
         }
     ],
-    "next_cursor": 881016
+    "next_cursor": 881016,
+    "result_count": 9
 }
 ```
 
@@ -1262,7 +1316,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715456885
         }
     ],
-    "next_cursor": 5242786
+    "next_cursor": 5242786,
+    "result_count": 387
 }
 ```
 
@@ -1287,7 +1342,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715452231
         }
     ],
-    "next_cursor": 847018
+    "next_cursor": 847018,
+    "result_count": 101
 }
 ```
 
@@ -1315,7 +1371,8 @@ Here is a list of events classified by theme and for each an example response:
             "timestamp": 1715450713
         }
     ],
-    "next_cursor": 21373
+    "next_cursor": 21373,
+    "result_count": 2576
 }
 ```
 
@@ -1353,6 +1410,8 @@ Returns the list of the last ten blocks
         + Default: `None`
     + limit: `2` (int, optional) - The number of blocks to return
         + Default: `10`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1382,7 +1441,33 @@ Returns the list of the last ten blocks
                     "messages_hash": "3039ba14f9d6d65f8778f251f9d654aae986d62e59a54cc8f3118fa930d3234d"
                 }
             ],
-            "next_cursor": 839998
+            "next_cursor": 839998,
+            "result_count": 566308
+        }
+    ```
+
+### Get Last Block [GET `/v2/blocks/last`]
+
+Return the information of the last block
+
++ Parameters
+    + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
+        + Default: `false`
+
++ Response 200 (application/json)
+
+    ```
+        {
+            "result": {
+                "block_index": 844577,
+                "block_hash": "000000000000000000027ad35f1914a1b67974a512f20d20fb752f6c4c82c4b0",
+                "block_time": 1716376015,
+                "previous_block_hash": "00000000000000000000e7aee62554c3087d45b3ef8e7d62382725763d34b6a6",
+                "difficulty": 386097818,
+                "ledger_hash": "ca2cbebd948a05e2397f28476ad86f2e93ceb298dedaf4e43515e2548ab3c703",
+                "txlist_hash": "4242c7353e8d1cc3cbeb28d6de15cf503904ee335e2c1712572bfb11a7c7bfa7",
+                "messages_hash": "f837215f83e95076993ea20f34d4ef6c511f33c00a3e1935e2d0d6deb6966b65"
+            }
         }
     ```
 
@@ -1448,6 +1533,8 @@ Returns the transactions of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of transactions to return
         + Default: `10`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1470,7 +1557,8 @@ Returns the transactions of a block
                     "supported": true
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1484,6 +1572,8 @@ Returns the events of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1492,7 +1582,8 @@ Returns the events of a block
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 8
         }
     ```
 
@@ -1506,6 +1597,8 @@ Returns the event counts of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1535,7 +1628,8 @@ Returns the event counts of a block
                     "event_count": 1
                 }
             ],
-            "next_cursor": "BLOCK_PARSED"
+            "next_cursor": "BLOCK_PARSED",
+            "result_count": 8
         }
     ```
 
@@ -1550,6 +1644,8 @@ Returns the events of a block filtered by event
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1558,7 +1654,8 @@ Returns the events of a block filtered by event
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1572,6 +1669,8 @@ Returns the credits of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of credits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1598,7 +1697,8 @@ Returns the credits of a block
                     "quantity_normalized": "1"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1612,6 +1712,8 @@ Returns the debits of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of debits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1637,7 +1739,8 @@ Returns the debits of a block
                     "quantity_normalized": "0.5"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1651,6 +1754,8 @@ Returns the expirations of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of expirations to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1672,7 +1777,8 @@ Returns the expirations of a block
                     "cursor_id": "840356_order_195953"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 2
         }
     ```
 
@@ -1686,6 +1792,8 @@ Returns the cancels of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of cancels to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1711,7 +1819,8 @@ Returns the cancels of a block
                     "status": "valid"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 2
         }
     ```
 
@@ -1725,6 +1834,8 @@ Returns the destructions of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of destructions to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1752,7 +1863,8 @@ Returns the destructions of a block
                     "quantity_normalized": "50000"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1766,6 +1878,8 @@ Returns the issuances of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of issuances to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1796,7 +1910,8 @@ Returns the issuances of a block
                     "reset": false
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1810,6 +1925,8 @@ Returns the sends of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of debits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1839,7 +1956,8 @@ Returns the sends of a block
                     "quantity_normalized": "1"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1853,6 +1971,8 @@ Returns the dispenses of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispenses to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1897,7 +2017,8 @@ Returns the dispenses of a block
                     }
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -1911,6 +2032,8 @@ Returns the sweeps of a block
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of sweeps to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -1942,7 +2065,8 @@ Returns the sweeps of a block
                     "fee_paid": 1400000
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 2
         }
     ```
 
@@ -2121,6 +2245,8 @@ Returns the events of a transaction
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2169,7 +2295,8 @@ Returns the events of a transaction
                     "timestamp": 1715450705
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 2
         }
     ```
 
@@ -2183,6 +2310,8 @@ Returns the events of a transaction
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2191,7 +2320,8 @@ Returns the events of a transaction
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 4
         }
     ```
 
@@ -2206,6 +2336,8 @@ Returns the events of a transaction
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2238,7 +2370,8 @@ Returns the events of a transaction
                     "timestamp": 1715450705
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2253,6 +2386,8 @@ Returns the events of a transaction
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2261,7 +2396,8 @@ Returns the events of a transaction
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2277,6 +2413,8 @@ Returns the balances of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of balances to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2298,7 +2436,8 @@ Returns the balances of an address
                     "quantity_normalized": "1042"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2343,6 +2482,8 @@ Returns the credits of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of credits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2368,7 +2509,8 @@ Returns the credits of an address
                     "quantity_normalized": "1042"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2382,6 +2524,8 @@ Returns the debits of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of debits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2439,7 +2583,8 @@ Returns the debits of an address
                     "quantity_normalized": "400"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 3
         }
     ```
 
@@ -2455,6 +2600,8 @@ Returns the bets of a feed
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of bets to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2502,7 +2649,8 @@ Returns the bets of a feed
                     "status": "filled"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 2
         }
     ```
 
@@ -2518,6 +2666,8 @@ Returns the broadcasts of a source
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of broadcasts to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2551,7 +2701,8 @@ Returns the broadcasts of a source
                     "status": "valid"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 2
         }
     ```
 
@@ -2565,6 +2716,8 @@ Returns the burns of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of burns to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2583,7 +2736,8 @@ Returns the burns of an address
                     "status": "valid"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2597,6 +2751,8 @@ Returns the sends of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of sends to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2625,7 +2781,8 @@ Returns the sends of an address
                     "quantity_normalized": "100"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2639,6 +2796,8 @@ Returns the receives of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of sends to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2667,7 +2826,8 @@ Returns the receives of an address
                     "quantity_normalized": "1042"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2682,6 +2842,8 @@ Returns the sends of an address and asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of sends to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2710,7 +2872,8 @@ Returns the sends of an address and asset
                     "quantity_normalized": "100"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2725,6 +2888,8 @@ Returns the receives of an address and asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of sends to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2753,7 +2918,8 @@ Returns the receives of an address and asset
                     "quantity_normalized": "1042"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2769,6 +2935,8 @@ Returns the dispensers of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispensers to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2804,7 +2972,8 @@ Returns the dispensers of an address
                     "escrow_quantity_normalized": "25"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2861,6 +3030,8 @@ Returns the dispenses of a source
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispenses to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2869,7 +3040,8 @@ Returns the dispenses of a source
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 0
         }
     ```
 
@@ -2883,6 +3055,8 @@ Returns the dispenses of a destination
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispenses to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2891,7 +3065,8 @@ Returns the dispenses of a destination
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 0
         }
     ```
 
@@ -2906,6 +3081,8 @@ Returns the dispenses of an address and an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispenses to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2914,7 +3091,8 @@ Returns the dispenses of an address and an asset
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 0
         }
     ```
 
@@ -2929,6 +3107,8 @@ Returns the dispenses of an address and an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispenses to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2937,7 +3117,8 @@ Returns the dispenses of an address and an asset
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 0
         }
     ```
 
@@ -2951,6 +3132,8 @@ Returns the sweeps of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of sweeps to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -2971,7 +3154,8 @@ Returns the sweeps of an address
                     "fee_paid": 1400000
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -2985,6 +3169,8 @@ Returns the issuances of an address
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of issuances to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -3099,7 +3285,8 @@ Returns the issuances of an address
                     "reset": false
                 }
             ],
-            "next_cursor": 333960
+            "next_cursor": 333960,
+            "result_count": 41
         }
     ```
 
@@ -3939,6 +4126,8 @@ Returns the valid assets
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of assets to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -3949,26 +4138,47 @@ Returns the valid assets
             "result": [
                 {
                     "asset": "A100000000000000000",
-                    "asset_longname": null
+                    "asset_longname": null,
+                    "description": "a lotta zeros",
+                    "issuer": "1QEx9kdYQqmNzC8HW8FPQS3Mb7vVXYa7bK",
+                    "divisible": true,
+                    "locked": false
                 },
                 {
                     "asset": "A1000000000000000000",
-                    "asset_longname": null
+                    "asset_longname": null,
+                    "description": "",
+                    "issuer": "1QD5oHa3QZdeaXVbtwqWkSiW8nLUB1jrCx",
+                    "divisible": true,
+                    "locked": false
                 },
                 {
                     "asset": "A10000000000000000000",
-                    "asset_longname": null
+                    "asset_longname": null,
+                    "description": "19",
+                    "issuer": "1Bemb8LJMY5TxWJPvbW4QFEYRQ6wXKRFo2",
+                    "divisible": true,
+                    "locked": false
                 },
                 {
                     "asset": "A10000000000000000001",
-                    "asset_longname": null
+                    "asset_longname": null,
+                    "description": "",
+                    "issuer": "1CiezJhGh4YqT1gv4NuBJ9pQAXSFkSEXXG",
+                    "divisible": true,
+                    "locked": false
                 },
                 {
                     "asset": "A10000000000000000002",
-                    "asset_longname": null
+                    "asset_longname": null,
+                    "description": "",
+                    "issuer": "1F9NzQLoi7CumUHSdDDeQdNqfojhEyP2XW",
+                    "divisible": true,
+                    "locked": false
                 }
             ],
-            "next_cursor": "A10000000000000000003"
+            "next_cursor": "A10000000000000000003",
+            "result_count": 236751
         }
     ```
 
@@ -4009,6 +4219,8 @@ Returns the asset balances
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of balances to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4083,7 +4295,8 @@ Returns the asset balances
                     "quantity_normalized": "1"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 5
         }
     ```
 
@@ -4130,6 +4343,8 @@ Returns the orders of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of orders to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4320,7 +4535,8 @@ Returns the orders of an asset
                     "give_remaining_normalized": "0"
                 }
             ],
-            "next_cursor": 284587
+            "next_cursor": 284587,
+            "result_count": 11
         }
     ```
 
@@ -4334,6 +4550,8 @@ Returns the credits of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of credits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4428,7 +4646,8 @@ Returns the credits of an asset
                     "quantity_normalized": "76"
                 }
             ],
-            "next_cursor": 3659881
+            "next_cursor": 3659881,
+            "result_count": 7
         }
     ```
 
@@ -4442,6 +4661,8 @@ Returns the debits of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of debits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4451,29 +4672,13 @@ Returns the debits of an asset
         {
             "result": [
                 {
-                    "block_index": 844427,
-                    "address": "bc1qspqq5agtftcr3g4we70gk9xxtuq98cvzz6ghy4",
-                    "asset": "XCP",
-                    "quantity": 11495000000,
-                    "action": "open order",
-                    "event": "7f04d1f562c9f5f3548a92c396da52073eab7a50d140e065e0fc8548a8799d18",
-                    "tx_index": 2733881,
-                    "asset_info": {
-                        "divisible": true,
-                        "asset_longname": "Counterparty",
-                        "description": "The Counterparty protocol native currency",
-                        "locked": true
-                    },
-                    "quantity_normalized": "114.95"
-                },
-                {
-                    "block_index": 844420,
-                    "address": "1F5ViAh8FJZXZXK1UXXeKMWC6qZsGNJ76m",
+                    "block_index": 844569,
+                    "address": "18UXAw9MkAMKh9sRSCwNxfXNysvQvhwVg7",
                     "asset": "XCP",
                     "quantity": 0,
                     "action": "issuance fee",
-                    "event": "6a8a178b36b862d87d49d8409dea88ca29fc3681f7466bf7e58dd321975be14c",
-                    "tx_index": 2733869,
+                    "event": "2f6ad7f6eaef456564a846b2ca352e19ab9fa05b75664c4414a03629b2f08ae3",
+                    "tx_index": 2734009,
                     "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
@@ -4483,13 +4688,13 @@ Returns the debits of an asset
                     "quantity_normalized": "0"
                 },
                 {
-                    "block_index": 844419,
-                    "address": "1F5ViAh8FJZXZXK1UXXeKMWC6qZsGNJ76m",
+                    "block_index": 844536,
+                    "address": "bc1qujj5tuh5pdx6ezhauw0daxvhhmnqnhaxvsayf9",
                     "asset": "XCP",
                     "quantity": 0,
                     "action": "issuance fee",
-                    "event": "1f690df857320a6886eb856970d05f2582dba15275670344399980a4136cf588",
-                    "tx_index": 2733868,
+                    "event": "c382f47b2d9c86df644b7ecd5f2b7517d35b2cbd9ec68056dc17e1e224f382f3",
+                    "tx_index": 2733981,
                     "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
@@ -4499,13 +4704,13 @@ Returns the debits of an asset
                     "quantity_normalized": "0"
                 },
                 {
-                    "block_index": 844417,
-                    "address": "1MsPAjQYvaJrwrzvLHZ7ZTrcegbkoRKyhR",
+                    "block_index": 844526,
+                    "address": "bc1q95n6jw7ekx245shju0rfetxw6x420mvlhcqltl",
                     "asset": "XCP",
                     "quantity": 0,
                     "action": "issuance fee",
-                    "event": "498d9dcefaa3114c2d2112733b9cc65003e8a9dc3f21934c6c865b75d2088ac9",
-                    "tx_index": 2733864,
+                    "event": "a67d705c22783d5d4675da25ea76d4be6b07962d1206c7b4e7fc4d2d5a2682e5",
+                    "tx_index": 2733977,
                     "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
@@ -4515,23 +4720,40 @@ Returns the debits of an asset
                     "quantity_normalized": "0"
                 },
                 {
-                    "block_index": 844409,
-                    "address": "1MsPAjQYvaJrwrzvLHZ7ZTrcegbkoRKyhR",
+                    "block_index": 844526,
+                    "address": "1KXt2sR1T41U2BFYznSiZsbBq8xrnnKTWE",
                     "asset": "XCP",
-                    "quantity": 0,
-                    "action": "issuance fee",
-                    "event": "26639fbb110c0138d0ee7a772014ba4b3006f3f12621c4391b135f513f74908b",
-                    "tx_index": 2733857,
+                    "quantity": 8900000000,
+                    "action": "open dispenser empty addr",
+                    "event": "dd9676a339ca951a240a9bedc15cebb32411dee8f2337e35ddcaccf8a02be0f6",
+                    "tx_index": 2733976,
                     "asset_info": {
                         "divisible": true,
                         "asset_longname": "Counterparty",
                         "description": "The Counterparty protocol native currency",
                         "locked": true
                     },
-                    "quantity_normalized": "0"
+                    "quantity_normalized": "89"
+                },
+                {
+                    "block_index": 844526,
+                    "address": "1ye1EaLcArtidUSqATkkgzCS4Fj2D4Gpe",
+                    "asset": "XCP",
+                    "quantity": 8900000000,
+                    "action": "open dispenser empty addr",
+                    "event": "dd9676a339ca951a240a9bedc15cebb32411dee8f2337e35ddcaccf8a02be0f6",
+                    "tx_index": 2733976,
+                    "asset_info": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "89"
                 }
             ],
-            "next_cursor": 2626730
+            "next_cursor": 2626842,
+            "result_count": 600491
         }
     ```
 
@@ -4545,6 +4767,8 @@ Returns the dividends of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of assets to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4644,7 +4868,8 @@ Returns the dividends of an asset
                     }
                 }
             ],
-            "next_cursor": 2035947
+            "next_cursor": 2035947,
+            "result_count": 13
         }
     ```
 
@@ -4658,6 +4883,8 @@ Returns the issuances of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of issuances to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4751,7 +4978,8 @@ Returns the issuances of an asset
                     "reset": false
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 4
         }
     ```
 
@@ -4765,6 +4993,8 @@ Returns the sends of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of debits to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4773,6 +5003,25 @@ Returns the sends of an asset
     ```
         {
             "result": [
+                {
+                    "tx_index": 2733904,
+                    "tx_hash": "8251ed1b4298962eb46d108283051ae566e82df0a4566a09a4ca978918c9595f",
+                    "block_index": 844441,
+                    "source": "1BH9sBVQ645gx2D3pfkc95SSvvEXpFhw2N",
+                    "destination": "1Ea7GFTA8cBNcpKNQsVnXgXB4RUFmkCWvM",
+                    "asset": "XCP",
+                    "quantity": 2700000000,
+                    "status": "valid",
+                    "msg_index": 2,
+                    "memo": "",
+                    "asset_info": {
+                        "divisible": true,
+                        "asset_longname": "Counterparty",
+                        "description": "The Counterparty protocol native currency",
+                        "locked": true
+                    },
+                    "quantity_normalized": "27"
+                },
                 {
                     "tx_index": 2733710,
                     "tx_hash": "62446c16d35c2dd3fba22b4bd50cc60aa07d2295f1df4a5037385774dc96f870",
@@ -4848,28 +5097,10 @@ Returns the sends of an asset
                         "locked": true
                     },
                     "quantity_normalized": "2000"
-                },
-                {
-                    "tx_index": 2732925,
-                    "tx_hash": "a571dccd1c793164535ceddd4fa05f04c524427f4206a383aeefd48e0146fc66",
-                    "block_index": 844086,
-                    "source": "bc1qsp62vudnem54gsg0sz48dkdrxg4lvc7a7sgl7z",
-                    "destination": "1L7aoyA1ZJ75ZW6bLfzpxySfxA1hWZdxEK",
-                    "asset": "XCP",
-                    "quantity": 52849645,
-                    "status": "valid",
-                    "msg_index": 0,
-                    "memo": null,
-                    "asset_info": {
-                        "divisible": true,
-                        "asset_longname": "Counterparty",
-                        "description": "The Counterparty protocol native currency",
-                        "locked": true
-                    },
-                    "quantity_normalized": "0.52849645"
                 }
             ],
-            "next_cursor": 1626666
+            "next_cursor": 1626722,
+            "result_count": 133493
         }
     ```
 
@@ -4885,6 +5116,8 @@ Returns the dispensers of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispensers to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -4920,7 +5153,8 @@ Returns the dispensers of an asset
                     "escrow_quantity_normalized": "25"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -4977,6 +5211,8 @@ Returns the holders of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of holders to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5071,7 +5307,8 @@ Returns the holders of an asset
                     "quantity_normalized": "2"
                 }
             ],
-            "next_cursor": "balances_5896137"
+            "next_cursor": "balances_5896137",
+            "result_count": 10
         }
     ```
 
@@ -5085,6 +5322,8 @@ Returns the dispenses of an asset
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispenses to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5093,7 +5332,8 @@ Returns the dispenses of an asset
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 0
         }
     ```
 
@@ -5163,6 +5403,8 @@ Returns the order matches of an order
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of order matches to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5193,7 +5435,8 @@ Returns the order matches of an order
                     "status": "completed"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -5207,6 +5450,8 @@ Returns the BTC pays of an order
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of resolutions to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5226,7 +5471,8 @@ Returns the BTC pays of an order
                     "status": "valid"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -5243,6 +5489,8 @@ Returns the orders to exchange two assets
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of orders to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5408,7 +5656,8 @@ Returns the orders to exchange two assets
                     "market_price": "700"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 4
         }
     ```
 
@@ -5461,6 +5710,8 @@ Returns the bet matches of a bet
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of bet matches to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5496,7 +5747,8 @@ Returns the bet matches of a bet
                     "status": "expired"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -5510,6 +5762,8 @@ Returns the resolutions of a bet
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of resolutions to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5530,7 +5784,8 @@ Returns the resolutions of a bet
                     "fee": 0
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 1
         }
     ```
 
@@ -5547,6 +5802,8 @@ Returns the burns
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of burns to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5601,7 +5858,8 @@ Returns the burns
                     "status": "valid"
                 }
             ],
-            "next_cursor": 3065
+            "next_cursor": 3065,
+            "result_count": 2576
         }
     ```
 
@@ -5659,6 +5917,8 @@ Returns the dispenses of a dispenser
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of dispenses to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5738,7 +5998,8 @@ Returns the dispenses of a dispenser
                     }
                 }
             ],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 2
         }
     ```
 
@@ -5753,6 +6014,8 @@ Returns all events
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5861,7 +6124,8 @@ Returns all events
                     "timestamp": 1715466250
                 }
             ],
-            "next_cursor": 10665087
+            "next_cursor": 10665087,
+            "result_count": 17538433
         }
     ```
 
@@ -5902,6 +6166,8 @@ Returns the event counts of all blocks
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -5912,11 +6178,11 @@ Returns the event counts of all blocks
             "result": [
                 {
                     "event": "TRANSACTION_PARSED",
-                    "event_count": 2731066
+                    "event_count": 2731197
                 },
                 {
                     "event": "SWEEP",
-                    "event_count": 1038
+                    "event_count": 1039
                 },
                 {
                     "event": "SEND",
@@ -5931,7 +6197,8 @@ Returns the event counts of all blocks
                     "event_count": 129
                 }
             ],
-            "next_cursor": "RPS_MATCH_UPDATE"
+            "next_cursor": "RPS_MATCH_UPDATE",
+            "result_count": 47
         }
     ```
 
@@ -5945,6 +6212,8 @@ Returns the events filtered by event name
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -6072,7 +6341,8 @@ Returns the events filtered by event name
                     "timestamp": 1715466250
                 }
             ],
-            "next_cursor": 10665068
+            "next_cursor": 10665068,
+            "result_count": 3670341
         }
     ```
 
@@ -6421,6 +6691,8 @@ Returns all mempool events
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -6430,47 +6702,48 @@ Returns all mempool events
         {
             "result": [
                 {
-                    "tx_hash": "641f064642ea0b840bfcbc5bcfacdbd4023824651732c2a7e24ab0ac6aa071c6",
+                    "tx_hash": "e7def9afeae49aa267a36faa5d2f200843c8b47a7164f8c3a149b97ae9501481",
                     "command": "parse",
                     "category": "transactions",
-                    "bindings": "{\"supported\":true,\"tx_hash\":\"641f064642ea0b840bfcbc5bcfacdbd4023824651732c2a7e24ab0ac6aa071c6\",\"tx_index\":2733887}",
-                    "timestamp": 1716294799,
+                    "bindings": "{\"supported\":true,\"tx_hash\":\"e7def9afeae49aa267a36faa5d2f200843c8b47a7164f8c3a149b97ae9501481\",\"tx_index\":2734017}",
+                    "timestamp": 1716375534,
                     "event": "TRANSACTION_PARSED"
                 },
                 {
-                    "tx_hash": "641f064642ea0b840bfcbc5bcfacdbd4023824651732c2a7e24ab0ac6aa071c6",
+                    "tx_hash": "e7def9afeae49aa267a36faa5d2f200843c8b47a7164f8c3a149b97ae9501481",
                     "command": "insert",
-                    "category": "dispenses",
-                    "bindings": "{\"asset\":\"XCP\",\"block_index\":9999999,\"destination\":\"1NZgkbjdGcag8JR8aZhASMYBgnN9mGnNpr\",\"dispense_index\":0,\"dispense_quantity\":1000000000,\"dispenser_tx_hash\":\"a5aa565f23c3f0ecc09f7148f75ddfdef36e510c9b1f4ff09abb21590dec17b1\",\"source\":\"bc1q7787j6msqczs58asdtetchl3zwe8ruj57p9r9y\",\"tx_hash\":\"641f064642ea0b840bfcbc5bcfacdbd4023824651732c2a7e24ab0ac6aa071c6\",\"tx_index\":2733887}",
-                    "timestamp": 1716294799,
-                    "event": "DISPENSE"
+                    "category": "issuances",
+                    "bindings": "{\"asset\":\"LORDOFGOATS\",\"asset_longname\":null,\"block_index\":9999999,\"call_date\":0,\"call_price\":0.0,\"callable\":false,\"description\":\"https://5zsrhrr77j5ud2j4darc7gdg34vfu3khlpjx47hwbxslaamrw4wq.arweave.net/7mUTxj_6e0HpPBgiL5hm3ypabUdb03589g3ksAGRty0/LORDO.json\",\"divisible\":false,\"fee_paid\":0,\"issuer\":\"18UXAw9MkAMKh9sRSCwNxfXNysvQvhwVg7\",\"locked\":false,\"quantity\":0,\"reset\":false,\"source\":\"18UXAw9MkAMKh9sRSCwNxfXNysvQvhwVg7\",\"status\":\"valid\",\"transfer\":false,\"tx_hash\":\"e7def9afeae49aa267a36faa5d2f200843c8b47a7164f8c3a149b97ae9501481\",\"tx_index\":2734017}",
+                    "timestamp": 1716375534,
+                    "event": "ASSET_ISSUANCE"
                 },
                 {
-                    "tx_hash": "641f064642ea0b840bfcbc5bcfacdbd4023824651732c2a7e24ab0ac6aa071c6",
+                    "tx_hash": "e7def9afeae49aa267a36faa5d2f200843c8b47a7164f8c3a149b97ae9501481",
+                    "command": "insert",
+                    "category": "debits",
+                    "bindings": "{\"action\":\"issuance fee\",\"address\":\"18UXAw9MkAMKh9sRSCwNxfXNysvQvhwVg7\",\"asset\":\"XCP\",\"block_index\":844576,\"event\":\"e7def9afeae49aa267a36faa5d2f200843c8b47a7164f8c3a149b97ae9501481\",\"quantity\":0,\"tx_index\":2734017}",
+                    "timestamp": 1716375534,
+                    "event": "DEBIT"
+                },
+                {
+                    "tx_hash": "27490345d8903ea10ed3f192827a7368ba7343b0a8c87c75d914bb77e48d981c",
+                    "command": "parse",
+                    "category": "transactions",
+                    "bindings": "{\"supported\":true,\"tx_hash\":\"27490345d8903ea10ed3f192827a7368ba7343b0a8c87c75d914bb77e48d981c\",\"tx_index\":2734020}",
+                    "timestamp": 1716375105,
+                    "event": "TRANSACTION_PARSED"
+                },
+                {
+                    "tx_hash": "27490345d8903ea10ed3f192827a7368ba7343b0a8c87c75d914bb77e48d981c",
                     "command": "update",
                     "category": "dispensers",
-                    "bindings": "{\"asset\":\"XCP\",\"dispense_count\":1,\"give_remaining\":20500000000,\"source\":\"bc1q7787j6msqczs58asdtetchl3zwe8ruj57p9r9y\",\"status\":0}",
-                    "timestamp": 1716294799,
+                    "bindings": "{\"asset\":\"XCP\",\"last_status_tx_hash\":\"27490345d8903ea10ed3f192827a7368ba7343b0a8c87c75d914bb77e48d981c\",\"source\":\"1GVShnTm4vRDgd45S3FcN3zPwFd17nfKB7\",\"status\":11}",
+                    "timestamp": 1716375105,
                     "event": "DISPENSER_UPDATE"
-                },
-                {
-                    "tx_hash": "641f064642ea0b840bfcbc5bcfacdbd4023824651732c2a7e24ab0ac6aa071c6",
-                    "command": "insert",
-                    "category": "credits",
-                    "bindings": "{\"address\":\"1NZgkbjdGcag8JR8aZhASMYBgnN9mGnNpr\",\"asset\":\"XCP\",\"block_index\":844433,\"calling_function\":\"dispense\",\"event\":\"641f064642ea0b840bfcbc5bcfacdbd4023824651732c2a7e24ab0ac6aa071c6\",\"quantity\":1000000000,\"tx_index\":2733887}",
-                    "timestamp": 1716294799,
-                    "event": "CREDIT"
-                },
-                {
-                    "tx_hash": "d3c5471e6223066e0ae6b5d0a746affd29fc781b440eebd2b46e354d309fa185",
-                    "command": "parse",
-                    "category": "transactions",
-                    "bindings": "{\"supported\":true,\"tx_hash\":\"d3c5471e6223066e0ae6b5d0a746affd29fc781b440eebd2b46e354d309fa185\",\"tx_index\":2733887}",
-                    "timestamp": 1716294799,
-                    "event": "TRANSACTION_PARSED"
                 }
             ],
-            "next_cursor": 1304
+            "next_cursor": 2157,
+            "result_count": 1078
         }
     ```
 
@@ -6484,6 +6757,8 @@ Returns the mempool events filtered by event name
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -6493,23 +6768,48 @@ Returns the mempool events filtered by event name
         {
             "result": [
                 {
-                    "tx_hash": "f7064c1d785d5df513a2bcd7cd0a801c00256439f2fdb5f49621553edad48539",
+                    "tx_hash": "31aa13c6321b36d9db21e19cd7a015047bd0a954bee4fd11f91b009ae77ac492",
                     "command": "insert",
                     "category": "orders",
-                    "bindings": "{\"block_index\":9999999,\"expiration\":5000,\"expire_index\":10004999,\"fee_provided\":2500,\"fee_provided_remaining\":2500,\"fee_required\":0,\"fee_required_remaining\":0,\"get_asset\":\"XCP\",\"get_quantity\":19900000000,\"get_remaining\":19900000000,\"give_asset\":\"PEPENOFF\",\"give_quantity\":1,\"give_remaining\":1,\"source\":\"1ye1EaLcArtidUSqATkkgzCS4Fj2D4Gpe\",\"status\":\"open\",\"tx_hash\":\"f7064c1d785d5df513a2bcd7cd0a801c00256439f2fdb5f49621553edad48539\",\"tx_index\":2730236}",
-                    "timestamp": 1715548505,
+                    "bindings": "{\"block_index\":9999999,\"expiration\":8064,\"expire_index\":10008063,\"fee_provided\":1000,\"fee_provided_remaining\":1000,\"fee_required\":0,\"fee_required_remaining\":0,\"get_asset\":\"XCP\",\"get_quantity\":12500000000,\"get_remaining\":12500000000,\"give_asset\":\"WORLDCREDIT\",\"give_quantity\":250,\"give_remaining\":250,\"source\":\"13JCL9DpDm5mT6g8rzbreJRg9FTvoSYBaU\",\"status\":\"open\",\"tx_hash\":\"31aa13c6321b36d9db21e19cd7a015047bd0a954bee4fd11f91b009ae77ac492\",\"tx_index\":2734018}",
+                    "timestamp": 1716374781,
                     "event": "OPEN_ORDER"
                 },
                 {
-                    "tx_hash": "92af17b285fc727290668a9af074437361f2383b1ba271149fcc73ea6aa1834d",
+                    "tx_hash": "0a0f2f6f9a2d62406035d68b1878348a65c835e10d152bf39ff15f7b707da1cb",
                     "command": "insert",
                     "category": "orders",
-                    "bindings": "{\"block_index\":9999999,\"expiration\":8064,\"expire_index\":10008063,\"fee_provided\":5120,\"fee_provided_remaining\":5120,\"fee_required\":0,\"fee_required_remaining\":0,\"get_asset\":\"PEPECASH\",\"get_quantity\":4000000000000,\"get_remaining\":4000000000000,\"give_asset\":\"SHAKAPEPE\",\"give_quantity\":8,\"give_remaining\":8,\"source\":\"1A9NWBCEjKfNsyEi2Tp7qjL2qB6HJeXAU1\",\"status\":\"open\",\"tx_hash\":\"92af17b285fc727290668a9af074437361f2383b1ba271149fcc73ea6aa1834d\",\"tx_index\":2729812}",
-                    "timestamp": 1715346848,
+                    "bindings": "{\"block_index\":9999999,\"expiration\":8064,\"expire_index\":10008063,\"fee_provided\":1000,\"fee_provided_remaining\":1000,\"fee_required\":0,\"fee_required_remaining\":0,\"get_asset\":\"XCP\",\"get_quantity\":2098000000000,\"get_remaining\":2098000000000,\"give_asset\":\"CRONOS\",\"give_quantity\":20980,\"give_remaining\":20980,\"source\":\"1N2JRS8ZgCqE3h3KvKEdtYj3UqkRmDMZ8u\",\"status\":\"open\",\"tx_hash\":\"0a0f2f6f9a2d62406035d68b1878348a65c835e10d152bf39ff15f7b707da1cb\",\"tx_index\":2734017}",
+                    "timestamp": 1716374781,
+                    "event": "OPEN_ORDER"
+                },
+                {
+                    "tx_hash": "93c69115b8b21395ff1905bb881167f22eba737969617a6ebc04213345e615ff",
+                    "command": "insert",
+                    "category": "orders",
+                    "bindings": "{\"block_index\":9999999,\"expiration\":8064,\"expire_index\":10008063,\"fee_provided\":1000,\"fee_provided_remaining\":1000,\"fee_required\":0,\"fee_required_remaining\":0,\"get_asset\":\"XCP\",\"get_quantity\":100000000000,\"get_remaining\":100000000000,\"give_asset\":\"WORLDCREDIT\",\"give_quantity\":2000,\"give_remaining\":2000,\"source\":\"13JCL9DpDm5mT6g8rzbreJRg9FTvoSYBaU\",\"status\":\"open\",\"tx_hash\":\"93c69115b8b21395ff1905bb881167f22eba737969617a6ebc04213345e615ff\",\"tx_index\":2734016}",
+                    "timestamp": 1716373421,
+                    "event": "OPEN_ORDER"
+                },
+                {
+                    "tx_hash": "326071760ad322ff9f059d440c08528f3c46cd260f454175eca6fca1df7a7169",
+                    "command": "insert",
+                    "category": "orders",
+                    "bindings": "{\"block_index\":9999999,\"expiration\":8064,\"expire_index\":10008063,\"fee_provided\":1134,\"fee_provided_remaining\":1134,\"fee_required\":0,\"fee_required_remaining\":0,\"get_asset\":\"XCP\",\"get_quantity\":4900000000,\"get_remaining\":4900000000,\"give_asset\":\"PEPEFREQ\",\"give_quantity\":1,\"give_remaining\":1,\"source\":\"1D1RiWbmikELv1P2hfWKguWuQMZ1Siws5g\",\"status\":\"open\",\"tx_hash\":\"326071760ad322ff9f059d440c08528f3c46cd260f454175eca6fca1df7a7169\",\"tx_index\":2734011}",
+                    "timestamp": 1716373215,
+                    "event": "OPEN_ORDER"
+                },
+                {
+                    "tx_hash": "f117adc0a79d92174f14d0a7f70b6dedf1059a44460851961c8ad3a014bdfeb3",
+                    "command": "insert",
+                    "category": "orders",
+                    "bindings": "{\"block_index\":9999999,\"expiration\":8064,\"expire_index\":10008063,\"fee_provided\":1139,\"fee_provided_remaining\":1139,\"fee_required\":0,\"fee_required_remaining\":0,\"get_asset\":\"XCP\",\"get_quantity\":6300000000,\"get_remaining\":6300000000,\"give_asset\":\"PEPEANON\",\"give_quantity\":3,\"give_remaining\":3,\"source\":\"1D1RiWbmikELv1P2hfWKguWuQMZ1Siws5g\",\"status\":\"open\",\"tx_hash\":\"f117adc0a79d92174f14d0a7f70b6dedf1059a44460851961c8ad3a014bdfeb3\",\"tx_index\":2734010}",
+                    "timestamp": 1716373215,
                     "event": "OPEN_ORDER"
                 }
             ],
-            "next_cursor": null
+            "next_cursor": 1388,
+            "result_count": 9
         }
     ```
 
@@ -6523,6 +6823,8 @@ Returns the mempool events filtered by transaction hash
         + Default: `None`
     + limit: `5` (int, optional) - The maximum number of events to return
         + Default: `100`
+    + offset (int, optional) - The number of lines to skip before returning results (overrides the `cursor` parameter)
+        + Default: `None`
     + verbose: `true` (bool, optional) - Include asset and dispenser info and normalized quantities in the response.
         + Default: `false`
 
@@ -6531,7 +6833,8 @@ Returns the mempool events filtered by transaction hash
     ```
         {
             "result": [],
-            "next_cursor": null
+            "next_cursor": null,
+            "result_count": 0
         }
     ```
 
