@@ -29,11 +29,12 @@ txindex=1
 prune=0
 mempoolfullrbf=1
 rpcworkqueue=100
+[main]
 zmqpubrawtx=tcp://0.0.0.0:9332
 zmqpubhashtx=tcp://0.0.0.0:9332
 zmqpubsequence=tcp://0.0.0.0:9332
 zmqpubrawblock=tcp://0.0.0.0:9333
-[testnet]
+[test]
 zmqpubrawtx=tcp://0.0.0.0:19332
 zmqpubhashtx=tcp://0.0.0.0:19332
 zmqpubsequence=tcp://0.0.0.0:19332
