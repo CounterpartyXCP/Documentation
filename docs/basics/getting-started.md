@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-The simplest way to get your Counterparty node up and running is to use **Docker Compose**, which may be installed as described here <https://docs.docker.com/compose/install/>.
+The simplest way to get your Counterparty node up and running is to use **Docker Compose**, which may be installed as described [here](https://docs.docker.com/compose/install/).
 
 *Note: It is required that you use Docker Compose V2, and it is suggested that you install the plugin as opposed to the standalone `docker-compose` executable*.
 
