@@ -55,7 +55,6 @@ module.exports = {
       type: 'category',
       label: 'How-To',
       items: [
-        'advanced/how-to/docker-kickstart',
         'advanced/how-to/sentry-integration',
       ],
     },
