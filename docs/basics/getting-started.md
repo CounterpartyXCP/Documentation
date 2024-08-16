@@ -15,7 +15,7 @@ git clone git@github.com:CounterpartyXCP/counterparty-core.git
 cd counterparty-core
 ```
 
-Next, create the directory that will be used to store counterparty data.
+Next, create the directory that will be used to store Counterparty data.
 **To run a node you must have at least 1.5TB free.**
 <!-- By default, the program will use: `~/.local/share/counterparty-docker-data`.
 You can modify the parent directory (`~/.local/share`) by setting **`$COUNTERPARTY_DOCKER_DATA`**.
@@ -25,7 +25,7 @@ You will need to manually create the data directory even when using the default:
 mkdir ~/.local/share/counterparty-docker-data
 ```
 
-Now we can startup the program.
+Now we can start the program.
 
 ```bash
 docker compose --profile mainnet up -d
