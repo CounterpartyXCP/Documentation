@@ -6,7 +6,7 @@ You must have the following three applications installed and available in the $P
 
 * Bitcoin Core
 * Addrindexrs
-* Counteparty Server
+* Counteparty Core
 
 You can follow the instructions here [https://docs.counterparty.io/docs/basics/manual-installation/](https://docs.counterparty.io/docs/basics/manual-installation/) to install them.
 
@@ -25,7 +25,7 @@ This script does the following:
 
 * Starts Bitcoin Core and Addrindexrs
 * Generates 10 addresses containing BTC
-* Starts Counterparty Server
+* Starts `counterparty-server`
 * Uses the generated addresses to burn BTC and obtain XCP.
 
 Once finished you have a node ready to use. You can check with:
