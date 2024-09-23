@@ -10,6 +10,11 @@ You must have the following three applications installed and available in the $P
 
 You can follow the instructions here [https://docs.counterparty.io/docs/basics/manual-installation/](https://docs.counterparty.io/docs/basics/manual-installation/) to install them.
 
+You also need to install the following Python packages using pip:
+
+```
+$ pip3 install rich sh
+```
 
 # Start the regtest node
 
@@ -18,7 +23,7 @@ You can follow the instructions here [https://docs.counterparty.io/docs/basics/m
 Use the `regtestnode.py` script:
 
 ```
-$ python3 counterpartcore/test/regtest/regtestnode.py
+$ python3 counterpartycore/test/regtest/regtestnode.py
 ```
 
 This script does the following:
@@ -31,7 +36,7 @@ This script does the following:
 Once finished you have a node ready to use. You can check with:
 
 ```
-$ curl [http://localhost:24000/v2/](http://localhost:24000/v2/)
+$ curl http://localhost:24000/v2/
 $ bitcoin-cli -regtest -rpcuser rpc -rpcpassword rpc -getinfo
 ```
 
@@ -41,7 +46,7 @@ $ bitcoin-cli -regtest -rpcuser rpc -rpcpassword rpc -getinfo
 If you need a server containing sample data you can use:
 
 ```
-$ python3 counterpartcore/test/regtest/testscenarios.py serve
+$ python3 counterpartycore/test/regtest/testscenarios.py serve
 ```
 
 This script performs the same operations as `regtestnode.py` but also executes all scenario transactions found in `counterpartcore/test/regtest/scenarios`.
