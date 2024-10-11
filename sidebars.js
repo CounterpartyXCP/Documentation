@@ -59,6 +59,7 @@
           'advanced/how-to/sentry-integration',
           'advanced/how-to/atomic-swap',
           'advanced/how-to/regtest-node',
+          'advanced/how-to/gunicorn-server',
         ],
       },
       {
