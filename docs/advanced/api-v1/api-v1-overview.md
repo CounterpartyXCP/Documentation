@@ -2,7 +2,7 @@
 title: API v1 Overview
 ---
 
-**NOTE: This API is now EOL will soon be removed entirely. All node hosts are strongly encouraged to update to API v2 ASAP.**
+**NOTE: This API is now EOL and will soon be removed entirely. All node hosts are strongly encouraged to update to API v2 ASAP.**
 
 Counterparty Core provides a JSON RPC 2.0-based API based off of
 that of Bitcoin Core. It is the primary means by which other applications
