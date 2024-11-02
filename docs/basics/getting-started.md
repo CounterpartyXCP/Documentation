@@ -46,7 +46,7 @@ docker compose --profile testnet up -d
 ```
 
 NOTES:
-- By default, this Docker Compose script makes use of the `bootstrap` functionality, because Docker makes it hard to use `kickstart`. (See below.)
+- By default, this Docker Compose script makes use of the `bootstrap` functionality.
 - When working with a low-memory system, you can tell AddrIndexRs to use JSON-RPC to communicate with Bitcoin Core using the environment variable `ADDRINDEXRS_JSONRPC_IMPORT`: `ADDRINDEXRS_JSONRPC_IMPORT=true docker compose up -d`
 
 ## Upgrade Counterparty Core
