@@ -1,6 +1,8 @@
   module.exports = {
     basics: [
       'basics/what-is-counterparty',
+      'basics/what-is-xcp',
+      'basics/faq',
       {
         type: 'category',
         label: 'Running a Counterparty Node',
@@ -10,7 +12,6 @@
           'basics/usage',
         ],
       },
-      'basics/what-is-xcp',
       {
         type: 'category',
         label: 'Assets (Tokens/NFTs)',
