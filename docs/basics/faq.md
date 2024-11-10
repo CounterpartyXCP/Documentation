@@ -49,7 +49,7 @@ The list of Counterparty wallets currently available may be found here on the [o
 Protocol upgrades are a normal part of the evolution of the Counterparty protocol, and there have been [dozens](https://github.com/CounterpartyXCP/counterparty-core/blob/master/counterparty-core/counterpartycore/protocol_changes.json) throughout its history. The developer of Freewallet and Tokenscan has published versions of those applications which run on top of an old version of Counterparty (v9.61.3—the last version that he contributed to), rather than the latest version of Counterparty (currently [v10.6.1](https://github.com/CounterpartyXCP/counterparty-core/releases/tag/v10.6.1)). Every other node host has upgraded to the latest release of Counterparty and offers no support for out-of-date versions. A list of services that have upgraded is as follows:
 
 - Dex-Trade 
-- Zaif Wallets
+- Zaif
 - Horizon Wallet 
 - RarepepeWallet 
 - Pepe.wtf 
