@@ -2,130 +2,156 @@
 
 # Motivation
 
-**Fair Minting** is a process whereby users are able to “mint” tokens in a decentralized manner. One user initiates the mint (either with or without a “premint”), and then other users are able to trigger it to create tokens for themselves. Fair Minting was likely inspired by the original Counterparty **Proof-of-Burn** mechanism, by which users sent BTC to an unspendable address and XCP tokens were generate for them automatically.
+**Fair Minting** is a process whereby users are able to “mint” tokens in a decentralized manner. One user initiates a minter (either with or without a “premint”), and others are able to trigger it to mint tokens for themselves. Fair Minting was likely inspired by the original Counterparty **Proof-of-Burn** mechanism, by which users sent BTC to an unspendable address and XCP tokens were generated for them.
 
-More recently, **BRC-20** introduced a variant of the Fair Mint model that has been adopted by many fungible token protocols recently, including SRC-20 on Bitcoin Stamps. In this system, users are able to mint "for free" by paying only a miner fee: the term “fair mint” refers to the fact that the creator of the minting system is not enriched in the process, and that the minting process is decentralized 
+More recently, **BRC-20** introduced a variant of the Fair Minting model that has recently been adopted by many fungible token protocols including SRC-20 on Bitcoin Stamps. In this system, users are able to mint "for free" paying only a miner fee: the term “fair mint” refers to the fact that the creator of the minting system is not enriched in the process and that the minting process is decentralized
 
-In 2023, Joe Looney introduced the [**”XCP-20”** Fair Mint model](https://xcp20.wtf/) by setting up a **dispenser on a burn address; its name is**  a tongue-in-cheek reference to BRC-20. Buyers, largely unaware that Counterparty existed—and this was not new in any way—sent massive amounts of Bitcoin to the burn address and received tokens in return. In this way, tokens got distributed, but the deployer was not directly enriched.
+In 2023, Joe Looney introduced the [**”XCP-20”** Fair Mint model](https://xcp20.wtf/) by setting up a **dispenser on a burn address**; its name is a tongue-in-cheek reference to BRC-20. Buyers, largely unaware that Counterparty existed—and this was not new in any way—sent massive amounts of Bitcoin to the burn address and received tokens in return. In this way, tokens got distributed, but the deployer was not directly enriched.
+
 
 # Design
 
-It’s desirable to create a native mechanism for Fair Minting so that a burn address isn’t used. In the process, it is also natural to allow for multiple modes of operation that extend the Fair Mint model:
+The primary goal is to create a native mechanism for Fair Minting so that a burn address isn’t used. Additionally native support allows for multiple extensions of the core Fair Minting system.
 
 1. Miner Fees Only, with a Max Mint per Transaction
 2. XCP Fee with a Price per Unit Token (Distributed to Issuer)
 3. XCP Fee with a Price per Unit (Burned)
+4. A “soft cap” mechanism, establishing a minimum amount of the token to be issued, optionally by a particular block height. (Before `soft_cap_deadline_block` payment will be escrowed trustlessly.)
+5. A commission in the new token sent to the creator of the mint for each mint operation (proportional to the quantity minted)
+6. A “Start Block” and “End Block”
 
-Additional functionality may be added as well:
 
-- A “soft cap” mechanism, establishing a minimum amount of the token to be issued, optionally by a particular block height. (Before `soft_cap_deadline_block` payment will be escrowed trustlessly.)
-- A commission in the new token sent to the creator of the mint for each mint operation (proportional to the quantity minted)
-- A “Start Block” and “End Block”
+The Fair Minting system allows users to issue assets through a fair and controlled minting process. It involves two primary entities: Fairminters and Fairmints.
 
-Implementation Notes:
+- **Fairminter**: Represents the rules and constraints under which an asset can be minted.
+- **Fairmint**: Represents an individual minting event tied to a specific fairminter.
 
-- Fair Mints will be possible by issuers of extant assets as long as those assets do not have locked quantities.
+- Fair Minters can be added to existing assets as long as those assets do not have locked quantities.
 - The `premint` quantity will be credited to the issuer at the `start_block`.
 - If an asset can be reset it can also be Fair Minted, but fair minting itself would not first effect an asset reset.
 - Outside the fair minting period the `hard_cap` has no effect. To lock the quantity you have to use the parameter `lock_quantity=true` or use an issuance after the minting period.
 - For the duration of the mint period, the state of description lock and quantity lock cannot be changed.
+- In the Fair Minting system, creating a fairminter additionally triggers the creation of an issuance for the referenced asset. If the asset does not exist then it will be created.
 
-# Implementation
+- `minted_asset_commision` must be between `0` and `1`
+- `price` and `max_mint_per_tx` *cannot both* be `0`
+- `end_block` must be greater than `start_block`
+- `soft_cap` must be less than `hard_cap`
+- `soft_cap` and `soft_cap_deadline_block` must be set together
+- `soft_cap_deadline_block` must be less than `end_block` and greater than `start_block`
+- If the asset exists
+    - It must *not* currently have an `open` fairminter
+    - It must *not* be locked
+    - The asset `issuer` must match the fairminter's `source`
+    - If the asset's description is locked then the fairminter's description must be `""` or match the existing description
+    - The existing supply plus `premint_quantity` must not exceed the `hard_cap`
+    - `divisible` must match the existing `divisible`
+- If the asset does not exist
+    - If `asset_parent` is a provided argument then the asset it references must exist
+    - If `asset` is not a numeric asset then the `source`s balance must be sufficient to pay a `0.5 XCP` fee
+    - `asset` and `asset_parent` must respect the named asset format
+- If `asset` does not exist one will be created
+- `premint_quantity` of asset will be credited to the `source` if there is no soft cap and the status is open otherwise it will be held in escrow
+- If there is a fee the `source` will be debited that amount
+- An `open` fairminter must exist for `asset`
+- If `Fairminter.price` is `0` `quantity` must be supplied as `0` or omitted. `Fairminter.max_mint_per_tx` is used instead
+- `quantity` must be greater than `0`
+- `quantity` cannot exceed `Fairminter.max_mint_per_tx` if set
+- The existing supply plus `quantity` cannot exceed `Farminter.hard_cap` if set
+- `Fairmint.source` must have a sufficient balance to cover the cost
+- If the soft cap has *not* been reached both the XCP and asset amounts will be escrowed
+- If the hard cap is hit
+    - quantity and description are locked
+    - soft cap is implicitly hit and payouts are made if they have not been already
+- If `Fairminter.burn_payment` is `True` then the XCP used to mint the asset will be destroyed; otherwise it will be sent to `Fairminter.source`
+- The `Fairmint.source` will be credited with `quantity` of the asset.
+- When the `end_block` is reached, the fairminter closes.
+- If `lock_quantity=True`, the issuances table records the final issuance event with locked=True.
 
-It would be possible, to use the `issuances.py` contract and add the fair minting implementation to it. However, this contract is already 1000 lines long and it is preferable not to add complexity to it. New contracts will therefore be implemented but, to ensure maximum compatibility with other assets, the `issuances` and `assets` tables will be used: the creation of a fair minting will result in the creation of a line in the `assets` and `issuances` tables and then each fair mining will result in the creation of a line in the `issuances` table.
 
-There will be two new contracts: `fairminter.py` and `fairmint.py`. These two contracts will respect the usual interface of all other contracts, that is to say the functions `initialise()`, `validate()`, `compose()`, `unpack()` and `parse()`. The first will allow the creation of a "mintable" asset and the second will allow users to "mint" this asset. After the minting period, a minted asset functions just like a locked issuance asset.
+# API
 
-## Function Signatures
+- Get All Fair Minters: `/v2/fairminters`
+- Get Fair Minter By Tx Hash: `/v2/fairminters/<tx_hash>`
+- Get Fair Minter By Asset: `/v2/assets/<asset>/fairminter`
+- Get Fair Minters By Address: `/v2/addresses/<address>/fairminters`
+- Get Mints By Fair Minter: `/v2/fairminters/<tx_hash>/mints`
+- Get Mints By Asset: `/v2/assets/<asset>/mints`
+- Get Mints By Address: `/v2/addresses/<address>/mints`
 
-`compose_fairminter`
+## Fairminter
 
-| Argument Name | Type | Defaut | Description |
-| --- | --- | --- | --- |
-| address | str |  | The address with which the transaction is signed and which is the issuer of the mined asset. This address receives the pre-minted assets, payments, and fees. |
-| asset | str |  | The name of the asset to be mined. If the asset doesn't exist, it is created. If it exists, it must belong to the issuer (`address`) and not be locked. In any case, the `issuances` are locked for the asset as long as the fair minter is open. |
-| asset_parent | str | “” | The name of the parent asset. The asset must exist and belong to the issuer (`address`). If `<asset_parent>.<asset>` doesn't exist, a new numeric asset with a random name is created. If `<asset_parent>.<asset>` exists, it must belong to the issuer (`address`) and not be locked. |
-| price | int | 0 | The price for the `quantity_by_price` units of the created asset in XCP-satoshis. |
-| quantity_by_price | int | 1 | The amount of assets received by the miner for the price specified with the `price` argument. |
-| max_mint_per_tx | int | 0 | If `price` is different from 0, `max_mint_per_tx` designates the maximum quantity a user can mine with one transaction. If `price` is equal to 0, it designates the quantity the user receives with each transaction. |
-| hard_cap | int | 0 | The maximum number of assets that must not be exceeded by the fair minter. Any assets created before the fair minter opens are taken into account when verifying the `hard_cap`. |
-| premint_quantity | int | 0 | The quantity of assets to be mined at the creation of the fair minter. The pre-mined assets are sent to the issuer (`address`). If a `start_block` and/or a `soft_cap` are defined, the pre-mined assets are escrowed until they are reached. |
-| start_block | int | 0 | The block from which users can mine assets. If equal to 0, the fair minter is available immediately after its creation. |
-| end_block | int | 0 | The block until which users can mine assets. If equal to 0, the fair minter is only closed if a `soft_cap` is defined and not reached, or if a `hard_cap` is defined and reached. |
-| soft_cap | int | 0 | The block until which users can mine assets. If equal to 0, the fair minter is only closed if a soft_cap is defined and not reached, or if a hard_cap is defined and reached. The soft_cap defines the minimum quantity of assets that must be mined, before soft_cap_deadline_block, for the fair minter not to be canceled and closed. Any assets created before the fair minter opens and premint_quantity are not taken into account when verifying the soft cap. As long as the soft cap is not reached, the mined assets, payments, and fees are escrowed. When the soft cap is reached, the assets are sent to the miners, the payments and fees to the issuer (address). If it is not reached, the payments are refunded, the assets destroyed, and the fair minter is closed. |
-| soft_cap_deadline_block | int | 0 | The block before which the `soft_cap` must be reached (see `soft_cap`). |
-| minted_asset_commission | float | 0 | Commission to be paid in minted asset, a fraction of 1 (i.e., 0.05 is five percent); the commission is deducted from the asset received by the minter and sent to the Fair Minter owner. If a soft cap is defined, the commissions are escrowed until it is reached. |
-| burn_payment | bool | False | This parameter allows for the destruction of XCP used to pay for the assets. If a soft cap is defined, the XCP are only destroyed if it is reached; otherwise, they are refunded. |
-| lock_description | bool | False | Allows locking the asset description. This operation can also be performed with an `issuance` once the fair minter is closed. |
-| lock_quantity | bool | False | Allows locking the asset. This operation can also be performed with an `issuance` once the fair minter is closed. |
-| divisible | bool | True | Indicates whether the asset is divisible or not. |
-| description | str | “” | The description of the asset. |
+A fairminter defines the rules under which an asset is minted. This table stores configuration details such as price, supply limits, soft/hard caps, and minting constraints.
 
-`compose_fairmint`
+`tx_hash`: *TEXT* - Hash of the transaction that created the fairminter.
 
-| Argument Name | Type | Defaut | Description |
-| --- | --- | --- | --- |
-| address | str |  | The address with which the transaction is signed and which receives the minted assets. |
-| asset | str |  | The name of the asset to be mined.  |
-| quantity | int | 0 | The quantity of assets to mine. If the asset price is greater than 0, `quantity` must also be greater than 0, otherwise the mined quantity will in all cases be equal to the fair minter's `mint_per_tx`. |
+`tx_index`: *INTEGER* - Index of the transaction.
 
-## API Changes
+`block_index`: *INTEGER* - Index of the block containing the transaction.
 
-- New Routes
-    - Get All Fair Minters: `/v2/fairminters`
-    - Get Fair Minter By Tx Hash: `/v2/fairminters/<tx_hash>`
-    - Get Fair Minter By Asset: `/v2/assets/<asset>/fairminter`
-    - Get Fair Minters By Address: `/v2/addresses/<address>/fairminters`
-    - Get Mints By Fair Minter: `/v2/fairminters/<tx_hash>/mints`
-    - Get Mints By Asset: `/v2/assets/<asset>/mints`
-    - Get Mints By Address: `/v2/addresses/<address>/mints`
+`source`: *TEXT* - Address of the fairminter creator.
 
-## Database Changes
+`asset`: *TEXT* - The asset to be minted.
 
-- A`fair_minting` field will be added to the `issuances` table. This is the field that will be checked to prevent token issuance other than through fair minting.
-- A new table `fairminters` will be created with the following fields:
-    
-    ```sql
-    tx_hash TEXT, -- Fair Minter identifier
-    tx_index INTEGER,
-    block_index INTEGER,
-    source TEXT,
-    asset TEXT,
-    asset_parent TEXT,
-    asset_longname TEXT,
-    description TEXT,
-    price INTEGER,
-    quantity_by_price INTEGER,
-    hard_cap INTEGER,
-    burn_payment BOOL,
-    max_mint_per_tx INTEGER,
-    premint_quantity INTEGER,
-    start_block INTEGER,
-    end_block INTEGER,
-    minted_asset_commission_int INTEGER,
-    soft_cap INTEGER,
-    soft_cap_deadline_block INTEGER,
-    lock_description BOOL,
-    lock_quantity BOOL,
-    divisible BOOL,
-    pre_minted BOOL DEFAULT 0,
-    status TEXT -- pending, open, closed, invalid: <reasons>
-    ```
-    
-- A new table `fairmints` will be created with the following fields:
-    
-    ```sql
-    tx_hash TEXT PRIMARY KEY, -- Mint identifier
-    tx_index INTEGER,
-    block_index INTEGER,
-    source TEXT,
-    fairminter_tx_hash TEXT,
-    asset TEXT,
-    earn_quantity INTEGER,
-    paid_quantity INTEGER,
-    commission INTEGER,
-    status TEXT -- valid, invalid: <reasons>
-    ```
-    
+`asset_parent`: *TEXT* - Parent asset of the asset.
 
-For each row in the `fairminters` and `fairmints` table a row will be added to the `issuances` table.
+`asset_longname`: *TEXT* - Full name of the asset (parent + asset name).
+
+`description`: *TEXT* - Description of the asset.
+
+`price`: *INTEGER* - Price per unit of the asset, in XCP Satoshis.
+
+`quantity_by_price`: *INTEGER* - Units of the asset minted per price unit.
+
+`hard_cap`: *INTEGER* - Maximum supply that can be minted (asset limit).
+
+`burn_payment`: *BOOL* - If True, payment is burned instead of credited to the issuer.
+
+`max_mint_per_tx`: *INTEGER* - Maximum amount of assets that can be minted per transaction.
+
+`premint_quantity`: *INTEGER* - Quantity pre-minted when the Fairminter opens.
+
+`start_block`: *INTEGER* - Block index when the minting becomes open.
+
+`end_block`: *INTEGER* - Block index when the minting ends.
+
+`minted_asset_commission_int`: *INTEGER* - Commission percentage (in millionths) to the issuer for each mint.
+
+`soft_cap`: *INTEGER* - Minimum quantity that needs to be minted for the Fairminter to succeed.
+
+`soft_cap_deadline_block`: *INTEGER* - Block index when the soft cap must be reached.
+
+`lock_description`: *BOOL* - If True, locks the description of the asset.
+
+`lock_quantity`: *BOOL* - If True, locks the quantity minted after the Fairminter closes.
+
+`divisible`: *BOOL* - If True, the asset can be divided into fractions.
+
+`pre_minted`: *BOOL* - Indicates if the premint quantity has already been issued.
+
+`status`: *TEXT* - Current status of the fairminter (pending, open, or closed).
+
+
+## Fairmint
+
+A fairmint records an individual minting event under a fairminter. This includes the amount minted, the payment made, and the commission, if any, awarded to the issuer.
+
+`tx_hash`: *TEXT* - Hash of the transaction that created the mint.
+
+`tx_index`: *INTEGER* - Transaction index.
+
+`block_index`: *INTEGER* - Index of the block containing the transaction.
+
+`source`: *TEXT* - Address of the user who performed the mint.
+
+`fairminter_tx_hash`: *TEXT* - Transaction hash of the associated fairminter.
+
+`asset`: *TEXT* - The asset being minted.
+
+`earn_quantity`: *INTEGER* - Quantity of the asset earned by the minter.
+
+`paid_quantity`: *INTEGER* - Amount of XCP paid by the minter.
+
+`commission`: *INTEGER* - Commission awarded to the issuer.
+
+`status`: *TEXT* - Status of the mint (valid or invalid).
