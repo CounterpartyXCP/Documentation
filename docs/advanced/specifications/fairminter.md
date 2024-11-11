@@ -235,6 +235,7 @@ Closely matches the properties of the `Farminter` schema. Refer to schema for de
 - If the asset does not exist
     - If `asset_parent` is a provided argument then the asset it references must exist
     - If `asset` is not a numeric asset then the `source`s balance must be sufficient to pay a `0.5 XCP` fee
+    - `asset` and `asset_parent` must respect the named asset format
 
 ### Effects
 
