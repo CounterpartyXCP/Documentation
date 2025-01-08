@@ -39,6 +39,16 @@ zmqpubrawtx=tcp://0.0.0.0:19332
 zmqpubhashtx=tcp://0.0.0.0:19332
 zmqpubsequence=tcp://0.0.0.0:19332
 zmqpubrawblock=tcp://0.0.0.0:19333
+[testnet4]
+zmqpubrawtx=tcp://0.0.0.0:49332
+zmqpubhashtx=tcp://0.0.0.0:49332
+zmqpubsequence=tcp://0.0.0.0:49332
+zmqpubrawblock=tcp://0.0.0.0:49333
+[regtest]
+zmqpubrawtx=tcp://0.0.0.0:29332
+zmqpubhashtx=tcp://0.0.0.0:29332
+zmqpubsequence=tcp://0.0.0.0:29332
+zmqpubrawblock=tcp://0.0.0.0:29333
 ```
 
 Adding the following lines, and opening up port `8333` to incoming traffic, may improve your sync speed:
