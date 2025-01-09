@@ -70,31 +70,6 @@ source "$HOME/.cargo/env"
 See https://www.rust-lang.org/tools/install for more information.
 
 
-### Install Addrindexrs
-
-Download and install the latest [AddrIndexRS](https://github.com/CounterpartyXCP/addrindexrs):
-
-```bash
-git clone https://github.com/CounterpartyXCP/addrindexrs.git
-cd addrindexrs
-cargo install --path=.
-```
-
-Start `addrindexrs` with:
-
-```bash
-addrindexrs --cookie=rpc:rpc -vvv
-```
-
-When working with a remote full node or low-memory system, you can tell `addrindexrs` to use JSON-RPC to communicate with `bitcoind` using the flag `--jsonrpc-import`.
-You can also limit the resources available for `addrindexrs` with:
-
-```bash
-ulimit -n 8192
-```
-
-Use `addrindexrs -h` for more options.
-
 ### Install Python >= 3.10 and Maturin
 
 On Ubuntu 22.04 and similar:
@@ -184,4 +159,36 @@ given the change of names of certain packages you must start by uninstalling the
 
 ```
 pip uninstall counterparty-lib counterparty-cli counterparty-core
+```
+
+
+## Install Electrs
+
+It is optionally possible to install Electrs. It allows to compose transactions, without the `inputs_set` parameter, for addresses not in the Bitcoin Core wallet.
+
+```bash
+git clone https://github.com/mempool/electrs
+cd electrs
+cargo install --path=.
+```
+
+Start `electrs` with:
+
+```bash
+electrs --cookie=rpc:rpc -vvv
+```
+
+When working with a remote full node or low-memory system, you can tell `electrs` to use JSON-RPC to communicate with `bitcoind` using the flag `--jsonrpc-import`.
+You can also limit the resources available for `electrs` with:
+
+```bash
+ulimit -n 8192
+```
+
+Use `electrs -h` for more options.
+
+To connect Electrs to the Counterparty Server use the flag `--electrs-url`:
+
+```bash
+counterparty-server start --electrs-url=http://localhost:3000
 ```
