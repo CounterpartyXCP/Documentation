@@ -35,10 +35,15 @@ module.exports = {
           position: 'left',
         },
         {
-	  href: 'https://krellenstein.com/adam/get/counterparty-whitepaper_2024-04-25.pdf',
+          href: 'https://krellenstein.com/adam/get/counterparty-whitepaper_2024-04-25.pdf',
           label: 'Whitepaper',
           position: 'right',
-	},
+        },
+        {
+          href: 'https://counterpartycore.docs.apiary.io/',
+          label: 'API Documentation',
+          position: 'right',
+        },
         {
           href: 'https://github.com/CounterpartyXCP/Documentation',
           label: 'GitHub',
