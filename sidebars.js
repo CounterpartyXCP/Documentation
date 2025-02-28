@@ -74,6 +74,7 @@
           'advanced/specifications/allow-subassets-on-numerics',
           'advanced/specifications/utxo-support',
           'advanced/specifications/gas-system',
+          'advanced/specifications/bitcoin-data-storage-report',
         ],
       },
       'advanced/bounties',
