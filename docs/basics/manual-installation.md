@@ -26,7 +26,6 @@ rpcpassword=rpc
 server=1
 addresstype=legacy
 txindex=1
-prune=0
 mempoolfullrbf=1
 rpcworkqueue=100
 [main]
