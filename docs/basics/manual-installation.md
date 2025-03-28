@@ -124,19 +124,12 @@ cd counterparty-core/counterparty-core
 pip3 install .
 ```
 
-Install the `counterparty-wallet` library:
-
-```bash
-cd counterparty-core/counterparty-wallet
-pip3 install .
-```
-
-On most platforms you need to update your $PATH variable so that `counterparty-server` and `counterparty-wallet` are accessible. For example:
+On most platforms you need to update your $PATH variable so that `counterparty-server` is accessible. For example:
 
 ```
 export PATH=$PATH:/home/username/.local/bin/
 ```
-Look at the `counterparty-core` and `counterparty-wallet` installation logs to find out the path of the binaries on your system.
+Look at the `counterparty-core` installation logs to find out the path of the binaries on your system.
 
 *Note for MacOS users*
 

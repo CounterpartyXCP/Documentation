@@ -27,7 +27,7 @@ The most basic kind of asset must specify:
 -   how much of `asset` is being issued (`quantity`)
 -   a description of asset (`description`)
 
-It is possible to issue more of `asset`, but, at any one time, there can only be one address which issues `asset`. With that said, the Counterparty protocol allows `source` to transfer issuance rights of `asset`. Moreover, an asset can also be locked, so that there can be no further issuances of it. (See the instructions on how to do this with `counterparty-wallet`). A description must always be included, even if `description` is just an empty string; the syntax of an asset *with no description* is `description=""`.
+It is possible to issue more of `asset`, but, at any one time, there can only be one address which issues `asset`. With that said, the Counterparty protocol allows `source` to transfer issuance rights of `asset`. Moreover, an asset can also be locked, so that there can be no further issuances of it. A description must always be included, even if `description` is just an empty string; the syntax of an asset *with no description* is `description=""`.
 Beyond creating the most basic asset, it is also possible to make assets either *divisible* or *callable*. If an asset is made divisible (or callable) upon its initial issuance, it must always be divisible (or callable) with every issuance thereafter. A divisible user-created asset is, like, Bitcoin and XCP, divisible up to 8 decimal places. A callable asset is an asset which the issuer can call back (i.e. repurchase) from its owners at a date (`call-date`) and for a price (`call-price`) specified at the initial issuance.
 
 ## Sending assets (`send`)
