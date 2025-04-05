@@ -51,3 +51,10 @@ counterparty-server start
 ```
 
 Note: During database initialization, `counterparty-server` performs a database integrity check. Depending on your configuration, this operation may take more or less time. You can disable this check with the `--skip-db-check` flag.
+
+Important: By default, `counterparty-server` uses cookie authentication to connect to Bitcoin Core. If the directory containing the Bitcoin Core data (`datadir` in the Bitcoin Core configuration file) is different from `~/.bitcoin/`, you must specify the path to the cookie with the `--backend-cookie-file` flag:
+
+
+```bash
+counterparty-server start --backend-cookie-file /data/.cookie
+```

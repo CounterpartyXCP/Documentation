@@ -21,8 +21,6 @@ Download the latest [Bitcoin Core](https://github.com/bitcoin/bitcoin/releases) 
 a `bitcoin.conf` file (by default located in `~.bitcoin/`) with the following options:
 
 ```
-rpcuser=rpc
-rpcpassword=rpc
 server=1
 addresstype=legacy
 txindex=1
@@ -167,7 +165,7 @@ cargo install --path=.
 Start `electrs` with:
 
 ```bash
-electrs --cookie=rpc:rpc -vvv
+electrs
 ```
 
 When working with a remote full node or low-memory system, you can tell `electrs` to use JSON-RPC to communicate with `bitcoind` using the flag `--jsonrpc-import`.
