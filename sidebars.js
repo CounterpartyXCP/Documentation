@@ -26,30 +26,21 @@
       'advanced/protocol',
       {
         type: 'category',
-        label: 'Command Line Interface (CLI)',
-        items: [
-          'advanced/command-line-interface/usage',
-          'advanced/command-line-interface/sending-bulk',
-          'advanced/command-line-interface/multisig'
-        ],
-      },
-      {
-        type: 'category',
         label: 'Node API',
         items: [
           'advanced/api-v2/node-api',
           'advanced/api-v2/v1-to-v2',
-    {
-          type: 'category',
-          collapsible: true,
-          collapsed: true,
-          label: 'API v1 (Deprecated)',
-          items: [
-      'advanced/api-v1/api-v1-overview',
-      'advanced/api-v1/api-v1-spec',
-      'advanced/api-v1/api-v1-changelog'
-          ],
-    },
+          {
+                type: 'category',
+                collapsible: true,
+                collapsed: true,
+                label: 'API v1 (Deprecated)',
+                items: [
+            'advanced/api-v1/api-v1-overview',
+            'advanced/api-v1/api-v1-spec',
+            'advanced/api-v1/api-v1-changelog'
+                ],
+          },
         ],
       },
       {
@@ -75,6 +66,7 @@
           'advanced/specifications/utxo-support',
           'advanced/specifications/gas-system',
           'advanced/specifications/bitcoin-data-storage-report',
+          'advanced/specifications/taproot-envelope',
         ],
       },
       'advanced/bounties',
