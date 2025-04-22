@@ -53,7 +53,7 @@ To sign the second transaction, you must follow these steps:
 ### Python
 
 ```python
-def signe_taproot_reveal_tx(source_private_key, envelope_script_hex, reveal_rawtransaction):
+def sign_taproot_reveal_tx(source_private_key, envelope_script_hex, reveal_rawtransaction):
     source_pubkey = source_private_key.get_public_key()
     commit_address = source_pubkey.get_taproot_address([[envelope_script]])
     tx_in = TxInput("F" * 64, 0)
