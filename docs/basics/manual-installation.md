@@ -24,7 +24,6 @@ a `bitcoin.conf` file (by default located in `~.bitcoin/`) with the following op
 server=1
 addresstype=legacy
 txindex=1
-mempoolfullrbf=1
 rpcworkqueue=100
 [main]
 zmqpubrawtx=tcp://0.0.0.0:9332
