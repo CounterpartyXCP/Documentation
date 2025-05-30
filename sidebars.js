@@ -67,6 +67,7 @@
           'advanced/specifications/gas-system',
           'advanced/specifications/bitcoin-data-storage-report',
           'advanced/specifications/taproot-envelope',
+          'advanced/specifications/transactions-format',
         ],
       },
       'advanced/bounties',
