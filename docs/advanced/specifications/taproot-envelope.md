@@ -32,7 +32,7 @@ For issuances and fairminter, the `description` parameter is used as the content
 
 These 3 transactions accept a new parameter `mime_type`. By default, this parameter is equal to `text/plain`. If the MIME type designates a binary file (for example, a PNG image), the content of `description` or `text` must be in hexadecimal format.
 
-It is possible to prevent the automatic use of the format compatible with Ordinals by using the parameter `inscription=false`.
+To use the format compatible with Ordinals, you need to pass the parameter `inscription=true`.
 
 ## Signature
 
