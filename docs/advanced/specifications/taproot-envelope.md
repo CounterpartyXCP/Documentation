@@ -1,12 +1,17 @@
 # Taproot Envelope
 
 The new `taproot` encoding allows embedding Counterparty data in transaction witnesses. It uses an envelope script similar to Ordinals.
+
 Main Advantages:
-- Ability to embed up to 400Kb of data
+
+- Ability to embed up to 400Kb of data,
 - Benefit from reduced transaction fees (witnesses being 4 times cheaper than the rest of the transaction)
+
 Main Disadvantages:
+
 - The need to broadcast two transactions: a Commit transaction and a Reveal transaction
-- The difficulty of signing the second Reveal transaction
+- The difficulty of signing the second Reveal transaction.
+
 The Counterparty API makes this entire process smooth and easy by directly returning a Reveal transaction signed with a random key.
 
 ## Composition
