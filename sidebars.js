@@ -68,6 +68,7 @@
           'advanced/specifications/bitcoin-data-storage-report',
           'advanced/specifications/taproot-envelope',
           'advanced/specifications/transactions-format',
+          'advanced/specifications/counterparty-data-encoding',
         ],
       },
       'advanced/bounties',
