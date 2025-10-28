@@ -114,6 +114,50 @@ Notes:
 - Where a field is `bytes` and represents human text, the composer uses the declared `mime_type` to pack/unpack. Your parser can treat it as raw bytes and, if desired, decode using `mime_type`.
 - `short_address_bytes` is a fixed 21‑byte packed address format used by Counterparty (pack/unpack is outside this spec).
 
+### Converting asset_id ↔ asset name
+
+**Rules (all protocol changes enabled)**:
+- `0 → BTC`, `1 → XCP`
+- If `asset_id ≥ 26^12 + 1`: numeric asset → `"A" + str(asset_id)`
+- Else if `asset_id ≥ 26^3`: alphabetic base-26 using digits A..Z (1-based, like Excel columns)
+- Names starting with `"A"` are numeric and map directly to their `asset_id`; other names map via base-26
+
+### Decoding short_address_bytes (variable length) to full address
+
+**Format (all protocol changes enabled)**:
+
+#### Generalized tags
+Use all remaining bytes after the prefix:
+
+- **`0x01` + hash** (typically 20 bytes) → P2PKH (Base58Check)
+- **`0x02` + hash** (typically 20 bytes) → P2SH (Base58Check)
+- **`0x03` + 1-byte witness version + witness program** → Bech32/Bech32m
+  - Version 0 + 20 bytes → P2WPKH (22 bytes total)
+  - Version 0 + 32 bytes → P2WSH (34 bytes total)
+  - Version 1 + 32 bytes → P2TR/Taproot (34 bytes total)
+
+#### Segwit marker (`0x80..0x8F`)
+First byte = `0x80 + witness_version`, followed by complete witness program:
+
+- `0x80` + 20 bytes → P2WPKH (21 bytes total)
+- `0x80` + 32 bytes → P2WSH (33 bytes total)
+- `0x81` + 32 bytes → P2TR (33 bytes total)
+
+#### Legacy Base58Check
+First byte = version byte, followed by hash:
+
+- P2PKH mainnet: `0x00` + 20 bytes (21 bytes total)
+- P2PKH testnet: `0x6f` + 20 bytes (21 bytes total)
+- P2SH mainnet: `0x05` + 20 bytes (21 bytes total)
+- P2SH testnet: `0xc4` + 20 bytes (21 bytes total)
+
+#### Decoder rule (safe universally)
+1. If first byte ∈ {`0x01`, `0x02`, `0x03`}: decode via generalized tags (accept variable length)
+2. Else if first byte ∈ `0x80..0x8F`: decode as segwit marker
+3. Otherwise: decode as Base58Check (legacy)
+
+**Key principle**: Use all remaining bytes after the prefix, regardless of length. This automatically supports current and future address formats.
+
 ### Parsing algorithm (TypeScript outline)
 ```ts
 function parseCounterparty(tx: BitcoinTx): ParsedMessage | null {
