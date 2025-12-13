@@ -151,9 +151,48 @@ pip uninstall counterparty-lib counterparty-cli counterparty-core
 ```
 
 
-## Install Electrs
+## Electrs Configuration
 
-It is optionally possible to install Electrs. It allows to compose transactions, without the `inputs_set` parameter, for addresses not in the Bitcoin Core wallet.
+### What is Electrs?
+
+Electrs (Electrum Server in Rust) provides an API for querying Bitcoin UTXO data. Counterparty uses this to compose transactions for addresses that are **not** in your Bitcoin Core wallet.
+
+When you create a transaction using the Counterparty API, the server needs to know which UTXOs are available to spend. If the source address is in your Bitcoin Core wallet, this information is readily available. However, if the address is not in your wallet (common when using external wallets or hardware wallets), Counterparty queries an Electrs-compatible API to fetch the UTXO data.
+
+### Default Public APIs
+
+By default, Counterparty connects to public APIs based on your network:
+
+| Network | Default Electrs URL |
+|---------|---------------------|
+| Mainnet | `https://blockstream.info/api` |
+| Testnet3 | `https://blockstream.info/testnet/api` |
+| Testnet4 | `https://mempool.space/testnet4/api` |
+| Signet | `https://mempool.space/signet/api` |
+
+These defaults work out of the box with no configuration required.
+
+### Alternative Public APIs
+
+You can use any Electrs-compatible API by setting the `--electrs-url` flag:
+
+```bash
+# Use Mempool.space for mainnet
+counterparty-server start --electrs-url=https://mempool.space/api
+
+# Use the Counterparty public Electrs instance
+counterparty-server start --electrs-url=https://api.counterparty.io:3000
+```
+
+### Running Your Own Electrs Instance
+
+For production or high-volume use cases, you may want to run your own Electrs instance. Benefits include:
+
+- **Reliability**: No dependency on external services
+- **Performance**: Lower latency for high-frequency operations
+- **No rate limits**: Public APIs may throttle heavy usage
+
+#### Installation
 
 ```bash
 git clone https://github.com/mempool/electrs
@@ -161,14 +200,21 @@ cd electrs
 cargo install --path=.
 ```
 
+#### Running Electrs
+
 Start `electrs` with:
 
 ```bash
 electrs
 ```
 
-When working with a remote full node or low-memory system, you can tell `electrs` to use JSON-RPC to communicate with `bitcoind` using the flag `--jsonrpc-import`.
-You can also limit the resources available for `electrs` with:
+When working with a remote full node or low-memory system, you can tell `electrs` to use JSON-RPC to communicate with `bitcoind`:
+
+```bash
+electrs --jsonrpc-import
+```
+
+You can also limit the resources available for `electrs`:
 
 ```bash
 ulimit -n 8192
@@ -176,8 +222,14 @@ ulimit -n 8192
 
 Use `electrs -h` for more options.
 
-To connect Electrs to the Counterparty Server use the flag `--electrs-url`:
+#### Connecting Counterparty to Your Local Electrs
 
 ```bash
 counterparty-server start --electrs-url=http://localhost:3000
+```
+
+You can also set this in your `server.conf` configuration file:
+
+```
+electrs-url=http://localhost:3000
 ```
