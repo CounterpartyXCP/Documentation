@@ -6,6 +6,10 @@ title: Basic Usage
 
 Manual configuration is not necessary for most use cases, but example configuration files may be found in the `docker/` directory.
 
+All configuration options can be set via:
+1. Command-line arguments (e.g., `--electrs-url=...`)
+2. Configuration file (e.g., `electrs-url=...` in `server.conf`)
+
 By default, the **configuration files** are named `server.conf` and `client.conf` and are located in the following directories:
 
 * Linux: `~/.config/counterparty/`
@@ -58,3 +62,5 @@ Important: By default, `counterparty-server` uses cookie authentication to conne
 ```bash
 counterparty-server start --backend-cookie-file /data/.cookie
 ```
+
+For Electrs configuration (used for composing transactions for addresses not in your Bitcoin Core wallet), see [Electrs Configuration](/docs/basics/manual-installation#electrs-configuration).
