@@ -186,6 +186,27 @@ counterparty-server start \
   --electrs-url=https://mempool.space/api
 ```
 
+### Multiple Electrs Backends with Automatic Failover
+
+Since v11.1.0, `--electrs-url` can be specified multiple times. Counterparty queries the URLs in the order given and automatically fails over to the next one on connection, timeout, or HTTP errors:
+
+```bash
+counterparty-server start \
+  --electrs-url=http://localhost:3000 \
+  --electrs-url=https://blockstream.info/api \
+  --electrs-url=https://mempool.space/api
+```
+
+Or in your `server.conf` configuration file:
+
+```
+electrs-url=http://localhost:3000
+electrs-url=https://blockstream.info/api
+electrs-url=https://mempool.space/api
+```
+
+Specifying any `--electrs-url` overrides the default list entirely; if you want to keep the public defaults as fallbacks, list them explicitly as shown above.
+
 ### Running Your Own Electrs Instance
 
 For production or high-volume use cases, you may want to run your own Electrs instance. Benefits include:
