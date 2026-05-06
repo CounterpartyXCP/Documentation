@@ -161,27 +161,29 @@ When you create a transaction using the Counterparty API, the server needs to kn
 
 ### Default Public APIs
 
-By default, Counterparty connects to public APIs based on your network:
+By default, Counterparty connects to public APIs based on your network. On mainnet, multiple backends are configured for automatic failover:
 
-| Network | Default Electrs URL |
-|---------|---------------------|
-| Mainnet | `https://blockstream.info/api` |
+| Network | Default Electrs URLs |
+|---------|----------------------|
+| Mainnet | `https://blockstream.info/api`, `https://mempool.space/api` |
 | Testnet3 | `https://blockstream.info/testnet/api` |
 | Testnet4 | `https://mempool.space/testnet4/api` |
 | Signet | `https://mempool.space/signet/api` |
 
-These defaults work out of the box with no configuration required.
+These defaults work out of the box with no configuration required, but are **not recommended for production**. A warning will be printed on startup if default URLs are in use. For production deployments, run your own Electrs instance (see below).
 
-### Alternative Public APIs
+### Custom and Failover APIs
 
-You can use any Electrs-compatible API by setting the `--electrs-url` flag:
+You can use any Electrs-compatible API by setting the `--electrs-url` flag. Specify the flag multiple times to configure failover -- if the first backend fails, the next will be tried automatically:
 
 ```bash
-# Use Mempool.space for mainnet
-counterparty-server start --electrs-url=https://mempool.space/api
-
-# Use the Counterparty public Electrs instance
+# Use a single custom backend
 counterparty-server start --electrs-url=https://api.counterparty.io:3000
+
+# Use multiple backends with failover
+counterparty-server start \
+  --electrs-url=http://localhost:3000 \
+  --electrs-url=https://mempool.space/api
 ```
 
 ### Running Your Own Electrs Instance
