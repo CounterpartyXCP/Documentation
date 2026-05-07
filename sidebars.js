@@ -66,7 +66,6 @@
           'advanced/specifications/utxo-support',
           'advanced/specifications/gas-system',
           'advanced/specifications/amm-pools',
-          'advanced/specifications/cancel-all-offers',
           'advanced/specifications/bitcoin-data-storage-report',
           'advanced/specifications/taproot-envelope',
           'advanced/specifications/transactions-format',
