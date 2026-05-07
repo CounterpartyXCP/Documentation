@@ -16,7 +16,7 @@
   "dependencies": {
     "http-proxy-middleware": "2.0.8",
     "cookie": "0.7.1",
-    "express": "4.21.1",
+    "express": "4.22.1",
     "@docusaurus/core": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
     "@mdx-js/react": "^3.0.1",
@@ -31,7 +31,25 @@
     "mdast-util-to-hast": "13.2.1",
     "node-forge": "1.4.0",
     "js-yaml@^4": "4.1.1",
-    "js-yaml@^3": "3.14.2"
+    "js-yaml@^3": "3.14.2",
+    "follow-redirects": "1.16.0",
+    "svgo@^3": "3.3.3",
+    "brace-expansion@^1": "1.1.12",
+    "on-headers": "1.1.0",
+    "compression": "1.8.1",
+    "path-to-regexp@^1": "1.9.0"
+  },
+  "resolutions": {
+    "webpack": "5.105.0",
+    "lodash": "4.18.1",
+    "mdast-util-to-hast": "13.2.1",
+    "node-forge": "1.4.0",
+    "follow-redirects": "1.16.0",
+    "@docusaurus/**/svgo": "3.3.3",
+    "brace-expansion": "1.1.12",
+    "on-headers": "1.1.0",
+    "compression": "1.8.1",
+    "react-router/path-to-regexp": "1.9.0"
   },
   "browserslist": {
     "production": [
