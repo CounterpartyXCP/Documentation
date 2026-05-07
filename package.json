@@ -16,7 +16,7 @@
   "dependencies": {
     "http-proxy-middleware": "2.0.8",
     "cookie": "0.7.1",
-    "express": "4.21.1",
+    "express": "4.22.1",
     "@docusaurus/core": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
     "@mdx-js/react": "^3.0.1",
