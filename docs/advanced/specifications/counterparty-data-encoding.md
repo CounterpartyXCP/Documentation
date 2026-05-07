@@ -25,9 +25,11 @@
     - Script form:
       - `OP_FALSE OP_IF "ord" 0x07 "xcp" 0x01 <mime_type> 0x05 <CBOR metadata chunks...> (OP_0|OP_FALSE|empty) <content chunks...> OP_ENDIF <xonly_pubkey> OP_CHECKSIG`
     - Extraction:
-      - Concatenate all CBOR metadata chunks; decode to a CBOR array.
-      - The first element is `message_type_id` (uint). Remove it. Append `mime_type` (text) and optional `content` (raw bytes) to the array.
-      - Re‑encode the modified array as CBOR and prefix with one byte `message_type_id` → final `message` bytes.
+      - Concatenate all CBOR metadata chunks; decode the CBOR value.
+      - **Pre-`ordinals_metadata_support`**: the value MUST be a CBOR array. Anything else (including a CBOR map) is rejected with `Expected CBOR array, found different type`.
+      - **Post-`ordinals_metadata_support`**: the value MAY be a CBOR array (legacy shape) OR a CBOR map. If it is a map, the Counterparty message is the value of the ASCII key `"xcp"` (`Value::Text("xcp")`) and MUST be a non-empty CBOR array; every other key is ordinals provenance metadata and is ignored by the consensus parser. Failure modes (post-gate): missing `xcp` key → `No xcp key found in metadata map`; `xcp` value is not an array → `xcp key in metadata map is not an array`; `xcp` value is an empty array → `xcp array in metadata is empty`. `serde_cbor::Value::Map` is backed by a `BTreeMap`, so duplicate keys are deduplicated deterministically (last-write-wins) and identical across nodes pinned to the same crate version.
+      - In both shapes, the first element of the (resolved) array is `message_type_id` (uint). Remove it. Append `mime_type` (text) and optional `content` (raw bytes) to the array.
+      - Re‑encode the modified array as CBOR and prefix with one byte `message_type_id` → final `message` bytes. The resulting binary payload is byte-identical between the array and map shapes for the same Counterparty message.
     - When used: the composer emits this style only if `inscription=true` and the message type is one of issuance (standard/subasset, including LR variants), broadcast or fairminter, and the provided content is non‑empty; otherwise it falls back to the generic envelope.
   - **Generic inscription envelope**
     - Script form: `OP_FALSE OP_IF <data chunks...> OP_ENDIF <xonly_pubkey> OP_CHECKSIG`
@@ -113,6 +115,7 @@ All payloads below are CBOR arrays unless noted.
 Notes:
 - Where a field is `bytes` and represents human text, the composer uses the declared `mime_type` to pack/unpack. Your parser can treat it as raw bytes and, if desired, decode using `mime_type`.
 - `short_address_bytes` is a fixed 21‑byte packed address format used by Counterparty (pack/unpack is outside this spec).
+- `mime_type` validation: pre-`extended_mime_types_support`, the consensus parser accepts only the ~92 entries of Python's built-in `mimetypes._types_map_default` (no `mimetypes.init()` is performed, so `/etc/mime.types` and the Windows registry are NOT loaded). Post-gate, validation switches to a deterministic hard-coded allow-list (`EXTENDED_MIME_TYPES_VALID`) covering the legacy defaults plus ordinal-inscription staples (e.g. `audio/ogg`, `audio/wav`, `audio/flac`, `image/webp`, `image/apng`, `model/stl`, `model/gltf-binary`); MIME parameters are tolerated (`audio/ogg;codecs=opus` → `audio/ogg`); and `+json` structured-suffix types are classified as textual. See the [Taproot Envelope spec](./taproot-envelope.md#mime-type-validation) for the rationale.
 
 ### Converting asset_id ↔ asset name
 
