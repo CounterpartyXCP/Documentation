@@ -72,7 +72,6 @@
           'advanced/specifications/counterparty-data-encoding',
         ],
       },
-      'advanced/bounties',
       'advanced/exchange-integration'
     ],
   };
