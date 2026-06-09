@@ -9,6 +9,7 @@ Dependencies:
 - Bitcoin Core
 - AddrIndexRS
 - Python >= 3.10
+- Python virtual environment
 - Rust
 - Maturin
 - LevelDB
@@ -71,15 +72,24 @@ See https://www.rust-lang.org/tools/install for more information.
 On Ubuntu 22.04 and similar:
 
 ```bash
-apt-get install -y python3 python3-dev python3-pip
-pip3 install maturin
+sudo apt update
+sudo apt install -y build-essential clang python3 python3-dev python3-pip python3-venv
+mkdir -p ~/.venvs
+python3 -m venv ~/.venvs/counterparty-core
+source ~/.venvs/counterparty-core/bin/activate
+python -m pip install --upgrade pip
+python -m pip install maturin
 ```
 
 On MacOS:
 
 ```bash
 brew install python
-pip3 install maturin
+mkdir -p ~/.venvs
+python3 -m venv ~/.venvs/counterparty-core
+source ~/.venvs/counterparty-core/bin/activate
+python -m pip install --upgrade pip
+python -m pip install maturin
 ```
 
 See https://brew.sh/ to install Homewrew.
@@ -90,7 +100,7 @@ See https://brew.sh/ to install Homewrew.
 On Ubuntu 22.04 and similar:
 
 ```bash
-apt-get install -y libleveldb-dev
+sudo apt install -y libleveldb-dev
 ```
 
 On MacOS:
@@ -111,17 +121,23 @@ Install the `counterparty-rs` library:
 
 ```bash
 cd counterparty-core/counterparty-rs
-pip3 install .
+python -m pip install .
 ```
 
 Install the `counterparty-core` library:
 
 ```bash
 cd counterparty-core/counterparty-core
-pip3 install .
+python -m pip install .
 ```
 
-On most platforms you need to update your $PATH variable so that `counterparty-server` is accessible. For example:
+Keep the virtual environment activated when running Counterparty Core:
+
+```bash
+source ~/.venvs/counterparty-core/bin/activate
+```
+
+If you install outside a virtual environment, you may need to update your $PATH variable so that `counterparty-server` is accessible. For example:
 
 ```
 export PATH=$PATH:/home/username/.local/bin/
