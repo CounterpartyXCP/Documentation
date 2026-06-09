@@ -40,7 +40,7 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://counterpartycore.docs.apiary.io/',
+          href: 'https://apidocs.counterparty.io/',
           label: 'API Documentation',
           position: 'right',
         },

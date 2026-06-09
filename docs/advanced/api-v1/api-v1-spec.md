@@ -731,7 +731,6 @@ By default the default value of the ``encoding`` parameter detailed above is ``a
 
 ## REST API Function Reference
 
-The REST API documentation is hosted both on our webiste and on a new API documentation platform called apiary.io. This experimental documentation, complementary to the one in this document, is located [here](http://docs.counterpartylib.apiary.io/#).
 
 ### get
 
