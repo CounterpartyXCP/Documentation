@@ -14,7 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "http-proxy-middleware": "2.0.8",
+    "http-proxy-middleware": "2.0.10",
     "cookie": "0.7.1",
     "express": "4.22.1",
     "@docusaurus/core": "3.8.1",
