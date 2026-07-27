@@ -3,6 +3,7 @@
       'basics/what-is-counterparty',
       'basics/what-is-xcp',
       'basics/faq',
+      'basics/counterparty-client',
       {
         type: 'category',
         label: 'Running a Counterparty Node',
