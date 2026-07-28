@@ -39,31 +39,9 @@ Blockchain reorganizations are essentially handled by Counterparty the same way 
 The list of Counterparty wallets currently available may be found here on the [official project page](https://www.counterparty.io/#wallets).
 
 
-### What is “Counterparty 2.0”?
+### Has Counterparty forked?
 
-“Counterparty 2.0” is an affectionate term that the community has given to the revival of the Counterparty project this year, and specifically the development of a number of long-awaited, major new features such as UTXO Support, Atomic Swaps with Bitcoin, Fair Minting and (the forthcoming) AMMs/LPs. “Counterparty 2.0” doesn’t refer to any particular version of Counterparty.
-
-
-### Did Counterparty recently fork?
-
-Protocol upgrades are a normal part of the evolution of the Counterparty protocol, and there have been [dozens](https://github.com/CounterpartyXCP/counterparty-core/blob/master/counterparty-core/counterpartycore/protocol_changes.json) throughout its history. The developer of Freewallet and Tokenscan has published versions of those applications which run on top of an old version of Counterparty (v9.61.3—the last version that he contributed to), rather than the latest version of Counterparty (currently [v10.6.1](https://github.com/CounterpartyXCP/counterparty-core/releases/tag/v10.6.1)). Every other node host has upgraded to the latest release of Counterparty and offers no support for out-of-date versions. A list of services that have upgraded is as follows:
-
-- Dex-Trade 
-- Zaif
-- Horizon Wallet 
-- RarepepeWallet 
-- Pepe.wtf 
-- OpenSea 
-- Firemints.xyz 
-- Horizon Explorer 
-- Memepool 
-- XCP.io 
-- Pepe.wtf 
-- XCPDex 
-- XCPNinja 
-- Emblem Vault 
-- Spells of Genesis 
-- Bitcoin Stamps
+The word 'fork' is used in three main ways: protocol upgrades (like Bitcoin hardforks), software forks (like Litecoin), and network forks (like BSV). Protocol upgrades are a normal part of the evolution of the Counterparty protocol, and there have been [dozens](https://github.com/CounterpartyXCP/counterparty-core/blob/master/counterparty-core/counterpartycore/protocol_changes.json) throughout its history. There have also been a number of software forks of Counterparty, including [Dogeparty](https://dogeparty.net/) on Dogecoin and Monaparty on Monacoin. In Counterparty's history there have not been network forks with any adoption.
 
 
 ### Is it safe to use Counterparty?
@@ -73,7 +51,11 @@ Yes, as long as you use tooling that supports the latest version of Counterparty
 
 ### What happened to Counterwallet?
 
-Counterwallet has unfortunately not been actively maintained in a number of years (see below). A bug was introduced into Counterparty last year (in [v9.61.1](https://github.com/CounterpartyXCP/counterparty-core/issues/1294)) which broke the Counterblock service that Counterwallet depends on. This bug was fixed in [Counterparty Core v10.0.0](https://github.com/CounterpartyXCP/counterparty-core/releases/tag/v10.0.0), however—as is often the case—when old software goes down, sometimes it doesn’t come back up. The community has since spent its energy on the creation of a new generation of wallets rather than attempt to revive Counterblock and Counterwallet. However, [the code is all open-source](https://github.com/CounterpartyXCP/counterwallet) and anyone is free to work on it.
+Counterwallet has unfortunately not been actively maintained in a number of years.
+
+The community has since spent its energy on the creation of a new generation of wallets such as [Counterwallet V2](https://derpherpenstein.github.io/CounterWalletV2/), [Horizon Wallet](https://chromewebstore.google.com/detail/horizon-wallet/bnmgkjlaommgappfckljlelgahnbngme) and [XCP Wallet](https://chromewebstore.google.com/detail/xcp-wallet/nicpjdbehgcjbjfjkobcidnfmfpijohg) rather than attempt to revive Counterblock and Counterwallet.
+
+However, [the code is all open-source](https://github.com/CounterpartyXCP/counterwallet) and anyone is free to work on it.
 
 
 ### What is the “origin” functionality that was recently lost?
