@@ -12,19 +12,19 @@ The protocol is now 12+ years old.
 
 Counterparty holds many records, firsts, experiments, successes and core culture in the cryptocurrency community while also remaining incredibly active to this day.
 
-![Counterparty history overview](https://github.com/user-attachments/assets/9097c75a-c5d2-41d4-87e2-479aad375d65)
+![Counterparty history overview](/img/basics/9097c75a-c5d2-41d4-87e2-479aad375d65.png)
 
 ## When did Counterparty start?
 
 Development began in late 2013. The founders, Adam Krellenstein, Robby Dermody, and Evan Wagner, wanted peer-to-peer finance that Bitcoin itself did not offer yet.
 
-![Counterparty founders and early development](https://github.com/user-attachments/assets/4f0fd09d-4812-4913-972f-a9a5fa98fee4)
+![Counterparty founders and early development](/img/basics/4f0fd09d-4812-4913-972f-a9a5fa98fee4.png)
 
 On January 2, 2014, Counterparty was [announced on the Bitcoin Talk forums](https://bitcointalk.org/index.php?topic=395761.0). That forum and that specific thread is not a side note regarding historical purposes, it is where the protocol was introduced, where early assets were debated, and where later historic cultural projects such as Rare Pepe and Spells of Genesis took shape.
 
 For a quick overview on the first five years of Counterparty history, check out this found-footage documentary called "[The First 5 Years](https://youtu.be/LBafs-g-hB8)".
 
-![The First 5 Years documentary](https://github.com/user-attachments/assets/17289849-cbbc-4150-88cb-33f9fdc17e74)
+![The First 5 Years documentary](/img/basics/17289849-cbbc-4150-88cb-33f9fdc17e74.png)
 
 ## What was the Proof-of-Burn?
 
@@ -42,14 +42,14 @@ The protocol was used immediately.
 - Early named assets such as TEST and LEET appeared in January 2014.
 - The on-chain decentralized exchange (DEx) let people trade asset-to-asset with protocol escrow.
 - Dividends, broadcasts, bets, and experimental games followed the same year.
-- Projects such as LTBCOIN (Let’s Talk Bitcoin), TATIANACOIN (Tatiana Morox), SJCX (Storj), and later BITCRYSTALS (Spells of Genesis) showed that tokens could fund media, music, storage, token-controlled access, advertising slots and even fully built out mobile games.
+- Projects such as LTBCOIN (Let’s Talk Bitcoin), TATIANACOIN (Tatiana Moroz), SJCX (Storj), and later BITCRYSTALS (Spells of Genesis) showed that tokens could fund media, music, storage, token-controlled access, advertising slots and even fully built out mobile games.
 - On June 12, 2014, OLGA was issued as a locked 1-of-1 that would include on-chain artwork. Researchers often point to it as one of the first true non-fungible tokens on Bitcoin. Years before “NFT” was a common word and even years before users cared to publish image data 'on-chain'.
 - By 2015-2016, collectible and game assets were a real culture, not a demo. Spells of Genesis, Sarutobi, Force of Will emphasized this success.
 - By late 2016, Rare Pepe, included submitted and curated as cards on Bitcoin, with specialized tools such as Joe Looney’s Rare Pepe Wallet.
 
 Many of these early projects did not come from a marketing team. It grew out of the same Bitcointalk / early-Bitcoin meme culture that Counterparty itself grew out of. That is why Counterparty’s history is both protocol history and art history.
 
-![Early Counterparty experiments and culture](https://github.com/user-attachments/assets/2e40edf1-0d90-4cf2-b313-a94fac0d59c4)
+![Early Counterparty experiments and culture](/img/basics/2e40edf1-0d90-4cf2-b313-a94fac0d59c4.png)
 
 ## How did Counterparty grow?
 
@@ -68,9 +68,9 @@ Official Counterparty project news from that era recorded much of the publicatio
 After a community push in early 2024 along with the return of Adam Krellenstein, development accelerated:
 - Counterparty Core v10.0.0 (April 2024) merged and rebuilt the reference implementation
 - Counterparty 2.0 / v10.4.0 (September 2024) added UTXO support, Fair Minting, and the basis for trustless atomic swaps with BTC via PSBTs
-- Later releases added Taproot-related work, inscriptions, Fairmint refinements, and AMM liquidity pools that functions with the classic DEx order book
+- Later releases added Taproot-related work, inscriptions, Fairmint refinements, and AMM liquidity pools that function with the classic DEx order book
 
-![Counterparty protocol growth](https://github.com/user-attachments/assets/ba1ccbe1-d9e1-4ea6-85c9-3f49ad6a98d3)
+![Counterparty protocol growth](/img/basics/ba1ccbe1-d9e1-4ea6-85c9-3f49ad6a98d3.png)
 
 ## Does Counterparty History still matter?
 
@@ -86,7 +86,7 @@ Counterparty is easy to underestimate if you only look at later chains. Many ide
 
 Below is screenshot of just a portion of an [in-depth infographic](https://time.graphics/line/858561) compiled by community member 'davesta' that is a visual representation of Counterparty (XCP) history, tokens, projects, Counterparty wallets, drafted developments, protocol updates, lead developers and protocol forks.
 
-![Counterparty history infographic](https://github.com/user-attachments/assets/0bebc792-f980-40d1-9a19-4ad01363a9db)
+![Counterparty history infographic](/img/basics/0bebc792-f980-40d1-9a19-4ad01363a9db.png)
 
 Take note, this infographic is a teaching tool, not a closed canon. Events [were checked](https://github.com/davestaxcp/CounterpartyTimeline2023) against explorers, old news, forums, and interviews, then placed on a single line so new users can see protocol changes next to cultural ones. Many projects and history is still 'unfound' and the community has been invited to [help compile more](https://github.com/davestaxcp/CounterpartyTimeline2023/issues) information.
 
@@ -103,6 +103,6 @@ Much of the social history is also public. After reviewing the BitcoinTalk Forum
 
 Then use the chain itself: [Tokenscan](https://tokenscan.io/), [xcp.io](https://www.xcp.io/), and the other [Counterparty explorers](https://www.counterparty.io/#explorers).
 
-Due to how many tokens and experiements were created on Counterparty and how small the research community is...
+Due to how many tokens and experiments were created on Counterparty and how small the research community is...
 
 It is well known that much of Counterparty history is still waiting to be found... or to be created.

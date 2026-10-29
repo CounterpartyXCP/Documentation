@@ -12,7 +12,7 @@ No central company, custodian, or intermediary holds your funds or controls the 
 
 Example below is a short list of recent XCP DEx postings from [xcp.io](https://xcp.io/orders) at the time of writing.
 
-![Recent XCP DEx orders on xcp.io](https://github.com/user-attachments/assets/d0387c2b-2f1d-4f6c-94f6-4768fff58f85)
+![Recent XCP DEx orders on xcp.io](/img/basics/d0387c2b-2f1d-4f6c-94f6-4768fff58f85.png)
 
 ## Do I Have to Use a Specific Wallet to Access the XCP DEx?
 
@@ -22,7 +22,7 @@ The underlying XCP DEx is the same for each Counterparty wallet provider and eac
 
 All Counterparty Wallets and Counterparty Block Explorers use the same data, below is an in-wallet example of a XCP DEx pair for PEPECASH/XCP from the [Freewallet](https://freewallet.io/) Counterparty Wallet.
 
-![PEPECASH/XCP order book in Freewallet](https://github.com/user-attachments/assets/51f4949a-063e-4c05-9736-27f992736268)
+![PEPECASH/XCP order book in Freewallet](/img/basics/51f4949a-063e-4c05-9736-27f992736268.png)
 
 ## How Do I Create an XCP DEX Order?
 
@@ -46,4 +46,4 @@ Unmatched orders expire after the chosen number of blocks and release the escrow
 
 Below is an example from the [xcpdex.com](https://www.xcpdex.com/) explorer / marketplace of just how easy this can be. In this example we would be listing XCP to try to buy the PEPEKACHU token.
 
-![Creating an XCP DEx order on xcpdex.com](https://github.com/user-attachments/assets/9a333fbb-aa38-4dff-b80c-ebae9ad20214)
+![Creating an XCP DEx order on xcpdex.com](/img/basics/9a333fbb-aa38-4dff-b80c-ebae9ad20214.png)

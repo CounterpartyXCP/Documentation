@@ -4,11 +4,11 @@ title: What is a Counterparty Block Explorer?
 
 # What is a Counterparty Block Explorer?
 
-Similar to a Bitcoin block explorer, a [Counterparty Block Explorer](https://www.counterparty.io/#explorers) is an explorer specifically for information coded in the OP_Return function of Bitcoin transactions, which is what Counterparty transactions are.
+Similar to a Bitcoin block explorer, a [Counterparty Block Explorer](https://www.counterparty.io/#explorers) is an explorer specifically for information coded in the OP_RETURN function of Bitcoin transactions, which is what Counterparty transactions are.
 
 Below is a screenshot of the [xcp.io](https://xcp.io/) Counterparty Block Explorer.
 
-![xcp.io Counterparty Block Explorer](https://github.com/user-attachments/assets/50d7aee5-da4f-45b1-87fe-dd8c93aaa9c9)
+![xcp.io Counterparty Block Explorer](/img/basics/50d7aee5-da4f-45b1-87fe-dd8c93aaa9c9.png)
 
 ## How do I read a Counterparty Block Explorer?
 
@@ -16,17 +16,17 @@ The same way you look up addresses or transaction ID's on a BTC block explorer, 
 
 Below is a Counterparty transaction, but seen on a Bitcoin Block Explorer. This [specific transaction](https://mempool.space/tx/b55ea71e57f9c34c0f5894a2bf833fe7f1f59da006eb3d2b27b12e3ae687015b) was for the 'locking' action for the first Counterparty asset: TEST.
 
-Notice how the sender address is also the receiving address but the transaction carries OP_RETURN data along with the transaction. Most Counterparty transactions will look like this since you are using only enough Bitcoin to cover the Bitcoin mining fee, the rest of your balance is return to you.
+Notice how the sender address is also the receiving address but the transaction carries OP_RETURN data along with the transaction. Most Counterparty transactions will look like this since you are using only enough Bitcoin to cover the Bitcoin mining fee, the rest of your balance is returned to you.
 
-Keep in mind some Counterparty functions dont just use OP_RETURN but also include other Bitcoin actions like Multi-Sig or even Taproot.
+Keep in mind some Counterparty functions don't just use OP_RETURN but also include other Bitcoin actions like Multi-Sig or even Taproot.
 
-![TEST lock transaction on a Bitcoin explorer](https://github.com/user-attachments/assets/edf8af7c-0cb4-4998-955b-1bd5c3f2b741)
+![TEST lock transaction on a Bitcoin explorer](/img/basics/edf8af7c-0cb4-4998-955b-1bd5c3f2b741.png)
 
 Not all Bitcoin transactions are Counterparty transactions, but all Counterparty transactions are Bitcoin transactions.
 
 Below is [the same transaction ID](https://xcp.io/tx/b55ea71e57f9c34c0f5894a2bf833fe7f1f59da006eb3d2b27b12e3ae687015b), but now shown on a Counterparty Block Explorer.
 
-![TEST lock transaction on a Counterparty explorer](https://github.com/user-attachments/assets/b49619b8-1af0-4dee-add6-4d608421fb90)
+![TEST lock transaction on a Counterparty explorer](/img/basics/b49619b8-1af0-4dee-add6-4d608421fb90.png)
 
 Some explorers focus on specific assets like STAMPS, specific markets like Atomic Swaps or specific projects like Rare Pepe.
 It is best to search around for your favorite and also understand which explorer shows which Counterparty functions or features projects you are interested in.
@@ -57,14 +57,14 @@ Below is an example of when all POWH tokens were sent to a burn address (so they
 
 [This example](https://tokenscan.io/tx/1181319) shown below is from the [tokenscan.io](https://tokenscan.io/) Counterparty Block Explorer.
 
-![POWH burn transaction on tokenscan.io](https://github.com/user-attachments/assets/03a68ab8-59f9-49b1-ab88-3dbbea77756c)
+![POWH burn transaction on tokenscan.io](/img/basics/03a68ab8-59f9-49b1-ab88-3dbbea77756c.png)
 
 ## Should I only use one Counterparty Block Explorer to view Counterparty information?
 
 Absolutely not! You should always verify Bitcoin and Counterparty transaction data from various sources.
 
-Below is the same transaction of the POWH send from before, but just viewing on the mempool.wtf Counterparty Block Explorer.
+Below is the same transaction of the POWH send from before, but just viewing on the memepool.wtf Counterparty Block Explorer.
 
-![POWH burn transaction on mempool.wtf](https://github.com/user-attachments/assets/a6dd24aa-30a1-44f1-8aa9-83d23af3a964)
+![POWH burn transaction on memepool.wtf](/img/basics/a6dd24aa-30a1-44f1-8aa9-83d23af3a964.png)
 
 Before taking action using any Counterparty function, it is very prudent to check data from [multiple explorers](https://www.counterparty.io/#explorers) and also very important know the [extent of functionality](https://github.com/CounterpartyXCP/CIPs/discussions/158) for the [Counterparty Wallet](https://www.counterparty.io/#wallets) you would like to use.

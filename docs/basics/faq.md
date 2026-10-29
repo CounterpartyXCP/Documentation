@@ -30,7 +30,7 @@ You can either make a regular Bitcoin paper wallet, store them there and later s
 
 For hardware wallet storage, some [Counterparty Wallets](https://www.counterparty.io/#wallets) support hardware devices like Trezor and Ledger. Below is a screenshot from the [XCP Wallet](https://chromewebstore.google.com/detail/xcp-wallet/nicpjdbehgcjbjfjkobcidnfmfpijohg) showing the option of using Trezor Connect.
 
-![XCP Wallet Trezor Connect](https://github.com/user-attachments/assets/0e2c600f-05df-4bfd-81c4-bfb8ae483c54)
+![XCP Wallet Trezor Connect](/img/basics/0e2c600f-05df-4bfd-81c4-bfb8ae483c54.png)
 
 ### What happened to Counterwallet?
 
@@ -42,7 +42,7 @@ However, [the code is all open-source](https://github.com/CounterpartyXCP/counte
 
 Below is a screenshot of the user interface of Counterwallet V2.
 
-![Counterwallet V2](https://github.com/user-attachments/assets/1eae9ce0-e769-475b-8fea-226769925b1d)
+![Counterwallet V2](/img/basics/1eae9ce0-e769-475b-8fea-226769925b1d.png)
 
 ### How are blockchain reorganizations ("reorgs") handled by Counterparty?
 
@@ -64,7 +64,7 @@ That being said, there are ways to interoperate Counterparty assets to platforms
 
 Below is an example of the [Emblem Vault Curated Rare Pepe Collection](https://opensea.io/collection/rare-pepe-curated) as seen on Opensea.io. User are able to freely transact Counterparty tokens using Emblem Vault on Ethereum. Once vaulted assets are acquired, users are able to 'unlock' the vaults and send their Counterparty assets to any supported Counterparty Wallet.
 
-![Emblem Vault Rare Pepe collection](https://github.com/user-attachments/assets/50e27659-b859-4580-a91d-62ee56d0fc1b)
+![Emblem Vault Rare Pepe collection](/img/basics/50e27659-b859-4580-a91d-62ee56d0fc1b.png)
 
 ### Has Counterparty forked?
 

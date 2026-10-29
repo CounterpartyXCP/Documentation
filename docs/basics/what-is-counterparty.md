@@ -10,7 +10,7 @@ These include features like Token Issuance, a fully decentralized and Trustless 
 
 Below is the homepage for the [Spells of Genesis](https://spellsofgenesis.com/) blockchain trading card game by [EverdreamSoft](https://everdreamsoft.com/). The Counterparty protocol is the backbone for the cryptographic infrastructure of the Spells of Genesis cards, currency and even the artistic culture included.
 
-![Spells of Genesis homepage](https://github.com/user-attachments/assets/997fdfb4-c2d5-4510-a681-7485102e75bc)
+![Spells of Genesis homepage](/img/basics/997fdfb4-c2d5-4510-a681-7485102e75bc.png)
 
 ### How does Counterparty work?
 
@@ -20,9 +20,9 @@ To a regular Bitcoin client, these transactions look like normal Bitcoin transac
 
 This means that Counterparty transactions contain some amount of extra information attached through Bitcoin centric functions like OP_RETURN, Multi-Sig, and even Taproot.
 
-Adam Krellenstein, co-founder of Counterparty, wrote about this functionality and labelled Counterparty as a 'metaprotocol' in the [Counterparty Whitepaper](https://krellenstein.com/adam/get/counterparty-whitepaper_2024-03-29.pdf) titled "Counterparty An Extension to Bitcoin by State-Machine Replication".
+Adam Krellenstein, co-founder of Counterparty, wrote about this functionality and labelled Counterparty as a 'metaprotocol' in the [Counterparty Whitepaper](https://krellenstein.com/adam/get/counterparty-whitepaper_2024-04-25.pdf) titled "Counterparty: An Extension to Bitcoin by State-Machine Replication".
 
-![Counterparty whitepaper excerpt](https://github.com/user-attachments/assets/fe87ec93-4a2b-40e8-ab40-ebfc56a29df8)
+![Counterparty whitepaper excerpt](/img/basics/fe87ec93-4a2b-40e8-ab40-ebfc56a29df8.png)
 
 ### Does Counterparty have its own blockchain?
 
@@ -32,7 +32,7 @@ While the data is within the Bitcoin transactions themselves (as seen on a Bitco
 
 Below is data from the [xcp.io](https://xcp.io/blocks) Counterparty Block Explorer showing the percentage of Counterparty transactions within Bitcoin blocks by year since Counterparty was created.
 
-![Counterparty transactions by year](https://github.com/user-attachments/assets/4e45318e-3e51-43de-8731-3de39426c8cb)
+![Counterparty transactions by year](/img/basics/4e45318e-3e51-43de-8731-3de39426c8cb.png)
 
 ### How is the Counterparty network secured?
 
@@ -42,7 +42,7 @@ Because of this, it is no easier to attack Counterparty than it is to attack Bit
 
 Below is the same data from the [xcp.io](https://xcp.io/blocks) Counterparty Block Explorer but this time showing the percentage of Bitcoin fees paid to Bitcoin miners for Counterparty transactions.
 
-![Counterparty miner fees](https://github.com/user-attachments/assets/e9663540-4bda-412c-a6a0-90a66cbb9321)
+![Counterparty miner fees](/img/basics/e9663540-4bda-412c-a6a0-90a66cbb9321.png)
 
 ### Is Counterparty "polluting" the Bitcoin blockchain, then?
 
@@ -52,13 +52,13 @@ Unprunable Counterparty transactions use alternative encoding methods. However, 
 
 Keep in mind the Genesis Bitcoin Block included data shown below:
 
-![Bitcoin genesis block message](https://github.com/user-attachments/assets/a4b2e847-ae8a-4bb5-9b4c-e16f0c43c334)
+![Bitcoin genesis block message](/img/basics/a4b2e847-ae8a-4bb5-9b4c-e16f0c43c334.png)
 
 To expand on the philosophy of this question, the discussion of data-embedding on Bitcoin has been debated for a very long time, a discussion of which now includes methods other than OP_RETURN like Taproot, Witness Data and more.
 
 Even before Counterparty, OP_RETURN and other Bitcoin functionality was used to publish information, shown below:
 
-![Early Bitcoin data embedding](https://github.com/user-attachments/assets/9f25a754-9b43-4038-89f1-7df14685af98)
+![Early Bitcoin data embedding](/img/basics/9f25a754-9b43-4038-89f1-7df14685af98.png)
 
 ### How do the Counterparty nodes stay in sync?
 

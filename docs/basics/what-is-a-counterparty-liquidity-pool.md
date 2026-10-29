@@ -11,7 +11,7 @@ The protocol uses a constant-product formula (the same style as Uniswap v2): as 
 
 You can browse pool balances and trades on a [Counterparty Block Explorer](https://www.counterparty.io/#explorers). Creating a pool, adding liquidity, or swapping takes a [Counterparty Compatible Wallet](https://www.counterparty.io/#wallets) that supports this feature. Below is an example from the [XcpDex Counterparty Marketplace](https://www.xcpdex.com/A6900000000000001774).
 
-![Counterparty liquidity pool on xcpdex.com](https://github.com/user-attachments/assets/f155abc5-a0b9-40b7-882f-a5828509ee1e)
+![Counterparty liquidity pool on xcpdex.com](/img/basics/f155abc5-a0b9-40b7-882f-a5828509ee1e.png)
 
 ## How is a pool different from the Counterparty DEx order book?
 
@@ -34,7 +34,7 @@ Any Counterparty user can:
 
 Below is a screenshot from the [XcpDex Counterparty Marketplace](https://www.xcpdex.com/explore/pools) showing recent Counterparty liquidity pool data.
 
-![Recent Counterparty liquidity pools](https://github.com/user-attachments/assets/563bea77-967c-4894-b7f5-f8500a088864)
+![Recent Counterparty liquidity pools](/img/basics/563bea77-967c-4894-b7f5-f8500a088864.png)
 
 ## How are Counterparty Liquidity Pool tokens represented?
 
@@ -53,7 +53,7 @@ You need a little Bitcoin for the miner fee and a little XCP for the pool gas fe
 
 On the first deposit, both amounts go in and you receive floor LP tokens (mentioned earlier). On later deposits, use the wallet’s quote so your amounts match the live ratio, and set a minimum LP amount if you want slippage protection. Below is an example user interface for adding liquidity to Counterparty pools from the [XcpDex Counterparty Marketplace](https://www.xcpdex.com/liquidity/deposit/XCP/PEPECASH).
 
-![Add liquidity on xcpdex.com](https://github.com/user-attachments/assets/fb058d2b-ced1-43d7-932f-73e6b658c4c2)
+![Add liquidity on xcpdex.com](/img/basics/fb058d2b-ced1-43d7-932f-73e6b658c4c2.png)
 
 To trade, place a normal DEx order for that pair. If the pool can fill you inside your limit price, it will. To withdraw, burn some or all of your LP tokens and set minimum payouts for both assets. Not every wallet shows pools yet. Check the wallet’s Pools or Liquidity section, and confirm the same pair on more than one explorer before you size a large deposit.
 
@@ -86,7 +86,7 @@ A custom pool is a choice for the user. You pick the pair, the starting amounts,
 
 Below is the [homepage for XCP.FUN](https://xcp.fun/) showing active 'graduated' tokens that all have Counterparty Liquidity Pools active.
 
-![xcp.fun homepage with graduated tokens](https://github.com/user-attachments/assets/8300bc02-b481-45b7-bc1e-4959f01bc602)
+![xcp.fun homepage with graduated tokens](/img/basics/8300bc02-b481-45b7-bc1e-4959f01bc602.png)
 
 ## What is the difference between a custom Counterparty LP pool and the XCP-69 pool standard in practice?
 
@@ -109,4 +109,4 @@ For the exact XCP-69 field values, see [xcp-69.md](https://github.com/XCP/launch
 
 Keep in mind XCP.FUN also provides the user interface for adding or removing liquidity from the XCP.FUN created pairs. Below is a screenshot of the UI from the XCP.FUN website.
 
-![xcp.fun liquidity UI](https://github.com/user-attachments/assets/44bc3e56-1a84-4253-abcd-cfc8a87679ae)
+![xcp.fun liquidity UI](/img/basics/44bc3e56-1a84-4253-abcd-cfc8a87679ae.png)

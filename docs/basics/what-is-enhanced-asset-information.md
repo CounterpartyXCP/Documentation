@@ -8,7 +8,7 @@ Enhanced Asset Info is a powerful feature of the Counterparty protocol that allo
 
 By setting an asset’s description with a correct prefix or even a specially formatted URL (pointing to a JSON file or other supported formats), wallets, explorers, and other tools can automatically display images, extended descriptions, websites, social links, media embeds, and more. This Enhanced Asset Information turns plain tokens into visually rich, expressive assets by integrating [Counterparty Improvement Proposal 25](https://github.com/CounterpartyXCP/CIPs/blob/master/cip-archive/cip-0025.md).
 
-![Enhanced Asset Information overview](https://github.com/user-attachments/assets/232e7276-7b83-46f7-8b31-a7646a717d43)
+![Enhanced Asset Information overview](/img/basics/232e7276-7b83-46f7-8b31-a7646a717d43.png)
 
 Below is custom content added to the [PEPECREATURE](https://tokenscan.io/asset/PEPECREATURE) token by Kane Mayfield. PEPECREATURE is an entire sci-fi novel within a Counterparty token.
 
@@ -16,7 +16,7 @@ Because of Enhanced Asset Information, PEPECREATURE is also a Bitcoin STAMP, inc
 
 Some of these features mentioned requires ownership of the PEPECREATURE token or ownership of the physical novel... while simply reading the book does not require purchase at all.
 
-![PEPECREATURE Enhanced Asset Information](https://github.com/user-attachments/assets/274a0183-d682-45f4-852c-2a0d3e4f198e)
+![PEPECREATURE Enhanced Asset Information](/img/basics/274a0183-d682-45f4-852c-2a0d3e4f198e.png)
 
 ## How does Enhanced Asset Info work?
 
@@ -30,9 +30,9 @@ When issuing or reissuing an asset, you can place a URL in the description field
 
 Below is the same PEPECREATURE token, but with the links to the Enhanced Asset Information within the JSON as shown on tokenscan.io.
 
-![PEPECREATURE JSON links on tokenscan.io](https://github.com/user-attachments/assets/9db74525-f9f5-43b9-9233-6e6b4f4274d3)
+![PEPECREATURE JSON links on tokenscan.io](/img/basics/9db74525-f9f5-43b9-9233-6e6b4f4274d3.png)
 
-The community-driven [CIP-25](https://github.com/CounterpartyXCP/CIPs/blob/main/cip-0025.md) greatly expands the possibilities with support for:
+The community-driven [CIP-25](https://github.com/CounterpartyXCP/CIPs/blob/master/cip-archive/cip-0025.md) greatly expands the possibilities with support for:
 
 - Multiple images and galleries
 - Audio, video, and HTML embeds
@@ -41,7 +41,7 @@ The community-driven [CIP-25](https://github.com/CounterpartyXCP/CIPs/blob/main/
 
 Popular hosting solutions include Arweave (via [pepetools.site](https://jsonmaker.pepetools.site/) or ArDrive), GitHub, IPFS, raw BASE-64, Ordinals inscriptions (via [inscribe.dev](https://inscribe.dev/)) or even something else you might like to experiment with.
 
-Enhanced Asset Information enables endless possibilities such as blockchain game token data, full album releases, NFT-style experiences, interactive media, movies and documentaries, research data and complex creative projects all tied to a single Counterparty token (or even multple Counterparty tokens).
+Enhanced Asset Information enables endless possibilities such as blockchain game token data, full album releases, NFT-style experiences, interactive media, movies and documentaries, research data and complex creative projects all tied to a single Counterparty token (or even multiple Counterparty tokens).
 
 There is still [current community discussion](https://github.com/CounterpartyXCP/CIPs/discussions/157) on how to enhance this feature even more.
 
@@ -54,15 +54,15 @@ There is still [current community discussion](https://github.com/CounterpartyXCP
 
 Below is an example of a token used in the Mafia Wars game that used a few aspects of the Enhanced Asset Information as seen on the [xcp.io](https://xcp.io/asset/MAFIAWARS) Counterparty Block Explorer.
 
-![MAFIAWARS Enhanced Asset Information](https://github.com/user-attachments/assets/536f6706-6de9-4edb-acdd-3b2ad1fc71ac)
+![MAFIAWARS Enhanced Asset Information](/img/basics/536f6706-6de9-4edb-acdd-3b2ad1fc71ac.png)
 
 ## How do I use Enhanced Asset Info?
 
-For full technical specifications, see the original Enhanced Asset Info documentation and [CIP-25](https://github.com/CounterpartyXCP/CIPs/blob/main/cip-0025.md).
+For full technical specifications, see the original Enhanced Asset Info documentation and [CIP-25](https://github.com/CounterpartyXCP/CIPs/blob/master/cip-archive/cip-0025.md).
 
 - Tools like [Pepetools.site](https://jsonmaker.pepetools.site/) (Arweave) and [Inscribe.dev](https://inscribe.dev/) (Ordinal Inscription) make the process user-friendly even for non-technical creators, though there are many different ways to host your data.
 - [RarePepeWallet](https://rarepepewallet.wtf/) supports uploading image files to IPFS within the wallet
-- Check out this guide for [hosting your JSON using Github](https://subterranean.medium.com/how-to-host-your-counterparty-images-and-json-files-on-github-c5ff89e14ee0) by Subterranean or even hosting with Arweave and Ardrive as explored by RobotLoveCoffee's other videos on his Yotuube page.
+- Check out this guide for [hosting your JSON using Github](https://subterranean.medium.com/how-to-host-your-counterparty-images-and-json-files-on-github-c5ff89e14ee0) by Subterranean or even hosting with Arweave and Ardrive as explored by RobotLoveCoffee's other videos on his YouTube page.
 
 The process (manually) is as follows:
 

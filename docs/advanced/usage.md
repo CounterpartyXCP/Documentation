@@ -63,4 +63,4 @@ Important: By default, `counterparty-server` uses cookie authentication to conne
 counterparty-server start --backend-cookie-file /data/.cookie
 ```
 
-For Electrs configuration (used for composing transactions for addresses not in your Bitcoin Core wallet), see [Electrs Configuration](/docs/basics/manual-installation#electrs-configuration).
+For Electrs configuration (used for composing transactions for addresses not in your Bitcoin Core wallet), see [Electrs Configuration](/docs/advanced/manual-installation#electrs-configuration).

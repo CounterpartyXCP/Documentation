@@ -10,7 +10,7 @@ Because Bitcoin is not “aware” of the Counterparty protocol, BTC cannot be u
 
 ### How was XCP created?
 
-![Why Proof-of-Burn article](https://github.com/user-attachments/assets/3fb59112-69c2-44df-a836-38ec4bde89a0)
+![Why Proof-of-Burn article](/img/basics/3fb59112-69c2-44df-a836-38ec4bde89a0.png)
 
 The total supply of XCP was created in a process called 'proof-of-burn' that was active between January 2nd and February 3rd of 2014 (5,000 Bitcoin blocks). Above is a historic article titled 'Why Proof-of-Burn' [published on the Counterparty website](https://web.archive.org/web/20160315012214/http://counterparty.io/why-proof-of-burn/) in March of 2014.
 
@@ -28,18 +28,20 @@ Proof-of-burn has the following advantages:
 
 Below is the [original BitcoinTalk Post announcing Counterparty](https://bitcointalk.org/index.php?topic=395761.0), exemplifying this 'un-mined and slightly deflationary' proof-of-burn philosophy.
 
-![Original BitcoinTalk announcement](https://github.com/user-attachments/assets/77cdf976-0443-4d1d-ae5b-0f718cb67729)
+![Original BitcoinTalk announcement](/img/basics/77cdf976-0443-4d1d-ae5b-0f718cb67729.png)
 
 ### What Counterparty Transactions Require the Use of XCP?
 
 Since BTC is used in all Counterparty transactions, but cannot be used as an anti-spam mechanism for Counterparty functionality, XCP as a token is used instead as a barrier to add some friction to worthwhile Counterparty features (like the unique one-of-a-kind issuing of Named Tokens).
 
-When this XCP is used for these functions below, the XCP used is destroyed, thus reducing the circulating supply:
+When this XCP is used for the protocol fees below, the XCP fee is destroyed, thus reducing the circulating supply:
 - Create (Issue) a Named Token: 0.5 XCP Static Fee
 - Sweep Address: Dynamic XCP Fee (proportional to number of assets swept)
-- Dividends: 0.0002 XCP Per Asset Holder Recieving Dividend
+- Dividends: 0.0002 XCP Per Asset Holder Receiving Dividend
 - Attach Asset to UTXO: Dynamic XCP Fee
-- Mint Fairmint* / XCP-69 (*if Fairmint requires XCP): Fee depends on Fairmint specifications
+- Liquidity Pool Deposit / Withdrawal: Dynamic XCP Gas Fee
+
+In addition, some Fairmints (such as XCP-69 launches) require an XCP payment to mint; depending on the Fairminter settings, that XCP is either burned, sent to the issuer, or deposited into a liquidity pool.
 
 There are other Counterparty transactions that do not require the use of the XCP token due to their simplicity, most notably straightforward asset transfers and issuances of numeric assets (Counterparty assets without a human-readable identiﬁer), which create a low computational burden for Counterparty nodes. These include:
 - Send and Receive (BTC + all XCP Assets / Add Memo Optional)
@@ -48,7 +50,7 @@ There are other Counterparty transactions that do not require the use of the XCP
 - Issue More Token Supply
 - Lock / Reset Token Supply
 - Add / Edit Description + Lock Description
-- Mint Open Fairmint
+- Mint Open Fairmint (when free / BTC-only)
 - MPMA Multi-Sends
 - Create / Cancel XCP DEX Order (Any Pair, New or Existing)
 - Open / Close Dispenser
@@ -57,12 +59,12 @@ There are other Counterparty transactions that do not require the use of the XCP
 - Counterparty Inscriptions (on-chain Taproot)
 - Transfer Token Ownership of Asset
 - Destroy Asset Supply
-- Create Fairminter
+- Create Fairminter (for a Numeric Asset, Subasset, or existing Named Asset)
 - Move Attached Assets to Different UTXO
 
 Below is an example Counterparty transaction from the [tokenscan.io](https://tokenscan.io/tx/7583) Counterparty Block Explorer for issuing the named asset 'MICE', which required 0.5 XCP to be destroyed for the MICE token to be created.
 
-![MICE issuance destroying 0.5 XCP](https://github.com/user-attachments/assets/d6bfc5f2-71b9-4a8f-8cd0-a238b09bac6d)
+![MICE issuance destroying 0.5 XCP](/img/basics/d6bfc5f2-71b9-4a8f-8cd0-a238b09bac6d.png)
 
 ### How do I acquire XCP?
 
@@ -81,4 +83,4 @@ Once you have created a [Counterparty Wallet](https://www.counterparty.io/#walle
 
 Below is a great example of the user experience of buying XCP from the [XCP.FUN](https://xcp.fun/dispense) marketplace and launchpad by using a Counterparty Dispenser.
 
-![Buying XCP from XCP.FUN dispenser](https://github.com/user-attachments/assets/e54433c8-66a7-4c22-87f0-7ee831cb5051)
+![Buying XCP from XCP.FUN dispenser](/img/basics/e54433c8-66a7-4c22-87f0-7ee831cb5051.png)

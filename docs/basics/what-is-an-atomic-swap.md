@@ -12,7 +12,7 @@ This capability was introduced with Counterparty’s UTXO Support (protocol rele
 
 Below is an example of the buying process for an Atomic Swap on [Horizon Marketplace](https://horizon.market/assets/A1619006396900464164?offset=0&limit=10).
 
-![Atomic swap buy on Horizon Marketplace](https://github.com/user-attachments/assets/45b6c88a-2e1c-4119-9375-74a37823ff75)
+![Atomic swap buy on Horizon Marketplace](/img/basics/45b6c88a-2e1c-4119-9375-74a37823ff75.png)
 
 ## How do Atomic Swaps work on Counterparty?
 
@@ -22,7 +22,7 @@ Because the asset is bound to a UTXO, a seller can create a partially signed Bit
 
 While it is good to know how this process works in its entirety, the user experience can be quite smooth and frictionless with the correct tooling. Below is an [example from Rare-BTC-Assets](https://rare-btc-assets.com/art/counterparty/Spells%20of%20Genesis) showing the price of a Spells of Genesis Card for sale using Atomic Swaps.
 
-![Spells of Genesis atomic swap listing](https://github.com/user-attachments/assets/a4ffab21-b237-4444-baa8-cf5e25b5960d)
+![Spells of Genesis atomic swap listing](/img/basics/a4ffab21-b237-4444-baa8-cf5e25b5960d.png)
 
 While the UI might feel easy in some marketplaces, here is a general overview of the process:
 
@@ -30,7 +30,7 @@ While the UI might feel easy in some marketplaces, here is a general overview of
 - Create the Sell Offer: The wallet (or market interface) generates a PSBT that offers the UTXO-bound asset for a set BTC price. The incomplete PSBT is published to an order book (Horizon Market, OpenStamp, xcpdex, etc.).
 - Buyer Accepts: The buyer constructs their side of the PSBT (supplying the BTC), joins the two partial transactions, signs, and broadcasts the final transaction.
 - Settlement: Once confirmed on Bitcoin, the seller receives BTC and the buyer receives the UTXO (with the attached Counterparty asset).
-- Detach: The seller can decide to cancel the sell order and detach their asset at any time (assuming no match order has been published). After buying and recieving the asset, the buyer can also later detach the asset if desired.
+- Detach: The seller can decide to cancel the sell order and detach their asset at any time (assuming no match order has been published). After buying and receiving the asset, the buyer can also later detach the asset if desired.
 
 There are some caveats to keep in mind:
 
@@ -45,17 +45,17 @@ Atomic swaps complement (and in many cases improve upon) other Counterparty trad
 
 Atomic swaps on Counterparty are trustless at the protocol level, but attaching assets to Bitcoin UTXOs introduces the main risk of accidental spending, because a UTXO is basically a very small balance of bitcoin.
 
-In a very broad sense, Atomic Swaps and PSBT's use a 'stamped' chunk of loose change (small balance of bitcoin) to imprint the information of your Counterparty assets, so it is important you do not 'accidently' spend your stamped loose change (attached assets) at the 'gas station' for a coffee and snacks before or after transaction at the marketplace exchange.
+In a very broad sense, Atomic Swaps and PSBT's use a 'stamped' chunk of loose change (small balance of bitcoin) to imprint the information of your Counterparty assets, so it is important you do not 'accidentally' spend your stamped loose change (attached assets) at the 'gas station' for a coffee and snacks before or after transaction at the marketplace exchange.
 
 That is why it is important to understand a few helpful things for Atomic Swaps:
 
 - Always use a Counterparty Atomic Swap aware wallet (or one that does understand attachments), spending that UTXO on a different wallet could irreversibly move the assets with it.
 - Users who don’t understand UTXOs (and use their Counterparty address often for other uses) could easily select the wrong output when consolidating or sending Bitcoin and lose the attached assets. Keep Bitcoin only balances on other dedicated wallets, it is best to use a specific wallet and specific address for Atomic Swaps.
-- Other minor risks include manual PSBT construction errors and leaving assets attached longer than needed and forgeting.
+- Other minor risks include manual PSBT construction errors and leaving assets attached longer than needed and forgetting.
 
 To stay safe, always use Counterparty-aware wallets, detach assets promptly after trading, learn how to read and understand your UTXO's and practice careful coin control. Below is an example of the 'Attach to UTXO' function in the [XCP Wallet](https://chromewebstore.google.com/detail/xcp-wallet/nicpjdbehgcjbjfjkobcidnfmfpijohg).
 
-![Attach to UTXO in XCP Wallet](https://github.com/user-attachments/assets/8174b08b-de29-4921-a4f8-125eaadfeaa3)
+![Attach to UTXO in XCP Wallet](/img/basics/8174b08b-de29-4921-a4f8-125eaadfeaa3.png)
 
 ## Which wallets support Counterparty Atomic Swaps?
 
@@ -68,7 +68,7 @@ As of the latest community feature matrix, the following wallets support Atomic 
 - Emblem Vault (via [rare-btc-assets.com](https://rare-btc-assets.com/))
 - Compatible Bitcoin wallets that understand PSBTs and sat/UTXO tracking (Xverse, OKX, Leather, UniSat, etc.) can also interact with Horizon Market listings and some other Counterparty Marketplaces.
 
-Keep in mind other Counterparty specific wallets may add support over time for this feature. Do as much due diligence as possible before choosing a wallet and trading any time of assets.
+Keep in mind other Counterparty specific wallets may add support over time for this feature. Do as much due diligence as possible before choosing a wallet and trading any type of assets.
 
 ## Are atomic swaps the same as the Counterparty DEx?
 

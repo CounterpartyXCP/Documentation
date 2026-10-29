@@ -12,7 +12,7 @@ You can browse open and closed Fairmints on a [Counterparty Block Explorer](http
 
 Below is an example from the [xcp.io](https://xcp.io/asset/XCPCOPY) Counterparty Block Explorer of an open Fairmint (at the time of writing) where five separate Counterparty addresses have fairminted this asset XCPCOPY.
 
-![Open XCPCOPY Fairmint on xcp.io](https://github.com/user-attachments/assets/e2d83bce-d202-4364-97b0-1e71776bf622)
+![Open XCPCOPY Fairmint on xcp.io](/img/basics/e2d83bce-d202-4364-97b0-1e71776bf622.png)
 
 ## How is Fairminting different from just issuing the asset?
 
@@ -24,7 +24,7 @@ The creator can still own the asset name, but they do not have to own the whole 
 
 Below is a screenshot from the [tokenscan.io](https://tokenscan.io/asset/FAIRLORDKEK) Counterparty Block Explorer showing FAIRLORDKEK as 100% minted. Instead of just one person holding distribution for this asset on launch, 23 addresses hold this asset at the time of writing.
 
-![FAIRLORDKEK minted distribution](https://github.com/user-attachments/assets/f3853117-3dc2-41e7-b70e-6a81463fe3e0)
+![FAIRLORDKEK minted distribution](/img/basics/f3853117-3dc2-41e7-b70e-6a81463fe3e0.png)
 
 ## What can you do with a Fairmint?
 
@@ -45,7 +45,7 @@ Anyone can open a Counterparty Fairmint. Read the terms on an explorer before yo
 
 Below is a screenshot of the finished Fairminter of FAIRSOUND as shown on the [tokenscan.io](https://tokenscan.io/tx/d3f42691702a32e2376ebf334317f4079894085ff697d3e357c165ba069ca22f) Counterparty Block Explorer. Notice all of the different settings and options can be used for this feature.
 
-![FAIRSOUND Fairminter settings](https://github.com/user-attachments/assets/d61a25a2-1f3c-4c08-9e33-35710f2ba490)
+![FAIRSOUND Fairminter settings](/img/basics/d61a25a2-1f3c-4c08-9e33-35710f2ba490.png)
 
 ## How do I open a Fairmint or participate in an existing open Fairmint?
 
@@ -53,11 +53,11 @@ To open a custom Fairmint, use a compatible Counterparty wallet that supports Fa
 
 Below is an example screenshot from the [XCP Wallet](https://chromewebstore.google.com/detail/xcp-wallet/nicpjdbehgcjbjfjkobcidnfmfpijohg) Counterparty Wallet for creating a Fairminter. Take note there are even more choices a creator can do by clicking the 'Advanced Options' tab.
 
-![Create a Fairminter in XCP Wallet](https://github.com/user-attachments/assets/022f56e6-03e9-4e01-b0ca-36434d213069)
+![Create a Fairminter in XCP Wallet](/img/basics/022f56e6-03e9-4e01-b0ca-36434d213069.png)
 
 To mint, find an open Fairmint, read the Fairminting price and limits on a Counterparty Block Explorer, and send the fairmint transaction from Counterparty Compatible wallet. Below is an example of the 'Mint Supply' action from the [Freewallet Desktop](https://freewallet.io/) Counterparty Wallet.
 
-![Mint Supply in Freewallet](https://github.com/user-attachments/assets/261d942e-8d08-42a2-8a55-47613d17d4d9)
+![Mint Supply in Freewallet](/img/basics/261d942e-8d08-42a2-8a55-47613d17d4d9.png)
 
 You need a little Bitcoin for the miner fee. If the mint is priced to include an XCP cost, you also need XCP on that same address.
 
@@ -72,11 +72,11 @@ When minting Fairmints it is very important you research and verify that:
 
 A good example is shown below for the asset 'CUPOFGM' by looking at the tokenscan.io Counterparty Block Explorer. The asset is only 23.8% minted out, but upon further inspection the Fairminter is currently closed.
 
-![CUPOFGM mint progress](https://github.com/user-attachments/assets/9b7b870b-f296-45ba-9ade-00389a0a932e)
+![CUPOFGM mint progress](/img/basics/9b7b870b-f296-45ba-9ade-00389a0a932e.png)
 
-![CUPOFGM Fairminter closed](https://github.com/user-attachments/assets/e8a2808c-86a0-4218-8d8b-fc72258d2873)
+![CUPOFGM Fairminter closed](/img/basics/e8a2808c-86a0-4218-8d8b-fc72258d2873.png)
 
-![CUPOFGM Fairminter details](https://github.com/user-attachments/assets/dc19babe-7a4e-4baa-8550-e43e591208e6)
+![CUPOFGM Fairminter details](/img/basics/dc19babe-7a4e-4baa-8550-e43e591208e6.png)
 
 ## What is an xcp.fun Fairmint?
 
@@ -94,7 +94,7 @@ A normal Fairmint can include a premine, a creator payout, no refunds, or no tra
 
 To create, mint or buy/sell [xcp.fun](https://xcp.fun/) Fairmints, the best Counterparty Wallet to use is the [XCP Wallet](https://chromewebstore.google.com/detail/xcp-wallet/nicpjdbehgcjbjfjkobcidnfmfpijohg).
 
-![xcp.fun Fairmint interface](https://github.com/user-attachments/assets/5016ec0e-b9da-4f96-92ae-8c37b3945b61)
+![xcp.fun Fairmint interface](/img/basics/5016ec0e-b9da-4f96-92ae-8c37b3945b61.png)
 
 The terms are published on-chain before minting opens. If the public allocation fills, minters get their tokens and a locked pool is created so trading can start. If it does not fill, XCP is returned.
 
@@ -102,7 +102,7 @@ The terms are published on-chain before minting opens. If the public allocation 
 - Use a custom Fairmint when you want different terms.
 - Use an xcp.fun Fairmint when you want the same public launch every time: either the crowd fills a fixed allocation, or the launch is unwound and all XCP for all minters is returned.
 
-![xcp.fun Fairmint rules](https://github.com/user-attachments/assets/dff16527-9894-401b-8953-de1740cc7460)
+![xcp.fun Fairmint rules](/img/basics/dff16527-9894-401b-8953-de1740cc7460.png)
 
 ## What should I watch out for?
 

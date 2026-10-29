@@ -6,19 +6,19 @@ title: What is a Counterparty Dispenser?
 
 A Counterparty Dispenser is similar to how a vending machine works. The machine sets a price for a given item, and upon payment, dispenses the item. Using the Counterparty protocol a Dispenser is a feature that allows for any token (named, subasset, numeric) to be bought with Bitcoin directly by sending the correct amount of a Bitcoin to a specific address.
 
-For a buyer, it is as simple as the example below: Send the right amount of Bitcoin from a Counterparty compatible wallet and automatically recieve the asset when payment is confirmed.
+For a buyer, it is as simple as the example below: Send the right amount of Bitcoin from a Counterparty compatible wallet and automatically receive the asset when payment is confirmed.
 
-![Send Bitcoin to a dispenser and receive the asset](https://github.com/user-attachments/assets/056867e1-f1cc-43f3-be6e-913ed4ce2dfe)
+![Send Bitcoin to a dispenser and receive the asset](/img/basics/056867e1-f1cc-43f3-be6e-913ed4ce2dfe.png)
 
 A dispenser works for a single specific asset. You can sell one or many of that asset token for a set BTC price. Below is a view from [tokenscan.io](https://tokenscan.io/) of recent dispensers at the time of this writing.
 
-![Recent dispensers on tokenscan.io](https://github.com/user-attachments/assets/2b4c2a8e-a3cb-4282-aa0d-16514a9c9352)
+![Recent dispensers on tokenscan.io](/img/basics/2b4c2a8e-a3cb-4282-aa0d-16514a9c9352.png)
 
-It is even possible to create multiple Dispensers on one address so a specifc Bitcoin price can dispense many different Dispensers, and thus sell many Counterparty assets with the buyer paying in just one Bitcoin transaction. Though for the seller, each dispenser opening on that address costs a Bitcoin transaction fee.
+It is even possible to create multiple Dispensers on one address so a specific Bitcoin price can dispense many different Dispensers, and thus sell many Counterparty assets with the buyer paying in just one Bitcoin transaction. Though for the seller, each dispenser opening on that address costs a Bitcoin transaction fee.
 
 All data for currently open and closed Dispensers in the past can be seen using a [Counterparty Block Explorer](https://www.counterparty.io/#explorers).
 
-![Open and closed dispensers on an explorer](https://github.com/user-attachments/assets/604859b3-9519-4eef-9d0d-7df391ec2f81)
+![Open and closed dispensers on an explorer](/img/basics/604859b3-9519-4eef-9d0d-7df391ec2f81.png)
 
 ## How Do I Sell With a Dispenser?
 
@@ -35,17 +35,17 @@ As a seller, the process is as follows:
 - Leave the Dispenser open (as long as you wish)
 - Any Bitcoin sends above that price to that Dispenser address you set will automatically Dispense the token
 
-![Create a dispenser on xcpdex.com](https://github.com/user-attachments/assets/136f8ac9-6363-4650-a56f-c3943a4a8b18)
+![Create a dispenser on xcpdex.com](/img/basics/136f8ac9-6363-4650-a56f-c3943a4a8b18.png)
 
 Keep in mind no central company, custodian, or intermediary holds your funds or controls the market. The entire process is deterministic and enforced by the protocol running on every Counterparty node. The protocol acts as escrow with no platform fees for dispensing (only standard Bitcoin transaction fees).
 
 During the time the Dispenser is 'open', the sellers assets are in escrow and cannot be moved. Any BTC sent to that address (with a Counterparty wallet) above that BTC price set will automatically dispense the asset.
 
-This is important to know as a seller, as to not accidently dispense your asset. It is common for sellers to generate a new address specifically for a Dispenser and to not create them on a Counterparty address that is used often or holds their main token balances. Once there are no more tokens in a Dispenser, it is automatically closed.
+This is important to know as a seller, as to not accidentally dispense your asset. It is common for sellers to generate a new address specifically for a Dispenser and to not create them on a Counterparty address that is used often or holds their main token balances. Once there are no more tokens in a Dispenser, it is automatically closed.
 
 ## How Do I Buy From a Dispenser?
 
-Buying from a Dispensers must be done a [Counterparty Compatible Wallet](https://www.counterparty.io/#wallets) and will only work if the correct amount (or more) of Bitcoin is sent to the open Dispenser address. The machine will not dispense the item unless it is paid for, in full, with one Bitcoin transaction.
+Buying from a Dispenser must be done with a [Counterparty Compatible Wallet](https://www.counterparty.io/#wallets) and will only work if the correct amount (or more) of Bitcoin is sent to the open Dispenser address. The machine will not dispense the item unless it is paid for, in full, with one Bitcoin transaction.
 
 Multiple transactions and partial dispenses are not supported for the protocol to dispense the asset.
 
@@ -58,9 +58,9 @@ As a buyer, the process is as follows:
 - Verify the Dispenser address, Asset amount and Bitcoin amount to send
 - Send Bitcoin to Dispenser address with a Counterparty Wallet
 - Wait until the BTC transaction is confirmed
-- Recieve the Asset(s) automatically
+- Receive the Asset(s) automatically
 
-![Buy from a dispenser on xcpdex.com](https://github.com/user-attachments/assets/745c962e-c7c0-46ae-a731-a541047d5194)
+![Buy from a dispenser on xcpdex.com](/img/basics/745c962e-c7c0-46ae-a731-a541047d5194.png)
 
 As a buyer it also important to be extremely diligent, take your time and verify all the details. One of the most common details to miss is the possibility that the Asset you wish to buy (such as XCP) is divisible into smaller decimals than a single token. Keep in mind to check for Give Amounts of the dispenser to be 1.00000000 and not 0.00000001, as XCP is a divisible asset and can be broken (and sold) in very small amounts.
 
@@ -74,15 +74,15 @@ It is up to you to make sure that transaction gets confirmed on the network as s
 
 Because this process is automatic on a protocol level it is important to never send Bitcoin to an actively 'closing' Dispenser and to do as much due diligence as possible before initiating any Dispenser buy at all. After the Dispenser has closed, any remaining tokens will be automatically refunded to the seller address (which is why using a high fee as a buyer is so important).
 
-Example below is from [tokenscan.io](https://tokenscan.io/tx/5f3f0a60cbc1e04116e3e19d3c7381595fb5f31a095e9106fa93351546e33c8f) and shows a closed dispenser for XCP because the amoutn escrowed sold out!
+Example below is from [tokenscan.io](https://tokenscan.io/tx/5f3f0a60cbc1e04116e3e19d3c7381595fb5f31a095e9106fa93351546e33c8f) and shows a closed dispenser for XCP because the amount escrowed sold out!
 
-![Closed XCP dispenser on tokenscan.io](https://github.com/user-attachments/assets/01a6f6ac-8cc7-42ee-91ed-94f69542d2f8)
+![Closed XCP dispenser on tokenscan.io](/img/basics/01a6f6ac-8cc7-42ee-91ed-94f69542d2f8.png)
 
 ## What is the History of Dispensers?
 
 This feature was added in 2019 by John Villar with the implementation of [Counterparty Improvement Proposal 21](https://github.com/CounterpartyXCP/CIPs/blob/master/cip-archive/cip-0021.md). The main goal was to alleviate the limitation of the XCP DEx originally not supporting BTC as a possible trading pair and the technical limitations of the earlier 'BTCpay' function for direct Bitcoin to Asset markets.
 
-![CIP-21 dispenser history](https://github.com/user-attachments/assets/315211d8-c605-46d4-aa91-b1a4acb5bd31)
+![CIP-21 dispenser history](/img/basics/315211d8-c605-46d4-aa91-b1a4acb5bd31.png)
 
 Dispensers created a great way to sell assets directly to BTC without an intermediary or a centralized exchange and are still very common in the contemporary Counterparty community.
 
