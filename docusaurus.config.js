@@ -103,12 +103,9 @@ module.exports = {
         docs: {
           sidebarCollapsible: false,
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/',
         },
         blog: {
           showReadingTime: false,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

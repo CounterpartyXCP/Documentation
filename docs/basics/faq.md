@@ -1,87 +1,77 @@
 ---
-title: FAQ
+title: General FAQ
 ---
 
-### Can I secure my XCP and Counterparty tokens in cold storage?
+### Is it safe to use Counterparty?
 
-Yes. You can make a regular Bitcoin paper wallet and store them there. Later, you can sweep the funds into a Counterparty wallet.
+Yes. As long as you correctly use the [Counterparty Tooling](https://www.counterparty.io/#explorers), [Counterparty Supported Wallets](https://www.counterparty.io/#wallets) and [Protocol Infrastructure](https://github.com/CounterpartyXCP) that supports the latest version of Counterparty, there’s no risk.
 
+As a general rule, as is with most Bitcoin and cryptocurrency spaces, do NOT share your Counterparty wallet passphrase or any Counterparty address private keys with anyone.
+
+If you choose to engage in community telegrams or places like X (Twitter) take serious note, nobody that is legitimate will try to direct message you. Be careful!
+
+Never trust, always verify.
+
+Verifying is what the Counterparty protocol, the Counterparty Decentralized Exchange, the extensive Counterparty public blockchain tooling and even Bitcoin itself was created for.
+
+Please ensure that the use-case you are aiming for is legal within your jurisdiction, and seek professional advice when acquiring assets, starting a project, issuing an asset or using any Counterparty functionality.
 
 ### Is a 51% attack against Counterparty possible?
 
 As every Counterparty transaction is a Bitcoin transaction, to do a "51% attack" on Counterparty you would have to do a 51% attack on Bitcoin.
 
+Good luck.
 
-### So can the Counterparty Team rewrite the Counterparty ledger’s history, in an emergency or by decree? How does that compare to the same risks with Bitcoin Core devs?
+### Can I secure my XCP and Counterparty tokens in cold storage or a hardware wallet?
 
-It’s identical to the case with Bitcoin. The Bitcoin core devs could publish a copy of Bitcoin Core that does anything, but no one would download it.
+Yes.
 
-Counterparty is 100% open source, with [a list of code changes](https://github.com/CounterpartyXCP/counterparty-core/releases) from one release to the next visible for all to see and inspect.
+You can either make a regular Bitcoin paper wallet, store them there and later sweep the funds into a Counterparty wallet, or create a cold Counterparty paper wallet and store that way.
 
+For hardware wallet storage, some [Counterparty Wallets](https://www.counterparty.io/#wallets) support hardware devices like Trezor and Ledger. Below is a screenshot from the [XCP Wallet](https://chromewebstore.google.com/detail/xcp-wallet/nicpjdbehgcjbjfjkobcidnfmfpijohg) showing the option of using Trezor Connect.
 
-### What about support for other blockchains instead of Bitcoin?
-
-Counterparty is built on Bitcoin. That has always been the case and we do not see it changing, ever. For other blockchains, there are "forks" of the Counterparty software. Examples would be Dogeparty for Dogecoin, and Viacoin's ClearingHouse.
-
-
-### What happens if and when `OP_RETURN` data is auto-pruned?
-
-Counterparty only needs some Bitcoin full nodes somewhere to have an unpruned copy of the blockchain. As every Counterparty full node is also a Bitcoin full node, this is easily done.
-
-
-### How are blockchain reorganizations ("reorgs") handled by Counterparty?
-
-Blockchain reorganizations are essentially handled by Counterparty the same way they are handled by Bitcoin. The Counterparty database is log-structured. This means that Counterparty simply deletes all the database rows written after a certain block to execute a rollback, and then process new transactions on the now-longest chain.
-
-
-### What Counterparty wallet should I use?
-
-The list of Counterparty wallets currently available may be found here on the [official project page](https://www.counterparty.io/#wallets).
-
-
-### What is “Counterparty 2.0”?
-
-“Counterparty 2.0” is an affectionate term that the community has given to the revival of the Counterparty project this year, and specifically the development of a number of long-awaited, major new features such as UTXO Support, Atomic Swaps with Bitcoin, Fair Minting and (the forthcoming) AMMs/LPs. “Counterparty 2.0” doesn’t refer to any particular version of Counterparty.
-
-
-### Did Counterparty recently fork?
-
-Protocol upgrades are a normal part of the evolution of the Counterparty protocol, and there have been [dozens](https://github.com/CounterpartyXCP/counterparty-core/blob/master/counterparty-core/counterpartycore/protocol_changes.json) throughout its history. The developer of Freewallet and Tokenscan has published versions of those applications which run on top of an old version of Counterparty (v9.61.3—the last version that he contributed to), rather than the latest version of Counterparty (currently [v10.6.1](https://github.com/CounterpartyXCP/counterparty-core/releases/tag/v10.6.1)). Every other node host has upgraded to the latest release of Counterparty and offers no support for out-of-date versions. A list of services that have upgraded is as follows:
-
-- Dex-Trade 
-- Zaif
-- Horizon Wallet 
-- RarepepeWallet 
-- Pepe.wtf 
-- OpenSea 
-- Firemints.xyz 
-- Horizon Explorer 
-- Memepool 
-- XCP.io 
-- Pepe.wtf 
-- XCPDex 
-- XCPNinja 
-- Emblem Vault 
-- Spells of Genesis 
-- Bitcoin Stamps
-
-
-### Is it safe to use Counterparty?
-
-Yes, as long as you use tooling that supports the latest version of Counterparty, there’s no risk.
-
+![XCP Wallet Trezor Connect](/img/basics/0e2c600f-05df-4bfd-81c4-bfb8ae483c54.png)
 
 ### What happened to Counterwallet?
 
-Counterwallet has unfortunately not been actively maintained in a number of years (see below). A bug was introduced into Counterparty last year (in [v9.61.1](https://github.com/CounterpartyXCP/counterparty-core/issues/1294)) which broke the Counterblock service that Counterwallet depends on. This bug was fixed in [Counterparty Core v10.0.0](https://github.com/CounterpartyXCP/counterparty-core/releases/tag/v10.0.0), however—as is often the case—when old software goes down, sometimes it doesn’t come back up. The community has since spent its energy on the creation of a new generation of wallets rather than attempt to revive Counterblock and Counterwallet. However, [the code is all open-source](https://github.com/CounterpartyXCP/counterwallet) and anyone is free to work on it.
+Counterwallet has unfortunately not been actively maintained in a number of years.
 
+The community has since spent its energy on the creation of a new generation of wallets such as [Counterwallet V2](https://derpherpenstein.github.io/CounterWalletV2/), [Horizon Wallet](https://chromewebstore.google.com/detail/horizon-wallet/bnmgkjlaommgappfckljlelgahnbngme) and [XCP Wallet](https://chromewebstore.google.com/detail/xcp-wallet/nicpjdbehgcjbjfjkobcidnfmfpijohg) rather than attempt to revive Counterblock and Counterwallet.
 
-### What is the “origin” functionality that was recently lost?
+However, [the code is all open-source](https://github.com/CounterpartyXCP/counterwallet) and anyone is free to work on it.
 
-Part of the protocol change that was implemented in [Counterparty Core v10.4.0](https://github.com/CounterpartyXCP/counterparty-core/releases/tag/v10.4.0) fixed two critical bugs in the design of dispensers. One of these fixes required the removal of *the ability for someone to open dispensers at an empty address that they don't own*. Per the [protocol spec published in August](https://docs.counterparty.io/docs/advanced/specifications/dispenser-must-be-created-by-source/), this change was necessary for two main reasons:
+Below is a screenshot of the user interface of Counterwallet V2.
 
-1. It resolves a critical security vulnerability whereby one user could force others to sell assets (e.g. illicit material) without their consent.
+![Counterwallet V2](/img/basics/1eae9ce0-e769-475b-8fea-226769925b1d.png)
 
-2. It allows for the elimination of the AddrIndexRs dependency for Counterparty Core. This piece of middleware is source of major stability, scalability and correctness issues in the node software. Removing AddrIndexRs makes Counterparty nodes dramatically faster and easier to deploy, and it shrinks the node storage requirements from around 250 GB to around 45 GB.
+### How are blockchain reorganizations ("reorgs") handled by Counterparty?
 
-Even with this protocol change, users can of course still open dispensers at empty addresses, it simply requires two transactions (send asset \+ BTC; open dispenser), which may be chained together. In effect, this doubles the Bitcoin transaction fee. The other new limitation is that it is no longer possible to open a dispenser at a cold wallet without actually *using* the cold wallet (with a second transaction). [Community consensus](https://github.com/CounterpartyXCP/counterparty-core/issues/1785) was that these trade-offs were perfectly reasonable given the severity of the problem. Moreover, the increase in transaction fees is temporary. There is already a [popular proposal for changing the Counterparty transaction format](https://github.com/CounterpartyXCP/counterparty-core/issues/2197) to allow for the bundling of multiple Counterparty transactions together in a single Bitcoin transaction. In addition, with [the adoption of modern data storage methods](https://github.com/CounterpartyXCP/counterparty-core/issues/1375), it will soon be able to dramatically reduce tx fees in the future (by around 75%). For any node host, the savings in storage costs from eliminating AddrIndexRs will easily outweigh the temporary increase in tx fees.
+Blockchain reorganizations are essentially handled by Counterparty the same way they are handled by Bitcoin.
+
+The Counterparty database is log-structured. This means that Counterparty simply deletes all the database rows written after a certain block to execute a rollback, and then process new transactions on the now-longest chain.
+
+### What happens if and when OP_RETURN data is auto-pruned?
+
+Counterparty only needs some Bitcoin full nodes somewhere to have an unpruned copy of the blockchain.
+
+As every Counterparty full node is also a Bitcoin full node, this is easily done by just running a Counterparty full node!
+
+### What about support for other blockchains instead of Bitcoin?
+
+Counterparty is built on Bitcoin. That has always been the case and we do not see it changing, ever.
+
+That being said, there are ways to interoperate Counterparty assets to platforms like Ethereum and even Solana. A main and well used example of this would be [Emblem Vault](https://emblem.vision/), which allows Counterparty users to vault Counterparty assets to sell on places like Ethereum Marketplaces like OpenSea.
+
+Below is an example of the [Emblem Vault Curated Rare Pepe Collection](https://opensea.io/collection/rare-pepe-curated) as seen on Opensea.io. Users are able to freely transact Counterparty tokens using Emblem Vault on Ethereum. Once vaulted assets are acquired, users are able to 'unlock' the vaults and send their Counterparty assets to any supported Counterparty Wallet.
+
+![Emblem Vault Rare Pepe collection](/img/basics/50e27659-b859-4580-a91d-62ee56d0fc1b.png)
+
+### Has Counterparty forked?
+
+The word "fork" is used in three main ways: protocol upgrades (like Bitcoin hardforks), software forks (like Litecoin), and network forks (like BSV).
+
+Protocol upgrades are a normal part of the evolution of the Counterparty protocol, and there have been [dozens](https://github.com/CounterpartyXCP/counterparty-core/blob/master/counterparty-core/counterpartycore/protocol_changes.json) throughout its history.
+
+Other blockchains also can run similar software, as over the years there have been "software forks" of the Counterparty software. Good examples of this would be [Dogeparty](https://dogeparty.net/) on Dogecoin, and Monaparty on Monacoin.
+
+In Counterparty's history there have not been network forks with any adoption.
