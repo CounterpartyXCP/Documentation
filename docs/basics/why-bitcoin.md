@@ -18,7 +18,7 @@ Because of this, Counterparty transactions using any Counterparty wallet MUST pa
 
 Many internal Counterparty transactions such as asset creation, issuance change, token locking etc. are transactions “sent to yourself” with this Counterparty information layered on top of it.
 
-Below is [an example](https://tokenscan.io/tx/21455) of a Counterparty transaction with OP_RETURN data attached that represented a named token creation transaction for KALEIDOSCOPE.
+Below is [an example](https://tokenscan.io/tx/1215130) of a Counterparty transaction with OP_RETURN data attached that represented a named token creation transaction for KALEIDOSCOPE.
 
 Notice how the receive Bitcoin / Counterparty address is the same as the sender in this specific example. Also notice the extra 'OP_RETURN' information added. This example is from the Bitcoin Block Explorer [mempool.space](https://mempool.space/).
 

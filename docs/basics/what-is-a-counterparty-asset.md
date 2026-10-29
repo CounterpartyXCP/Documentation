@@ -10,7 +10,7 @@ All Counterparty addresses are also regular Bitcoin addresses. You can store BTC
 
 You can also represent user created tokens with advanced Enhanced Asset Information that include choosing any type of metadata you would like to link to the token. This includes websites, images, videos, on-chain data, music, social media and much more.
 
-Below is an example asset, [SATOSHICARD](https://horizon.market/assets/SATOSHICARD?from=1M&limit=10&offset=0&view=info), that uses the Enhanced Asset Information schema to represent this specific artwork with an on-chain Ordinal as designated in the description field. This card also holds great significance as it was oldest 'tokenized metaverse asset' on the Counterparty protocol. It was used in the Spells of Genesis game as well as Sarutobi. This example is shown from the [Horizon Marketplace.](https://horizon.market/)
+Below is an example asset, [SATOSHICARD](https://horizon.market/assets/SATOSHICARD?from=1M&limit=10&offset=0&view=info), that uses the Enhanced Asset Information schema to represent this specific artwork with an on-chain Ordinal as designated in the description field. This card also holds great significance as it was the oldest 'tokenized metaverse asset' on the Counterparty protocol. It was used in the Spells of Genesis game as well as Sarutobi. This example is shown from the [Horizon Marketplace.](https://horizon.market/)
 
 ![SATOSHICARD on Horizon Marketplace](/img/basics/d525daa3-2e89-4fdb-a16d-1d7e6372dffd.png)
 
@@ -32,7 +32,7 @@ Below is an example of how the [XCP Wallet](https://chromewebstore.google.com/de
 
 ## What is a Counterparty Named Asset?
 
-Named Assets on Counterparty are one-of-a-kind asset set in stone.
+Named Assets on Counterparty are one-of-a-kind assets set in stone.
 
 It is most similar to how purchasing a domain name is. There is only one domain name with those exact letters, and in Counterparty there is only one possible Named asset with those exact letters. For example the token "PARTY" is considered to be 'Named' or also called 'Alphabetical'.
 
@@ -98,7 +98,7 @@ Token Ownership grants the issuer the rights to:
 
 - Change the Token Description
 - Issue Subassets
-- Issue Dividends on holder of that specific asset
+- Issue Dividends to holders of that specific asset
 - Lock
 - Reset Token Supply (if Issuer holds entire supply and token is unlocked)
 

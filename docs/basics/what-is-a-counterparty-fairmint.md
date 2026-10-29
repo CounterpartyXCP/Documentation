@@ -55,7 +55,7 @@ Below is an example screenshot from the [XCP Wallet](https://chromewebstore.goog
 
 ![Create a Fairminter in XCP Wallet](/img/basics/022f56e6-03e9-4e01-b0ca-36434d213069.png)
 
-To mint, find an open Fairmint, read the Fairminting price and limits on a Counterparty Block Explorer, and send the fairmint transaction from Counterparty Compatible wallet. Below is an example of the 'Mint Supply' action from the [Freewallet Desktop](https://freewallet.io/) Counterparty Wallet.
+To mint, find an open Fairmint, read the Fairminting price and limits on a Counterparty Block Explorer, and send the fairmint transaction from a Counterparty Compatible Wallet. Below is an example of the 'Mint Supply' action from the [Freewallet Desktop](https://freewallet.io/) Counterparty Wallet.
 
 ![Mint Supply in Freewallet](/img/basics/261d942e-8d08-42a2-8a55-47613d17d4d9.png)
 
@@ -66,7 +66,7 @@ If it succeeds, the tokens are credited and the mint closes.
 
 When minting Fairmints it is very important you research and verify that:
 - The Fairminter is still open
-- The Fairminter doesnt have enough unconfirmed minter transaction to close before your transaction confirmed
+- The Fairminter doesn't have enough unconfirmed minter transactions to close before your transaction confirms
 - You have enough BTC (or XCP if required) to mint
 - You understand the specifications and settings the Fairmint provides
 

@@ -39,7 +39,7 @@ As a seller, the process is as follows:
 
 Keep in mind no central company, custodian, or intermediary holds your funds or controls the market. The entire process is deterministic and enforced by the protocol running on every Counterparty node. The protocol acts as escrow with no platform fees for dispensing (only standard Bitcoin transaction fees).
 
-During the time the Dispenser is 'open', the sellers assets are in escrow and cannot be moved. Any BTC sent to that address (with a Counterparty wallet) above that BTC price set will automatically dispense the asset.
+During the time the Dispenser is 'open', the seller's assets are in escrow and cannot be moved. Any BTC sent to that address (with a Counterparty wallet) above that BTC price set will automatically dispense the asset.
 
 This is important to know as a seller, as to not accidentally dispense your asset. It is common for sellers to generate a new address specifically for a Dispenser and to not create them on a Counterparty address that is used often or holds their main token balances. Once there are no more tokens in a Dispenser, it is automatically closed.
 
@@ -62,11 +62,11 @@ As a buyer, the process is as follows:
 
 ![Buy from a dispenser on xcpdex.com](/img/basics/745c962e-c7c0-46ae-a731-a541047d5194.png)
 
-As a buyer it also important to be extremely diligent, take your time and verify all the details. One of the most common details to miss is the possibility that the Asset you wish to buy (such as XCP) is divisible into smaller decimals than a single token. Keep in mind to check for Give Amounts of the dispenser to be 1.00000000 and not 0.00000001, as XCP is a divisible asset and can be broken (and sold) in very small amounts.
+As a buyer it is also important to be extremely diligent, take your time and verify all the details. One of the most common details to miss is the possibility that the Asset you wish to buy (such as XCP) is divisible into smaller decimals than a single token. Keep in mind to check for Give Amounts of the dispenser to be 1.00000000 and not 0.00000001, as XCP is a divisible asset and can be broken (and sold) in very small amounts.
 
 ## How Do You Close a Dispenser?
 
-Dispensers have no expiration date unless closed by the seller address. At any time the seller can choose to close the Dispenser, but it will take five Bitcoin blocks to finally close after the sellers 'close dispenser' message has been confirmed on the Bitcoin network.
+Dispensers have no expiration date unless closed by the seller address. At any time the seller can choose to close the Dispenser, but it will take five Bitcoin blocks to finally close after the seller's 'close dispenser' message has been confirmed on the Bitcoin network.
 
 Because of this five block delay after the close dispenser confirmation, it is very important to use a very high bitcoin fee compared to the market average and keep an eye on the Counterparty activity of the Dispenser address on a Counterparty Block Explorer.
 

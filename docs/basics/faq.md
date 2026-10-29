@@ -60,9 +60,9 @@ As every Counterparty full node is also a Bitcoin full node, this is easily done
 
 Counterparty is built on Bitcoin. That has always been the case and we do not see it changing, ever.
 
-That being said, there are ways to interoperate Counterparty assets to platforms like Ethereum and even Solana. A main and well used example of this would be [Emblem Vault](https://emblem.vision/), which allow Counterparty users to vault Counterparty assets to sell on places like Ethereum Marketplaces like OpenSea.
+That being said, there are ways to interoperate Counterparty assets to platforms like Ethereum and even Solana. A main and well used example of this would be [Emblem Vault](https://emblem.vision/), which allows Counterparty users to vault Counterparty assets to sell on places like Ethereum Marketplaces like OpenSea.
 
-Below is an example of the [Emblem Vault Curated Rare Pepe Collection](https://opensea.io/collection/rare-pepe-curated) as seen on Opensea.io. User are able to freely transact Counterparty tokens using Emblem Vault on Ethereum. Once vaulted assets are acquired, users are able to 'unlock' the vaults and send their Counterparty assets to any supported Counterparty Wallet.
+Below is an example of the [Emblem Vault Curated Rare Pepe Collection](https://opensea.io/collection/rare-pepe-curated) as seen on Opensea.io. Users are able to freely transact Counterparty tokens using Emblem Vault on Ethereum. Once vaulted assets are acquired, users are able to 'unlock' the vaults and send their Counterparty assets to any supported Counterparty Wallet.
 
 ![Emblem Vault Rare Pepe collection](/img/basics/50e27659-b859-4580-a91d-62ee56d0fc1b.png)
 

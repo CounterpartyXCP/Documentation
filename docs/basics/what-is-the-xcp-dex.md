@@ -28,7 +28,7 @@ All Counterparty Wallets and Counterparty Block Explorers use the same data, bel
 
 Use any [Counterparty Wallet](https://www.counterparty.io/#wallets) as well as any [Counterparty Marketplace](https://www.counterparty.io/#marketplaces) of your choice. Some Counterparty Wallets can transact within the wallet itself.
 
-Any Counterparty DEx order is recorded on the Bitcoin blockchain and you will first need a small amount of bitcoin to broadcast the order transaction. The Counterparty protocol automatically reads this data and includes it the XCP DEx within the next confirmed Bitcoin block.
+Any Counterparty DEx order is recorded on the Bitcoin blockchain and you will first need a small amount of bitcoin to broadcast the order transaction. The Counterparty protocol automatically reads this data and includes it in the XCP DEx within the next confirmed Bitcoin block.
 
 To create a precise limit order (ex: “I want to sell 1,000 PEPECASH for 50 XCP”).
 
