@@ -60,4 +60,4 @@ from the link above into the **Schema** field, and place your example
 output into the **Data** field. Then click the **Validate** button
 
   [this]: https://raw.githubusercontent.com/CounterpartyXCP/counterblock/master/counterblock/schemas/asset.schema.json
-  [here]: http://json-schema-validator.herokuapp.com/
+  [here]: https://jsonviewertool.com/json-schema-validator
