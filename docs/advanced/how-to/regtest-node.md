@@ -8,7 +8,7 @@ You must have the following three applications installed and available in the $P
 * Addrindexrs
 * Counteparty Core
 
-You can follow the instructions here [https://docs.counterparty.io/docs/basics/manual-installation/](https://docs.counterparty.io/docs/basics/manual-installation/) to install them.
+You can follow the instructions here [https://docs.counterparty.io/docs/advanced/manual-installation/](https://docs.counterparty.io/docs/advanced/manual-installation/) to install them.
 
 You also need to install the following Python packages using pip:
 

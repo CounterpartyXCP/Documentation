@@ -3,7 +3,7 @@ title: Understanding Assets on Counterparty
 ---
 
 
-With Counterparty, users can create their own assets (also known as "tokens", "coins" or "currencies") _inside_ the Bitcoin blockchain. These are seperate from Bitcoin the currency itself, but exist entirely inside ordinary Bitcoin transactions. Tokens can be received, stored, and sent from any Bitcoin address to any other. They can also be placed in cold storage. Unlike Colored Coins, Counterparty tokens are _not_ tied to the BTC balance of any given address. This means that sending/receiving bitcoins has no effect on the balance of tokens.
+With Counterparty, users can create their own assets (also known as "tokens", "coins" or "currencies") _inside_ the Bitcoin blockchain. These are separate from Bitcoin the currency itself, but exist entirely inside ordinary Bitcoin transactions. Tokens can be received, stored, and sent from any Bitcoin address to any other. They can also be placed in cold storage. Unlike Colored Coins, Counterparty tokens are _not_ tied to the BTC balance of any given address. This means that sending/receiving bitcoins has no effect on the balance of tokens.
 
 Among other features, Counterparty adds the ability *create*, *send*, *trade*, and *pay distributions on* assets, in a fully decentralized and trustless manner. While Counterparty has its own internal currency (XCP), trading and creating assets does not require anything apart from regular Bitcoin transaction fees.
 
@@ -12,11 +12,15 @@ Among other features, Counterparty adds the ability *create*, *send*, *trade*, a
 
 Counterparty allows users to *issue assets*. An asset that is created within the Counterparty protocol is often called a *user-created token*. User-created tokens are just as real as XCP or even BTC. With the asset issuance function, every user has the ability to create a new currency project inside the Bitcoin and Counterparty ecosystem.
 
-*You can create two different types of assets:*
+*You can create three different types of assets:*
 
-1. **Named**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’. Alphabetic tokens carry a one‐time issuance fee of `0.5 XCP` to discourage spam and squatting. This fee is burned (permanently taken out of circulation). `BTC` and `XCP` are the only three‐character asset names. For more information, see the Assets section in the Counterparty specification.
+1. **Named**: A unique string of 4 to 12 uppercase Latin characters (inclusive) not beginning with ‘A’ (for example `OLGA`). Alphabetic tokens carry a one‐time issuance fee of `0.5 XCP` to discourage spam and squatting. This fee is burned (permanently taken out of circulation). `BTC` and `XCP` are the only three‐character asset names allowed.
 
-2. **Numeric (Free)**: An integer between `26^12 + 1` and `256^8` (inclusive), prefixed with `A`. Numeric assets only require one Bitcoin transaction fee to be created.
+2. **Subasset (Free)**: A child asset name appended to a parent Named or Numeric asset separated by a `.` (for example `BACON.CRISPY`). The full `PARENT.subasset` string must be between 1 and 250 characters (`a-z`, `A-Z`, `0-9`, and `. - _ @ !`) and can start with the letter `A`. Subassets can only be issued by the owner of the parent asset and only require a Bitcoin transaction fee (no XCP fee) to be created.
+
+3. **Numeric (Free)**: An integer between `26^12 + 1` and `256^8` (inclusive), prefixed with `A`. Numeric assets only require one Bitcoin transaction fee (no XCP fee) to be created.
+
+For more information, see the Assets section in the Counterparty specification.
 
 ### The different kinds of assets
 

@@ -1,30 +1,40 @@
-  module.exports = {
+module.exports = {
     basics: [
-      'basics/what-is-counterparty',
-      'basics/what-is-xcp',
-      'basics/faq',
-      'basics/counterparty-client',
+  'basics/what-is-counterparty',
+  'basics/what-is-xcp',
+  'basics/what-is-the-history-of-counterparty',
+  'basics/what-is-a-counterparty-block-explorer',
+  'basics/why-bitcoin',
+  'basics/what-is-a-counterparty-asset',
+  'basics/what-is-enhanced-asset-information',
+  'basics/what-is-the-xcp-dex',
+  'basics/what-is-a-counterparty-dispenser',
+  'basics/what-is-an-atomic-swap',
+  'basics/what-is-a-counterparty-fairmint',
+  'basics/what-is-a-counterparty-liquidity-pool',
+  'basics/faq',
+    ],
+    advanced: [
+      'advanced/protocol',
       {
         type: 'category',
         label: 'Running a Counterparty Node',
         items: [
-          'basics/getting-started',
-          'basics/manual-installation',
-          'basics/usage',
+          'advanced/getting-started',
+          'advanced/manual-installation',
+          'advanced/usage',
+          'advanced/counterparty-client',
         ],
       },
       {
         type: 'category',
         label: 'Assets (Tokens/NFTs)',
         items: [
-          'basics/assets/counterparty-assets',
-          'basics/assets/enhanced-asset',
-          'basics/assets/enhanced-feed',
+          'advanced/assets/counterparty-assets',
+          'advanced/assets/enhanced-asset',
+          'advanced/assets/enhanced-feed',
         ],
       },
-    ],
-    advanced: [
-      'advanced/protocol',
       {
         type: 'category',
         label: 'Node API',
